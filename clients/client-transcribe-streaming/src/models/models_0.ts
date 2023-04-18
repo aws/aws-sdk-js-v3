@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { TranscribeStreamingServiceException as __BaseException } from "./TranscribeStreamingServiceException";
 
 /**
+ * @public
  * <p>Contains entities identified as personally identifiable information (PII) in your
  *       transcription output, along with various associated attributes. Examples include category,
  *       confidence score, type, stability score, and start and end times.</p>
@@ -44,12 +45,22 @@ export interface Entity {
   Confidence?: number;
 }
 
-export enum ItemType {
-  PRONUNCIATION = "pronunciation",
-  PUNCTUATION = "punctuation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ItemType = {
+  PRONUNCIATION: "pronunciation",
+  PUNCTUATION: "punctuation",
+} as const;
 
 /**
+ * @public
+ */
+export type ItemType = (typeof ItemType)[keyof typeof ItemType];
+
+/**
+ * @public
  * <p>A word, phrase, or punctuation mark in your transcription output, along with various associated
  *       attributes, such as confidence score, type, and start and end times.</p>
  */
@@ -103,6 +114,7 @@ export interface Item {
 }
 
 /**
+ * @public
  * <p>A list of possible alternative transcriptions for the input audio. Each alternative may contain
  *       one or more of <code>Items</code>, <code>Entities</code>, or <code>Transcript</code>.</p>
  */
@@ -125,6 +137,7 @@ export interface Alternative {
 }
 
 /**
+ * @public
  * <p>A wrapper for your audio chunks. Your audio stream consists of one or more audio
  *       events, which consist of one or more audio chunks.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/event-stream.html">Event stream encoding</a>.</p>
@@ -137,12 +150,22 @@ export interface AudioEvent {
   AudioChunk?: Uint8Array;
 }
 
-export enum ParticipantRole {
-  AGENT = "AGENT",
-  CUSTOMER = "CUSTOMER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantRole = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+} as const;
 
 /**
+ * @public
+ */
+export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
+
+/**
+ * @public
  * <p>Makes it possible to specify which speaker is on which audio channel. For example, if your
  *       agent is the first participant to speak, you would set <code>ChannelId</code> to
  *       <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
@@ -161,12 +184,22 @@ export interface ChannelDefinition {
   ParticipantRole: ParticipantRole | string | undefined;
 }
 
-export enum ContentRedactionOutput {
-  REDACTED = "redacted",
-  REDACTED_AND_UNREDACTED = "redacted_and_unredacted",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContentRedactionOutput = {
+  REDACTED: "redacted",
+  REDACTED_AND_UNREDACTED: "redacted_and_unredacted",
+} as const;
 
 /**
+ * @public
+ */
+export type ContentRedactionOutput = (typeof ContentRedactionOutput)[keyof typeof ContentRedactionOutput];
+
+/**
+ * @public
  * <p>Allows you to specify additional settings for your streaming Call Analytics
  *       post-call request, including output locations for your redacted and unredacted
  *       transcript, which IAM role to use, and, optionally, which encryption key to
@@ -260,6 +293,7 @@ export interface PostCallAnalyticsSettings {
 }
 
 /**
+ * @public
  * <p>Allows you to set audio channel definitions and post-call analytics settings.</p>
  */
 export interface ConfigurationEvent {
@@ -276,6 +310,7 @@ export interface ConfigurationEvent {
 }
 
 /**
+ * @public
  * <p>An encoded stream of audio blobs. Audio streams are encoded as either HTTP/2 or WebSocket
  *       data frames.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
@@ -285,6 +320,9 @@ export type AudioStream =
   | AudioStream.ConfigurationEventMember
   | AudioStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AudioStream {
   /**
    * <p>A blob of audio from your application. Your audio stream consists of one or more audio
@@ -326,6 +364,7 @@ export namespace AudioStream {
 }
 
 /**
+ * @public
  * <p>One or more arguments to the <code>StartStreamTranscription</code>,
  *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
  *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
@@ -350,6 +389,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains entities identified as personally identifiable information (PII) in your
  *       transcription output, along with various associated attributes. Examples include category,
  *       confidence score, content, type, and start and end times.</p>
@@ -391,6 +431,7 @@ export interface CallAnalyticsEntity {
 }
 
 /**
+ * @public
  * <p>A word, phrase, or punctuation mark in your Call Analytics transcription output, along with various
  *       associated attributes, such as confidence score, type, and start and end times.</p>
  */
@@ -437,19 +478,29 @@ export interface CallAnalyticsItem {
   Stable?: boolean;
 }
 
-export enum CallAnalyticsLanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  IT_IT = "it-IT",
-  PT_BR = "pt-BR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CallAnalyticsLanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  PT_BR: "pt-BR",
+} as const;
 
 /**
+ * @public
+ */
+export type CallAnalyticsLanguageCode = (typeof CallAnalyticsLanguageCode)[keyof typeof CallAnalyticsLanguageCode];
+
+/**
+ * @public
  * <p>Contains the timestamp range (start time through end time) of a matched category.</p>
  */
 export interface TimestampRange {
@@ -467,6 +518,7 @@ export interface TimestampRange {
 }
 
 /**
+ * @public
  * <p>Contains the timestamps of matched categories.</p>
  */
 export interface PointsOfInterest {
@@ -477,6 +529,7 @@ export interface PointsOfInterest {
 }
 
 /**
+ * @public
  * <p>Provides information on any <code>TranscriptFilterType</code> categories that matched your
  *       transcription output. Matches are identified for each segment upon completion of that segment.</p>
  */
@@ -493,6 +546,7 @@ export interface CategoryEvent {
 }
 
 /**
+ * @public
  * <p>A new stream started with the same session ID. The current stream has been terminated.</p>
  */
 export class ConflictException extends __BaseException {
@@ -514,6 +568,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A problem occurred while processing the audio. Amazon Transcribe terminated
  *       processing.</p>
  */
@@ -536,6 +591,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
  *       limit. Break your audio stream into smaller chunks and try your request again.</p>
  */
@@ -558,6 +614,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable. Try your request later.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -579,6 +636,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides the location, using character count, in your transcript where a match is identified. For example,
  *       the location of an issue or a category match within a segment.</p>
  */
@@ -597,6 +655,7 @@ export interface CharacterOffsets {
 }
 
 /**
+ * @public
  * <p>Lists the issues that were identified in your audio segment.</p>
  */
 export interface IssueDetected {
@@ -606,14 +665,24 @@ export interface IssueDetected {
   CharacterOffsets?: CharacterOffsets;
 }
 
-export enum Sentiment {
-  MIXED = "MIXED",
-  NEGATIVE = "NEGATIVE",
-  NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Sentiment = {
+  MIXED: "MIXED",
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type Sentiment = (typeof Sentiment)[keyof typeof Sentiment];
+
+/**
+ * @public
  * <p>Contains set of transcription results from one or more audio segments, along with additional
  *       information about the parameters included in your request. For example, channel definitions, partial result
  *       stabilization, sentiment, and issue detection.</p>
@@ -677,6 +746,7 @@ export interface UtteranceEvent {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about your Call Analytics streaming session. These details are
  *       provided in the <code>UtteranceEvent</code> and <code>CategoryEvent</code> objects.</p>
  */
@@ -690,6 +760,9 @@ export type CallAnalyticsTranscriptResultStream =
   | CallAnalyticsTranscriptResultStream.UtteranceEventMember
   | CallAnalyticsTranscriptResultStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace CallAnalyticsTranscriptResultStream {
   /**
    * <p>Contains set of transcription results from one or more audio segments, along with additional
@@ -833,32 +906,60 @@ export namespace CallAnalyticsTranscriptResultStream {
   };
 }
 
-export enum ContentIdentificationType {
-  PII = "PII",
-}
-
-export enum ContentRedactionType {
-  PII = "PII",
-}
-
-export enum LanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  HI_IN = "hi-IN",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-  PT_BR = "pt-BR",
-  TH_TH = "th-TH",
-  ZH_CN = "zh-CN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContentIdentificationType = {
+  PII: "PII",
+} as const;
 
 /**
+ * @public
+ */
+export type ContentIdentificationType = (typeof ContentIdentificationType)[keyof typeof ContentIdentificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentRedactionType = {
+  PII: "PII",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentRedactionType = (typeof ContentRedactionType)[keyof typeof ContentRedactionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  HI_IN: "hi-IN",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+  PT_BR: "pt-BR",
+  TH_TH: "th-TH",
+  ZH_CN: "zh-CN",
+} as const;
+
+/**
+ * @public
+ */
+export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
+
+/**
+ * @public
  * <p>The language code that represents the language identified in your audio, including the associated
  *       confidence score. If you enabled channel identification in your request and each channel contained a
  *       different language, you will have more than one <code>LanguageWithScore</code> result.</p>
@@ -876,13 +977,23 @@ export interface LanguageWithScore {
   Score?: number;
 }
 
-export enum MediaEncoding {
-  FLAC = "flac",
-  OGG_OPUS = "ogg-opus",
-  PCM = "pcm",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MediaEncoding = {
+  FLAC: "flac",
+  OGG_OPUS: "ogg-opus",
+  PCM: "pcm",
+} as const;
 
 /**
+ * @public
+ */
+export type MediaEncoding = (typeof MediaEncoding)[keyof typeof MediaEncoding];
+
+/**
+ * @public
  * <p>Contains entities identified as personal health information (PHI) in your
  *             transcription output, along with various associated attributes. Examples include
  *             category, confidence score, type, stability score, and start and end times.</p>
@@ -918,6 +1029,7 @@ export interface MedicalEntity {
 }
 
 /**
+ * @public
  * <p>A word, phrase, or punctuation mark in your transcription output, along with various
  *             associated attributes, such as confidence score, type, and start and end times.</p>
  */
@@ -959,6 +1071,7 @@ export interface MedicalItem {
 }
 
 /**
+ * @public
  * <p>A list of possible alternative transcriptions for the input audio. Each alternative may
  *             contain one or more of <code>Items</code>, <code>Entities</code>, or
  *             <code>Transcript</code>.</p>
@@ -981,11 +1094,22 @@ export interface MedicalAlternative {
   Entities?: MedicalEntity[];
 }
 
-export enum MedicalContentIdentificationType {
-  PHI = "PHI",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MedicalContentIdentificationType = {
+  PHI: "PHI",
+} as const;
 
 /**
+ * @public
+ */
+export type MedicalContentIdentificationType =
+  (typeof MedicalContentIdentificationType)[keyof typeof MedicalContentIdentificationType];
+
+/**
+ * @public
  * <p>The <code>Result</code> associated with a
  *             <code></code>.</p>
  *         <p>Contains a set of transcription results from one or more audio segments, along with
@@ -1030,6 +1154,7 @@ export interface MedicalResult {
 }
 
 /**
+ * @public
  * <p>The <code>MedicalTranscript</code> associated with a
  *             <code></code>.</p>
  *         <p>
@@ -1048,6 +1173,7 @@ export interface MedicalTranscript {
 }
 
 /**
+ * @public
  * <p>The <code>MedicalTranscriptEvent</code> associated with a
  *             <code>MedicalTranscriptResultStream</code>.</p>
  *         <p>Contains a set of transcription results from one or more audio segments, along with additional
@@ -1064,6 +1190,7 @@ export interface MedicalTranscriptEvent {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about your streaming session.</p>
  */
 export type MedicalTranscriptResultStream =
@@ -1075,6 +1202,9 @@ export type MedicalTranscriptResultStream =
   | MedicalTranscriptResultStream.TranscriptEventMember
   | MedicalTranscriptResultStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace MedicalTranscriptResultStream {
   /**
    * <p>The <code>MedicalTranscriptEvent</code> associated with a
@@ -1197,13 +1327,23 @@ export namespace MedicalTranscriptResultStream {
   };
 }
 
-export enum PartialResultsStability {
-  HIGH = "high",
-  LOW = "low",
-  MEDIUM = "medium",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PartialResultsStability = {
+  HIGH: "high",
+  LOW: "low",
+  MEDIUM: "medium",
+} as const;
 
 /**
+ * @public
+ */
+export type PartialResultsStability = (typeof PartialResultsStability)[keyof typeof PartialResultsStability];
+
+/**
+ * @public
  * <p>The <code>Result</code> associated with a
  *       <code></code>.</p>
  *          <p>Contains a set of transcription results from one or more audio segments, along with additional
@@ -1258,21 +1398,42 @@ export interface Result {
   LanguageIdentification?: LanguageWithScore[];
 }
 
-export enum Specialty {
-  CARDIOLOGY = "CARDIOLOGY",
-  NEUROLOGY = "NEUROLOGY",
-  ONCOLOGY = "ONCOLOGY",
-  PRIMARYCARE = "PRIMARYCARE",
-  RADIOLOGY = "RADIOLOGY",
-  UROLOGY = "UROLOGY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Specialty = {
+  CARDIOLOGY: "CARDIOLOGY",
+  NEUROLOGY: "NEUROLOGY",
+  ONCOLOGY: "ONCOLOGY",
+  PRIMARYCARE: "PRIMARYCARE",
+  RADIOLOGY: "RADIOLOGY",
+  UROLOGY: "UROLOGY",
+} as const;
 
-export enum VocabularyFilterMethod {
-  MASK = "mask",
-  REMOVE = "remove",
-  TAG = "tag",
-}
+/**
+ * @public
+ */
+export type Specialty = (typeof Specialty)[keyof typeof Specialty];
 
+/**
+ * @public
+ * @enum
+ */
+export const VocabularyFilterMethod = {
+  MASK: "mask",
+  REMOVE: "remove",
+  TAG: "tag",
+} as const;
+
+/**
+ * @public
+ */
+export type VocabularyFilterMethod = (typeof VocabularyFilterMethod)[keyof typeof VocabularyFilterMethod];
+
+/**
+ * @public
+ */
 export interface StartCallAnalyticsStreamTranscriptionRequest {
   /**
    * <p>Specify the language code that represents the language spoken in your audio.</p>
@@ -1417,6 +1578,9 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
   PiiEntityTypes?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartCallAnalyticsStreamTranscriptionResponse {
   /**
    * <p>Provides the identifier for your Call Analytics streaming request.</p>
@@ -1496,11 +1660,23 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
   PiiEntityTypes?: string;
 }
 
-export enum Type {
-  CONVERSATION = "CONVERSATION",
-  DICTATION = "DICTATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  CONVERSATION: "CONVERSATION",
+  DICTATION: "DICTATION",
+} as const;
 
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * @public
+ */
 export interface StartMedicalStreamTranscriptionRequest {
   /**
    * <p>Specify the language code that represents the language spoken in your audio.</p>
@@ -1601,6 +1777,9 @@ export interface StartMedicalStreamTranscriptionRequest {
   ContentIdentificationType?: MedicalContentIdentificationType | string;
 }
 
+/**
+ * @public
+ */
 export interface StartMedicalStreamTranscriptionResponse {
   /**
    * <p>Provides the identifier for your streaming request.</p>
@@ -1669,6 +1848,9 @@ export interface StartMedicalStreamTranscriptionResponse {
   ContentIdentificationType?: MedicalContentIdentificationType | string;
 }
 
+/**
+ * @public
+ */
 export interface StartStreamTranscriptionRequest {
   /**
    * <p>Specify the language code that represents the language spoken in your audio.</p>
@@ -1924,6 +2106,7 @@ export interface StartStreamTranscriptionRequest {
 }
 
 /**
+ * @public
  * <p>The <code>Transcript</code> associated with a
  *       <code></code>.</p>
  *          <p>
@@ -1942,6 +2125,7 @@ export interface Transcript {
 }
 
 /**
+ * @public
  * <p>The <code>TranscriptEvent</code> associated with a
  *       <code>TranscriptResultStream</code>.</p>
  *          <p>Contains a set of transcription results from one or more audio segments, along with additional
@@ -1958,6 +2142,7 @@ export interface TranscriptEvent {
 }
 
 /**
+ * @public
  * <p>Contains detailed information about your streaming session.</p>
  */
 export type TranscriptResultStream =
@@ -1969,6 +2154,9 @@ export type TranscriptResultStream =
   | TranscriptResultStream.TranscriptEventMember
   | TranscriptResultStream.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace TranscriptResultStream {
   /**
    * <p>Contains <code>Transcript</code>, which contains <code>Results</code>. The
@@ -2088,6 +2276,9 @@ export namespace TranscriptResultStream {
   };
 }
 
+/**
+ * @public
+ */
 export interface StartStreamTranscriptionResponse {
   /**
    * <p>Provides the identifier for your streaming request.</p>
@@ -2211,117 +2402,11 @@ export interface StartStreamTranscriptionResponse {
 /**
  * @internal
  */
-export const EntityFilterSensitiveLog = (obj: Entity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ItemFilterSensitiveLog = (obj: Item): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlternativeFilterSensitiveLog = (obj: Alternative): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioEventFilterSensitiveLog = (obj: AudioEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelDefinitionFilterSensitiveLog = (obj: ChannelDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostCallAnalyticsSettingsFilterSensitiveLog = (obj: PostCallAnalyticsSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationEventFilterSensitiveLog = (obj: ConfigurationEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AudioStreamFilterSensitiveLog = (obj: AudioStream): any => {
-  if (obj.AudioEvent !== undefined) return { AudioEvent: AudioEventFilterSensitiveLog(obj.AudioEvent) };
-  if (obj.ConfigurationEvent !== undefined)
-    return { ConfigurationEvent: ConfigurationEventFilterSensitiveLog(obj.ConfigurationEvent) };
+  if (obj.AudioEvent !== undefined) return { AudioEvent: obj.AudioEvent };
+  if (obj.ConfigurationEvent !== undefined) return { ConfigurationEvent: obj.ConfigurationEvent };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const CallAnalyticsEntityFilterSensitiveLog = (obj: CallAnalyticsEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CallAnalyticsItemFilterSensitiveLog = (obj: CallAnalyticsItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimestampRangeFilterSensitiveLog = (obj: TimestampRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PointsOfInterestFilterSensitiveLog = (obj: PointsOfInterest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoryEventFilterSensitiveLog = (obj: CategoryEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CharacterOffsetsFilterSensitiveLog = (obj: CharacterOffsets): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IssueDetectedFilterSensitiveLog = (obj: IssueDetected): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UtteranceEventFilterSensitiveLog = (obj: UtteranceEvent): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -2329,8 +2414,8 @@ export const UtteranceEventFilterSensitiveLog = (obj: UtteranceEvent): any => ({
 export const CallAnalyticsTranscriptResultStreamFilterSensitiveLog = (
   obj: CallAnalyticsTranscriptResultStream
 ): any => {
-  if (obj.UtteranceEvent !== undefined) return { UtteranceEvent: UtteranceEventFilterSensitiveLog(obj.UtteranceEvent) };
-  if (obj.CategoryEvent !== undefined) return { CategoryEvent: CategoryEventFilterSensitiveLog(obj.CategoryEvent) };
+  if (obj.UtteranceEvent !== undefined) return { UtteranceEvent: obj.UtteranceEvent };
+  if (obj.CategoryEvent !== undefined) return { CategoryEvent: obj.CategoryEvent };
   if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
   if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
   if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
@@ -2339,62 +2424,12 @@ export const CallAnalyticsTranscriptResultStreamFilterSensitiveLog = (
     return { ServiceUnavailableException: obj.ServiceUnavailableException };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const LanguageWithScoreFilterSensitiveLog = (obj: LanguageWithScore): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalEntityFilterSensitiveLog = (obj: MedicalEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalItemFilterSensitiveLog = (obj: MedicalItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalAlternativeFilterSensitiveLog = (obj: MedicalAlternative): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalResultFilterSensitiveLog = (obj: MedicalResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalTranscriptFilterSensitiveLog = (obj: MedicalTranscript): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalTranscriptEventFilterSensitiveLog = (obj: MedicalTranscriptEvent): any => ({
-  ...obj,
-});
 
 /**
  * @internal
  */
 export const MedicalTranscriptResultStreamFilterSensitiveLog = (obj: MedicalTranscriptResultStream): any => {
-  if (obj.TranscriptEvent !== undefined)
-    return { TranscriptEvent: MedicalTranscriptEventFilterSensitiveLog(obj.TranscriptEvent) };
+  if (obj.TranscriptEvent !== undefined) return { TranscriptEvent: obj.TranscriptEvent };
   if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
   if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
   if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
@@ -2403,13 +2438,6 @@ export const MedicalTranscriptResultStreamFilterSensitiveLog = (obj: MedicalTran
     return { ServiceUnavailableException: obj.ServiceUnavailableException };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const ResultFilterSensitiveLog = (obj: Result): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -2462,23 +2490,8 @@ export const StartStreamTranscriptionRequestFilterSensitiveLog = (obj: StartStre
 /**
  * @internal
  */
-export const TranscriptFilterSensitiveLog = (obj: Transcript): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TranscriptEventFilterSensitiveLog = (obj: TranscriptEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TranscriptResultStreamFilterSensitiveLog = (obj: TranscriptResultStream): any => {
-  if (obj.TranscriptEvent !== undefined)
-    return { TranscriptEvent: TranscriptEventFilterSensitiveLog(obj.TranscriptEvent) };
+  if (obj.TranscriptEvent !== undefined) return { TranscriptEvent: obj.TranscriptEvent };
   if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
   if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
   if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };

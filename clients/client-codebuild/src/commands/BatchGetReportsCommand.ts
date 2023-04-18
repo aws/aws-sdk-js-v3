@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  BatchGetReportsInput,
-  BatchGetReportsInputFilterSensitiveLog,
-  BatchGetReportsOutput,
-  BatchGetReportsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetReportsCommand,
-  serializeAws_json1_1BatchGetReportsCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetReportsInput, BatchGetReportsOutput } from "../models/models_0";
+import { de_BatchGetReportsCommand, se_BatchGetReportsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetReportsCommand}.
+ */
 export interface BatchGetReportsCommandInput extends BatchGetReportsInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetReportsCommand}.
+ */
 export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns an array of reports.
  *     </p>
@@ -38,13 +41,24 @@ export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __M
  * import { CodeBuildClient, BatchGetReportsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchGetReportsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // BatchGetReportsInput
+ *   reportArns: [ // ReportArns // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetReportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetReportsCommandInput - {@link BatchGetReportsCommandInput}
+ * @returns {@link BatchGetReportsCommandOutput}
  * @see {@link BatchGetReportsCommandInput} for command's `input` shape.
  * @see {@link BatchGetReportsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
  *
  */
 export class BatchGetReportsCommand extends $Command<
@@ -64,6 +78,9 @@ export class BatchGetReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +109,8 @@ export class BatchGetReportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetReportsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetReportsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +120,18 @@ export class BatchGetReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetReportsCommand(input, context);
+    return se_BatchGetReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetReportsCommandOutput> {
-    return deserializeAws_json1_1BatchGetReportsCommand(output, context);
+    return de_BatchGetReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,36 +14,53 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  DeleteInvitationsRequest,
-  DeleteInvitationsRequestFilterSensitiveLog,
-  DeleteInvitationsResponse,
-  DeleteInvitationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteInvitationsCommand,
-  serializeAws_restJson1DeleteInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteInvitationsRequest, DeleteInvitationsResponse } from "../models/models_0";
+import { de_DeleteInvitationsCommand, se_DeleteInvitationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteInvitationsCommand}.
+ */
 export interface DeleteInvitationsCommandInput extends DeleteInvitationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteInvitationsCommand}.
+ */
 export interface DeleteInvitationsCommandOutput extends DeleteInvitationsResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes invitations sent to the current member account by Amazon Web Services accounts specified by their
- *       account IDs.</p>
+ * @public
+ * <p>Deletes invitations sent to the current member account by Amazon Web Services accounts specified by
+ *       their account IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, DeleteInvitationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeleteInvitationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // DeleteInvitationsRequest
+ *   AccountIds: [ // AccountIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInvitationsCommandInput - {@link DeleteInvitationsCommandInput}
+ * @returns {@link DeleteInvitationsCommandOutput}
  * @see {@link DeleteInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeleteInvitationsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class DeleteInvitationsCommand extends $Command<
@@ -63,6 +80,9 @@ export class DeleteInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +111,8 @@ export class DeleteInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +122,18 @@ export class DeleteInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInvitationsCommand(input, context);
+    return se_DeleteInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInvitationsCommandOutput> {
-    return deserializeAws_restJson1DeleteInvitationsCommand(output, context);
+    return de_DeleteInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

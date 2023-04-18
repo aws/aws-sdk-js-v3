@@ -72,11 +72,14 @@ import {
 } from "./commands/UpdateAttendeeCapabilitiesCommand";
 
 /**
+ * @public
  * <p>The Amazon Chime SDK meetings APIs in this section allow software developers to create Amazon Chime SDK meetings, set the AWS Regions for meetings, create and manage users, and send and
- *             receive meeting notifications. For more information about the meeting APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html">Amazon Chime SDK meetings</a>.</p>
+ *             receive meeting notifications. For more information about the meeting APIs, see
+ *             <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html">Amazon Chime SDK meetings</a>.</p>
  */
 export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   /**
+   * @public
    * <p>Creates up to 100 attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
    *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
@@ -110,26 +113,25 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Updates <code>AttendeeCapabilities</code> except the capabilities listed in an <code>ExcludedAttendeeIds</code> table.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
    *             .</p>
    *          </note>
-   *
-   *         <p>When using capabilities, be aware of these corner cases:</p>
-   *         <ul>
+   *          <p>When using capabilities, be aware of these corner cases:</p>
+   *          <ul>
    *             <li>
-   *                 <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+   *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
    *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
    *                     to receive and you set your <code>content</code> capability to not receive.</p>
    *             </li>
    *             <li>
-   *                 <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
    *             </li>
    *             <li>
-   *                 <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
    *             </li>
    *          </ul>
@@ -166,6 +168,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>
    *            Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
    *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -203,6 +206,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see
    *            <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
    *            in the <i>Amazon Chime Developer Guide</i>. For more information about the Amazon Chime SDK, see
@@ -241,6 +245,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>
    *            Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see
    *            <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
@@ -279,6 +284,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
    *            <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see
    *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -314,6 +320,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees, disconnects all clients, and prevents new clients from
    *            joining the meeting. For more information about the Amazon Chime SDK, see
    *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the
@@ -349,6 +356,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>
    *             Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see
    *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -379,6 +387,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see
    *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
    *             in the <i>Amazon Chime Developer Guide</i>.</p>
@@ -407,6 +416,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>
    *             Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
    *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -443,6 +453,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the tags available for the specified resource.</p>
    */
   public listTagsForResource(
@@ -475,7 +486,14 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
-   * <p>Starts transcription for the specified <code>meetingId</code>.</p>
+   * @public
+   * <p>Starts transcription for the specified <code>meetingId</code>. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
+   *             Using Amazon Chime SDK live transcription
+   *         </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+   *          <important>
+   *             <p>Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of Amazon Transcribe is subject to the
+   *             <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>, including the terms specific to the AWS Machine Learning and Artificial Intelligence Services.</p>
+   *          </important>
    */
   public startMeetingTranscription(
     args: StartMeetingTranscriptionCommandInput,
@@ -507,7 +525,14 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
-   * <p>Stops transcription for the specified <code>meetingId</code>.</p>
+   * @public
+   * <p>Stops transcription for the specified <code>meetingId</code>. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
+   *             Using Amazon Chime SDK live transcription
+   *         </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+   *          <important>
+   *             <p>Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of Amazon Transcribe is subject to the
+   *             <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>, including the terms specific to the AWS Machine Learning and Artificial Intelligence Services.</p>
+   *          </important>
    */
   public stopMeetingTranscription(
     args: StopMeetingTranscriptionCommandInput,
@@ -539,6 +564,7 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>The resource that supports tags.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -565,9 +591,10 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified resources. When you specify a tag key, the action removes both that key and its associated value. The operation succeeds even if you
    *                 attempt to remove tags from a resource that were already removed. Note the following:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>To remove tags from a resource, you need the necessary permissions for the service that the resource belongs to as well as permissions for removing tags. For more information,
    *                 see the documentation for the service whose resource you want to untag.</p>
@@ -576,19 +603,15 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
    *                <p>You can only tag resources that are located in the specified AWS Region for the calling AWS account.</p>
    *             </li>
    *          </ul>
-   *
-   *                 <p>
+   *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
-   *
-   *                 <p>In addition to the <code>tag:UntagResources</code> permission required by this operation, you must also have the remove tags permission defined by the service that created the resource.
+   *          <p>In addition to the <code>tag:UntagResources</code> permission required by this operation, you must also have the remove tags permission defined by the service that created the resource.
    *                 For example, to remove the tags from an Amazon EC2 instance using the <code>UntagResources</code> operation, you must have both of the following permissions:</p>
-   *
-   *                <p>
+   *          <p>
    *             <code>tag:UntagResource</code>
    *          </p>
-   *
-   *                 <p>
+   *          <p>
    *             <code>ChimeSDKMeetings:DeleteTags</code>
    *          </p>
    */
@@ -622,25 +645,25 @@ export class ChimeSDKMeetings extends ChimeSDKMeetingsClient {
   }
 
   /**
+   * @public
    * <p>The capabilties that you want to update.</p>
-   *         <note>
+   *          <note>
    *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
    *             .</p>
    *          </note>
-   *
-   *         <p>When using capabilities, be aware of these corner cases:</p>
-   *         <ul>
+   *          <p>When using capabilities, be aware of these corner cases:</p>
+   *          <ul>
    *             <li>
-   *                 <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
+   *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
    *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
    *                     to receive and you set your <code>content</code> capability to not receive.</p>
    *             </li>
    *             <li>
-   *                 <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
    *             </li>
    *             <li>
-   *                 <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
+   *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
    *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
    *             </li>
    *          </ul>

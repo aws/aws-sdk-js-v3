@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -85,6 +87,11 @@ import {
   CreateVoiceConnectorGroupCommandInput,
   CreateVoiceConnectorGroupCommandOutput,
 } from "./commands/CreateVoiceConnectorGroupCommand";
+import { CreateVoiceProfileCommandInput, CreateVoiceProfileCommandOutput } from "./commands/CreateVoiceProfileCommand";
+import {
+  CreateVoiceProfileDomainCommandInput,
+  CreateVoiceProfileDomainCommandOutput,
+} from "./commands/CreateVoiceProfileDomainCommand";
 import { DeletePhoneNumberCommandInput, DeletePhoneNumberCommandOutput } from "./commands/DeletePhoneNumberCommand";
 import { DeleteProxySessionCommandInput, DeleteProxySessionCommandOutput } from "./commands/DeleteProxySessionCommand";
 import {
@@ -124,6 +131,11 @@ import {
   DeleteVoiceConnectorTerminationCredentialsCommandInput,
   DeleteVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCredentialsCommand";
+import { DeleteVoiceProfileCommandInput, DeleteVoiceProfileCommandOutput } from "./commands/DeleteVoiceProfileCommand";
+import {
+  DeleteVoiceProfileDomainCommandInput,
+  DeleteVoiceProfileDomainCommandOutput,
+} from "./commands/DeleteVoiceProfileDomainCommand";
 import {
   DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
   DisassociatePhoneNumbersFromVoiceConnectorCommandOutput,
@@ -156,6 +168,10 @@ import {
   GetSipMediaApplicationLoggingConfigurationCommandOutput,
 } from "./commands/GetSipMediaApplicationLoggingConfigurationCommand";
 import { GetSipRuleCommandInput, GetSipRuleCommandOutput } from "./commands/GetSipRuleCommand";
+import {
+  GetSpeakerSearchTaskCommandInput,
+  GetSpeakerSearchTaskCommandOutput,
+} from "./commands/GetSpeakerSearchTaskCommand";
 import { GetVoiceConnectorCommandInput, GetVoiceConnectorCommandOutput } from "./commands/GetVoiceConnectorCommand";
 import {
   GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
@@ -189,6 +205,15 @@ import {
   GetVoiceConnectorTerminationHealthCommandInput,
   GetVoiceConnectorTerminationHealthCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationHealthCommand";
+import { GetVoiceProfileCommandInput, GetVoiceProfileCommandOutput } from "./commands/GetVoiceProfileCommand";
+import {
+  GetVoiceProfileDomainCommandInput,
+  GetVoiceProfileDomainCommandOutput,
+} from "./commands/GetVoiceProfileDomainCommand";
+import {
+  GetVoiceToneAnalysisTaskCommandInput,
+  GetVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/GetVoiceToneAnalysisTaskCommand";
 import {
   ListAvailableVoiceConnectorRegionsCommandInput,
   ListAvailableVoiceConnectorRegionsCommandOutput,
@@ -209,6 +234,10 @@ import {
   ListSupportedPhoneNumberCountriesCommandOutput,
 } from "./commands/ListSupportedPhoneNumberCountriesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListVoiceConnectorGroupsCommandInput,
   ListVoiceConnectorGroupsCommandOutput,
 } from "./commands/ListVoiceConnectorGroupsCommand";
@@ -220,6 +249,11 @@ import {
   ListVoiceConnectorTerminationCredentialsCommandInput,
   ListVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/ListVoiceConnectorTerminationCredentialsCommand";
+import {
+  ListVoiceProfileDomainsCommandInput,
+  ListVoiceProfileDomainsCommandOutput,
+} from "./commands/ListVoiceProfileDomainsCommand";
+import { ListVoiceProfilesCommandInput, ListVoiceProfilesCommandOutput } from "./commands/ListVoiceProfilesCommand";
 import {
   PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
   PutSipMediaApplicationAlexaSkillConfigurationCommandOutput,
@@ -262,6 +296,24 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
+  StartSpeakerSearchTaskCommandInput,
+  StartSpeakerSearchTaskCommandOutput,
+} from "./commands/StartSpeakerSearchTaskCommand";
+import {
+  StartVoiceToneAnalysisTaskCommandInput,
+  StartVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StartVoiceToneAnalysisTaskCommand";
+import {
+  StopSpeakerSearchTaskCommandInput,
+  StopSpeakerSearchTaskCommandOutput,
+} from "./commands/StopSpeakerSearchTaskCommand";
+import {
+  StopVoiceToneAnalysisTaskCommandInput,
+  StopVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StopVoiceToneAnalysisTaskCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
@@ -288,6 +340,11 @@ import {
   UpdateVoiceConnectorGroupCommandInput,
   UpdateVoiceConnectorGroupCommandOutput,
 } from "./commands/UpdateVoiceConnectorGroupCommand";
+import { UpdateVoiceProfileCommandInput, UpdateVoiceProfileCommandOutput } from "./commands/UpdateVoiceProfileCommand";
+import {
+  UpdateVoiceProfileDomainCommandInput,
+  UpdateVoiceProfileDomainCommandOutput,
+} from "./commands/UpdateVoiceProfileDomainCommand";
 import {
   ValidateE911AddressCommandInput,
   ValidateE911AddressCommandOutput,
@@ -300,6 +357,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociatePhoneNumbersWithVoiceConnectorCommandInput
   | AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput
@@ -312,6 +372,8 @@ export type ServiceInputTypes =
   | CreateSipRuleCommandInput
   | CreateVoiceConnectorCommandInput
   | CreateVoiceConnectorGroupCommandInput
+  | CreateVoiceProfileCommandInput
+  | CreateVoiceProfileDomainCommandInput
   | DeletePhoneNumberCommandInput
   | DeleteProxySessionCommandInput
   | DeleteSipMediaApplicationCommandInput
@@ -324,6 +386,8 @@ export type ServiceInputTypes =
   | DeleteVoiceConnectorStreamingConfigurationCommandInput
   | DeleteVoiceConnectorTerminationCommandInput
   | DeleteVoiceConnectorTerminationCredentialsCommandInput
+  | DeleteVoiceProfileCommandInput
+  | DeleteVoiceProfileDomainCommandInput
   | DisassociatePhoneNumbersFromVoiceConnectorCommandInput
   | DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput
   | GetGlobalSettingsCommandInput
@@ -335,6 +399,7 @@ export type ServiceInputTypes =
   | GetSipMediaApplicationCommandInput
   | GetSipMediaApplicationLoggingConfigurationCommandInput
   | GetSipRuleCommandInput
+  | GetSpeakerSearchTaskCommandInput
   | GetVoiceConnectorCommandInput
   | GetVoiceConnectorEmergencyCallingConfigurationCommandInput
   | GetVoiceConnectorGroupCommandInput
@@ -344,6 +409,9 @@ export type ServiceInputTypes =
   | GetVoiceConnectorStreamingConfigurationCommandInput
   | GetVoiceConnectorTerminationCommandInput
   | GetVoiceConnectorTerminationHealthCommandInput
+  | GetVoiceProfileCommandInput
+  | GetVoiceProfileDomainCommandInput
+  | GetVoiceToneAnalysisTaskCommandInput
   | ListAvailableVoiceConnectorRegionsCommandInput
   | ListPhoneNumberOrdersCommandInput
   | ListPhoneNumbersCommandInput
@@ -351,9 +419,12 @@ export type ServiceInputTypes =
   | ListSipMediaApplicationsCommandInput
   | ListSipRulesCommandInput
   | ListSupportedPhoneNumberCountriesCommandInput
+  | ListTagsForResourceCommandInput
   | ListVoiceConnectorGroupsCommandInput
   | ListVoiceConnectorTerminationCredentialsCommandInput
   | ListVoiceConnectorsCommandInput
+  | ListVoiceProfileDomainsCommandInput
+  | ListVoiceProfilesCommandInput
   | PutSipMediaApplicationAlexaSkillConfigurationCommandInput
   | PutSipMediaApplicationLoggingConfigurationCommandInput
   | PutVoiceConnectorEmergencyCallingConfigurationCommandInput
@@ -365,6 +436,12 @@ export type ServiceInputTypes =
   | PutVoiceConnectorTerminationCredentialsCommandInput
   | RestorePhoneNumberCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | StartSpeakerSearchTaskCommandInput
+  | StartVoiceToneAnalysisTaskCommandInput
+  | StopSpeakerSearchTaskCommandInput
+  | StopVoiceToneAnalysisTaskCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateGlobalSettingsCommandInput
   | UpdatePhoneNumberCommandInput
   | UpdatePhoneNumberSettingsCommandInput
@@ -374,8 +451,13 @@ export type ServiceInputTypes =
   | UpdateSipRuleCommandInput
   | UpdateVoiceConnectorCommandInput
   | UpdateVoiceConnectorGroupCommandInput
+  | UpdateVoiceProfileCommandInput
+  | UpdateVoiceProfileDomainCommandInput
   | ValidateE911AddressCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociatePhoneNumbersWithVoiceConnectorCommandOutput
   | AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
@@ -388,6 +470,8 @@ export type ServiceOutputTypes =
   | CreateSipRuleCommandOutput
   | CreateVoiceConnectorCommandOutput
   | CreateVoiceConnectorGroupCommandOutput
+  | CreateVoiceProfileCommandOutput
+  | CreateVoiceProfileDomainCommandOutput
   | DeletePhoneNumberCommandOutput
   | DeleteProxySessionCommandOutput
   | DeleteSipMediaApplicationCommandOutput
@@ -400,6 +484,8 @@ export type ServiceOutputTypes =
   | DeleteVoiceConnectorStreamingConfigurationCommandOutput
   | DeleteVoiceConnectorTerminationCommandOutput
   | DeleteVoiceConnectorTerminationCredentialsCommandOutput
+  | DeleteVoiceProfileCommandOutput
+  | DeleteVoiceProfileDomainCommandOutput
   | DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
   | DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
   | GetGlobalSettingsCommandOutput
@@ -411,6 +497,7 @@ export type ServiceOutputTypes =
   | GetSipMediaApplicationCommandOutput
   | GetSipMediaApplicationLoggingConfigurationCommandOutput
   | GetSipRuleCommandOutput
+  | GetSpeakerSearchTaskCommandOutput
   | GetVoiceConnectorCommandOutput
   | GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
   | GetVoiceConnectorGroupCommandOutput
@@ -420,6 +507,9 @@ export type ServiceOutputTypes =
   | GetVoiceConnectorStreamingConfigurationCommandOutput
   | GetVoiceConnectorTerminationCommandOutput
   | GetVoiceConnectorTerminationHealthCommandOutput
+  | GetVoiceProfileCommandOutput
+  | GetVoiceProfileDomainCommandOutput
+  | GetVoiceToneAnalysisTaskCommandOutput
   | ListAvailableVoiceConnectorRegionsCommandOutput
   | ListPhoneNumberOrdersCommandOutput
   | ListPhoneNumbersCommandOutput
@@ -427,9 +517,12 @@ export type ServiceOutputTypes =
   | ListSipMediaApplicationsCommandOutput
   | ListSipRulesCommandOutput
   | ListSupportedPhoneNumberCountriesCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListVoiceConnectorGroupsCommandOutput
   | ListVoiceConnectorTerminationCredentialsCommandOutput
   | ListVoiceConnectorsCommandOutput
+  | ListVoiceProfileDomainsCommandOutput
+  | ListVoiceProfilesCommandOutput
   | PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
   | PutSipMediaApplicationLoggingConfigurationCommandOutput
   | PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
@@ -441,6 +534,12 @@ export type ServiceOutputTypes =
   | PutVoiceConnectorTerminationCredentialsCommandOutput
   | RestorePhoneNumberCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | StartSpeakerSearchTaskCommandOutput
+  | StartVoiceToneAnalysisTaskCommandOutput
+  | StopSpeakerSearchTaskCommandOutput
+  | StopVoiceToneAnalysisTaskCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateGlobalSettingsCommandOutput
   | UpdatePhoneNumberCommandOutput
   | UpdatePhoneNumberSettingsCommandOutput
@@ -450,8 +549,13 @@ export type ServiceOutputTypes =
   | UpdateSipRuleCommandOutput
   | UpdateVoiceConnectorCommandOutput
   | UpdateVoiceConnectorGroupCommandOutput
+  | UpdateVoiceProfileCommandOutput
+  | UpdateVoiceProfileDomainCommandOutput
   | ValidateE911AddressCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -459,11 +563,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -520,19 +624,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -543,12 +638,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -568,11 +657,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ChimeSDKVoiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -583,10 +690,15 @@ type ChimeSDKVoiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ChimeSDKVoiceClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ChimeSDKVoiceClient class constructor that set the region, credentials and other options.
  */
 export interface ChimeSDKVoiceClientConfig extends ChimeSDKVoiceClientConfigType {}
 
+/**
+ * @public
+ */
 type ChimeSDKVoiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -597,10 +709,17 @@ type ChimeSDKVoiceClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ChimeSDKVoiceClient class. This is resolved and normalized from the {@link ChimeSDKVoiceClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ChimeSDKVoiceClient class. This is resolved and normalized from the {@link ChimeSDKVoiceClientConfig | constructor configuration interface}.
  */
 export interface ChimeSDKVoiceClientResolvedConfig extends ChimeSDKVoiceClientResolvedConfigType {}
 
+/**
+ * @public
+ * <p>The Amazon Chime SDK telephony APIs in this section enable developers to create PSTN calling solutions that use Amazon Chime SDK Voice Connectors, and Amazon Chime SDK SIP media applications. Developers can
+ *           also order and manage phone numbers, create and manage Voice Connectors and SIP media applications, and run voice analytics.</p>
+ */
 export class ChimeSDKVoiceClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,

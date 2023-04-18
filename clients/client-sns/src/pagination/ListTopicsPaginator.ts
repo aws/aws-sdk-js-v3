@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } from "../commands/ListTopicsCommand";
-import { SNS } from "../SNS";
 import { SNSClient } from "../SNSClient";
 import { SNSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SNSClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTopicsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SNS,
-  input: ListTopicsCommandInput,
-  ...args: any
-): Promise<ListTopicsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTopics(input, ...args);
-};
 export async function* paginateListTopics(
   config: SNSPaginationConfiguration,
   input: ListTopicsCommandInput,
@@ -39,9 +30,7 @@ export async function* paginateListTopics(
   let page: ListTopicsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof SNS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SNSClient) {
+    if (config.client instanceof SNSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SNS | SNSClient");

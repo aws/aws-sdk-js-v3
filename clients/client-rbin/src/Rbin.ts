@@ -22,6 +22,7 @@ import { UpdateRuleCommand, UpdateRuleCommandInput, UpdateRuleCommandOutput } fr
 import { RbinClient } from "./RbinClient";
 
 /**
+ * @public
  * <p>This is the <i>Recycle Bin API Reference</i>. This documentation provides
  *       descriptions and syntax for each of the actions and data types in Recycle Bin.</p>
  *
@@ -39,6 +40,7 @@ import { RbinClient } from "./RbinClient";
  */
 export class Rbin extends RbinClient {
   /**
+   * @public
    * <p>Creates a Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-create-rule">
    *       Create Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -66,6 +68,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-delete-rule">
    *       Delete Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -93,6 +96,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a Recycle Bin retention rule.</p>
    */
   public getRule(args: GetRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetRuleCommandOutput>;
@@ -119,6 +123,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
+   * @public
    * <p>Lists the Recycle Bin retention rules in the Region.</p>
    */
   public listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
@@ -145,6 +150,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags assigned to a retention rule.</p>
    */
   public listTagsForResource(
@@ -177,6 +183,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
+   * @public
    * <p>Locks a retention rule. A locked retention rule can't be modified or deleted.</p>
    */
   public lockRule(args: LockRuleCommandInput, options?: __HttpHandlerOptions): Promise<LockRuleCommandOutput>;
@@ -203,6 +210,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
+   * @public
    * <p>Assigns tags to the specified retention rule.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -229,6 +237,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
+   * @public
    * <p>Unlocks a retention rule. After a retention rule is unlocked, it can be modified or deleted
    *       only after the unlock delay period expires.</p>
    */
@@ -256,6 +265,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
+   * @public
    * <p>Unassigns a tag from a retention rule.</p>
    */
   public untagResource(
@@ -288,6 +298,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing Recycle Bin retention rule. You can update a retention rule's description,
    *       resource tags, and retention period at any time after creation. You can't update a retention rule's
    *       resource type after creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule">

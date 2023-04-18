@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import {
-  DescribeChangeSetRequest,
-  DescribeChangeSetRequestFilterSensitiveLog,
-  DescribeChangeSetResponse,
-  DescribeChangeSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeChangeSetCommand,
-  serializeAws_restJson1DescribeChangeSetCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeChangeSetRequest, DescribeChangeSetResponse } from "../models/models_0";
+import { de_DescribeChangeSetCommand, se_DescribeChangeSetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeChangeSetCommand}.
+ */
 export interface DescribeChangeSetCommandInput extends DescribeChangeSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeChangeSetCommand}.
+ */
 export interface DescribeChangeSetCommandOutput extends DescribeChangeSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a given change set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,40 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetRespons
  * import { MarketplaceCatalogClient, DescribeChangeSetCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, DescribeChangeSetCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
+ * const input = { // DescribeChangeSetRequest
+ *   Catalog: "STRING_VALUE", // required
+ *   ChangeSetId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeChangeSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChangeSetCommandInput - {@link DescribeChangeSetCommandInput}
+ * @returns {@link DescribeChangeSetCommandOutput}
  * @see {@link DescribeChangeSetCommandInput} for command's `input` shape.
  * @see {@link DescribeChangeSetCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *          <p>HTTP status code: 403</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>There was an internal service exception.</p>
+ *          <p>HTTP status code: 500</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource wasn't found.</p>
+ *          <p>HTTP status code: 404</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Too many requests.</p>
+ *          <p>HTTP status code: 429</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An error occurred during validation.</p>
+ *          <p>HTTP status code: 422</p>
+ *
  *
  */
 export class DescribeChangeSetCommand extends $Command<
@@ -66,6 +96,9 @@ export class DescribeChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +127,8 @@ export class DescribeChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChangeSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeChangeSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +138,18 @@ export class DescribeChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChangeSetCommand(input, context);
+    return se_DescribeChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChangeSetCommandOutput> {
-    return deserializeAws_restJson1DescribeChangeSetCommand(output, context);
+    return de_DescribeChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

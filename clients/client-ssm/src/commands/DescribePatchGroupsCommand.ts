@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePatchGroupsRequest,
-  DescribePatchGroupsRequestFilterSensitiveLog,
-  DescribePatchGroupsResult,
-  DescribePatchGroupsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribePatchGroupsCommand,
-  serializeAws_json1_1DescribePatchGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePatchGroupsRequest, DescribePatchGroupsResult } from "../models/models_1";
+import { de_DescribePatchGroupsCommand, se_DescribePatchGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePatchGroupsCommand}.
+ */
 export interface DescribePatchGroupsCommandInput extends DescribePatchGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePatchGroupsCommand}.
+ */
 export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all patch groups that have been registered with patch baselines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsRes
  * import { SSMClient, DescribePatchGroupsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribePatchGroupsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribePatchGroupsRequest
+ *   MaxResults: Number("int"),
+ *   Filters: [ // PatchOrchestratorFilterList
+ *     { // PatchOrchestratorFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // PatchOrchestratorFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribePatchGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePatchGroupsCommandInput - {@link DescribePatchGroupsCommandInput}
+ * @returns {@link DescribePatchGroupsCommandOutput}
  * @see {@link DescribePatchGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribePatchGroupsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
  *
  */
 export class DescribePatchGroupsCommand extends $Command<
@@ -62,6 +83,9 @@ export class DescribePatchGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePatchGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class DescribePatchGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePatchGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePatchGroupsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class DescribePatchGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePatchGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePatchGroupsCommand(input, context);
+    return se_DescribePatchGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePatchGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribePatchGroupsCommand(output, context);
+    return de_DescribePatchGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

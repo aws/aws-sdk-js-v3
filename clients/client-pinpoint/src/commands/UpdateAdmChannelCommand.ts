@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAdmChannelRequest,
-  UpdateAdmChannelRequestFilterSensitiveLog,
-  UpdateAdmChannelResponse,
-  UpdateAdmChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateAdmChannelRequest, UpdateAdmChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateAdmChannelCommand,
-  serializeAws_restJson1UpdateAdmChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAdmChannelCommand, se_UpdateAdmChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAdmChannelCommand}.
+ */
 export interface UpdateAdmChannelCommandInput extends UpdateAdmChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAdmChannelCommand}.
+ */
 export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the ADM channel for an application or updates the status and settings of the ADM channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse,
  * import { PinpointClient, UpdateAdmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateAdmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateAdmChannelRequest
+ *   ADMChannelRequest: { // ADMChannelRequest
+ *     ClientId: "STRING_VALUE", // required
+ *     ClientSecret: "STRING_VALUE", // required
+ *     Enabled: true || false,
+ *   },
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAdmChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAdmChannelCommandInput - {@link UpdateAdmChannelCommandInput}
+ * @returns {@link UpdateAdmChannelCommandOutput}
  * @see {@link UpdateAdmChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateAdmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class UpdateAdmChannelCommand extends $Command<
@@ -62,6 +97,9 @@ export class UpdateAdmChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAdmChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class UpdateAdmChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAdmChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAdmChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class UpdateAdmChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAdmChannelCommand(input, context);
+    return se_UpdateAdmChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAdmChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateAdmChannelCommand(output, context);
+    return de_UpdateAdmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

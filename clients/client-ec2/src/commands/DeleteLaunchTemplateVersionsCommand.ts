@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteLaunchTemplateVersionsRequest,
-  DeleteLaunchTemplateVersionsRequestFilterSensitiveLog,
-  DeleteLaunchTemplateVersionsResult,
-  DeleteLaunchTemplateVersionsResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteLaunchTemplateVersionsCommand,
-  serializeAws_ec2DeleteLaunchTemplateVersionsCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteLaunchTemplateVersionsRequest, DeleteLaunchTemplateVersionsResult } from "../models/models_2";
+import { de_DeleteLaunchTemplateVersionsCommand, se_DeleteLaunchTemplateVersionsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteLaunchTemplateVersionsCommand}.
+ */
 export interface DeleteLaunchTemplateVersionsCommandInput extends DeleteLaunchTemplateVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLaunchTemplateVersionsCommand}.
+ */
 export interface DeleteLaunchTemplateVersionsCommandOutput
   extends DeleteLaunchTemplateVersionsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more versions of a launch template. You cannot delete the default
  *             version of a launch template; you must first assign a different version as the default.
  *             If the default version is the only version for the launch template, you must delete the
@@ -41,13 +44,50 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  * import { EC2Client, DeleteLaunchTemplateVersionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteLaunchTemplateVersionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteLaunchTemplateVersionsRequest
+ *   DryRun: true || false,
+ *   LaunchTemplateId: "STRING_VALUE",
+ *   LaunchTemplateName: "STRING_VALUE",
+ *   Versions: [ // VersionStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteLaunchTemplateVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLaunchTemplateVersionsCommandInput - {@link DeleteLaunchTemplateVersionsCommandInput}
+ * @returns {@link DeleteLaunchTemplateVersionsCommandOutput}
  * @see {@link DeleteLaunchTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To delete a launch template version
+ * ```javascript
+ * // This example deletes the specified launch template version.
+ * const input = {
+ *   "LaunchTemplateId": "lt-0abcd290751193123",
+ *   "Versions": [
+ *     "1"
+ *   ]
+ * };
+ * const command = new DeleteLaunchTemplateVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SuccessfullyDeletedLaunchTemplateVersions": [
+ *     {
+ *       "LaunchTemplateId": "lt-0abcd290751193123",
+ *       "LaunchTemplateName": "my-template",
+ *       "VersionNumber": 1
+ *     }
+ *   ],
+ *   "UnsuccessfullyDeletedLaunchTemplateVersions": []
+ * }
+ * *\/
+ * // example id: to-delete-a-launch-template-version-1529024790864
+ * ```
  *
  */
 export class DeleteLaunchTemplateVersionsCommand extends $Command<
@@ -67,6 +107,9 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchTemplateVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +138,8 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLaunchTemplateVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLaunchTemplateVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +149,21 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLaunchTemplateVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteLaunchTemplateVersionsCommand(input, context);
+    return se_DeleteLaunchTemplateVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLaunchTemplateVersionsCommandOutput> {
-    return deserializeAws_ec2DeleteLaunchTemplateVersionsCommand(output, context);
+    return de_DeleteLaunchTemplateVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

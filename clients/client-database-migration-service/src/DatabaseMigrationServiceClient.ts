@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -52,6 +54,10 @@ import {
   ApplyPendingMaintenanceActionCommandInput,
   ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand";
+import {
+  BatchStartRecommendationsCommandInput,
+  BatchStartRecommendationsCommandOutput,
+} from "./commands/BatchStartRecommendationsCommand";
 import {
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
@@ -171,6 +177,14 @@ import {
   DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand";
 import {
+  DescribeRecommendationLimitationsCommandInput,
+  DescribeRecommendationLimitationsCommandOutput,
+} from "./commands/DescribeRecommendationLimitationsCommand";
+import {
+  DescribeRecommendationsCommandInput,
+  DescribeRecommendationsCommandOutput,
+} from "./commands/DescribeRecommendationsCommand";
+import {
   DescribeRefreshSchemasStatusCommandInput,
   DescribeRefreshSchemasStatusCommandOutput,
 } from "./commands/DescribeRefreshSchemasStatusCommand";
@@ -248,6 +262,10 @@ import {
   RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "./commands/RunFleetAdvisorLsaAnalysisCommand";
 import {
+  StartRecommendationsCommandInput,
+  StartRecommendationsCommandOutput,
+} from "./commands/StartRecommendationsCommand";
+import {
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
 } from "./commands/StartReplicationTaskAssessmentCommand";
@@ -276,9 +294,13 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddTagsToResourceCommandInput
   | ApplyPendingMaintenanceActionCommandInput
+  | BatchStartRecommendationsCommandInput
   | CancelReplicationTaskAssessmentRunCommandInput
   | CreateEndpointCommandInput
   | CreateEventSubscriptionCommandInput
@@ -313,6 +335,8 @@ export type ServiceInputTypes =
   | DescribeFleetAdvisorSchemasCommandInput
   | DescribeOrderableReplicationInstancesCommandInput
   | DescribePendingMaintenanceActionsCommandInput
+  | DescribeRecommendationLimitationsCommandInput
+  | DescribeRecommendationsCommandInput
   | DescribeRefreshSchemasStatusCommandInput
   | DescribeReplicationInstanceTaskLogsCommandInput
   | DescribeReplicationInstancesCommandInput
@@ -336,6 +360,7 @@ export type ServiceInputTypes =
   | ReloadTablesCommandInput
   | RemoveTagsFromResourceCommandInput
   | RunFleetAdvisorLsaAnalysisCommandInput
+  | StartRecommendationsCommandInput
   | StartReplicationTaskAssessmentCommandInput
   | StartReplicationTaskAssessmentRunCommandInput
   | StartReplicationTaskCommandInput
@@ -343,9 +368,13 @@ export type ServiceInputTypes =
   | TestConnectionCommandInput
   | UpdateSubscriptionsToEventBridgeCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddTagsToResourceCommandOutput
   | ApplyPendingMaintenanceActionCommandOutput
+  | BatchStartRecommendationsCommandOutput
   | CancelReplicationTaskAssessmentRunCommandOutput
   | CreateEndpointCommandOutput
   | CreateEventSubscriptionCommandOutput
@@ -380,6 +409,8 @@ export type ServiceOutputTypes =
   | DescribeFleetAdvisorSchemasCommandOutput
   | DescribeOrderableReplicationInstancesCommandOutput
   | DescribePendingMaintenanceActionsCommandOutput
+  | DescribeRecommendationLimitationsCommandOutput
+  | DescribeRecommendationsCommandOutput
   | DescribeRefreshSchemasStatusCommandOutput
   | DescribeReplicationInstanceTaskLogsCommandOutput
   | DescribeReplicationInstancesCommandOutput
@@ -403,6 +434,7 @@ export type ServiceOutputTypes =
   | ReloadTablesCommandOutput
   | RemoveTagsFromResourceCommandOutput
   | RunFleetAdvisorLsaAnalysisCommandOutput
+  | StartRecommendationsCommandOutput
   | StartReplicationTaskAssessmentCommandOutput
   | StartReplicationTaskAssessmentRunCommandOutput
   | StartReplicationTaskCommandOutput
@@ -410,6 +442,9 @@ export type ServiceOutputTypes =
   | TestConnectionCommandOutput
   | UpdateSubscriptionsToEventBridgeCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -417,11 +452,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -478,19 +513,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -501,12 +527,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -526,11 +546,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type DatabaseMigrationServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -541,10 +579,15 @@ type DatabaseMigrationServiceClientConfigType = Partial<__SmithyConfiguration<__
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of DatabaseMigrationServiceClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of DatabaseMigrationServiceClient class constructor that set the region, credentials and other options.
  */
 export interface DatabaseMigrationServiceClientConfig extends DatabaseMigrationServiceClientConfigType {}
 
+/**
+ * @public
+ */
 type DatabaseMigrationServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -555,12 +598,15 @@ type DatabaseMigrationServiceClientResolvedConfigType = __SmithyResolvedConfigur
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of DatabaseMigrationServiceClient class. This is resolved and normalized from the {@link DatabaseMigrationServiceClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of DatabaseMigrationServiceClient class. This is resolved and normalized from the {@link DatabaseMigrationServiceClientConfig | constructor configuration interface}.
  */
 export interface DatabaseMigrationServiceClientResolvedConfig
   extends DatabaseMigrationServiceClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Database Migration Service</fullname>
  *          <p>Database Migration Service (DMS) can migrate your data to and from the most
  *          widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL

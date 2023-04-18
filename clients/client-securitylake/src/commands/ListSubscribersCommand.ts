@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSubscribersRequest,
-  ListSubscribersRequestFilterSensitiveLog,
-  ListSubscribersResponse,
-  ListSubscribersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSubscribersCommand,
-  serializeAws_restJson1ListSubscribersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSubscribersRequest, ListSubscribersResponse } from "../models/models_0";
+import { de_ListSubscribersCommand, se_ListSubscribersCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSubscribersCommand}.
+ */
 export interface ListSubscribersCommandInput extends ListSubscribersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSubscribersCommand}.
+ */
 export interface ListSubscribersCommandOutput extends ListSubscribersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all subscribers for the specific Amazon Security Lake account ID. You can retrieve a list
  *          of subscriptions associated with a specific organization or Amazon Web Services account.</p>
  * @example
@@ -37,13 +40,45 @@ export interface ListSubscribersCommandOutput extends ListSubscribersResponse, _
  * import { SecurityLakeClient, ListSubscribersCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, ListSubscribersCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // ListSubscribersRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSubscribersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubscribersCommandInput - {@link ListSubscribersCommandInput}
+ * @returns {@link ListSubscribersCommandOutput}
  * @see {@link ListSubscribersCommandInput} for command's `input` shape.
  * @see {@link ListSubscribersCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
+ *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
+ *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
+ *          no applicable Allow statement.</p>
+ *
+ * @throws {@link AccountNotFoundException} (client fault)
+ *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
+ *          specified, or the account whose credentials you used to make this request isn't a member of
+ *          an organization.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
+ *          troubleshooting, perform the operation again. </p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because a value that's not valid or is out of range was
+ *          supplied for an input parameter. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your signing certificate could not be validated. </p>
+ *
  *
  */
 export class ListSubscribersCommand extends $Command<
@@ -63,6 +98,9 @@ export class ListSubscribersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubscribersCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +129,8 @@ export class ListSubscribersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSubscribersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSubscribersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +140,18 @@ export class ListSubscribersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubscribersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSubscribersCommand(input, context);
+    return se_ListSubscribersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscribersCommandOutput> {
-    return deserializeAws_restJson1ListSubscribersCommand(output, context);
+    return de_ListSubscribersCommand(output, context);
   }
 
   // Start section: command_body_extra

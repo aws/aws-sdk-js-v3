@@ -12,14 +12,21 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedRequestBodyInput, MalformedRequestBodyInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedRequestBodyCommand,
-  serializeAws_restJson1MalformedRequestBodyCommand,
-} from "../protocols/Aws_restJson1";
+import { MalformedRequestBodyInput } from "../models/models_0";
+import { de_MalformedRequestBodyCommand, se_MalformedRequestBodyCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link MalformedRequestBodyCommand}.
+ */
 export interface MalformedRequestBodyCommandInput extends MalformedRequestBodyInput {}
+/**
+ * @public
+ *
+ * The output of {@link MalformedRequestBodyCommand}.
+ */
 export interface MalformedRequestBodyCommandOutput extends __MetadataBearer {}
 
 export class MalformedRequestBodyCommand extends $Command<
@@ -30,6 +37,9 @@ export class MalformedRequestBodyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedRequestBodyCommandInput) {
     // Start section: command_constructor
     super();
@@ -55,8 +65,8 @@ export class MalformedRequestBodyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedRequestBodyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,12 +76,18 @@ export class MalformedRequestBodyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedRequestBodyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedRequestBodyCommand(input, context);
+    return se_MalformedRequestBodyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedRequestBodyCommandOutput> {
-    return deserializeAws_restJson1MalformedRequestBodyCommand(output, context);
+    return de_MalformedRequestBodyCommand(output, context);
   }
 
   // Start section: command_body_extra

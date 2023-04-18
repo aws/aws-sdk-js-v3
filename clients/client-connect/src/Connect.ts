@@ -362,6 +362,11 @@ import {
   GetMetricDataCommandOutput,
 } from "./commands/GetMetricDataCommand";
 import {
+  GetMetricDataV2Command,
+  GetMetricDataV2CommandInput,
+  GetMetricDataV2CommandOutput,
+} from "./commands/GetMetricDataV2Command";
+import {
   GetTaskTemplateCommand,
   GetTaskTemplateCommandInput,
   GetTaskTemplateCommandOutput,
@@ -789,6 +794,7 @@ import {
 import { ConnectClient } from "./ConnectClient";
 
 /**
+ * @public
  * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
  *    manage a customer contact center and provide reliable customer engagement at any scale.</p>
  *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize
@@ -803,6 +809,7 @@ import { ConnectClient } from "./ConnectClient";
  */
 export class Connect extends ConnectClient {
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Associates an approved origin to an Amazon Connect instance.</p>
    */
@@ -836,9 +843,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2
-   *    bot.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
+   *    or Amazon Lex V2 bot.</p>
    */
   public associateBot(
     args: AssociateBotCommandInput,
@@ -867,6 +875,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call
    *    and real-time analysis sessions for the given language.</p>
    */
@@ -900,6 +909,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Associates a storage resource type for the first time. You can only associate one type of
    *    storage configuration in a single call. This means, for example, that you can't define an
@@ -938,6 +948,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Allows the specified Amazon Connect instance to access the specified Lambda
    *    function.</p>
@@ -972,8 +983,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
+   *    V1 bot. This API only supports the association of Amazon Lex V1 bots.</p>
    */
   public associateLexBot(
     args: AssociateLexBotCommandInput,
@@ -1005,6 +1018,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p>
    *          <important>
    *             <p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the
@@ -1048,6 +1062,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Associates a set of quick connects with a queue.</p>
    */
@@ -1081,6 +1096,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Associates a set of queues with a routing profile.</p>
    */
   public associateRoutingProfileQueues(
@@ -1113,6 +1129,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Associates a security key to the instance.</p>
    */
@@ -1146,6 +1163,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Claims an available phone number to your Amazon Connect instance or traffic distribution
    *    group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p>
    *          <p>For more information about how to use this operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html">Claim a phone number in your
@@ -1153,8 +1171,8 @@ export class Connect extends ConnectClient {
    *     numbers to traffic distribution groups</a> in the <i>Amazon Connect Administrator
    *     Guide</i>. </p>
    *          <important>
-   *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
-   *     to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
+   *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call
+   *     the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
    *     operation.</p>
    *          </important>
    */
@@ -1188,6 +1206,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Creates an agent status for the specified Amazon Connect instance.</p>
    */
@@ -1221,6 +1240,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a flow for the specified Amazon Connect instance.</p>
    *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
@@ -1255,6 +1275,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a flow module for the specified Amazon Connect instance. </p>
    */
   public createContactFlowModule(
@@ -1287,6 +1308,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Creates hours of operation. </p>
    */
@@ -1320,6 +1342,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does
    *    not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It
@@ -1358,6 +1381,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Web Services resource association with an Amazon Connect
    *    instance.</p>
    */
@@ -1391,6 +1415,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Creates a new queue for the specified Amazon Connect instance.</p>
    *          <important>
@@ -1429,6 +1454,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a quick connect for the specified Amazon Connect instance.</p>
    */
   public createQuickConnect(
@@ -1461,6 +1487,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a new routing profile.</p>
    */
   public createRoutingProfile(
@@ -1493,9 +1520,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a rule for the specified Amazon Connect instance.</p>
-   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
-   *   </p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
+   *    code conditions for the rule. </p>
    */
   public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
   public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
@@ -1521,6 +1549,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Creates a security profile.</p>
    */
@@ -1554,6 +1583,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a new task template in the specified Amazon Connect instance.</p>
    */
   public createTaskTemplate(
@@ -1586,6 +1616,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p>
    *          <p>For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set up traffic distribution groups</a> in
    *    the <i>Amazon Connect Administrator Guide</i>. </p>
@@ -1620,6 +1651,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a use case for an integration association.</p>
    */
   public createUseCase(
@@ -1652,6 +1684,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a user account for the specified Amazon Connect instance.</p>
    *          <p>For information about how to create user accounts using the Amazon Connect console, see
    *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add
@@ -1681,6 +1714,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a new user hierarchy group.</p>
    */
   public createUserHierarchyGroup(
@@ -1713,6 +1747,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates a custom vocabulary associated with your Amazon Connect instance. You can set a
    *    custom vocabulary to be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default
    *    vocabulary in post-call and real-time contact analysis sessions for that language.</p>
@@ -1747,6 +1782,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes a flow for the specified Amazon Connect instance.</p>
    */
   public deleteContactFlow(
@@ -1779,6 +1815,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified flow module.</p>
    */
   public deleteContactFlowModule(
@@ -1811,6 +1848,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Deletes an hours of operation.</p>
    */
@@ -1844,6 +1882,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Deletes the Amazon Connect instance.</p>
    *          <p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
@@ -1880,6 +1919,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The
    *    association must not have any use cases associated with it.</p>
    */
@@ -1913,6 +1953,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes a quick connect.</p>
    */
   public deleteQuickConnect(
@@ -1945,6 +1986,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes a rule for the specified Amazon Connect instance.</p>
    */
   public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
@@ -1971,6 +2013,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Deletes a security profile.</p>
    */
@@ -2004,6 +2047,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes the task template.</p>
    */
   public deleteTaskTemplate(
@@ -2036,6 +2080,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is
    *    created.</p>
    *          <p>For more information about deleting traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html">Delete traffic distribution groups</a> in
@@ -2071,6 +2116,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes a use case from an integration association.</p>
    */
   public deleteUseCase(
@@ -2103,6 +2149,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes a user account from the specified Amazon Connect instance.</p>
    *          <p>For information about what happens to a user's data when their account is deleted, see
    *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from
@@ -2133,6 +2180,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have
    *    any active child groups.</p>
    */
@@ -2166,6 +2214,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Deletes the vocabulary that has the given identifier.</p>
    */
   public deleteVocabulary(
@@ -2198,6 +2247,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Describes an agent status.</p>
    */
@@ -2231,6 +2281,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Describes the specified contact. </p>
    *          <important>
@@ -2270,6 +2321,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified flow.</p>
    *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
@@ -2304,6 +2356,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified flow module.</p>
    */
   public describeContactFlowModule(
@@ -2336,6 +2389,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Describes the hours of operation.</p>
    */
@@ -2369,6 +2423,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Returns the current state of the specified instance identifier. It tracks the instance while
    *    it is being created and returns an error status, if applicable. </p>
@@ -2406,6 +2461,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Describes the specified instance attribute.</p>
    */
@@ -2439,6 +2495,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Retrieves the current storage configurations for the specified resource type, association
    *    ID, and instance ID.</p>
@@ -2473,6 +2530,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance
    *    or traffic distribution group.</p>
    *          <important>
@@ -2516,6 +2574,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Describes the specified queue.</p>
    */
@@ -2549,6 +2608,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Describes the quick connect.</p>
    */
   public describeQuickConnect(
@@ -2581,6 +2641,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified routing profile.</p>
    */
   public describeRoutingProfile(
@@ -2613,6 +2674,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Describes a rule for the specified Amazon Connect instance.</p>
    */
   public describeRule(
@@ -2642,6 +2704,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Gets basic information about the security profle.</p>
    */
@@ -2675,6 +2738,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Gets details and status of a traffic distribution group.</p>
    */
   public describeTrafficDistributionGroup(
@@ -2707,9 +2771,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Describes the specified user account. You can find the instance ID in the console (it’s the
-   *    final part of the ARN). The console does not display the user IDs. Instead, list the users and
-   *    note the IDs provided in the output.</p>
+   * @public
+   * <p>Describes the specified user account. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID in the Amazon Connect console</a> (it’s the final part of the ARN). The console does not display the
+   *    user IDs. Instead, list the users and note the IDs provided in the output.</p>
    */
   public describeUser(
     args: DescribeUserCommandInput,
@@ -2738,6 +2802,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified hierarchy group.</p>
    */
   public describeUserHierarchyGroup(
@@ -2770,6 +2835,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>
    */
   public describeUserHierarchyStructure(
@@ -2802,6 +2868,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Describes the specified vocabulary.</p>
    */
   public describeVocabulary(
@@ -2834,6 +2901,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Revokes access to integrated applications from Amazon Connect.</p>
    */
@@ -2867,6 +2935,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2
    *    bot. </p>
@@ -2901,6 +2970,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Removes the storage type configurations for the specified resource type and association
    *    ID.</p>
@@ -2935,9 +3005,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Remove the Lambda function from the dropdown options available in the relevant flow
-   *    blocks.</p>
+   *          <p>Remove the Lambda function from the dropdown options available in the relevant
+   *    flow blocks.</p>
    */
   public disassociateLambdaFunction(
     args: DisassociateLambdaFunctionCommandInput,
@@ -2969,8 +3040,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>
+   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex
+   *    bot.</p>
    */
   public disassociateLexBot(
     args: DisassociateLexBotCommandInput,
@@ -3002,6 +3075,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Removes the flow association from a phone number claimed to your Amazon Connect
    *    instance.</p>
    *          <important>
@@ -3044,6 +3118,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Disassociates a set of quick connects from a queue.</p>
    */
@@ -3077,6 +3152,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a set of queues from a routing profile.</p>
    */
   public disassociateRoutingProfileQueues(
@@ -3109,6 +3185,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Deletes the specified security key.</p>
    */
@@ -3142,9 +3219,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
    *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
-   *    <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
+   *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
    *    the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent
    *     Event Stream</a>.</p>
    */
@@ -3178,6 +3256,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the contact attributes for the specified contact.</p>
    */
   public getContactAttributes(
@@ -3210,6 +3289,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
    *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics
    *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -3244,6 +3324,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Gets the real-time active user data from the specified Amazon Connect instance. </p>
    */
   public getCurrentUserData(
@@ -3276,6 +3357,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a token for federation.</p>
    *          <note>
    *             <p>This API doesn't support root users. If you try to invoke GetFederationToken with root
@@ -3316,6 +3398,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
    *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics
    *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -3350,6 +3433,50 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
+   * <p>Gets metric data from the specified Amazon Connect instance. </p>
+   *          <p>
+   *             <code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous
+   *    version of this API. It has new metrics, offers filtering at a metric level, and offers the
+   *    ability to filter and group data by channels, queues, routing profiles, agents, and agent
+   *    hierarchy levels. It can retrieve historical data for the last 14 days, in 24-hour
+   *    intervals.</p>
+   *          <p>For a description of the historical metrics that are supported by
+   *     <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics
+   *     definitions</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
+   *          <p>This API is not available in the Amazon Web Services GovCloud (US) Regions.</p>
+   */
+  public getMetricDataV2(
+    args: GetMetricDataV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMetricDataV2CommandOutput>;
+  public getMetricDataV2(
+    args: GetMetricDataV2CommandInput,
+    cb: (err: any, data?: GetMetricDataV2CommandOutput) => void
+  ): void;
+  public getMetricDataV2(
+    args: GetMetricDataV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMetricDataV2CommandOutput) => void
+  ): void;
+  public getMetricDataV2(
+    args: GetMetricDataV2CommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricDataV2CommandOutput) => void),
+    cb?: (err: any, data?: GetMetricDataV2CommandOutput) => void
+  ): Promise<GetMetricDataV2CommandOutput> | void {
+    const command = new GetMetricDataV2Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Gets details about a specific task template in the specified Amazon Connect
    *    instance.</p>
    */
@@ -3383,6 +3510,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the current traffic distribution for a given traffic distribution group.</p>
    */
   public getTrafficDistribution(
@@ -3415,6 +3543,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Lists agent statuses.</p>
    */
@@ -3448,6 +3577,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Returns a paginated list of all approved origins associated with the instance.</p>
    */
@@ -3481,10 +3611,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently
-   *    associated with the instance. Use this API to returns both Amazon Lex V1 and V2
-   *    bots.</p>
+   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots.</p>
    */
   public listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
   public listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
@@ -3510,6 +3639,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the flow modules for the specified Amazon Connect
    *    instance.</p>
    */
@@ -3543,6 +3673,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the flows for the specified Amazon Connect instance.</p>
    *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
@@ -3579,6 +3710,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>For the specified <code>referenceTypes</code>, returns a list of references associated with
    *    the contact. </p>
@@ -3613,6 +3745,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists the default vocabularies for the specified Amazon Connect instance.</p>
    */
   public listDefaultVocabularies(
@@ -3645,6 +3778,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the hours of operation for the specified Amazon Connect
    *    instance.</p>
    *          <p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a
@@ -3680,6 +3814,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Returns a paginated list of all attribute types for the given instance.</p>
    */
@@ -3713,6 +3848,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Return a list of instances which are in active state, creation-in-progress state, and failed
    *    state. Instances that aren't successfully created (they are in a failed state) are returned only
@@ -3748,6 +3884,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Returns a paginated list of storage configs for the identified instance and resource
    *    type.</p>
@@ -3782,6 +3919,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides summary information about the Amazon Web Services resource associations for the
    *    specified Amazon Connect instance.</p>
    */
@@ -3815,6 +3953,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the
    *    relevant flow blocks.</p>
@@ -3849,9 +3988,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To
-   *    return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
+   *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the
+   *    instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
    *    </p>
    */
   public listLexBots(args: ListLexBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListLexBotsCommandOutput>;
@@ -3878,6 +4018,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p>
    *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
    *     Contact Center</a> in the <i>Amazon Connect Administrator
@@ -3919,6 +4060,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided
    *     <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions
    *    associated with traffic distribution group.</p>
@@ -3956,6 +4098,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the prompts for the specified Amazon Connect instance.</p>
    */
   public listPrompts(args: ListPromptsCommandInput, options?: __HttpHandlerOptions): Promise<ListPromptsCommandOutput>;
@@ -3982,6 +4125,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Lists the quick connects associated with a queue.</p>
    */
@@ -4015,6 +4159,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the queues for the specified Amazon Connect instance.</p>
    *          <p>If you do not specify a <code>QueueTypes</code>
    *    parameter, both standard and agent queues are returned. This might cause an unexpected truncation
@@ -4047,6 +4192,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides information about the quick connects for the specified Amazon Connect instance.
    *   </p>
    */
@@ -4080,6 +4226,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists the queues associated with a routing profile.</p>
    */
   public listRoutingProfileQueues(
@@ -4112,6 +4259,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides summary information about the routing profiles for the specified Amazon Connect
    *    instance.</p>
    *          <p>For more information about routing profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html">Routing Profiles</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html">Create a Routing
@@ -4147,6 +4295,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>List all rules for the specified Amazon Connect instance.</p>
    */
   public listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
@@ -4173,6 +4322,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Returns a paginated list of all security keys associated with the instance.</p>
    */
@@ -4206,6 +4356,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Lists the permissions granted to a security profile.</p>
    */
@@ -4239,6 +4390,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p>
    *          <p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
    *      <i>Amazon Connect Administrator Guide</i>.</p>
@@ -4273,6 +4425,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified resource.</p>
    *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect
    *     Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator
@@ -4308,6 +4461,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists task templates for the specified Amazon Connect instance.</p>
    */
   public listTaskTemplates(
@@ -4340,6 +4494,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists traffic distribution groups.</p>
    */
   public listTrafficDistributionGroups(
@@ -4372,6 +4527,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Lists the use cases for the integration association. </p>
    */
   public listUseCases(
@@ -4401,6 +4557,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect
    *    instance.</p>
    *          <p>For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
@@ -4436,6 +4593,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Provides summary information about the users for the specified Amazon Connect
    *    instance.</p>
    */
@@ -4463,6 +4621,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
    *    specified by <i>userId</i> will be set to silent monitoring mode on the
    *    contact.</p>
@@ -4497,6 +4656,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Changes the current status of a user or agent in Amazon Connect. If the agent is
    *    currently handling a contact, this sets the agent's next status.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your next
@@ -4532,6 +4692,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You
    *    can call this API only in the Amazon Web Services Region where the number was claimed.</p>
    *          <important>
@@ -4572,6 +4733,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Replicates an Amazon Connect instance in the specified Amazon Web Services Region.</p>
    *          <p>For more information about replicating an Amazon Connect instance, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create
    *     a replica of your existing Amazon Connect instance</a> in the <i>Amazon Connect
@@ -4607,6 +4769,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>When a contact is being recorded, and the recording has been suspended using
    *    SuspendContactRecording, this API resumes recording the call.</p>
    *          <p>Only voice recordings are supported at this time.</p>
@@ -4641,6 +4804,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance
    *    or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both
    *     Amazon Web Services Regions associated with the traffic distribution group.</p>
@@ -4675,6 +4839,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Searches queues in an Amazon Connect instance, with optional filtering.</p>
    */
@@ -4705,6 +4870,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Searches routing profiles in an Amazon Connect instance, with optional filtering.</p>
    */
@@ -4738,6 +4904,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Searches security profiles in an Amazon Connect instance, with optional
    *    filtering.</p>
@@ -4772,6 +4939,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Searches users in an Amazon Connect instance, with optional filtering.</p>
    *          <note>
    *             <p>
@@ -4802,6 +4970,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Searches for vocabularies within a specific Amazon Connect instance using
    *     <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
    */
@@ -4835,6 +5004,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Initiates a flow to start a new chat for the customer. Response of this API provides a token
    *    required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
    *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s
@@ -4887,6 +5057,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Starts recording the contact: </p>
    *          <ul>
    *             <li>
@@ -4937,6 +5108,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p> Initiates real-time message streaming for a new chat contact.</p>
    *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message
    *     streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -4971,6 +5143,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Places an outbound call to a contact, and then initiates the flow. It performs the actions
    *    in the flow that's specified (in <code>ContactFlowId</code>).</p>
    *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
@@ -5020,6 +5193,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Initiates a flow to start a new task.</p>
    */
   public startTaskContact(
@@ -5052,6 +5226,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Ends the specified contact. This call does not work for the following initiation
    *    methods:</p>
    *          <ul>
@@ -5090,6 +5265,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Stops recording a call when a contact is being recorded. StopContactRecording is a one-time
    *    action. If you use StopContactRecording to stop recording an ongoing call, you can't use
    *    StartContactRecording to restart it. For scenarios where the recording has started and you want
@@ -5127,6 +5303,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p> Ends message streaming on a specified contact. To restart message streaming on that
    *    contact, call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a>
    *    API. </p>
@@ -5161,6 +5338,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>When a contact is being recorded, this API suspends recording the call. For example, you
    *    might suspend the call recording while collecting sensitive information, such as a credit card
    *    number. Then use ResumeContactRecording to restart recording. </p>
@@ -5198,6 +5376,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Adds the specified tags to the specified resource.</p>
    *          <p>Some of the supported resource types are agents, routing profiles, queues, quick connects,
    *    contact flows, agent statuses, hours of operation, phone numbers, security profiles, and task
@@ -5230,6 +5409,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Transfers contacts from one agent or queue to another agent or queue at any point after a
    *    contact is created. You can transfer a contact to another queue by providing the flow which
    *    orchestrates the contact to the destination queue. This gives you more control over contact
@@ -5285,6 +5465,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified resource.</p>
    */
   public untagResource(
@@ -5317,6 +5498,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates agent status.</p>
    */
@@ -5350,6 +5532,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Adds or updates user-defined contact information associated with the specified contact. At
    *    least one field to be updated must be present in the request.</p>
@@ -5388,6 +5571,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates
    *    user-defined contact attributes
    *    associated with the specified contact.</p>
@@ -5433,6 +5617,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified flow.</p>
    *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
@@ -5467,6 +5652,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates metadata about specified flow.</p>
    */
   public updateContactFlowMetadata(
@@ -5499,6 +5685,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates specified flow module for the specified Amazon Connect instance. </p>
    */
   public updateContactFlowModuleContent(
@@ -5531,6 +5718,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates metadata about specified flow module.</p>
    */
   public updateContactFlowModuleMetadata(
@@ -5563,6 +5751,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>The name of the flow.</p>
    *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
@@ -5597,6 +5786,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the scheduled time of a task contact that is already scheduled.</p>
    */
   public updateContactSchedule(
@@ -5629,6 +5819,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates the hours of operation.</p>
    */
@@ -5662,6 +5853,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates the value for the specified attribute type.</p>
    */
@@ -5695,6 +5887,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
    */
@@ -5728,6 +5921,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates timeouts for when human chat participants are to be considered idle, and when agents
    *    are automatically disconnected from a chat due to idleness. You can set four timers:</p>
    *          <ul>
@@ -5777,6 +5971,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to
    *    another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p>
    *          <important>
@@ -5815,6 +6010,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates the hours of operation for the specified queue.</p>
    */
@@ -5848,6 +6044,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates the maximum number of contacts allowed in a queue before it is considered
    *    full.</p>
@@ -5882,6 +6079,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates the name and description of a queue. At least <code>Name</code> or <code>Description</code> must be provided.</p>
    */
@@ -5915,6 +6113,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates the outbound caller ID name, number, and outbound whisper flow for a specified
    *    queue.</p>
@@ -5960,6 +6159,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates the status of the queue.</p>
    */
@@ -5993,6 +6193,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration settings for the specified quick connect.</p>
    */
   public updateQuickConnectConfig(
@@ -6025,6 +6226,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
    */
   public updateQuickConnectName(
@@ -6057,6 +6259,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing
    *    profile.</p>
    */
@@ -6090,6 +6293,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the default outbound queue of a routing profile.</p>
    */
   public updateRoutingProfileDefaultOutboundQueue(
@@ -6124,6 +6328,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format.
    *    At least <code>Name</code> or <code>Description</code> must be provided.</p>
    */
@@ -6157,6 +6362,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the properties associated with a set of queues for a routing profile.</p>
    */
   public updateRoutingProfileQueues(
@@ -6189,9 +6395,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates a rule for the specified Amazon Connect instance.</p>
-   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
-   *   </p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
+   *    code conditions for the rule. </p>
    */
   public updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
   public updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
@@ -6217,6 +6424,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Updates a security profile.</p>
    */
@@ -6250,6 +6458,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates details about a specific task template in the specified Amazon Connect instance.
    *    This operation does not support partial updates. Instead it does a full update of template
    *    content.</p>
@@ -6284,6 +6493,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the traffic distribution for a given traffic distribution group. </p>
    *          <p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony
    *     traffic distribution across Amazon Web Services Regions
@@ -6319,6 +6529,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Assigns the specified hierarchy group to the specified user.</p>
    */
   public updateUserHierarchy(
@@ -6351,6 +6562,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the name of the user hierarchy group. </p>
    */
   public updateUserHierarchyGroupName(
@@ -6383,6 +6595,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the user hierarchy structure: add, remove, and rename user hierarchy levels.</p>
    */
   public updateUserHierarchyStructure(
@@ -6415,6 +6628,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the identity information for the specified user.</p>
    *          <important>
    *             <p>We strongly recommend limiting who has the ability to invoke
@@ -6456,6 +6670,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Updates the phone configuration settings for the specified user.</p>
    */
   public updateUserPhoneConfig(
@@ -6488,6 +6703,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Assigns the specified routing profile to the specified user.</p>
    */
   public updateUserRoutingProfile(
@@ -6520,6 +6736,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * @public
    * <p>Assigns the specified security profiles to the specified user.</p>
    */
   public updateUserSecurityProfiles(

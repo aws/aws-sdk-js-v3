@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  DeleteAccountRequest,
-  DeleteAccountRequestFilterSensitiveLog,
-  DeleteAccountResponse,
-  DeleteAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccountCommand,
-  serializeAws_restJson1DeleteAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAccountRequest, DeleteAccountResponse } from "../models/models_0";
+import { de_DeleteAccountCommand, se_DeleteAccountCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAccountCommand}.
+ */
 export interface DeleteAccountCommandInput extends DeleteAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAccountCommand}.
+ */
 export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Amazon Chime account. You must suspend all users before deleting
  *                 <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action
  *             to dodo.</p>
@@ -49,13 +52,43 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * import { ChimeClient, DeleteAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DeleteAccountRequest
+ *   AccountId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountCommandInput - {@link DeleteAccountCommandInput}
+ * @returns {@link DeleteAccountCommandOutput}
  * @see {@link DeleteAccountCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+ *
  *
  */
 export class DeleteAccountCommand extends $Command<
@@ -75,6 +108,9 @@ export class DeleteAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +137,8 @@ export class DeleteAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +148,18 @@ export class DeleteAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccountCommand(input, context);
+    return se_DeleteAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountCommandOutput> {
-    return deserializeAws_restJson1DeleteAccountCommand(output, context);
+    return de_DeleteAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

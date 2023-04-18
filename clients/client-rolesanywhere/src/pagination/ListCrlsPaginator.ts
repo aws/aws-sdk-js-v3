@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListCrlsCommand, ListCrlsCommandInput, ListCrlsCommandOutput } from "../commands/ListCrlsCommand";
-import { RolesAnywhere } from "../RolesAnywhere";
 import { RolesAnywhereClient } from "../RolesAnywhereClient";
 import { RolesAnywherePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RolesAnywhereClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListCrlsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RolesAnywhere,
-  input: ListCrlsCommandInput,
-  ...args: any
-): Promise<ListCrlsCommandOutput> => {
-  // @ts-ignore
-  return await client.listCrls(input, ...args);
-};
 export async function* paginateListCrls(
   config: RolesAnywherePaginationConfiguration,
   input: ListCrlsCommandInput,
@@ -39,9 +30,7 @@ export async function* paginateListCrls(
   let page: ListCrlsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof RolesAnywhere) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RolesAnywhereClient) {
+    if (config.client instanceof RolesAnywhereClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RolesAnywhere | RolesAnywhereClient");

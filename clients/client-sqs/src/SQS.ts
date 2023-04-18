@@ -72,6 +72,7 @@ import { UntagQueueCommand, UntagQueueCommandInput, UntagQueueCommandOutput } fr
 import { SQSClient } from "./SQSClient";
 
 /**
+ * @public
  * <p>Welcome to the <i>Amazon SQS API Reference</i>.</p>
  *         <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p>
  *         <p>For information on the permissions you need to use this API, see
@@ -144,6 +145,7 @@ import { SQSClient } from "./SQSClient";
  */
 export class SQS extends SQSClient {
   /**
+   * @public
    * <p>Adds a permission to a queue for a specific
    *       <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a>.
    *       This allows sharing access to the queue.</p>
@@ -215,6 +217,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Changes the visibility timeout of a specified message in a queue to a new value. The
    *             default visibility timeout for a message is 30 seconds. The minimum is 0 seconds. The
    *             maximum is 12 hours. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p>
@@ -280,6 +283,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Changes the visibility timeout of multiple messages. This is a batch version of <code>
    *                <a>ChangeMessageVisibility</a>.</code> The result of the action on each message is reported individually in the response.
    *           You can send up to 10 <code>
@@ -326,6 +330,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in
    *             the request. Keep the following in mind:</p>
    *          <ul>
@@ -403,6 +408,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified message from the specified queue. To select the message to
    *             delete, use the <code>ReceiptHandle</code> of the message (<i>not</i> the
    *                 <code>MessageId</code> which you receive when you send the message). Amazon SQS can
@@ -454,6 +460,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Deletes up to ten messages from the specified queue. This is a batch version of <code>
    *                <a>DeleteMessage</a>.</code> The result of the action on each message is reported individually in the response.</p>
    *          <important>
@@ -497,6 +504,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the queue specified by the <code>QueueUrl</code>, regardless of the queue's contents.</p>
    *          <important>
    *             <p>Be careful with the <code>DeleteQueue</code> action: When you delete a queue, any messages in the queue are no longer available.
@@ -537,6 +545,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Gets attributes for the specified queue.</p>
    *          <note>
    *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
@@ -572,6 +581,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Returns the URL of an existing Amazon SQS queue.</p>
    *          <p>To access a queue that belongs to another AWS account, use the <code>QueueOwnerAWSAccountId</code> parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue.
    *           For more information about shared queue access, see <code>
@@ -603,6 +613,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
    *          <p> The <code>ListDeadLetterSourceQueues</code> methods supports
    *           pagination. Set parameter <code>MaxResults</code> in the request to specify the maximum number of
@@ -645,6 +656,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of your queues in the current region. The response includes a maximum of 1,000 results. If you specify a value for the optional
    *           <code>QueueNamePrefix</code> parameter, only queues with a name that begins with the specified value are returned.</p>
    *          <p> The <code>listQueues</code> methods supports
@@ -684,6 +696,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>List all cost allocation tags added to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
    * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
    *         <note>
@@ -722,6 +735,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Deletes the messages in a queue specified by the <code>QueueURL</code>
    *             parameter.</p>
    *
@@ -761,6 +775,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Retrieves one or more messages (up to 10), from the specified queue. Using the <code>WaitTimeSeconds</code> parameter enables long-poll support.
    *          For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon SQS Long Polling</a> in the <i>Amazon SQS Developer Guide</i>.
    *     </p>
@@ -828,6 +843,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Revokes any permissions in the queue policy that matches the specified <code>Label</code> parameter.</p>
    *          <note>
    *             <ul>
@@ -875,6 +891,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Delivers a message to the specified queue.</p>
    *          <important>
    *            <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
@@ -908,6 +925,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Delivers up to ten messages to the specified queue. This is a batch version of <code>
    *                <a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.</p>
    *          <p>The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
@@ -958,6 +976,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Sets the value of one or more queue attributes. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system.
    *       Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes.</p>
    *          <note>
@@ -1006,6 +1025,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
    * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
    *
@@ -1057,6 +1077,7 @@ export class SQS extends SQSClient {
   }
 
   /**
+   * @public
    * <p>Remove cost allocation tags from the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
    * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
    *         <note>

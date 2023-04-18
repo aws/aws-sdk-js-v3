@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDatasetGroupRequest,
-  CreateDatasetGroupRequestFilterSensitiveLog,
-  CreateDatasetGroupResponse,
-  CreateDatasetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDatasetGroupRequest, CreateDatasetGroupResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateDatasetGroupCommand,
-  serializeAws_json1_1CreateDatasetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDatasetGroupCommand, se_CreateDatasetGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDatasetGroupCommand}.
+ */
 export interface CreateDatasetGroupCommandInput extends CreateDatasetGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDatasetGroupCommand}.
+ */
 export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty dataset group. A dataset group is a container for
  *       Amazon Personalize resources. A dataset group can contain at most three datasets, one
  *       for each type of dataset:</p>
@@ -116,13 +119,40 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * import { PersonalizeClient, CreateDatasetGroupCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateDatasetGroupCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateDatasetGroupRequest
+ *   name: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
+ *   kmsKeyArn: "STRING_VALUE",
+ *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ *   tags: [ // Tags
+ *     { // Tag
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDatasetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetGroupCommandInput - {@link CreateDatasetGroupCommandInput}
+ * @returns {@link CreateDatasetGroupCommandOutput}
  * @see {@link CreateDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
  *
  */
 export class CreateDatasetGroupCommand extends $Command<
@@ -142,6 +172,9 @@ export class CreateDatasetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,8 +203,8 @@ export class CreateDatasetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatasetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -181,12 +214,18 @@ export class CreateDatasetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDatasetGroupCommand(input, context);
+    return se_CreateDatasetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetGroupCommandOutput> {
-    return deserializeAws_json1_1CreateDatasetGroupCommand(output, context);
+    return de_CreateDatasetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

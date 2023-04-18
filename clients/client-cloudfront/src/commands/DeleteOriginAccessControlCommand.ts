@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  DeleteOriginAccessControlRequest,
-  DeleteOriginAccessControlRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteOriginAccessControlCommand,
-  serializeAws_restXmlDeleteOriginAccessControlCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteOriginAccessControlRequest } from "../models/models_1";
+import { de_DeleteOriginAccessControlCommand, se_DeleteOriginAccessControlCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteOriginAccessControlCommand}.
+ */
 export interface DeleteOriginAccessControlCommandInput extends DeleteOriginAccessControlRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteOriginAccessControlCommand}.
+ */
 export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a CloudFront origin access control.</p>
  *          <p>You cannot delete an origin access control if it's in use. First, update all
  * 			distributions to remove the origin access control from all origins, then delete the
@@ -37,13 +42,37 @@ export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer
  * import { CloudFrontClient, DeleteOriginAccessControlCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteOriginAccessControlCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteOriginAccessControlRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteOriginAccessControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOriginAccessControlCommandInput - {@link DeleteOriginAccessControlCommandInput}
+ * @returns {@link DeleteOriginAccessControlCommandOutput}
  * @see {@link DeleteOriginAccessControlCommandInput} for command's `input` shape.
  * @see {@link DeleteOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchOriginAccessControl} (client fault)
+ *  <p>The origin access control does not exist.</p>
+ *
+ * @throws {@link OriginAccessControlInUse} (client fault)
+ *  <p>Cannot delete the origin access control because it's in use by one or more
+ * 			distributions.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
  *
  */
 export class DeleteOriginAccessControlCommand extends $Command<
@@ -63,6 +92,9 @@ export class DeleteOriginAccessControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOriginAccessControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +123,8 @@ export class DeleteOriginAccessControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOriginAccessControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +134,21 @@ export class DeleteOriginAccessControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOriginAccessControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteOriginAccessControlCommand(input, context);
+    return se_DeleteOriginAccessControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOriginAccessControlCommandOutput> {
-    return deserializeAws_restXmlDeleteOriginAccessControlCommand(output, context);
+    return de_DeleteOriginAccessControlCommand(output, context);
   }
 
   // Start section: command_body_extra

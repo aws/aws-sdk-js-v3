@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -56,20 +58,16 @@ import {
 } from "../commands/UpdateAttendeeCapabilitiesCommand";
 import { ChimeSDKMeetingsServiceException as __BaseException } from "../models/ChimeSDKMeetingsServiceException";
 import {
-  Attendee,
   AttendeeCapabilities,
   AttendeeIdItem,
   AudioFeatures,
   BadRequestException,
   ConflictException,
-  CreateAttendeeError,
   CreateAttendeeRequestItem,
   EngineTranscribeMedicalSettings,
   EngineTranscribeSettings,
   ForbiddenException,
   LimitExceededException,
-  MediaPlacement,
-  Meeting,
   MeetingFeaturesConfiguration,
   NotFoundException,
   NotificationsConfiguration,
@@ -84,7 +82,10 @@ import {
   UnprocessableEntityException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1BatchCreateAttendeeCommand = async (
+/**
+ * serializeAws_restJson1BatchCreateAttendeeCommand
+ */
+export const se_BatchCreateAttendeeCommand = async (
   input: BatchCreateAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -99,11 +100,11 @@ export const serializeAws_restJson1BatchCreateAttendeeCommand = async (
     operation: [, "batch-create"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Attendees != null && {
-      Attendees: serializeAws_restJson1CreateAttendeeRequestItemList(input.Attendees, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Attendees: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -116,7 +117,10 @@ export const serializeAws_restJson1BatchCreateAttendeeCommand = async (
   });
 };
 
-export const serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand = async (
+/**
+ * serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand
+ */
+export const se_BatchUpdateAttendeeCapabilitiesExceptCommand = async (
   input: BatchUpdateAttendeeCapabilitiesExceptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -132,14 +136,12 @@ export const serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand 
     operation: [, "batch-update-except"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Capabilities != null && {
-      Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
-    }),
-    ...(input.ExcludedAttendeeIds != null && {
-      ExcludedAttendeeIds: serializeAws_restJson1AttendeeIdsList(input.ExcludedAttendeeIds, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Capabilities: (_) => _json(_),
+      ExcludedAttendeeIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -152,7 +154,10 @@ export const serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand 
   });
 };
 
-export const serializeAws_restJson1CreateAttendeeCommand = async (
+/**
+ * serializeAws_restJson1CreateAttendeeCommand
+ */
+export const se_CreateAttendeeCommand = async (
   input: CreateAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -164,12 +169,12 @@ export const serializeAws_restJson1CreateAttendeeCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}/attendees";
   resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Capabilities != null && {
-      Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
-    }),
-    ...(input.ExternalUserId != null && { ExternalUserId: input.ExternalUserId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Capabilities: (_) => _json(_),
+      ExternalUserId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -181,7 +186,10 @@ export const serializeAws_restJson1CreateAttendeeCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateMeetingCommand = async (
+/**
+ * serializeAws_restJson1CreateMeetingCommand
+ */
+export const se_CreateMeetingCommand = async (
   input: CreateMeetingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -191,24 +199,19 @@ export const serializeAws_restJson1CreateMeetingCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings";
   let body: any;
-  body = JSON.stringify({
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExternalMeetingId != null && { ExternalMeetingId: input.ExternalMeetingId }),
-    ...(input.MediaRegion != null && { MediaRegion: input.MediaRegion }),
-    ...(input.MeetingFeatures != null && {
-      MeetingFeatures: serializeAws_restJson1MeetingFeaturesConfiguration(input.MeetingFeatures, context),
-    }),
-    ...(input.MeetingHostId != null && { MeetingHostId: input.MeetingHostId }),
-    ...(input.NotificationsConfiguration != null && {
-      NotificationsConfiguration: serializeAws_restJson1NotificationsConfiguration(
-        input.NotificationsConfiguration,
-        context
-      ),
-    }),
-    ...(input.PrimaryMeetingId != null && { PrimaryMeetingId: input.PrimaryMeetingId }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.TenantIds != null && { TenantIds: serializeAws_restJson1TenantIdList(input.TenantIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ExternalMeetingId: [],
+      MediaRegion: [],
+      MeetingFeatures: (_) => _json(_),
+      MeetingHostId: [],
+      NotificationsConfiguration: (_) => _json(_),
+      PrimaryMeetingId: [],
+      Tags: (_) => _json(_),
+      TenantIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -220,7 +223,10 @@ export const serializeAws_restJson1CreateMeetingCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
+/**
+ * serializeAws_restJson1CreateMeetingWithAttendeesCommand
+ */
+export const se_CreateMeetingWithAttendeesCommand = async (
   input: CreateMeetingWithAttendeesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -233,27 +239,20 @@ export const serializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
     operation: [, "create-attendees"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Attendees != null && {
-      Attendees: serializeAws_restJson1CreateMeetingWithAttendeesRequestItemList(input.Attendees, context),
-    }),
-    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExternalMeetingId != null && { ExternalMeetingId: input.ExternalMeetingId }),
-    ...(input.MediaRegion != null && { MediaRegion: input.MediaRegion }),
-    ...(input.MeetingFeatures != null && {
-      MeetingFeatures: serializeAws_restJson1MeetingFeaturesConfiguration(input.MeetingFeatures, context),
-    }),
-    ...(input.MeetingHostId != null && { MeetingHostId: input.MeetingHostId }),
-    ...(input.NotificationsConfiguration != null && {
-      NotificationsConfiguration: serializeAws_restJson1NotificationsConfiguration(
-        input.NotificationsConfiguration,
-        context
-      ),
-    }),
-    ...(input.PrimaryMeetingId != null && { PrimaryMeetingId: input.PrimaryMeetingId }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.TenantIds != null && { TenantIds: serializeAws_restJson1TenantIdList(input.TenantIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Attendees: (_) => _json(_),
+      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ExternalMeetingId: [],
+      MediaRegion: [],
+      MeetingFeatures: (_) => _json(_),
+      MeetingHostId: [],
+      NotificationsConfiguration: (_) => _json(_),
+      PrimaryMeetingId: [],
+      Tags: (_) => _json(_),
+      TenantIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -266,7 +265,10 @@ export const serializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAttendeeCommand = async (
+/**
+ * serializeAws_restJson1DeleteAttendeeCommand
+ */
+export const se_DeleteAttendeeCommand = async (
   input: DeleteAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -289,7 +291,10 @@ export const serializeAws_restJson1DeleteAttendeeCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteMeetingCommand = async (
+/**
+ * serializeAws_restJson1DeleteMeetingCommand
+ */
+export const se_DeleteMeetingCommand = async (
   input: DeleteMeetingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -309,7 +314,10 @@ export const serializeAws_restJson1DeleteMeetingCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAttendeeCommand = async (
+/**
+ * serializeAws_restJson1GetAttendeeCommand
+ */
+export const se_GetAttendeeCommand = async (
   input: GetAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -332,7 +340,10 @@ export const serializeAws_restJson1GetAttendeeCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetMeetingCommand = async (
+/**
+ * serializeAws_restJson1GetMeetingCommand
+ */
+export const se_GetMeetingCommand = async (
   input: GetMeetingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -352,7 +363,10 @@ export const serializeAws_restJson1GetMeetingCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAttendeesCommand = async (
+/**
+ * serializeAws_restJson1ListAttendeesCommand
+ */
+export const se_ListAttendeesCommand = async (
   input: ListAttendeesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -378,7 +392,10 @@ export const serializeAws_restJson1ListAttendeesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -401,7 +418,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartMeetingTranscriptionCommand = async (
+/**
+ * serializeAws_restJson1StartMeetingTranscriptionCommand
+ */
+export const se_StartMeetingTranscriptionCommand = async (
   input: StartMeetingTranscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -416,14 +436,11 @@ export const serializeAws_restJson1StartMeetingTranscriptionCommand = async (
     operation: [, "start"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.TranscriptionConfiguration != null && {
-      TranscriptionConfiguration: serializeAws_restJson1TranscriptionConfiguration(
-        input.TranscriptionConfiguration,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TranscriptionConfiguration: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -436,7 +453,10 @@ export const serializeAws_restJson1StartMeetingTranscriptionCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopMeetingTranscriptionCommand = async (
+/**
+ * serializeAws_restJson1StopMeetingTranscriptionCommand
+ */
+export const se_StopMeetingTranscriptionCommand = async (
   input: StopMeetingTranscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -461,7 +481,10 @@ export const serializeAws_restJson1StopMeetingTranscriptionCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -474,10 +497,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
     operation: [, "tag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -490,7 +515,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -503,10 +531,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     operation: [, "untag-resource"],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -519,7 +549,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAttendeeCapabilitiesCommand = async (
+/**
+ * serializeAws_restJson1UpdateAttendeeCapabilitiesCommand
+ */
+export const se_UpdateAttendeeCapabilitiesCommand = async (
   input: UpdateAttendeeCapabilitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -533,11 +566,11 @@ export const serializeAws_restJson1UpdateAttendeeCapabilitiesCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "AttendeeId", () => input.AttendeeId!, "{AttendeeId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Capabilities != null && {
-      Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Capabilities: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -549,27 +582,32 @@ export const serializeAws_restJson1UpdateAttendeeCapabilitiesCommand = async (
   });
 };
 
-export const deserializeAws_restJson1BatchCreateAttendeeCommand = async (
+/**
+ * deserializeAws_restJson1BatchCreateAttendeeCommand
+ */
+export const de_BatchCreateAttendeeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateAttendeeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchCreateAttendeeCommandError(output, context);
+    return de_BatchCreateAttendeeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendees != null) {
-    contents.Attendees = deserializeAws_restJson1AttendeeList(data.Attendees, context);
-  }
-  if (data.Errors != null) {
-    contents.Errors = deserializeAws_restJson1BatchCreateAttendeeErrorList(data.Errors, context);
-  }
+  const doc = take(data, {
+    Attendees: _json,
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1BatchCreateAttendeeCommandError = async (
+/**
+ * deserializeAws_restJson1BatchCreateAttendeeCommandError
+ */
+const de_BatchCreateAttendeeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateAttendeeCommandOutput> => {
@@ -581,48 +619,50 @@ const deserializeAws_restJson1BatchCreateAttendeeCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "UnprocessableEntityException":
     case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
-      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand = async (
+/**
+ * deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand
+ */
+export const de_BatchUpdateAttendeeCapabilitiesExceptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateAttendeeCapabilitiesExceptCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommandError(output, context);
+    return de_BatchUpdateAttendeeCapabilitiesExceptCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -631,7 +671,10 @@ export const deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptComman
   return contents;
 };
 
-const deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommandError = async (
+/**
+ * deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommandError
+ */
+const de_BatchUpdateAttendeeCapabilitiesExceptCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateAttendeeCapabilitiesExceptCommandOutput> => {
@@ -643,51 +686,57 @@ const deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommandError 
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmeetings#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateAttendeeCommand = async (
+/**
+ * deserializeAws_restJson1CreateAttendeeCommand
+ */
+export const de_CreateAttendeeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAttendeeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAttendeeCommandError(output, context);
+    return de_CreateAttendeeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendee != null) {
-    contents.Attendee = deserializeAws_restJson1Attendee(data.Attendee, context);
-  }
+  const doc = take(data, {
+    Attendee: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateAttendeeCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAttendeeCommandError
+ */
+const de_CreateAttendeeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAttendeeCommandOutput> => {
@@ -699,60 +748,66 @@ const deserializeAws_restJson1CreateAttendeeCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "UnprocessableEntityException":
     case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
-      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateMeetingCommand = async (
+/**
+ * deserializeAws_restJson1CreateMeetingCommand
+ */
+export const de_CreateMeetingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMeetingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateMeetingCommandError(output, context);
+    return de_CreateMeetingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Meeting != null) {
-    contents.Meeting = deserializeAws_restJson1Meeting(data.Meeting, context);
-  }
+  const doc = take(data, {
+    Meeting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateMeetingCommandError = async (
+/**
+ * deserializeAws_restJson1CreateMeetingCommandError
+ */
+const de_CreateMeetingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMeetingCommandOutput> => {
@@ -764,60 +819,62 @@ const deserializeAws_restJson1CreateMeetingCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
+/**
+ * deserializeAws_restJson1CreateMeetingWithAttendeesCommand
+ */
+export const de_CreateMeetingWithAttendeesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMeetingWithAttendeesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateMeetingWithAttendeesCommandError(output, context);
+    return de_CreateMeetingWithAttendeesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendees != null) {
-    contents.Attendees = deserializeAws_restJson1AttendeeList(data.Attendees, context);
-  }
-  if (data.Errors != null) {
-    contents.Errors = deserializeAws_restJson1BatchCreateAttendeeErrorList(data.Errors, context);
-  }
-  if (data.Meeting != null) {
-    contents.Meeting = deserializeAws_restJson1Meeting(data.Meeting, context);
-  }
+  const doc = take(data, {
+    Attendees: _json,
+    Errors: _json,
+    Meeting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateMeetingWithAttendeesCommandError = async (
+/**
+ * deserializeAws_restJson1CreateMeetingWithAttendeesCommandError
+ */
+const de_CreateMeetingWithAttendeesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMeetingWithAttendeesCommandOutput> => {
@@ -829,42 +886,44 @@ const deserializeAws_restJson1CreateMeetingWithAttendeesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteAttendeeCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAttendeeCommand
+ */
+export const de_DeleteAttendeeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAttendeeCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAttendeeCommandError(output, context);
+    return de_DeleteAttendeeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -873,7 +932,10 @@ export const deserializeAws_restJson1DeleteAttendeeCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAttendeeCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAttendeeCommandError
+ */
+const de_DeleteAttendeeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAttendeeCommandOutput> => {
@@ -885,42 +947,44 @@ const deserializeAws_restJson1DeleteAttendeeCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteMeetingCommand = async (
+/**
+ * deserializeAws_restJson1DeleteMeetingCommand
+ */
+export const de_DeleteMeetingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMeetingCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteMeetingCommandError(output, context);
+    return de_DeleteMeetingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -929,7 +993,10 @@ export const deserializeAws_restJson1DeleteMeetingCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteMeetingCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteMeetingCommandError
+ */
+const de_DeleteMeetingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMeetingCommandOutput> => {
@@ -941,54 +1008,60 @@ const deserializeAws_restJson1DeleteMeetingCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetAttendeeCommand = async (
+/**
+ * deserializeAws_restJson1GetAttendeeCommand
+ */
+export const de_GetAttendeeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAttendeeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAttendeeCommandError(output, context);
+    return de_GetAttendeeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendee != null) {
-    contents.Attendee = deserializeAws_restJson1Attendee(data.Attendee, context);
-  }
+  const doc = take(data, {
+    Attendee: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetAttendeeCommandError = async (
+/**
+ * deserializeAws_restJson1GetAttendeeCommandError
+ */
+const de_GetAttendeeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAttendeeCommandOutput> => {
@@ -1000,54 +1073,60 @@ const deserializeAws_restJson1GetAttendeeCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetMeetingCommand = async (
+/**
+ * deserializeAws_restJson1GetMeetingCommand
+ */
+export const de_GetMeetingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMeetingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetMeetingCommandError(output, context);
+    return de_GetMeetingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Meeting != null) {
-    contents.Meeting = deserializeAws_restJson1Meeting(data.Meeting, context);
-  }
+  const doc = take(data, {
+    Meeting: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetMeetingCommandError = async (
+/**
+ * deserializeAws_restJson1GetMeetingCommandError
+ */
+const de_GetMeetingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMeetingCommandOutput> => {
@@ -1059,57 +1138,61 @@ const deserializeAws_restJson1GetMeetingCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListAttendeesCommand = async (
+/**
+ * deserializeAws_restJson1ListAttendeesCommand
+ */
+export const de_ListAttendeesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttendeesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAttendeesCommandError(output, context);
+    return de_ListAttendeesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendees != null) {
-    contents.Attendees = deserializeAws_restJson1AttendeeList(data.Attendees, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    Attendees: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListAttendeesCommandError = async (
+/**
+ * deserializeAws_restJson1ListAttendeesCommandError
+ */
+const de_ListAttendeesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttendeesCommandOutput> => {
@@ -1121,54 +1204,60 @@ const deserializeAws_restJson1ListAttendeesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1180,24 +1269,26 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StartMeetingTranscriptionCommand = async (
+/**
+ * deserializeAws_restJson1StartMeetingTranscriptionCommand
+ */
+export const de_StartMeetingTranscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMeetingTranscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartMeetingTranscriptionCommandError(output, context);
+    return de_StartMeetingTranscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1206,7 +1297,10 @@ export const deserializeAws_restJson1StartMeetingTranscriptionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StartMeetingTranscriptionCommandError = async (
+/**
+ * deserializeAws_restJson1StartMeetingTranscriptionCommandError
+ */
+const de_StartMeetingTranscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMeetingTranscriptionCommandOutput> => {
@@ -1218,48 +1312,50 @@ const deserializeAws_restJson1StartMeetingTranscriptionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "UnprocessableEntityException":
     case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
-      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StopMeetingTranscriptionCommand = async (
+/**
+ * deserializeAws_restJson1StopMeetingTranscriptionCommand
+ */
+export const de_StopMeetingTranscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopMeetingTranscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopMeetingTranscriptionCommandError(output, context);
+    return de_StopMeetingTranscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1268,7 +1364,10 @@ export const deserializeAws_restJson1StopMeetingTranscriptionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StopMeetingTranscriptionCommandError = async (
+/**
+ * deserializeAws_restJson1StopMeetingTranscriptionCommandError
+ */
+const de_StopMeetingTranscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopMeetingTranscriptionCommandOutput> => {
@@ -1280,45 +1379,47 @@ const deserializeAws_restJson1StopMeetingTranscriptionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "UnprocessableEntityException":
     case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
-      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1327,7 +1428,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1339,30 +1443,32 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.chimesdkmeetings#TooManyTagsException":
-      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1371,7 +1477,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1383,39 +1492,45 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateAttendeeCapabilitiesCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAttendeeCapabilitiesCommand
+ */
+export const de_UpdateAttendeeCapabilitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAttendeeCapabilitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAttendeeCapabilitiesCommandError(output, context);
+    return de_UpdateAttendeeCapabilitiesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Attendee != null) {
-    contents.Attendee = deserializeAws_restJson1Attendee(data.Attendee, context);
-  }
+  const doc = take(data, {
+    Attendee: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAttendeeCapabilitiesCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAttendeeCapabilitiesCommandError
+ */
+const de_UpdateAttendeeCapabilitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAttendeeCapabilitiesCommandOutput> => {
@@ -1427,49 +1542,45 @@ const deserializeAws_restJson1UpdateAttendeeCapabilitiesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmeetings#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1477,21 +1588,18 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1499,21 +1607,18 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_restJson1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1521,21 +1626,21 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1543,21 +1648,18 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1565,24 +1667,22 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+    ResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1590,21 +1690,21 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceFailureExceptionRes
+ */
+const de_ServiceFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceFailureException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1612,7 +1712,10 @@ const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
@@ -1620,15 +1723,12 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
     RetryAfterSeconds: [, parsedOutput.headers["retry-after"]],
   });
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1636,21 +1736,18 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1658,24 +1755,22 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
-  if (data.ResourceName != null) {
-    contents.ResourceName = __expectString(data.ResourceName);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+    ResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1683,21 +1778,21 @@ const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnauthorizedExceptionRes
+ */
+const de_UnauthorizedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1705,21 +1800,21 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnprocessableEntityExceptionRes
+ */
+const de_UnprocessableEntityExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnprocessableEntityException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestId != null) {
-    contents.RequestId = __expectString(data.RequestId);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnprocessableEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1727,307 +1822,61 @@ const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AttendeeCapabilities = (input: AttendeeCapabilities, context: __SerdeContext): any => {
-  return {
-    ...(input.Audio != null && { Audio: input.Audio }),
-    ...(input.Content != null && { Content: input.Content }),
-    ...(input.Video != null && { Video: input.Video }),
-  };
-};
+// se_AttendeeCapabilities omitted.
 
-const serializeAws_restJson1AttendeeIdItem = (input: AttendeeIdItem, context: __SerdeContext): any => {
-  return {
-    ...(input.AttendeeId != null && { AttendeeId: input.AttendeeId }),
-  };
-};
+// se_AttendeeIdItem omitted.
 
-const serializeAws_restJson1AttendeeIdsList = (input: AttendeeIdItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1AttendeeIdItem(entry, context);
-    });
-};
+// se_AttendeeIdsList omitted.
 
-const serializeAws_restJson1AudioFeatures = (input: AudioFeatures, context: __SerdeContext): any => {
-  return {
-    ...(input.EchoReduction != null && { EchoReduction: input.EchoReduction }),
-  };
-};
+// se_AudioFeatures omitted.
 
-const serializeAws_restJson1CreateAttendeeRequestItem = (
-  input: CreateAttendeeRequestItem,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Capabilities != null && {
-      Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
-    }),
-    ...(input.ExternalUserId != null && { ExternalUserId: input.ExternalUserId }),
-  };
-};
+// se_CreateAttendeeRequestItem omitted.
 
-const serializeAws_restJson1CreateAttendeeRequestItemList = (
-  input: CreateAttendeeRequestItem[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1CreateAttendeeRequestItem(entry, context);
-    });
-};
+// se_CreateAttendeeRequestItemList omitted.
 
-const serializeAws_restJson1CreateMeetingWithAttendeesRequestItemList = (
-  input: CreateAttendeeRequestItem[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1CreateAttendeeRequestItem(entry, context);
-    });
-};
+// se_CreateMeetingWithAttendeesRequestItemList omitted.
 
-const serializeAws_restJson1EngineTranscribeMedicalSettings = (
-  input: EngineTranscribeMedicalSettings,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.Region != null && { Region: input.Region }),
-    ...(input.Specialty != null && { Specialty: input.Specialty }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_EngineTranscribeMedicalSettings omitted.
 
-const serializeAws_restJson1EngineTranscribeSettings = (
-  input: EngineTranscribeSettings,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.ContentRedactionType != null && { ContentRedactionType: input.ContentRedactionType }),
-    ...(input.EnablePartialResultsStabilization != null && {
-      EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
-    }),
-    ...(input.IdentifyLanguage != null && { IdentifyLanguage: input.IdentifyLanguage }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.LanguageOptions != null && { LanguageOptions: input.LanguageOptions }),
-    ...(input.PartialResultsStability != null && { PartialResultsStability: input.PartialResultsStability }),
-    ...(input.PiiEntityTypes != null && { PiiEntityTypes: input.PiiEntityTypes }),
-    ...(input.PreferredLanguage != null && { PreferredLanguage: input.PreferredLanguage }),
-    ...(input.Region != null && { Region: input.Region }),
-    ...(input.VocabularyFilterMethod != null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
-  };
-};
+// se_EngineTranscribeSettings omitted.
 
-const serializeAws_restJson1MeetingFeaturesConfiguration = (
-  input: MeetingFeaturesConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Audio != null && { Audio: serializeAws_restJson1AudioFeatures(input.Audio, context) }),
-  };
-};
+// se_MeetingFeaturesConfiguration omitted.
 
-const serializeAws_restJson1NotificationsConfiguration = (
-  input: NotificationsConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LambdaFunctionArn != null && { LambdaFunctionArn: input.LambdaFunctionArn }),
-    ...(input.SnsTopicArn != null && { SnsTopicArn: input.SnsTopicArn }),
-    ...(input.SqsQueueArn != null && { SqsQueueArn: input.SqsQueueArn }),
-  };
-};
+// se_NotificationsConfiguration omitted.
 
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_Tag omitted.
 
-const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-const serializeAws_restJson1TenantIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TenantIdList omitted.
 
-const serializeAws_restJson1TranscriptionConfiguration = (
-  input: TranscriptionConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EngineTranscribeMedicalSettings != null && {
-      EngineTranscribeMedicalSettings: serializeAws_restJson1EngineTranscribeMedicalSettings(
-        input.EngineTranscribeMedicalSettings,
-        context
-      ),
-    }),
-    ...(input.EngineTranscribeSettings != null && {
-      EngineTranscribeSettings: serializeAws_restJson1EngineTranscribeSettings(input.EngineTranscribeSettings, context),
-    }),
-  };
-};
+// se_TranscriptionConfiguration omitted.
 
-const deserializeAws_restJson1Attendee = (output: any, context: __SerdeContext): Attendee => {
-  return {
-    AttendeeId: __expectString(output.AttendeeId),
-    Capabilities:
-      output.Capabilities != null
-        ? deserializeAws_restJson1AttendeeCapabilities(output.Capabilities, context)
-        : undefined,
-    ExternalUserId: __expectString(output.ExternalUserId),
-    JoinToken: __expectString(output.JoinToken),
-  } as any;
-};
+// de_Attendee omitted.
 
-const deserializeAws_restJson1AttendeeCapabilities = (output: any, context: __SerdeContext): AttendeeCapabilities => {
-  return {
-    Audio: __expectString(output.Audio),
-    Content: __expectString(output.Content),
-    Video: __expectString(output.Video),
-  } as any;
-};
+// de_AttendeeCapabilities omitted.
 
-const deserializeAws_restJson1AttendeeList = (output: any, context: __SerdeContext): Attendee[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Attendee(entry, context);
-    });
-  return retVal;
-};
+// de_AttendeeList omitted.
 
-const deserializeAws_restJson1AudioFeatures = (output: any, context: __SerdeContext): AudioFeatures => {
-  return {
-    EchoReduction: __expectString(output.EchoReduction),
-  } as any;
-};
+// de_AudioFeatures omitted.
 
-const deserializeAws_restJson1BatchCreateAttendeeErrorList = (
-  output: any,
-  context: __SerdeContext
-): CreateAttendeeError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1CreateAttendeeError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchCreateAttendeeErrorList omitted.
 
-const deserializeAws_restJson1CreateAttendeeError = (output: any, context: __SerdeContext): CreateAttendeeError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    ExternalUserId: __expectString(output.ExternalUserId),
-  } as any;
-};
+// de_CreateAttendeeError omitted.
 
-const deserializeAws_restJson1MediaPlacement = (output: any, context: __SerdeContext): MediaPlacement => {
-  return {
-    AudioFallbackUrl: __expectString(output.AudioFallbackUrl),
-    AudioHostUrl: __expectString(output.AudioHostUrl),
-    EventIngestionUrl: __expectString(output.EventIngestionUrl),
-    ScreenDataUrl: __expectString(output.ScreenDataUrl),
-    ScreenSharingUrl: __expectString(output.ScreenSharingUrl),
-    ScreenViewingUrl: __expectString(output.ScreenViewingUrl),
-    SignalingUrl: __expectString(output.SignalingUrl),
-    TurnControlUrl: __expectString(output.TurnControlUrl),
-  } as any;
-};
+// de_MediaPlacement omitted.
 
-const deserializeAws_restJson1Meeting = (output: any, context: __SerdeContext): Meeting => {
-  return {
-    ExternalMeetingId: __expectString(output.ExternalMeetingId),
-    MediaPlacement:
-      output.MediaPlacement != null
-        ? deserializeAws_restJson1MediaPlacement(output.MediaPlacement, context)
-        : undefined,
-    MediaRegion: __expectString(output.MediaRegion),
-    MeetingArn: __expectString(output.MeetingArn),
-    MeetingFeatures:
-      output.MeetingFeatures != null
-        ? deserializeAws_restJson1MeetingFeaturesConfiguration(output.MeetingFeatures, context)
-        : undefined,
-    MeetingHostId: __expectString(output.MeetingHostId),
-    MeetingId: __expectString(output.MeetingId),
-    PrimaryMeetingId: __expectString(output.PrimaryMeetingId),
-    TenantIds: output.TenantIds != null ? deserializeAws_restJson1TenantIdList(output.TenantIds, context) : undefined,
-  } as any;
-};
+// de_Meeting omitted.
 
-const deserializeAws_restJson1MeetingFeaturesConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MeetingFeaturesConfiguration => {
-  return {
-    Audio: output.Audio != null ? deserializeAws_restJson1AudioFeatures(output.Audio, context) : undefined,
-  } as any;
-};
+// de_MeetingFeaturesConfiguration omitted.
 
-const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
+// de_Tag omitted.
 
-const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Tag(entry, context);
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-const deserializeAws_restJson1TenantIdList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TenantIdList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

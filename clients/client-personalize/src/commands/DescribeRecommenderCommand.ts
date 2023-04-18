@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeRecommenderRequest,
-  DescribeRecommenderRequestFilterSensitiveLog,
-  DescribeRecommenderResponse,
-  DescribeRecommenderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRecommenderRequest, DescribeRecommenderResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeRecommenderCommand,
-  serializeAws_json1_1DescribeRecommenderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRecommenderCommand, se_DescribeRecommenderCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRecommenderCommand}.
+ */
 export interface DescribeRecommenderCommandInput extends DescribeRecommenderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRecommenderCommand}.
+ */
 export interface DescribeRecommenderCommandOutput extends DescribeRecommenderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the given recommender, including its status.</p>
  *          <p>A recommender can be in one of the following states:</p>
  *          <ul>
@@ -53,13 +56,25 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * import { PersonalizeClient, DescribeRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeRecommenderRequest
+ *   recommenderArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRecommenderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecommenderCommandInput - {@link DescribeRecommenderCommandInput}
+ * @returns {@link DescribeRecommenderCommandOutput}
  * @see {@link DescribeRecommenderCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DescribeRecommenderCommand extends $Command<
@@ -79,6 +94,9 @@ export class DescribeRecommenderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecommenderCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +125,8 @@ export class DescribeRecommenderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecommenderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecommenderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +136,18 @@ export class DescribeRecommenderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRecommenderCommand(input, context);
+    return se_DescribeRecommenderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecommenderCommandOutput> {
-    return deserializeAws_json1_1DescribeRecommenderCommand(output, context);
+    return de_DescribeRecommenderCommand(output, context);
   }
 
   // Start section: command_body_extra

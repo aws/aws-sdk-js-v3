@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodeCommit } from "../CodeCommit";
 import { CodeCommitClient } from "../CodeCommitClient";
 import {
   GetDifferencesCommand,
@@ -11,7 +10,7 @@ import {
 import { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeCommitClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetDifferencesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CodeCommit,
-  input: GetDifferencesCommandInput,
-  ...args: any
-): Promise<GetDifferencesCommandOutput> => {
-  // @ts-ignore
-  return await client.getDifferences(input, ...args);
-};
 export async function* paginateGetDifferences(
   config: CodeCommitPaginationConfiguration,
   input: GetDifferencesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetDifferences(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CodeCommit) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeCommitClient) {
+    if (config.client instanceof CodeCommitClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");

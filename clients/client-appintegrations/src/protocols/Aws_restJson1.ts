@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -71,12 +73,9 @@ import {
 import { AppIntegrationsServiceException as __BaseException } from "../models/AppIntegrationsServiceException";
 import {
   AccessDeniedException,
-  DataIntegrationAssociationSummary,
-  DataIntegrationSummary,
   DuplicateResourceException,
   EventFilter,
-  EventIntegration,
-  EventIntegrationAssociation,
+  FileConfiguration,
   InternalServiceError,
   InvalidRequestException,
   ResourceNotFoundException,
@@ -85,7 +84,10 @@ import {
   ThrottlingException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateDataIntegrationCommand = async (
+/**
+ * serializeAws_restJson1CreateDataIntegrationCommand
+ */
+export const se_CreateDataIntegrationCommand = async (
   input: CreateDataIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -95,17 +97,19 @@ export const serializeAws_restJson1CreateDataIntegrationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dataIntegrations";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ScheduleConfig != null && {
-      ScheduleConfig: serializeAws_restJson1ScheduleConfiguration(input.ScheduleConfig, context),
-    }),
-    ...(input.SourceURI != null && { SourceURI: input.SourceURI }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      FileConfiguration: (_) => _json(_),
+      KmsKey: [],
+      Name: [],
+      ObjectConfiguration: (_) => _json(_),
+      ScheduleConfig: (_) => _json(_),
+      SourceURI: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -117,7 +121,10 @@ export const serializeAws_restJson1CreateDataIntegrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateEventIntegrationCommand = async (
+/**
+ * serializeAws_restJson1CreateEventIntegrationCommand
+ */
+export const se_CreateEventIntegrationCommand = async (
   input: CreateEventIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -127,14 +134,16 @@ export const serializeAws_restJson1CreateEventIntegrationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eventIntegrations";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.EventBridgeBus != null && { EventBridgeBus: input.EventBridgeBus }),
-    ...(input.EventFilter != null && { EventFilter: serializeAws_restJson1EventFilter(input.EventFilter, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      Description: [],
+      EventBridgeBus: [],
+      EventFilter: (_) => _json(_),
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -146,7 +155,10 @@ export const serializeAws_restJson1CreateEventIntegrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDataIntegrationCommand = async (
+/**
+ * serializeAws_restJson1DeleteDataIntegrationCommand
+ */
+export const se_DeleteDataIntegrationCommand = async (
   input: DeleteDataIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -175,7 +187,10 @@ export const serializeAws_restJson1DeleteDataIntegrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteEventIntegrationCommand = async (
+/**
+ * serializeAws_restJson1DeleteEventIntegrationCommand
+ */
+export const se_DeleteEventIntegrationCommand = async (
   input: DeleteEventIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -196,7 +211,10 @@ export const serializeAws_restJson1DeleteEventIntegrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDataIntegrationCommand = async (
+/**
+ * serializeAws_restJson1GetDataIntegrationCommand
+ */
+export const se_GetDataIntegrationCommand = async (
   input: GetDataIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -217,7 +235,10 @@ export const serializeAws_restJson1GetDataIntegrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEventIntegrationCommand = async (
+/**
+ * serializeAws_restJson1GetEventIntegrationCommand
+ */
+export const se_GetEventIntegrationCommand = async (
   input: GetEventIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -238,7 +259,10 @@ export const serializeAws_restJson1GetEventIntegrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDataIntegrationAssociationsCommand = async (
+/**
+ * serializeAws_restJson1ListDataIntegrationAssociationsCommand
+ */
+export const se_ListDataIntegrationAssociationsCommand = async (
   input: ListDataIntegrationAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -272,7 +296,10 @@ export const serializeAws_restJson1ListDataIntegrationAssociationsCommand = asyn
   });
 };
 
-export const serializeAws_restJson1ListDataIntegrationsCommand = async (
+/**
+ * serializeAws_restJson1ListDataIntegrationsCommand
+ */
+export const se_ListDataIntegrationsCommand = async (
   input: ListDataIntegrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -296,7 +323,10 @@ export const serializeAws_restJson1ListDataIntegrationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListEventIntegrationAssociationsCommand = async (
+/**
+ * serializeAws_restJson1ListEventIntegrationAssociationsCommand
+ */
+export const se_ListEventIntegrationAssociationsCommand = async (
   input: ListEventIntegrationAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -330,7 +360,10 @@ export const serializeAws_restJson1ListEventIntegrationAssociationsCommand = asy
   });
 };
 
-export const serializeAws_restJson1ListEventIntegrationsCommand = async (
+/**
+ * serializeAws_restJson1ListEventIntegrationsCommand
+ */
+export const se_ListEventIntegrationsCommand = async (
   input: ListEventIntegrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -354,7 +387,10 @@ export const serializeAws_restJson1ListEventIntegrationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -374,7 +410,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -385,9 +424,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -399,7 +440,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -426,7 +470,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateDataIntegrationCommand = async (
+/**
+ * serializeAws_restJson1UpdateDataIntegrationCommand
+ */
+export const se_UpdateDataIntegrationCommand = async (
   input: UpdateDataIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -438,10 +485,12 @@ export const serializeAws_restJson1UpdateDataIntegrationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dataIntegrations/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -453,7 +502,10 @@ export const serializeAws_restJson1UpdateDataIntegrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateEventIntegrationCommand = async (
+/**
+ * serializeAws_restJson1UpdateEventIntegrationCommand
+ */
+export const se_UpdateEventIntegrationCommand = async (
   input: UpdateEventIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -465,9 +517,11 @@ export const serializeAws_restJson1UpdateEventIntegrationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eventIntegrations/{Name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Description != null && { Description: input.Description }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -479,48 +533,41 @@ export const serializeAws_restJson1UpdateEventIntegrationCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateDataIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1CreateDataIntegrationCommand
+ */
+export const de_CreateDataIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDataIntegrationCommandError(output, context);
+    return de_CreateDataIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ClientToken != null) {
-    contents.ClientToken = __expectString(data.ClientToken);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.KmsKey != null) {
-    contents.KmsKey = __expectString(data.KmsKey);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ScheduleConfiguration != null) {
-    contents.ScheduleConfiguration = deserializeAws_restJson1ScheduleConfiguration(data.ScheduleConfiguration, context);
-  }
-  if (data.SourceURI != null) {
-    contents.SourceURI = __expectString(data.SourceURI);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    ClientToken: __expectString,
+    Description: __expectString,
+    FileConfiguration: _json,
+    Id: __expectString,
+    KmsKey: __expectString,
+    Name: __expectString,
+    ObjectConfiguration: _json,
+    ScheduleConfiguration: _json,
+    SourceURI: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateDataIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDataIntegrationCommandError
+ */
+const de_CreateDataIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataIntegrationCommandOutput> => {
@@ -532,51 +579,57 @@ const deserializeAws_restJson1CreateDataIntegrationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DuplicateResourceException":
     case "com.amazonaws.appintegrations#DuplicateResourceException":
-      throw await deserializeAws_restJson1DuplicateResourceExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceQuotaExceededException":
     case "com.amazonaws.appintegrations#ResourceQuotaExceededException":
-      throw await deserializeAws_restJson1ResourceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateEventIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1CreateEventIntegrationCommand
+ */
+export const de_CreateEventIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateEventIntegrationCommandError(output, context);
+    return de_CreateEventIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventIntegrationArn != null) {
-    contents.EventIntegrationArn = __expectString(data.EventIntegrationArn);
-  }
+  const doc = take(data, {
+    EventIntegrationArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateEventIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateEventIntegrationCommandError
+ */
+const de_CreateEventIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventIntegrationCommandOutput> => {
@@ -588,39 +641,41 @@ const deserializeAws_restJson1CreateEventIntegrationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "DuplicateResourceException":
     case "com.amazonaws.appintegrations#DuplicateResourceException":
-      throw await deserializeAws_restJson1DuplicateResourceExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceQuotaExceededException":
     case "com.amazonaws.appintegrations#ResourceQuotaExceededException":
-      throw await deserializeAws_restJson1ResourceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteDataIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDataIntegrationCommand
+ */
+export const de_DeleteDataIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDataIntegrationCommandError(output, context);
+    return de_DeleteDataIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -629,7 +684,10 @@ export const deserializeAws_restJson1DeleteDataIntegrationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteDataIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDataIntegrationCommandError
+ */
+const de_DeleteDataIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataIntegrationCommandOutput> => {
@@ -641,36 +699,38 @@ const deserializeAws_restJson1DeleteDataIntegrationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteEventIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteEventIntegrationCommand
+ */
+export const de_DeleteEventIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteEventIntegrationCommandError(output, context);
+    return de_DeleteEventIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -679,7 +739,10 @@ export const deserializeAws_restJson1DeleteEventIntegrationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteEventIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteEventIntegrationCommandError
+ */
+const de_DeleteEventIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventIntegrationCommandOutput> => {
@@ -691,69 +754,63 @@ const deserializeAws_restJson1DeleteEventIntegrationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetDataIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1GetDataIntegrationCommand
+ */
+export const de_GetDataIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDataIntegrationCommandError(output, context);
+    return de_GetDataIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.Id != null) {
-    contents.Id = __expectString(data.Id);
-  }
-  if (data.KmsKey != null) {
-    contents.KmsKey = __expectString(data.KmsKey);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.ScheduleConfiguration != null) {
-    contents.ScheduleConfiguration = deserializeAws_restJson1ScheduleConfiguration(data.ScheduleConfiguration, context);
-  }
-  if (data.SourceURI != null) {
-    contents.SourceURI = __expectString(data.SourceURI);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Description: __expectString,
+    FileConfiguration: _json,
+    Id: __expectString,
+    KmsKey: __expectString,
+    Name: __expectString,
+    ObjectConfiguration: _json,
+    ScheduleConfiguration: _json,
+    SourceURI: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetDataIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1GetDataIntegrationCommandError
+ */
+const de_GetDataIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataIntegrationCommandOutput> => {
@@ -765,63 +822,59 @@ const deserializeAws_restJson1GetDataIntegrationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetEventIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1GetEventIntegrationCommand
+ */
+export const de_GetEventIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEventIntegrationCommandError(output, context);
+    return de_GetEventIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.EventBridgeBus != null) {
-    contents.EventBridgeBus = __expectString(data.EventBridgeBus);
-  }
-  if (data.EventFilter != null) {
-    contents.EventFilter = deserializeAws_restJson1EventFilter(data.EventFilter, context);
-  }
-  if (data.EventIntegrationArn != null) {
-    contents.EventIntegrationArn = __expectString(data.EventIntegrationArn);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
-  }
+  const doc = take(data, {
+    Description: __expectString,
+    EventBridgeBus: __expectString,
+    EventFilter: _json,
+    EventIntegrationArn: __expectString,
+    Name: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetEventIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1GetEventIntegrationCommandError
+ */
+const de_GetEventIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventIntegrationCommandOutput> => {
@@ -833,54 +886,55 @@ const deserializeAws_restJson1GetEventIntegrationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListDataIntegrationAssociationsCommand = async (
+/**
+ * deserializeAws_restJson1ListDataIntegrationAssociationsCommand
+ */
+export const de_ListDataIntegrationAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataIntegrationAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDataIntegrationAssociationsCommandError(output, context);
+    return de_ListDataIntegrationAssociationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DataIntegrationAssociations != null) {
-    contents.DataIntegrationAssociations = deserializeAws_restJson1DataIntegrationAssociationsList(
-      data.DataIntegrationAssociations,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DataIntegrationAssociations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListDataIntegrationAssociationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDataIntegrationAssociationsCommandError
+ */
+const de_ListDataIntegrationAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataIntegrationAssociationsCommandOutput> => {
@@ -892,51 +946,55 @@ const deserializeAws_restJson1ListDataIntegrationAssociationsCommandError = asyn
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListDataIntegrationsCommand = async (
+/**
+ * deserializeAws_restJson1ListDataIntegrationsCommand
+ */
+export const de_ListDataIntegrationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataIntegrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDataIntegrationsCommandError(output, context);
+    return de_ListDataIntegrationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DataIntegrations != null) {
-    contents.DataIntegrations = deserializeAws_restJson1DataIntegrationsList(data.DataIntegrations, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    DataIntegrations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListDataIntegrationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDataIntegrationsCommandError
+ */
+const de_ListDataIntegrationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataIntegrationsCommandOutput> => {
@@ -948,51 +1006,52 @@ const deserializeAws_restJson1ListDataIntegrationsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListEventIntegrationAssociationsCommand = async (
+/**
+ * deserializeAws_restJson1ListEventIntegrationAssociationsCommand
+ */
+export const de_ListEventIntegrationAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventIntegrationAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEventIntegrationAssociationsCommandError(output, context);
+    return de_ListEventIntegrationAssociationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventIntegrationAssociations != null) {
-    contents.EventIntegrationAssociations = deserializeAws_restJson1EventIntegrationAssociationsList(
-      data.EventIntegrationAssociations,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    EventIntegrationAssociations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListEventIntegrationAssociationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListEventIntegrationAssociationsCommandError
+ */
+const de_ListEventIntegrationAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventIntegrationAssociationsCommandOutput> => {
@@ -1004,51 +1063,55 @@ const deserializeAws_restJson1ListEventIntegrationAssociationsCommandError = asy
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListEventIntegrationsCommand = async (
+/**
+ * deserializeAws_restJson1ListEventIntegrationsCommand
+ */
+export const de_ListEventIntegrationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventIntegrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEventIntegrationsCommandError(output, context);
+    return de_ListEventIntegrationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventIntegrations != null) {
-    contents.EventIntegrations = deserializeAws_restJson1EventIntegrationsList(data.EventIntegrations, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    EventIntegrations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListEventIntegrationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListEventIntegrationsCommandError
+ */
+const de_ListEventIntegrationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventIntegrationsCommandOutput> => {
@@ -1060,45 +1123,51 @@ const deserializeAws_restJson1ListEventIntegrationsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
-  }
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1110,33 +1179,35 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1145,7 +1216,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1157,33 +1231,35 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1192,7 +1268,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1204,33 +1283,35 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateDataIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDataIntegrationCommand
+ */
+export const de_UpdateDataIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDataIntegrationCommandError(output, context);
+    return de_UpdateDataIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1239,7 +1320,10 @@ export const deserializeAws_restJson1UpdateDataIntegrationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateDataIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDataIntegrationCommandError
+ */
+const de_UpdateDataIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataIntegrationCommandOutput> => {
@@ -1251,36 +1335,38 @@ const deserializeAws_restJson1UpdateDataIntegrationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateEventIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateEventIntegrationCommand
+ */
+export const de_UpdateEventIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEventIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateEventIntegrationCommandError(output, context);
+    return de_UpdateEventIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1289,7 +1375,10 @@ export const deserializeAws_restJson1UpdateEventIntegrationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateEventIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateEventIntegrationCommandError
+ */
+const de_UpdateEventIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEventIntegrationCommandOutput> => {
@@ -1301,40 +1390,43 @@ const deserializeAws_restJson1UpdateEventIntegrationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await deserializeAws_restJson1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1342,15 +1434,19 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DuplicateResourceExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DuplicateResourceExceptionRes
+ */
+const de_DuplicateResourceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateResourceException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DuplicateResourceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1358,15 +1454,19 @@ const deserializeAws_restJson1DuplicateResourceExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServiceErrorResponse = async (
+/**
+ * deserializeAws_restJson1InternalServiceErrorRes
+ */
+const de_InternalServiceErrorRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServiceError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1374,15 +1474,19 @@ const deserializeAws_restJson1InternalServiceErrorResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1390,15 +1494,19 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1406,15 +1514,19 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceQuotaExceededExceptionRes
+ */
+const de_ResourceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1422,15 +1534,16 @@ const deserializeAws_restJson1ResourceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1438,174 +1551,55 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1EventFilter = (input: EventFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Source != null && { Source: input.Source }),
-  };
-};
+// se_EventFilter omitted.
 
-const serializeAws_restJson1ScheduleConfiguration = (input: ScheduleConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.FirstExecutionFrom != null && { FirstExecutionFrom: input.FirstExecutionFrom }),
-    ...(input.Object != null && { Object: input.Object }),
-    ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
-  };
-};
+// se_FieldsList omitted.
 
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_FieldsMap omitted.
 
-const deserializeAws_restJson1ClientAssociationMetadata = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// se_FileConfiguration omitted.
 
-const deserializeAws_restJson1DataIntegrationAssociationsList = (
-  output: any,
-  context: __SerdeContext
-): DataIntegrationAssociationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DataIntegrationAssociationSummary(entry, context);
-    });
-  return retVal;
-};
+// se_FolderList omitted.
 
-const deserializeAws_restJson1DataIntegrationAssociationSummary = (
-  output: any,
-  context: __SerdeContext
-): DataIntegrationAssociationSummary => {
-  return {
-    ClientId: __expectString(output.ClientId),
-    DataIntegrationArn: __expectString(output.DataIntegrationArn),
-    DataIntegrationAssociationArn: __expectString(output.DataIntegrationAssociationArn),
-  } as any;
-};
+// se_ObjectConfiguration omitted.
 
-const deserializeAws_restJson1DataIntegrationsList = (
-  output: any,
-  context: __SerdeContext
-): DataIntegrationSummary[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DataIntegrationSummary(entry, context);
-    });
-  return retVal;
-};
+// se_ScheduleConfiguration omitted.
 
-const deserializeAws_restJson1DataIntegrationSummary = (
-  output: any,
-  context: __SerdeContext
-): DataIntegrationSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    Name: __expectString(output.Name),
-    SourceURI: __expectString(output.SourceURI),
-  } as any;
-};
+// se_TagMap omitted.
 
-const deserializeAws_restJson1EventFilter = (output: any, context: __SerdeContext): EventFilter => {
-  return {
-    Source: __expectString(output.Source),
-  } as any;
-};
+// de_ClientAssociationMetadata omitted.
 
-const deserializeAws_restJson1EventIntegration = (output: any, context: __SerdeContext): EventIntegration => {
-  return {
-    Description: __expectString(output.Description),
-    EventBridgeBus: __expectString(output.EventBridgeBus),
-    EventFilter:
-      output.EventFilter != null ? deserializeAws_restJson1EventFilter(output.EventFilter, context) : undefined,
-    EventIntegrationArn: __expectString(output.EventIntegrationArn),
-    Name: __expectString(output.Name),
-    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
-  } as any;
-};
+// de_DataIntegrationAssociationsList omitted.
 
-const deserializeAws_restJson1EventIntegrationAssociation = (
-  output: any,
-  context: __SerdeContext
-): EventIntegrationAssociation => {
-  return {
-    ClientAssociationMetadata:
-      output.ClientAssociationMetadata != null
-        ? deserializeAws_restJson1ClientAssociationMetadata(output.ClientAssociationMetadata, context)
-        : undefined,
-    ClientId: __expectString(output.ClientId),
-    EventBridgeRuleName: __expectString(output.EventBridgeRuleName),
-    EventIntegrationAssociationArn: __expectString(output.EventIntegrationAssociationArn),
-    EventIntegrationAssociationId: __expectString(output.EventIntegrationAssociationId),
-    EventIntegrationName: __expectString(output.EventIntegrationName),
-  } as any;
-};
+// de_DataIntegrationAssociationSummary omitted.
 
-const deserializeAws_restJson1EventIntegrationAssociationsList = (
-  output: any,
-  context: __SerdeContext
-): EventIntegrationAssociation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1EventIntegrationAssociation(entry, context);
-    });
-  return retVal;
-};
+// de_DataIntegrationsList omitted.
 
-const deserializeAws_restJson1EventIntegrationsList = (output: any, context: __SerdeContext): EventIntegration[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1EventIntegration(entry, context);
-    });
-  return retVal;
-};
+// de_DataIntegrationSummary omitted.
 
-const deserializeAws_restJson1ScheduleConfiguration = (output: any, context: __SerdeContext): ScheduleConfiguration => {
-  return {
-    FirstExecutionFrom: __expectString(output.FirstExecutionFrom),
-    Object: __expectString(output.Object),
-    ScheduleExpression: __expectString(output.ScheduleExpression),
-  } as any;
-};
+// de_EventFilter omitted.
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_EventIntegration omitted.
+
+// de_EventIntegrationAssociation omitted.
+
+// de_EventIntegrationAssociationsList omitted.
+
+// de_EventIntegrationsList omitted.
+
+// de_FieldsList omitted.
+
+// de_FieldsMap omitted.
+
+// de_FileConfiguration omitted.
+
+// de_FolderList omitted.
+
+// de_ObjectConfiguration omitted.
+
+// de_ScheduleConfiguration omitted.
+
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

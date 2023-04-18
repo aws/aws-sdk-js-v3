@@ -6,12 +6,11 @@ import {
   ListPipelineExecutionStepsCommandInput,
   ListPipelineExecutionStepsCommandOutput,
 } from "../commands/ListPipelineExecutionStepsCommand";
-import { SageMaker } from "../SageMaker";
 import { SageMakerClient } from "../SageMakerClient";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SageMakerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPipelineExecutionStepsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SageMaker,
-  input: ListPipelineExecutionStepsCommandInput,
-  ...args: any
-): Promise<ListPipelineExecutionStepsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPipelineExecutionSteps(input, ...args);
-};
 export async function* paginateListPipelineExecutionSteps(
   config: SageMakerPaginationConfiguration,
   input: ListPipelineExecutionStepsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListPipelineExecutionSteps(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SageMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SageMakerClient) {
+    if (config.client instanceof SageMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");

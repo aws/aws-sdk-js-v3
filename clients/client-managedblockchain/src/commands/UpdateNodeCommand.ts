@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  UpdateNodeInput,
-  UpdateNodeInputFilterSensitiveLog,
-  UpdateNodeOutput,
-  UpdateNodeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateNodeCommand,
-  serializeAws_restJson1UpdateNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateNodeInput, UpdateNodeOutput } from "../models/models_0";
+import { de_UpdateNodeCommand, se_UpdateNodeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateNodeCommand}.
+ */
 export interface UpdateNodeCommandInput extends UpdateNodeInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateNodeCommand}.
+ */
 export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a node configuration with new parameters.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -41,13 +44,53 @@ export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBea
  * import { ManagedBlockchainClient, UpdateNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, UpdateNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // UpdateNodeInput
+ *   NetworkId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE",
+ *   NodeId: "STRING_VALUE", // required
+ *   LogPublishingConfiguration: { // NodeLogPublishingConfiguration
+ *     Fabric: { // NodeFabricLogPublishingConfiguration
+ *       ChaincodeLogs: { // LogConfigurations
+ *         Cloudwatch: { // LogConfiguration
+ *           Enabled: true || false,
+ *         },
+ *       },
+ *       PeerLogs: {
+ *         Cloudwatch: {
+ *           Enabled: true || false,
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateNodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNodeCommandInput - {@link UpdateNodeCommandInput}
+ * @returns {@link UpdateNodeCommandOutput}
  * @see {@link UpdateNodeCommandInput} for command's `input` shape.
  * @see {@link UpdateNodeCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request or operation couldn't be performed because a service is
+ *          throttling requests. The most common source of throttling errors is
+ *          creating resources that exceed your service limit for this resource type.
+ *          Request a limit increase or delete unused resources if possible.</p>
+ *
  *
  */
 export class UpdateNodeCommand extends $Command<
@@ -67,6 +110,9 @@ export class UpdateNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +139,8 @@ export class UpdateNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNodeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNodeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +150,18 @@ export class UpdateNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNodeCommand(input, context);
+    return se_UpdateNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNodeCommandOutput> {
-    return deserializeAws_restJson1UpdateNodeCommand(output, context);
+    return de_UpdateNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

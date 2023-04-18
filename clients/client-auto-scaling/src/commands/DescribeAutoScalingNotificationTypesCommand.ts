@@ -14,21 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { DescribeAutoScalingNotificationTypesAnswer } from "../models/models_0";
 import {
-  DescribeAutoScalingNotificationTypesAnswer,
-  DescribeAutoScalingNotificationTypesAnswerFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAutoScalingNotificationTypesCommand,
-  serializeAws_queryDescribeAutoScalingNotificationTypesCommand,
+  de_DescribeAutoScalingNotificationTypesCommand,
+  se_DescribeAutoScalingNotificationTypesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAutoScalingNotificationTypesCommand}.
+ */
 export interface DescribeAutoScalingNotificationTypesCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAutoScalingNotificationTypesCommand}.
+ */
 export interface DescribeAutoScalingNotificationTypesCommandOutput
   extends DescribeAutoScalingNotificationTypesAnswer,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the notification types that are supported by Amazon EC2 Auto Scaling.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,41 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
  * import { AutoScalingClient, DescribeAutoScalingNotificationTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeAutoScalingNotificationTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {};
  * const command = new DescribeAutoScalingNotificationTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutoScalingNotificationTypesCommandInput - {@link DescribeAutoScalingNotificationTypesCommandInput}
+ * @returns {@link DescribeAutoScalingNotificationTypesCommandOutput}
  * @see {@link DescribeAutoScalingNotificationTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingNotificationTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To describe the Auto Scaling notification types
+ * ```javascript
+ * // This example describes the available notification types.
+ * const input = undefined;
+ * const command = new DescribeAutoScalingNotificationTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AutoScalingNotificationTypes": [
+ *     "autoscaling:EC2_INSTANCE_LAUNCH",
+ *     "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+ *     "autoscaling:EC2_INSTANCE_TERMINATE",
+ *     "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+ *     "autoscaling:TEST_NOTIFICATION"
+ *   ]
+ * }
+ * *\/
+ * // example id: autoscaling-describe-auto-scaling-notification-types-1
+ * ```
  *
  */
 export class DescribeAutoScalingNotificationTypesCommand extends $Command<
@@ -62,6 +98,9 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutoScalingNotificationTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeAutoScalingNotificationTypesAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,18 +140,24 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAutoScalingNotificationTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAutoScalingNotificationTypesCommand(input, context);
+    return se_DescribeAutoScalingNotificationTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingNotificationTypesCommandOutput> {
-    return deserializeAws_queryDescribeAutoScalingNotificationTypesCommand(output, context);
+    return de_DescribeAutoScalingNotificationTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

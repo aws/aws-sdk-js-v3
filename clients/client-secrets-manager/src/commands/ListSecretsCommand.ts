@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSecretsRequest,
-  ListSecretsRequestFilterSensitiveLog,
-  ListSecretsResponse,
-  ListSecretsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSecretsCommand,
-  serializeAws_json1_1ListSecretsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSecretsRequest, ListSecretsResponse } from "../models/models_0";
+import { de_ListSecretsCommand, se_ListSecretsCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSecretsCommand}.
+ */
 export interface ListSecretsCommandInput extends ListSecretsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSecretsCommand}.
+ */
 export interface ListSecretsCommandOutput extends ListSecretsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account, not including secrets
  *       that are marked for deletion. To see secrets marked for deletion, use the Secrets Manager console.</p>
  *          <p>ListSecrets is eventually consistent, however it might not reflect changes from the last five minutes.
@@ -50,13 +53,76 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * import { SecretsManagerClient, ListSecretsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ListSecretsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // ListSecretsRequest
+ *   IncludePlannedDeletion: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // FiltersListType
+ *     { // Filter
+ *       Key: "description" || "name" || "tag-key" || "tag-value" || "primary-region" || "owning-service" || "all",
+ *       Values: [ // FilterValuesStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SortOrder: "asc" || "desc",
+ * };
  * const command = new ListSecretsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecretsCommandInput - {@link ListSecretsCommandInput}
+ * @returns {@link ListSecretsCommandOutput}
  * @see {@link ListSecretsCommandInput} for command's `input` shape.
  * @see {@link ListSecretsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value is invalid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The parameter name or value is invalid.</p>
+ *
+ *
+ * @example To list the secrets in your account
+ * ```javascript
+ * // The following example shows how to list all of the secrets in your account.
+ * const input = {};
+ * const command = new ListSecretsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SecretList": [
+ *     {
+ *       "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *       "Description": "My test database secret",
+ *       "LastChangedDate": 1523477145.729,
+ *       "Name": "MyTestDatabaseSecret",
+ *       "SecretVersionsToStages": {
+ *         "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE": [
+ *           "AWSCURRENT"
+ *         ]
+ *       }
+ *     },
+ *     {
+ *       "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret1-d4e5f6",
+ *       "Description": "Another secret created for a different database",
+ *       "LastChangedDate": 1523482025.685,
+ *       "Name": "MyTestDatabaseSecret1",
+ *       "SecretVersionsToStages": {
+ *         "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE": [
+ *           "AWSCURRENT"
+ *         ]
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-the-secrets-in-your-account-1524001246087
+ * ```
  *
  */
 export class ListSecretsCommand extends $Command<
@@ -76,6 +142,9 @@ export class ListSecretsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecretsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +171,8 @@ export class ListSecretsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecretsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSecretsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +182,18 @@ export class ListSecretsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecretsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSecretsCommand(input, context);
+    return se_ListSecretsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecretsCommandOutput> {
-    return deserializeAws_json1_1ListSecretsCommand(output, context);
+    return de_ListSecretsCommand(output, context);
   }
 
   // Start section: command_body_extra

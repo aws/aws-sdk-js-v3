@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  FailoverShardRequest,
-  FailoverShardRequestFilterSensitiveLog,
-  FailoverShardResponse,
-  FailoverShardResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1FailoverShardCommand,
-  serializeAws_json1_1FailoverShardCommand,
-} from "../protocols/Aws_json1_1";
+import { FailoverShardRequest, FailoverShardResponse } from "../models/models_0";
+import { de_FailoverShardCommand, se_FailoverShardCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link FailoverShardCommand}.
+ */
 export interface FailoverShardCommandInput extends FailoverShardRequest {}
+/**
+ * @public
+ *
+ * The output of {@link FailoverShardCommand}.
+ */
 export interface FailoverShardCommandOutput extends FailoverShardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to failover a shard. This API is designed for testing the behavior of your application in case of MemoryDB failover. It is not designed to be used as a production-level tool for initiating
  *          a failover to overcome a problem you may have with the cluster. Moreover, in certain conditions such as large scale operational events, Amazon may block this API. </p>
  * @example
@@ -37,13 +40,44 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  * import { MemoryDBClient, FailoverShardCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, FailoverShardCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // FailoverShardRequest
+ *   ClusterName: "STRING_VALUE", // required
+ *   ShardName: "STRING_VALUE", // required
+ * };
  * const command = new FailoverShardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param FailoverShardCommandInput - {@link FailoverShardCommandInput}
+ * @returns {@link FailoverShardCommandOutput}
  * @see {@link FailoverShardCommandInput} for command's `input` shape.
  * @see {@link FailoverShardCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
+ *
+ * @throws {@link APICallRateForCustomerExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidKMSKeyFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ShardNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TestFailoverNotAvailableFault} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class FailoverShardCommand extends $Command<
@@ -63,6 +97,9 @@ export class FailoverShardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FailoverShardCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +126,8 @@ export class FailoverShardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FailoverShardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: FailoverShardResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +137,18 @@ export class FailoverShardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FailoverShardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1FailoverShardCommand(input, context);
+    return se_FailoverShardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FailoverShardCommandOutput> {
-    return deserializeAws_json1_1FailoverShardCommand(output, context);
+    return de_FailoverShardCommand(output, context);
   }
 
   // Start section: command_body_extra

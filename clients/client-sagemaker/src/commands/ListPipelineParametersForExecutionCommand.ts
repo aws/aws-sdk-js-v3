@@ -15,22 +15,31 @@ import {
 
 import {
   ListPipelineParametersForExecutionRequest,
-  ListPipelineParametersForExecutionRequestFilterSensitiveLog,
   ListPipelineParametersForExecutionResponse,
-  ListPipelineParametersForExecutionResponseFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_json1_1ListPipelineParametersForExecutionCommand,
-  serializeAws_json1_1ListPipelineParametersForExecutionCommand,
+  de_ListPipelineParametersForExecutionCommand,
+  se_ListPipelineParametersForExecutionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPipelineParametersForExecutionCommand}.
+ */
 export interface ListPipelineParametersForExecutionCommandInput extends ListPipelineParametersForExecutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPipelineParametersForExecutionCommand}.
+ */
 export interface ListPipelineParametersForExecutionCommandOutput
   extends ListPipelineParametersForExecutionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of parameters for a pipeline execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,24 @@ export interface ListPipelineParametersForExecutionCommandOutput
  * import { SageMakerClient, ListPipelineParametersForExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListPipelineParametersForExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListPipelineParametersForExecutionRequest
+ *   PipelineExecutionArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPipelineParametersForExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelineParametersForExecutionCommandInput - {@link ListPipelineParametersForExecutionCommandInput}
+ * @returns {@link ListPipelineParametersForExecutionCommandOutput}
  * @see {@link ListPipelineParametersForExecutionCommandInput} for command's `input` shape.
  * @see {@link ListPipelineParametersForExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ListPipelineParametersForExecutionCommand extends $Command<
@@ -64,6 +84,9 @@ export class ListPipelineParametersForExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelineParametersForExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class ListPipelineParametersForExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPipelineParametersForExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPipelineParametersForExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +126,24 @@ export class ListPipelineParametersForExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPipelineParametersForExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPipelineParametersForExecutionCommand(input, context);
+    return se_ListPipelineParametersForExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPipelineParametersForExecutionCommandOutput> {
-    return deserializeAws_json1_1ListPipelineParametersForExecutionCommand(output, context);
+    return de_ListPipelineParametersForExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

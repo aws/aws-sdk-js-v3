@@ -6,12 +6,11 @@ import {
   DescribeCanariesCommandInput,
   DescribeCanariesCommandOutput,
 } from "../commands/DescribeCanariesCommand";
-import { Synthetics } from "../Synthetics";
 import { SyntheticsClient } from "../SyntheticsClient";
 import { SyntheticsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SyntheticsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeCanariesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Synthetics,
-  input: DescribeCanariesCommandInput,
-  ...args: any
-): Promise<DescribeCanariesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeCanaries(input, ...args);
-};
 export async function* paginateDescribeCanaries(
   config: SyntheticsPaginationConfiguration,
   input: DescribeCanariesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeCanaries(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Synthetics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SyntheticsClient) {
+    if (config.client instanceof SyntheticsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Synthetics | SyntheticsClient");

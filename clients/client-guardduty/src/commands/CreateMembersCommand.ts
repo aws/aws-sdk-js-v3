@@ -14,46 +14,64 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  CreateMembersRequest,
-  CreateMembersRequestFilterSensitiveLog,
-  CreateMembersResponse,
-  CreateMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMembersCommand,
-  serializeAws_restJson1CreateMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMembersRequest, CreateMembersResponse } from "../models/models_0";
+import { de_CreateMembersCommand, se_CreateMembersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMembersCommand}.
+ */
 export interface CreateMembersCommandInput extends CreateMembersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMembersCommand}.
+ */
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates member accounts of the current Amazon Web Services account by specifying a list of Amazon Web Services account
  *       IDs. This step is a prerequisite for managing the associated member accounts either by
  *       invitation or through an organization.</p>
  *          <p>When using <code>Create Members</code> as an organizations delegated administrator this
  *       action will enable GuardDuty in the added member accounts, with the exception of the
- *       organization delegated administrator account, which must enable GuardDuty prior to being added as a
- *       member.</p>
- *          <p>If you are adding accounts by invitation use this action after GuardDuty has been enabled
- *       in potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">
- *                <code>Invite
- *         Members</code>
- *             </a>.</p>
+ *       organization delegated administrator account, which must enable GuardDuty prior to being added
+ *       as a member.</p>
+ *          <p>If you are adding accounts by invitation, use this action after GuardDuty has bee enabled in
+ *       potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, CreateMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // CreateMembersRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   AccountDetails: [ // AccountDetails // required
+ *     { // AccountDetail
+ *       AccountId: "STRING_VALUE", // required
+ *       Email: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMembersCommandInput - {@link CreateMembersCommandInput}
+ * @returns {@link CreateMembersCommandOutput}
  * @see {@link CreateMembersCommandInput} for command's `input` shape.
  * @see {@link CreateMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class CreateMembersCommand extends $Command<
@@ -73,6 +91,9 @@ export class CreateMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +120,8 @@ export class CreateMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +131,18 @@ export class CreateMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMembersCommand(input, context);
+    return se_CreateMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMembersCommandOutput> {
-    return deserializeAws_restJson1CreateMembersCommand(output, context);
+    return de_CreateMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

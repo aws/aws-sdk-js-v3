@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetClassifierRequest,
-  GetClassifierRequestFilterSensitiveLog,
-  GetClassifierResponse,
-  GetClassifierResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetClassifierCommand,
-  serializeAws_json1_1GetClassifierCommand,
-} from "../protocols/Aws_json1_1";
+import { GetClassifierRequest, GetClassifierResponse } from "../models/models_1";
+import { de_GetClassifierCommand, se_GetClassifierCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetClassifierCommand}.
+ */
 export interface GetClassifierCommandInput extends GetClassifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetClassifierCommand}.
+ */
 export interface GetClassifierCommandOutput extends GetClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve a classifier by name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface GetClassifierCommandOutput extends GetClassifierResponse, __Met
  * import { GlueClient, GetClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetClassifierRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetClassifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClassifierCommandInput - {@link GetClassifierCommandInput}
+ * @returns {@link GetClassifierCommandOutput}
  * @see {@link GetClassifierCommandInput} for command's `input` shape.
  * @see {@link GetClassifierCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetClassifierCommand extends $Command<
@@ -62,6 +77,9 @@ export class GetClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class GetClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClassifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetClassifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class GetClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetClassifierCommand(input, context);
+    return se_GetClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClassifierCommandOutput> {
-    return deserializeAws_json1_1GetClassifierCommand(output, context);
+    return de_GetClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

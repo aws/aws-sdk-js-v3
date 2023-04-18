@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  GetLaunchRequest,
-  GetLaunchRequestFilterSensitiveLog,
-  GetLaunchResponse,
-  GetLaunchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLaunchCommand,
-  serializeAws_restJson1GetLaunchCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLaunchRequest, GetLaunchResponse } from "../models/models_0";
+import { de_GetLaunchCommand, se_GetLaunchCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLaunchCommand}.
+ */
 export interface GetLaunchCommandInput extends GetLaunchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLaunchCommand}.
+ */
 export interface GetLaunchCommandOutput extends GetLaunchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details about one launch. You must already know the
  *        launch name. To retrieve a list of launches in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html">ListLaunches</a>.</p>
  * @example
@@ -37,13 +40,32 @@ export interface GetLaunchCommandOutput extends GetLaunchResponse, __MetadataBea
  * import { EvidentlyClient, GetLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // GetLaunchRequest
+ *   project: "STRING_VALUE", // required
+ *   launch: "STRING_VALUE", // required
+ * };
  * const command = new GetLaunchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLaunchCommandInput - {@link GetLaunchCommandInput}
+ * @returns {@link GetLaunchCommandOutput}
  * @see {@link GetLaunchCommandInput} for command's `input` shape.
  * @see {@link GetLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class GetLaunchCommand extends $Command<
@@ -63,6 +85,9 @@ export class GetLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +114,8 @@ export class GetLaunchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLaunchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLaunchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +125,18 @@ export class GetLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLaunchCommand(input, context);
+    return se_GetLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLaunchCommandOutput> {
-    return deserializeAws_restJson1GetLaunchCommand(output, context);
+    return de_GetLaunchCommand(output, context);
   }
 
   // Start section: command_body_extra

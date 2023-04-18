@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteLinkRequest,
-  DeleteLinkRequestFilterSensitiveLog,
-  DeleteLinkResponse,
-  DeleteLinkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLinkRequest, DeleteLinkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DeleteLinkCommand,
-  serializeAws_restJson1DeleteLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLinkCommand, se_DeleteLinkCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteLinkCommand}.
+ */
 export interface DeleteLinkCommandInput extends DeleteLinkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLinkCommand}.
+ */
 export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing link. You must first disassociate the link from any devices and
  *             customer gateways.</p>
  * @example
@@ -37,13 +40,39 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
  * import { NetworkManagerClient, DeleteLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // DeleteLinkRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   LinkId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLinkCommandInput - {@link DeleteLinkCommandInput}
+ * @returns {@link DeleteLinkCommandOutput}
  * @see {@link DeleteLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteLinkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Updating or deleting the resource can
+ *             cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class DeleteLinkCommand extends $Command<
@@ -63,6 +92,9 @@ export class DeleteLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +121,8 @@ export class DeleteLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLinkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +132,18 @@ export class DeleteLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLinkCommand(input, context);
+    return se_DeleteLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLinkCommandOutput> {
-    return deserializeAws_restJson1DeleteLinkCommand(output, context);
+    return de_DeleteLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

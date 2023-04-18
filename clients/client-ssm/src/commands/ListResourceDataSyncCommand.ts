@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResourceDataSyncRequest,
-  ListResourceDataSyncRequestFilterSensitiveLog,
-  ListResourceDataSyncResult,
-  ListResourceDataSyncResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListResourceDataSyncCommand,
-  serializeAws_json1_1ListResourceDataSyncCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourceDataSyncRequest, ListResourceDataSyncResult } from "../models/models_1";
+import { de_ListResourceDataSyncCommand, se_ListResourceDataSyncCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResourceDataSyncCommand}.
+ */
 export interface ListResourceDataSyncCommandInput extends ListResourceDataSyncRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListResourceDataSyncCommand}.
+ */
 export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your resource data sync configurations. Includes information about the last time a
  *    sync attempted to start, the last sync status, and the last time a sync successfully
  *    completed.</p>
@@ -44,13 +47,30 @@ export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncR
  * import { SSMClient, ListResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListResourceDataSyncRequest
+ *   SyncType: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListResourceDataSyncCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceDataSyncCommandInput - {@link ListResourceDataSyncCommandInput}
+ * @returns {@link ListResourceDataSyncCommandOutput}
  * @see {@link ListResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link ListResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link ResourceDataSyncInvalidConfigurationException} (client fault)
+ *  <p>The specified sync configuration is invalid.</p>
+ *
  *
  */
 export class ListResourceDataSyncCommand extends $Command<
@@ -70,6 +90,9 @@ export class ListResourceDataSyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceDataSyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +121,8 @@ export class ListResourceDataSyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceDataSyncRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceDataSyncResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +132,18 @@ export class ListResourceDataSyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceDataSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceDataSyncCommand(input, context);
+    return se_ListResourceDataSyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceDataSyncCommandOutput> {
-    return deserializeAws_json1_1ListResourceDataSyncCommand(output, context);
+    return de_ListResourceDataSyncCommand(output, context);
   }
 
   // Start section: command_body_extra

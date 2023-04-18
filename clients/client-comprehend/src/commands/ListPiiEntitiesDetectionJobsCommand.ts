@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { ListPiiEntitiesDetectionJobsRequest, ListPiiEntitiesDetectionJobsResponse } from "../models/models_0";
 import {
-  ListPiiEntitiesDetectionJobsRequest,
-  ListPiiEntitiesDetectionJobsRequestFilterSensitiveLog,
-  ListPiiEntitiesDetectionJobsResponse,
-  ListPiiEntitiesDetectionJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPiiEntitiesDetectionJobsCommand,
-  serializeAws_json1_1ListPiiEntitiesDetectionJobsCommand,
+  de_ListPiiEntitiesDetectionJobsCommand,
+  se_ListPiiEntitiesDetectionJobsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPiiEntitiesDetectionJobsCommand}.
+ */
 export interface ListPiiEntitiesDetectionJobsCommandInput extends ListPiiEntitiesDetectionJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPiiEntitiesDetectionJobsCommand}.
+ */
 export interface ListPiiEntitiesDetectionJobsCommandOutput
   extends ListPiiEntitiesDetectionJobsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the PII entity detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,39 @@ export interface ListPiiEntitiesDetectionJobsCommandOutput
  * import { ComprehendClient, ListPiiEntitiesDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListPiiEntitiesDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListPiiEntitiesDetectionJobsRequest
+ *   Filter: { // PiiEntitiesDetectionJobFilter
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPiiEntitiesDetectionJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPiiEntitiesDetectionJobsCommandInput - {@link ListPiiEntitiesDetectionJobsCommandInput}
+ * @returns {@link ListPiiEntitiesDetectionJobsCommandOutput}
  * @see {@link ListPiiEntitiesDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListPiiEntitiesDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidFilterException} (client fault)
+ *  <p>The filter specified for the operation is invalid. Specify a different
+ *       filter.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class ListPiiEntitiesDetectionJobsCommand extends $Command<
@@ -64,6 +96,9 @@ export class ListPiiEntitiesDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPiiEntitiesDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +127,8 @@ export class ListPiiEntitiesDetectionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPiiEntitiesDetectionJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPiiEntitiesDetectionJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +138,21 @@ export class ListPiiEntitiesDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPiiEntitiesDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPiiEntitiesDetectionJobsCommand(input, context);
+    return se_ListPiiEntitiesDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPiiEntitiesDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListPiiEntitiesDetectionJobsCommand(output, context);
+    return de_ListPiiEntitiesDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

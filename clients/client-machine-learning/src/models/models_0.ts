@@ -3,14 +3,24 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { MachineLearningServiceException as __BaseException } from "./MachineLearningServiceException";
 
-export enum TaggableResourceType {
-  BATCH_PREDICTION = "BatchPrediction",
-  DATASOURCE = "DataSource",
-  EVALUATION = "Evaluation",
-  ML_MODEL = "MLModel",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaggableResourceType = {
+  BATCH_PREDICTION: "BatchPrediction",
+  DATASOURCE: "DataSource",
+  EVALUATION: "Evaluation",
+  ML_MODEL: "MLModel",
+} as const;
 
 /**
+ * @public
+ */
+export type TaggableResourceType = (typeof TaggableResourceType)[keyof typeof TaggableResourceType];
+
+/**
+ * @public
  * <p>A custom key-value pair associated with an ML object, such as an ML model.</p>
  */
 export interface Tag {
@@ -25,6 +35,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsInput {
   /**
    * <p>The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.</p>
@@ -43,6 +56,7 @@ export interface AddTagsInput {
 }
 
 /**
+ * @public
  * <p>Amazon ML returns the following elements.</p>
  */
 export interface AddTagsOutput {
@@ -58,6 +72,7 @@ export interface AddTagsOutput {
 }
 
 /**
+ * @public
  * <p>An error on the server occurred when trying to process a request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -79,6 +94,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  */
 export class InvalidInputException extends __BaseException {
@@ -99,6 +115,9 @@ export class InvalidInputException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class InvalidTagException extends __BaseException {
   readonly name: "InvalidTagException" = "InvalidTagException";
   readonly $fault: "client" = "client";
@@ -116,6 +135,7 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specified resource cannot be located.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -136,6 +156,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class TagLimitExceededException extends __BaseException {
   readonly name: "TagLimitExceededException" = "TagLimitExceededException";
   readonly $fault: "client" = "client";
@@ -152,10 +175,22 @@ export class TagLimitExceededException extends __BaseException {
   }
 }
 
-export enum Algorithm {
-  SGD = "sgd",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Algorithm = {
+  SGD: "sgd",
+} as const;
 
+/**
+ * @public
+ */
+export type Algorithm = (typeof Algorithm)[keyof typeof Algorithm];
+
+/**
+ * @public
+ */
 export interface CreateBatchPredictionInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the
@@ -186,6 +221,7 @@ export interface CreateBatchPredictionInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>CreateBatchPrediction</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *          <p>The <code>CreateBatchPrediction</code> operation is asynchronous. You can poll for status updates by using the <code>>GetBatchPrediction</code>
  *             operation and checking the <code>Status</code> parameter of the result.
@@ -200,6 +236,7 @@ export interface CreateBatchPredictionOutput {
 }
 
 /**
+ * @public
  * <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -221,6 +258,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The database credentials to connect to a database on an RDS DB instance.</p>
  */
 export interface RDSDatabaseCredentials {
@@ -238,6 +276,7 @@ export interface RDSDatabaseCredentials {
 }
 
 /**
+ * @public
  * <p>The database details of an Amazon RDS database.</p>
  */
 export interface RDSDatabase {
@@ -253,6 +292,7 @@ export interface RDSDatabase {
 }
 
 /**
+ * @public
  * <p>The data specification of an Amazon Relational Database Service (Amazon RDS) <code>DataSource</code>.</p>
  */
 export interface RDSDataSpec {
@@ -320,9 +360,9 @@ export interface RDSDataSpec {
    *     <code>complement</code> parameter.</p>
    *
    *                <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code>
+   *                <p>Datasource for evaluation: <code>\{"splitting":\{"percentBegin":0, "percentEnd":25\}\}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>\{"splitting":\{"percentBegin":0, "percentEnd":25, "complement":"true"\}\}</code>
    *                </p>
    *             </li>
    *             <li>
@@ -338,9 +378,9 @@ export interface RDSDataSpec {
    *
    *                <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered
    *     training and evaluation datasources:</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code>
+   *                <p>Datasource for evaluation: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"sequential"\}\}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"\}\}</code>
    *                </p>
    *
    *                <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd
@@ -357,9 +397,9 @@ export interface RDSDataSpec {
    *     training and evaluation datasources containing non-similar data records.</p>
    *                <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered
    *     training and evaluation datasources:</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code>
+   *                <p>Datasource for evaluation: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"\}\}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"\}\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -377,15 +417,15 @@ export interface RDSDataSpec {
    *         <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
    *             and <code>excludedVariableNames</code> have an array of key-value pairs
    *             for their value. Use the following format to define your <code>DataSchema</code>.</p>
-   *         <p>{ "version": "1.0",</p>
+   *         <p>\{ "version": "1.0",</p>
    *          <p>"recordAnnotationFieldName": "F1",</p>
    *          <p>"recordWeightFieldName": "F2",</p>
    *          <p>"targetFieldName": "F3",</p>
    *          <p>"dataFormat": "CSV",</p>
    *          <p>"dataFileContainsHeader": true,</p>
    *          <p>"attributes": [</p>
-   *          <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
-   *          <p>"excludedVariableNames": [ "F6" ] }</p>
+   *          <p>\{ "fieldName": "F1", "fieldType": "TEXT" \}, \{ "fieldName": "F2", "fieldType": "NUMERIC" \}, \{ "fieldName": "F3", "fieldType": "CATEGORICAL" \}, \{ "fieldName": "F4", "fieldType": "NUMERIC" \}, \{ "fieldName": "F5", "fieldType": "CATEGORICAL" \}, \{ "fieldName": "F6", "fieldType": "TEXT" \}, \{ "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" \}, \{ "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" \} ],</p>
+   *          <p>"excludedVariableNames": [ "F6" ] \}</p>
    */
   DataSchema?: string;
 
@@ -415,6 +455,9 @@ export interface RDSDataSpec {
   SecurityGroupIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSourceFromRDSInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>. Typically, an Amazon Resource Number (ARN)
@@ -472,7 +515,7 @@ export interface CreateDataSourceFromRDSInput {
    *             <li>
    *                <p>DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the <code>Datasource</code>. </p>
    *                <p> Sample -
-   *             <code> "{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"</code>
+   *             <code> "\{\"splitting\":\{\"percentBegin\":10,\"percentEnd\":60\}\}"</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -496,6 +539,7 @@ export interface CreateDataSourceFromRDSInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>CreateDataSourceFromRDS</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *          <p>The <code>CreateDataSourceFromRDS</code>> operation is asynchronous. You can poll for updates by using
  *         the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. You can
@@ -513,6 +557,7 @@ export interface CreateDataSourceFromRDSOutput {
 }
 
 /**
+ * @public
  * <p>Describes the database credentials for connecting to a database on an Amazon Redshift cluster.</p>
  */
 export interface RedshiftDatabaseCredentials {
@@ -530,6 +575,7 @@ export interface RedshiftDatabaseCredentials {
 }
 
 /**
+ * @public
  * <p>Describes the database details required to connect to an Amazon Redshift database.</p>
  */
 export interface RedshiftDatabase {
@@ -545,6 +591,7 @@ export interface RedshiftDatabase {
 }
 
 /**
+ * @public
  * <p>Describes the data specification of an Amazon Redshift <code>DataSource</code>.</p>
  */
 export interface RedshiftDataSpec {
@@ -612,9 +659,9 @@ export interface RedshiftDataSpec {
    *     <code>complement</code> parameter.</p>
    *
    *                <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code>
+   *                <p>Datasource for evaluation: <code>\{"splitting":\{"percentBegin":0, "percentEnd":25\}\}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>\{"splitting":\{"percentBegin":0, "percentEnd":25, "complement":"true"\}\}</code>
    *                </p>
    *             </li>
    *             <li>
@@ -630,9 +677,9 @@ export interface RedshiftDataSpec {
    *
    *                <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered
    *     training and evaluation datasources:</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code>
+   *                <p>Datasource for evaluation: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"sequential"\}\}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"\}\}</code>
    *                </p>
    *
    *                <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd
@@ -649,9 +696,9 @@ export interface RedshiftDataSpec {
    *     training and evaluation datasources containing non-similar data records.</p>
    *                <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered
    *     training and evaluation datasources:</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code>
+   *                <p>Datasource for evaluation: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"\}\}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"\}\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -668,15 +715,15 @@ export interface RedshiftDataSpec {
    *         <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
    *             and <code>excludedVariableNames</code> have an array of key-value pairs
    *             for their value. Use the following format to define your <code>DataSchema</code>.</p>
-   *         <p>{ "version": "1.0",</p>
+   *         <p>\{ "version": "1.0",</p>
    *          <p>"recordAnnotationFieldName": "F1",</p>
    *          <p>"recordWeightFieldName": "F2",</p>
    *          <p>"targetFieldName": "F3",</p>
    *          <p>"dataFormat": "CSV",</p>
    *          <p>"dataFileContainsHeader": true,</p>
    *          <p>"attributes": [</p>
-   *          <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
-   *          <p>"excludedVariableNames": [ "F6" ] }</p>
+   *          <p>\{ "fieldName": "F1", "fieldType": "TEXT" \}, \{ "fieldName": "F2", "fieldType": "NUMERIC" \}, \{ "fieldName": "F3", "fieldType": "CATEGORICAL" \}, \{ "fieldName": "F4", "fieldType": "NUMERIC" \}, \{ "fieldName": "F5", "fieldType": "CATEGORICAL" \}, \{ "fieldName": "F6", "fieldType": "TEXT" \}, \{ "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" \}, \{ "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" \} ],</p>
+   *          <p>"excludedVariableNames": [ "F6" ] \}</p>
    */
   DataSchema?: string;
 
@@ -686,6 +733,9 @@ export interface RedshiftDataSpec {
   DataSchemaUri?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSourceFromRedshiftInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</p>
@@ -734,7 +784,7 @@ export interface CreateDataSourceFromRedshiftInput {
    *             <li>
    *                <p>DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the <code>DataSource</code>.</p>
    *                <p> Sample -
-   *             <code> "{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"</code>
+   *             <code> "\{\"splitting\":\{\"percentBegin\":10,\"percentEnd\":60\}\}"</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -766,6 +816,7 @@ export interface CreateDataSourceFromRedshiftInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>CreateDataSourceFromRedshift</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *          <p>The <code>CreateDataSourceFromRedshift</code> operation is asynchronous. You can poll for updates by using
  *         the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. </p>
@@ -780,6 +831,7 @@ export interface CreateDataSourceFromRedshiftOutput {
 }
 
 /**
+ * @public
  * <p> Describes the data specification of a <code>DataSource</code>.</p>
  */
 export interface S3DataSpec {
@@ -833,9 +885,9 @@ export interface S3DataSpec {
    *     <code>complement</code> parameter.</p>
    *
    *                <p>For example, the following two datasources do not share any data, and can be used to train and evaluate a model. The first datasource has 25 percent of the data, and the second one has 75 percent of the data.</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code>
+   *                <p>Datasource for evaluation: <code>\{"splitting":\{"percentBegin":0, "percentEnd":25\}\}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>\{"splitting":\{"percentBegin":0, "percentEnd":25, "complement":"true"\}\}</code>
    *                </p>
    *             </li>
    *             <li>
@@ -851,9 +903,9 @@ export interface S3DataSpec {
    *
    *                <p>The following two <code>DataRearrangement</code> lines are examples of sequentially ordered
    *     training and evaluation datasources:</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential"}}</code>
+   *                <p>Datasource for evaluation: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"sequential"\}\}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"sequential", "complement":"true"\}\}</code>
    *                </p>
    *
    *                <p>To randomly split the input data into the proportions indicated by the percentBegin and percentEnd
@@ -870,9 +922,9 @@ export interface S3DataSpec {
    *     training and evaluation datasources containing non-similar data records.</p>
    *                <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered
    *     training and evaluation datasources:</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code>
+   *                <p>Datasource for evaluation: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"\}\}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>\{"splitting":\{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"\}\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -888,15 +940,15 @@ export interface S3DataSpec {
    *         <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
    *             and <code>excludedVariableNames</code> have an array of key-value pairs
    *             for their value. Use the following format to define your <code>DataSchema</code>.</p>
-   *         <p>{ "version": "1.0",</p>
+   *         <p>\{ "version": "1.0",</p>
    *          <p>"recordAnnotationFieldName": "F1",</p>
    *          <p>"recordWeightFieldName": "F2",</p>
    *          <p>"targetFieldName": "F3",</p>
    *          <p>"dataFormat": "CSV",</p>
    *          <p>"dataFileContainsHeader": true,</p>
    *          <p>"attributes": [</p>
-   *          <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
-   *          <p>"excludedVariableNames": [ "F6" ] }</p>
+   *          <p>\{ "fieldName": "F1", "fieldType": "TEXT" \}, \{ "fieldName": "F2", "fieldType": "NUMERIC" \}, \{ "fieldName": "F3", "fieldType": "CATEGORICAL" \}, \{ "fieldName": "F4", "fieldType": "NUMERIC" \}, \{ "fieldName": "F5", "fieldType": "CATEGORICAL" \}, \{ "fieldName": "F6", "fieldType": "TEXT" \}, \{ "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" \}, \{ "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" \} ],</p>
+   *          <p>"excludedVariableNames": [ "F6" ] \}</p>
    */
   DataSchema?: string;
 
@@ -907,6 +959,9 @@ export interface S3DataSpec {
   DataSchemaLocationS3?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSourceFromS3Input {
   /**
    * <p>A user-supplied identifier that uniquely identifies the <code>DataSource</code>. </p>
@@ -933,7 +988,7 @@ export interface CreateDataSourceFromS3Input {
    *             <li>
    *                <p>DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the <code>Datasource</code>. </p>
    *                <p> Sample -
-   *             <code> "{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"</code>
+   *             <code> "\{\"splitting\":\{\"percentBegin\":10,\"percentEnd\":60\}\}"</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -949,6 +1004,7 @@ export interface CreateDataSourceFromS3Input {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>CreateDataSourceFromS3</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *         <p>The <code>CreateDataSourceFromS3</code> operation is asynchronous. You can poll for updates by using
  *             the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. </p>
@@ -962,6 +1018,9 @@ export interface CreateDataSourceFromS3Output {
   DataSourceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEvaluationInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>Evaluation</code>.</p>
@@ -987,6 +1046,7 @@ export interface CreateEvaluationInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>CreateEvaluation</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *         <p>
  *             <code>CreateEvaluation</code> operation is asynchronous. You can poll for status updates
@@ -1002,12 +1062,24 @@ export interface CreateEvaluationOutput {
   EvaluationId?: string;
 }
 
-export enum MLModelType {
-  BINARY = "BINARY",
-  MULTICLASS = "MULTICLASS",
-  REGRESSION = "REGRESSION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MLModelType = {
+  BINARY: "BINARY",
+  MULTICLASS: "MULTICLASS",
+  REGRESSION: "REGRESSION",
+} as const;
 
+/**
+ * @public
+ */
+export type MLModelType = (typeof MLModelType)[keyof typeof MLModelType];
+
+/**
+ * @public
+ */
 export interface CreateMLModelInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>.</p>
@@ -1103,6 +1175,7 @@ export interface CreateMLModelInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>CreateMLModel</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *         <p>The <code>CreateMLModel</code> operation is asynchronous. You can poll for status updates by using the
  *             <code>GetMLModel</code> operation and checking the <code>Status</code> parameter.
@@ -1117,6 +1190,9 @@ export interface CreateMLModelOutput {
   MLModelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRealtimeEndpointInput {
   /**
    * <p>The ID assigned to the <code>MLModel</code> during creation.</p>
@@ -1124,14 +1200,24 @@ export interface CreateRealtimeEndpointInput {
   MLModelId: string | undefined;
 }
 
-export enum RealtimeEndpointStatus {
-  FAILED = "FAILED",
-  NONE = "NONE",
-  READY = "READY",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RealtimeEndpointStatus = {
+  FAILED: "FAILED",
+  NONE: "NONE",
+  READY: "READY",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type RealtimeEndpointStatus = (typeof RealtimeEndpointStatus)[keyof typeof RealtimeEndpointStatus];
+
+/**
+ * @public
  * <p> Describes the real-time endpoint information for an <code>MLModel</code>.</p>
  */
 export interface RealtimeEndpointInfo {
@@ -1173,6 +1259,7 @@ export interface RealtimeEndpointInfo {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>CreateRealtimeEndpoint</code> operation.</p>
  *         <p>The result contains the <code>MLModelId</code> and the endpoint information for the <code>MLModel</code>.</p>
  *         <p>
@@ -1192,6 +1279,9 @@ export interface CreateRealtimeEndpointOutput {
   RealtimeEndpointInfo?: RealtimeEndpointInfo;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBatchPredictionInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>.</p>
@@ -1200,6 +1290,7 @@ export interface DeleteBatchPredictionInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>DeleteBatchPrediction</code> operation.</p>
  *         <p>You can use the <code>GetBatchPrediction</code> operation and check the value of the <code>Status</code> parameter to see whether a
  *             <code>BatchPrediction</code> is marked as <code>DELETED</code>.</p>
@@ -1211,6 +1302,9 @@ export interface DeleteBatchPredictionOutput {
   BatchPredictionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataSourceInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</p>
@@ -1219,6 +1313,7 @@ export interface DeleteDataSourceInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>DeleteDataSource</code> operation.</p>
  */
 export interface DeleteDataSourceOutput {
@@ -1228,6 +1323,9 @@ export interface DeleteDataSourceOutput {
   DataSourceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEvaluationInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>Evaluation</code> to delete.</p>
@@ -1236,6 +1334,7 @@ export interface DeleteEvaluationInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>DeleteEvaluation</code> operation. The output indicates that Amazon Machine Learning (Amazon ML) received the request.</p>
  *         <p>You can use the <code>GetEvaluation</code> operation and check the value of the <code>Status</code> parameter to see whether an
  *             <code>Evaluation</code> is marked as <code>DELETED</code>.</p>
@@ -1247,6 +1346,9 @@ export interface DeleteEvaluationOutput {
   EvaluationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMLModelInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>.</p>
@@ -1255,6 +1357,7 @@ export interface DeleteMLModelInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DeleteMLModel</code> operation.</p>
  *         <p>You can use the <code>GetMLModel</code> operation and check the value of the <code>Status</code> parameter to see whether an
  *             <code>MLModel</code> is marked as <code>DELETED</code>.</p>
@@ -1266,6 +1369,9 @@ export interface DeleteMLModelOutput {
   MLModelId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRealtimeEndpointInput {
   /**
    * <p>The ID assigned to the <code>MLModel</code> during creation.</p>
@@ -1274,6 +1380,7 @@ export interface DeleteRealtimeEndpointInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>DeleteRealtimeEndpoint</code> operation.</p>
  *         <p>The result contains the <code>MLModelId</code> and the endpoint information for the <code>MLModel</code>. </p>
  */
@@ -1291,6 +1398,9 @@ export interface DeleteRealtimeEndpointOutput {
   RealtimeEndpointInfo?: RealtimeEndpointInfo;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTagsInput {
   /**
    * <p>One or more tags to delete.</p>
@@ -1309,6 +1419,7 @@ export interface DeleteTagsInput {
 }
 
 /**
+ * @public
  * <p>Amazon ML returns the following elements.</p>
  */
 export interface DeleteTagsOutput {
@@ -1323,22 +1434,44 @@ export interface DeleteTagsOutput {
   ResourceType?: TaggableResourceType | string;
 }
 
-export enum BatchPredictionFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATASOURCE_ID = "DataSourceId",
-  DATA_URI = "DataURI",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_ID = "MLModelId",
-  NAME = "Name",
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BatchPredictionFilterVariable = {
+  CREATED_AT: "CreatedAt",
+  DATASOURCE_ID: "DataSourceId",
+  DATA_URI: "DataURI",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  ML_MODEL_ID: "MLModelId",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
-export enum SortOrder {
-  ASC = "asc",
-  DSC = "dsc",
-}
+/**
+ * @public
+ */
+export type BatchPredictionFilterVariable =
+  (typeof BatchPredictionFilterVariable)[keyof typeof BatchPredictionFilterVariable];
 
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "asc",
+  DSC: "dsc",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
 export interface DescribeBatchPredictionsInput {
   /**
    * <p>Use one of the following variables to filter a list of <code>BatchPrediction</code>:</p>
@@ -1460,15 +1593,25 @@ export interface DescribeBatchPredictionsInput {
   Limit?: number;
 }
 
-export enum EntityStatus {
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  INPROGRESS = "INPROGRESS",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EntityStatus = {
+  COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  INPROGRESS: "INPROGRESS",
+  PENDING: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type EntityStatus = (typeof EntityStatus)[keyof typeof EntityStatus];
+
+/**
+ * @public
  * <p> Represents the output of a <code>GetBatchPrediction</code> operation.</p>
  *         <p> The content consists of the detailed metadata, the status, and the data file information of a
  *             <code>Batch Prediction</code>.</p>
@@ -1580,6 +1723,7 @@ export interface BatchPrediction {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeBatchPredictions</code> operation. The content is essentially a list of <code>BatchPrediction</code>s.</p>
  */
 export interface DescribeBatchPredictionsOutput {
@@ -1595,15 +1739,27 @@ export interface DescribeBatchPredictionsOutput {
   NextToken?: string;
 }
 
-export enum DataSourceFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATA_URI = "DataLocationS3",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  NAME = "Name",
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceFilterVariable = {
+  CREATED_AT: "CreatedAt",
+  DATA_URI: "DataLocationS3",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
+/**
+ * @public
+ */
+export type DataSourceFilterVariable = (typeof DataSourceFilterVariable)[keyof typeof DataSourceFilterVariable];
+
+/**
+ * @public
+ */
 export interface DescribeDataSourcesInput {
   /**
    * <p>Use one of the following variables to filter a list of <code>DataSource</code>:</p>
@@ -1717,6 +1873,7 @@ export interface DescribeDataSourcesInput {
 }
 
 /**
+ * @public
  * <p>The datasource details that are specific to Amazon RDS.</p>
  */
 export interface RDSMetadata {
@@ -1753,6 +1910,7 @@ export interface RDSMetadata {
 }
 
 /**
+ * @public
  * <p>Describes the <code>DataSource</code> details specific to Amazon Redshift.</p>
  */
 export interface RedshiftMetadata {
@@ -1774,6 +1932,7 @@ export interface RedshiftMetadata {
 }
 
 /**
+ * @public
  * <p> Represents the output of the <code>GetDataSource</code> operation. </p>
  *          <p>  The content consists of the detailed metadata and data file information and the current status of the <code>DataSource</code>. </p>
  */
@@ -1891,6 +2050,7 @@ export interface DataSource {
 }
 
 /**
+ * @public
  * <p>Represents the query results from a <a>DescribeDataSources</a> operation. The content is essentially a list of <code>DataSource</code>.</p>
  */
 export interface DescribeDataSourcesOutput {
@@ -1906,17 +2066,29 @@ export interface DescribeDataSourcesOutput {
   NextToken?: string;
 }
 
-export enum EvaluationFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATASOURCE_ID = "DataSourceId",
-  DATA_URI = "DataURI",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_ID = "MLModelId",
-  NAME = "Name",
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFilterVariable = {
+  CREATED_AT: "CreatedAt",
+  DATASOURCE_ID: "DataSourceId",
+  DATA_URI: "DataURI",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  ML_MODEL_ID: "MLModelId",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
+/**
+ * @public
+ */
+export type EvaluationFilterVariable = (typeof EvaluationFilterVariable)[keyof typeof EvaluationFilterVariable];
+
+/**
+ * @public
+ */
 export interface DescribeEvaluationsInput {
   /**
    * <p>Use one of the following variable to filter a list of <code>Evaluation</code> objects:</p>
@@ -2039,6 +2211,7 @@ export interface DescribeEvaluationsInput {
 }
 
 /**
+ * @public
  * <p>Measurements of how well the <code>MLModel</code> performed on known observations. One of the following metrics is returned, based on the type of the <code>MLModel</code>:
  *         </p>
  *         <ul>
@@ -2061,6 +2234,7 @@ export interface PerformanceMetrics {
 }
 
 /**
+ * @public
  * <p> Represents the output of <code>GetEvaluation</code> operation. </p>
  *          <p>The content consists of the detailed metadata and data file information and the current status of the
  *             <code>Evaluation</code>.</p>
@@ -2176,6 +2350,7 @@ export interface Evaluation {
 }
 
 /**
+ * @public
  * <p>Represents the query results from a <code>DescribeEvaluations</code> operation. The content is essentially a list of <code>Evaluation</code>.</p>
  */
 export interface DescribeEvaluationsOutput {
@@ -2191,19 +2366,31 @@ export interface DescribeEvaluationsOutput {
   NextToken?: string;
 }
 
-export enum MLModelFilterVariable {
-  ALGORITHM = "Algorithm",
-  CREATED_AT = "CreatedAt",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_TYPE = "MLModelType",
-  NAME = "Name",
-  REAL_TIME_ENDPOINT_STATUS = "RealtimeEndpointStatus",
-  STATUS = "Status",
-  TRAINING_DATASOURCE_ID = "TrainingDataSourceId",
-  TRAINING_DATA_URI = "TrainingDataURI",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MLModelFilterVariable = {
+  ALGORITHM: "Algorithm",
+  CREATED_AT: "CreatedAt",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  ML_MODEL_TYPE: "MLModelType",
+  NAME: "Name",
+  REAL_TIME_ENDPOINT_STATUS: "RealtimeEndpointStatus",
+  STATUS: "Status",
+  TRAINING_DATASOURCE_ID: "TrainingDataSourceId",
+  TRAINING_DATA_URI: "TrainingDataURI",
+} as const;
 
+/**
+ * @public
+ */
+export type MLModelFilterVariable = (typeof MLModelFilterVariable)[keyof typeof MLModelFilterVariable];
+
+/**
+ * @public
+ */
 export interface DescribeMLModelsInput {
   /**
    * <p>Use one of the following variables to filter a list of <code>MLModel</code>:</p>
@@ -2334,6 +2521,7 @@ export interface DescribeMLModelsInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>GetMLModel</code> operation. </p>
  *          <p>The content consists of the detailed metadata and the current status of the <code>MLModel</code>.</p>
  */
@@ -2522,6 +2710,7 @@ export interface MLModel {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeMLModels</code> operation. The content is essentially a list of <code>MLModel</code>.</p>
  */
 export interface DescribeMLModelsOutput {
@@ -2536,6 +2725,9 @@ export interface DescribeMLModelsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagsInput {
   /**
    * <p>The ID of the ML object. For example, <code>exampleModelId</code>. </p>
@@ -2549,6 +2741,7 @@ export interface DescribeTagsInput {
 }
 
 /**
+ * @public
  * <p>Amazon ML returns the following elements.</p>
  */
 export interface DescribeTagsOutput {
@@ -2568,6 +2761,9 @@ export interface DescribeTagsOutput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface GetBatchPredictionInput {
   /**
    * <p>An ID assigned to the <code>BatchPrediction</code> at creation.</p>
@@ -2576,6 +2772,7 @@ export interface GetBatchPredictionInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetBatchPrediction</code> operation and describes a <code>BatchPrediction</code>.</p>
  */
 export interface GetBatchPredictionOutput {
@@ -2689,6 +2886,9 @@ export interface GetBatchPredictionOutput {
   InvalidRecordCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetDataSourceInput {
   /**
    * <p>The ID assigned to the <code>DataSource</code> at creation.</p>
@@ -2704,6 +2904,7 @@ export interface GetDataSourceInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetDataSource</code> operation and describes a <code>DataSource</code>.</p>
  */
 export interface GetDataSourceOutput {
@@ -2835,6 +3036,9 @@ export interface GetDataSourceOutput {
   DataSourceSchema?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetEvaluationInput {
   /**
    * <p>The ID of the <code>Evaluation</code> to retrieve. The evaluation of each <code>MLModel</code> is recorded and cataloged. The ID provides the means to access the information. </p>
@@ -2843,6 +3047,7 @@ export interface GetEvaluationInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetEvaluation</code> operation and describes an <code>Evaluation</code>.</p>
  */
 export interface GetEvaluationOutput {
@@ -2959,6 +3164,9 @@ export interface GetEvaluationOutput {
   StartedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetMLModelInput {
   /**
    * <p>The ID assigned to the <code>MLModel</code> at creation.</p>
@@ -2974,6 +3182,7 @@ export interface GetMLModelInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetMLModel</code> operation, and provides detailed information about a <code>MLModel</code>.</p>
  */
 export interface GetMLModelOutput {
@@ -3176,6 +3385,7 @@ export interface GetMLModelOutput {
 }
 
 /**
+ * @public
  * <p>The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as <code>DataSource</code>.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -3196,6 +3406,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PredictInput {
   /**
    * <p>A unique identifier of the <code>MLModel</code>.</p>
@@ -3211,6 +3424,7 @@ export interface PredictInput {
 }
 
 /**
+ * @public
  * <p>The exception is thrown when a predict request is made to an unmounted <code>MLModel</code>.</p>
  */
 export class PredictorNotMountedException extends __BaseException {
@@ -3229,12 +3443,22 @@ export class PredictorNotMountedException extends __BaseException {
   }
 }
 
-export enum DetailsAttributes {
-  ALGORITHM = "Algorithm",
-  PREDICTIVE_MODEL_TYPE = "PredictiveModelType",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DetailsAttributes = {
+  ALGORITHM: "Algorithm",
+  PREDICTIVE_MODEL_TYPE: "PredictiveModelType",
+} as const;
 
 /**
+ * @public
+ */
+export type DetailsAttributes = (typeof DetailsAttributes)[keyof typeof DetailsAttributes];
+
+/**
+ * @public
  * <p>The output from a <code>Predict</code> operation: </p>
  *
  * 		       <ul>
@@ -3288,6 +3512,9 @@ export interface Prediction {
   details?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PredictOutput {
   /**
    * <p>The output from a <code>Predict</code> operation: </p>
@@ -3322,6 +3549,9 @@ export interface PredictOutput {
   Prediction?: Prediction;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBatchPredictionInput {
   /**
    * <p>The ID assigned to the <code>BatchPrediction</code> during creation.</p>
@@ -3335,6 +3565,7 @@ export interface UpdateBatchPredictionInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>UpdateBatchPrediction</code> operation.</p>
  *         <p>You can see the updated content by using the <code>GetBatchPrediction</code> operation.</p>
  */
@@ -3346,6 +3577,9 @@ export interface UpdateBatchPredictionOutput {
   BatchPredictionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDataSourceInput {
   /**
    * <p>The ID assigned to the <code>DataSource</code> during creation.</p>
@@ -3359,6 +3593,7 @@ export interface UpdateDataSourceInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>UpdateDataSource</code> operation.</p>
  *         <p>You can see the updated content by using the <code>GetBatchPrediction</code> operation.</p>
  */
@@ -3370,6 +3605,9 @@ export interface UpdateDataSourceOutput {
   DataSourceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEvaluationInput {
   /**
    * <p>The ID assigned to the <code>Evaluation</code> during creation.</p>
@@ -3383,6 +3621,7 @@ export interface UpdateEvaluationInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>UpdateEvaluation</code> operation.</p>
  *         <p>You can see the updated content by using the <code>GetEvaluation</code> operation.</p>
  */
@@ -3394,6 +3633,9 @@ export interface UpdateEvaluationOutput {
   EvaluationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMLModelInput {
   /**
    * <p>The ID assigned to the <code>MLModel</code> during creation.</p>
@@ -3413,6 +3655,7 @@ export interface UpdateMLModelInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>UpdateMLModel</code> operation.</p>
  *         <p>You can see the updated content by using the <code>GetMLModel</code> operation.</p>
  */
@@ -3423,514 +3666,3 @@ export interface UpdateMLModelOutput {
    */
   MLModelId?: string;
 }
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsInputFilterSensitiveLog = (obj: AddTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsOutputFilterSensitiveLog = (obj: AddTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBatchPredictionInputFilterSensitiveLog = (obj: CreateBatchPredictionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBatchPredictionOutputFilterSensitiveLog = (obj: CreateBatchPredictionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RDSDatabaseCredentialsFilterSensitiveLog = (obj: RDSDatabaseCredentials): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RDSDatabaseFilterSensitiveLog = (obj: RDSDatabase): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RDSDataSpecFilterSensitiveLog = (obj: RDSDataSpec): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataSourceFromRDSInputFilterSensitiveLog = (obj: CreateDataSourceFromRDSInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataSourceFromRDSOutputFilterSensitiveLog = (obj: CreateDataSourceFromRDSOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftDatabaseCredentialsFilterSensitiveLog = (obj: RedshiftDatabaseCredentials): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftDatabaseFilterSensitiveLog = (obj: RedshiftDatabase): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftDataSpecFilterSensitiveLog = (obj: RedshiftDataSpec): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataSourceFromRedshiftInputFilterSensitiveLog = (obj: CreateDataSourceFromRedshiftInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataSourceFromRedshiftOutputFilterSensitiveLog = (obj: CreateDataSourceFromRedshiftOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DataSpecFilterSensitiveLog = (obj: S3DataSpec): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataSourceFromS3InputFilterSensitiveLog = (obj: CreateDataSourceFromS3Input): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataSourceFromS3OutputFilterSensitiveLog = (obj: CreateDataSourceFromS3Output): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEvaluationInputFilterSensitiveLog = (obj: CreateEvaluationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEvaluationOutputFilterSensitiveLog = (obj: CreateEvaluationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMLModelInputFilterSensitiveLog = (obj: CreateMLModelInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMLModelOutputFilterSensitiveLog = (obj: CreateMLModelOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRealtimeEndpointInputFilterSensitiveLog = (obj: CreateRealtimeEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RealtimeEndpointInfoFilterSensitiveLog = (obj: RealtimeEndpointInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRealtimeEndpointOutputFilterSensitiveLog = (obj: CreateRealtimeEndpointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBatchPredictionInputFilterSensitiveLog = (obj: DeleteBatchPredictionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBatchPredictionOutputFilterSensitiveLog = (obj: DeleteBatchPredictionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataSourceInputFilterSensitiveLog = (obj: DeleteDataSourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataSourceOutputFilterSensitiveLog = (obj: DeleteDataSourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEvaluationInputFilterSensitiveLog = (obj: DeleteEvaluationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEvaluationOutputFilterSensitiveLog = (obj: DeleteEvaluationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMLModelInputFilterSensitiveLog = (obj: DeleteMLModelInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMLModelOutputFilterSensitiveLog = (obj: DeleteMLModelOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRealtimeEndpointInputFilterSensitiveLog = (obj: DeleteRealtimeEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRealtimeEndpointOutputFilterSensitiveLog = (obj: DeleteRealtimeEndpointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagsInputFilterSensitiveLog = (obj: DeleteTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagsOutputFilterSensitiveLog = (obj: DeleteTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBatchPredictionsInputFilterSensitiveLog = (obj: DescribeBatchPredictionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchPredictionFilterSensitiveLog = (obj: BatchPrediction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBatchPredictionsOutputFilterSensitiveLog = (obj: DescribeBatchPredictionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSourcesInputFilterSensitiveLog = (obj: DescribeDataSourcesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RDSMetadataFilterSensitiveLog = (obj: RDSMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftMetadataFilterSensitiveLog = (obj: RedshiftMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSourcesOutputFilterSensitiveLog = (obj: DescribeDataSourcesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEvaluationsInputFilterSensitiveLog = (obj: DescribeEvaluationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PerformanceMetricsFilterSensitiveLog = (obj: PerformanceMetrics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EvaluationFilterSensitiveLog = (obj: Evaluation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEvaluationsOutputFilterSensitiveLog = (obj: DescribeEvaluationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMLModelsInputFilterSensitiveLog = (obj: DescribeMLModelsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MLModelFilterSensitiveLog = (obj: MLModel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMLModelsOutputFilterSensitiveLog = (obj: DescribeMLModelsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagsInputFilterSensitiveLog = (obj: DescribeTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagsOutputFilterSensitiveLog = (obj: DescribeTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBatchPredictionInputFilterSensitiveLog = (obj: GetBatchPredictionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBatchPredictionOutputFilterSensitiveLog = (obj: GetBatchPredictionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataSourceInputFilterSensitiveLog = (obj: GetDataSourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataSourceOutputFilterSensitiveLog = (obj: GetDataSourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvaluationInputFilterSensitiveLog = (obj: GetEvaluationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEvaluationOutputFilterSensitiveLog = (obj: GetEvaluationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMLModelInputFilterSensitiveLog = (obj: GetMLModelInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMLModelOutputFilterSensitiveLog = (obj: GetMLModelOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictInputFilterSensitiveLog = (obj: PredictInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictionFilterSensitiveLog = (obj: Prediction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictOutputFilterSensitiveLog = (obj: PredictOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBatchPredictionInputFilterSensitiveLog = (obj: UpdateBatchPredictionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBatchPredictionOutputFilterSensitiveLog = (obj: UpdateBatchPredictionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataSourceInputFilterSensitiveLog = (obj: UpdateDataSourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDataSourceOutputFilterSensitiveLog = (obj: UpdateDataSourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEvaluationInputFilterSensitiveLog = (obj: UpdateEvaluationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEvaluationOutputFilterSensitiveLog = (obj: UpdateEvaluationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMLModelInputFilterSensitiveLog = (obj: UpdateMLModelInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMLModelOutputFilterSensitiveLog = (obj: UpdateMLModelOutput): any => ({
-  ...obj,
-});

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import { DeleteComponentRequest, DeleteComponentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteComponentCommand,
-  serializeAws_restJson1DeleteComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteComponentRequest } from "../models/models_0";
+import { de_DeleteComponentCommand, se_DeleteComponentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteComponentCommand}.
+ */
 export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteComponentCommand}.
+ */
 export interface DeleteComponentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a version of a component from IoT Greengrass.</p>
  *          <note>
  *             <p>This operation deletes the component's recipe and artifacts. As a result, deployments
@@ -37,13 +45,40 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  * import { GreengrassV2Client, DeleteComponentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, DeleteComponentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // DeleteComponentRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
+ * @returns {@link DeleteComponentCommandOutput}
  * @see {@link DeleteComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteComponentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
+ *       than one operation on the same resource at the same time.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a request rate quota. For example, you might have exceeded the
+ *       amount of times that you can retrieve device or deployment status per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters.</p>
+ *
  *
  */
 export class DeleteComponentCommand extends $Command<
@@ -63,6 +98,9 @@ export class DeleteComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +129,8 @@ export class DeleteComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +140,18 @@ export class DeleteComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteComponentCommand(input, context);
+    return se_DeleteComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteComponentCommandOutput> {
-    return deserializeAws_restJson1DeleteComponentCommand(output, context);
+    return de_DeleteComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

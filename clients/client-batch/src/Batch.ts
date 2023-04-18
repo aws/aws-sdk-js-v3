@@ -108,6 +108,7 @@ import {
 } from "./commands/UpdateSchedulingPolicyCommand";
 
 /**
+ * @public
  * <fullname>Batch</fullname>
  *          <p>Using Batch, you can run batch computing workloads on the Amazon Web Services Cloud. Batch computing is a common means for
  *    developers, scientists, and engineers to access large amounts of compute resources. Batch uses the advantages of
@@ -122,10 +123,20 @@ import {
  */
 export class Batch extends BatchClient {
   /**
-   * <p>Cancels a job in an Batch job queue. Jobs that are in the <code>SUBMITTED</code>, <code>PENDING</code>, or
-   *    <code>RUNNABLE</code> state are canceled. Jobs that progressed to the <code>STARTING</code> or <code>RUNNING</code>
-   *    state aren't canceled. However, the API operation still succeeds, even if no job is canceled. These jobs must be
-   *    terminated with the <a>TerminateJob</a> operation.</p>
+   * @public
+   * <p>Cancels a job in an Batch job queue. Jobs that are in the
+   *       <code>SUBMITTED</code>
+   *       or
+   *         <code>PENDING</code>
+   *       are
+   *       canceled. A job
+   *         in<code>RUNNABLE</code> remains in <code>RUNNABLE</code> until it reaches the head of the
+   *       job queue. Then the job status is updated to
+   *       <code>FAILED</code>.</p>
+   *          <p>Jobs that progressed to the <code>STARTING</code> or
+   *         <code>RUNNING</code> state aren't canceled. However, the API operation still succeeds, even
+   *       if no job is canceled. These jobs must be terminated with the <a>TerminateJob</a>
+   *       operation.</p>
    */
   public cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
   public cancelJob(args: CancelJobCommandInput, cb: (err: any, data?: CancelJobCommandOutput) => void): void;
@@ -151,6 +162,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Creates an Batch compute environment. You can create <code>MANAGED</code> or <code>UNMANAGED</code> compute
    *    environments. <code>MANAGED</code> compute environments can use Amazon EC2 or Fargate resources.
    *     <code>UNMANAGED</code> compute environments can only use EC2 resources.</p>
@@ -261,6 +273,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Creates an Batch job queue. When you create a job queue, you associate one or more compute environments to the
    *    queue and assign an order of preference for the compute environments.</p>
    *          <p>You also set a priority to the job queue that determines the order that the Batch scheduler places jobs onto
@@ -298,6 +311,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Creates an Batch scheduling policy.</p>
    */
   public createSchedulingPolicy(
@@ -330,6 +344,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Batch compute environment.</p>
    *          <p>Before you can delete a compute environment, you must set its state to <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation. Compute environments that use Fargate resources must terminate all
    *    active jobs on that compute environment before deleting the compute environment. If this isn't done, the compute
@@ -365,6 +380,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified job queue. You must first disable submissions for a queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are eventually terminated when you delete a job queue.
    *    The jobs are terminated at a rate of about 16 jobs each second.</p>
    *          <p>It's not necessary to disassociate compute environments from a queue before submitting a
@@ -400,6 +416,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified scheduling policy.</p>
    *          <p>You can't delete a scheduling policy that's used in any job queues.</p>
    */
@@ -433,6 +450,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Deregisters an Batch job definition. Job definitions are permanently deleted after 180 days.</p>
    */
   public deregisterJobDefinition(
@@ -465,6 +483,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your compute environments.</p>
    *          <p>If you're using an unmanaged compute environment, you can use the <code>DescribeComputeEnvironment</code>
    *    operation to determine the <code>ecsClusterArn</code> that you launch your Amazon ECS container instances
@@ -500,6 +519,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Describes a list of job definitions. You can specify a <code>status</code> (such as <code>ACTIVE</code>) to only
    *    return job definitions that match that status.</p>
    */
@@ -533,6 +553,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your job queues.</p>
    */
   public describeJobQueues(
@@ -565,6 +586,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Describes a list of Batch jobs.</p>
    */
   public describeJobs(
@@ -594,6 +616,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Describes one or more of your scheduling policies.</p>
    */
   public describeSchedulingPolicies(
@@ -626,6 +649,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of Batch jobs.</p>
    *          <p>You must specify only one of the following items:</p>
    *          <ul>
@@ -666,6 +690,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of Batch scheduling policies.</p>
    */
   public listSchedulingPolicies(
@@ -698,6 +723,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for an Batch resource. Batch resources that support tags are compute environments, jobs, job definitions, job queues,
    *  and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.</p>
    */
@@ -731,6 +757,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Registers an Batch job definition.</p>
    */
   public registerJobDefinition(
@@ -763,6 +790,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a>
    *    override parameters defined in the job definition. vCPU and memory requirements that are specified in the
    *     <code>resourceRequirements</code> objects in the job definition are the exception. They can't be overridden this way
@@ -801,6 +829,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>. If existing tags on a
    *    resource aren't specified in the request parameters, they aren't changed. When a resource is deleted, the tags that
    *    are associated with that resource are deleted as well. Batch resources that support tags are compute environments, jobs, job definitions, job queues,
@@ -830,6 +859,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code> state are
    *    terminated, which causes them to transition to <code>FAILED</code>. Jobs that have not progressed to the
    *     <code>STARTING</code> state are cancelled.</p>
@@ -861,6 +891,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Deletes specified tags from an Batch resource.</p>
    */
   public untagResource(
@@ -893,6 +924,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Updates an Batch compute environment.</p>
    */
   public updateComputeEnvironment(
@@ -925,6 +957,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Updates a job queue.</p>
    */
   public updateJobQueue(
@@ -957,6 +990,7 @@ export class Batch extends BatchClient {
   }
 
   /**
+   * @public
    * <p>Updates a scheduling policy.</p>
    */
   public updateSchedulingPolicy(

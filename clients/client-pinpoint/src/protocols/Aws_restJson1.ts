@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -9,11 +10,12 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  map,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -259,35 +261,24 @@ import {
 import { VerifyOTPMessageCommandInput, VerifyOTPMessageCommandOutput } from "../commands/VerifyOTPMessageCommand";
 import {
   __EndpointTypesElement,
-  ActivitiesResponse,
   Activity,
-  ActivityResponse,
   AddressConfiguration,
   ADMChannelRequest,
-  ADMChannelResponse,
   ADMMessage,
   AndroidPushNotificationTemplate,
   APNSChannelRequest,
-  APNSChannelResponse,
   APNSMessage,
   APNSPushNotificationTemplate,
   APNSSandboxChannelRequest,
-  APNSSandboxChannelResponse,
   APNSVoipChannelRequest,
-  APNSVoipChannelResponse,
   APNSVoipSandboxChannelRequest,
-  APNSVoipSandboxChannelResponse,
   ApplicationDateRangeKpiResponse,
   ApplicationResponse,
-  ApplicationSettingsResource,
   ApplicationsResponse,
   AttributeDimension,
-  AttributesResource,
   BadRequestException,
   BaiduChannelRequest,
-  BaiduChannelResponse,
   BaiduMessage,
-  BaseKpiResult,
   CampaignCustomMessage,
   CampaignDateRangeKpiResponse,
   CampaignEmailMessage,
@@ -298,9 +289,6 @@ import {
   CampaignResponse,
   CampaignSmsMessage,
   CampaignsResponse,
-  CampaignState,
-  ChannelResponse,
-  ChannelsResponse,
   ClosedDays,
   ClosedDaysRule,
   Condition,
@@ -309,17 +297,14 @@ import {
   ContactCenterActivity,
   CreateApplicationRequest,
   CreateRecommenderConfigurationShape,
-  CreateTemplateMessageBody,
   CustomDeliveryConfiguration,
   CustomMessageActivity,
-  DayOfWeek,
   DefaultButtonConfiguration,
   DefaultMessage,
   DefaultPushNotificationMessage,
   DefaultPushNotificationTemplate,
   DirectMessageConfiguration,
   EmailChannelRequest,
-  EmailChannelResponse,
   EmailMessage,
   EmailMessageActivity,
   EmailTemplateRequest,
@@ -327,9 +312,7 @@ import {
   EndpointBatchItem,
   EndpointBatchRequest,
   EndpointDemographic,
-  EndpointItemResponse,
   EndpointLocation,
-  EndpointMessageResult,
   EndpointRequest,
   EndpointResponse,
   EndpointSendConfiguration,
@@ -339,33 +322,23 @@ import {
   EventCondition,
   EventDimensions,
   EventFilter,
-  EventItemResponse,
   EventsBatch,
   EventsRequest,
-  EventsResponse,
   EventStartCondition,
-  EventStream,
   ExportJobRequest,
-  ExportJobResource,
-  ExportJobResponse,
-  ExportJobsResponse,
   ForbiddenException,
   GCMChannelRequest,
-  GCMChannelResponse,
   GCMMessage,
   GPSCoordinates,
   GPSPointDimension,
   HoldoutActivity,
   ImportJobRequest,
-  ImportJobResource,
-  ImportJobResponse,
   InAppMessageBodyConfig,
   InAppMessageButton,
   InAppMessageContent,
   InAppMessageHeaderConfig,
   InAppTemplateRequest,
   InternalServerErrorException,
-  ItemResponse,
   JourneyChannelSettings,
   JourneyCustomMessage,
   JourneyEmailMessage,
@@ -375,7 +348,6 @@ import {
   JourneySchedule,
   JourneySMSMessage,
   Message,
-  MessageBody,
   MessageConfiguration,
   MethodNotAllowedException,
   MetricDimension,
@@ -394,9 +366,6 @@ import {
   RandomSplitEntry,
   RawEmail,
   RecencyDimension,
-  RecommenderConfigurationResponse,
-  ResultRow,
-  ResultRowValue,
   Schedule,
   SegmentBehaviors,
   SegmentCondition,
@@ -404,7 +373,6 @@ import {
   SegmentDimensions,
   SegmentGroup,
   SegmentGroupList,
-  SegmentImportResource,
   SegmentLocation,
   SegmentReference,
   SegmentResponse,
@@ -413,17 +381,14 @@ import {
   SimpleCondition,
   SimpleEmail,
   SimpleEmailPart,
-  SMSChannelResponse,
   SMSMessage,
   SMSMessageActivity,
   SMSTemplateRequest,
   StartCondition,
   Template,
   TemplateConfiguration,
-  TemplateCreateMessageBody,
   TooManyRequestsException,
   TreatmentResource,
-  VoiceChannelResponse,
   VoiceMessage,
   VoiceTemplateRequest,
   WaitActivity,
@@ -434,39 +399,27 @@ import {
   WriteTreatmentResource,
 } from "../models/models_0";
 import {
-  ImportJobsResponse,
   InAppCampaignSchedule,
-  InAppMessage,
   InAppMessageCampaign,
   InAppMessagesResponse,
   InAppTemplateResponse,
   JourneyDateRangeKpiResponse,
-  JourneyExecutionActivityMetricsResponse,
-  JourneyExecutionMetricsResponse,
   JourneysResponse,
   JourneyStateRequest,
-  ListRecommenderConfigurationsResponse,
   MessageRequest,
-  MessageResponse,
-  MessageResult,
   NumberValidateRequest,
-  NumberValidateResponse,
   PushNotificationTemplateResponse,
   SegmentsResponse,
   SendOTPMessageRequestParameters,
   SendUsersMessageRequest,
-  SendUsersMessageResponse,
   SMSChannelRequest,
   SMSTemplateResponse,
   TagsModel,
   TemplateActiveVersionRequest,
   TemplateResponse,
   TemplatesResponse,
-  TemplateVersionResponse,
-  TemplateVersionsResponse,
   UpdateAttributesRequest,
   UpdateRecommenderConfigurationShape,
-  VerificationResponse,
   VerifyOTPMessageRequestParameters,
   VoiceChannelRequest,
   VoiceTemplateResponse,
@@ -475,7 +428,10 @@ import {
 } from "../models/models_1";
 import { PinpointServiceException as __BaseException } from "../models/PinpointServiceException";
 
-export const serializeAws_restJson1CreateAppCommand = async (
+/**
+ * serializeAws_restJson1CreateAppCommand
+ */
+export const se_CreateAppCommand = async (
   input: CreateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -486,7 +442,7 @@ export const serializeAws_restJson1CreateAppCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apps";
   let body: any;
   if (input.CreateApplicationRequest !== undefined) {
-    body = serializeAws_restJson1CreateApplicationRequest(input.CreateApplicationRequest, context);
+    body = se_CreateApplicationRequest(input.CreateApplicationRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -503,7 +459,10 @@ export const serializeAws_restJson1CreateAppCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateCampaignCommand = async (
+/**
+ * serializeAws_restJson1CreateCampaignCommand
+ */
+export const se_CreateCampaignCommand = async (
   input: CreateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -523,7 +482,7 @@ export const serializeAws_restJson1CreateCampaignCommand = async (
   );
   let body: any;
   if (input.WriteCampaignRequest !== undefined) {
-    body = serializeAws_restJson1WriteCampaignRequest(input.WriteCampaignRequest, context);
+    body = se_WriteCampaignRequest(input.WriteCampaignRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -540,7 +499,10 @@ export const serializeAws_restJson1CreateCampaignCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateEmailTemplateCommand = async (
+/**
+ * serializeAws_restJson1CreateEmailTemplateCommand
+ */
+export const se_CreateEmailTemplateCommand = async (
   input: CreateEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -560,7 +522,7 @@ export const serializeAws_restJson1CreateEmailTemplateCommand = async (
   );
   let body: any;
   if (input.EmailTemplateRequest !== undefined) {
-    body = serializeAws_restJson1EmailTemplateRequest(input.EmailTemplateRequest, context);
+    body = se_EmailTemplateRequest(input.EmailTemplateRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -577,7 +539,10 @@ export const serializeAws_restJson1CreateEmailTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateExportJobCommand = async (
+/**
+ * serializeAws_restJson1CreateExportJobCommand
+ */
+export const se_CreateExportJobCommand = async (
   input: CreateExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -597,7 +562,7 @@ export const serializeAws_restJson1CreateExportJobCommand = async (
   );
   let body: any;
   if (input.ExportJobRequest !== undefined) {
-    body = serializeAws_restJson1ExportJobRequest(input.ExportJobRequest, context);
+    body = _json(input.ExportJobRequest);
   }
   if (body === undefined) {
     body = {};
@@ -614,7 +579,10 @@ export const serializeAws_restJson1CreateExportJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateImportJobCommand = async (
+/**
+ * serializeAws_restJson1CreateImportJobCommand
+ */
+export const se_CreateImportJobCommand = async (
   input: CreateImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -634,7 +602,7 @@ export const serializeAws_restJson1CreateImportJobCommand = async (
   );
   let body: any;
   if (input.ImportJobRequest !== undefined) {
-    body = serializeAws_restJson1ImportJobRequest(input.ImportJobRequest, context);
+    body = _json(input.ImportJobRequest);
   }
   if (body === undefined) {
     body = {};
@@ -651,7 +619,10 @@ export const serializeAws_restJson1CreateImportJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateInAppTemplateCommand = async (
+/**
+ * serializeAws_restJson1CreateInAppTemplateCommand
+ */
+export const se_CreateInAppTemplateCommand = async (
   input: CreateInAppTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -671,7 +642,7 @@ export const serializeAws_restJson1CreateInAppTemplateCommand = async (
   );
   let body: any;
   if (input.InAppTemplateRequest !== undefined) {
-    body = serializeAws_restJson1InAppTemplateRequest(input.InAppTemplateRequest, context);
+    body = se_InAppTemplateRequest(input.InAppTemplateRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -688,7 +659,10 @@ export const serializeAws_restJson1CreateInAppTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateJourneyCommand = async (
+/**
+ * serializeAws_restJson1CreateJourneyCommand
+ */
+export const se_CreateJourneyCommand = async (
   input: CreateJourneyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -708,7 +682,7 @@ export const serializeAws_restJson1CreateJourneyCommand = async (
   );
   let body: any;
   if (input.WriteJourneyRequest !== undefined) {
-    body = serializeAws_restJson1WriteJourneyRequest(input.WriteJourneyRequest, context);
+    body = se_WriteJourneyRequest(input.WriteJourneyRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -725,7 +699,10 @@ export const serializeAws_restJson1CreateJourneyCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreatePushTemplateCommand = async (
+/**
+ * serializeAws_restJson1CreatePushTemplateCommand
+ */
+export const se_CreatePushTemplateCommand = async (
   input: CreatePushTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -745,7 +722,7 @@ export const serializeAws_restJson1CreatePushTemplateCommand = async (
   );
   let body: any;
   if (input.PushNotificationTemplateRequest !== undefined) {
-    body = serializeAws_restJson1PushNotificationTemplateRequest(input.PushNotificationTemplateRequest, context);
+    body = se_PushNotificationTemplateRequest(input.PushNotificationTemplateRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -762,7 +739,10 @@ export const serializeAws_restJson1CreatePushTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateRecommenderConfigurationCommand = async (
+/**
+ * serializeAws_restJson1CreateRecommenderConfigurationCommand
+ */
+export const se_CreateRecommenderConfigurationCommand = async (
   input: CreateRecommenderConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -773,7 +753,7 @@ export const serializeAws_restJson1CreateRecommenderConfigurationCommand = async
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/recommenders";
   let body: any;
   if (input.CreateRecommenderConfiguration !== undefined) {
-    body = serializeAws_restJson1CreateRecommenderConfigurationShape(input.CreateRecommenderConfiguration, context);
+    body = _json(input.CreateRecommenderConfiguration);
   }
   if (body === undefined) {
     body = {};
@@ -790,7 +770,10 @@ export const serializeAws_restJson1CreateRecommenderConfigurationCommand = async
   });
 };
 
-export const serializeAws_restJson1CreateSegmentCommand = async (
+/**
+ * serializeAws_restJson1CreateSegmentCommand
+ */
+export const se_CreateSegmentCommand = async (
   input: CreateSegmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -810,7 +793,7 @@ export const serializeAws_restJson1CreateSegmentCommand = async (
   );
   let body: any;
   if (input.WriteSegmentRequest !== undefined) {
-    body = serializeAws_restJson1WriteSegmentRequest(input.WriteSegmentRequest, context);
+    body = se_WriteSegmentRequest(input.WriteSegmentRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -827,7 +810,10 @@ export const serializeAws_restJson1CreateSegmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateSmsTemplateCommand = async (
+/**
+ * serializeAws_restJson1CreateSmsTemplateCommand
+ */
+export const se_CreateSmsTemplateCommand = async (
   input: CreateSmsTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -847,7 +833,7 @@ export const serializeAws_restJson1CreateSmsTemplateCommand = async (
   );
   let body: any;
   if (input.SMSTemplateRequest !== undefined) {
-    body = serializeAws_restJson1SMSTemplateRequest(input.SMSTemplateRequest, context);
+    body = se_SMSTemplateRequest(input.SMSTemplateRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -864,7 +850,10 @@ export const serializeAws_restJson1CreateSmsTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateVoiceTemplateCommand = async (
+/**
+ * serializeAws_restJson1CreateVoiceTemplateCommand
+ */
+export const se_CreateVoiceTemplateCommand = async (
   input: CreateVoiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -884,7 +873,7 @@ export const serializeAws_restJson1CreateVoiceTemplateCommand = async (
   );
   let body: any;
   if (input.VoiceTemplateRequest !== undefined) {
-    body = serializeAws_restJson1VoiceTemplateRequest(input.VoiceTemplateRequest, context);
+    body = se_VoiceTemplateRequest(input.VoiceTemplateRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -901,7 +890,10 @@ export const serializeAws_restJson1CreateVoiceTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAdmChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteAdmChannelCommand
+ */
+export const se_DeleteAdmChannelCommand = async (
   input: DeleteAdmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -929,7 +921,10 @@ export const serializeAws_restJson1DeleteAdmChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteApnsChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteApnsChannelCommand
+ */
+export const se_DeleteApnsChannelCommand = async (
   input: DeleteApnsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -957,7 +952,10 @@ export const serializeAws_restJson1DeleteApnsChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteApnsSandboxChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteApnsSandboxChannelCommand
+ */
+export const se_DeleteApnsSandboxChannelCommand = async (
   input: DeleteApnsSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -986,7 +984,10 @@ export const serializeAws_restJson1DeleteApnsSandboxChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteApnsVoipChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteApnsVoipChannelCommand
+ */
+export const se_DeleteApnsVoipChannelCommand = async (
   input: DeleteApnsVoipChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1015,7 +1016,10 @@ export const serializeAws_restJson1DeleteApnsVoipChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteApnsVoipSandboxChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteApnsVoipSandboxChannelCommand
+ */
+export const se_DeleteApnsVoipSandboxChannelCommand = async (
   input: DeleteApnsVoipSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1044,7 +1048,10 @@ export const serializeAws_restJson1DeleteApnsVoipSandboxChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAppCommand = async (
+/**
+ * serializeAws_restJson1DeleteAppCommand
+ */
+export const se_DeleteAppCommand = async (
   input: DeleteAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1071,7 +1078,10 @@ export const serializeAws_restJson1DeleteAppCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBaiduChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteBaiduChannelCommand
+ */
+export const se_DeleteBaiduChannelCommand = async (
   input: DeleteBaiduChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1099,7 +1109,10 @@ export const serializeAws_restJson1DeleteBaiduChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteCampaignCommand = async (
+/**
+ * serializeAws_restJson1DeleteCampaignCommand
+ */
+export const se_DeleteCampaignCommand = async (
   input: DeleteCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1129,7 +1142,10 @@ export const serializeAws_restJson1DeleteCampaignCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteEmailChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteEmailChannelCommand
+ */
+export const se_DeleteEmailChannelCommand = async (
   input: DeleteEmailChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1157,7 +1173,10 @@ export const serializeAws_restJson1DeleteEmailChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteEmailTemplateCommand = async (
+/**
+ * serializeAws_restJson1DeleteEmailTemplateCommand
+ */
+export const se_DeleteEmailTemplateCommand = async (
   input: DeleteEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1189,7 +1208,10 @@ export const serializeAws_restJson1DeleteEmailTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteEndpointCommand = async (
+/**
+ * serializeAws_restJson1DeleteEndpointCommand
+ */
+export const se_DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1219,7 +1241,10 @@ export const serializeAws_restJson1DeleteEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteEventStreamCommand = async (
+/**
+ * serializeAws_restJson1DeleteEventStreamCommand
+ */
+export const se_DeleteEventStreamCommand = async (
   input: DeleteEventStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1247,7 +1272,10 @@ export const serializeAws_restJson1DeleteEventStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteGcmChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteGcmChannelCommand
+ */
+export const se_DeleteGcmChannelCommand = async (
   input: DeleteGcmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1275,7 +1303,10 @@ export const serializeAws_restJson1DeleteGcmChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteInAppTemplateCommand = async (
+/**
+ * serializeAws_restJson1DeleteInAppTemplateCommand
+ */
+export const se_DeleteInAppTemplateCommand = async (
   input: DeleteInAppTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1307,7 +1338,10 @@ export const serializeAws_restJson1DeleteInAppTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteJourneyCommand = async (
+/**
+ * serializeAws_restJson1DeleteJourneyCommand
+ */
+export const se_DeleteJourneyCommand = async (
   input: DeleteJourneyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1337,7 +1371,10 @@ export const serializeAws_restJson1DeleteJourneyCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeletePushTemplateCommand = async (
+/**
+ * serializeAws_restJson1DeletePushTemplateCommand
+ */
+export const se_DeletePushTemplateCommand = async (
   input: DeletePushTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1369,7 +1406,10 @@ export const serializeAws_restJson1DeletePushTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteRecommenderConfigurationCommand = async (
+/**
+ * serializeAws_restJson1DeleteRecommenderConfigurationCommand
+ */
+export const se_DeleteRecommenderConfigurationCommand = async (
   input: DeleteRecommenderConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1397,7 +1437,10 @@ export const serializeAws_restJson1DeleteRecommenderConfigurationCommand = async
   });
 };
 
-export const serializeAws_restJson1DeleteSegmentCommand = async (
+/**
+ * serializeAws_restJson1DeleteSegmentCommand
+ */
+export const se_DeleteSegmentCommand = async (
   input: DeleteSegmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1427,7 +1470,10 @@ export const serializeAws_restJson1DeleteSegmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSmsChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteSmsChannelCommand
+ */
+export const se_DeleteSmsChannelCommand = async (
   input: DeleteSmsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1455,7 +1501,10 @@ export const serializeAws_restJson1DeleteSmsChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSmsTemplateCommand = async (
+/**
+ * serializeAws_restJson1DeleteSmsTemplateCommand
+ */
+export const se_DeleteSmsTemplateCommand = async (
   input: DeleteSmsTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1487,7 +1536,10 @@ export const serializeAws_restJson1DeleteSmsTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteUserEndpointsCommand = async (
+/**
+ * serializeAws_restJson1DeleteUserEndpointsCommand
+ */
+export const se_DeleteUserEndpointsCommand = async (
   input: DeleteUserEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1516,7 +1568,10 @@ export const serializeAws_restJson1DeleteUserEndpointsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVoiceChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteVoiceChannelCommand
+ */
+export const se_DeleteVoiceChannelCommand = async (
   input: DeleteVoiceChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1544,7 +1599,10 @@ export const serializeAws_restJson1DeleteVoiceChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVoiceTemplateCommand = async (
+/**
+ * serializeAws_restJson1DeleteVoiceTemplateCommand
+ */
+export const se_DeleteVoiceTemplateCommand = async (
   input: DeleteVoiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1576,7 +1634,10 @@ export const serializeAws_restJson1DeleteVoiceTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAdmChannelCommand = async (
+/**
+ * serializeAws_restJson1GetAdmChannelCommand
+ */
+export const se_GetAdmChannelCommand = async (
   input: GetAdmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1604,7 +1665,10 @@ export const serializeAws_restJson1GetAdmChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApnsChannelCommand = async (
+/**
+ * serializeAws_restJson1GetApnsChannelCommand
+ */
+export const se_GetApnsChannelCommand = async (
   input: GetApnsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1632,7 +1696,10 @@ export const serializeAws_restJson1GetApnsChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApnsSandboxChannelCommand = async (
+/**
+ * serializeAws_restJson1GetApnsSandboxChannelCommand
+ */
+export const se_GetApnsSandboxChannelCommand = async (
   input: GetApnsSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1661,7 +1728,10 @@ export const serializeAws_restJson1GetApnsSandboxChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApnsVoipChannelCommand = async (
+/**
+ * serializeAws_restJson1GetApnsVoipChannelCommand
+ */
+export const se_GetApnsVoipChannelCommand = async (
   input: GetApnsVoipChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1690,7 +1760,10 @@ export const serializeAws_restJson1GetApnsVoipChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApnsVoipSandboxChannelCommand = async (
+/**
+ * serializeAws_restJson1GetApnsVoipSandboxChannelCommand
+ */
+export const se_GetApnsVoipSandboxChannelCommand = async (
   input: GetApnsVoipSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1719,10 +1792,10 @@ export const serializeAws_restJson1GetApnsVoipSandboxChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAppCommand = async (
-  input: GetAppCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
+/**
+ * serializeAws_restJson1GetAppCommand
+ */
+export const se_GetAppCommand = async (input: GetAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apps/{ApplicationId}";
@@ -1746,7 +1819,10 @@ export const serializeAws_restJson1GetAppCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApplicationDateRangeKpiCommand = async (
+/**
+ * serializeAws_restJson1GetApplicationDateRangeKpiCommand
+ */
+export const se_GetApplicationDateRangeKpiCommand = async (
   input: GetApplicationDateRangeKpiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1786,7 +1862,10 @@ export const serializeAws_restJson1GetApplicationDateRangeKpiCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApplicationSettingsCommand = async (
+/**
+ * serializeAws_restJson1GetApplicationSettingsCommand
+ */
+export const se_GetApplicationSettingsCommand = async (
   input: GetApplicationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1814,7 +1893,10 @@ export const serializeAws_restJson1GetApplicationSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAppsCommand = async (
+/**
+ * serializeAws_restJson1GetAppsCommand
+ */
+export const se_GetAppsCommand = async (
   input: GetAppsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1838,7 +1920,10 @@ export const serializeAws_restJson1GetAppsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBaiduChannelCommand = async (
+/**
+ * serializeAws_restJson1GetBaiduChannelCommand
+ */
+export const se_GetBaiduChannelCommand = async (
   input: GetBaiduChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1866,7 +1951,10 @@ export const serializeAws_restJson1GetBaiduChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCampaignCommand = async (
+/**
+ * serializeAws_restJson1GetCampaignCommand
+ */
+export const se_GetCampaignCommand = async (
   input: GetCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1896,7 +1984,10 @@ export const serializeAws_restJson1GetCampaignCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCampaignActivitiesCommand = async (
+/**
+ * serializeAws_restJson1GetCampaignActivitiesCommand
+ */
+export const se_GetCampaignActivitiesCommand = async (
   input: GetCampaignActivitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1931,7 +2022,10 @@ export const serializeAws_restJson1GetCampaignActivitiesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCampaignDateRangeKpiCommand = async (
+/**
+ * serializeAws_restJson1GetCampaignDateRangeKpiCommand
+ */
+export const se_GetCampaignDateRangeKpiCommand = async (
   input: GetCampaignDateRangeKpiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1972,7 +2066,10 @@ export const serializeAws_restJson1GetCampaignDateRangeKpiCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCampaignsCommand = async (
+/**
+ * serializeAws_restJson1GetCampaignsCommand
+ */
+export const se_GetCampaignsCommand = async (
   input: GetCampaignsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2005,7 +2102,10 @@ export const serializeAws_restJson1GetCampaignsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCampaignVersionCommand = async (
+/**
+ * serializeAws_restJson1GetCampaignVersionCommand
+ */
+export const se_GetCampaignVersionCommand = async (
   input: GetCampaignVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2036,7 +2136,10 @@ export const serializeAws_restJson1GetCampaignVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCampaignVersionsCommand = async (
+/**
+ * serializeAws_restJson1GetCampaignVersionsCommand
+ */
+export const se_GetCampaignVersionsCommand = async (
   input: GetCampaignVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2071,7 +2174,10 @@ export const serializeAws_restJson1GetCampaignVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetChannelsCommand = async (
+/**
+ * serializeAws_restJson1GetChannelsCommand
+ */
+export const se_GetChannelsCommand = async (
   input: GetChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2099,7 +2205,10 @@ export const serializeAws_restJson1GetChannelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEmailChannelCommand = async (
+/**
+ * serializeAws_restJson1GetEmailChannelCommand
+ */
+export const se_GetEmailChannelCommand = async (
   input: GetEmailChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2127,7 +2236,10 @@ export const serializeAws_restJson1GetEmailChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEmailTemplateCommand = async (
+/**
+ * serializeAws_restJson1GetEmailTemplateCommand
+ */
+export const se_GetEmailTemplateCommand = async (
   input: GetEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2159,7 +2271,10 @@ export const serializeAws_restJson1GetEmailTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEndpointCommand = async (
+/**
+ * serializeAws_restJson1GetEndpointCommand
+ */
+export const se_GetEndpointCommand = async (
   input: GetEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2189,7 +2304,10 @@ export const serializeAws_restJson1GetEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEventStreamCommand = async (
+/**
+ * serializeAws_restJson1GetEventStreamCommand
+ */
+export const se_GetEventStreamCommand = async (
   input: GetEventStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2217,7 +2335,10 @@ export const serializeAws_restJson1GetEventStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetExportJobCommand = async (
+/**
+ * serializeAws_restJson1GetExportJobCommand
+ */
+export const se_GetExportJobCommand = async (
   input: GetExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2247,7 +2368,10 @@ export const serializeAws_restJson1GetExportJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetExportJobsCommand = async (
+/**
+ * serializeAws_restJson1GetExportJobsCommand
+ */
+export const se_GetExportJobsCommand = async (
   input: GetExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2280,7 +2404,10 @@ export const serializeAws_restJson1GetExportJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetGcmChannelCommand = async (
+/**
+ * serializeAws_restJson1GetGcmChannelCommand
+ */
+export const se_GetGcmChannelCommand = async (
   input: GetGcmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2308,7 +2435,10 @@ export const serializeAws_restJson1GetGcmChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetImportJobCommand = async (
+/**
+ * serializeAws_restJson1GetImportJobCommand
+ */
+export const se_GetImportJobCommand = async (
   input: GetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2338,7 +2468,10 @@ export const serializeAws_restJson1GetImportJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetImportJobsCommand = async (
+/**
+ * serializeAws_restJson1GetImportJobsCommand
+ */
+export const se_GetImportJobsCommand = async (
   input: GetImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2371,7 +2504,10 @@ export const serializeAws_restJson1GetImportJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetInAppMessagesCommand = async (
+/**
+ * serializeAws_restJson1GetInAppMessagesCommand
+ */
+export const se_GetInAppMessagesCommand = async (
   input: GetInAppMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2401,7 +2537,10 @@ export const serializeAws_restJson1GetInAppMessagesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetInAppTemplateCommand = async (
+/**
+ * serializeAws_restJson1GetInAppTemplateCommand
+ */
+export const se_GetInAppTemplateCommand = async (
   input: GetInAppTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2433,7 +2572,10 @@ export const serializeAws_restJson1GetInAppTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetJourneyCommand = async (
+/**
+ * serializeAws_restJson1GetJourneyCommand
+ */
+export const se_GetJourneyCommand = async (
   input: GetJourneyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2463,7 +2605,10 @@ export const serializeAws_restJson1GetJourneyCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetJourneyDateRangeKpiCommand = async (
+/**
+ * serializeAws_restJson1GetJourneyDateRangeKpiCommand
+ */
+export const se_GetJourneyDateRangeKpiCommand = async (
   input: GetJourneyDateRangeKpiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2504,7 +2649,10 @@ export const serializeAws_restJson1GetJourneyDateRangeKpiCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetJourneyExecutionActivityMetricsCommand = async (
+/**
+ * serializeAws_restJson1GetJourneyExecutionActivityMetricsCommand
+ */
+export const se_GetJourneyExecutionActivityMetricsCommand = async (
   input: GetJourneyExecutionActivityMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2547,7 +2695,10 @@ export const serializeAws_restJson1GetJourneyExecutionActivityMetricsCommand = a
   });
 };
 
-export const serializeAws_restJson1GetJourneyExecutionMetricsCommand = async (
+/**
+ * serializeAws_restJson1GetJourneyExecutionMetricsCommand
+ */
+export const se_GetJourneyExecutionMetricsCommand = async (
   input: GetJourneyExecutionMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2582,7 +2733,10 @@ export const serializeAws_restJson1GetJourneyExecutionMetricsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetPushTemplateCommand = async (
+/**
+ * serializeAws_restJson1GetPushTemplateCommand
+ */
+export const se_GetPushTemplateCommand = async (
   input: GetPushTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2614,7 +2768,10 @@ export const serializeAws_restJson1GetPushTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRecommenderConfigurationCommand = async (
+/**
+ * serializeAws_restJson1GetRecommenderConfigurationCommand
+ */
+export const se_GetRecommenderConfigurationCommand = async (
   input: GetRecommenderConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2642,7 +2799,10 @@ export const serializeAws_restJson1GetRecommenderConfigurationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRecommenderConfigurationsCommand = async (
+/**
+ * serializeAws_restJson1GetRecommenderConfigurationsCommand
+ */
+export const se_GetRecommenderConfigurationsCommand = async (
   input: GetRecommenderConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2666,7 +2826,10 @@ export const serializeAws_restJson1GetRecommenderConfigurationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSegmentCommand = async (
+/**
+ * serializeAws_restJson1GetSegmentCommand
+ */
+export const se_GetSegmentCommand = async (
   input: GetSegmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2696,7 +2859,10 @@ export const serializeAws_restJson1GetSegmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSegmentExportJobsCommand = async (
+/**
+ * serializeAws_restJson1GetSegmentExportJobsCommand
+ */
+export const se_GetSegmentExportJobsCommand = async (
   input: GetSegmentExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2731,7 +2897,10 @@ export const serializeAws_restJson1GetSegmentExportJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSegmentImportJobsCommand = async (
+/**
+ * serializeAws_restJson1GetSegmentImportJobsCommand
+ */
+export const se_GetSegmentImportJobsCommand = async (
   input: GetSegmentImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2766,7 +2935,10 @@ export const serializeAws_restJson1GetSegmentImportJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSegmentsCommand = async (
+/**
+ * serializeAws_restJson1GetSegmentsCommand
+ */
+export const se_GetSegmentsCommand = async (
   input: GetSegmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2799,7 +2971,10 @@ export const serializeAws_restJson1GetSegmentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSegmentVersionCommand = async (
+/**
+ * serializeAws_restJson1GetSegmentVersionCommand
+ */
+export const se_GetSegmentVersionCommand = async (
   input: GetSegmentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2830,7 +3005,10 @@ export const serializeAws_restJson1GetSegmentVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSegmentVersionsCommand = async (
+/**
+ * serializeAws_restJson1GetSegmentVersionsCommand
+ */
+export const se_GetSegmentVersionsCommand = async (
   input: GetSegmentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2865,7 +3043,10 @@ export const serializeAws_restJson1GetSegmentVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSmsChannelCommand = async (
+/**
+ * serializeAws_restJson1GetSmsChannelCommand
+ */
+export const se_GetSmsChannelCommand = async (
   input: GetSmsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2893,7 +3074,10 @@ export const serializeAws_restJson1GetSmsChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSmsTemplateCommand = async (
+/**
+ * serializeAws_restJson1GetSmsTemplateCommand
+ */
+export const se_GetSmsTemplateCommand = async (
   input: GetSmsTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2925,7 +3109,10 @@ export const serializeAws_restJson1GetSmsTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetUserEndpointsCommand = async (
+/**
+ * serializeAws_restJson1GetUserEndpointsCommand
+ */
+export const se_GetUserEndpointsCommand = async (
   input: GetUserEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2954,7 +3141,10 @@ export const serializeAws_restJson1GetUserEndpointsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetVoiceChannelCommand = async (
+/**
+ * serializeAws_restJson1GetVoiceChannelCommand
+ */
+export const se_GetVoiceChannelCommand = async (
   input: GetVoiceChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2982,7 +3172,10 @@ export const serializeAws_restJson1GetVoiceChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetVoiceTemplateCommand = async (
+/**
+ * serializeAws_restJson1GetVoiceTemplateCommand
+ */
+export const se_GetVoiceTemplateCommand = async (
   input: GetVoiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3014,7 +3207,10 @@ export const serializeAws_restJson1GetVoiceTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListJourneysCommand = async (
+/**
+ * serializeAws_restJson1ListJourneysCommand
+ */
+export const se_ListJourneysCommand = async (
   input: ListJourneysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3047,7 +3243,10 @@ export const serializeAws_restJson1ListJourneysCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3067,7 +3266,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTemplatesCommand = async (
+/**
+ * serializeAws_restJson1ListTemplatesCommand
+ */
+export const se_ListTemplatesCommand = async (
   input: ListTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3093,7 +3295,10 @@ export const serializeAws_restJson1ListTemplatesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTemplateVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListTemplateVersionsCommand
+ */
+export const se_ListTemplateVersionsCommand = async (
   input: ListTemplateVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3135,7 +3340,10 @@ export const serializeAws_restJson1ListTemplateVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1PhoneNumberValidateCommand = async (
+/**
+ * serializeAws_restJson1PhoneNumberValidateCommand
+ */
+export const se_PhoneNumberValidateCommand = async (
   input: PhoneNumberValidateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3147,7 +3355,7 @@ export const serializeAws_restJson1PhoneNumberValidateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/phone/number/validate";
   let body: any;
   if (input.NumberValidateRequest !== undefined) {
-    body = serializeAws_restJson1NumberValidateRequest(input.NumberValidateRequest, context);
+    body = _json(input.NumberValidateRequest);
   }
   if (body === undefined) {
     body = {};
@@ -3164,7 +3372,10 @@ export const serializeAws_restJson1PhoneNumberValidateCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutEventsCommand = async (
+/**
+ * serializeAws_restJson1PutEventsCommand
+ */
+export const se_PutEventsCommand = async (
   input: PutEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3184,7 +3395,7 @@ export const serializeAws_restJson1PutEventsCommand = async (
   );
   let body: any;
   if (input.EventsRequest !== undefined) {
-    body = serializeAws_restJson1EventsRequest(input.EventsRequest, context);
+    body = se_EventsRequest(input.EventsRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -3201,7 +3412,10 @@ export const serializeAws_restJson1PutEventsCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutEventStreamCommand = async (
+/**
+ * serializeAws_restJson1PutEventStreamCommand
+ */
+export const se_PutEventStreamCommand = async (
   input: PutEventStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3221,7 +3435,7 @@ export const serializeAws_restJson1PutEventStreamCommand = async (
   );
   let body: any;
   if (input.WriteEventStream !== undefined) {
-    body = serializeAws_restJson1WriteEventStream(input.WriteEventStream, context);
+    body = _json(input.WriteEventStream);
   }
   if (body === undefined) {
     body = {};
@@ -3238,7 +3452,10 @@ export const serializeAws_restJson1PutEventStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveAttributesCommand = async (
+/**
+ * serializeAws_restJson1RemoveAttributesCommand
+ */
+export const se_RemoveAttributesCommand = async (
   input: RemoveAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3267,7 +3484,7 @@ export const serializeAws_restJson1RemoveAttributesCommand = async (
   );
   let body: any;
   if (input.UpdateAttributesRequest !== undefined) {
-    body = serializeAws_restJson1UpdateAttributesRequest(input.UpdateAttributesRequest, context);
+    body = _json(input.UpdateAttributesRequest);
   }
   if (body === undefined) {
     body = {};
@@ -3284,7 +3501,10 @@ export const serializeAws_restJson1RemoveAttributesCommand = async (
   });
 };
 
-export const serializeAws_restJson1SendMessagesCommand = async (
+/**
+ * serializeAws_restJson1SendMessagesCommand
+ */
+export const se_SendMessagesCommand = async (
   input: SendMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3304,7 +3524,7 @@ export const serializeAws_restJson1SendMessagesCommand = async (
   );
   let body: any;
   if (input.MessageRequest !== undefined) {
-    body = serializeAws_restJson1MessageRequest(input.MessageRequest, context);
+    body = se_MessageRequest(input.MessageRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -3321,7 +3541,10 @@ export const serializeAws_restJson1SendMessagesCommand = async (
   });
 };
 
-export const serializeAws_restJson1SendOTPMessageCommand = async (
+/**
+ * serializeAws_restJson1SendOTPMessageCommand
+ */
+export const se_SendOTPMessageCommand = async (
   input: SendOTPMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3341,7 +3564,7 @@ export const serializeAws_restJson1SendOTPMessageCommand = async (
   );
   let body: any;
   if (input.SendOTPMessageRequestParameters !== undefined) {
-    body = serializeAws_restJson1SendOTPMessageRequestParameters(input.SendOTPMessageRequestParameters, context);
+    body = _json(input.SendOTPMessageRequestParameters);
   }
   if (body === undefined) {
     body = {};
@@ -3358,7 +3581,10 @@ export const serializeAws_restJson1SendOTPMessageCommand = async (
   });
 };
 
-export const serializeAws_restJson1SendUsersMessagesCommand = async (
+/**
+ * serializeAws_restJson1SendUsersMessagesCommand
+ */
+export const se_SendUsersMessagesCommand = async (
   input: SendUsersMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3378,7 +3604,7 @@ export const serializeAws_restJson1SendUsersMessagesCommand = async (
   );
   let body: any;
   if (input.SendUsersMessageRequest !== undefined) {
-    body = serializeAws_restJson1SendUsersMessageRequest(input.SendUsersMessageRequest, context);
+    body = se_SendUsersMessageRequest(input.SendUsersMessageRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -3395,7 +3621,10 @@ export const serializeAws_restJson1SendUsersMessagesCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3407,7 +3636,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   if (input.TagsModel !== undefined) {
-    body = serializeAws_restJson1TagsModel(input.TagsModel, context);
+    body = se_TagsModel(input.TagsModel, context);
   }
   if (body === undefined) {
     body = {};
@@ -3424,7 +3653,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3451,7 +3683,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAdmChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateAdmChannelCommand
+ */
+export const se_UpdateAdmChannelCommand = async (
   input: UpdateAdmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3471,7 +3706,7 @@ export const serializeAws_restJson1UpdateAdmChannelCommand = async (
   );
   let body: any;
   if (input.ADMChannelRequest !== undefined) {
-    body = serializeAws_restJson1ADMChannelRequest(input.ADMChannelRequest, context);
+    body = _json(input.ADMChannelRequest);
   }
   if (body === undefined) {
     body = {};
@@ -3488,7 +3723,10 @@ export const serializeAws_restJson1UpdateAdmChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateApnsChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateApnsChannelCommand
+ */
+export const se_UpdateApnsChannelCommand = async (
   input: UpdateApnsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3508,7 +3746,7 @@ export const serializeAws_restJson1UpdateApnsChannelCommand = async (
   );
   let body: any;
   if (input.APNSChannelRequest !== undefined) {
-    body = serializeAws_restJson1APNSChannelRequest(input.APNSChannelRequest, context);
+    body = _json(input.APNSChannelRequest);
   }
   if (body === undefined) {
     body = {};
@@ -3525,7 +3763,10 @@ export const serializeAws_restJson1UpdateApnsChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateApnsSandboxChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateApnsSandboxChannelCommand
+ */
+export const se_UpdateApnsSandboxChannelCommand = async (
   input: UpdateApnsSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3546,7 +3787,7 @@ export const serializeAws_restJson1UpdateApnsSandboxChannelCommand = async (
   );
   let body: any;
   if (input.APNSSandboxChannelRequest !== undefined) {
-    body = serializeAws_restJson1APNSSandboxChannelRequest(input.APNSSandboxChannelRequest, context);
+    body = _json(input.APNSSandboxChannelRequest);
   }
   if (body === undefined) {
     body = {};
@@ -3563,7 +3804,10 @@ export const serializeAws_restJson1UpdateApnsSandboxChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateApnsVoipChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateApnsVoipChannelCommand
+ */
+export const se_UpdateApnsVoipChannelCommand = async (
   input: UpdateApnsVoipChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3584,7 +3828,7 @@ export const serializeAws_restJson1UpdateApnsVoipChannelCommand = async (
   );
   let body: any;
   if (input.APNSVoipChannelRequest !== undefined) {
-    body = serializeAws_restJson1APNSVoipChannelRequest(input.APNSVoipChannelRequest, context);
+    body = _json(input.APNSVoipChannelRequest);
   }
   if (body === undefined) {
     body = {};
@@ -3601,7 +3845,10 @@ export const serializeAws_restJson1UpdateApnsVoipChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateApnsVoipSandboxChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateApnsVoipSandboxChannelCommand
+ */
+export const se_UpdateApnsVoipSandboxChannelCommand = async (
   input: UpdateApnsVoipSandboxChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3622,7 +3869,7 @@ export const serializeAws_restJson1UpdateApnsVoipSandboxChannelCommand = async (
   );
   let body: any;
   if (input.APNSVoipSandboxChannelRequest !== undefined) {
-    body = serializeAws_restJson1APNSVoipSandboxChannelRequest(input.APNSVoipSandboxChannelRequest, context);
+    body = _json(input.APNSVoipSandboxChannelRequest);
   }
   if (body === undefined) {
     body = {};
@@ -3639,7 +3886,10 @@ export const serializeAws_restJson1UpdateApnsVoipSandboxChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateApplicationSettingsCommand = async (
+/**
+ * serializeAws_restJson1UpdateApplicationSettingsCommand
+ */
+export const se_UpdateApplicationSettingsCommand = async (
   input: UpdateApplicationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3659,7 +3909,7 @@ export const serializeAws_restJson1UpdateApplicationSettingsCommand = async (
   );
   let body: any;
   if (input.WriteApplicationSettingsRequest !== undefined) {
-    body = serializeAws_restJson1WriteApplicationSettingsRequest(input.WriteApplicationSettingsRequest, context);
+    body = _json(input.WriteApplicationSettingsRequest);
   }
   if (body === undefined) {
     body = {};
@@ -3676,7 +3926,10 @@ export const serializeAws_restJson1UpdateApplicationSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateBaiduChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateBaiduChannelCommand
+ */
+export const se_UpdateBaiduChannelCommand = async (
   input: UpdateBaiduChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3696,7 +3949,7 @@ export const serializeAws_restJson1UpdateBaiduChannelCommand = async (
   );
   let body: any;
   if (input.BaiduChannelRequest !== undefined) {
-    body = serializeAws_restJson1BaiduChannelRequest(input.BaiduChannelRequest, context);
+    body = _json(input.BaiduChannelRequest);
   }
   if (body === undefined) {
     body = {};
@@ -3713,7 +3966,10 @@ export const serializeAws_restJson1UpdateBaiduChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateCampaignCommand = async (
+/**
+ * serializeAws_restJson1UpdateCampaignCommand
+ */
+export const se_UpdateCampaignCommand = async (
   input: UpdateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3735,7 +3991,7 @@ export const serializeAws_restJson1UpdateCampaignCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "CampaignId", () => input.CampaignId!, "{CampaignId}", false);
   let body: any;
   if (input.WriteCampaignRequest !== undefined) {
-    body = serializeAws_restJson1WriteCampaignRequest(input.WriteCampaignRequest, context);
+    body = se_WriteCampaignRequest(input.WriteCampaignRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -3752,7 +4008,10 @@ export const serializeAws_restJson1UpdateCampaignCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateEmailChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateEmailChannelCommand
+ */
+export const se_UpdateEmailChannelCommand = async (
   input: UpdateEmailChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3772,7 +4031,7 @@ export const serializeAws_restJson1UpdateEmailChannelCommand = async (
   );
   let body: any;
   if (input.EmailChannelRequest !== undefined) {
-    body = serializeAws_restJson1EmailChannelRequest(input.EmailChannelRequest, context);
+    body = _json(input.EmailChannelRequest);
   }
   if (body === undefined) {
     body = {};
@@ -3789,7 +4048,10 @@ export const serializeAws_restJson1UpdateEmailChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateEmailTemplateCommand = async (
+/**
+ * serializeAws_restJson1UpdateEmailTemplateCommand
+ */
+export const se_UpdateEmailTemplateCommand = async (
   input: UpdateEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3813,7 +4075,7 @@ export const serializeAws_restJson1UpdateEmailTemplateCommand = async (
   });
   let body: any;
   if (input.EmailTemplateRequest !== undefined) {
-    body = serializeAws_restJson1EmailTemplateRequest(input.EmailTemplateRequest, context);
+    body = se_EmailTemplateRequest(input.EmailTemplateRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -3831,7 +4093,10 @@ export const serializeAws_restJson1UpdateEmailTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateEndpointCommand = async (
+/**
+ * serializeAws_restJson1UpdateEndpointCommand
+ */
+export const se_UpdateEndpointCommand = async (
   input: UpdateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3853,7 +4118,7 @@ export const serializeAws_restJson1UpdateEndpointCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "EndpointId", () => input.EndpointId!, "{EndpointId}", false);
   let body: any;
   if (input.EndpointRequest !== undefined) {
-    body = serializeAws_restJson1EndpointRequest(input.EndpointRequest, context);
+    body = se_EndpointRequest(input.EndpointRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -3870,7 +4135,10 @@ export const serializeAws_restJson1UpdateEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateEndpointsBatchCommand = async (
+/**
+ * serializeAws_restJson1UpdateEndpointsBatchCommand
+ */
+export const se_UpdateEndpointsBatchCommand = async (
   input: UpdateEndpointsBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3890,7 +4158,7 @@ export const serializeAws_restJson1UpdateEndpointsBatchCommand = async (
   );
   let body: any;
   if (input.EndpointBatchRequest !== undefined) {
-    body = serializeAws_restJson1EndpointBatchRequest(input.EndpointBatchRequest, context);
+    body = se_EndpointBatchRequest(input.EndpointBatchRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -3907,7 +4175,10 @@ export const serializeAws_restJson1UpdateEndpointsBatchCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateGcmChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateGcmChannelCommand
+ */
+export const se_UpdateGcmChannelCommand = async (
   input: UpdateGcmChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3927,7 +4198,7 @@ export const serializeAws_restJson1UpdateGcmChannelCommand = async (
   );
   let body: any;
   if (input.GCMChannelRequest !== undefined) {
-    body = serializeAws_restJson1GCMChannelRequest(input.GCMChannelRequest, context);
+    body = _json(input.GCMChannelRequest);
   }
   if (body === undefined) {
     body = {};
@@ -3944,7 +4215,10 @@ export const serializeAws_restJson1UpdateGcmChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateInAppTemplateCommand = async (
+/**
+ * serializeAws_restJson1UpdateInAppTemplateCommand
+ */
+export const se_UpdateInAppTemplateCommand = async (
   input: UpdateInAppTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -3968,7 +4242,7 @@ export const serializeAws_restJson1UpdateInAppTemplateCommand = async (
   });
   let body: any;
   if (input.InAppTemplateRequest !== undefined) {
-    body = serializeAws_restJson1InAppTemplateRequest(input.InAppTemplateRequest, context);
+    body = se_InAppTemplateRequest(input.InAppTemplateRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -3986,7 +4260,10 @@ export const serializeAws_restJson1UpdateInAppTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateJourneyCommand = async (
+/**
+ * serializeAws_restJson1UpdateJourneyCommand
+ */
+export const se_UpdateJourneyCommand = async (
   input: UpdateJourneyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -4008,7 +4285,7 @@ export const serializeAws_restJson1UpdateJourneyCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "JourneyId", () => input.JourneyId!, "{JourneyId}", false);
   let body: any;
   if (input.WriteJourneyRequest !== undefined) {
-    body = serializeAws_restJson1WriteJourneyRequest(input.WriteJourneyRequest, context);
+    body = se_WriteJourneyRequest(input.WriteJourneyRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -4025,7 +4302,10 @@ export const serializeAws_restJson1UpdateJourneyCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateJourneyStateCommand = async (
+/**
+ * serializeAws_restJson1UpdateJourneyStateCommand
+ */
+export const se_UpdateJourneyStateCommand = async (
   input: UpdateJourneyStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -4047,7 +4327,7 @@ export const serializeAws_restJson1UpdateJourneyStateCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "JourneyId", () => input.JourneyId!, "{JourneyId}", false);
   let body: any;
   if (input.JourneyStateRequest !== undefined) {
-    body = serializeAws_restJson1JourneyStateRequest(input.JourneyStateRequest, context);
+    body = _json(input.JourneyStateRequest);
   }
   if (body === undefined) {
     body = {};
@@ -4064,7 +4344,10 @@ export const serializeAws_restJson1UpdateJourneyStateCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdatePushTemplateCommand = async (
+/**
+ * serializeAws_restJson1UpdatePushTemplateCommand
+ */
+export const se_UpdatePushTemplateCommand = async (
   input: UpdatePushTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -4088,7 +4371,7 @@ export const serializeAws_restJson1UpdatePushTemplateCommand = async (
   });
   let body: any;
   if (input.PushNotificationTemplateRequest !== undefined) {
-    body = serializeAws_restJson1PushNotificationTemplateRequest(input.PushNotificationTemplateRequest, context);
+    body = se_PushNotificationTemplateRequest(input.PushNotificationTemplateRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -4106,7 +4389,10 @@ export const serializeAws_restJson1UpdatePushTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateRecommenderConfigurationCommand = async (
+/**
+ * serializeAws_restJson1UpdateRecommenderConfigurationCommand
+ */
+export const se_UpdateRecommenderConfigurationCommand = async (
   input: UpdateRecommenderConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -4126,7 +4412,7 @@ export const serializeAws_restJson1UpdateRecommenderConfigurationCommand = async
   );
   let body: any;
   if (input.UpdateRecommenderConfiguration !== undefined) {
-    body = serializeAws_restJson1UpdateRecommenderConfigurationShape(input.UpdateRecommenderConfiguration, context);
+    body = _json(input.UpdateRecommenderConfiguration);
   }
   if (body === undefined) {
     body = {};
@@ -4143,7 +4429,10 @@ export const serializeAws_restJson1UpdateRecommenderConfigurationCommand = async
   });
 };
 
-export const serializeAws_restJson1UpdateSegmentCommand = async (
+/**
+ * serializeAws_restJson1UpdateSegmentCommand
+ */
+export const se_UpdateSegmentCommand = async (
   input: UpdateSegmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -4165,7 +4454,7 @@ export const serializeAws_restJson1UpdateSegmentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "SegmentId", () => input.SegmentId!, "{SegmentId}", false);
   let body: any;
   if (input.WriteSegmentRequest !== undefined) {
-    body = serializeAws_restJson1WriteSegmentRequest(input.WriteSegmentRequest, context);
+    body = se_WriteSegmentRequest(input.WriteSegmentRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -4182,7 +4471,10 @@ export const serializeAws_restJson1UpdateSegmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSmsChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateSmsChannelCommand
+ */
+export const se_UpdateSmsChannelCommand = async (
   input: UpdateSmsChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -4202,7 +4494,7 @@ export const serializeAws_restJson1UpdateSmsChannelCommand = async (
   );
   let body: any;
   if (input.SMSChannelRequest !== undefined) {
-    body = serializeAws_restJson1SMSChannelRequest(input.SMSChannelRequest, context);
+    body = _json(input.SMSChannelRequest);
   }
   if (body === undefined) {
     body = {};
@@ -4219,7 +4511,10 @@ export const serializeAws_restJson1UpdateSmsChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSmsTemplateCommand = async (
+/**
+ * serializeAws_restJson1UpdateSmsTemplateCommand
+ */
+export const se_UpdateSmsTemplateCommand = async (
   input: UpdateSmsTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -4243,7 +4538,7 @@ export const serializeAws_restJson1UpdateSmsTemplateCommand = async (
   });
   let body: any;
   if (input.SMSTemplateRequest !== undefined) {
-    body = serializeAws_restJson1SMSTemplateRequest(input.SMSTemplateRequest, context);
+    body = se_SMSTemplateRequest(input.SMSTemplateRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -4261,7 +4556,10 @@ export const serializeAws_restJson1UpdateSmsTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateTemplateActiveVersionCommand = async (
+/**
+ * serializeAws_restJson1UpdateTemplateActiveVersionCommand
+ */
+export const se_UpdateTemplateActiveVersionCommand = async (
   input: UpdateTemplateActiveVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -4290,7 +4588,7 @@ export const serializeAws_restJson1UpdateTemplateActiveVersionCommand = async (
   );
   let body: any;
   if (input.TemplateActiveVersionRequest !== undefined) {
-    body = serializeAws_restJson1TemplateActiveVersionRequest(input.TemplateActiveVersionRequest, context);
+    body = _json(input.TemplateActiveVersionRequest);
   }
   if (body === undefined) {
     body = {};
@@ -4307,7 +4605,10 @@ export const serializeAws_restJson1UpdateTemplateActiveVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateVoiceChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateVoiceChannelCommand
+ */
+export const se_UpdateVoiceChannelCommand = async (
   input: UpdateVoiceChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -4327,7 +4628,7 @@ export const serializeAws_restJson1UpdateVoiceChannelCommand = async (
   );
   let body: any;
   if (input.VoiceChannelRequest !== undefined) {
-    body = serializeAws_restJson1VoiceChannelRequest(input.VoiceChannelRequest, context);
+    body = _json(input.VoiceChannelRequest);
   }
   if (body === undefined) {
     body = {};
@@ -4344,7 +4645,10 @@ export const serializeAws_restJson1UpdateVoiceChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateVoiceTemplateCommand = async (
+/**
+ * serializeAws_restJson1UpdateVoiceTemplateCommand
+ */
+export const se_UpdateVoiceTemplateCommand = async (
   input: UpdateVoiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -4368,7 +4672,7 @@ export const serializeAws_restJson1UpdateVoiceTemplateCommand = async (
   });
   let body: any;
   if (input.VoiceTemplateRequest !== undefined) {
-    body = serializeAws_restJson1VoiceTemplateRequest(input.VoiceTemplateRequest, context);
+    body = se_VoiceTemplateRequest(input.VoiceTemplateRequest, context);
   }
   if (body === undefined) {
     body = {};
@@ -4386,7 +4690,10 @@ export const serializeAws_restJson1UpdateVoiceTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1VerifyOTPMessageCommand = async (
+/**
+ * serializeAws_restJson1VerifyOTPMessageCommand
+ */
+export const se_VerifyOTPMessageCommand = async (
   input: VerifyOTPMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -4406,7 +4713,7 @@ export const serializeAws_restJson1VerifyOTPMessageCommand = async (
   );
   let body: any;
   if (input.VerifyOTPMessageRequestParameters !== undefined) {
-    body = serializeAws_restJson1VerifyOTPMessageRequestParameters(input.VerifyOTPMessageRequestParameters, context);
+    body = _json(input.VerifyOTPMessageRequestParameters);
   }
   if (body === undefined) {
     body = {};
@@ -4423,22 +4730,28 @@ export const serializeAws_restJson1VerifyOTPMessageCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateAppCommand = async (
+/**
+ * deserializeAws_restJson1CreateAppCommand
+ */
+export const de_CreateAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAppCommandError(output, context);
+    return de_CreateAppCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ApplicationResponse = deserializeAws_restJson1ApplicationResponse(data, context);
+  contents.ApplicationResponse = de_ApplicationResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateAppCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAppCommandError
+ */
+const de_CreateAppCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> => {
@@ -4450,52 +4763,57 @@ const deserializeAws_restJson1CreateAppCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateCampaignCommand = async (
+/**
+ * deserializeAws_restJson1CreateCampaignCommand
+ */
+export const de_CreateCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateCampaignCommandError(output, context);
+    return de_CreateCampaignCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CampaignResponse = deserializeAws_restJson1CampaignResponse(data, context);
+  contents.CampaignResponse = de_CampaignResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1CreateCampaignCommandError
+ */
+const de_CreateCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
@@ -4507,52 +4825,57 @@ const deserializeAws_restJson1CreateCampaignCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateEmailTemplateCommand = async (
+/**
+ * deserializeAws_restJson1CreateEmailTemplateCommand
+ */
+export const de_CreateEmailTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEmailTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateEmailTemplateCommandError(output, context);
+    return de_CreateEmailTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CreateTemplateMessageBody = deserializeAws_restJson1CreateTemplateMessageBody(data, context);
+  contents.CreateTemplateMessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1CreateEmailTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1CreateEmailTemplateCommandError
+ */
+const de_CreateEmailTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEmailTemplateCommandOutput> => {
@@ -4564,46 +4887,51 @@ const deserializeAws_restJson1CreateEmailTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateExportJobCommand = async (
+/**
+ * deserializeAws_restJson1CreateExportJobCommand
+ */
+export const de_CreateExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateExportJobCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateExportJobCommandError(output, context);
+    return de_CreateExportJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ExportJobResponse = deserializeAws_restJson1ExportJobResponse(data, context);
+  contents.ExportJobResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1CreateExportJobCommandError = async (
+/**
+ * deserializeAws_restJson1CreateExportJobCommandError
+ */
+const de_CreateExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateExportJobCommandOutput> => {
@@ -4615,52 +4943,57 @@ const deserializeAws_restJson1CreateExportJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateImportJobCommand = async (
+/**
+ * deserializeAws_restJson1CreateImportJobCommand
+ */
+export const de_CreateImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImportJobCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateImportJobCommandError(output, context);
+    return de_CreateImportJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ImportJobResponse = deserializeAws_restJson1ImportJobResponse(data, context);
+  contents.ImportJobResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1CreateImportJobCommandError = async (
+/**
+ * deserializeAws_restJson1CreateImportJobCommandError
+ */
+const de_CreateImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImportJobCommandOutput> => {
@@ -4672,52 +5005,57 @@ const deserializeAws_restJson1CreateImportJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateInAppTemplateCommand = async (
+/**
+ * deserializeAws_restJson1CreateInAppTemplateCommand
+ */
+export const de_CreateInAppTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInAppTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateInAppTemplateCommandError(output, context);
+    return de_CreateInAppTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.TemplateCreateMessageBody = deserializeAws_restJson1TemplateCreateMessageBody(data, context);
+  contents.TemplateCreateMessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1CreateInAppTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1CreateInAppTemplateCommandError
+ */
+const de_CreateInAppTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInAppTemplateCommandOutput> => {
@@ -4729,46 +5067,51 @@ const deserializeAws_restJson1CreateInAppTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateJourneyCommand = async (
+/**
+ * deserializeAws_restJson1CreateJourneyCommand
+ */
+export const de_CreateJourneyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJourneyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateJourneyCommandError(output, context);
+    return de_CreateJourneyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.JourneyResponse = deserializeAws_restJson1JourneyResponse(data, context);
+  contents.JourneyResponse = de_JourneyResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateJourneyCommandError = async (
+/**
+ * deserializeAws_restJson1CreateJourneyCommandError
+ */
+const de_CreateJourneyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJourneyCommandOutput> => {
@@ -4780,52 +5123,57 @@ const deserializeAws_restJson1CreateJourneyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreatePushTemplateCommand = async (
+/**
+ * deserializeAws_restJson1CreatePushTemplateCommand
+ */
+export const de_CreatePushTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePushTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreatePushTemplateCommandError(output, context);
+    return de_CreatePushTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CreateTemplateMessageBody = deserializeAws_restJson1CreateTemplateMessageBody(data, context);
+  contents.CreateTemplateMessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1CreatePushTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1CreatePushTemplateCommandError
+ */
+const de_CreatePushTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePushTemplateCommandOutput> => {
@@ -4837,46 +5185,51 @@ const deserializeAws_restJson1CreatePushTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateRecommenderConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1CreateRecommenderConfigurationCommand
+ */
+export const de_CreateRecommenderConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRecommenderConfigurationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateRecommenderConfigurationCommandError(output, context);
+    return de_CreateRecommenderConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
+  contents.RecommenderConfigurationResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1CreateRecommenderConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateRecommenderConfigurationCommandError
+ */
+const de_CreateRecommenderConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRecommenderConfigurationCommandOutput> => {
@@ -4888,52 +5241,57 @@ const deserializeAws_restJson1CreateRecommenderConfigurationCommandError = async
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateSegmentCommand = async (
+/**
+ * deserializeAws_restJson1CreateSegmentCommand
+ */
+export const de_CreateSegmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSegmentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSegmentCommandError(output, context);
+    return de_CreateSegmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SegmentResponse = deserializeAws_restJson1SegmentResponse(data, context);
+  contents.SegmentResponse = de_SegmentResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateSegmentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSegmentCommandError
+ */
+const de_CreateSegmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSegmentCommandOutput> => {
@@ -4945,52 +5303,57 @@ const deserializeAws_restJson1CreateSegmentCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateSmsTemplateCommand = async (
+/**
+ * deserializeAws_restJson1CreateSmsTemplateCommand
+ */
+export const de_CreateSmsTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSmsTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSmsTemplateCommandError(output, context);
+    return de_CreateSmsTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CreateTemplateMessageBody = deserializeAws_restJson1CreateTemplateMessageBody(data, context);
+  contents.CreateTemplateMessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1CreateSmsTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSmsTemplateCommandError
+ */
+const de_CreateSmsTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSmsTemplateCommandOutput> => {
@@ -5002,46 +5365,51 @@ const deserializeAws_restJson1CreateSmsTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateVoiceTemplateCommand = async (
+/**
+ * deserializeAws_restJson1CreateVoiceTemplateCommand
+ */
+export const de_CreateVoiceTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVoiceTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateVoiceTemplateCommandError(output, context);
+    return de_CreateVoiceTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CreateTemplateMessageBody = deserializeAws_restJson1CreateTemplateMessageBody(data, context);
+  contents.CreateTemplateMessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1CreateVoiceTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1CreateVoiceTemplateCommandError
+ */
+const de_CreateVoiceTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVoiceTemplateCommandOutput> => {
@@ -5053,46 +5421,51 @@ const deserializeAws_restJson1CreateVoiceTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteAdmChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAdmChannelCommand
+ */
+export const de_DeleteAdmChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAdmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAdmChannelCommandError(output, context);
+    return de_DeleteAdmChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ADMChannelResponse = deserializeAws_restJson1ADMChannelResponse(data, context);
+  contents.ADMChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAdmChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAdmChannelCommandError
+ */
+const de_DeleteAdmChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAdmChannelCommandOutput> => {
@@ -5104,52 +5477,57 @@ const deserializeAws_restJson1DeleteAdmChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteApnsChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteApnsChannelCommand
+ */
+export const de_DeleteApnsChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteApnsChannelCommandError(output, context);
+    return de_DeleteApnsChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSChannelResponse = deserializeAws_restJson1APNSChannelResponse(data, context);
+  contents.APNSChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteApnsChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteApnsChannelCommandError
+ */
+const de_DeleteApnsChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsChannelCommandOutput> => {
@@ -5161,52 +5539,57 @@ const deserializeAws_restJson1DeleteApnsChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteApnsSandboxChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteApnsSandboxChannelCommand
+ */
+export const de_DeleteApnsSandboxChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteApnsSandboxChannelCommandError(output, context);
+    return de_DeleteApnsSandboxChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSSandboxChannelResponse = deserializeAws_restJson1APNSSandboxChannelResponse(data, context);
+  contents.APNSSandboxChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteApnsSandboxChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteApnsSandboxChannelCommandError
+ */
+const de_DeleteApnsSandboxChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsSandboxChannelCommandOutput> => {
@@ -5218,52 +5601,57 @@ const deserializeAws_restJson1DeleteApnsSandboxChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteApnsVoipChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteApnsVoipChannelCommand
+ */
+export const de_DeleteApnsVoipChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsVoipChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteApnsVoipChannelCommandError(output, context);
+    return de_DeleteApnsVoipChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSVoipChannelResponse = deserializeAws_restJson1APNSVoipChannelResponse(data, context);
+  contents.APNSVoipChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteApnsVoipChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteApnsVoipChannelCommandError
+ */
+const de_DeleteApnsVoipChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsVoipChannelCommandOutput> => {
@@ -5275,52 +5663,57 @@ const deserializeAws_restJson1DeleteApnsVoipChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommand
+ */
+export const de_DeleteApnsVoipSandboxChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsVoipSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommandError(output, context);
+    return de_DeleteApnsVoipSandboxChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSVoipSandboxChannelResponse = deserializeAws_restJson1APNSVoipSandboxChannelResponse(data, context);
+  contents.APNSVoipSandboxChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommandError
+ */
+const de_DeleteApnsVoipSandboxChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsVoipSandboxChannelCommandOutput> => {
@@ -5332,52 +5725,57 @@ const deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteAppCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAppCommand
+ */
+export const de_DeleteAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAppCommandError(output, context);
+    return de_DeleteAppCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ApplicationResponse = deserializeAws_restJson1ApplicationResponse(data, context);
+  contents.ApplicationResponse = de_ApplicationResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAppCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAppCommandError
+ */
+const de_DeleteAppCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> => {
@@ -5389,52 +5787,57 @@ const deserializeAws_restJson1DeleteAppCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteBaiduChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBaiduChannelCommand
+ */
+export const de_DeleteBaiduChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBaiduChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBaiduChannelCommandError(output, context);
+    return de_DeleteBaiduChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.BaiduChannelResponse = deserializeAws_restJson1BaiduChannelResponse(data, context);
+  contents.BaiduChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteBaiduChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBaiduChannelCommandError
+ */
+const de_DeleteBaiduChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBaiduChannelCommandOutput> => {
@@ -5446,52 +5849,57 @@ const deserializeAws_restJson1DeleteBaiduChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteCampaignCommand = async (
+/**
+ * deserializeAws_restJson1DeleteCampaignCommand
+ */
+export const de_DeleteCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteCampaignCommandError(output, context);
+    return de_DeleteCampaignCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CampaignResponse = deserializeAws_restJson1CampaignResponse(data, context);
+  contents.CampaignResponse = de_CampaignResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteCampaignCommandError
+ */
+const de_DeleteCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
@@ -5503,52 +5911,57 @@ const deserializeAws_restJson1DeleteCampaignCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteEmailChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteEmailChannelCommand
+ */
+export const de_DeleteEmailChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteEmailChannelCommandError(output, context);
+    return de_DeleteEmailChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EmailChannelResponse = deserializeAws_restJson1EmailChannelResponse(data, context);
+  contents.EmailChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteEmailChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteEmailChannelCommandError
+ */
+const de_DeleteEmailChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailChannelCommandOutput> => {
@@ -5560,52 +5973,57 @@ const deserializeAws_restJson1DeleteEmailChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteEmailTemplateCommand = async (
+/**
+ * deserializeAws_restJson1DeleteEmailTemplateCommand
+ */
+export const de_DeleteEmailTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteEmailTemplateCommandError(output, context);
+    return de_DeleteEmailTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteEmailTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteEmailTemplateCommandError
+ */
+const de_DeleteEmailTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailTemplateCommandOutput> => {
@@ -5617,52 +6035,57 @@ const deserializeAws_restJson1DeleteEmailTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteEndpointCommand = async (
+/**
+ * deserializeAws_restJson1DeleteEndpointCommand
+ */
+export const de_DeleteEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteEndpointCommandError(output, context);
+    return de_DeleteEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EndpointResponse = deserializeAws_restJson1EndpointResponse(data, context);
+  contents.EndpointResponse = de_EndpointResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteEndpointCommandError
+ */
+const de_DeleteEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointCommandOutput> => {
@@ -5674,52 +6097,57 @@ const deserializeAws_restJson1DeleteEndpointCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteEventStreamCommand = async (
+/**
+ * deserializeAws_restJson1DeleteEventStreamCommand
+ */
+export const de_DeleteEventStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteEventStreamCommandError(output, context);
+    return de_DeleteEventStreamCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EventStream = deserializeAws_restJson1EventStream(data, context);
+  contents.EventStream = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteEventStreamCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteEventStreamCommandError
+ */
+const de_DeleteEventStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventStreamCommandOutput> => {
@@ -5731,52 +6159,57 @@ const deserializeAws_restJson1DeleteEventStreamCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteGcmChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteGcmChannelCommand
+ */
+export const de_DeleteGcmChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGcmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteGcmChannelCommandError(output, context);
+    return de_DeleteGcmChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.GCMChannelResponse = deserializeAws_restJson1GCMChannelResponse(data, context);
+  contents.GCMChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteGcmChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteGcmChannelCommandError
+ */
+const de_DeleteGcmChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGcmChannelCommandOutput> => {
@@ -5788,52 +6221,57 @@ const deserializeAws_restJson1DeleteGcmChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteInAppTemplateCommand = async (
+/**
+ * deserializeAws_restJson1DeleteInAppTemplateCommand
+ */
+export const de_DeleteInAppTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInAppTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteInAppTemplateCommandError(output, context);
+    return de_DeleteInAppTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteInAppTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteInAppTemplateCommandError
+ */
+const de_DeleteInAppTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInAppTemplateCommandOutput> => {
@@ -5845,52 +6283,57 @@ const deserializeAws_restJson1DeleteInAppTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteJourneyCommand = async (
+/**
+ * deserializeAws_restJson1DeleteJourneyCommand
+ */
+export const de_DeleteJourneyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJourneyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteJourneyCommandError(output, context);
+    return de_DeleteJourneyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.JourneyResponse = deserializeAws_restJson1JourneyResponse(data, context);
+  contents.JourneyResponse = de_JourneyResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteJourneyCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteJourneyCommandError
+ */
+const de_DeleteJourneyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJourneyCommandOutput> => {
@@ -5902,52 +6345,57 @@ const deserializeAws_restJson1DeleteJourneyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeletePushTemplateCommand = async (
+/**
+ * deserializeAws_restJson1DeletePushTemplateCommand
+ */
+export const de_DeletePushTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePushTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeletePushTemplateCommandError(output, context);
+    return de_DeletePushTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeletePushTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1DeletePushTemplateCommandError
+ */
+const de_DeletePushTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePushTemplateCommandOutput> => {
@@ -5959,52 +6407,57 @@ const deserializeAws_restJson1DeletePushTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteRecommenderConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteRecommenderConfigurationCommand
+ */
+export const de_DeleteRecommenderConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRecommenderConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteRecommenderConfigurationCommandError(output, context);
+    return de_DeleteRecommenderConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
+  contents.RecommenderConfigurationResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteRecommenderConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteRecommenderConfigurationCommandError
+ */
+const de_DeleteRecommenderConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRecommenderConfigurationCommandOutput> => {
@@ -6016,52 +6469,57 @@ const deserializeAws_restJson1DeleteRecommenderConfigurationCommandError = async
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteSegmentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSegmentCommand
+ */
+export const de_DeleteSegmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSegmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSegmentCommandError(output, context);
+    return de_DeleteSegmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SegmentResponse = deserializeAws_restJson1SegmentResponse(data, context);
+  contents.SegmentResponse = de_SegmentResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSegmentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSegmentCommandError
+ */
+const de_DeleteSegmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSegmentCommandOutput> => {
@@ -6073,52 +6531,57 @@ const deserializeAws_restJson1DeleteSegmentCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteSmsChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSmsChannelCommand
+ */
+export const de_DeleteSmsChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSmsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSmsChannelCommandError(output, context);
+    return de_DeleteSmsChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SMSChannelResponse = deserializeAws_restJson1SMSChannelResponse(data, context);
+  contents.SMSChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSmsChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSmsChannelCommandError
+ */
+const de_DeleteSmsChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSmsChannelCommandOutput> => {
@@ -6130,52 +6593,57 @@ const deserializeAws_restJson1DeleteSmsChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteSmsTemplateCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSmsTemplateCommand
+ */
+export const de_DeleteSmsTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSmsTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSmsTemplateCommandError(output, context);
+    return de_DeleteSmsTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSmsTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSmsTemplateCommandError
+ */
+const de_DeleteSmsTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSmsTemplateCommandOutput> => {
@@ -6187,52 +6655,57 @@ const deserializeAws_restJson1DeleteSmsTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteUserEndpointsCommand = async (
+/**
+ * deserializeAws_restJson1DeleteUserEndpointsCommand
+ */
+export const de_DeleteUserEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserEndpointsCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteUserEndpointsCommandError(output, context);
+    return de_DeleteUserEndpointsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EndpointsResponse = deserializeAws_restJson1EndpointsResponse(data, context);
+  contents.EndpointsResponse = de_EndpointsResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteUserEndpointsCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteUserEndpointsCommandError
+ */
+const de_DeleteUserEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserEndpointsCommandOutput> => {
@@ -6244,52 +6717,57 @@ const deserializeAws_restJson1DeleteUserEndpointsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteVoiceChannelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVoiceChannelCommand
+ */
+export const de_DeleteVoiceChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVoiceChannelCommandError(output, context);
+    return de_DeleteVoiceChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.VoiceChannelResponse = deserializeAws_restJson1VoiceChannelResponse(data, context);
+  contents.VoiceChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVoiceChannelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVoiceChannelCommandError
+ */
+const de_DeleteVoiceChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceChannelCommandOutput> => {
@@ -6301,52 +6779,57 @@ const deserializeAws_restJson1DeleteVoiceChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteVoiceTemplateCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVoiceTemplateCommand
+ */
+export const de_DeleteVoiceTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVoiceTemplateCommandError(output, context);
+    return de_DeleteVoiceTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVoiceTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVoiceTemplateCommandError
+ */
+const de_DeleteVoiceTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceTemplateCommandOutput> => {
@@ -6358,52 +6841,57 @@ const deserializeAws_restJson1DeleteVoiceTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetAdmChannelCommand = async (
+/**
+ * deserializeAws_restJson1GetAdmChannelCommand
+ */
+export const de_GetAdmChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAdmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAdmChannelCommandError(output, context);
+    return de_GetAdmChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ADMChannelResponse = deserializeAws_restJson1ADMChannelResponse(data, context);
+  contents.ADMChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetAdmChannelCommandError = async (
+/**
+ * deserializeAws_restJson1GetAdmChannelCommandError
+ */
+const de_GetAdmChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAdmChannelCommandOutput> => {
@@ -6415,52 +6903,57 @@ const deserializeAws_restJson1GetAdmChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetApnsChannelCommand = async (
+/**
+ * deserializeAws_restJson1GetApnsChannelCommand
+ */
+export const de_GetApnsChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApnsChannelCommandError(output, context);
+    return de_GetApnsChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSChannelResponse = deserializeAws_restJson1APNSChannelResponse(data, context);
+  contents.APNSChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetApnsChannelCommandError = async (
+/**
+ * deserializeAws_restJson1GetApnsChannelCommandError
+ */
+const de_GetApnsChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsChannelCommandOutput> => {
@@ -6472,52 +6965,57 @@ const deserializeAws_restJson1GetApnsChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetApnsSandboxChannelCommand = async (
+/**
+ * deserializeAws_restJson1GetApnsSandboxChannelCommand
+ */
+export const de_GetApnsSandboxChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApnsSandboxChannelCommandError(output, context);
+    return de_GetApnsSandboxChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSSandboxChannelResponse = deserializeAws_restJson1APNSSandboxChannelResponse(data, context);
+  contents.APNSSandboxChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetApnsSandboxChannelCommandError = async (
+/**
+ * deserializeAws_restJson1GetApnsSandboxChannelCommandError
+ */
+const de_GetApnsSandboxChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsSandboxChannelCommandOutput> => {
@@ -6529,52 +7027,57 @@ const deserializeAws_restJson1GetApnsSandboxChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetApnsVoipChannelCommand = async (
+/**
+ * deserializeAws_restJson1GetApnsVoipChannelCommand
+ */
+export const de_GetApnsVoipChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsVoipChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApnsVoipChannelCommandError(output, context);
+    return de_GetApnsVoipChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSVoipChannelResponse = deserializeAws_restJson1APNSVoipChannelResponse(data, context);
+  contents.APNSVoipChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetApnsVoipChannelCommandError = async (
+/**
+ * deserializeAws_restJson1GetApnsVoipChannelCommandError
+ */
+const de_GetApnsVoipChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsVoipChannelCommandOutput> => {
@@ -6586,52 +7089,57 @@ const deserializeAws_restJson1GetApnsVoipChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetApnsVoipSandboxChannelCommand = async (
+/**
+ * deserializeAws_restJson1GetApnsVoipSandboxChannelCommand
+ */
+export const de_GetApnsVoipSandboxChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsVoipSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApnsVoipSandboxChannelCommandError(output, context);
+    return de_GetApnsVoipSandboxChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSVoipSandboxChannelResponse = deserializeAws_restJson1APNSVoipSandboxChannelResponse(data, context);
+  contents.APNSVoipSandboxChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetApnsVoipSandboxChannelCommandError = async (
+/**
+ * deserializeAws_restJson1GetApnsVoipSandboxChannelCommandError
+ */
+const de_GetApnsVoipSandboxChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsVoipSandboxChannelCommandOutput> => {
@@ -6643,55 +7151,57 @@ const deserializeAws_restJson1GetApnsVoipSandboxChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetAppCommand = async (
+/**
+ * deserializeAws_restJson1GetAppCommand
+ */
+export const de_GetAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAppCommandError(output, context);
+    return de_GetAppCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ApplicationResponse = deserializeAws_restJson1ApplicationResponse(data, context);
+  contents.ApplicationResponse = de_ApplicationResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAppCommandOutput> => {
+/**
+ * deserializeAws_restJson1GetAppCommandError
+ */
+const de_GetAppCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetAppCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6700,52 +7210,57 @@ const deserializeAws_restJson1GetAppCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetApplicationDateRangeKpiCommand = async (
+/**
+ * deserializeAws_restJson1GetApplicationDateRangeKpiCommand
+ */
+export const de_GetApplicationDateRangeKpiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationDateRangeKpiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApplicationDateRangeKpiCommandError(output, context);
+    return de_GetApplicationDateRangeKpiCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ApplicationDateRangeKpiResponse = deserializeAws_restJson1ApplicationDateRangeKpiResponse(data, context);
+  contents.ApplicationDateRangeKpiResponse = de_ApplicationDateRangeKpiResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetApplicationDateRangeKpiCommandError = async (
+/**
+ * deserializeAws_restJson1GetApplicationDateRangeKpiCommandError
+ */
+const de_GetApplicationDateRangeKpiCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationDateRangeKpiCommandOutput> => {
@@ -6757,52 +7272,57 @@ const deserializeAws_restJson1GetApplicationDateRangeKpiCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetApplicationSettingsCommand = async (
+/**
+ * deserializeAws_restJson1GetApplicationSettingsCommand
+ */
+export const de_GetApplicationSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApplicationSettingsCommandError(output, context);
+    return de_GetApplicationSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ApplicationSettingsResource = deserializeAws_restJson1ApplicationSettingsResource(data, context);
+  contents.ApplicationSettingsResource = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetApplicationSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1GetApplicationSettingsCommandError
+ */
+const de_GetApplicationSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationSettingsCommandOutput> => {
@@ -6814,52 +7334,57 @@ const deserializeAws_restJson1GetApplicationSettingsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetAppsCommand = async (
+/**
+ * deserializeAws_restJson1GetAppsCommand
+ */
+export const de_GetAppsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAppsCommandError(output, context);
+    return de_GetAppsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ApplicationsResponse = deserializeAws_restJson1ApplicationsResponse(data, context);
+  contents.ApplicationsResponse = de_ApplicationsResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetAppsCommandError = async (
+/**
+ * deserializeAws_restJson1GetAppsCommandError
+ */
+const de_GetAppsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppsCommandOutput> => {
@@ -6871,52 +7396,57 @@ const deserializeAws_restJson1GetAppsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetBaiduChannelCommand = async (
+/**
+ * deserializeAws_restJson1GetBaiduChannelCommand
+ */
+export const de_GetBaiduChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBaiduChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBaiduChannelCommandError(output, context);
+    return de_GetBaiduChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.BaiduChannelResponse = deserializeAws_restJson1BaiduChannelResponse(data, context);
+  contents.BaiduChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetBaiduChannelCommandError = async (
+/**
+ * deserializeAws_restJson1GetBaiduChannelCommandError
+ */
+const de_GetBaiduChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBaiduChannelCommandOutput> => {
@@ -6928,52 +7458,57 @@ const deserializeAws_restJson1GetBaiduChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetCampaignCommand = async (
+/**
+ * deserializeAws_restJson1GetCampaignCommand
+ */
+export const de_GetCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCampaignCommandError(output, context);
+    return de_GetCampaignCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CampaignResponse = deserializeAws_restJson1CampaignResponse(data, context);
+  contents.CampaignResponse = de_CampaignResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1GetCampaignCommandError
+ */
+const de_GetCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignCommandOutput> => {
@@ -6985,52 +7520,57 @@ const deserializeAws_restJson1GetCampaignCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetCampaignActivitiesCommand = async (
+/**
+ * deserializeAws_restJson1GetCampaignActivitiesCommand
+ */
+export const de_GetCampaignActivitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignActivitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCampaignActivitiesCommandError(output, context);
+    return de_GetCampaignActivitiesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ActivitiesResponse = deserializeAws_restJson1ActivitiesResponse(data, context);
+  contents.ActivitiesResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetCampaignActivitiesCommandError = async (
+/**
+ * deserializeAws_restJson1GetCampaignActivitiesCommandError
+ */
+const de_GetCampaignActivitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignActivitiesCommandOutput> => {
@@ -7042,52 +7582,57 @@ const deserializeAws_restJson1GetCampaignActivitiesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetCampaignDateRangeKpiCommand = async (
+/**
+ * deserializeAws_restJson1GetCampaignDateRangeKpiCommand
+ */
+export const de_GetCampaignDateRangeKpiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignDateRangeKpiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCampaignDateRangeKpiCommandError(output, context);
+    return de_GetCampaignDateRangeKpiCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CampaignDateRangeKpiResponse = deserializeAws_restJson1CampaignDateRangeKpiResponse(data, context);
+  contents.CampaignDateRangeKpiResponse = de_CampaignDateRangeKpiResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetCampaignDateRangeKpiCommandError = async (
+/**
+ * deserializeAws_restJson1GetCampaignDateRangeKpiCommandError
+ */
+const de_GetCampaignDateRangeKpiCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignDateRangeKpiCommandOutput> => {
@@ -7099,52 +7644,57 @@ const deserializeAws_restJson1GetCampaignDateRangeKpiCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetCampaignsCommand = async (
+/**
+ * deserializeAws_restJson1GetCampaignsCommand
+ */
+export const de_GetCampaignsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCampaignsCommandError(output, context);
+    return de_GetCampaignsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CampaignsResponse = deserializeAws_restJson1CampaignsResponse(data, context);
+  contents.CampaignsResponse = de_CampaignsResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetCampaignsCommandError = async (
+/**
+ * deserializeAws_restJson1GetCampaignsCommandError
+ */
+const de_GetCampaignsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignsCommandOutput> => {
@@ -7156,52 +7706,57 @@ const deserializeAws_restJson1GetCampaignsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetCampaignVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetCampaignVersionCommand
+ */
+export const de_GetCampaignVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCampaignVersionCommandError(output, context);
+    return de_GetCampaignVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CampaignResponse = deserializeAws_restJson1CampaignResponse(data, context);
+  contents.CampaignResponse = de_CampaignResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetCampaignVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetCampaignVersionCommandError
+ */
+const de_GetCampaignVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignVersionCommandOutput> => {
@@ -7213,52 +7768,57 @@ const deserializeAws_restJson1GetCampaignVersionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetCampaignVersionsCommand = async (
+/**
+ * deserializeAws_restJson1GetCampaignVersionsCommand
+ */
+export const de_GetCampaignVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCampaignVersionsCommandError(output, context);
+    return de_GetCampaignVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CampaignsResponse = deserializeAws_restJson1CampaignsResponse(data, context);
+  contents.CampaignsResponse = de_CampaignsResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetCampaignVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1GetCampaignVersionsCommandError
+ */
+const de_GetCampaignVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignVersionsCommandOutput> => {
@@ -7270,52 +7830,57 @@ const deserializeAws_restJson1GetCampaignVersionsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetChannelsCommand = async (
+/**
+ * deserializeAws_restJson1GetChannelsCommand
+ */
+export const de_GetChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetChannelsCommandError(output, context);
+    return de_GetChannelsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ChannelsResponse = deserializeAws_restJson1ChannelsResponse(data, context);
+  contents.ChannelsResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetChannelsCommandError = async (
+/**
+ * deserializeAws_restJson1GetChannelsCommandError
+ */
+const de_GetChannelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelsCommandOutput> => {
@@ -7327,52 +7892,57 @@ const deserializeAws_restJson1GetChannelsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetEmailChannelCommand = async (
+/**
+ * deserializeAws_restJson1GetEmailChannelCommand
+ */
+export const de_GetEmailChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEmailChannelCommandError(output, context);
+    return de_GetEmailChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EmailChannelResponse = deserializeAws_restJson1EmailChannelResponse(data, context);
+  contents.EmailChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetEmailChannelCommandError = async (
+/**
+ * deserializeAws_restJson1GetEmailChannelCommandError
+ */
+const de_GetEmailChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailChannelCommandOutput> => {
@@ -7384,52 +7954,57 @@ const deserializeAws_restJson1GetEmailChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetEmailTemplateCommand = async (
+/**
+ * deserializeAws_restJson1GetEmailTemplateCommand
+ */
+export const de_GetEmailTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEmailTemplateCommandError(output, context);
+    return de_GetEmailTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EmailTemplateResponse = deserializeAws_restJson1EmailTemplateResponse(data, context);
+  contents.EmailTemplateResponse = de_EmailTemplateResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetEmailTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1GetEmailTemplateCommandError
+ */
+const de_GetEmailTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailTemplateCommandOutput> => {
@@ -7441,52 +8016,57 @@ const deserializeAws_restJson1GetEmailTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetEndpointCommand = async (
+/**
+ * deserializeAws_restJson1GetEndpointCommand
+ */
+export const de_GetEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEndpointCommandError(output, context);
+    return de_GetEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EndpointResponse = deserializeAws_restJson1EndpointResponse(data, context);
+  contents.EndpointResponse = de_EndpointResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1GetEndpointCommandError
+ */
+const de_GetEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEndpointCommandOutput> => {
@@ -7498,52 +8078,57 @@ const deserializeAws_restJson1GetEndpointCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetEventStreamCommand = async (
+/**
+ * deserializeAws_restJson1GetEventStreamCommand
+ */
+export const de_GetEventStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEventStreamCommandError(output, context);
+    return de_GetEventStreamCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EventStream = deserializeAws_restJson1EventStream(data, context);
+  contents.EventStream = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetEventStreamCommandError = async (
+/**
+ * deserializeAws_restJson1GetEventStreamCommandError
+ */
+const de_GetEventStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventStreamCommandOutput> => {
@@ -7555,52 +8140,57 @@ const deserializeAws_restJson1GetEventStreamCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetExportJobCommand = async (
+/**
+ * deserializeAws_restJson1GetExportJobCommand
+ */
+export const de_GetExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetExportJobCommandError(output, context);
+    return de_GetExportJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ExportJobResponse = deserializeAws_restJson1ExportJobResponse(data, context);
+  contents.ExportJobResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetExportJobCommandError = async (
+/**
+ * deserializeAws_restJson1GetExportJobCommandError
+ */
+const de_GetExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportJobCommandOutput> => {
@@ -7612,52 +8202,57 @@ const deserializeAws_restJson1GetExportJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetExportJobsCommand = async (
+/**
+ * deserializeAws_restJson1GetExportJobsCommand
+ */
+export const de_GetExportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetExportJobsCommandError(output, context);
+    return de_GetExportJobsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ExportJobsResponse = deserializeAws_restJson1ExportJobsResponse(data, context);
+  contents.ExportJobsResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetExportJobsCommandError = async (
+/**
+ * deserializeAws_restJson1GetExportJobsCommandError
+ */
+const de_GetExportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportJobsCommandOutput> => {
@@ -7669,52 +8264,57 @@ const deserializeAws_restJson1GetExportJobsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetGcmChannelCommand = async (
+/**
+ * deserializeAws_restJson1GetGcmChannelCommand
+ */
+export const de_GetGcmChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGcmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetGcmChannelCommandError(output, context);
+    return de_GetGcmChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.GCMChannelResponse = deserializeAws_restJson1GCMChannelResponse(data, context);
+  contents.GCMChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetGcmChannelCommandError = async (
+/**
+ * deserializeAws_restJson1GetGcmChannelCommandError
+ */
+const de_GetGcmChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGcmChannelCommandOutput> => {
@@ -7726,52 +8326,57 @@ const deserializeAws_restJson1GetGcmChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetImportJobCommand = async (
+/**
+ * deserializeAws_restJson1GetImportJobCommand
+ */
+export const de_GetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetImportJobCommandError(output, context);
+    return de_GetImportJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ImportJobResponse = deserializeAws_restJson1ImportJobResponse(data, context);
+  contents.ImportJobResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetImportJobCommandError = async (
+/**
+ * deserializeAws_restJson1GetImportJobCommandError
+ */
+const de_GetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportJobCommandOutput> => {
@@ -7783,52 +8388,57 @@ const deserializeAws_restJson1GetImportJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetImportJobsCommand = async (
+/**
+ * deserializeAws_restJson1GetImportJobsCommand
+ */
+export const de_GetImportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetImportJobsCommandError(output, context);
+    return de_GetImportJobsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ImportJobsResponse = deserializeAws_restJson1ImportJobsResponse(data, context);
+  contents.ImportJobsResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetImportJobsCommandError = async (
+/**
+ * deserializeAws_restJson1GetImportJobsCommandError
+ */
+const de_GetImportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportJobsCommandOutput> => {
@@ -7840,52 +8450,57 @@ const deserializeAws_restJson1GetImportJobsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetInAppMessagesCommand = async (
+/**
+ * deserializeAws_restJson1GetInAppMessagesCommand
+ */
+export const de_GetInAppMessagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInAppMessagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetInAppMessagesCommandError(output, context);
+    return de_GetInAppMessagesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.InAppMessagesResponse = deserializeAws_restJson1InAppMessagesResponse(data, context);
+  contents.InAppMessagesResponse = de_InAppMessagesResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetInAppMessagesCommandError = async (
+/**
+ * deserializeAws_restJson1GetInAppMessagesCommandError
+ */
+const de_GetInAppMessagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInAppMessagesCommandOutput> => {
@@ -7897,52 +8512,57 @@ const deserializeAws_restJson1GetInAppMessagesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetInAppTemplateCommand = async (
+/**
+ * deserializeAws_restJson1GetInAppTemplateCommand
+ */
+export const de_GetInAppTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInAppTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetInAppTemplateCommandError(output, context);
+    return de_GetInAppTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.InAppTemplateResponse = deserializeAws_restJson1InAppTemplateResponse(data, context);
+  contents.InAppTemplateResponse = de_InAppTemplateResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetInAppTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1GetInAppTemplateCommandError
+ */
+const de_GetInAppTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInAppTemplateCommandOutput> => {
@@ -7954,52 +8574,57 @@ const deserializeAws_restJson1GetInAppTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetJourneyCommand = async (
+/**
+ * deserializeAws_restJson1GetJourneyCommand
+ */
+export const de_GetJourneyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetJourneyCommandError(output, context);
+    return de_GetJourneyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.JourneyResponse = deserializeAws_restJson1JourneyResponse(data, context);
+  contents.JourneyResponse = de_JourneyResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetJourneyCommandError = async (
+/**
+ * deserializeAws_restJson1GetJourneyCommandError
+ */
+const de_GetJourneyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyCommandOutput> => {
@@ -8011,52 +8636,57 @@ const deserializeAws_restJson1GetJourneyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetJourneyDateRangeKpiCommand = async (
+/**
+ * deserializeAws_restJson1GetJourneyDateRangeKpiCommand
+ */
+export const de_GetJourneyDateRangeKpiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyDateRangeKpiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetJourneyDateRangeKpiCommandError(output, context);
+    return de_GetJourneyDateRangeKpiCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.JourneyDateRangeKpiResponse = deserializeAws_restJson1JourneyDateRangeKpiResponse(data, context);
+  contents.JourneyDateRangeKpiResponse = de_JourneyDateRangeKpiResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetJourneyDateRangeKpiCommandError = async (
+/**
+ * deserializeAws_restJson1GetJourneyDateRangeKpiCommandError
+ */
+const de_GetJourneyDateRangeKpiCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyDateRangeKpiCommandOutput> => {
@@ -8068,55 +8698,57 @@ const deserializeAws_restJson1GetJourneyDateRangeKpiCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommand = async (
+/**
+ * deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommand
+ */
+export const de_GetJourneyExecutionActivityMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommandError(output, context);
+    return de_GetJourneyExecutionActivityMetricsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.JourneyExecutionActivityMetricsResponse = deserializeAws_restJson1JourneyExecutionActivityMetricsResponse(
-    data,
-    context
-  );
+  contents.JourneyExecutionActivityMetricsResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommandError = async (
+/**
+ * deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommandError
+ */
+const de_GetJourneyExecutionActivityMetricsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> => {
@@ -8128,52 +8760,57 @@ const deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommandError = a
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetJourneyExecutionMetricsCommand = async (
+/**
+ * deserializeAws_restJson1GetJourneyExecutionMetricsCommand
+ */
+export const de_GetJourneyExecutionMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyExecutionMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetJourneyExecutionMetricsCommandError(output, context);
+    return de_GetJourneyExecutionMetricsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.JourneyExecutionMetricsResponse = deserializeAws_restJson1JourneyExecutionMetricsResponse(data, context);
+  contents.JourneyExecutionMetricsResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetJourneyExecutionMetricsCommandError = async (
+/**
+ * deserializeAws_restJson1GetJourneyExecutionMetricsCommandError
+ */
+const de_GetJourneyExecutionMetricsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyExecutionMetricsCommandOutput> => {
@@ -8185,52 +8822,57 @@ const deserializeAws_restJson1GetJourneyExecutionMetricsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetPushTemplateCommand = async (
+/**
+ * deserializeAws_restJson1GetPushTemplateCommand
+ */
+export const de_GetPushTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPushTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetPushTemplateCommandError(output, context);
+    return de_GetPushTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.PushNotificationTemplateResponse = deserializeAws_restJson1PushNotificationTemplateResponse(data, context);
+  contents.PushNotificationTemplateResponse = de_PushNotificationTemplateResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetPushTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1GetPushTemplateCommandError
+ */
+const de_GetPushTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPushTemplateCommandOutput> => {
@@ -8242,52 +8884,57 @@ const deserializeAws_restJson1GetPushTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetRecommenderConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1GetRecommenderConfigurationCommand
+ */
+export const de_GetRecommenderConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecommenderConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRecommenderConfigurationCommandError(output, context);
+    return de_GetRecommenderConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
+  contents.RecommenderConfigurationResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetRecommenderConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1GetRecommenderConfigurationCommandError
+ */
+const de_GetRecommenderConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecommenderConfigurationCommandOutput> => {
@@ -8299,55 +8946,57 @@ const deserializeAws_restJson1GetRecommenderConfigurationCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetRecommenderConfigurationsCommand = async (
+/**
+ * deserializeAws_restJson1GetRecommenderConfigurationsCommand
+ */
+export const de_GetRecommenderConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecommenderConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRecommenderConfigurationsCommandError(output, context);
+    return de_GetRecommenderConfigurationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ListRecommenderConfigurationsResponse = deserializeAws_restJson1ListRecommenderConfigurationsResponse(
-    data,
-    context
-  );
+  contents.ListRecommenderConfigurationsResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetRecommenderConfigurationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetRecommenderConfigurationsCommandError
+ */
+const de_GetRecommenderConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecommenderConfigurationsCommandOutput> => {
@@ -8359,52 +9008,57 @@ const deserializeAws_restJson1GetRecommenderConfigurationsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSegmentCommand = async (
+/**
+ * deserializeAws_restJson1GetSegmentCommand
+ */
+export const de_GetSegmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSegmentCommandError(output, context);
+    return de_GetSegmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SegmentResponse = deserializeAws_restJson1SegmentResponse(data, context);
+  contents.SegmentResponse = de_SegmentResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetSegmentCommandError = async (
+/**
+ * deserializeAws_restJson1GetSegmentCommandError
+ */
+const de_GetSegmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentCommandOutput> => {
@@ -8416,52 +9070,57 @@ const deserializeAws_restJson1GetSegmentCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSegmentExportJobsCommand = async (
+/**
+ * deserializeAws_restJson1GetSegmentExportJobsCommand
+ */
+export const de_GetSegmentExportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentExportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSegmentExportJobsCommandError(output, context);
+    return de_GetSegmentExportJobsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ExportJobsResponse = deserializeAws_restJson1ExportJobsResponse(data, context);
+  contents.ExportJobsResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetSegmentExportJobsCommandError = async (
+/**
+ * deserializeAws_restJson1GetSegmentExportJobsCommandError
+ */
+const de_GetSegmentExportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentExportJobsCommandOutput> => {
@@ -8473,52 +9132,57 @@ const deserializeAws_restJson1GetSegmentExportJobsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSegmentImportJobsCommand = async (
+/**
+ * deserializeAws_restJson1GetSegmentImportJobsCommand
+ */
+export const de_GetSegmentImportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentImportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSegmentImportJobsCommandError(output, context);
+    return de_GetSegmentImportJobsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ImportJobsResponse = deserializeAws_restJson1ImportJobsResponse(data, context);
+  contents.ImportJobsResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetSegmentImportJobsCommandError = async (
+/**
+ * deserializeAws_restJson1GetSegmentImportJobsCommandError
+ */
+const de_GetSegmentImportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentImportJobsCommandOutput> => {
@@ -8530,52 +9194,57 @@ const deserializeAws_restJson1GetSegmentImportJobsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSegmentsCommand = async (
+/**
+ * deserializeAws_restJson1GetSegmentsCommand
+ */
+export const de_GetSegmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSegmentsCommandError(output, context);
+    return de_GetSegmentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SegmentsResponse = deserializeAws_restJson1SegmentsResponse(data, context);
+  contents.SegmentsResponse = de_SegmentsResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetSegmentsCommandError = async (
+/**
+ * deserializeAws_restJson1GetSegmentsCommandError
+ */
+const de_GetSegmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentsCommandOutput> => {
@@ -8587,52 +9256,57 @@ const deserializeAws_restJson1GetSegmentsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSegmentVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetSegmentVersionCommand
+ */
+export const de_GetSegmentVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSegmentVersionCommandError(output, context);
+    return de_GetSegmentVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SegmentResponse = deserializeAws_restJson1SegmentResponse(data, context);
+  contents.SegmentResponse = de_SegmentResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetSegmentVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetSegmentVersionCommandError
+ */
+const de_GetSegmentVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentVersionCommandOutput> => {
@@ -8644,52 +9318,57 @@ const deserializeAws_restJson1GetSegmentVersionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSegmentVersionsCommand = async (
+/**
+ * deserializeAws_restJson1GetSegmentVersionsCommand
+ */
+export const de_GetSegmentVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSegmentVersionsCommandError(output, context);
+    return de_GetSegmentVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SegmentsResponse = deserializeAws_restJson1SegmentsResponse(data, context);
+  contents.SegmentsResponse = de_SegmentsResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetSegmentVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1GetSegmentVersionsCommandError
+ */
+const de_GetSegmentVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentVersionsCommandOutput> => {
@@ -8701,52 +9380,57 @@ const deserializeAws_restJson1GetSegmentVersionsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSmsChannelCommand = async (
+/**
+ * deserializeAws_restJson1GetSmsChannelCommand
+ */
+export const de_GetSmsChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSmsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSmsChannelCommandError(output, context);
+    return de_GetSmsChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SMSChannelResponse = deserializeAws_restJson1SMSChannelResponse(data, context);
+  contents.SMSChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetSmsChannelCommandError = async (
+/**
+ * deserializeAws_restJson1GetSmsChannelCommandError
+ */
+const de_GetSmsChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSmsChannelCommandOutput> => {
@@ -8758,52 +9442,57 @@ const deserializeAws_restJson1GetSmsChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSmsTemplateCommand = async (
+/**
+ * deserializeAws_restJson1GetSmsTemplateCommand
+ */
+export const de_GetSmsTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSmsTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSmsTemplateCommandError(output, context);
+    return de_GetSmsTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SMSTemplateResponse = deserializeAws_restJson1SMSTemplateResponse(data, context);
+  contents.SMSTemplateResponse = de_SMSTemplateResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetSmsTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1GetSmsTemplateCommandError
+ */
+const de_GetSmsTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSmsTemplateCommandOutput> => {
@@ -8815,52 +9504,57 @@ const deserializeAws_restJson1GetSmsTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetUserEndpointsCommand = async (
+/**
+ * deserializeAws_restJson1GetUserEndpointsCommand
+ */
+export const de_GetUserEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserEndpointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetUserEndpointsCommandError(output, context);
+    return de_GetUserEndpointsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EndpointsResponse = deserializeAws_restJson1EndpointsResponse(data, context);
+  contents.EndpointsResponse = de_EndpointsResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetUserEndpointsCommandError = async (
+/**
+ * deserializeAws_restJson1GetUserEndpointsCommandError
+ */
+const de_GetUserEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserEndpointsCommandOutput> => {
@@ -8872,52 +9566,57 @@ const deserializeAws_restJson1GetUserEndpointsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetVoiceChannelCommand = async (
+/**
+ * deserializeAws_restJson1GetVoiceChannelCommand
+ */
+export const de_GetVoiceChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetVoiceChannelCommandError(output, context);
+    return de_GetVoiceChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.VoiceChannelResponse = deserializeAws_restJson1VoiceChannelResponse(data, context);
+  contents.VoiceChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1GetVoiceChannelCommandError = async (
+/**
+ * deserializeAws_restJson1GetVoiceChannelCommandError
+ */
+const de_GetVoiceChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceChannelCommandOutput> => {
@@ -8929,52 +9628,57 @@ const deserializeAws_restJson1GetVoiceChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetVoiceTemplateCommand = async (
+/**
+ * deserializeAws_restJson1GetVoiceTemplateCommand
+ */
+export const de_GetVoiceTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetVoiceTemplateCommandError(output, context);
+    return de_GetVoiceTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.VoiceTemplateResponse = deserializeAws_restJson1VoiceTemplateResponse(data, context);
+  contents.VoiceTemplateResponse = de_VoiceTemplateResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1GetVoiceTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1GetVoiceTemplateCommandError
+ */
+const de_GetVoiceTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceTemplateCommandOutput> => {
@@ -8986,52 +9690,57 @@ const deserializeAws_restJson1GetVoiceTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListJourneysCommand = async (
+/**
+ * deserializeAws_restJson1ListJourneysCommand
+ */
+export const de_ListJourneysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJourneysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListJourneysCommandError(output, context);
+    return de_ListJourneysCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.JourneysResponse = deserializeAws_restJson1JourneysResponse(data, context);
+  contents.JourneysResponse = de_JourneysResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1ListJourneysCommandError = async (
+/**
+ * deserializeAws_restJson1ListJourneysCommandError
+ */
+const de_ListJourneysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJourneysCommandOutput> => {
@@ -9043,52 +9752,57 @@ const deserializeAws_restJson1ListJourneysCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.TagsModel = deserializeAws_restJson1TagsModel(data, context);
+  contents.TagsModel = de_TagsModel(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -9098,30 +9812,35 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_restJson1ListTemplatesCommand = async (
+/**
+ * deserializeAws_restJson1ListTemplatesCommand
+ */
+export const de_ListTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTemplatesCommandError(output, context);
+    return de_ListTemplatesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.TemplatesResponse = deserializeAws_restJson1TemplatesResponse(data, context);
+  contents.TemplatesResponse = de_TemplatesResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1ListTemplatesCommandError = async (
+/**
+ * deserializeAws_restJson1ListTemplatesCommandError
+ */
+const de_ListTemplatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> => {
@@ -9133,46 +9852,51 @@ const deserializeAws_restJson1ListTemplatesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTemplateVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListTemplateVersionsCommand
+ */
+export const de_ListTemplateVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplateVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTemplateVersionsCommandError(output, context);
+    return de_ListTemplateVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.TemplateVersionsResponse = deserializeAws_restJson1TemplateVersionsResponse(data, context);
+  contents.TemplateVersionsResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1ListTemplateVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListTemplateVersionsCommandError
+ */
+const de_ListTemplateVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplateVersionsCommandOutput> => {
@@ -9184,52 +9908,57 @@ const deserializeAws_restJson1ListTemplateVersionsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PhoneNumberValidateCommand = async (
+/**
+ * deserializeAws_restJson1PhoneNumberValidateCommand
+ */
+export const de_PhoneNumberValidateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PhoneNumberValidateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PhoneNumberValidateCommandError(output, context);
+    return de_PhoneNumberValidateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.NumberValidateResponse = deserializeAws_restJson1NumberValidateResponse(data, context);
+  contents.NumberValidateResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1PhoneNumberValidateCommandError = async (
+/**
+ * deserializeAws_restJson1PhoneNumberValidateCommandError
+ */
+const de_PhoneNumberValidateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PhoneNumberValidateCommandOutput> => {
@@ -9241,52 +9970,57 @@ const deserializeAws_restJson1PhoneNumberValidateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PutEventsCommand = async (
+/**
+ * deserializeAws_restJson1PutEventsCommand
+ */
+export const de_PutEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventsCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutEventsCommandError(output, context);
+    return de_PutEventsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EventsResponse = deserializeAws_restJson1EventsResponse(data, context);
+  contents.EventsResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1PutEventsCommandError = async (
+/**
+ * deserializeAws_restJson1PutEventsCommandError
+ */
+const de_PutEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventsCommandOutput> => {
@@ -9298,52 +10032,57 @@ const deserializeAws_restJson1PutEventsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PutEventStreamCommand = async (
+/**
+ * deserializeAws_restJson1PutEventStreamCommand
+ */
+export const de_PutEventStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutEventStreamCommandError(output, context);
+    return de_PutEventStreamCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EventStream = deserializeAws_restJson1EventStream(data, context);
+  contents.EventStream = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1PutEventStreamCommandError = async (
+/**
+ * deserializeAws_restJson1PutEventStreamCommandError
+ */
+const de_PutEventStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventStreamCommandOutput> => {
@@ -9355,52 +10094,57 @@ const deserializeAws_restJson1PutEventStreamCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RemoveAttributesCommand = async (
+/**
+ * deserializeAws_restJson1RemoveAttributesCommand
+ */
+export const de_RemoveAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveAttributesCommandError(output, context);
+    return de_RemoveAttributesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.AttributesResource = deserializeAws_restJson1AttributesResource(data, context);
+  contents.AttributesResource = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1RemoveAttributesCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveAttributesCommandError
+ */
+const de_RemoveAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAttributesCommandOutput> => {
@@ -9412,52 +10156,57 @@ const deserializeAws_restJson1RemoveAttributesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1SendMessagesCommand = async (
+/**
+ * deserializeAws_restJson1SendMessagesCommand
+ */
+export const de_SendMessagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendMessagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SendMessagesCommandError(output, context);
+    return de_SendMessagesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageResponse = deserializeAws_restJson1MessageResponse(data, context);
+  contents.MessageResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1SendMessagesCommandError = async (
+/**
+ * deserializeAws_restJson1SendMessagesCommandError
+ */
+const de_SendMessagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendMessagesCommandOutput> => {
@@ -9469,52 +10218,57 @@ const deserializeAws_restJson1SendMessagesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1SendOTPMessageCommand = async (
+/**
+ * deserializeAws_restJson1SendOTPMessageCommand
+ */
+export const de_SendOTPMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendOTPMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SendOTPMessageCommandError(output, context);
+    return de_SendOTPMessageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageResponse = deserializeAws_restJson1MessageResponse(data, context);
+  contents.MessageResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1SendOTPMessageCommandError = async (
+/**
+ * deserializeAws_restJson1SendOTPMessageCommandError
+ */
+const de_SendOTPMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendOTPMessageCommandOutput> => {
@@ -9526,52 +10280,57 @@ const deserializeAws_restJson1SendOTPMessageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1SendUsersMessagesCommand = async (
+/**
+ * deserializeAws_restJson1SendUsersMessagesCommand
+ */
+export const de_SendUsersMessagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendUsersMessagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SendUsersMessagesCommandError(output, context);
+    return de_SendUsersMessagesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SendUsersMessageResponse = deserializeAws_restJson1SendUsersMessageResponse(data, context);
+  contents.SendUsersMessageResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1SendUsersMessagesCommandError = async (
+/**
+ * deserializeAws_restJson1SendUsersMessagesCommandError
+ */
+const de_SendUsersMessagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendUsersMessagesCommandOutput> => {
@@ -9583,42 +10342,44 @@ const deserializeAws_restJson1SendUsersMessagesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9627,7 +10388,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -9637,20 +10401,22 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9659,7 +10425,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -9669,30 +10438,35 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_restJson1UpdateAdmChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAdmChannelCommand
+ */
+export const de_UpdateAdmChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAdmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAdmChannelCommandError(output, context);
+    return de_UpdateAdmChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ADMChannelResponse = deserializeAws_restJson1ADMChannelResponse(data, context);
+  contents.ADMChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAdmChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAdmChannelCommandError
+ */
+const de_UpdateAdmChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAdmChannelCommandOutput> => {
@@ -9704,52 +10478,57 @@ const deserializeAws_restJson1UpdateAdmChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateApnsChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateApnsChannelCommand
+ */
+export const de_UpdateApnsChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateApnsChannelCommandError(output, context);
+    return de_UpdateApnsChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSChannelResponse = deserializeAws_restJson1APNSChannelResponse(data, context);
+  contents.APNSChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateApnsChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateApnsChannelCommandError
+ */
+const de_UpdateApnsChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsChannelCommandOutput> => {
@@ -9761,52 +10540,57 @@ const deserializeAws_restJson1UpdateApnsChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateApnsSandboxChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateApnsSandboxChannelCommand
+ */
+export const de_UpdateApnsSandboxChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateApnsSandboxChannelCommandError(output, context);
+    return de_UpdateApnsSandboxChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSSandboxChannelResponse = deserializeAws_restJson1APNSSandboxChannelResponse(data, context);
+  contents.APNSSandboxChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateApnsSandboxChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateApnsSandboxChannelCommandError
+ */
+const de_UpdateApnsSandboxChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsSandboxChannelCommandOutput> => {
@@ -9818,52 +10602,57 @@ const deserializeAws_restJson1UpdateApnsSandboxChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateApnsVoipChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateApnsVoipChannelCommand
+ */
+export const de_UpdateApnsVoipChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsVoipChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateApnsVoipChannelCommandError(output, context);
+    return de_UpdateApnsVoipChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSVoipChannelResponse = deserializeAws_restJson1APNSVoipChannelResponse(data, context);
+  contents.APNSVoipChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateApnsVoipChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateApnsVoipChannelCommandError
+ */
+const de_UpdateApnsVoipChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsVoipChannelCommandOutput> => {
@@ -9875,52 +10664,57 @@ const deserializeAws_restJson1UpdateApnsVoipChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommand
+ */
+export const de_UpdateApnsVoipSandboxChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsVoipSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommandError(output, context);
+    return de_UpdateApnsVoipSandboxChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.APNSVoipSandboxChannelResponse = deserializeAws_restJson1APNSVoipSandboxChannelResponse(data, context);
+  contents.APNSVoipSandboxChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommandError
+ */
+const de_UpdateApnsVoipSandboxChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsVoipSandboxChannelCommandOutput> => {
@@ -9932,52 +10726,57 @@ const deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateApplicationSettingsCommand = async (
+/**
+ * deserializeAws_restJson1UpdateApplicationSettingsCommand
+ */
+export const de_UpdateApplicationSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateApplicationSettingsCommandError(output, context);
+    return de_UpdateApplicationSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.ApplicationSettingsResource = deserializeAws_restJson1ApplicationSettingsResource(data, context);
+  contents.ApplicationSettingsResource = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateApplicationSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateApplicationSettingsCommandError
+ */
+const de_UpdateApplicationSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationSettingsCommandOutput> => {
@@ -9989,52 +10788,57 @@ const deserializeAws_restJson1UpdateApplicationSettingsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateBaiduChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateBaiduChannelCommand
+ */
+export const de_UpdateBaiduChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBaiduChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateBaiduChannelCommandError(output, context);
+    return de_UpdateBaiduChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.BaiduChannelResponse = deserializeAws_restJson1BaiduChannelResponse(data, context);
+  contents.BaiduChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateBaiduChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateBaiduChannelCommandError
+ */
+const de_UpdateBaiduChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBaiduChannelCommandOutput> => {
@@ -10046,52 +10850,57 @@ const deserializeAws_restJson1UpdateBaiduChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateCampaignCommand = async (
+/**
+ * deserializeAws_restJson1UpdateCampaignCommand
+ */
+export const de_UpdateCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateCampaignCommandError(output, context);
+    return de_UpdateCampaignCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.CampaignResponse = deserializeAws_restJson1CampaignResponse(data, context);
+  contents.CampaignResponse = de_CampaignResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateCampaignCommandError
+ */
+const de_UpdateCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> => {
@@ -10103,52 +10912,57 @@ const deserializeAws_restJson1UpdateCampaignCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateEmailChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateEmailChannelCommand
+ */
+export const de_UpdateEmailChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmailChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateEmailChannelCommandError(output, context);
+    return de_UpdateEmailChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.EmailChannelResponse = deserializeAws_restJson1EmailChannelResponse(data, context);
+  contents.EmailChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateEmailChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateEmailChannelCommandError
+ */
+const de_UpdateEmailChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmailChannelCommandOutput> => {
@@ -10160,52 +10974,57 @@ const deserializeAws_restJson1UpdateEmailChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateEmailTemplateCommand = async (
+/**
+ * deserializeAws_restJson1UpdateEmailTemplateCommand
+ */
+export const de_UpdateEmailTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmailTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateEmailTemplateCommandError(output, context);
+    return de_UpdateEmailTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateEmailTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateEmailTemplateCommandError
+ */
+const de_UpdateEmailTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmailTemplateCommandOutput> => {
@@ -10217,52 +11036,57 @@ const deserializeAws_restJson1UpdateEmailTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateEndpointCommand = async (
+/**
+ * deserializeAws_restJson1UpdateEndpointCommand
+ */
+export const de_UpdateEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateEndpointCommandError(output, context);
+    return de_UpdateEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateEndpointCommandError
+ */
+const de_UpdateEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointCommandOutput> => {
@@ -10274,52 +11098,57 @@ const deserializeAws_restJson1UpdateEndpointCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateEndpointsBatchCommand = async (
+/**
+ * deserializeAws_restJson1UpdateEndpointsBatchCommand
+ */
+export const de_UpdateEndpointsBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointsBatchCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateEndpointsBatchCommandError(output, context);
+    return de_UpdateEndpointsBatchCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateEndpointsBatchCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateEndpointsBatchCommandError
+ */
+const de_UpdateEndpointsBatchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointsBatchCommandOutput> => {
@@ -10331,52 +11160,57 @@ const deserializeAws_restJson1UpdateEndpointsBatchCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateGcmChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateGcmChannelCommand
+ */
+export const de_UpdateGcmChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGcmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateGcmChannelCommandError(output, context);
+    return de_UpdateGcmChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.GCMChannelResponse = deserializeAws_restJson1GCMChannelResponse(data, context);
+  contents.GCMChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateGcmChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateGcmChannelCommandError
+ */
+const de_UpdateGcmChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGcmChannelCommandOutput> => {
@@ -10388,52 +11222,57 @@ const deserializeAws_restJson1UpdateGcmChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateInAppTemplateCommand = async (
+/**
+ * deserializeAws_restJson1UpdateInAppTemplateCommand
+ */
+export const de_UpdateInAppTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateInAppTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateInAppTemplateCommandError(output, context);
+    return de_UpdateInAppTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateInAppTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateInAppTemplateCommandError
+ */
+const de_UpdateInAppTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateInAppTemplateCommandOutput> => {
@@ -10445,52 +11284,57 @@ const deserializeAws_restJson1UpdateInAppTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateJourneyCommand = async (
+/**
+ * deserializeAws_restJson1UpdateJourneyCommand
+ */
+export const de_UpdateJourneyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJourneyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateJourneyCommandError(output, context);
+    return de_UpdateJourneyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.JourneyResponse = deserializeAws_restJson1JourneyResponse(data, context);
+  contents.JourneyResponse = de_JourneyResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateJourneyCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateJourneyCommandError
+ */
+const de_UpdateJourneyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJourneyCommandOutput> => {
@@ -10502,55 +11346,60 @@ const deserializeAws_restJson1UpdateJourneyCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.pinpoint#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateJourneyStateCommand = async (
+/**
+ * deserializeAws_restJson1UpdateJourneyStateCommand
+ */
+export const de_UpdateJourneyStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJourneyStateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateJourneyStateCommandError(output, context);
+    return de_UpdateJourneyStateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.JourneyResponse = deserializeAws_restJson1JourneyResponse(data, context);
+  contents.JourneyResponse = de_JourneyResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateJourneyStateCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateJourneyStateCommandError
+ */
+const de_UpdateJourneyStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJourneyStateCommandOutput> => {
@@ -10562,52 +11411,57 @@ const deserializeAws_restJson1UpdateJourneyStateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdatePushTemplateCommand = async (
+/**
+ * deserializeAws_restJson1UpdatePushTemplateCommand
+ */
+export const de_UpdatePushTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePushTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdatePushTemplateCommandError(output, context);
+    return de_UpdatePushTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdatePushTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1UpdatePushTemplateCommandError
+ */
+const de_UpdatePushTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePushTemplateCommandOutput> => {
@@ -10619,52 +11473,57 @@ const deserializeAws_restJson1UpdatePushTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateRecommenderConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateRecommenderConfigurationCommand
+ */
+export const de_UpdateRecommenderConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRecommenderConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateRecommenderConfigurationCommandError(output, context);
+    return de_UpdateRecommenderConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.RecommenderConfigurationResponse = deserializeAws_restJson1RecommenderConfigurationResponse(data, context);
+  contents.RecommenderConfigurationResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateRecommenderConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateRecommenderConfigurationCommandError
+ */
+const de_UpdateRecommenderConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRecommenderConfigurationCommandOutput> => {
@@ -10676,52 +11535,57 @@ const deserializeAws_restJson1UpdateRecommenderConfigurationCommandError = async
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateSegmentCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSegmentCommand
+ */
+export const de_UpdateSegmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSegmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSegmentCommandError(output, context);
+    return de_UpdateSegmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SegmentResponse = deserializeAws_restJson1SegmentResponse(data, context);
+  contents.SegmentResponse = de_SegmentResponse(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSegmentCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSegmentCommandError
+ */
+const de_UpdateSegmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSegmentCommandOutput> => {
@@ -10733,52 +11597,57 @@ const deserializeAws_restJson1UpdateSegmentCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateSmsChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSmsChannelCommand
+ */
+export const de_UpdateSmsChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSmsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSmsChannelCommandError(output, context);
+    return de_UpdateSmsChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.SMSChannelResponse = deserializeAws_restJson1SMSChannelResponse(data, context);
+  contents.SMSChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSmsChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSmsChannelCommandError
+ */
+const de_UpdateSmsChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSmsChannelCommandOutput> => {
@@ -10790,52 +11659,57 @@ const deserializeAws_restJson1UpdateSmsChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateSmsTemplateCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSmsTemplateCommand
+ */
+export const de_UpdateSmsTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSmsTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSmsTemplateCommandError(output, context);
+    return de_UpdateSmsTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSmsTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSmsTemplateCommandError
+ */
+const de_UpdateSmsTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSmsTemplateCommandOutput> => {
@@ -10847,52 +11721,57 @@ const deserializeAws_restJson1UpdateSmsTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateTemplateActiveVersionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateTemplateActiveVersionCommand
+ */
+export const de_UpdateTemplateActiveVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTemplateActiveVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateTemplateActiveVersionCommandError(output, context);
+    return de_UpdateTemplateActiveVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateTemplateActiveVersionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateTemplateActiveVersionCommandError
+ */
+const de_UpdateTemplateActiveVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTemplateActiveVersionCommandOutput> => {
@@ -10904,52 +11783,57 @@ const deserializeAws_restJson1UpdateTemplateActiveVersionCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateVoiceChannelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateVoiceChannelCommand
+ */
+export const de_UpdateVoiceChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVoiceChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateVoiceChannelCommandError(output, context);
+    return de_UpdateVoiceChannelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.VoiceChannelResponse = deserializeAws_restJson1VoiceChannelResponse(data, context);
+  contents.VoiceChannelResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateVoiceChannelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateVoiceChannelCommandError
+ */
+const de_UpdateVoiceChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVoiceChannelCommandOutput> => {
@@ -10961,52 +11845,57 @@ const deserializeAws_restJson1UpdateVoiceChannelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateVoiceTemplateCommand = async (
+/**
+ * deserializeAws_restJson1UpdateVoiceTemplateCommand
+ */
+export const de_UpdateVoiceTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVoiceTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateVoiceTemplateCommandError(output, context);
+    return de_UpdateVoiceTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.MessageBody = deserializeAws_restJson1MessageBody(data, context);
+  contents.MessageBody = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateVoiceTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateVoiceTemplateCommandError
+ */
+const de_UpdateVoiceTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVoiceTemplateCommandOutput> => {
@@ -11018,52 +11907,57 @@ const deserializeAws_restJson1UpdateVoiceTemplateCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1VerifyOTPMessageCommand = async (
+/**
+ * deserializeAws_restJson1VerifyOTPMessageCommand
+ */
+export const de_VerifyOTPMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyOTPMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1VerifyOTPMessageCommandError(output, context);
+    return de_VerifyOTPMessageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.VerificationResponse = deserializeAws_restJson1VerificationResponse(data, context);
+  contents.VerificationResponse = _json(data);
   return contents;
 };
 
-const deserializeAws_restJson1VerifyOTPMessageCommandError = async (
+/**
+ * deserializeAws_restJson1VerifyOTPMessageCommandError
+ */
+const de_VerifyOTPMessageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyOTPMessageCommandOutput> => {
@@ -11075,49 +11969,47 @@ const deserializeAws_restJson1VerifyOTPMessageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PayloadTooLargeException":
     case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await deserializeAws_restJson1PayloadTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestID != null) {
-    contents.RequestID = __expectString(data.RequestID);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    RequestID: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -11125,18 +12017,17 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestID != null) {
-    contents.RequestID = __expectString(data.RequestID);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    RequestID: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -11144,18 +12035,17 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_restJson1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestID != null) {
-    contents.RequestID = __expectString(data.RequestID);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    RequestID: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -11163,18 +12053,20 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerErrorExceptionRes
+ */
+const de_InternalServerErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestID != null) {
-    contents.RequestID = __expectString(data.RequestID);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    RequestID: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -11182,18 +12074,20 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MethodNotAllowedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1MethodNotAllowedExceptionRes
+ */
+const de_MethodNotAllowedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MethodNotAllowedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestID != null) {
-    contents.RequestID = __expectString(data.RequestID);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    RequestID: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new MethodNotAllowedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -11201,18 +12095,17 @@ const deserializeAws_restJson1MethodNotAllowedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestID != null) {
-    contents.RequestID = __expectString(data.RequestID);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    RequestID: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -11220,18 +12113,20 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
+/**
+ * deserializeAws_restJson1PayloadTooLargeExceptionRes
+ */
+const de_PayloadTooLargeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PayloadTooLargeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestID != null) {
-    contents.RequestID = __expectString(data.RequestID);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    RequestID: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PayloadTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -11239,18 +12134,20 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.RequestID != null) {
-    contents.RequestID = __expectString(data.RequestID);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    RequestID: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -11258,1004 +12155,482 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1Activity = (input: Activity, context: __SerdeContext): any => {
-  return {
-    ...(input.CUSTOM != null && { CUSTOM: serializeAws_restJson1CustomMessageActivity(input.CUSTOM, context) }),
-    ...(input.ConditionalSplit != null && {
-      ConditionalSplit: serializeAws_restJson1ConditionalSplitActivity(input.ConditionalSplit, context),
-    }),
-    ...(input.ContactCenter != null && {
-      ContactCenter: serializeAws_restJson1ContactCenterActivity(input.ContactCenter, context),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.EMAIL != null && { EMAIL: serializeAws_restJson1EmailMessageActivity(input.EMAIL, context) }),
-    ...(input.Holdout != null && { Holdout: serializeAws_restJson1HoldoutActivity(input.Holdout, context) }),
-    ...(input.MultiCondition != null && {
-      MultiCondition: serializeAws_restJson1MultiConditionalSplitActivity(input.MultiCondition, context),
-    }),
-    ...(input.PUSH != null && { PUSH: serializeAws_restJson1PushMessageActivity(input.PUSH, context) }),
-    ...(input.RandomSplit != null && {
-      RandomSplit: serializeAws_restJson1RandomSplitActivity(input.RandomSplit, context),
-    }),
-    ...(input.SMS != null && { SMS: serializeAws_restJson1SMSMessageActivity(input.SMS, context) }),
-    ...(input.Wait != null && { Wait: serializeAws_restJson1WaitActivity(input.Wait, context) }),
-  };
+/**
+ * serializeAws_restJson1Activity
+ */
+const se_Activity = (input: Activity, context: __SerdeContext): any => {
+  return take(input, {
+    CUSTOM: _json,
+    ConditionalSplit: (_) => se_ConditionalSplitActivity(_, context),
+    ContactCenter: _json,
+    Description: [],
+    EMAIL: _json,
+    Holdout: _json,
+    MultiCondition: (_) => se_MultiConditionalSplitActivity(_, context),
+    PUSH: _json,
+    RandomSplit: _json,
+    SMS: _json,
+    Wait: _json,
+  });
 };
 
-const serializeAws_restJson1AddressConfiguration = (input: AddressConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.BodyOverride != null && { BodyOverride: input.BodyOverride }),
-    ...(input.ChannelType != null && { ChannelType: input.ChannelType }),
-    ...(input.Context != null && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
-    ...(input.RawContent != null && { RawContent: input.RawContent }),
-    ...(input.Substitutions != null && {
-      Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
-    }),
-    ...(input.TitleOverride != null && { TitleOverride: input.TitleOverride }),
-  };
-};
-
-const serializeAws_restJson1ADMChannelRequest = (input: ADMChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientId != null && { ClientId: input.ClientId }),
-    ...(input.ClientSecret != null && { ClientSecret: input.ClientSecret }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
-
-const serializeAws_restJson1ADMMessage = (input: ADMMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.ConsolidationKey != null && { ConsolidationKey: input.ConsolidationKey }),
-    ...(input.Data != null && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
-    ...(input.ExpiresAfter != null && { ExpiresAfter: input.ExpiresAfter }),
-    ...(input.IconReference != null && { IconReference: input.IconReference }),
-    ...(input.ImageIconUrl != null && { ImageIconUrl: input.ImageIconUrl }),
-    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
-    ...(input.MD5 != null && { MD5: input.MD5 }),
-    ...(input.RawContent != null && { RawContent: input.RawContent }),
-    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
-    ...(input.SmallImageIconUrl != null && { SmallImageIconUrl: input.SmallImageIconUrl }),
-    ...(input.Sound != null && { Sound: input.Sound }),
-    ...(input.Substitutions != null && {
-      Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
-    }),
-    ...(input.Title != null && { Title: input.Title }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
-
-const serializeAws_restJson1AndroidPushNotificationTemplate = (
-  input: AndroidPushNotificationTemplate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.ImageIconUrl != null && { ImageIconUrl: input.ImageIconUrl }),
-    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
-    ...(input.RawContent != null && { RawContent: input.RawContent }),
-    ...(input.SmallImageIconUrl != null && { SmallImageIconUrl: input.SmallImageIconUrl }),
-    ...(input.Sound != null && { Sound: input.Sound }),
-    ...(input.Title != null && { Title: input.Title }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
-
-const serializeAws_restJson1APNSChannelRequest = (input: APNSChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.BundleId != null && { BundleId: input.BundleId }),
-    ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.DefaultAuthenticationMethod != null && {
-      DefaultAuthenticationMethod: input.DefaultAuthenticationMethod,
-    }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
-    ...(input.TeamId != null && { TeamId: input.TeamId }),
-    ...(input.TokenKey != null && { TokenKey: input.TokenKey }),
-    ...(input.TokenKeyId != null && { TokenKeyId: input.TokenKeyId }),
-  };
-};
-
-const serializeAws_restJson1APNSMessage = (input: APNSMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.APNSPushType != null && { APNSPushType: input.APNSPushType }),
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Badge != null && { Badge: input.Badge }),
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.Category != null && { Category: input.Category }),
-    ...(input.CollapseId != null && { CollapseId: input.CollapseId }),
-    ...(input.Data != null && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
-    ...(input.MediaUrl != null && { MediaUrl: input.MediaUrl }),
-    ...(input.PreferredAuthenticationMethod != null && {
-      PreferredAuthenticationMethod: input.PreferredAuthenticationMethod,
-    }),
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.RawContent != null && { RawContent: input.RawContent }),
-    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
-    ...(input.Sound != null && { Sound: input.Sound }),
-    ...(input.Substitutions != null && {
-      Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
-    }),
-    ...(input.ThreadId != null && { ThreadId: input.ThreadId }),
-    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
-    ...(input.Title != null && { Title: input.Title }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
-
-const serializeAws_restJson1APNSPushNotificationTemplate = (
-  input: APNSPushNotificationTemplate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.MediaUrl != null && { MediaUrl: input.MediaUrl }),
-    ...(input.RawContent != null && { RawContent: input.RawContent }),
-    ...(input.Sound != null && { Sound: input.Sound }),
-    ...(input.Title != null && { Title: input.Title }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
-
-const serializeAws_restJson1APNSSandboxChannelRequest = (
-  input: APNSSandboxChannelRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BundleId != null && { BundleId: input.BundleId }),
-    ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.DefaultAuthenticationMethod != null && {
-      DefaultAuthenticationMethod: input.DefaultAuthenticationMethod,
-    }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
-    ...(input.TeamId != null && { TeamId: input.TeamId }),
-    ...(input.TokenKey != null && { TokenKey: input.TokenKey }),
-    ...(input.TokenKeyId != null && { TokenKeyId: input.TokenKeyId }),
-  };
-};
-
-const serializeAws_restJson1APNSVoipChannelRequest = (input: APNSVoipChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.BundleId != null && { BundleId: input.BundleId }),
-    ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.DefaultAuthenticationMethod != null && {
-      DefaultAuthenticationMethod: input.DefaultAuthenticationMethod,
-    }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
-    ...(input.TeamId != null && { TeamId: input.TeamId }),
-    ...(input.TokenKey != null && { TokenKey: input.TokenKey }),
-    ...(input.TokenKeyId != null && { TokenKeyId: input.TokenKeyId }),
-  };
-};
-
-const serializeAws_restJson1APNSVoipSandboxChannelRequest = (
-  input: APNSVoipSandboxChannelRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BundleId != null && { BundleId: input.BundleId }),
-    ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.DefaultAuthenticationMethod != null && {
-      DefaultAuthenticationMethod: input.DefaultAuthenticationMethod,
-    }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
-    ...(input.TeamId != null && { TeamId: input.TeamId }),
-    ...(input.TokenKey != null && { TokenKey: input.TokenKey }),
-    ...(input.TokenKeyId != null && { TokenKeyId: input.TokenKeyId }),
-  };
-};
-
-const serializeAws_restJson1AttributeDimension = (input: AttributeDimension, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeType != null && { AttributeType: input.AttributeType }),
-    ...(input.Values != null && { Values: serializeAws_restJson1ListOf__string(input.Values, context) }),
-  };
-};
-
-const serializeAws_restJson1BaiduChannelRequest = (input: BaiduChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ApiKey != null && { ApiKey: input.ApiKey }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.SecretKey != null && { SecretKey: input.SecretKey }),
-  };
-};
-
-const serializeAws_restJson1BaiduMessage = (input: BaiduMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.Data != null && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
-    ...(input.IconReference != null && { IconReference: input.IconReference }),
-    ...(input.ImageIconUrl != null && { ImageIconUrl: input.ImageIconUrl }),
-    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
-    ...(input.RawContent != null && { RawContent: input.RawContent }),
-    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
-    ...(input.SmallImageIconUrl != null && { SmallImageIconUrl: input.SmallImageIconUrl }),
-    ...(input.Sound != null && { Sound: input.Sound }),
-    ...(input.Substitutions != null && {
-      Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
-    }),
-    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
-    ...(input.Title != null && { Title: input.Title }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
-
-const serializeAws_restJson1CampaignCustomMessage = (input: CampaignCustomMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Data != null && { Data: input.Data }),
-  };
-};
-
-const serializeAws_restJson1CampaignEmailMessage = (input: CampaignEmailMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.FromAddress != null && { FromAddress: input.FromAddress }),
-    ...(input.HtmlBody != null && { HtmlBody: input.HtmlBody }),
-    ...(input.Title != null && { Title: input.Title }),
-  };
-};
-
-const serializeAws_restJson1CampaignEventFilter = (input: CampaignEventFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1EventDimensions(input.Dimensions, context) }),
-    ...(input.FilterType != null && { FilterType: input.FilterType }),
-  };
-};
-
-const serializeAws_restJson1CampaignHook = (input: CampaignHook, context: __SerdeContext): any => {
-  return {
-    ...(input.LambdaFunctionName != null && { LambdaFunctionName: input.LambdaFunctionName }),
-    ...(input.Mode != null && { Mode: input.Mode }),
-    ...(input.WebUrl != null && { WebUrl: input.WebUrl }),
-  };
-};
-
-const serializeAws_restJson1CampaignInAppMessage = (input: CampaignInAppMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.Content != null && { Content: serializeAws_restJson1ListOfInAppMessageContent(input.Content, context) }),
-    ...(input.CustomConfig != null && {
-      CustomConfig: serializeAws_restJson1MapOf__string(input.CustomConfig, context),
-    }),
-    ...(input.Layout != null && { Layout: input.Layout }),
-  };
-};
-
-const serializeAws_restJson1CampaignLimits = (input: CampaignLimits, context: __SerdeContext): any => {
-  return {
-    ...(input.Daily != null && { Daily: input.Daily }),
-    ...(input.MaximumDuration != null && { MaximumDuration: input.MaximumDuration }),
-    ...(input.MessagesPerSecond != null && { MessagesPerSecond: input.MessagesPerSecond }),
-    ...(input.Session != null && { Session: input.Session }),
-    ...(input.Total != null && { Total: input.Total }),
-  };
-};
-
-const serializeAws_restJson1CampaignSmsMessage = (input: CampaignSmsMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.EntityId != null && { EntityId: input.EntityId }),
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-    ...(input.OriginationNumber != null && { OriginationNumber: input.OriginationNumber }),
-    ...(input.SenderId != null && { SenderId: input.SenderId }),
-    ...(input.TemplateId != null && { TemplateId: input.TemplateId }),
-  };
-};
-
-const serializeAws_restJson1ClosedDays = (input: ClosedDays, context: __SerdeContext): any => {
-  return {
-    ...(input.CUSTOM != null && { CUSTOM: serializeAws_restJson1ListOfClosedDaysRules(input.CUSTOM, context) }),
-    ...(input.EMAIL != null && { EMAIL: serializeAws_restJson1ListOfClosedDaysRules(input.EMAIL, context) }),
-    ...(input.PUSH != null && { PUSH: serializeAws_restJson1ListOfClosedDaysRules(input.PUSH, context) }),
-    ...(input.SMS != null && { SMS: serializeAws_restJson1ListOfClosedDaysRules(input.SMS, context) }),
-    ...(input.VOICE != null && { VOICE: serializeAws_restJson1ListOfClosedDaysRules(input.VOICE, context) }),
-  };
-};
-
-const serializeAws_restJson1ClosedDaysRule = (input: ClosedDaysRule, context: __SerdeContext): any => {
-  return {
-    ...(input.EndDateTime != null && { EndDateTime: input.EndDateTime }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.StartDateTime != null && { StartDateTime: input.StartDateTime }),
-  };
-};
-
-const serializeAws_restJson1Condition = (input: Condition, context: __SerdeContext): any => {
-  return {
-    ...(input.Conditions != null && {
-      Conditions: serializeAws_restJson1ListOfSimpleCondition(input.Conditions, context),
-    }),
-    ...(input.Operator != null && { Operator: input.Operator }),
-  };
-};
-
-const serializeAws_restJson1ConditionalSplitActivity = (
-  input: ConditionalSplitActivity,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Condition != null && { Condition: serializeAws_restJson1Condition(input.Condition, context) }),
-    ...(input.EvaluationWaitTime != null && {
-      EvaluationWaitTime: serializeAws_restJson1WaitTime(input.EvaluationWaitTime, context),
-    }),
-    ...(input.FalseActivity != null && { FalseActivity: input.FalseActivity }),
-    ...(input.TrueActivity != null && { TrueActivity: input.TrueActivity }),
-  };
-};
-
-const serializeAws_restJson1ContactCenterActivity = (input: ContactCenterActivity, context: __SerdeContext): any => {
-  return {
-    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
-  };
-};
-
-const serializeAws_restJson1CreateApplicationRequest = (
-  input: CreateApplicationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
-  };
-};
-
-const serializeAws_restJson1CreateRecommenderConfigurationShape = (
-  input: CreateRecommenderConfigurationShape,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: serializeAws_restJson1MapOf__string(input.Attributes, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RecommendationProviderIdType != null && {
-      RecommendationProviderIdType: input.RecommendationProviderIdType,
-    }),
-    ...(input.RecommendationProviderRoleArn != null && {
-      RecommendationProviderRoleArn: input.RecommendationProviderRoleArn,
-    }),
-    ...(input.RecommendationProviderUri != null && { RecommendationProviderUri: input.RecommendationProviderUri }),
-    ...(input.RecommendationTransformerUri != null && {
-      RecommendationTransformerUri: input.RecommendationTransformerUri,
-    }),
-    ...(input.RecommendationsDisplayName != null && { RecommendationsDisplayName: input.RecommendationsDisplayName }),
-    ...(input.RecommendationsPerMessage != null && { RecommendationsPerMessage: input.RecommendationsPerMessage }),
-  };
-};
-
-const serializeAws_restJson1CustomDeliveryConfiguration = (
-  input: CustomDeliveryConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DeliveryUri != null && { DeliveryUri: input.DeliveryUri }),
-    ...(input.EndpointTypes != null && {
-      EndpointTypes: serializeAws_restJson1ListOf__EndpointTypesElement(input.EndpointTypes, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1CustomMessageActivity = (input: CustomMessageActivity, context: __SerdeContext): any => {
-  return {
-    ...(input.DeliveryUri != null && { DeliveryUri: input.DeliveryUri }),
-    ...(input.EndpointTypes != null && {
-      EndpointTypes: serializeAws_restJson1ListOf__EndpointTypesElement(input.EndpointTypes, context),
-    }),
-    ...(input.MessageConfig != null && {
-      MessageConfig: serializeAws_restJson1JourneyCustomMessage(input.MessageConfig, context),
-    }),
-    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
-    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
-    ...(input.TemplateVersion != null && { TemplateVersion: input.TemplateVersion }),
-  };
-};
-
-const serializeAws_restJson1DefaultButtonConfiguration = (
-  input: DefaultButtonConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BackgroundColor != null && { BackgroundColor: input.BackgroundColor }),
-    ...(input.BorderRadius != null && { BorderRadius: input.BorderRadius }),
-    ...(input.ButtonAction != null && { ButtonAction: input.ButtonAction }),
-    ...(input.Link != null && { Link: input.Link }),
-    ...(input.Text != null && { Text: input.Text }),
-    ...(input.TextColor != null && { TextColor: input.TextColor }),
-  };
-};
-
-const serializeAws_restJson1DefaultMessage = (input: DefaultMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.Substitutions != null && {
-      Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1DefaultPushNotificationMessage = (
-  input: DefaultPushNotificationMessage,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.Data != null && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
-    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
-    ...(input.Substitutions != null && {
-      Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
-    }),
-    ...(input.Title != null && { Title: input.Title }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
-
-const serializeAws_restJson1DefaultPushNotificationTemplate = (
-  input: DefaultPushNotificationTemplate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.Sound != null && { Sound: input.Sound }),
-    ...(input.Title != null && { Title: input.Title }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
-
-const serializeAws_restJson1DirectMessageConfiguration = (
-  input: DirectMessageConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ADMMessage != null && { ADMMessage: serializeAws_restJson1ADMMessage(input.ADMMessage, context) }),
-    ...(input.APNSMessage != null && { APNSMessage: serializeAws_restJson1APNSMessage(input.APNSMessage, context) }),
-    ...(input.BaiduMessage != null && {
-      BaiduMessage: serializeAws_restJson1BaiduMessage(input.BaiduMessage, context),
-    }),
-    ...(input.DefaultMessage != null && {
-      DefaultMessage: serializeAws_restJson1DefaultMessage(input.DefaultMessage, context),
-    }),
-    ...(input.DefaultPushNotificationMessage != null && {
-      DefaultPushNotificationMessage: serializeAws_restJson1DefaultPushNotificationMessage(
-        input.DefaultPushNotificationMessage,
-        context
-      ),
-    }),
-    ...(input.EmailMessage != null && {
-      EmailMessage: serializeAws_restJson1EmailMessage(input.EmailMessage, context),
-    }),
-    ...(input.GCMMessage != null && { GCMMessage: serializeAws_restJson1GCMMessage(input.GCMMessage, context) }),
-    ...(input.SMSMessage != null && { SMSMessage: serializeAws_restJson1SMSMessage(input.SMSMessage, context) }),
-    ...(input.VoiceMessage != null && {
-      VoiceMessage: serializeAws_restJson1VoiceMessage(input.VoiceMessage, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1EmailChannelRequest = (input: EmailChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ConfigurationSet != null && { ConfigurationSet: input.ConfigurationSet }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.FromAddress != null && { FromAddress: input.FromAddress }),
-    ...(input.Identity != null && { Identity: input.Identity }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  };
-};
-
-const serializeAws_restJson1EmailMessage = (input: EmailMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.FeedbackForwardingAddress != null && { FeedbackForwardingAddress: input.FeedbackForwardingAddress }),
-    ...(input.FromAddress != null && { FromAddress: input.FromAddress }),
-    ...(input.RawEmail != null && { RawEmail: serializeAws_restJson1RawEmail(input.RawEmail, context) }),
-    ...(input.ReplyToAddresses != null && {
-      ReplyToAddresses: serializeAws_restJson1ListOf__string(input.ReplyToAddresses, context),
-    }),
-    ...(input.SimpleEmail != null && { SimpleEmail: serializeAws_restJson1SimpleEmail(input.SimpleEmail, context) }),
-    ...(input.Substitutions != null && {
-      Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1EmailMessageActivity = (input: EmailMessageActivity, context: __SerdeContext): any => {
-  return {
-    ...(input.MessageConfig != null && {
-      MessageConfig: serializeAws_restJson1JourneyEmailMessage(input.MessageConfig, context),
-    }),
-    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
-    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
-    ...(input.TemplateVersion != null && { TemplateVersion: input.TemplateVersion }),
-  };
-};
-
-const serializeAws_restJson1EmailTemplateRequest = (input: EmailTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DefaultSubstitutions != null && { DefaultSubstitutions: input.DefaultSubstitutions }),
-    ...(input.HtmlPart != null && { HtmlPart: input.HtmlPart }),
-    ...(input.RecommenderId != null && { RecommenderId: input.RecommenderId }),
-    ...(input.Subject != null && { Subject: input.Subject }),
-    ...(input.TemplateDescription != null && { TemplateDescription: input.TemplateDescription }),
-    ...(input.TextPart != null && { TextPart: input.TextPart }),
-    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
-  };
-};
-
-const serializeAws_restJson1EndpointBatchItem = (input: EndpointBatchItem, context: __SerdeContext): any => {
-  return {
-    ...(input.Address != null && { Address: input.Address }),
-    ...(input.Attributes != null && {
-      Attributes: serializeAws_restJson1MapOfListOf__string(input.Attributes, context),
-    }),
-    ...(input.ChannelType != null && { ChannelType: input.ChannelType }),
-    ...(input.Demographic != null && {
-      Demographic: serializeAws_restJson1EndpointDemographic(input.Demographic, context),
-    }),
-    ...(input.EffectiveDate != null && { EffectiveDate: input.EffectiveDate }),
-    ...(input.EndpointStatus != null && { EndpointStatus: input.EndpointStatus }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Location != null && { Location: serializeAws_restJson1EndpointLocation(input.Location, context) }),
-    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
-    ...(input.OptOut != null && { OptOut: input.OptOut }),
-    ...(input.RequestId != null && { RequestId: input.RequestId }),
-    ...(input.User != null && { User: serializeAws_restJson1EndpointUser(input.User, context) }),
-  };
-};
-
-const serializeAws_restJson1EndpointBatchRequest = (input: EndpointBatchRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Item != null && { Item: serializeAws_restJson1ListOfEndpointBatchItem(input.Item, context) }),
-  };
-};
-
-const serializeAws_restJson1EndpointDemographic = (input: EndpointDemographic, context: __SerdeContext): any => {
-  return {
-    ...(input.AppVersion != null && { AppVersion: input.AppVersion }),
-    ...(input.Locale != null && { Locale: input.Locale }),
-    ...(input.Make != null && { Make: input.Make }),
-    ...(input.Model != null && { Model: input.Model }),
-    ...(input.ModelVersion != null && { ModelVersion: input.ModelVersion }),
-    ...(input.Platform != null && { Platform: input.Platform }),
-    ...(input.PlatformVersion != null && { PlatformVersion: input.PlatformVersion }),
-    ...(input.Timezone != null && { Timezone: input.Timezone }),
-  };
-};
-
-const serializeAws_restJson1EndpointLocation = (input: EndpointLocation, context: __SerdeContext): any => {
-  return {
-    ...(input.City != null && { City: input.City }),
-    ...(input.Country != null && { Country: input.Country }),
-    ...(input.Latitude != null && { Latitude: __serializeFloat(input.Latitude) }),
-    ...(input.Longitude != null && { Longitude: __serializeFloat(input.Longitude) }),
-    ...(input.PostalCode != null && { PostalCode: input.PostalCode }),
-    ...(input.Region != null && { Region: input.Region }),
-  };
-};
-
-const serializeAws_restJson1EndpointRequest = (input: EndpointRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Address != null && { Address: input.Address }),
-    ...(input.Attributes != null && {
-      Attributes: serializeAws_restJson1MapOfListOf__string(input.Attributes, context),
-    }),
-    ...(input.ChannelType != null && { ChannelType: input.ChannelType }),
-    ...(input.Demographic != null && {
-      Demographic: serializeAws_restJson1EndpointDemographic(input.Demographic, context),
-    }),
-    ...(input.EffectiveDate != null && { EffectiveDate: input.EffectiveDate }),
-    ...(input.EndpointStatus != null && { EndpointStatus: input.EndpointStatus }),
-    ...(input.Location != null && { Location: serializeAws_restJson1EndpointLocation(input.Location, context) }),
-    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
-    ...(input.OptOut != null && { OptOut: input.OptOut }),
-    ...(input.RequestId != null && { RequestId: input.RequestId }),
-    ...(input.User != null && { User: serializeAws_restJson1EndpointUser(input.User, context) }),
-  };
-};
-
-const serializeAws_restJson1EndpointSendConfiguration = (
-  input: EndpointSendConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.BodyOverride != null && { BodyOverride: input.BodyOverride }),
-    ...(input.Context != null && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
-    ...(input.RawContent != null && { RawContent: input.RawContent }),
-    ...(input.Substitutions != null && {
-      Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
-    }),
-    ...(input.TitleOverride != null && { TitleOverride: input.TitleOverride }),
-  };
-};
+// se_AddressConfiguration omitted.
 
-const serializeAws_restJson1EndpointUser = (input: EndpointUser, context: __SerdeContext): any => {
-  return {
-    ...(input.UserAttributes != null && {
-      UserAttributes: serializeAws_restJson1MapOfListOf__string(input.UserAttributes, context),
-    }),
-    ...(input.UserId != null && { UserId: input.UserId }),
-  };
-};
-
-const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
-  return {
-    ...(input.AppPackageName != null && { AppPackageName: input.AppPackageName }),
-    ...(input.AppTitle != null && { AppTitle: input.AppTitle }),
-    ...(input.AppVersionCode != null && { AppVersionCode: input.AppVersionCode }),
-    ...(input.Attributes != null && { Attributes: serializeAws_restJson1MapOf__string(input.Attributes, context) }),
-    ...(input.ClientSdkVersion != null && { ClientSdkVersion: input.ClientSdkVersion }),
-    ...(input.EventType != null && { EventType: input.EventType }),
-    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
-    ...(input.SdkName != null && { SdkName: input.SdkName }),
-    ...(input.Session != null && { Session: serializeAws_restJson1Session(input.Session, context) }),
-    ...(input.Timestamp != null && { Timestamp: input.Timestamp }),
-  };
-};
-
-const serializeAws_restJson1EventCondition = (input: EventCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1EventDimensions(input.Dimensions, context) }),
-    ...(input.MessageActivity != null && { MessageActivity: input.MessageActivity }),
-  };
-};
-
-const serializeAws_restJson1EventDimensions = (input: EventDimensions, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && {
-      Attributes: serializeAws_restJson1MapOfAttributeDimension(input.Attributes, context),
-    }),
-    ...(input.EventType != null && { EventType: serializeAws_restJson1SetDimension(input.EventType, context) }),
-    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOfMetricDimension(input.Metrics, context) }),
-  };
-};
+// se_ADMChannelRequest omitted.
 
-const serializeAws_restJson1EventFilter = (input: EventFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1EventDimensions(input.Dimensions, context) }),
-    ...(input.FilterType != null && { FilterType: input.FilterType }),
-  };
-};
-
-const serializeAws_restJson1EventsBatch = (input: EventsBatch, context: __SerdeContext): any => {
-  return {
-    ...(input.Endpoint != null && { Endpoint: serializeAws_restJson1PublicEndpoint(input.Endpoint, context) }),
-    ...(input.Events != null && { Events: serializeAws_restJson1MapOfEvent(input.Events, context) }),
-  };
-};
+// se_ADMMessage omitted.
 
-const serializeAws_restJson1EventsRequest = (input: EventsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.BatchItem != null && { BatchItem: serializeAws_restJson1MapOfEventsBatch(input.BatchItem, context) }),
-  };
-};
+// se_AndroidPushNotificationTemplate omitted.
 
-const serializeAws_restJson1EventStartCondition = (input: EventStartCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.EventFilter != null && { EventFilter: serializeAws_restJson1EventFilter(input.EventFilter, context) }),
-    ...(input.SegmentId != null && { SegmentId: input.SegmentId }),
-  };
-};
+// se_APNSChannelRequest omitted.
 
-const serializeAws_restJson1ExportJobRequest = (input: ExportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.S3UrlPrefix != null && { S3UrlPrefix: input.S3UrlPrefix }),
-    ...(input.SegmentId != null && { SegmentId: input.SegmentId }),
-    ...(input.SegmentVersion != null && { SegmentVersion: input.SegmentVersion }),
-  };
-};
+// se_APNSMessage omitted.
 
-const serializeAws_restJson1GCMChannelRequest = (input: GCMChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ApiKey != null && { ApiKey: input.ApiKey }),
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
+// se_APNSPushNotificationTemplate omitted.
 
-const serializeAws_restJson1GCMMessage = (input: GCMMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.CollapseKey != null && { CollapseKey: input.CollapseKey }),
-    ...(input.Data != null && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
-    ...(input.IconReference != null && { IconReference: input.IconReference }),
-    ...(input.ImageIconUrl != null && { ImageIconUrl: input.ImageIconUrl }),
-    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.RawContent != null && { RawContent: input.RawContent }),
-    ...(input.RestrictedPackageName != null && { RestrictedPackageName: input.RestrictedPackageName }),
-    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
-    ...(input.SmallImageIconUrl != null && { SmallImageIconUrl: input.SmallImageIconUrl }),
-    ...(input.Sound != null && { Sound: input.Sound }),
-    ...(input.Substitutions != null && {
-      Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
-    }),
-    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
-    ...(input.Title != null && { Title: input.Title }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
+// se_APNSSandboxChannelRequest omitted.
 
-const serializeAws_restJson1GPSCoordinates = (input: GPSCoordinates, context: __SerdeContext): any => {
-  return {
-    ...(input.Latitude != null && { Latitude: __serializeFloat(input.Latitude) }),
-    ...(input.Longitude != null && { Longitude: __serializeFloat(input.Longitude) }),
-  };
-};
+// se_APNSVoipChannelRequest omitted.
 
-const serializeAws_restJson1GPSPointDimension = (input: GPSPointDimension, context: __SerdeContext): any => {
-  return {
-    ...(input.Coordinates != null && { Coordinates: serializeAws_restJson1GPSCoordinates(input.Coordinates, context) }),
-    ...(input.RangeInKilometers != null && { RangeInKilometers: __serializeFloat(input.RangeInKilometers) }),
-  };
-};
+// se_APNSVoipSandboxChannelRequest omitted.
 
-const serializeAws_restJson1HoldoutActivity = (input: HoldoutActivity, context: __SerdeContext): any => {
-  return {
-    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
-    ...(input.Percentage != null && { Percentage: input.Percentage }),
-  };
-};
+// se_AttributeDimension omitted.
 
-const serializeAws_restJson1ImportJobRequest = (input: ImportJobRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DefineSegment != null && { DefineSegment: input.DefineSegment }),
-    ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
-    ...(input.Format != null && { Format: input.Format }),
-    ...(input.RegisterEndpoints != null && { RegisterEndpoints: input.RegisterEndpoints }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-    ...(input.S3Url != null && { S3Url: input.S3Url }),
-    ...(input.SegmentId != null && { SegmentId: input.SegmentId }),
-    ...(input.SegmentName != null && { SegmentName: input.SegmentName }),
-  };
-};
+// se_BaiduChannelRequest omitted.
 
-const serializeAws_restJson1InAppMessageBodyConfig = (input: InAppMessageBodyConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Alignment != null && { Alignment: input.Alignment }),
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.TextColor != null && { TextColor: input.TextColor }),
-  };
-};
+// se_BaiduMessage omitted.
 
-const serializeAws_restJson1InAppMessageButton = (input: InAppMessageButton, context: __SerdeContext): any => {
-  return {
-    ...(input.Android != null && {
-      Android: serializeAws_restJson1OverrideButtonConfiguration(input.Android, context),
-    }),
-    ...(input.DefaultConfig != null && {
-      DefaultConfig: serializeAws_restJson1DefaultButtonConfiguration(input.DefaultConfig, context),
-    }),
-    ...(input.IOS != null && { IOS: serializeAws_restJson1OverrideButtonConfiguration(input.IOS, context) }),
-    ...(input.Web != null && { Web: serializeAws_restJson1OverrideButtonConfiguration(input.Web, context) }),
-  };
-};
+// se_CampaignCustomMessage omitted.
 
-const serializeAws_restJson1InAppMessageContent = (input: InAppMessageContent, context: __SerdeContext): any => {
-  return {
-    ...(input.BackgroundColor != null && { BackgroundColor: input.BackgroundColor }),
-    ...(input.BodyConfig != null && {
-      BodyConfig: serializeAws_restJson1InAppMessageBodyConfig(input.BodyConfig, context),
-    }),
-    ...(input.HeaderConfig != null && {
-      HeaderConfig: serializeAws_restJson1InAppMessageHeaderConfig(input.HeaderConfig, context),
-    }),
-    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
-    ...(input.PrimaryBtn != null && {
-      PrimaryBtn: serializeAws_restJson1InAppMessageButton(input.PrimaryBtn, context),
-    }),
-    ...(input.SecondaryBtn != null && {
-      SecondaryBtn: serializeAws_restJson1InAppMessageButton(input.SecondaryBtn, context),
-    }),
-  };
-};
+// se_CampaignEmailMessage omitted.
 
-const serializeAws_restJson1InAppMessageHeaderConfig = (
-  input: InAppMessageHeaderConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Alignment != null && { Alignment: input.Alignment }),
-    ...(input.Header != null && { Header: input.Header }),
-    ...(input.TextColor != null && { TextColor: input.TextColor }),
-  };
+/**
+ * serializeAws_restJson1CampaignEventFilter
+ */
+const se_CampaignEventFilter = (input: CampaignEventFilter, context: __SerdeContext): any => {
+  return take(input, {
+    Dimensions: (_) => se_EventDimensions(_, context),
+    FilterType: [],
+  });
 };
 
-const serializeAws_restJson1InAppTemplateRequest = (input: InAppTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Content != null && { Content: serializeAws_restJson1ListOfInAppMessageContent(input.Content, context) }),
-    ...(input.CustomConfig != null && {
-      CustomConfig: serializeAws_restJson1MapOf__string(input.CustomConfig, context),
-    }),
-    ...(input.Layout != null && { Layout: input.Layout }),
-    ...(input.TemplateDescription != null && { TemplateDescription: input.TemplateDescription }),
-    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
-  };
-};
+// se_CampaignHook omitted.
 
-const serializeAws_restJson1JourneyChannelSettings = (input: JourneyChannelSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ConnectCampaignArn != null && { ConnectCampaignArn: input.ConnectCampaignArn }),
-    ...(input.ConnectCampaignExecutionRoleArn != null && {
-      ConnectCampaignExecutionRoleArn: input.ConnectCampaignExecutionRoleArn,
-    }),
-  };
-};
+// se_CampaignInAppMessage omitted.
 
-const serializeAws_restJson1JourneyCustomMessage = (input: JourneyCustomMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Data != null && { Data: input.Data }),
-  };
-};
+// se_CampaignLimits omitted.
 
-const serializeAws_restJson1JourneyEmailMessage = (input: JourneyEmailMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.FromAddress != null && { FromAddress: input.FromAddress }),
-  };
-};
+// se_CampaignSmsMessage omitted.
 
-const serializeAws_restJson1JourneyLimits = (input: JourneyLimits, context: __SerdeContext): any => {
-  return {
-    ...(input.DailyCap != null && { DailyCap: input.DailyCap }),
-    ...(input.EndpointReentryCap != null && { EndpointReentryCap: input.EndpointReentryCap }),
-    ...(input.EndpointReentryInterval != null && { EndpointReentryInterval: input.EndpointReentryInterval }),
-    ...(input.MessagesPerSecond != null && { MessagesPerSecond: input.MessagesPerSecond }),
-  };
-};
+// se_ClosedDays omitted.
 
-const serializeAws_restJson1JourneyPushMessage = (input: JourneyPushMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
-  };
-};
+// se_ClosedDaysRule omitted.
 
-const serializeAws_restJson1JourneySchedule = (input: JourneySchedule, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: input.EndTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.StartTime != null && { StartTime: input.StartTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.Timezone != null && { Timezone: input.Timezone }),
-  };
+/**
+ * serializeAws_restJson1Condition
+ */
+const se_Condition = (input: Condition, context: __SerdeContext): any => {
+  return take(input, {
+    Conditions: (_) => se_ListOfSimpleCondition(_, context),
+    Operator: [],
+  });
 };
 
-const serializeAws_restJson1JourneySMSMessage = (input: JourneySMSMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.EntityId != null && { EntityId: input.EntityId }),
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-    ...(input.OriginationNumber != null && { OriginationNumber: input.OriginationNumber }),
-    ...(input.SenderId != null && { SenderId: input.SenderId }),
-    ...(input.TemplateId != null && { TemplateId: input.TemplateId }),
-  };
+/**
+ * serializeAws_restJson1ConditionalSplitActivity
+ */
+const se_ConditionalSplitActivity = (input: ConditionalSplitActivity, context: __SerdeContext): any => {
+  return take(input, {
+    Condition: (_) => se_Condition(_, context),
+    EvaluationWaitTime: _json,
+    FalseActivity: [],
+    TrueActivity: [],
+  });
 };
 
-const serializeAws_restJson1JourneyStateRequest = (input: JourneyStateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.State != null && { State: input.State }),
-  };
-};
+// se_ContactCenterActivity omitted.
 
-const serializeAws_restJson1ListOf__EndpointTypesElement = (
-  input: (__EndpointTypesElement | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1CreateApplicationRequest
+ */
+const se_CreateApplicationRequest = (input: CreateApplicationRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Name: [],
+    tags: [, _json, `tags`],
+  });
+};
+
+// se_CreateRecommenderConfigurationShape omitted.
+
+// se_CustomDeliveryConfiguration omitted.
+
+// se_CustomMessageActivity omitted.
+
+// se_DefaultButtonConfiguration omitted.
+
+// se_DefaultMessage omitted.
+
+// se_DefaultPushNotificationMessage omitted.
+
+// se_DefaultPushNotificationTemplate omitted.
+
+/**
+ * serializeAws_restJson1DirectMessageConfiguration
+ */
+const se_DirectMessageConfiguration = (input: DirectMessageConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    ADMMessage: _json,
+    APNSMessage: _json,
+    BaiduMessage: _json,
+    DefaultMessage: _json,
+    DefaultPushNotificationMessage: _json,
+    EmailMessage: (_) => se_EmailMessage(_, context),
+    GCMMessage: _json,
+    SMSMessage: _json,
+    VoiceMessage: _json,
+  });
+};
+
+// se_EmailChannelRequest omitted.
+
+/**
+ * serializeAws_restJson1EmailMessage
+ */
+const se_EmailMessage = (input: EmailMessage, context: __SerdeContext): any => {
+  return take(input, {
+    Body: [],
+    FeedbackForwardingAddress: [],
+    FromAddress: [],
+    RawEmail: (_) => se_RawEmail(_, context),
+    ReplyToAddresses: _json,
+    SimpleEmail: _json,
+    Substitutions: _json,
+  });
+};
+
+// se_EmailMessageActivity omitted.
+
+/**
+ * serializeAws_restJson1EmailTemplateRequest
+ */
+const se_EmailTemplateRequest = (input: EmailTemplateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    DefaultSubstitutions: [],
+    HtmlPart: [],
+    RecommenderId: [],
+    Subject: [],
+    TemplateDescription: [],
+    TextPart: [],
+    tags: [, _json, `tags`],
+  });
+};
+
+/**
+ * serializeAws_restJson1EndpointBatchItem
+ */
+const se_EndpointBatchItem = (input: EndpointBatchItem, context: __SerdeContext): any => {
+  return take(input, {
+    Address: [],
+    Attributes: _json,
+    ChannelType: [],
+    Demographic: _json,
+    EffectiveDate: [],
+    EndpointStatus: [],
+    Id: [],
+    Location: (_) => se_EndpointLocation(_, context),
+    Metrics: (_) => se_MapOf__double(_, context),
+    OptOut: [],
+    RequestId: [],
+    User: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1EndpointBatchRequest
+ */
+const se_EndpointBatchRequest = (input: EndpointBatchRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Item: (_) => se_ListOfEndpointBatchItem(_, context),
+  });
+};
+
+// se_EndpointDemographic omitted.
+
+/**
+ * serializeAws_restJson1EndpointLocation
+ */
+const se_EndpointLocation = (input: EndpointLocation, context: __SerdeContext): any => {
+  return take(input, {
+    City: [],
+    Country: [],
+    Latitude: __serializeFloat,
+    Longitude: __serializeFloat,
+    PostalCode: [],
+    Region: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1EndpointRequest
+ */
+const se_EndpointRequest = (input: EndpointRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Address: [],
+    Attributes: _json,
+    ChannelType: [],
+    Demographic: _json,
+    EffectiveDate: [],
+    EndpointStatus: [],
+    Location: (_) => se_EndpointLocation(_, context),
+    Metrics: (_) => se_MapOf__double(_, context),
+    OptOut: [],
+    RequestId: [],
+    User: _json,
+  });
+};
+
+// se_EndpointSendConfiguration omitted.
+
+// se_EndpointUser omitted.
+
+/**
+ * serializeAws_restJson1Event
+ */
+const se_Event = (input: Event, context: __SerdeContext): any => {
+  return take(input, {
+    AppPackageName: [],
+    AppTitle: [],
+    AppVersionCode: [],
+    Attributes: _json,
+    ClientSdkVersion: [],
+    EventType: [],
+    Metrics: (_) => se_MapOf__double(_, context),
+    SdkName: [],
+    Session: _json,
+    Timestamp: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1EventCondition
+ */
+const se_EventCondition = (input: EventCondition, context: __SerdeContext): any => {
+  return take(input, {
+    Dimensions: (_) => se_EventDimensions(_, context),
+    MessageActivity: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1EventDimensions
+ */
+const se_EventDimensions = (input: EventDimensions, context: __SerdeContext): any => {
+  return take(input, {
+    Attributes: _json,
+    EventType: _json,
+    Metrics: (_) => se_MapOfMetricDimension(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1EventFilter
+ */
+const se_EventFilter = (input: EventFilter, context: __SerdeContext): any => {
+  return take(input, {
+    Dimensions: (_) => se_EventDimensions(_, context),
+    FilterType: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1EventsBatch
+ */
+const se_EventsBatch = (input: EventsBatch, context: __SerdeContext): any => {
+  return take(input, {
+    Endpoint: (_) => se_PublicEndpoint(_, context),
+    Events: (_) => se_MapOfEvent(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1EventsRequest
+ */
+const se_EventsRequest = (input: EventsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    BatchItem: (_) => se_MapOfEventsBatch(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1EventStartCondition
+ */
+const se_EventStartCondition = (input: EventStartCondition, context: __SerdeContext): any => {
+  return take(input, {
+    EventFilter: (_) => se_EventFilter(_, context),
+    SegmentId: [],
+  });
+};
+
+// se_ExportJobRequest omitted.
+
+// se_GCMChannelRequest omitted.
+
+// se_GCMMessage omitted.
+
+/**
+ * serializeAws_restJson1GPSCoordinates
+ */
+const se_GPSCoordinates = (input: GPSCoordinates, context: __SerdeContext): any => {
+  return take(input, {
+    Latitude: __serializeFloat,
+    Longitude: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1GPSPointDimension
+ */
+const se_GPSPointDimension = (input: GPSPointDimension, context: __SerdeContext): any => {
+  return take(input, {
+    Coordinates: (_) => se_GPSCoordinates(_, context),
+    RangeInKilometers: __serializeFloat,
+  });
+};
+
+// se_HoldoutActivity omitted.
+
+// se_ImportJobRequest omitted.
+
+// se_InAppMessageBodyConfig omitted.
+
+// se_InAppMessageButton omitted.
+
+// se_InAppMessageContent omitted.
+
+// se_InAppMessageHeaderConfig omitted.
+
+/**
+ * serializeAws_restJson1InAppTemplateRequest
+ */
+const se_InAppTemplateRequest = (input: InAppTemplateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Content: _json,
+    CustomConfig: _json,
+    Layout: [],
+    TemplateDescription: [],
+    tags: [, _json, `tags`],
+  });
+};
+
+// se_JourneyChannelSettings omitted.
+
+// se_JourneyCustomMessage omitted.
+
+// se_JourneyEmailMessage omitted.
+
+// se_JourneyLimits omitted.
+
+// se_JourneyPushMessage omitted.
+
+/**
+ * serializeAws_restJson1JourneySchedule
+ */
+const se_JourneySchedule = (input: JourneySchedule, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => _.toISOString().split(".")[0] + "Z",
+    StartTime: (_) => _.toISOString().split(".")[0] + "Z",
+    Timezone: [],
+  });
+};
+
+// se_JourneySMSMessage omitted.
+
+// se_JourneyStateRequest omitted.
+
+// se_ListOf__EndpointTypesElement omitted.
+
+// se_ListOf__string omitted.
+
+// se_ListOfClosedDaysRules omitted.
+
+/**
+ * serializeAws_restJson1ListOfEndpointBatchItem
+ */
+const se_ListOfEndpointBatchItem = (input: EndpointBatchItem[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return entry;
+      return se_EndpointBatchItem(entry, context);
     });
 };
 
-const serializeAws_restJson1ListOf__string = (input: string[], context: __SerdeContext): any => {
+// se_ListOfInAppMessageContent omitted.
+
+/**
+ * serializeAws_restJson1ListOfMultiConditionalBranch
+ */
+const se_ListOfMultiConditionalBranch = (input: MultiConditionalBranch[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return entry;
+      return se_MultiConditionalBranch(entry, context);
     });
 };
 
-const serializeAws_restJson1ListOfClosedDaysRules = (input: ClosedDaysRule[], context: __SerdeContext): any => {
+// se_ListOfOpenHoursRules omitted.
+
+// se_ListOfRandomSplitEntry omitted.
+
+/**
+ * serializeAws_restJson1ListOfSegmentDimensions
+ */
+const se_ListOfSegmentDimensions = (input: SegmentDimensions[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ClosedDaysRule(entry, context);
+      return se_SegmentDimensions(entry, context);
     });
 };
 
-const serializeAws_restJson1ListOfEndpointBatchItem = (input: EndpointBatchItem[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ListOfSegmentGroup
+ */
+const se_ListOfSegmentGroup = (input: SegmentGroup[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1EndpointBatchItem(entry, context);
+      return se_SegmentGroup(entry, context);
     });
 };
 
-const serializeAws_restJson1ListOfInAppMessageContent = (
-  input: InAppMessageContent[],
-  context: __SerdeContext
-): any => {
+// se_ListOfSegmentReference omitted.
+
+/**
+ * serializeAws_restJson1ListOfSimpleCondition
+ */
+const se_ListOfSimpleCondition = (input: SimpleCondition[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1InAppMessageContent(entry, context);
+      return se_SimpleCondition(entry, context);
     });
 };
 
-const serializeAws_restJson1ListOfMultiConditionalBranch = (
-  input: MultiConditionalBranch[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ListOfWriteTreatmentResource
+ */
+const se_ListOfWriteTreatmentResource = (input: WriteTreatmentResource[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1MultiConditionalBranch(entry, context);
+      return se_WriteTreatmentResource(entry, context);
     });
 };
 
-const serializeAws_restJson1ListOfOpenHoursRules = (input: OpenHoursRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1OpenHoursRule(entry, context);
-    });
-};
-
-const serializeAws_restJson1ListOfRandomSplitEntry = (input: RandomSplitEntry[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1RandomSplitEntry(entry, context);
-    });
-};
-
-const serializeAws_restJson1ListOfSegmentDimensions = (input: SegmentDimensions[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SegmentDimensions(entry, context);
-    });
-};
-
-const serializeAws_restJson1ListOfSegmentGroup = (input: SegmentGroup[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SegmentGroup(entry, context);
-    });
-};
-
-const serializeAws_restJson1ListOfSegmentReference = (input: SegmentReference[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SegmentReference(entry, context);
-    });
-};
-
-const serializeAws_restJson1ListOfSimpleCondition = (input: SimpleCondition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SimpleCondition(entry, context);
-    });
-};
-
-const serializeAws_restJson1ListOfWriteTreatmentResource = (
-  input: WriteTreatmentResource[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1WriteTreatmentResource(entry, context);
-    });
-};
-
-const serializeAws_restJson1MapOf__double = (input: Record<string, number>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1MapOf__double
+ */
+const se_MapOf__double = (input: Record<string, number>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -12265,2226 +12640,1136 @@ const serializeAws_restJson1MapOf__double = (input: Record<string, number>, cont
   }, {});
 };
 
-const serializeAws_restJson1MapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
+// se_MapOf__string omitted.
+
+/**
+ * serializeAws_restJson1MapOfActivity
+ */
+const se_MapOfActivity = (input: Record<string, Activity>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = value;
+    acc[key] = se_Activity(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1MapOfActivity = (input: Record<string, Activity>, context: __SerdeContext): any => {
+// se_MapOfAddressConfiguration omitted.
+
+// se_MapOfAttributeDimension omitted.
+
+// se_MapOfEndpointSendConfiguration omitted.
+
+/**
+ * serializeAws_restJson1MapOfEvent
+ */
+const se_MapOfEvent = (input: Record<string, Event>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1Activity(value, context);
+    acc[key] = se_Event(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1MapOfAddressConfiguration = (
-  input: Record<string, AddressConfiguration>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1MapOfEventsBatch
+ */
+const se_MapOfEventsBatch = (input: Record<string, EventsBatch>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1AddressConfiguration(value, context);
+    acc[key] = se_EventsBatch(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1MapOfAttributeDimension = (
-  input: Record<string, AttributeDimension>,
-  context: __SerdeContext
-): any => {
+// se_MapOfListOf__string omitted.
+
+// se_MapOfListOfOpenHoursRules omitted.
+
+/**
+ * serializeAws_restJson1MapOfMetricDimension
+ */
+const se_MapOfMetricDimension = (input: Record<string, MetricDimension>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1AttributeDimension(value, context);
+    acc[key] = se_MetricDimension(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1MapOfEndpointSendConfiguration = (
-  input: Record<string, EndpointSendConfiguration>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1EndpointSendConfiguration(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1MapOfEvent = (input: Record<string, Event>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1Event(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1MapOfEventsBatch = (input: Record<string, EventsBatch>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1EventsBatch(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1MapOfListOf__string = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1ListOf__string(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1MapOfListOfOpenHoursRules = (
-  input: Record<string, OpenHoursRule[]>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [DayOfWeek | string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1ListOfOpenHoursRules(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1MapOfMetricDimension = (
-  input: Record<string, MetricDimension>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_restJson1MetricDimension(value, context);
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.ImageIconUrl != null && { ImageIconUrl: input.ImageIconUrl }),
-    ...(input.ImageSmallIconUrl != null && { ImageSmallIconUrl: input.ImageSmallIconUrl }),
-    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
-    ...(input.JsonBody != null && { JsonBody: input.JsonBody }),
-    ...(input.MediaUrl != null && { MediaUrl: input.MediaUrl }),
-    ...(input.RawContent != null && { RawContent: input.RawContent }),
-    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
-    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
-    ...(input.Title != null && { Title: input.Title }),
-    ...(input.Url != null && { Url: input.Url }),
-  };
-};
-
-const serializeAws_restJson1MessageConfiguration = (input: MessageConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.ADMMessage != null && { ADMMessage: serializeAws_restJson1Message(input.ADMMessage, context) }),
-    ...(input.APNSMessage != null && { APNSMessage: serializeAws_restJson1Message(input.APNSMessage, context) }),
-    ...(input.BaiduMessage != null && { BaiduMessage: serializeAws_restJson1Message(input.BaiduMessage, context) }),
-    ...(input.CustomMessage != null && {
-      CustomMessage: serializeAws_restJson1CampaignCustomMessage(input.CustomMessage, context),
-    }),
-    ...(input.DefaultMessage != null && {
-      DefaultMessage: serializeAws_restJson1Message(input.DefaultMessage, context),
-    }),
-    ...(input.EmailMessage != null && {
-      EmailMessage: serializeAws_restJson1CampaignEmailMessage(input.EmailMessage, context),
-    }),
-    ...(input.GCMMessage != null && { GCMMessage: serializeAws_restJson1Message(input.GCMMessage, context) }),
-    ...(input.InAppMessage != null && {
-      InAppMessage: serializeAws_restJson1CampaignInAppMessage(input.InAppMessage, context),
-    }),
-    ...(input.SMSMessage != null && {
-      SMSMessage: serializeAws_restJson1CampaignSmsMessage(input.SMSMessage, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1MessageRequest = (input: MessageRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Addresses != null && {
-      Addresses: serializeAws_restJson1MapOfAddressConfiguration(input.Addresses, context),
-    }),
-    ...(input.Context != null && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
-    ...(input.Endpoints != null && {
-      Endpoints: serializeAws_restJson1MapOfEndpointSendConfiguration(input.Endpoints, context),
-    }),
-    ...(input.MessageConfiguration != null && {
-      MessageConfiguration: serializeAws_restJson1DirectMessageConfiguration(input.MessageConfiguration, context),
-    }),
-    ...(input.TemplateConfiguration != null && {
-      TemplateConfiguration: serializeAws_restJson1TemplateConfiguration(input.TemplateConfiguration, context),
-    }),
-    ...(input.TraceId != null && { TraceId: input.TraceId }),
-  };
-};
-
-const serializeAws_restJson1MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
-  return {
-    ...(input.ComparisonOperator != null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
-  };
-};
-
-const serializeAws_restJson1MultiConditionalBranch = (input: MultiConditionalBranch, context: __SerdeContext): any => {
-  return {
-    ...(input.Condition != null && { Condition: serializeAws_restJson1SimpleCondition(input.Condition, context) }),
-    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
-  };
-};
-
-const serializeAws_restJson1MultiConditionalSplitActivity = (
-  input: MultiConditionalSplitActivity,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Branches != null && {
-      Branches: serializeAws_restJson1ListOfMultiConditionalBranch(input.Branches, context),
-    }),
-    ...(input.DefaultActivity != null && { DefaultActivity: input.DefaultActivity }),
-    ...(input.EvaluationWaitTime != null && {
-      EvaluationWaitTime: serializeAws_restJson1WaitTime(input.EvaluationWaitTime, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1NumberValidateRequest = (input: NumberValidateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.PhoneNumber != null && { PhoneNumber: input.PhoneNumber }),
-  };
-};
-
-const serializeAws_restJson1OpenHours = (input: OpenHours, context: __SerdeContext): any => {
-  return {
-    ...(input.CUSTOM != null && { CUSTOM: serializeAws_restJson1MapOfListOfOpenHoursRules(input.CUSTOM, context) }),
-    ...(input.EMAIL != null && { EMAIL: serializeAws_restJson1MapOfListOfOpenHoursRules(input.EMAIL, context) }),
-    ...(input.PUSH != null && { PUSH: serializeAws_restJson1MapOfListOfOpenHoursRules(input.PUSH, context) }),
-    ...(input.SMS != null && { SMS: serializeAws_restJson1MapOfListOfOpenHoursRules(input.SMS, context) }),
-    ...(input.VOICE != null && { VOICE: serializeAws_restJson1MapOfListOfOpenHoursRules(input.VOICE, context) }),
-  };
-};
-
-const serializeAws_restJson1OpenHoursRule = (input: OpenHoursRule, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: input.EndTime }),
-    ...(input.StartTime != null && { StartTime: input.StartTime }),
-  };
-};
-
-const serializeAws_restJson1OverrideButtonConfiguration = (
-  input: OverrideButtonConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ButtonAction != null && { ButtonAction: input.ButtonAction }),
-    ...(input.Link != null && { Link: input.Link }),
-  };
-};
-
-const serializeAws_restJson1PublicEndpoint = (input: PublicEndpoint, context: __SerdeContext): any => {
-  return {
-    ...(input.Address != null && { Address: input.Address }),
-    ...(input.Attributes != null && {
-      Attributes: serializeAws_restJson1MapOfListOf__string(input.Attributes, context),
-    }),
-    ...(input.ChannelType != null && { ChannelType: input.ChannelType }),
-    ...(input.Demographic != null && {
-      Demographic: serializeAws_restJson1EndpointDemographic(input.Demographic, context),
-    }),
-    ...(input.EffectiveDate != null && { EffectiveDate: input.EffectiveDate }),
-    ...(input.EndpointStatus != null && { EndpointStatus: input.EndpointStatus }),
-    ...(input.Location != null && { Location: serializeAws_restJson1EndpointLocation(input.Location, context) }),
-    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
-    ...(input.OptOut != null && { OptOut: input.OptOut }),
-    ...(input.RequestId != null && { RequestId: input.RequestId }),
-    ...(input.User != null && { User: serializeAws_restJson1EndpointUser(input.User, context) }),
-  };
-};
-
-const serializeAws_restJson1PushMessageActivity = (input: PushMessageActivity, context: __SerdeContext): any => {
-  return {
-    ...(input.MessageConfig != null && {
-      MessageConfig: serializeAws_restJson1JourneyPushMessage(input.MessageConfig, context),
-    }),
-    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
-    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
-    ...(input.TemplateVersion != null && { TemplateVersion: input.TemplateVersion }),
-  };
-};
-
-const serializeAws_restJson1PushNotificationTemplateRequest = (
-  input: PushNotificationTemplateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ADM != null && { ADM: serializeAws_restJson1AndroidPushNotificationTemplate(input.ADM, context) }),
-    ...(input.APNS != null && { APNS: serializeAws_restJson1APNSPushNotificationTemplate(input.APNS, context) }),
-    ...(input.Baidu != null && { Baidu: serializeAws_restJson1AndroidPushNotificationTemplate(input.Baidu, context) }),
-    ...(input.Default != null && {
-      Default: serializeAws_restJson1DefaultPushNotificationTemplate(input.Default, context),
-    }),
-    ...(input.DefaultSubstitutions != null && { DefaultSubstitutions: input.DefaultSubstitutions }),
-    ...(input.GCM != null && { GCM: serializeAws_restJson1AndroidPushNotificationTemplate(input.GCM, context) }),
-    ...(input.RecommenderId != null && { RecommenderId: input.RecommenderId }),
-    ...(input.TemplateDescription != null && { TemplateDescription: input.TemplateDescription }),
-    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
-  };
-};
-
-const serializeAws_restJson1QuietTime = (input: QuietTime, context: __SerdeContext): any => {
-  return {
-    ...(input.End != null && { End: input.End }),
-    ...(input.Start != null && { Start: input.Start }),
-  };
-};
-
-const serializeAws_restJson1RandomSplitActivity = (input: RandomSplitActivity, context: __SerdeContext): any => {
-  return {
-    ...(input.Branches != null && { Branches: serializeAws_restJson1ListOfRandomSplitEntry(input.Branches, context) }),
-  };
-};
-
-const serializeAws_restJson1RandomSplitEntry = (input: RandomSplitEntry, context: __SerdeContext): any => {
-  return {
-    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
-    ...(input.Percentage != null && { Percentage: input.Percentage }),
-  };
-};
-
-const serializeAws_restJson1RawEmail = (input: RawEmail, context: __SerdeContext): any => {
-  return {
-    ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
-  };
-};
-
-const serializeAws_restJson1RecencyDimension = (input: RecencyDimension, context: __SerdeContext): any => {
-  return {
-    ...(input.Duration != null && { Duration: input.Duration }),
-    ...(input.RecencyType != null && { RecencyType: input.RecencyType }),
-  };
-};
-
-const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: input.EndTime }),
-    ...(input.EventFilter != null && {
-      EventFilter: serializeAws_restJson1CampaignEventFilter(input.EventFilter, context),
-    }),
-    ...(input.Frequency != null && { Frequency: input.Frequency }),
-    ...(input.IsLocalTime != null && { IsLocalTime: input.IsLocalTime }),
-    ...(input.QuietTime != null && { QuietTime: serializeAws_restJson1QuietTime(input.QuietTime, context) }),
-    ...(input.StartTime != null && { StartTime: input.StartTime }),
-    ...(input.Timezone != null && { Timezone: input.Timezone }),
-  };
-};
-
-const serializeAws_restJson1SegmentBehaviors = (input: SegmentBehaviors, context: __SerdeContext): any => {
-  return {
-    ...(input.Recency != null && { Recency: serializeAws_restJson1RecencyDimension(input.Recency, context) }),
-  };
-};
-
-const serializeAws_restJson1SegmentCondition = (input: SegmentCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.SegmentId != null && { SegmentId: input.SegmentId }),
-  };
-};
-
-const serializeAws_restJson1SegmentDemographics = (input: SegmentDemographics, context: __SerdeContext): any => {
-  return {
-    ...(input.AppVersion != null && { AppVersion: serializeAws_restJson1SetDimension(input.AppVersion, context) }),
-    ...(input.Channel != null && { Channel: serializeAws_restJson1SetDimension(input.Channel, context) }),
-    ...(input.DeviceType != null && { DeviceType: serializeAws_restJson1SetDimension(input.DeviceType, context) }),
-    ...(input.Make != null && { Make: serializeAws_restJson1SetDimension(input.Make, context) }),
-    ...(input.Model != null && { Model: serializeAws_restJson1SetDimension(input.Model, context) }),
-    ...(input.Platform != null && { Platform: serializeAws_restJson1SetDimension(input.Platform, context) }),
-  };
-};
-
-const serializeAws_restJson1SegmentDimensions = (input: SegmentDimensions, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes != null && {
-      Attributes: serializeAws_restJson1MapOfAttributeDimension(input.Attributes, context),
-    }),
-    ...(input.Behavior != null && { Behavior: serializeAws_restJson1SegmentBehaviors(input.Behavior, context) }),
-    ...(input.Demographic != null && {
-      Demographic: serializeAws_restJson1SegmentDemographics(input.Demographic, context),
-    }),
-    ...(input.Location != null && { Location: serializeAws_restJson1SegmentLocation(input.Location, context) }),
-    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOfMetricDimension(input.Metrics, context) }),
-    ...(input.UserAttributes != null && {
-      UserAttributes: serializeAws_restJson1MapOfAttributeDimension(input.UserAttributes, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1SegmentGroup = (input: SegmentGroup, context: __SerdeContext): any => {
-  return {
-    ...(input.Dimensions != null && {
-      Dimensions: serializeAws_restJson1ListOfSegmentDimensions(input.Dimensions, context),
-    }),
-    ...(input.SourceSegments != null && {
-      SourceSegments: serializeAws_restJson1ListOfSegmentReference(input.SourceSegments, context),
-    }),
-    ...(input.SourceType != null && { SourceType: input.SourceType }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-const serializeAws_restJson1SegmentGroupList = (input: SegmentGroupList, context: __SerdeContext): any => {
-  return {
-    ...(input.Groups != null && { Groups: serializeAws_restJson1ListOfSegmentGroup(input.Groups, context) }),
-    ...(input.Include != null && { Include: input.Include }),
-  };
-};
-
-const serializeAws_restJson1SegmentLocation = (input: SegmentLocation, context: __SerdeContext): any => {
-  return {
-    ...(input.Country != null && { Country: serializeAws_restJson1SetDimension(input.Country, context) }),
-    ...(input.GPSPoint != null && { GPSPoint: serializeAws_restJson1GPSPointDimension(input.GPSPoint, context) }),
-  };
-};
-
-const serializeAws_restJson1SegmentReference = (input: SegmentReference, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Version != null && { Version: input.Version }),
-  };
-};
-
-const serializeAws_restJson1SendOTPMessageRequestParameters = (
-  input: SendOTPMessageRequestParameters,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AllowedAttempts != null && { AllowedAttempts: input.AllowedAttempts }),
-    ...(input.BrandName != null && { BrandName: input.BrandName }),
-    ...(input.Channel != null && { Channel: input.Channel }),
-    ...(input.CodeLength != null && { CodeLength: input.CodeLength }),
-    ...(input.DestinationIdentity != null && { DestinationIdentity: input.DestinationIdentity }),
-    ...(input.EntityId != null && { EntityId: input.EntityId }),
-    ...(input.Language != null && { Language: input.Language }),
-    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.ReferenceId != null && { ReferenceId: input.ReferenceId }),
-    ...(input.TemplateId != null && { TemplateId: input.TemplateId }),
-    ...(input.ValidityPeriod != null && { ValidityPeriod: input.ValidityPeriod }),
-  };
-};
-
-const serializeAws_restJson1SendUsersMessageRequest = (
-  input: SendUsersMessageRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Context != null && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
-    ...(input.MessageConfiguration != null && {
-      MessageConfiguration: serializeAws_restJson1DirectMessageConfiguration(input.MessageConfiguration, context),
-    }),
-    ...(input.TemplateConfiguration != null && {
-      TemplateConfiguration: serializeAws_restJson1TemplateConfiguration(input.TemplateConfiguration, context),
-    }),
-    ...(input.TraceId != null && { TraceId: input.TraceId }),
-    ...(input.Users != null && { Users: serializeAws_restJson1MapOfEndpointSendConfiguration(input.Users, context) }),
-  };
-};
-
-const serializeAws_restJson1Session = (input: Session, context: __SerdeContext): any => {
-  return {
-    ...(input.Duration != null && { Duration: input.Duration }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.StartTimestamp != null && { StartTimestamp: input.StartTimestamp }),
-    ...(input.StopTimestamp != null && { StopTimestamp: input.StopTimestamp }),
-  };
-};
-
-const serializeAws_restJson1SetDimension = (input: SetDimension, context: __SerdeContext): any => {
-  return {
-    ...(input.DimensionType != null && { DimensionType: input.DimensionType }),
-    ...(input.Values != null && { Values: serializeAws_restJson1ListOf__string(input.Values, context) }),
-  };
-};
-
-const serializeAws_restJson1SimpleCondition = (input: SimpleCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.EventCondition != null && {
-      EventCondition: serializeAws_restJson1EventCondition(input.EventCondition, context),
-    }),
-    ...(input.SegmentCondition != null && {
-      SegmentCondition: serializeAws_restJson1SegmentCondition(input.SegmentCondition, context),
-    }),
-    ...(input.SegmentDimensions != null && {
-      segmentDimensions: serializeAws_restJson1SegmentDimensions(input.SegmentDimensions, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1SimpleEmail = (input: SimpleEmail, context: __SerdeContext): any => {
-  return {
-    ...(input.HtmlPart != null && { HtmlPart: serializeAws_restJson1SimpleEmailPart(input.HtmlPart, context) }),
-    ...(input.Subject != null && { Subject: serializeAws_restJson1SimpleEmailPart(input.Subject, context) }),
-    ...(input.TextPart != null && { TextPart: serializeAws_restJson1SimpleEmailPart(input.TextPart, context) }),
-  };
-};
-
-const serializeAws_restJson1SimpleEmailPart = (input: SimpleEmailPart, context: __SerdeContext): any => {
-  return {
-    ...(input.Charset != null && { Charset: input.Charset }),
-    ...(input.Data != null && { Data: input.Data }),
-  };
-};
-
-const serializeAws_restJson1SMSChannelRequest = (input: SMSChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.SenderId != null && { SenderId: input.SenderId }),
-    ...(input.ShortCode != null && { ShortCode: input.ShortCode }),
-  };
-};
-
-const serializeAws_restJson1SMSMessage = (input: SMSMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.EntityId != null && { EntityId: input.EntityId }),
-    ...(input.Keyword != null && { Keyword: input.Keyword }),
-    ...(input.MediaUrl != null && { MediaUrl: input.MediaUrl }),
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-    ...(input.OriginationNumber != null && { OriginationNumber: input.OriginationNumber }),
-    ...(input.SenderId != null && { SenderId: input.SenderId }),
-    ...(input.Substitutions != null && {
-      Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
-    }),
-    ...(input.TemplateId != null && { TemplateId: input.TemplateId }),
-  };
-};
-
-const serializeAws_restJson1SMSMessageActivity = (input: SMSMessageActivity, context: __SerdeContext): any => {
-  return {
-    ...(input.MessageConfig != null && {
-      MessageConfig: serializeAws_restJson1JourneySMSMessage(input.MessageConfig, context),
-    }),
-    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
-    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
-    ...(input.TemplateVersion != null && { TemplateVersion: input.TemplateVersion }),
-  };
-};
-
-const serializeAws_restJson1SMSTemplateRequest = (input: SMSTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.DefaultSubstitutions != null && { DefaultSubstitutions: input.DefaultSubstitutions }),
-    ...(input.RecommenderId != null && { RecommenderId: input.RecommenderId }),
-    ...(input.TemplateDescription != null && { TemplateDescription: input.TemplateDescription }),
-    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
-  };
-};
-
-const serializeAws_restJson1StartCondition = (input: StartCondition, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.EventStartCondition != null && {
-      EventStartCondition: serializeAws_restJson1EventStartCondition(input.EventStartCondition, context),
-    }),
-    ...(input.SegmentStartCondition != null && {
-      SegmentStartCondition: serializeAws_restJson1SegmentCondition(input.SegmentStartCondition, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1TagsModel = (input: TagsModel, context: __SerdeContext): any => {
-  return {
-    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
-  };
-};
-
-const serializeAws_restJson1Template = (input: Template, context: __SerdeContext): any => {
-  return {
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Version != null && { Version: input.Version }),
-  };
-};
-
-const serializeAws_restJson1TemplateActiveVersionRequest = (
-  input: TemplateActiveVersionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Version != null && { Version: input.Version }),
-  };
-};
-
-const serializeAws_restJson1TemplateConfiguration = (input: TemplateConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.EmailTemplate != null && { EmailTemplate: serializeAws_restJson1Template(input.EmailTemplate, context) }),
-    ...(input.PushTemplate != null && { PushTemplate: serializeAws_restJson1Template(input.PushTemplate, context) }),
-    ...(input.SMSTemplate != null && { SMSTemplate: serializeAws_restJson1Template(input.SMSTemplate, context) }),
-    ...(input.VoiceTemplate != null && { VoiceTemplate: serializeAws_restJson1Template(input.VoiceTemplate, context) }),
-  };
-};
-
-const serializeAws_restJson1UpdateAttributesRequest = (
-  input: UpdateAttributesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Blacklist != null && { Blacklist: serializeAws_restJson1ListOf__string(input.Blacklist, context) }),
-  };
-};
-
-const serializeAws_restJson1UpdateRecommenderConfigurationShape = (
-  input: UpdateRecommenderConfigurationShape,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Attributes != null && { Attributes: serializeAws_restJson1MapOf__string(input.Attributes, context) }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.RecommendationProviderIdType != null && {
-      RecommendationProviderIdType: input.RecommendationProviderIdType,
-    }),
-    ...(input.RecommendationProviderRoleArn != null && {
-      RecommendationProviderRoleArn: input.RecommendationProviderRoleArn,
-    }),
-    ...(input.RecommendationProviderUri != null && { RecommendationProviderUri: input.RecommendationProviderUri }),
-    ...(input.RecommendationTransformerUri != null && {
-      RecommendationTransformerUri: input.RecommendationTransformerUri,
-    }),
-    ...(input.RecommendationsDisplayName != null && { RecommendationsDisplayName: input.RecommendationsDisplayName }),
-    ...(input.RecommendationsPerMessage != null && { RecommendationsPerMessage: input.RecommendationsPerMessage }),
-  };
-};
-
-const serializeAws_restJson1VerifyOTPMessageRequestParameters = (
-  input: VerifyOTPMessageRequestParameters,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DestinationIdentity != null && { DestinationIdentity: input.DestinationIdentity }),
-    ...(input.Otp != null && { Otp: input.Otp }),
-    ...(input.ReferenceId != null && { ReferenceId: input.ReferenceId }),
-  };
-};
-
-const serializeAws_restJson1VoiceChannelRequest = (input: VoiceChannelRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
-
-const serializeAws_restJson1VoiceMessage = (input: VoiceMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.OriginationNumber != null && { OriginationNumber: input.OriginationNumber }),
-    ...(input.Substitutions != null && {
-      Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
-    }),
-    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
-  };
-};
-
-const serializeAws_restJson1VoiceTemplateRequest = (input: VoiceTemplateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Body != null && { Body: input.Body }),
-    ...(input.DefaultSubstitutions != null && { DefaultSubstitutions: input.DefaultSubstitutions }),
-    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
-    ...(input.TemplateDescription != null && { TemplateDescription: input.TemplateDescription }),
-    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
-    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
-  };
-};
-
-const serializeAws_restJson1WaitActivity = (input: WaitActivity, context: __SerdeContext): any => {
-  return {
-    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
-    ...(input.WaitTime != null && { WaitTime: serializeAws_restJson1WaitTime(input.WaitTime, context) }),
-  };
-};
-
-const serializeAws_restJson1WaitTime = (input: WaitTime, context: __SerdeContext): any => {
-  return {
-    ...(input.WaitFor != null && { WaitFor: input.WaitFor }),
-    ...(input.WaitUntil != null && { WaitUntil: input.WaitUntil }),
-  };
-};
-
-const serializeAws_restJson1WriteApplicationSettingsRequest = (
-  input: WriteApplicationSettingsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CampaignHook != null && {
-      CampaignHook: serializeAws_restJson1CampaignHook(input.CampaignHook, context),
-    }),
-    ...(input.CloudWatchMetricsEnabled != null && { CloudWatchMetricsEnabled: input.CloudWatchMetricsEnabled }),
-    ...(input.EventTaggingEnabled != null && { EventTaggingEnabled: input.EventTaggingEnabled }),
-    ...(input.Limits != null && { Limits: serializeAws_restJson1CampaignLimits(input.Limits, context) }),
-    ...(input.QuietTime != null && { QuietTime: serializeAws_restJson1QuietTime(input.QuietTime, context) }),
-  };
-};
-
-const serializeAws_restJson1WriteCampaignRequest = (input: WriteCampaignRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AdditionalTreatments != null && {
-      AdditionalTreatments: serializeAws_restJson1ListOfWriteTreatmentResource(input.AdditionalTreatments, context),
-    }),
-    ...(input.CustomDeliveryConfiguration != null && {
-      CustomDeliveryConfiguration: serializeAws_restJson1CustomDeliveryConfiguration(
-        input.CustomDeliveryConfiguration,
-        context
-      ),
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.HoldoutPercent != null && { HoldoutPercent: input.HoldoutPercent }),
-    ...(input.Hook != null && { Hook: serializeAws_restJson1CampaignHook(input.Hook, context) }),
-    ...(input.IsPaused != null && { IsPaused: input.IsPaused }),
-    ...(input.Limits != null && { Limits: serializeAws_restJson1CampaignLimits(input.Limits, context) }),
-    ...(input.MessageConfiguration != null && {
-      MessageConfiguration: serializeAws_restJson1MessageConfiguration(input.MessageConfiguration, context),
-    }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.Schedule != null && { Schedule: serializeAws_restJson1Schedule(input.Schedule, context) }),
-    ...(input.SegmentId != null && { SegmentId: input.SegmentId }),
-    ...(input.SegmentVersion != null && { SegmentVersion: input.SegmentVersion }),
-    ...(input.TemplateConfiguration != null && {
-      TemplateConfiguration: serializeAws_restJson1TemplateConfiguration(input.TemplateConfiguration, context),
-    }),
-    ...(input.TreatmentDescription != null && { TreatmentDescription: input.TreatmentDescription }),
-    ...(input.TreatmentName != null && { TreatmentName: input.TreatmentName }),
-    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
-  };
-};
-
-const serializeAws_restJson1WriteEventStream = (input: WriteEventStream, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationStreamArn != null && { DestinationStreamArn: input.DestinationStreamArn }),
-    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
-  };
-};
-
-const serializeAws_restJson1WriteJourneyRequest = (input: WriteJourneyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Activities != null && { Activities: serializeAws_restJson1MapOfActivity(input.Activities, context) }),
-    ...(input.ClosedDays != null && { ClosedDays: serializeAws_restJson1ClosedDays(input.ClosedDays, context) }),
-    ...(input.CreationDate != null && { CreationDate: input.CreationDate }),
-    ...(input.JourneyChannelSettings != null && {
-      JourneyChannelSettings: serializeAws_restJson1JourneyChannelSettings(input.JourneyChannelSettings, context),
-    }),
-    ...(input.LastModifiedDate != null && { LastModifiedDate: input.LastModifiedDate }),
-    ...(input.Limits != null && { Limits: serializeAws_restJson1JourneyLimits(input.Limits, context) }),
-    ...(input.LocalTime != null && { LocalTime: input.LocalTime }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.OpenHours != null && { OpenHours: serializeAws_restJson1OpenHours(input.OpenHours, context) }),
-    ...(input.QuietTime != null && { QuietTime: serializeAws_restJson1QuietTime(input.QuietTime, context) }),
-    ...(input.RefreshFrequency != null && { RefreshFrequency: input.RefreshFrequency }),
-    ...(input.RefreshOnSegmentUpdate != null && { RefreshOnSegmentUpdate: input.RefreshOnSegmentUpdate }),
-    ...(input.Schedule != null && { Schedule: serializeAws_restJson1JourneySchedule(input.Schedule, context) }),
-    ...(input.SendingSchedule != null && { SendingSchedule: input.SendingSchedule }),
-    ...(input.StartActivity != null && { StartActivity: input.StartActivity }),
-    ...(input.StartCondition != null && {
-      StartCondition: serializeAws_restJson1StartCondition(input.StartCondition, context),
-    }),
-    ...(input.State != null && { State: input.State }),
-    ...(input.WaitForQuietTime != null && { WaitForQuietTime: input.WaitForQuietTime }),
-  };
-};
-
-const serializeAws_restJson1WriteSegmentRequest = (input: WriteSegmentRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1SegmentDimensions(input.Dimensions, context) }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.SegmentGroups != null && {
-      SegmentGroups: serializeAws_restJson1SegmentGroupList(input.SegmentGroups, context),
-    }),
-    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
-  };
-};
-
-const serializeAws_restJson1WriteTreatmentResource = (input: WriteTreatmentResource, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomDeliveryConfiguration != null && {
-      CustomDeliveryConfiguration: serializeAws_restJson1CustomDeliveryConfiguration(
-        input.CustomDeliveryConfiguration,
-        context
-      ),
-    }),
-    ...(input.MessageConfiguration != null && {
-      MessageConfiguration: serializeAws_restJson1MessageConfiguration(input.MessageConfiguration, context),
-    }),
-    ...(input.Schedule != null && { Schedule: serializeAws_restJson1Schedule(input.Schedule, context) }),
-    ...(input.SizePercent != null && { SizePercent: input.SizePercent }),
-    ...(input.TemplateConfiguration != null && {
-      TemplateConfiguration: serializeAws_restJson1TemplateConfiguration(input.TemplateConfiguration, context),
-    }),
-    ...(input.TreatmentDescription != null && { TreatmentDescription: input.TreatmentDescription }),
-    ...(input.TreatmentName != null && { TreatmentName: input.TreatmentName }),
-  };
-};
-
-const deserializeAws_restJson1ActivitiesResponse = (output: any, context: __SerdeContext): ActivitiesResponse => {
-  return {
-    Item: output.Item != null ? deserializeAws_restJson1ListOfActivityResponse(output.Item, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext): Activity => {
-  return {
-    CUSTOM: output.CUSTOM != null ? deserializeAws_restJson1CustomMessageActivity(output.CUSTOM, context) : undefined,
-    ConditionalSplit:
-      output.ConditionalSplit != null
-        ? deserializeAws_restJson1ConditionalSplitActivity(output.ConditionalSplit, context)
-        : undefined,
-    ContactCenter:
-      output.ContactCenter != null
-        ? deserializeAws_restJson1ContactCenterActivity(output.ContactCenter, context)
-        : undefined,
-    Description: __expectString(output.Description),
-    EMAIL: output.EMAIL != null ? deserializeAws_restJson1EmailMessageActivity(output.EMAIL, context) : undefined,
-    Holdout: output.Holdout != null ? deserializeAws_restJson1HoldoutActivity(output.Holdout, context) : undefined,
-    MultiCondition:
-      output.MultiCondition != null
-        ? deserializeAws_restJson1MultiConditionalSplitActivity(output.MultiCondition, context)
-        : undefined,
-    PUSH: output.PUSH != null ? deserializeAws_restJson1PushMessageActivity(output.PUSH, context) : undefined,
-    RandomSplit:
-      output.RandomSplit != null ? deserializeAws_restJson1RandomSplitActivity(output.RandomSplit, context) : undefined,
-    SMS: output.SMS != null ? deserializeAws_restJson1SMSMessageActivity(output.SMS, context) : undefined,
-    Wait: output.Wait != null ? deserializeAws_restJson1WaitActivity(output.Wait, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ActivityResponse = (output: any, context: __SerdeContext): ActivityResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CampaignId: __expectString(output.CampaignId),
-    End: __expectString(output.End),
-    Id: __expectString(output.Id),
-    Result: __expectString(output.Result),
-    ScheduledStart: __expectString(output.ScheduledStart),
-    Start: __expectString(output.Start),
-    State: __expectString(output.State),
-    SuccessfulEndpointCount: __expectInt32(output.SuccessfulEndpointCount),
-    TimezonesCompletedCount: __expectInt32(output.TimezonesCompletedCount),
-    TimezonesTotalCount: __expectInt32(output.TimezonesTotalCount),
-    TotalEndpointCount: __expectInt32(output.TotalEndpointCount),
-    TreatmentId: __expectString(output.TreatmentId),
-  } as any;
-};
-
-const deserializeAws_restJson1ADMChannelResponse = (output: any, context: __SerdeContext): ADMChannelResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CreationDate: __expectString(output.CreationDate),
-    Enabled: __expectBoolean(output.Enabled),
-    HasCredential: __expectBoolean(output.HasCredential),
-    Id: __expectString(output.Id),
-    IsArchived: __expectBoolean(output.IsArchived),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Platform: __expectString(output.Platform),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1AndroidPushNotificationTemplate = (
-  output: any,
-  context: __SerdeContext
-): AndroidPushNotificationTemplate => {
-  return {
-    Action: __expectString(output.Action),
-    Body: __expectString(output.Body),
-    ImageIconUrl: __expectString(output.ImageIconUrl),
-    ImageUrl: __expectString(output.ImageUrl),
-    RawContent: __expectString(output.RawContent),
-    SmallImageIconUrl: __expectString(output.SmallImageIconUrl),
-    Sound: __expectString(output.Sound),
-    Title: __expectString(output.Title),
-    Url: __expectString(output.Url),
-  } as any;
-};
-
-const deserializeAws_restJson1APNSChannelResponse = (output: any, context: __SerdeContext): APNSChannelResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CreationDate: __expectString(output.CreationDate),
-    DefaultAuthenticationMethod: __expectString(output.DefaultAuthenticationMethod),
-    Enabled: __expectBoolean(output.Enabled),
-    HasCredential: __expectBoolean(output.HasCredential),
-    HasTokenKey: __expectBoolean(output.HasTokenKey),
-    Id: __expectString(output.Id),
-    IsArchived: __expectBoolean(output.IsArchived),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Platform: __expectString(output.Platform),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1APNSPushNotificationTemplate = (
-  output: any,
-  context: __SerdeContext
-): APNSPushNotificationTemplate => {
-  return {
-    Action: __expectString(output.Action),
-    Body: __expectString(output.Body),
-    MediaUrl: __expectString(output.MediaUrl),
-    RawContent: __expectString(output.RawContent),
-    Sound: __expectString(output.Sound),
-    Title: __expectString(output.Title),
-    Url: __expectString(output.Url),
-  } as any;
-};
-
-const deserializeAws_restJson1APNSSandboxChannelResponse = (
-  output: any,
-  context: __SerdeContext
-): APNSSandboxChannelResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CreationDate: __expectString(output.CreationDate),
-    DefaultAuthenticationMethod: __expectString(output.DefaultAuthenticationMethod),
-    Enabled: __expectBoolean(output.Enabled),
-    HasCredential: __expectBoolean(output.HasCredential),
-    HasTokenKey: __expectBoolean(output.HasTokenKey),
-    Id: __expectString(output.Id),
-    IsArchived: __expectBoolean(output.IsArchived),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Platform: __expectString(output.Platform),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1APNSVoipChannelResponse = (
-  output: any,
-  context: __SerdeContext
-): APNSVoipChannelResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CreationDate: __expectString(output.CreationDate),
-    DefaultAuthenticationMethod: __expectString(output.DefaultAuthenticationMethod),
-    Enabled: __expectBoolean(output.Enabled),
-    HasCredential: __expectBoolean(output.HasCredential),
-    HasTokenKey: __expectBoolean(output.HasTokenKey),
-    Id: __expectString(output.Id),
-    IsArchived: __expectBoolean(output.IsArchived),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Platform: __expectString(output.Platform),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1APNSVoipSandboxChannelResponse = (
-  output: any,
-  context: __SerdeContext
-): APNSVoipSandboxChannelResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CreationDate: __expectString(output.CreationDate),
-    DefaultAuthenticationMethod: __expectString(output.DefaultAuthenticationMethod),
-    Enabled: __expectBoolean(output.Enabled),
-    HasCredential: __expectBoolean(output.HasCredential),
-    HasTokenKey: __expectBoolean(output.HasTokenKey),
-    Id: __expectString(output.Id),
-    IsArchived: __expectBoolean(output.IsArchived),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Platform: __expectString(output.Platform),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1ApplicationDateRangeKpiResponse = (
-  output: any,
-  context: __SerdeContext
-): ApplicationDateRangeKpiResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
-    KpiName: __expectString(output.KpiName),
-    KpiResult: output.KpiResult != null ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ApplicationResponse = (output: any, context: __SerdeContext): ApplicationResponse => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationDate: __expectString(output.CreationDate),
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ApplicationSettingsResource = (
-  output: any,
-  context: __SerdeContext
-): ApplicationSettingsResource => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CampaignHook:
-      output.CampaignHook != null ? deserializeAws_restJson1CampaignHook(output.CampaignHook, context) : undefined,
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Limits: output.Limits != null ? deserializeAws_restJson1CampaignLimits(output.Limits, context) : undefined,
-    QuietTime: output.QuietTime != null ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ApplicationsResponse = (output: any, context: __SerdeContext): ApplicationsResponse => {
-  return {
-    Item: output.Item != null ? deserializeAws_restJson1ListOfApplicationResponse(output.Item, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_restJson1AttributeDimension = (output: any, context: __SerdeContext): AttributeDimension => {
-  return {
-    AttributeType: __expectString(output.AttributeType),
-    Values: output.Values != null ? deserializeAws_restJson1ListOf__string(output.Values, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1AttributesResource = (output: any, context: __SerdeContext): AttributesResource => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    AttributeType: __expectString(output.AttributeType),
-    Attributes:
-      output.Attributes != null ? deserializeAws_restJson1ListOf__string(output.Attributes, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BaiduChannelResponse = (output: any, context: __SerdeContext): BaiduChannelResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CreationDate: __expectString(output.CreationDate),
-    Credential: __expectString(output.Credential),
-    Enabled: __expectBoolean(output.Enabled),
-    HasCredential: __expectBoolean(output.HasCredential),
-    Id: __expectString(output.Id),
-    IsArchived: __expectBoolean(output.IsArchived),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Platform: __expectString(output.Platform),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1BaseKpiResult = (output: any, context: __SerdeContext): BaseKpiResult => {
-  return {
-    Rows: output.Rows != null ? deserializeAws_restJson1ListOfResultRow(output.Rows, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1CampaignCustomMessage = (output: any, context: __SerdeContext): CampaignCustomMessage => {
-  return {
-    Data: __expectString(output.Data),
-  } as any;
-};
-
-const deserializeAws_restJson1CampaignDateRangeKpiResponse = (
-  output: any,
-  context: __SerdeContext
-): CampaignDateRangeKpiResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CampaignId: __expectString(output.CampaignId),
-    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
-    KpiName: __expectString(output.KpiName),
-    KpiResult: output.KpiResult != null ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1CampaignEmailMessage = (output: any, context: __SerdeContext): CampaignEmailMessage => {
-  return {
-    Body: __expectString(output.Body),
-    FromAddress: __expectString(output.FromAddress),
-    HtmlBody: __expectString(output.HtmlBody),
-    Title: __expectString(output.Title),
-  } as any;
-};
-
-const deserializeAws_restJson1CampaignEventFilter = (output: any, context: __SerdeContext): CampaignEventFilter => {
-  return {
-    Dimensions:
-      output.Dimensions != null ? deserializeAws_restJson1EventDimensions(output.Dimensions, context) : undefined,
-    FilterType: __expectString(output.FilterType),
-  } as any;
-};
-
-const deserializeAws_restJson1CampaignHook = (output: any, context: __SerdeContext): CampaignHook => {
-  return {
-    LambdaFunctionName: __expectString(output.LambdaFunctionName),
-    Mode: __expectString(output.Mode),
-    WebUrl: __expectString(output.WebUrl),
-  } as any;
-};
-
-const deserializeAws_restJson1CampaignInAppMessage = (output: any, context: __SerdeContext): CampaignInAppMessage => {
-  return {
-    Body: __expectString(output.Body),
-    Content:
-      output.Content != null ? deserializeAws_restJson1ListOfInAppMessageContent(output.Content, context) : undefined,
-    CustomConfig:
-      output.CustomConfig != null ? deserializeAws_restJson1MapOf__string(output.CustomConfig, context) : undefined,
-    Layout: __expectString(output.Layout),
-  } as any;
-};
-
-const deserializeAws_restJson1CampaignLimits = (output: any, context: __SerdeContext): CampaignLimits => {
-  return {
-    Daily: __expectInt32(output.Daily),
-    MaximumDuration: __expectInt32(output.MaximumDuration),
-    MessagesPerSecond: __expectInt32(output.MessagesPerSecond),
-    Session: __expectInt32(output.Session),
-    Total: __expectInt32(output.Total),
-  } as any;
-};
-
-const deserializeAws_restJson1CampaignResponse = (output: any, context: __SerdeContext): CampaignResponse => {
-  return {
-    AdditionalTreatments:
-      output.AdditionalTreatments != null
-        ? deserializeAws_restJson1ListOfTreatmentResource(output.AdditionalTreatments, context)
-        : undefined,
-    ApplicationId: __expectString(output.ApplicationId),
-    Arn: __expectString(output.Arn),
-    CreationDate: __expectString(output.CreationDate),
-    CustomDeliveryConfiguration:
-      output.CustomDeliveryConfiguration != null
-        ? deserializeAws_restJson1CustomDeliveryConfiguration(output.CustomDeliveryConfiguration, context)
-        : undefined,
-    DefaultState:
-      output.DefaultState != null ? deserializeAws_restJson1CampaignState(output.DefaultState, context) : undefined,
-    Description: __expectString(output.Description),
-    HoldoutPercent: __expectInt32(output.HoldoutPercent),
-    Hook: output.Hook != null ? deserializeAws_restJson1CampaignHook(output.Hook, context) : undefined,
-    Id: __expectString(output.Id),
-    IsPaused: __expectBoolean(output.IsPaused),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Limits: output.Limits != null ? deserializeAws_restJson1CampaignLimits(output.Limits, context) : undefined,
-    MessageConfiguration:
-      output.MessageConfiguration != null
-        ? deserializeAws_restJson1MessageConfiguration(output.MessageConfiguration, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    Priority: __expectInt32(output.Priority),
-    Schedule: output.Schedule != null ? deserializeAws_restJson1Schedule(output.Schedule, context) : undefined,
-    SegmentId: __expectString(output.SegmentId),
-    SegmentVersion: __expectInt32(output.SegmentVersion),
-    State: output.State != null ? deserializeAws_restJson1CampaignState(output.State, context) : undefined,
-    TemplateConfiguration:
-      output.TemplateConfiguration != null
-        ? deserializeAws_restJson1TemplateConfiguration(output.TemplateConfiguration, context)
-        : undefined,
-    TreatmentDescription: __expectString(output.TreatmentDescription),
-    TreatmentName: __expectString(output.TreatmentName),
-    Version: __expectInt32(output.Version),
-    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1CampaignSmsMessage = (output: any, context: __SerdeContext): CampaignSmsMessage => {
-  return {
-    Body: __expectString(output.Body),
-    EntityId: __expectString(output.EntityId),
-    MessageType: __expectString(output.MessageType),
-    OriginationNumber: __expectString(output.OriginationNumber),
-    SenderId: __expectString(output.SenderId),
-    TemplateId: __expectString(output.TemplateId),
-  } as any;
-};
-
-const deserializeAws_restJson1CampaignsResponse = (output: any, context: __SerdeContext): CampaignsResponse => {
-  return {
-    Item: output.Item != null ? deserializeAws_restJson1ListOfCampaignResponse(output.Item, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_restJson1CampaignState = (output: any, context: __SerdeContext): CampaignState => {
-  return {
-    CampaignStatus: __expectString(output.CampaignStatus),
-  } as any;
-};
-
-const deserializeAws_restJson1ChannelResponse = (output: any, context: __SerdeContext): ChannelResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CreationDate: __expectString(output.CreationDate),
-    Enabled: __expectBoolean(output.Enabled),
-    HasCredential: __expectBoolean(output.HasCredential),
-    Id: __expectString(output.Id),
-    IsArchived: __expectBoolean(output.IsArchived),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1ChannelsResponse = (output: any, context: __SerdeContext): ChannelsResponse => {
-  return {
-    Channels:
-      output.Channels != null ? deserializeAws_restJson1MapOfChannelResponse(output.Channels, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ClosedDays = (output: any, context: __SerdeContext): ClosedDays => {
-  return {
-    CUSTOM: output.CUSTOM != null ? deserializeAws_restJson1ListOfClosedDaysRules(output.CUSTOM, context) : undefined,
-    EMAIL: output.EMAIL != null ? deserializeAws_restJson1ListOfClosedDaysRules(output.EMAIL, context) : undefined,
-    PUSH: output.PUSH != null ? deserializeAws_restJson1ListOfClosedDaysRules(output.PUSH, context) : undefined,
-    SMS: output.SMS != null ? deserializeAws_restJson1ListOfClosedDaysRules(output.SMS, context) : undefined,
-    VOICE: output.VOICE != null ? deserializeAws_restJson1ListOfClosedDaysRules(output.VOICE, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ClosedDaysRule = (output: any, context: __SerdeContext): ClosedDaysRule => {
-  return {
-    EndDateTime: __expectString(output.EndDateTime),
-    Name: __expectString(output.Name),
-    StartDateTime: __expectString(output.StartDateTime),
-  } as any;
-};
-
-const deserializeAws_restJson1Condition = (output: any, context: __SerdeContext): Condition => {
-  return {
-    Conditions:
-      output.Conditions != null ? deserializeAws_restJson1ListOfSimpleCondition(output.Conditions, context) : undefined,
-    Operator: __expectString(output.Operator),
-  } as any;
-};
-
-const deserializeAws_restJson1ConditionalSplitActivity = (
-  output: any,
-  context: __SerdeContext
-): ConditionalSplitActivity => {
-  return {
-    Condition: output.Condition != null ? deserializeAws_restJson1Condition(output.Condition, context) : undefined,
-    EvaluationWaitTime:
-      output.EvaluationWaitTime != null
-        ? deserializeAws_restJson1WaitTime(output.EvaluationWaitTime, context)
-        : undefined,
-    FalseActivity: __expectString(output.FalseActivity),
-    TrueActivity: __expectString(output.TrueActivity),
-  } as any;
-};
-
-const deserializeAws_restJson1ContactCenterActivity = (output: any, context: __SerdeContext): ContactCenterActivity => {
-  return {
-    NextActivity: __expectString(output.NextActivity),
-  } as any;
-};
-
-const deserializeAws_restJson1CreateTemplateMessageBody = (
-  output: any,
-  context: __SerdeContext
-): CreateTemplateMessageBody => {
-  return {
-    Arn: __expectString(output.Arn),
-    Message: __expectString(output.Message),
-    RequestID: __expectString(output.RequestID),
-  } as any;
-};
-
-const deserializeAws_restJson1CustomDeliveryConfiguration = (
-  output: any,
-  context: __SerdeContext
-): CustomDeliveryConfiguration => {
-  return {
-    DeliveryUri: __expectString(output.DeliveryUri),
-    EndpointTypes:
-      output.EndpointTypes != null
-        ? deserializeAws_restJson1ListOf__EndpointTypesElement(output.EndpointTypes, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1CustomMessageActivity = (output: any, context: __SerdeContext): CustomMessageActivity => {
-  return {
-    DeliveryUri: __expectString(output.DeliveryUri),
-    EndpointTypes:
-      output.EndpointTypes != null
-        ? deserializeAws_restJson1ListOf__EndpointTypesElement(output.EndpointTypes, context)
-        : undefined,
-    MessageConfig:
-      output.MessageConfig != null
-        ? deserializeAws_restJson1JourneyCustomMessage(output.MessageConfig, context)
-        : undefined,
-    NextActivity: __expectString(output.NextActivity),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateVersion: __expectString(output.TemplateVersion),
-  } as any;
-};
-
-const deserializeAws_restJson1DefaultButtonConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DefaultButtonConfiguration => {
-  return {
-    BackgroundColor: __expectString(output.BackgroundColor),
-    BorderRadius: __expectInt32(output.BorderRadius),
-    ButtonAction: __expectString(output.ButtonAction),
-    Link: __expectString(output.Link),
-    Text: __expectString(output.Text),
-    TextColor: __expectString(output.TextColor),
-  } as any;
-};
-
-const deserializeAws_restJson1DefaultPushNotificationTemplate = (
-  output: any,
-  context: __SerdeContext
-): DefaultPushNotificationTemplate => {
-  return {
-    Action: __expectString(output.Action),
-    Body: __expectString(output.Body),
-    Sound: __expectString(output.Sound),
-    Title: __expectString(output.Title),
-    Url: __expectString(output.Url),
-  } as any;
-};
-
-const deserializeAws_restJson1EmailChannelResponse = (output: any, context: __SerdeContext): EmailChannelResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    ConfigurationSet: __expectString(output.ConfigurationSet),
-    CreationDate: __expectString(output.CreationDate),
-    Enabled: __expectBoolean(output.Enabled),
-    FromAddress: __expectString(output.FromAddress),
-    HasCredential: __expectBoolean(output.HasCredential),
-    Id: __expectString(output.Id),
-    Identity: __expectString(output.Identity),
-    IsArchived: __expectBoolean(output.IsArchived),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    MessagesPerSecond: __expectInt32(output.MessagesPerSecond),
-    Platform: __expectString(output.Platform),
-    RoleArn: __expectString(output.RoleArn),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1EmailMessageActivity = (output: any, context: __SerdeContext): EmailMessageActivity => {
-  return {
-    MessageConfig:
-      output.MessageConfig != null
-        ? deserializeAws_restJson1JourneyEmailMessage(output.MessageConfig, context)
-        : undefined,
-    NextActivity: __expectString(output.NextActivity),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateVersion: __expectString(output.TemplateVersion),
-  } as any;
-};
-
-const deserializeAws_restJson1EmailTemplateResponse = (output: any, context: __SerdeContext): EmailTemplateResponse => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationDate: __expectString(output.CreationDate),
-    DefaultSubstitutions: __expectString(output.DefaultSubstitutions),
-    HtmlPart: __expectString(output.HtmlPart),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    RecommenderId: __expectString(output.RecommenderId),
-    Subject: __expectString(output.Subject),
-    TemplateDescription: __expectString(output.TemplateDescription),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateType: __expectString(output.TemplateType),
-    TextPart: __expectString(output.TextPart),
-    Version: __expectString(output.Version),
-    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1EndpointDemographic = (output: any, context: __SerdeContext): EndpointDemographic => {
-  return {
-    AppVersion: __expectString(output.AppVersion),
-    Locale: __expectString(output.Locale),
-    Make: __expectString(output.Make),
-    Model: __expectString(output.Model),
-    ModelVersion: __expectString(output.ModelVersion),
-    Platform: __expectString(output.Platform),
-    PlatformVersion: __expectString(output.PlatformVersion),
-    Timezone: __expectString(output.Timezone),
-  } as any;
-};
-
-const deserializeAws_restJson1EndpointItemResponse = (output: any, context: __SerdeContext): EndpointItemResponse => {
-  return {
-    Message: __expectString(output.Message),
-    StatusCode: __expectInt32(output.StatusCode),
-  } as any;
-};
-
-const deserializeAws_restJson1EndpointLocation = (output: any, context: __SerdeContext): EndpointLocation => {
-  return {
-    City: __expectString(output.City),
-    Country: __expectString(output.Country),
-    Latitude: __limitedParseDouble(output.Latitude),
-    Longitude: __limitedParseDouble(output.Longitude),
-    PostalCode: __expectString(output.PostalCode),
-    Region: __expectString(output.Region),
-  } as any;
-};
-
-const deserializeAws_restJson1EndpointMessageResult = (output: any, context: __SerdeContext): EndpointMessageResult => {
-  return {
-    Address: __expectString(output.Address),
-    DeliveryStatus: __expectString(output.DeliveryStatus),
-    MessageId: __expectString(output.MessageId),
-    StatusCode: __expectInt32(output.StatusCode),
-    StatusMessage: __expectString(output.StatusMessage),
-    UpdatedToken: __expectString(output.UpdatedToken),
-  } as any;
-};
-
-const deserializeAws_restJson1EndpointResponse = (output: any, context: __SerdeContext): EndpointResponse => {
-  return {
-    Address: __expectString(output.Address),
-    ApplicationId: __expectString(output.ApplicationId),
-    Attributes:
-      output.Attributes != null ? deserializeAws_restJson1MapOfListOf__string(output.Attributes, context) : undefined,
-    ChannelType: __expectString(output.ChannelType),
-    CohortId: __expectString(output.CohortId),
-    CreationDate: __expectString(output.CreationDate),
-    Demographic:
-      output.Demographic != null ? deserializeAws_restJson1EndpointDemographic(output.Demographic, context) : undefined,
-    EffectiveDate: __expectString(output.EffectiveDate),
-    EndpointStatus: __expectString(output.EndpointStatus),
-    Id: __expectString(output.Id),
-    Location: output.Location != null ? deserializeAws_restJson1EndpointLocation(output.Location, context) : undefined,
-    Metrics: output.Metrics != null ? deserializeAws_restJson1MapOf__double(output.Metrics, context) : undefined,
-    OptOut: __expectString(output.OptOut),
-    RequestId: __expectString(output.RequestId),
-    User: output.User != null ? deserializeAws_restJson1EndpointUser(output.User, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1EndpointsResponse = (output: any, context: __SerdeContext): EndpointsResponse => {
-  return {
-    Item: output.Item != null ? deserializeAws_restJson1ListOfEndpointResponse(output.Item, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1EndpointUser = (output: any, context: __SerdeContext): EndpointUser => {
-  return {
-    UserAttributes:
-      output.UserAttributes != null
-        ? deserializeAws_restJson1MapOfListOf__string(output.UserAttributes, context)
-        : undefined,
-    UserId: __expectString(output.UserId),
-  } as any;
-};
-
-const deserializeAws_restJson1EventCondition = (output: any, context: __SerdeContext): EventCondition => {
-  return {
-    Dimensions:
-      output.Dimensions != null ? deserializeAws_restJson1EventDimensions(output.Dimensions, context) : undefined,
-    MessageActivity: __expectString(output.MessageActivity),
-  } as any;
-};
-
-const deserializeAws_restJson1EventDimensions = (output: any, context: __SerdeContext): EventDimensions => {
-  return {
-    Attributes:
-      output.Attributes != null
-        ? deserializeAws_restJson1MapOfAttributeDimension(output.Attributes, context)
-        : undefined,
-    EventType: output.EventType != null ? deserializeAws_restJson1SetDimension(output.EventType, context) : undefined,
-    Metrics: output.Metrics != null ? deserializeAws_restJson1MapOfMetricDimension(output.Metrics, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1EventFilter = (output: any, context: __SerdeContext): EventFilter => {
-  return {
-    Dimensions:
-      output.Dimensions != null ? deserializeAws_restJson1EventDimensions(output.Dimensions, context) : undefined,
-    FilterType: __expectString(output.FilterType),
-  } as any;
-};
-
-const deserializeAws_restJson1EventItemResponse = (output: any, context: __SerdeContext): EventItemResponse => {
-  return {
-    Message: __expectString(output.Message),
-    StatusCode: __expectInt32(output.StatusCode),
-  } as any;
-};
-
-const deserializeAws_restJson1EventsResponse = (output: any, context: __SerdeContext): EventsResponse => {
-  return {
-    Results: output.Results != null ? deserializeAws_restJson1MapOfItemResponse(output.Results, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1EventStartCondition = (output: any, context: __SerdeContext): EventStartCondition => {
-  return {
-    EventFilter:
-      output.EventFilter != null ? deserializeAws_restJson1EventFilter(output.EventFilter, context) : undefined,
-    SegmentId: __expectString(output.SegmentId),
-  } as any;
-};
-
-const deserializeAws_restJson1EventStream = (output: any, context: __SerdeContext): EventStream => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    DestinationStreamArn: __expectString(output.DestinationStreamArn),
-    ExternalId: __expectString(output.ExternalId),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    LastUpdatedBy: __expectString(output.LastUpdatedBy),
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
-};
-
-const deserializeAws_restJson1ExportJobResource = (output: any, context: __SerdeContext): ExportJobResource => {
-  return {
-    RoleArn: __expectString(output.RoleArn),
-    S3UrlPrefix: __expectString(output.S3UrlPrefix),
-    SegmentId: __expectString(output.SegmentId),
-    SegmentVersion: __expectInt32(output.SegmentVersion),
-  } as any;
-};
-
-const deserializeAws_restJson1ExportJobResponse = (output: any, context: __SerdeContext): ExportJobResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CompletedPieces: __expectInt32(output.CompletedPieces),
-    CompletionDate: __expectString(output.CompletionDate),
-    CreationDate: __expectString(output.CreationDate),
-    Definition:
-      output.Definition != null ? deserializeAws_restJson1ExportJobResource(output.Definition, context) : undefined,
-    FailedPieces: __expectInt32(output.FailedPieces),
-    Failures: output.Failures != null ? deserializeAws_restJson1ListOf__string(output.Failures, context) : undefined,
-    Id: __expectString(output.Id),
-    JobStatus: __expectString(output.JobStatus),
-    TotalFailures: __expectInt32(output.TotalFailures),
-    TotalPieces: __expectInt32(output.TotalPieces),
-    TotalProcessed: __expectInt32(output.TotalProcessed),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1ExportJobsResponse = (output: any, context: __SerdeContext): ExportJobsResponse => {
-  return {
-    Item: output.Item != null ? deserializeAws_restJson1ListOfExportJobResponse(output.Item, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_restJson1GCMChannelResponse = (output: any, context: __SerdeContext): GCMChannelResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CreationDate: __expectString(output.CreationDate),
-    Credential: __expectString(output.Credential),
-    Enabled: __expectBoolean(output.Enabled),
-    HasCredential: __expectBoolean(output.HasCredential),
-    Id: __expectString(output.Id),
-    IsArchived: __expectBoolean(output.IsArchived),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Platform: __expectString(output.Platform),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1GPSCoordinates = (output: any, context: __SerdeContext): GPSCoordinates => {
-  return {
-    Latitude: __limitedParseDouble(output.Latitude),
-    Longitude: __limitedParseDouble(output.Longitude),
-  } as any;
-};
-
-const deserializeAws_restJson1GPSPointDimension = (output: any, context: __SerdeContext): GPSPointDimension => {
-  return {
-    Coordinates:
-      output.Coordinates != null ? deserializeAws_restJson1GPSCoordinates(output.Coordinates, context) : undefined,
-    RangeInKilometers: __limitedParseDouble(output.RangeInKilometers),
-  } as any;
-};
-
-const deserializeAws_restJson1HoldoutActivity = (output: any, context: __SerdeContext): HoldoutActivity => {
-  return {
-    NextActivity: __expectString(output.NextActivity),
-    Percentage: __expectInt32(output.Percentage),
-  } as any;
-};
-
-const deserializeAws_restJson1ImportJobResource = (output: any, context: __SerdeContext): ImportJobResource => {
-  return {
-    DefineSegment: __expectBoolean(output.DefineSegment),
-    ExternalId: __expectString(output.ExternalId),
-    Format: __expectString(output.Format),
-    RegisterEndpoints: __expectBoolean(output.RegisterEndpoints),
-    RoleArn: __expectString(output.RoleArn),
-    S3Url: __expectString(output.S3Url),
-    SegmentId: __expectString(output.SegmentId),
-    SegmentName: __expectString(output.SegmentName),
-  } as any;
-};
-
-const deserializeAws_restJson1ImportJobResponse = (output: any, context: __SerdeContext): ImportJobResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CompletedPieces: __expectInt32(output.CompletedPieces),
-    CompletionDate: __expectString(output.CompletionDate),
-    CreationDate: __expectString(output.CreationDate),
-    Definition:
-      output.Definition != null ? deserializeAws_restJson1ImportJobResource(output.Definition, context) : undefined,
-    FailedPieces: __expectInt32(output.FailedPieces),
-    Failures: output.Failures != null ? deserializeAws_restJson1ListOf__string(output.Failures, context) : undefined,
-    Id: __expectString(output.Id),
-    JobStatus: __expectString(output.JobStatus),
-    TotalFailures: __expectInt32(output.TotalFailures),
-    TotalPieces: __expectInt32(output.TotalPieces),
-    TotalProcessed: __expectInt32(output.TotalProcessed),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1ImportJobsResponse = (output: any, context: __SerdeContext): ImportJobsResponse => {
-  return {
-    Item: output.Item != null ? deserializeAws_restJson1ListOfImportJobResponse(output.Item, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_restJson1InAppCampaignSchedule = (output: any, context: __SerdeContext): InAppCampaignSchedule => {
-  return {
-    EndDate: __expectString(output.EndDate),
-    EventFilter:
-      output.EventFilter != null ? deserializeAws_restJson1CampaignEventFilter(output.EventFilter, context) : undefined,
-    QuietTime: output.QuietTime != null ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1InAppMessage = (output: any, context: __SerdeContext): InAppMessage => {
-  return {
-    Content:
-      output.Content != null ? deserializeAws_restJson1ListOfInAppMessageContent(output.Content, context) : undefined,
-    CustomConfig:
-      output.CustomConfig != null ? deserializeAws_restJson1MapOf__string(output.CustomConfig, context) : undefined,
-    Layout: __expectString(output.Layout),
-  } as any;
-};
-
-const deserializeAws_restJson1InAppMessageBodyConfig = (
-  output: any,
-  context: __SerdeContext
-): InAppMessageBodyConfig => {
-  return {
-    Alignment: __expectString(output.Alignment),
-    Body: __expectString(output.Body),
-    TextColor: __expectString(output.TextColor),
-  } as any;
-};
-
-const deserializeAws_restJson1InAppMessageButton = (output: any, context: __SerdeContext): InAppMessageButton => {
-  return {
-    Android:
-      output.Android != null ? deserializeAws_restJson1OverrideButtonConfiguration(output.Android, context) : undefined,
-    DefaultConfig:
-      output.DefaultConfig != null
-        ? deserializeAws_restJson1DefaultButtonConfiguration(output.DefaultConfig, context)
-        : undefined,
-    IOS: output.IOS != null ? deserializeAws_restJson1OverrideButtonConfiguration(output.IOS, context) : undefined,
-    Web: output.Web != null ? deserializeAws_restJson1OverrideButtonConfiguration(output.Web, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1InAppMessageCampaign = (output: any, context: __SerdeContext): InAppMessageCampaign => {
-  return {
-    CampaignId: __expectString(output.CampaignId),
-    DailyCap: __expectInt32(output.DailyCap),
-    InAppMessage:
-      output.InAppMessage != null ? deserializeAws_restJson1InAppMessage(output.InAppMessage, context) : undefined,
-    Priority: __expectInt32(output.Priority),
-    Schedule:
-      output.Schedule != null ? deserializeAws_restJson1InAppCampaignSchedule(output.Schedule, context) : undefined,
-    SessionCap: __expectInt32(output.SessionCap),
-    TotalCap: __expectInt32(output.TotalCap),
-    TreatmentId: __expectString(output.TreatmentId),
-  } as any;
-};
-
-const deserializeAws_restJson1InAppMessageContent = (output: any, context: __SerdeContext): InAppMessageContent => {
-  return {
-    BackgroundColor: __expectString(output.BackgroundColor),
-    BodyConfig:
-      output.BodyConfig != null
-        ? deserializeAws_restJson1InAppMessageBodyConfig(output.BodyConfig, context)
-        : undefined,
-    HeaderConfig:
-      output.HeaderConfig != null
-        ? deserializeAws_restJson1InAppMessageHeaderConfig(output.HeaderConfig, context)
-        : undefined,
-    ImageUrl: __expectString(output.ImageUrl),
-    PrimaryBtn:
-      output.PrimaryBtn != null ? deserializeAws_restJson1InAppMessageButton(output.PrimaryBtn, context) : undefined,
-    SecondaryBtn:
-      output.SecondaryBtn != null
-        ? deserializeAws_restJson1InAppMessageButton(output.SecondaryBtn, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1InAppMessageHeaderConfig = (
-  output: any,
-  context: __SerdeContext
-): InAppMessageHeaderConfig => {
-  return {
-    Alignment: __expectString(output.Alignment),
-    Header: __expectString(output.Header),
-    TextColor: __expectString(output.TextColor),
-  } as any;
-};
-
-const deserializeAws_restJson1InAppMessagesResponse = (output: any, context: __SerdeContext): InAppMessagesResponse => {
-  return {
-    InAppMessageCampaigns:
-      output.InAppMessageCampaigns != null
-        ? deserializeAws_restJson1ListOfInAppMessageCampaign(output.InAppMessageCampaigns, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1InAppTemplateResponse = (output: any, context: __SerdeContext): InAppTemplateResponse => {
-  return {
-    Arn: __expectString(output.Arn),
-    Content:
-      output.Content != null ? deserializeAws_restJson1ListOfInAppMessageContent(output.Content, context) : undefined,
-    CreationDate: __expectString(output.CreationDate),
-    CustomConfig:
-      output.CustomConfig != null ? deserializeAws_restJson1MapOf__string(output.CustomConfig, context) : undefined,
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Layout: __expectString(output.Layout),
-    TemplateDescription: __expectString(output.TemplateDescription),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateType: __expectString(output.TemplateType),
-    Version: __expectString(output.Version),
-    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ItemResponse = (output: any, context: __SerdeContext): ItemResponse => {
-  return {
-    EndpointItemResponse:
-      output.EndpointItemResponse != null
-        ? deserializeAws_restJson1EndpointItemResponse(output.EndpointItemResponse, context)
-        : undefined,
-    EventsItemResponse:
-      output.EventsItemResponse != null
-        ? deserializeAws_restJson1MapOfEventItemResponse(output.EventsItemResponse, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1JourneyChannelSettings = (
-  output: any,
-  context: __SerdeContext
-): JourneyChannelSettings => {
-  return {
-    ConnectCampaignArn: __expectString(output.ConnectCampaignArn),
-    ConnectCampaignExecutionRoleArn: __expectString(output.ConnectCampaignExecutionRoleArn),
-  } as any;
-};
-
-const deserializeAws_restJson1JourneyCustomMessage = (output: any, context: __SerdeContext): JourneyCustomMessage => {
-  return {
-    Data: __expectString(output.Data),
-  } as any;
-};
-
-const deserializeAws_restJson1JourneyDateRangeKpiResponse = (
-  output: any,
-  context: __SerdeContext
-): JourneyDateRangeKpiResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
-    JourneyId: __expectString(output.JourneyId),
-    KpiName: __expectString(output.KpiName),
-    KpiResult: output.KpiResult != null ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1JourneyEmailMessage = (output: any, context: __SerdeContext): JourneyEmailMessage => {
-  return {
-    FromAddress: __expectString(output.FromAddress),
-  } as any;
-};
-
-const deserializeAws_restJson1JourneyExecutionActivityMetricsResponse = (
-  output: any,
-  context: __SerdeContext
-): JourneyExecutionActivityMetricsResponse => {
-  return {
-    ActivityType: __expectString(output.ActivityType),
-    ApplicationId: __expectString(output.ApplicationId),
-    JourneyActivityId: __expectString(output.JourneyActivityId),
-    JourneyId: __expectString(output.JourneyId),
-    LastEvaluatedTime: __expectString(output.LastEvaluatedTime),
-    Metrics: output.Metrics != null ? deserializeAws_restJson1MapOf__string(output.Metrics, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1JourneyExecutionMetricsResponse = (
-  output: any,
-  context: __SerdeContext
-): JourneyExecutionMetricsResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    JourneyId: __expectString(output.JourneyId),
-    LastEvaluatedTime: __expectString(output.LastEvaluatedTime),
-    Metrics: output.Metrics != null ? deserializeAws_restJson1MapOf__string(output.Metrics, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1JourneyLimits = (output: any, context: __SerdeContext): JourneyLimits => {
-  return {
-    DailyCap: __expectInt32(output.DailyCap),
-    EndpointReentryCap: __expectInt32(output.EndpointReentryCap),
-    EndpointReentryInterval: __expectString(output.EndpointReentryInterval),
-    MessagesPerSecond: __expectInt32(output.MessagesPerSecond),
-  } as any;
-};
-
-const deserializeAws_restJson1JourneyPushMessage = (output: any, context: __SerdeContext): JourneyPushMessage => {
-  return {
-    TimeToLive: __expectString(output.TimeToLive),
-  } as any;
-};
-
-const deserializeAws_restJson1JourneyResponse = (output: any, context: __SerdeContext): JourneyResponse => {
-  return {
-    Activities:
-      output.Activities != null ? deserializeAws_restJson1MapOfActivity(output.Activities, context) : undefined,
-    ApplicationId: __expectString(output.ApplicationId),
-    ClosedDays: output.ClosedDays != null ? deserializeAws_restJson1ClosedDays(output.ClosedDays, context) : undefined,
-    CreationDate: __expectString(output.CreationDate),
-    Id: __expectString(output.Id),
-    JourneyChannelSettings:
-      output.JourneyChannelSettings != null
-        ? deserializeAws_restJson1JourneyChannelSettings(output.JourneyChannelSettings, context)
-        : undefined,
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Limits: output.Limits != null ? deserializeAws_restJson1JourneyLimits(output.Limits, context) : undefined,
-    LocalTime: __expectBoolean(output.LocalTime),
-    Name: __expectString(output.Name),
-    OpenHours: output.OpenHours != null ? deserializeAws_restJson1OpenHours(output.OpenHours, context) : undefined,
-    QuietTime: output.QuietTime != null ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
-    RefreshFrequency: __expectString(output.RefreshFrequency),
-    RefreshOnSegmentUpdate: __expectBoolean(output.RefreshOnSegmentUpdate),
-    Schedule: output.Schedule != null ? deserializeAws_restJson1JourneySchedule(output.Schedule, context) : undefined,
-    SendingSchedule: __expectBoolean(output.SendingSchedule),
-    StartActivity: __expectString(output.StartActivity),
-    StartCondition:
-      output.StartCondition != null
-        ? deserializeAws_restJson1StartCondition(output.StartCondition, context)
-        : undefined,
-    State: __expectString(output.State),
-    WaitForQuietTime: __expectBoolean(output.WaitForQuietTime),
-    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1JourneySchedule = (output: any, context: __SerdeContext): JourneySchedule => {
-  return {
-    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
-    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
-    Timezone: __expectString(output.Timezone),
-  } as any;
-};
-
-const deserializeAws_restJson1JourneySMSMessage = (output: any, context: __SerdeContext): JourneySMSMessage => {
-  return {
-    EntityId: __expectString(output.EntityId),
-    MessageType: __expectString(output.MessageType),
-    OriginationNumber: __expectString(output.OriginationNumber),
-    SenderId: __expectString(output.SenderId),
-    TemplateId: __expectString(output.TemplateId),
-  } as any;
-};
-
-const deserializeAws_restJson1JourneysResponse = (output: any, context: __SerdeContext): JourneysResponse => {
-  return {
-    Item: output.Item != null ? deserializeAws_restJson1ListOfJourneyResponse(output.Item, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_restJson1ListOf__EndpointTypesElement = (
-  output: any,
-  context: __SerdeContext
-): (__EndpointTypesElement | string)[] => {
+// se_Message omitted.
+
+// se_MessageConfiguration omitted.
+
+/**
+ * serializeAws_restJson1MessageRequest
+ */
+const se_MessageRequest = (input: MessageRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Addresses: _json,
+    Context: _json,
+    Endpoints: _json,
+    MessageConfiguration: (_) => se_DirectMessageConfiguration(_, context),
+    TemplateConfiguration: _json,
+    TraceId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1MetricDimension
+ */
+const se_MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
+  return take(input, {
+    ComparisonOperator: [],
+    Value: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1MultiConditionalBranch
+ */
+const se_MultiConditionalBranch = (input: MultiConditionalBranch, context: __SerdeContext): any => {
+  return take(input, {
+    Condition: (_) => se_SimpleCondition(_, context),
+    NextActivity: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1MultiConditionalSplitActivity
+ */
+const se_MultiConditionalSplitActivity = (input: MultiConditionalSplitActivity, context: __SerdeContext): any => {
+  return take(input, {
+    Branches: (_) => se_ListOfMultiConditionalBranch(_, context),
+    DefaultActivity: [],
+    EvaluationWaitTime: _json,
+  });
+};
+
+// se_NumberValidateRequest omitted.
+
+// se_OpenHours omitted.
+
+// se_OpenHoursRule omitted.
+
+// se_OverrideButtonConfiguration omitted.
+
+/**
+ * serializeAws_restJson1PublicEndpoint
+ */
+const se_PublicEndpoint = (input: PublicEndpoint, context: __SerdeContext): any => {
+  return take(input, {
+    Address: [],
+    Attributes: _json,
+    ChannelType: [],
+    Demographic: _json,
+    EffectiveDate: [],
+    EndpointStatus: [],
+    Location: (_) => se_EndpointLocation(_, context),
+    Metrics: (_) => se_MapOf__double(_, context),
+    OptOut: [],
+    RequestId: [],
+    User: _json,
+  });
+};
+
+// se_PushMessageActivity omitted.
+
+/**
+ * serializeAws_restJson1PushNotificationTemplateRequest
+ */
+const se_PushNotificationTemplateRequest = (input: PushNotificationTemplateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ADM: _json,
+    APNS: _json,
+    Baidu: _json,
+    Default: _json,
+    DefaultSubstitutions: [],
+    GCM: _json,
+    RecommenderId: [],
+    TemplateDescription: [],
+    tags: [, _json, `tags`],
+  });
+};
+
+// se_QuietTime omitted.
+
+// se_RandomSplitActivity omitted.
+
+// se_RandomSplitEntry omitted.
+
+/**
+ * serializeAws_restJson1RawEmail
+ */
+const se_RawEmail = (input: RawEmail, context: __SerdeContext): any => {
+  return take(input, {
+    Data: context.base64Encoder,
+  });
+};
+
+// se_RecencyDimension omitted.
+
+/**
+ * serializeAws_restJson1Schedule
+ */
+const se_Schedule = (input: Schedule, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: [],
+    EventFilter: (_) => se_CampaignEventFilter(_, context),
+    Frequency: [],
+    IsLocalTime: [],
+    QuietTime: _json,
+    StartTime: [],
+    Timezone: [],
+  });
+};
+
+// se_SegmentBehaviors omitted.
+
+// se_SegmentCondition omitted.
+
+// se_SegmentDemographics omitted.
+
+/**
+ * serializeAws_restJson1SegmentDimensions
+ */
+const se_SegmentDimensions = (input: SegmentDimensions, context: __SerdeContext): any => {
+  return take(input, {
+    Attributes: _json,
+    Behavior: _json,
+    Demographic: _json,
+    Location: (_) => se_SegmentLocation(_, context),
+    Metrics: (_) => se_MapOfMetricDimension(_, context),
+    UserAttributes: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1SegmentGroup
+ */
+const se_SegmentGroup = (input: SegmentGroup, context: __SerdeContext): any => {
+  return take(input, {
+    Dimensions: (_) => se_ListOfSegmentDimensions(_, context),
+    SourceSegments: _json,
+    SourceType: [],
+    Type: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1SegmentGroupList
+ */
+const se_SegmentGroupList = (input: SegmentGroupList, context: __SerdeContext): any => {
+  return take(input, {
+    Groups: (_) => se_ListOfSegmentGroup(_, context),
+    Include: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1SegmentLocation
+ */
+const se_SegmentLocation = (input: SegmentLocation, context: __SerdeContext): any => {
+  return take(input, {
+    Country: _json,
+    GPSPoint: (_) => se_GPSPointDimension(_, context),
+  });
+};
+
+// se_SegmentReference omitted.
+
+// se_SendOTPMessageRequestParameters omitted.
+
+/**
+ * serializeAws_restJson1SendUsersMessageRequest
+ */
+const se_SendUsersMessageRequest = (input: SendUsersMessageRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Context: _json,
+    MessageConfiguration: (_) => se_DirectMessageConfiguration(_, context),
+    TemplateConfiguration: _json,
+    TraceId: [],
+    Users: _json,
+  });
+};
+
+// se_Session omitted.
+
+// se_SetDimension omitted.
+
+/**
+ * serializeAws_restJson1SimpleCondition
+ */
+const se_SimpleCondition = (input: SimpleCondition, context: __SerdeContext): any => {
+  return take(input, {
+    EventCondition: (_) => se_EventCondition(_, context),
+    SegmentCondition: _json,
+    segmentDimensions: [, (_) => se_SegmentDimensions(_, context), `SegmentDimensions`],
+  });
+};
+
+// se_SimpleEmail omitted.
+
+// se_SimpleEmailPart omitted.
+
+// se_SMSChannelRequest omitted.
+
+// se_SMSMessage omitted.
+
+// se_SMSMessageActivity omitted.
+
+/**
+ * serializeAws_restJson1SMSTemplateRequest
+ */
+const se_SMSTemplateRequest = (input: SMSTemplateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Body: [],
+    DefaultSubstitutions: [],
+    RecommenderId: [],
+    TemplateDescription: [],
+    tags: [, _json, `tags`],
+  });
+};
+
+/**
+ * serializeAws_restJson1StartCondition
+ */
+const se_StartCondition = (input: StartCondition, context: __SerdeContext): any => {
+  return take(input, {
+    Description: [],
+    EventStartCondition: (_) => se_EventStartCondition(_, context),
+    SegmentStartCondition: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1TagsModel
+ */
+const se_TagsModel = (input: TagsModel, context: __SerdeContext): any => {
+  return take(input, {
+    tags: [, _json, `tags`],
+  });
+};
+
+// se_Template omitted.
+
+// se_TemplateActiveVersionRequest omitted.
+
+// se_TemplateConfiguration omitted.
+
+// se_UpdateAttributesRequest omitted.
+
+// se_UpdateRecommenderConfigurationShape omitted.
+
+// se_VerifyOTPMessageRequestParameters omitted.
+
+// se_VoiceChannelRequest omitted.
+
+// se_VoiceMessage omitted.
+
+/**
+ * serializeAws_restJson1VoiceTemplateRequest
+ */
+const se_VoiceTemplateRequest = (input: VoiceTemplateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Body: [],
+    DefaultSubstitutions: [],
+    LanguageCode: [],
+    TemplateDescription: [],
+    VoiceId: [],
+    tags: [, _json, `tags`],
+  });
+};
+
+// se_WaitActivity omitted.
+
+// se_WaitTime omitted.
+
+// se_WriteApplicationSettingsRequest omitted.
+
+/**
+ * serializeAws_restJson1WriteCampaignRequest
+ */
+const se_WriteCampaignRequest = (input: WriteCampaignRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AdditionalTreatments: (_) => se_ListOfWriteTreatmentResource(_, context),
+    CustomDeliveryConfiguration: _json,
+    Description: [],
+    HoldoutPercent: [],
+    Hook: _json,
+    IsPaused: [],
+    Limits: _json,
+    MessageConfiguration: _json,
+    Name: [],
+    Priority: [],
+    Schedule: (_) => se_Schedule(_, context),
+    SegmentId: [],
+    SegmentVersion: [],
+    TemplateConfiguration: _json,
+    TreatmentDescription: [],
+    TreatmentName: [],
+    tags: [, _json, `tags`],
+  });
+};
+
+// se_WriteEventStream omitted.
+
+/**
+ * serializeAws_restJson1WriteJourneyRequest
+ */
+const se_WriteJourneyRequest = (input: WriteJourneyRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Activities: (_) => se_MapOfActivity(_, context),
+    ClosedDays: _json,
+    CreationDate: [],
+    JourneyChannelSettings: _json,
+    LastModifiedDate: [],
+    Limits: _json,
+    LocalTime: [],
+    Name: [],
+    OpenHours: _json,
+    QuietTime: _json,
+    RefreshFrequency: [],
+    RefreshOnSegmentUpdate: [],
+    Schedule: (_) => se_JourneySchedule(_, context),
+    SendingSchedule: [],
+    StartActivity: [],
+    StartCondition: (_) => se_StartCondition(_, context),
+    State: [],
+    WaitForQuietTime: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1WriteSegmentRequest
+ */
+const se_WriteSegmentRequest = (input: WriteSegmentRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Dimensions: (_) => se_SegmentDimensions(_, context),
+    Name: [],
+    SegmentGroups: (_) => se_SegmentGroupList(_, context),
+    tags: [, _json, `tags`],
+  });
+};
+
+/**
+ * serializeAws_restJson1WriteTreatmentResource
+ */
+const se_WriteTreatmentResource = (input: WriteTreatmentResource, context: __SerdeContext): any => {
+  return take(input, {
+    CustomDeliveryConfiguration: _json,
+    MessageConfiguration: _json,
+    Schedule: (_) => se_Schedule(_, context),
+    SizePercent: [],
+    TemplateConfiguration: _json,
+    TreatmentDescription: [],
+    TreatmentName: [],
+  });
+};
+
+// de_ActivitiesResponse omitted.
+
+/**
+ * deserializeAws_restJson1Activity
+ */
+const de_Activity = (output: any, context: __SerdeContext): Activity => {
+  return take(output, {
+    CUSTOM: _json,
+    ConditionalSplit: (_: any) => de_ConditionalSplitActivity(_, context),
+    ContactCenter: _json,
+    Description: __expectString,
+    EMAIL: _json,
+    Holdout: _json,
+    MultiCondition: (_: any) => de_MultiConditionalSplitActivity(_, context),
+    PUSH: _json,
+    RandomSplit: _json,
+    SMS: _json,
+    Wait: _json,
+  }) as any;
+};
+
+// de_ActivityResponse omitted.
+
+// de_ADMChannelResponse omitted.
+
+// de_AndroidPushNotificationTemplate omitted.
+
+// de_APNSChannelResponse omitted.
+
+// de_APNSPushNotificationTemplate omitted.
+
+// de_APNSSandboxChannelResponse omitted.
+
+// de_APNSVoipChannelResponse omitted.
+
+// de_APNSVoipSandboxChannelResponse omitted.
+
+/**
+ * deserializeAws_restJson1ApplicationDateRangeKpiResponse
+ */
+const de_ApplicationDateRangeKpiResponse = (output: any, context: __SerdeContext): ApplicationDateRangeKpiResponse => {
+  return take(output, {
+    ApplicationId: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    KpiName: __expectString,
+    KpiResult: _json,
+    NextToken: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ApplicationResponse
+ */
+const de_ApplicationResponse = (output: any, context: __SerdeContext): ApplicationResponse => {
+  return take(output, {
+    Arn: __expectString,
+    CreationDate: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    tags: [, _json, `tags`],
+  }) as any;
+};
+
+// de_ApplicationSettingsResource omitted.
+
+/**
+ * deserializeAws_restJson1ApplicationsResponse
+ */
+const de_ApplicationsResponse = (output: any, context: __SerdeContext): ApplicationsResponse => {
+  return take(output, {
+    Item: (_: any) => de_ListOfApplicationResponse(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+// de_AttributeDimension omitted.
+
+// de_AttributesResource omitted.
+
+// de_BaiduChannelResponse omitted.
+
+// de_BaseKpiResult omitted.
+
+// de_CampaignCustomMessage omitted.
+
+/**
+ * deserializeAws_restJson1CampaignDateRangeKpiResponse
+ */
+const de_CampaignDateRangeKpiResponse = (output: any, context: __SerdeContext): CampaignDateRangeKpiResponse => {
+  return take(output, {
+    ApplicationId: __expectString,
+    CampaignId: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    KpiName: __expectString,
+    KpiResult: _json,
+    NextToken: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+// de_CampaignEmailMessage omitted.
+
+/**
+ * deserializeAws_restJson1CampaignEventFilter
+ */
+const de_CampaignEventFilter = (output: any, context: __SerdeContext): CampaignEventFilter => {
+  return take(output, {
+    Dimensions: (_: any) => de_EventDimensions(_, context),
+    FilterType: __expectString,
+  }) as any;
+};
+
+// de_CampaignHook omitted.
+
+// de_CampaignInAppMessage omitted.
+
+// de_CampaignLimits omitted.
+
+/**
+ * deserializeAws_restJson1CampaignResponse
+ */
+const de_CampaignResponse = (output: any, context: __SerdeContext): CampaignResponse => {
+  return take(output, {
+    AdditionalTreatments: (_: any) => de_ListOfTreatmentResource(_, context),
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    CreationDate: __expectString,
+    CustomDeliveryConfiguration: _json,
+    DefaultState: _json,
+    Description: __expectString,
+    HoldoutPercent: __expectInt32,
+    Hook: _json,
+    Id: __expectString,
+    IsPaused: __expectBoolean,
+    LastModifiedDate: __expectString,
+    Limits: _json,
+    MessageConfiguration: _json,
+    Name: __expectString,
+    Priority: __expectInt32,
+    Schedule: (_: any) => de_Schedule(_, context),
+    SegmentId: __expectString,
+    SegmentVersion: __expectInt32,
+    State: _json,
+    TemplateConfiguration: _json,
+    TreatmentDescription: __expectString,
+    TreatmentName: __expectString,
+    Version: __expectInt32,
+    tags: [, _json, `tags`],
+  }) as any;
+};
+
+// de_CampaignSmsMessage omitted.
+
+/**
+ * deserializeAws_restJson1CampaignsResponse
+ */
+const de_CampaignsResponse = (output: any, context: __SerdeContext): CampaignsResponse => {
+  return take(output, {
+    Item: (_: any) => de_ListOfCampaignResponse(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+// de_CampaignState omitted.
+
+// de_ChannelResponse omitted.
+
+// de_ChannelsResponse omitted.
+
+// de_ClosedDays omitted.
+
+// de_ClosedDaysRule omitted.
+
+/**
+ * deserializeAws_restJson1Condition
+ */
+const de_Condition = (output: any, context: __SerdeContext): Condition => {
+  return take(output, {
+    Conditions: (_: any) => de_ListOfSimpleCondition(_, context),
+    Operator: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ConditionalSplitActivity
+ */
+const de_ConditionalSplitActivity = (output: any, context: __SerdeContext): ConditionalSplitActivity => {
+  return take(output, {
+    Condition: (_: any) => de_Condition(_, context),
+    EvaluationWaitTime: _json,
+    FalseActivity: __expectString,
+    TrueActivity: __expectString,
+  }) as any;
+};
+
+// de_ContactCenterActivity omitted.
+
+// de_CreateTemplateMessageBody omitted.
+
+// de_CustomDeliveryConfiguration omitted.
+
+// de_CustomMessageActivity omitted.
+
+// de_DefaultButtonConfiguration omitted.
+
+// de_DefaultPushNotificationTemplate omitted.
+
+// de_EmailChannelResponse omitted.
+
+// de_EmailMessageActivity omitted.
+
+/**
+ * deserializeAws_restJson1EmailTemplateResponse
+ */
+const de_EmailTemplateResponse = (output: any, context: __SerdeContext): EmailTemplateResponse => {
+  return take(output, {
+    Arn: __expectString,
+    CreationDate: __expectString,
+    DefaultSubstitutions: __expectString,
+    HtmlPart: __expectString,
+    LastModifiedDate: __expectString,
+    RecommenderId: __expectString,
+    Subject: __expectString,
+    TemplateDescription: __expectString,
+    TemplateName: __expectString,
+    TemplateType: __expectString,
+    TextPart: __expectString,
+    Version: __expectString,
+    tags: [, _json, `tags`],
+  }) as any;
+};
+
+// de_EndpointDemographic omitted.
+
+// de_EndpointItemResponse omitted.
+
+/**
+ * deserializeAws_restJson1EndpointLocation
+ */
+const de_EndpointLocation = (output: any, context: __SerdeContext): EndpointLocation => {
+  return take(output, {
+    City: __expectString,
+    Country: __expectString,
+    Latitude: __limitedParseDouble,
+    Longitude: __limitedParseDouble,
+    PostalCode: __expectString,
+    Region: __expectString,
+  }) as any;
+};
+
+// de_EndpointMessageResult omitted.
+
+/**
+ * deserializeAws_restJson1EndpointResponse
+ */
+const de_EndpointResponse = (output: any, context: __SerdeContext): EndpointResponse => {
+  return take(output, {
+    Address: __expectString,
+    ApplicationId: __expectString,
+    Attributes: _json,
+    ChannelType: __expectString,
+    CohortId: __expectString,
+    CreationDate: __expectString,
+    Demographic: _json,
+    EffectiveDate: __expectString,
+    EndpointStatus: __expectString,
+    Id: __expectString,
+    Location: (_: any) => de_EndpointLocation(_, context),
+    Metrics: (_: any) => de_MapOf__double(_, context),
+    OptOut: __expectString,
+    RequestId: __expectString,
+    User: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EndpointsResponse
+ */
+const de_EndpointsResponse = (output: any, context: __SerdeContext): EndpointsResponse => {
+  return take(output, {
+    Item: (_: any) => de_ListOfEndpointResponse(_, context),
+  }) as any;
+};
+
+// de_EndpointUser omitted.
+
+/**
+ * deserializeAws_restJson1EventCondition
+ */
+const de_EventCondition = (output: any, context: __SerdeContext): EventCondition => {
+  return take(output, {
+    Dimensions: (_: any) => de_EventDimensions(_, context),
+    MessageActivity: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EventDimensions
+ */
+const de_EventDimensions = (output: any, context: __SerdeContext): EventDimensions => {
+  return take(output, {
+    Attributes: _json,
+    EventType: _json,
+    Metrics: (_: any) => de_MapOfMetricDimension(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EventFilter
+ */
+const de_EventFilter = (output: any, context: __SerdeContext): EventFilter => {
+  return take(output, {
+    Dimensions: (_: any) => de_EventDimensions(_, context),
+    FilterType: __expectString,
+  }) as any;
+};
+
+// de_EventItemResponse omitted.
+
+// de_EventsResponse omitted.
+
+/**
+ * deserializeAws_restJson1EventStartCondition
+ */
+const de_EventStartCondition = (output: any, context: __SerdeContext): EventStartCondition => {
+  return take(output, {
+    EventFilter: (_: any) => de_EventFilter(_, context),
+    SegmentId: __expectString,
+  }) as any;
+};
+
+// de_EventStream omitted.
+
+// de_ExportJobResource omitted.
+
+// de_ExportJobResponse omitted.
+
+// de_ExportJobsResponse omitted.
+
+// de_GCMChannelResponse omitted.
+
+/**
+ * deserializeAws_restJson1GPSCoordinates
+ */
+const de_GPSCoordinates = (output: any, context: __SerdeContext): GPSCoordinates => {
+  return take(output, {
+    Latitude: __limitedParseDouble,
+    Longitude: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GPSPointDimension
+ */
+const de_GPSPointDimension = (output: any, context: __SerdeContext): GPSPointDimension => {
+  return take(output, {
+    Coordinates: (_: any) => de_GPSCoordinates(_, context),
+    RangeInKilometers: __limitedParseDouble,
+  }) as any;
+};
+
+// de_HoldoutActivity omitted.
+
+// de_ImportJobResource omitted.
+
+// de_ImportJobResponse omitted.
+
+// de_ImportJobsResponse omitted.
+
+/**
+ * deserializeAws_restJson1InAppCampaignSchedule
+ */
+const de_InAppCampaignSchedule = (output: any, context: __SerdeContext): InAppCampaignSchedule => {
+  return take(output, {
+    EndDate: __expectString,
+    EventFilter: (_: any) => de_CampaignEventFilter(_, context),
+    QuietTime: _json,
+  }) as any;
+};
+
+// de_InAppMessage omitted.
+
+// de_InAppMessageBodyConfig omitted.
+
+// de_InAppMessageButton omitted.
+
+/**
+ * deserializeAws_restJson1InAppMessageCampaign
+ */
+const de_InAppMessageCampaign = (output: any, context: __SerdeContext): InAppMessageCampaign => {
+  return take(output, {
+    CampaignId: __expectString,
+    DailyCap: __expectInt32,
+    InAppMessage: _json,
+    Priority: __expectInt32,
+    Schedule: (_: any) => de_InAppCampaignSchedule(_, context),
+    SessionCap: __expectInt32,
+    TotalCap: __expectInt32,
+    TreatmentId: __expectString,
+  }) as any;
+};
+
+// de_InAppMessageContent omitted.
+
+// de_InAppMessageHeaderConfig omitted.
+
+/**
+ * deserializeAws_restJson1InAppMessagesResponse
+ */
+const de_InAppMessagesResponse = (output: any, context: __SerdeContext): InAppMessagesResponse => {
+  return take(output, {
+    InAppMessageCampaigns: (_: any) => de_ListOfInAppMessageCampaign(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InAppTemplateResponse
+ */
+const de_InAppTemplateResponse = (output: any, context: __SerdeContext): InAppTemplateResponse => {
+  return take(output, {
+    Arn: __expectString,
+    Content: _json,
+    CreationDate: __expectString,
+    CustomConfig: _json,
+    LastModifiedDate: __expectString,
+    Layout: __expectString,
+    TemplateDescription: __expectString,
+    TemplateName: __expectString,
+    TemplateType: __expectString,
+    Version: __expectString,
+    tags: [, _json, `tags`],
+  }) as any;
+};
+
+// de_ItemResponse omitted.
+
+// de_JourneyChannelSettings omitted.
+
+// de_JourneyCustomMessage omitted.
+
+/**
+ * deserializeAws_restJson1JourneyDateRangeKpiResponse
+ */
+const de_JourneyDateRangeKpiResponse = (output: any, context: __SerdeContext): JourneyDateRangeKpiResponse => {
+  return take(output, {
+    ApplicationId: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    JourneyId: __expectString,
+    KpiName: __expectString,
+    KpiResult: _json,
+    NextToken: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+// de_JourneyEmailMessage omitted.
+
+// de_JourneyExecutionActivityMetricsResponse omitted.
+
+// de_JourneyExecutionMetricsResponse omitted.
+
+// de_JourneyLimits omitted.
+
+// de_JourneyPushMessage omitted.
+
+/**
+ * deserializeAws_restJson1JourneyResponse
+ */
+const de_JourneyResponse = (output: any, context: __SerdeContext): JourneyResponse => {
+  return take(output, {
+    Activities: (_: any) => de_MapOfActivity(_, context),
+    ApplicationId: __expectString,
+    ClosedDays: _json,
+    CreationDate: __expectString,
+    Id: __expectString,
+    JourneyChannelSettings: _json,
+    LastModifiedDate: __expectString,
+    Limits: _json,
+    LocalTime: __expectBoolean,
+    Name: __expectString,
+    OpenHours: _json,
+    QuietTime: _json,
+    RefreshFrequency: __expectString,
+    RefreshOnSegmentUpdate: __expectBoolean,
+    Schedule: (_: any) => de_JourneySchedule(_, context),
+    SendingSchedule: __expectBoolean,
+    StartActivity: __expectString,
+    StartCondition: (_: any) => de_StartCondition(_, context),
+    State: __expectString,
+    WaitForQuietTime: __expectBoolean,
+    tags: [, _json, `tags`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1JourneySchedule
+ */
+const de_JourneySchedule = (output: any, context: __SerdeContext): JourneySchedule => {
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    StartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Timezone: __expectString,
+  }) as any;
+};
+
+// de_JourneySMSMessage omitted.
+
+/**
+ * deserializeAws_restJson1JourneysResponse
+ */
+const de_JourneysResponse = (output: any, context: __SerdeContext): JourneysResponse => {
+  return take(output, {
+    Item: (_: any) => de_ListOfJourneyResponse(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+// de_ListOf__EndpointTypesElement omitted.
+
+// de_ListOf__string omitted.
+
+// de_ListOfActivityResponse omitted.
+
+/**
+ * deserializeAws_restJson1ListOfApplicationResponse
+ */
+const de_ListOfApplicationResponse = (output: any, context: __SerdeContext): ApplicationResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_ApplicationResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOf__string = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1ListOfCampaignResponse
+ */
+const de_ListOfCampaignResponse = (output: any, context: __SerdeContext): CampaignResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_CampaignResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfActivityResponse = (output: any, context: __SerdeContext): ActivityResponse[] => {
+// de_ListOfClosedDaysRules omitted.
+
+/**
+ * deserializeAws_restJson1ListOfEndpointResponse
+ */
+const de_ListOfEndpointResponse = (output: any, context: __SerdeContext): EndpointResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ActivityResponse(entry, context);
+      return de_EndpointResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfApplicationResponse = (
-  output: any,
-  context: __SerdeContext
-): ApplicationResponse[] => {
+// de_ListOfExportJobResponse omitted.
+
+// de_ListOfImportJobResponse omitted.
+
+/**
+ * deserializeAws_restJson1ListOfInAppMessageCampaign
+ */
+const de_ListOfInAppMessageCampaign = (output: any, context: __SerdeContext): InAppMessageCampaign[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ApplicationResponse(entry, context);
+      return de_InAppMessageCampaign(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfCampaignResponse = (output: any, context: __SerdeContext): CampaignResponse[] => {
+// de_ListOfInAppMessageContent omitted.
+
+/**
+ * deserializeAws_restJson1ListOfJourneyResponse
+ */
+const de_ListOfJourneyResponse = (output: any, context: __SerdeContext): JourneyResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1CampaignResponse(entry, context);
+      return de_JourneyResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfClosedDaysRules = (output: any, context: __SerdeContext): ClosedDaysRule[] => {
+/**
+ * deserializeAws_restJson1ListOfMultiConditionalBranch
+ */
+const de_ListOfMultiConditionalBranch = (output: any, context: __SerdeContext): MultiConditionalBranch[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ClosedDaysRule(entry, context);
+      return de_MultiConditionalBranch(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfEndpointResponse = (output: any, context: __SerdeContext): EndpointResponse[] => {
+// de_ListOfOpenHoursRules omitted.
+
+// de_ListOfRandomSplitEntry omitted.
+
+// de_ListOfRecommenderConfigurationResponse omitted.
+
+// de_ListOfResultRow omitted.
+
+// de_ListOfResultRowValue omitted.
+
+/**
+ * deserializeAws_restJson1ListOfSegmentDimensions
+ */
+const de_ListOfSegmentDimensions = (output: any, context: __SerdeContext): SegmentDimensions[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1EndpointResponse(entry, context);
+      return de_SegmentDimensions(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfExportJobResponse = (output: any, context: __SerdeContext): ExportJobResponse[] => {
+/**
+ * deserializeAws_restJson1ListOfSegmentGroup
+ */
+const de_ListOfSegmentGroup = (output: any, context: __SerdeContext): SegmentGroup[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ExportJobResponse(entry, context);
+      return de_SegmentGroup(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfImportJobResponse = (output: any, context: __SerdeContext): ImportJobResponse[] => {
+// de_ListOfSegmentReference omitted.
+
+/**
+ * deserializeAws_restJson1ListOfSegmentResponse
+ */
+const de_ListOfSegmentResponse = (output: any, context: __SerdeContext): SegmentResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ImportJobResponse(entry, context);
+      return de_SegmentResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfInAppMessageCampaign = (
-  output: any,
-  context: __SerdeContext
-): InAppMessageCampaign[] => {
+/**
+ * deserializeAws_restJson1ListOfSimpleCondition
+ */
+const de_ListOfSimpleCondition = (output: any, context: __SerdeContext): SimpleCondition[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1InAppMessageCampaign(entry, context);
+      return de_SimpleCondition(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfInAppMessageContent = (
-  output: any,
-  context: __SerdeContext
-): InAppMessageContent[] => {
+/**
+ * deserializeAws_restJson1ListOfTemplateResponse
+ */
+const de_ListOfTemplateResponse = (output: any, context: __SerdeContext): TemplateResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1InAppMessageContent(entry, context);
+      return de_TemplateResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfJourneyResponse = (output: any, context: __SerdeContext): JourneyResponse[] => {
+// de_ListOfTemplateVersionResponse omitted.
+
+/**
+ * deserializeAws_restJson1ListOfTreatmentResource
+ */
+const de_ListOfTreatmentResource = (output: any, context: __SerdeContext): TreatmentResource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1JourneyResponse(entry, context);
+      return de_TreatmentResource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfMultiConditionalBranch = (
-  output: any,
-  context: __SerdeContext
-): MultiConditionalBranch[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1MultiConditionalBranch(entry, context);
-    });
-  return retVal;
-};
+// de_ListRecommenderConfigurationsResponse omitted.
 
-const deserializeAws_restJson1ListOfOpenHoursRules = (output: any, context: __SerdeContext): OpenHoursRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1OpenHoursRule(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfRandomSplitEntry = (output: any, context: __SerdeContext): RandomSplitEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RandomSplitEntry(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfRecommenderConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): RecommenderConfigurationResponse[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RecommenderConfigurationResponse(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfResultRow = (output: any, context: __SerdeContext): ResultRow[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ResultRow(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfResultRowValue = (output: any, context: __SerdeContext): ResultRowValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ResultRowValue(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfSegmentDimensions = (output: any, context: __SerdeContext): SegmentDimensions[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SegmentDimensions(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfSegmentGroup = (output: any, context: __SerdeContext): SegmentGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SegmentGroup(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfSegmentReference = (output: any, context: __SerdeContext): SegmentReference[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SegmentReference(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfSegmentResponse = (output: any, context: __SerdeContext): SegmentResponse[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SegmentResponse(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfSimpleCondition = (output: any, context: __SerdeContext): SimpleCondition[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SimpleCondition(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfTemplateResponse = (output: any, context: __SerdeContext): TemplateResponse[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TemplateResponse(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfTemplateVersionResponse = (
-  output: any,
-  context: __SerdeContext
-): TemplateVersionResponse[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TemplateVersionResponse(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfTreatmentResource = (output: any, context: __SerdeContext): TreatmentResource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TreatmentResource(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListRecommenderConfigurationsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListRecommenderConfigurationsResponse => {
-  return {
-    Item:
-      output.Item != null
-        ? deserializeAws_restJson1ListOfRecommenderConfigurationResponse(output.Item, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_restJson1MapOf__double = (output: any, context: __SerdeContext): Record<string, number> => {
+/**
+ * deserializeAws_restJson1MapOf__double
+ */
+const de_MapOf__double = (output: any, context: __SerdeContext): Record<string, number> => {
   return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -14494,825 +13779,385 @@ const deserializeAws_restJson1MapOf__double = (output: any, context: __SerdeCont
   }, {});
 };
 
-const deserializeAws_restJson1MapOf__integer = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
-};
+// de_MapOf__integer omitted.
 
-const deserializeAws_restJson1MapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_MapOf__string omitted.
 
-const deserializeAws_restJson1MapOfActivity = (output: any, context: __SerdeContext): Record<string, Activity> => {
+/**
+ * deserializeAws_restJson1MapOfActivity
+ */
+const de_MapOfActivity = (output: any, context: __SerdeContext): Record<string, Activity> => {
   return Object.entries(output).reduce((acc: Record<string, Activity>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1Activity(value, context);
+    acc[key] = de_Activity(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1MapOfAttributeDimension = (
-  output: any,
-  context: __SerdeContext
-): Record<string, AttributeDimension> => {
-  return Object.entries(output).reduce((acc: Record<string, AttributeDimension>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1AttributeDimension(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfAttributeDimension omitted.
 
-const deserializeAws_restJson1MapOfChannelResponse = (
-  output: any,
-  context: __SerdeContext
-): Record<string, ChannelResponse> => {
-  return Object.entries(output).reduce((acc: Record<string, ChannelResponse>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1ChannelResponse(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfChannelResponse omitted.
 
-const deserializeAws_restJson1MapOfEndpointMessageResult = (
-  output: any,
-  context: __SerdeContext
-): Record<string, EndpointMessageResult> => {
-  return Object.entries(output).reduce((acc: Record<string, EndpointMessageResult>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1EndpointMessageResult(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfEndpointMessageResult omitted.
 
-const deserializeAws_restJson1MapOfEventItemResponse = (
-  output: any,
-  context: __SerdeContext
-): Record<string, EventItemResponse> => {
-  return Object.entries(output).reduce((acc: Record<string, EventItemResponse>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1EventItemResponse(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfEventItemResponse omitted.
 
-const deserializeAws_restJson1MapOfItemResponse = (
-  output: any,
-  context: __SerdeContext
-): Record<string, ItemResponse> => {
-  return Object.entries(output).reduce((acc: Record<string, ItemResponse>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1ItemResponse(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfItemResponse omitted.
 
-const deserializeAws_restJson1MapOfListOf__string = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1ListOf__string(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfListOf__string omitted.
 
-const deserializeAws_restJson1MapOfListOfOpenHoursRules = (
-  output: any,
-  context: __SerdeContext
-): Record<string, OpenHoursRule[]> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, OpenHoursRule[]>, [key, value]: [DayOfWeek | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = deserializeAws_restJson1ListOfOpenHoursRules(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_MapOfListOfOpenHoursRules omitted.
 
-const deserializeAws_restJson1MapOfMapOfEndpointMessageResult = (
-  output: any,
-  context: __SerdeContext
-): Record<string, Record<string, EndpointMessageResult>> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, Record<string, EndpointMessageResult>>, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = deserializeAws_restJson1MapOfEndpointMessageResult(value, context);
-      return acc;
-    },
-    {}
-  );
-};
+// de_MapOfMapOfEndpointMessageResult omitted.
 
-const deserializeAws_restJson1MapOfMessageResult = (
-  output: any,
-  context: __SerdeContext
-): Record<string, MessageResult> => {
-  return Object.entries(output).reduce((acc: Record<string, MessageResult>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1MessageResult(value, context);
-    return acc;
-  }, {});
-};
+// de_MapOfMessageResult omitted.
 
-const deserializeAws_restJson1MapOfMetricDimension = (
-  output: any,
-  context: __SerdeContext
-): Record<string, MetricDimension> => {
+/**
+ * deserializeAws_restJson1MapOfMetricDimension
+ */
+const de_MapOfMetricDimension = (output: any, context: __SerdeContext): Record<string, MetricDimension> => {
   return Object.entries(output).reduce((acc: Record<string, MetricDimension>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1MetricDimension(value, context);
+    acc[key] = de_MetricDimension(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1Message = (output: any, context: __SerdeContext): Message => {
-  return {
-    Action: __expectString(output.Action),
-    Body: __expectString(output.Body),
-    ImageIconUrl: __expectString(output.ImageIconUrl),
-    ImageSmallIconUrl: __expectString(output.ImageSmallIconUrl),
-    ImageUrl: __expectString(output.ImageUrl),
-    JsonBody: __expectString(output.JsonBody),
-    MediaUrl: __expectString(output.MediaUrl),
-    RawContent: __expectString(output.RawContent),
-    SilentPush: __expectBoolean(output.SilentPush),
-    TimeToLive: __expectInt32(output.TimeToLive),
-    Title: __expectString(output.Title),
-    Url: __expectString(output.Url),
-  } as any;
+// de_Message omitted.
+
+// de_MessageBody omitted.
+
+// de_MessageConfiguration omitted.
+
+// de_MessageResponse omitted.
+
+// de_MessageResult omitted.
+
+/**
+ * deserializeAws_restJson1MetricDimension
+ */
+const de_MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
+  return take(output, {
+    ComparisonOperator: __expectString,
+    Value: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_restJson1MessageBody = (output: any, context: __SerdeContext): MessageBody => {
-  return {
-    Message: __expectString(output.Message),
-    RequestID: __expectString(output.RequestID),
-  } as any;
+/**
+ * deserializeAws_restJson1MultiConditionalBranch
+ */
+const de_MultiConditionalBranch = (output: any, context: __SerdeContext): MultiConditionalBranch => {
+  return take(output, {
+    Condition: (_: any) => de_SimpleCondition(_, context),
+    NextActivity: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1MessageConfiguration = (output: any, context: __SerdeContext): MessageConfiguration => {
-  return {
-    ADMMessage: output.ADMMessage != null ? deserializeAws_restJson1Message(output.ADMMessage, context) : undefined,
-    APNSMessage: output.APNSMessage != null ? deserializeAws_restJson1Message(output.APNSMessage, context) : undefined,
-    BaiduMessage:
-      output.BaiduMessage != null ? deserializeAws_restJson1Message(output.BaiduMessage, context) : undefined,
-    CustomMessage:
-      output.CustomMessage != null
-        ? deserializeAws_restJson1CampaignCustomMessage(output.CustomMessage, context)
-        : undefined,
-    DefaultMessage:
-      output.DefaultMessage != null ? deserializeAws_restJson1Message(output.DefaultMessage, context) : undefined,
-    EmailMessage:
-      output.EmailMessage != null
-        ? deserializeAws_restJson1CampaignEmailMessage(output.EmailMessage, context)
-        : undefined,
-    GCMMessage: output.GCMMessage != null ? deserializeAws_restJson1Message(output.GCMMessage, context) : undefined,
-    InAppMessage:
-      output.InAppMessage != null
-        ? deserializeAws_restJson1CampaignInAppMessage(output.InAppMessage, context)
-        : undefined,
-    SMSMessage:
-      output.SMSMessage != null ? deserializeAws_restJson1CampaignSmsMessage(output.SMSMessage, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1MultiConditionalSplitActivity
+ */
+const de_MultiConditionalSplitActivity = (output: any, context: __SerdeContext): MultiConditionalSplitActivity => {
+  return take(output, {
+    Branches: (_: any) => de_ListOfMultiConditionalBranch(_, context),
+    DefaultActivity: __expectString,
+    EvaluationWaitTime: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1MessageResponse = (output: any, context: __SerdeContext): MessageResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    EndpointResult:
-      output.EndpointResult != null
-        ? deserializeAws_restJson1MapOfEndpointMessageResult(output.EndpointResult, context)
-        : undefined,
-    RequestId: __expectString(output.RequestId),
-    Result: output.Result != null ? deserializeAws_restJson1MapOfMessageResult(output.Result, context) : undefined,
-  } as any;
-};
+// de_NumberValidateResponse omitted.
 
-const deserializeAws_restJson1MessageResult = (output: any, context: __SerdeContext): MessageResult => {
-  return {
-    DeliveryStatus: __expectString(output.DeliveryStatus),
-    MessageId: __expectString(output.MessageId),
-    StatusCode: __expectInt32(output.StatusCode),
-    StatusMessage: __expectString(output.StatusMessage),
-    UpdatedToken: __expectString(output.UpdatedToken),
-  } as any;
-};
+// de_OpenHours omitted.
 
-const deserializeAws_restJson1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
-  return {
-    ComparisonOperator: __expectString(output.ComparisonOperator),
-    Value: __limitedParseDouble(output.Value),
-  } as any;
-};
+// de_OpenHoursRule omitted.
 
-const deserializeAws_restJson1MultiConditionalBranch = (
-  output: any,
-  context: __SerdeContext
-): MultiConditionalBranch => {
-  return {
-    Condition:
-      output.Condition != null ? deserializeAws_restJson1SimpleCondition(output.Condition, context) : undefined,
-    NextActivity: __expectString(output.NextActivity),
-  } as any;
-};
+// de_OverrideButtonConfiguration omitted.
 
-const deserializeAws_restJson1MultiConditionalSplitActivity = (
-  output: any,
-  context: __SerdeContext
-): MultiConditionalSplitActivity => {
-  return {
-    Branches:
-      output.Branches != null
-        ? deserializeAws_restJson1ListOfMultiConditionalBranch(output.Branches, context)
-        : undefined,
-    DefaultActivity: __expectString(output.DefaultActivity),
-    EvaluationWaitTime:
-      output.EvaluationWaitTime != null
-        ? deserializeAws_restJson1WaitTime(output.EvaluationWaitTime, context)
-        : undefined,
-  } as any;
-};
+// de_PushMessageActivity omitted.
 
-const deserializeAws_restJson1NumberValidateResponse = (
-  output: any,
-  context: __SerdeContext
-): NumberValidateResponse => {
-  return {
-    Carrier: __expectString(output.Carrier),
-    City: __expectString(output.City),
-    CleansedPhoneNumberE164: __expectString(output.CleansedPhoneNumberE164),
-    CleansedPhoneNumberNational: __expectString(output.CleansedPhoneNumberNational),
-    Country: __expectString(output.Country),
-    CountryCodeIso2: __expectString(output.CountryCodeIso2),
-    CountryCodeNumeric: __expectString(output.CountryCodeNumeric),
-    County: __expectString(output.County),
-    OriginalCountryCodeIso2: __expectString(output.OriginalCountryCodeIso2),
-    OriginalPhoneNumber: __expectString(output.OriginalPhoneNumber),
-    PhoneType: __expectString(output.PhoneType),
-    PhoneTypeCode: __expectInt32(output.PhoneTypeCode),
-    Timezone: __expectString(output.Timezone),
-    ZipCode: __expectString(output.ZipCode),
-  } as any;
-};
-
-const deserializeAws_restJson1OpenHours = (output: any, context: __SerdeContext): OpenHours => {
-  return {
-    CUSTOM:
-      output.CUSTOM != null ? deserializeAws_restJson1MapOfListOfOpenHoursRules(output.CUSTOM, context) : undefined,
-    EMAIL: output.EMAIL != null ? deserializeAws_restJson1MapOfListOfOpenHoursRules(output.EMAIL, context) : undefined,
-    PUSH: output.PUSH != null ? deserializeAws_restJson1MapOfListOfOpenHoursRules(output.PUSH, context) : undefined,
-    SMS: output.SMS != null ? deserializeAws_restJson1MapOfListOfOpenHoursRules(output.SMS, context) : undefined,
-    VOICE: output.VOICE != null ? deserializeAws_restJson1MapOfListOfOpenHoursRules(output.VOICE, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1OpenHoursRule = (output: any, context: __SerdeContext): OpenHoursRule => {
-  return {
-    EndTime: __expectString(output.EndTime),
-    StartTime: __expectString(output.StartTime),
-  } as any;
-};
-
-const deserializeAws_restJson1OverrideButtonConfiguration = (
-  output: any,
-  context: __SerdeContext
-): OverrideButtonConfiguration => {
-  return {
-    ButtonAction: __expectString(output.ButtonAction),
-    Link: __expectString(output.Link),
-  } as any;
-};
-
-const deserializeAws_restJson1PushMessageActivity = (output: any, context: __SerdeContext): PushMessageActivity => {
-  return {
-    MessageConfig:
-      output.MessageConfig != null
-        ? deserializeAws_restJson1JourneyPushMessage(output.MessageConfig, context)
-        : undefined,
-    NextActivity: __expectString(output.NextActivity),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateVersion: __expectString(output.TemplateVersion),
-  } as any;
-};
-
-const deserializeAws_restJson1PushNotificationTemplateResponse = (
+/**
+ * deserializeAws_restJson1PushNotificationTemplateResponse
+ */
+const de_PushNotificationTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): PushNotificationTemplateResponse => {
-  return {
-    ADM: output.ADM != null ? deserializeAws_restJson1AndroidPushNotificationTemplate(output.ADM, context) : undefined,
-    APNS: output.APNS != null ? deserializeAws_restJson1APNSPushNotificationTemplate(output.APNS, context) : undefined,
-    Arn: __expectString(output.Arn),
-    Baidu:
-      output.Baidu != null ? deserializeAws_restJson1AndroidPushNotificationTemplate(output.Baidu, context) : undefined,
-    CreationDate: __expectString(output.CreationDate),
-    Default:
-      output.Default != null
-        ? deserializeAws_restJson1DefaultPushNotificationTemplate(output.Default, context)
-        : undefined,
-    DefaultSubstitutions: __expectString(output.DefaultSubstitutions),
-    GCM: output.GCM != null ? deserializeAws_restJson1AndroidPushNotificationTemplate(output.GCM, context) : undefined,
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    RecommenderId: __expectString(output.RecommenderId),
-    TemplateDescription: __expectString(output.TemplateDescription),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateType: __expectString(output.TemplateType),
-    Version: __expectString(output.Version),
-    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
-  } as any;
+  return take(output, {
+    ADM: _json,
+    APNS: _json,
+    Arn: __expectString,
+    Baidu: _json,
+    CreationDate: __expectString,
+    Default: _json,
+    DefaultSubstitutions: __expectString,
+    GCM: _json,
+    LastModifiedDate: __expectString,
+    RecommenderId: __expectString,
+    TemplateDescription: __expectString,
+    TemplateName: __expectString,
+    TemplateType: __expectString,
+    Version: __expectString,
+    tags: [, _json, `tags`],
+  }) as any;
 };
 
-const deserializeAws_restJson1QuietTime = (output: any, context: __SerdeContext): QuietTime => {
-  return {
-    End: __expectString(output.End),
-    Start: __expectString(output.Start),
-  } as any;
+// de_QuietTime omitted.
+
+// de_RandomSplitActivity omitted.
+
+// de_RandomSplitEntry omitted.
+
+// de_RecencyDimension omitted.
+
+// de_RecommenderConfigurationResponse omitted.
+
+// de_ResultRow omitted.
+
+// de_ResultRowValue omitted.
+
+/**
+ * deserializeAws_restJson1Schedule
+ */
+const de_Schedule = (output: any, context: __SerdeContext): Schedule => {
+  return take(output, {
+    EndTime: __expectString,
+    EventFilter: (_: any) => de_CampaignEventFilter(_, context),
+    Frequency: __expectString,
+    IsLocalTime: __expectBoolean,
+    QuietTime: _json,
+    StartTime: __expectString,
+    Timezone: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1RandomSplitActivity = (output: any, context: __SerdeContext): RandomSplitActivity => {
-  return {
-    Branches:
-      output.Branches != null ? deserializeAws_restJson1ListOfRandomSplitEntry(output.Branches, context) : undefined,
-  } as any;
+// de_SegmentBehaviors omitted.
+
+// de_SegmentCondition omitted.
+
+// de_SegmentDemographics omitted.
+
+/**
+ * deserializeAws_restJson1SegmentDimensions
+ */
+const de_SegmentDimensions = (output: any, context: __SerdeContext): SegmentDimensions => {
+  return take(output, {
+    Attributes: _json,
+    Behavior: _json,
+    Demographic: _json,
+    Location: (_: any) => de_SegmentLocation(_, context),
+    Metrics: (_: any) => de_MapOfMetricDimension(_, context),
+    UserAttributes: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1RandomSplitEntry = (output: any, context: __SerdeContext): RandomSplitEntry => {
-  return {
-    NextActivity: __expectString(output.NextActivity),
-    Percentage: __expectInt32(output.Percentage),
-  } as any;
+/**
+ * deserializeAws_restJson1SegmentGroup
+ */
+const de_SegmentGroup = (output: any, context: __SerdeContext): SegmentGroup => {
+  return take(output, {
+    Dimensions: (_: any) => de_ListOfSegmentDimensions(_, context),
+    SourceSegments: _json,
+    SourceType: __expectString,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1RecencyDimension = (output: any, context: __SerdeContext): RecencyDimension => {
-  return {
-    Duration: __expectString(output.Duration),
-    RecencyType: __expectString(output.RecencyType),
-  } as any;
+/**
+ * deserializeAws_restJson1SegmentGroupList
+ */
+const de_SegmentGroupList = (output: any, context: __SerdeContext): SegmentGroupList => {
+  return take(output, {
+    Groups: (_: any) => de_ListOfSegmentGroup(_, context),
+    Include: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1RecommenderConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): RecommenderConfigurationResponse => {
-  return {
-    Attributes:
-      output.Attributes != null ? deserializeAws_restJson1MapOf__string(output.Attributes, context) : undefined,
-    CreationDate: __expectString(output.CreationDate),
-    Description: __expectString(output.Description),
-    Id: __expectString(output.Id),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Name: __expectString(output.Name),
-    RecommendationProviderIdType: __expectString(output.RecommendationProviderIdType),
-    RecommendationProviderRoleArn: __expectString(output.RecommendationProviderRoleArn),
-    RecommendationProviderUri: __expectString(output.RecommendationProviderUri),
-    RecommendationTransformerUri: __expectString(output.RecommendationTransformerUri),
-    RecommendationsDisplayName: __expectString(output.RecommendationsDisplayName),
-    RecommendationsPerMessage: __expectInt32(output.RecommendationsPerMessage),
-  } as any;
+// de_SegmentImportResource omitted.
+
+/**
+ * deserializeAws_restJson1SegmentLocation
+ */
+const de_SegmentLocation = (output: any, context: __SerdeContext): SegmentLocation => {
+  return take(output, {
+    Country: _json,
+    GPSPoint: (_: any) => de_GPSPointDimension(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1ResultRow = (output: any, context: __SerdeContext): ResultRow => {
-  return {
-    GroupedBys:
-      output.GroupedBys != null ? deserializeAws_restJson1ListOfResultRowValue(output.GroupedBys, context) : undefined,
-    Values: output.Values != null ? deserializeAws_restJson1ListOfResultRowValue(output.Values, context) : undefined,
-  } as any;
+// de_SegmentReference omitted.
+
+/**
+ * deserializeAws_restJson1SegmentResponse
+ */
+const de_SegmentResponse = (output: any, context: __SerdeContext): SegmentResponse => {
+  return take(output, {
+    ApplicationId: __expectString,
+    Arn: __expectString,
+    CreationDate: __expectString,
+    Dimensions: (_: any) => de_SegmentDimensions(_, context),
+    Id: __expectString,
+    ImportDefinition: _json,
+    LastModifiedDate: __expectString,
+    Name: __expectString,
+    SegmentGroups: (_: any) => de_SegmentGroupList(_, context),
+    SegmentType: __expectString,
+    Version: __expectInt32,
+    tags: [, _json, `tags`],
+  }) as any;
 };
 
-const deserializeAws_restJson1ResultRowValue = (output: any, context: __SerdeContext): ResultRowValue => {
-  return {
-    Key: __expectString(output.Key),
-    Type: __expectString(output.Type),
-    Value: __expectString(output.Value),
-  } as any;
+/**
+ * deserializeAws_restJson1SegmentsResponse
+ */
+const de_SegmentsResponse = (output: any, context: __SerdeContext): SegmentsResponse => {
+  return take(output, {
+    Item: (_: any) => de_ListOfSegmentResponse(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext): Schedule => {
-  return {
-    EndTime: __expectString(output.EndTime),
-    EventFilter:
-      output.EventFilter != null ? deserializeAws_restJson1CampaignEventFilter(output.EventFilter, context) : undefined,
-    Frequency: __expectString(output.Frequency),
-    IsLocalTime: __expectBoolean(output.IsLocalTime),
-    QuietTime: output.QuietTime != null ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
-    StartTime: __expectString(output.StartTime),
-    Timezone: __expectString(output.Timezone),
-  } as any;
+// de_SendUsersMessageResponse omitted.
+
+// de_SetDimension omitted.
+
+/**
+ * deserializeAws_restJson1SimpleCondition
+ */
+const de_SimpleCondition = (output: any, context: __SerdeContext): SimpleCondition => {
+  return take(output, {
+    EventCondition: (_: any) => de_EventCondition(_, context),
+    SegmentCondition: _json,
+    SegmentDimensions: (_) => [, de_SegmentDimensions(_, context), `segmentDimensions`],
+  }) as any;
 };
 
-const deserializeAws_restJson1SegmentBehaviors = (output: any, context: __SerdeContext): SegmentBehaviors => {
-  return {
-    Recency: output.Recency != null ? deserializeAws_restJson1RecencyDimension(output.Recency, context) : undefined,
-  } as any;
+// de_SMSChannelResponse omitted.
+
+// de_SMSMessageActivity omitted.
+
+/**
+ * deserializeAws_restJson1SMSTemplateResponse
+ */
+const de_SMSTemplateResponse = (output: any, context: __SerdeContext): SMSTemplateResponse => {
+  return take(output, {
+    Arn: __expectString,
+    Body: __expectString,
+    CreationDate: __expectString,
+    DefaultSubstitutions: __expectString,
+    LastModifiedDate: __expectString,
+    RecommenderId: __expectString,
+    TemplateDescription: __expectString,
+    TemplateName: __expectString,
+    TemplateType: __expectString,
+    Version: __expectString,
+    tags: [, _json, `tags`],
+  }) as any;
 };
 
-const deserializeAws_restJson1SegmentCondition = (output: any, context: __SerdeContext): SegmentCondition => {
-  return {
-    SegmentId: __expectString(output.SegmentId),
-  } as any;
+/**
+ * deserializeAws_restJson1StartCondition
+ */
+const de_StartCondition = (output: any, context: __SerdeContext): StartCondition => {
+  return take(output, {
+    Description: __expectString,
+    EventStartCondition: (_: any) => de_EventStartCondition(_, context),
+    SegmentStartCondition: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1SegmentDemographics = (output: any, context: __SerdeContext): SegmentDemographics => {
-  return {
-    AppVersion:
-      output.AppVersion != null ? deserializeAws_restJson1SetDimension(output.AppVersion, context) : undefined,
-    Channel: output.Channel != null ? deserializeAws_restJson1SetDimension(output.Channel, context) : undefined,
-    DeviceType:
-      output.DeviceType != null ? deserializeAws_restJson1SetDimension(output.DeviceType, context) : undefined,
-    Make: output.Make != null ? deserializeAws_restJson1SetDimension(output.Make, context) : undefined,
-    Model: output.Model != null ? deserializeAws_restJson1SetDimension(output.Model, context) : undefined,
-    Platform: output.Platform != null ? deserializeAws_restJson1SetDimension(output.Platform, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1TagsModel
+ */
+const de_TagsModel = (output: any, context: __SerdeContext): TagsModel => {
+  return take(output, {
+    tags: [, _json, `tags`],
+  }) as any;
 };
 
-const deserializeAws_restJson1SegmentDimensions = (output: any, context: __SerdeContext): SegmentDimensions => {
-  return {
-    Attributes:
-      output.Attributes != null
-        ? deserializeAws_restJson1MapOfAttributeDimension(output.Attributes, context)
-        : undefined,
-    Behavior: output.Behavior != null ? deserializeAws_restJson1SegmentBehaviors(output.Behavior, context) : undefined,
-    Demographic:
-      output.Demographic != null ? deserializeAws_restJson1SegmentDemographics(output.Demographic, context) : undefined,
-    Location: output.Location != null ? deserializeAws_restJson1SegmentLocation(output.Location, context) : undefined,
-    Metrics: output.Metrics != null ? deserializeAws_restJson1MapOfMetricDimension(output.Metrics, context) : undefined,
-    UserAttributes:
-      output.UserAttributes != null
-        ? deserializeAws_restJson1MapOfAttributeDimension(output.UserAttributes, context)
-        : undefined,
-  } as any;
+// de_Template omitted.
+
+// de_TemplateConfiguration omitted.
+
+// de_TemplateCreateMessageBody omitted.
+
+/**
+ * deserializeAws_restJson1TemplateResponse
+ */
+const de_TemplateResponse = (output: any, context: __SerdeContext): TemplateResponse => {
+  return take(output, {
+    Arn: __expectString,
+    CreationDate: __expectString,
+    DefaultSubstitutions: __expectString,
+    LastModifiedDate: __expectString,
+    TemplateDescription: __expectString,
+    TemplateName: __expectString,
+    TemplateType: __expectString,
+    Version: __expectString,
+    tags: [, _json, `tags`],
+  }) as any;
 };
 
-const deserializeAws_restJson1SegmentGroup = (output: any, context: __SerdeContext): SegmentGroup => {
-  return {
-    Dimensions:
-      output.Dimensions != null
-        ? deserializeAws_restJson1ListOfSegmentDimensions(output.Dimensions, context)
-        : undefined,
-    SourceSegments:
-      output.SourceSegments != null
-        ? deserializeAws_restJson1ListOfSegmentReference(output.SourceSegments, context)
-        : undefined,
-    SourceType: __expectString(output.SourceType),
-    Type: __expectString(output.Type),
-  } as any;
+/**
+ * deserializeAws_restJson1TemplatesResponse
+ */
+const de_TemplatesResponse = (output: any, context: __SerdeContext): TemplatesResponse => {
+  return take(output, {
+    Item: (_: any) => de_ListOfTemplateResponse(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1SegmentGroupList = (output: any, context: __SerdeContext): SegmentGroupList => {
-  return {
-    Groups: output.Groups != null ? deserializeAws_restJson1ListOfSegmentGroup(output.Groups, context) : undefined,
-    Include: __expectString(output.Include),
-  } as any;
+// de_TemplateVersionResponse omitted.
+
+// de_TemplateVersionsResponse omitted.
+
+/**
+ * deserializeAws_restJson1TreatmentResource
+ */
+const de_TreatmentResource = (output: any, context: __SerdeContext): TreatmentResource => {
+  return take(output, {
+    CustomDeliveryConfiguration: _json,
+    Id: __expectString,
+    MessageConfiguration: _json,
+    Schedule: (_: any) => de_Schedule(_, context),
+    SizePercent: __expectInt32,
+    State: _json,
+    TemplateConfiguration: _json,
+    TreatmentDescription: __expectString,
+    TreatmentName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1SegmentImportResource = (output: any, context: __SerdeContext): SegmentImportResource => {
-  return {
-    ChannelCounts:
-      output.ChannelCounts != null ? deserializeAws_restJson1MapOf__integer(output.ChannelCounts, context) : undefined,
-    ExternalId: __expectString(output.ExternalId),
-    Format: __expectString(output.Format),
-    RoleArn: __expectString(output.RoleArn),
-    S3Url: __expectString(output.S3Url),
-    Size: __expectInt32(output.Size),
-  } as any;
+// de_VerificationResponse omitted.
+
+// de_VoiceChannelResponse omitted.
+
+/**
+ * deserializeAws_restJson1VoiceTemplateResponse
+ */
+const de_VoiceTemplateResponse = (output: any, context: __SerdeContext): VoiceTemplateResponse => {
+  return take(output, {
+    Arn: __expectString,
+    Body: __expectString,
+    CreationDate: __expectString,
+    DefaultSubstitutions: __expectString,
+    LanguageCode: __expectString,
+    LastModifiedDate: __expectString,
+    TemplateDescription: __expectString,
+    TemplateName: __expectString,
+    TemplateType: __expectString,
+    Version: __expectString,
+    VoiceId: __expectString,
+    tags: [, _json, `tags`],
+  }) as any;
 };
 
-const deserializeAws_restJson1SegmentLocation = (output: any, context: __SerdeContext): SegmentLocation => {
-  return {
-    Country: output.Country != null ? deserializeAws_restJson1SetDimension(output.Country, context) : undefined,
-    GPSPoint: output.GPSPoint != null ? deserializeAws_restJson1GPSPointDimension(output.GPSPoint, context) : undefined,
-  } as any;
-};
+// de_WaitActivity omitted.
 
-const deserializeAws_restJson1SegmentReference = (output: any, context: __SerdeContext): SegmentReference => {
-  return {
-    Id: __expectString(output.Id),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1SegmentResponse = (output: any, context: __SerdeContext): SegmentResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    Arn: __expectString(output.Arn),
-    CreationDate: __expectString(output.CreationDate),
-    Dimensions:
-      output.Dimensions != null ? deserializeAws_restJson1SegmentDimensions(output.Dimensions, context) : undefined,
-    Id: __expectString(output.Id),
-    ImportDefinition:
-      output.ImportDefinition != null
-        ? deserializeAws_restJson1SegmentImportResource(output.ImportDefinition, context)
-        : undefined,
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Name: __expectString(output.Name),
-    SegmentGroups:
-      output.SegmentGroups != null
-        ? deserializeAws_restJson1SegmentGroupList(output.SegmentGroups, context)
-        : undefined,
-    SegmentType: __expectString(output.SegmentType),
-    Version: __expectInt32(output.Version),
-    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SegmentsResponse = (output: any, context: __SerdeContext): SegmentsResponse => {
-  return {
-    Item: output.Item != null ? deserializeAws_restJson1ListOfSegmentResponse(output.Item, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_restJson1SendUsersMessageResponse = (
-  output: any,
-  context: __SerdeContext
-): SendUsersMessageResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    RequestId: __expectString(output.RequestId),
-    Result:
-      output.Result != null
-        ? deserializeAws_restJson1MapOfMapOfEndpointMessageResult(output.Result, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SetDimension = (output: any, context: __SerdeContext): SetDimension => {
-  return {
-    DimensionType: __expectString(output.DimensionType),
-    Values: output.Values != null ? deserializeAws_restJson1ListOf__string(output.Values, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SimpleCondition = (output: any, context: __SerdeContext): SimpleCondition => {
-  return {
-    EventCondition:
-      output.EventCondition != null
-        ? deserializeAws_restJson1EventCondition(output.EventCondition, context)
-        : undefined,
-    SegmentCondition:
-      output.SegmentCondition != null
-        ? deserializeAws_restJson1SegmentCondition(output.SegmentCondition, context)
-        : undefined,
-    SegmentDimensions:
-      output.segmentDimensions != null
-        ? deserializeAws_restJson1SegmentDimensions(output.segmentDimensions, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SMSChannelResponse = (output: any, context: __SerdeContext): SMSChannelResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CreationDate: __expectString(output.CreationDate),
-    Enabled: __expectBoolean(output.Enabled),
-    HasCredential: __expectBoolean(output.HasCredential),
-    Id: __expectString(output.Id),
-    IsArchived: __expectBoolean(output.IsArchived),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Platform: __expectString(output.Platform),
-    PromotionalMessagesPerSecond: __expectInt32(output.PromotionalMessagesPerSecond),
-    SenderId: __expectString(output.SenderId),
-    ShortCode: __expectString(output.ShortCode),
-    TransactionalMessagesPerSecond: __expectInt32(output.TransactionalMessagesPerSecond),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1SMSMessageActivity = (output: any, context: __SerdeContext): SMSMessageActivity => {
-  return {
-    MessageConfig:
-      output.MessageConfig != null
-        ? deserializeAws_restJson1JourneySMSMessage(output.MessageConfig, context)
-        : undefined,
-    NextActivity: __expectString(output.NextActivity),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateVersion: __expectString(output.TemplateVersion),
-  } as any;
-};
-
-const deserializeAws_restJson1SMSTemplateResponse = (output: any, context: __SerdeContext): SMSTemplateResponse => {
-  return {
-    Arn: __expectString(output.Arn),
-    Body: __expectString(output.Body),
-    CreationDate: __expectString(output.CreationDate),
-    DefaultSubstitutions: __expectString(output.DefaultSubstitutions),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    RecommenderId: __expectString(output.RecommenderId),
-    TemplateDescription: __expectString(output.TemplateDescription),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateType: __expectString(output.TemplateType),
-    Version: __expectString(output.Version),
-    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1StartCondition = (output: any, context: __SerdeContext): StartCondition => {
-  return {
-    Description: __expectString(output.Description),
-    EventStartCondition:
-      output.EventStartCondition != null
-        ? deserializeAws_restJson1EventStartCondition(output.EventStartCondition, context)
-        : undefined,
-    SegmentStartCondition:
-      output.SegmentStartCondition != null
-        ? deserializeAws_restJson1SegmentCondition(output.SegmentStartCondition, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TagsModel = (output: any, context: __SerdeContext): TagsModel => {
-  return {
-    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Template = (output: any, context: __SerdeContext): Template => {
-  return {
-    Name: __expectString(output.Name),
-    Version: __expectString(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1TemplateConfiguration = (output: any, context: __SerdeContext): TemplateConfiguration => {
-  return {
-    EmailTemplate:
-      output.EmailTemplate != null ? deserializeAws_restJson1Template(output.EmailTemplate, context) : undefined,
-    PushTemplate:
-      output.PushTemplate != null ? deserializeAws_restJson1Template(output.PushTemplate, context) : undefined,
-    SMSTemplate: output.SMSTemplate != null ? deserializeAws_restJson1Template(output.SMSTemplate, context) : undefined,
-    VoiceTemplate:
-      output.VoiceTemplate != null ? deserializeAws_restJson1Template(output.VoiceTemplate, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TemplateCreateMessageBody = (
-  output: any,
-  context: __SerdeContext
-): TemplateCreateMessageBody => {
-  return {
-    Arn: __expectString(output.Arn),
-    Message: __expectString(output.Message),
-    RequestID: __expectString(output.RequestID),
-  } as any;
-};
-
-const deserializeAws_restJson1TemplateResponse = (output: any, context: __SerdeContext): TemplateResponse => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationDate: __expectString(output.CreationDate),
-    DefaultSubstitutions: __expectString(output.DefaultSubstitutions),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    TemplateDescription: __expectString(output.TemplateDescription),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateType: __expectString(output.TemplateType),
-    Version: __expectString(output.Version),
-    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TemplatesResponse = (output: any, context: __SerdeContext): TemplatesResponse => {
-  return {
-    Item: output.Item != null ? deserializeAws_restJson1ListOfTemplateResponse(output.Item, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_restJson1TemplateVersionResponse = (
-  output: any,
-  context: __SerdeContext
-): TemplateVersionResponse => {
-  return {
-    CreationDate: __expectString(output.CreationDate),
-    DefaultSubstitutions: __expectString(output.DefaultSubstitutions),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    TemplateDescription: __expectString(output.TemplateDescription),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateType: __expectString(output.TemplateType),
-    Version: __expectString(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1TemplateVersionsResponse = (
-  output: any,
-  context: __SerdeContext
-): TemplateVersionsResponse => {
-  return {
-    Item: output.Item != null ? deserializeAws_restJson1ListOfTemplateVersionResponse(output.Item, context) : undefined,
-    Message: __expectString(output.Message),
-    NextToken: __expectString(output.NextToken),
-    RequestID: __expectString(output.RequestID),
-  } as any;
-};
-
-const deserializeAws_restJson1TreatmentResource = (output: any, context: __SerdeContext): TreatmentResource => {
-  return {
-    CustomDeliveryConfiguration:
-      output.CustomDeliveryConfiguration != null
-        ? deserializeAws_restJson1CustomDeliveryConfiguration(output.CustomDeliveryConfiguration, context)
-        : undefined,
-    Id: __expectString(output.Id),
-    MessageConfiguration:
-      output.MessageConfiguration != null
-        ? deserializeAws_restJson1MessageConfiguration(output.MessageConfiguration, context)
-        : undefined,
-    Schedule: output.Schedule != null ? deserializeAws_restJson1Schedule(output.Schedule, context) : undefined,
-    SizePercent: __expectInt32(output.SizePercent),
-    State: output.State != null ? deserializeAws_restJson1CampaignState(output.State, context) : undefined,
-    TemplateConfiguration:
-      output.TemplateConfiguration != null
-        ? deserializeAws_restJson1TemplateConfiguration(output.TemplateConfiguration, context)
-        : undefined,
-    TreatmentDescription: __expectString(output.TreatmentDescription),
-    TreatmentName: __expectString(output.TreatmentName),
-  } as any;
-};
-
-const deserializeAws_restJson1VerificationResponse = (output: any, context: __SerdeContext): VerificationResponse => {
-  return {
-    Valid: __expectBoolean(output.Valid),
-  } as any;
-};
-
-const deserializeAws_restJson1VoiceChannelResponse = (output: any, context: __SerdeContext): VoiceChannelResponse => {
-  return {
-    ApplicationId: __expectString(output.ApplicationId),
-    CreationDate: __expectString(output.CreationDate),
-    Enabled: __expectBoolean(output.Enabled),
-    HasCredential: __expectBoolean(output.HasCredential),
-    Id: __expectString(output.Id),
-    IsArchived: __expectBoolean(output.IsArchived),
-    LastModifiedBy: __expectString(output.LastModifiedBy),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    Platform: __expectString(output.Platform),
-    Version: __expectInt32(output.Version),
-  } as any;
-};
-
-const deserializeAws_restJson1VoiceTemplateResponse = (output: any, context: __SerdeContext): VoiceTemplateResponse => {
-  return {
-    Arn: __expectString(output.Arn),
-    Body: __expectString(output.Body),
-    CreationDate: __expectString(output.CreationDate),
-    DefaultSubstitutions: __expectString(output.DefaultSubstitutions),
-    LanguageCode: __expectString(output.LanguageCode),
-    LastModifiedDate: __expectString(output.LastModifiedDate),
-    TemplateDescription: __expectString(output.TemplateDescription),
-    TemplateName: __expectString(output.TemplateName),
-    TemplateType: __expectString(output.TemplateType),
-    Version: __expectString(output.Version),
-    VoiceId: __expectString(output.VoiceId),
-    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1WaitActivity = (output: any, context: __SerdeContext): WaitActivity => {
-  return {
-    NextActivity: __expectString(output.NextActivity),
-    WaitTime: output.WaitTime != null ? deserializeAws_restJson1WaitTime(output.WaitTime, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1WaitTime = (output: any, context: __SerdeContext): WaitTime => {
-  return {
-    WaitFor: __expectString(output.WaitFor),
-    WaitUntil: __expectString(output.WaitUntil),
-  } as any;
-};
+// de_WaitTime omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

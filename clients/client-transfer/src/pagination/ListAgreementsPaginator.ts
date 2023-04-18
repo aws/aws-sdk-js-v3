@@ -6,12 +6,11 @@ import {
   ListAgreementsCommandInput,
   ListAgreementsCommandOutput,
 } from "../commands/ListAgreementsCommand";
-import { Transfer } from "../Transfer";
 import { TransferClient } from "../TransferClient";
 import { TransferPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TransferClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAgreementsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Transfer,
-  input: ListAgreementsCommandInput,
-  ...args: any
-): Promise<ListAgreementsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAgreements(input, ...args);
-};
 export async function* paginateListAgreements(
   config: TransferPaginationConfiguration,
   input: ListAgreementsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListAgreements(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Transfer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof TransferClient) {
+    if (config.client instanceof TransferClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Transfer | TransferClient");

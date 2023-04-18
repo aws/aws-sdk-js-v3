@@ -16,22 +16,31 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   DisassociateMulticastGroupFromFuotaTaskRequest,
-  DisassociateMulticastGroupFromFuotaTaskRequestFilterSensitiveLog,
   DisassociateMulticastGroupFromFuotaTaskResponse,
-  DisassociateMulticastGroupFromFuotaTaskResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommand,
-  serializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommand,
+  de_DisassociateMulticastGroupFromFuotaTaskCommand,
+  se_DisassociateMulticastGroupFromFuotaTaskCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateMulticastGroupFromFuotaTaskCommand}.
+ */
 export interface DisassociateMulticastGroupFromFuotaTaskCommandInput
   extends DisassociateMulticastGroupFromFuotaTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateMulticastGroupFromFuotaTaskCommand}.
+ */
 export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
   extends DisassociateMulticastGroupFromFuotaTaskResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a multicast group from a fuota task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,35 @@ export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
  * import { IoTWirelessClient, DisassociateMulticastGroupFromFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DisassociateMulticastGroupFromFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DisassociateMulticastGroupFromFuotaTaskRequest
+ *   Id: "STRING_VALUE", // required
+ *   MulticastGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateMulticastGroupFromFuotaTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMulticastGroupFromFuotaTaskCommandInput - {@link DisassociateMulticastGroupFromFuotaTaskCommandInput}
+ * @returns {@link DisassociateMulticastGroupFromFuotaTaskCommandOutput}
  * @see {@link DisassociateMulticastGroupFromFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link DisassociateMulticastGroupFromFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command<
@@ -65,6 +96,9 @@ export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMulticastGroupFromFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +133,8 @@ export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMulticastGroupFromFuotaTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateMulticastGroupFromFuotaTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +144,24 @@ export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateMulticastGroupFromFuotaTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommand(input, context);
+    return se_DisassociateMulticastGroupFromFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateMulticastGroupFromFuotaTaskCommandOutput> {
-    return deserializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommand(output, context);
+    return de_DisassociateMulticastGroupFromFuotaTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

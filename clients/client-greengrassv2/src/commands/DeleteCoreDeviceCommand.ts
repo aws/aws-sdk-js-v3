@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import { DeleteCoreDeviceRequest, DeleteCoreDeviceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCoreDeviceCommand,
-  serializeAws_restJson1DeleteCoreDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteCoreDeviceRequest } from "../models/models_0";
+import { de_DeleteCoreDeviceCommand, se_DeleteCoreDeviceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCoreDeviceCommand}.
+ */
 export interface DeleteCoreDeviceCommandInput extends DeleteCoreDeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCoreDeviceCommand}.
+ */
 export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Greengrass core device, which is an IoT thing. This operation removes the core
  *       device from the list of core devices. This operation doesn't delete the IoT thing. For more
  *       information about how to delete the IoT thing, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteThing.html">DeleteThing</a> in the
@@ -34,13 +42,40 @@ export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
  * import { GreengrassV2Client, DeleteCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, DeleteCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // DeleteCoreDeviceRequest
+ *   coreDeviceThingName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCoreDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCoreDeviceCommandInput - {@link DeleteCoreDeviceCommandInput}
+ * @returns {@link DeleteCoreDeviceCommandOutput}
  * @see {@link DeleteCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteCoreDeviceCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
+ *       than one operation on the same resource at the same time.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a request rate quota. For example, you might have exceeded the
+ *       amount of times that you can retrieve device or deployment status per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters.</p>
+ *
  *
  */
 export class DeleteCoreDeviceCommand extends $Command<
@@ -60,6 +95,9 @@ export class DeleteCoreDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCoreDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +126,8 @@ export class DeleteCoreDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCoreDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +137,18 @@ export class DeleteCoreDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCoreDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCoreDeviceCommand(input, context);
+    return se_DeleteCoreDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCoreDeviceCommandOutput> {
-    return deserializeAws_restJson1DeleteCoreDeviceCommand(output, context);
+    return de_DeleteCoreDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

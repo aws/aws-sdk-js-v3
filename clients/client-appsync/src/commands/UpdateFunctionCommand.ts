@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  UpdateFunctionRequest,
-  UpdateFunctionRequestFilterSensitiveLog,
-  UpdateFunctionResponse,
-  UpdateFunctionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFunctionCommand,
-  serializeAws_restJson1UpdateFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFunctionRequest, UpdateFunctionResponse } from "../models/models_0";
+import { de_UpdateFunctionCommand, se_UpdateFunctionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateFunctionCommand}.
+ */
 export interface UpdateFunctionCommandInput extends UpdateFunctionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateFunctionCommand}.
+ */
 export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a <code>Function</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,52 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __M
  * import { AppSyncClient, UpdateFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // UpdateFunctionRequest
+ *   apiId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   functionId: "STRING_VALUE", // required
+ *   dataSourceName: "STRING_VALUE", // required
+ *   requestMappingTemplate: "STRING_VALUE",
+ *   responseMappingTemplate: "STRING_VALUE",
+ *   functionVersion: "STRING_VALUE",
+ *   syncConfig: { // SyncConfig
+ *     conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
+ *     conflictDetection: "VERSION" || "NONE",
+ *     lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
+ *       lambdaConflictHandlerArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   maxBatchSize: Number("int"),
+ *   runtime: { // AppSyncRuntime
+ *     name: "APPSYNC_JS", // required
+ *     runtimeVersion: "STRING_VALUE", // required
+ *   },
+ *   code: "STRING_VALUE",
+ * };
  * const command = new UpdateFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFunctionCommandInput - {@link UpdateFunctionCommandInput}
+ * @returns {@link UpdateFunctionCommandOutput}
  * @see {@link UpdateFunctionCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Another modification is in progress at this time and it must complete before you can make your
+ *          change.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
  *
  */
 export class UpdateFunctionCommand extends $Command<
@@ -62,6 +104,9 @@ export class UpdateFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +135,8 @@ export class UpdateFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFunctionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +146,18 @@ export class UpdateFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFunctionCommand(input, context);
+    return se_UpdateFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionCommandOutput> {
-    return deserializeAws_restJson1UpdateFunctionCommand(output, context);
+    return de_UpdateFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

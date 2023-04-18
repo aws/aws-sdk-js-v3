@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { StopBackupJobInput, StopBackupJobInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopBackupJobCommand,
-  serializeAws_restJson1StopBackupJobCommand,
-} from "../protocols/Aws_restJson1";
+import { StopBackupJobInput } from "../models/models_0";
+import { de_StopBackupJobCommand, se_StopBackupJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopBackupJobCommand}.
+ */
 export interface StopBackupJobCommandInput extends StopBackupJobInput {}
+/**
+ * @public
+ *
+ * The output of {@link StopBackupJobCommand}.
+ */
 export interface StopBackupJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
  *          <p>This action is not supported for the following services:
  *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, FSx for ONTAP
@@ -35,13 +43,36 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
  * import { BackupClient, StopBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, StopBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // StopBackupJobInput
+ *   BackupJobId: "STRING_VALUE", // required
+ * };
  * const command = new StopBackupJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopBackupJobCommandInput - {@link StopBackupJobCommandInput}
+ * @returns {@link StopBackupJobCommandOutput}
  * @see {@link StopBackupJobCommandInput} for command's `input` shape.
  * @see {@link StopBackupJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *          parameter is of the wrong type.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class StopBackupJobCommand extends $Command<
@@ -61,6 +92,9 @@ export class StopBackupJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopBackupJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +121,8 @@ export class StopBackupJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBackupJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +132,18 @@ export class StopBackupJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopBackupJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopBackupJobCommand(input, context);
+    return se_StopBackupJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBackupJobCommandOutput> {
-    return deserializeAws_restJson1StopBackupJobCommand(output, context);
+    return de_StopBackupJobCommand(output, context);
   }
 
   // Start section: command_body_extra

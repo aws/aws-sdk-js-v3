@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  AssociateSkillGroupWithRoomRequest,
-  AssociateSkillGroupWithRoomRequestFilterSensitiveLog,
-  AssociateSkillGroupWithRoomResponse,
-  AssociateSkillGroupWithRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateSkillGroupWithRoomCommand,
-  serializeAws_json1_1AssociateSkillGroupWithRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateSkillGroupWithRoomRequest, AssociateSkillGroupWithRoomResponse } from "../models/models_0";
+import { de_AssociateSkillGroupWithRoomCommand, se_AssociateSkillGroupWithRoomCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateSkillGroupWithRoomCommand}.
+ */
 export interface AssociateSkillGroupWithRoomCommandInput extends AssociateSkillGroupWithRoomRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateSkillGroupWithRoomCommand}.
+ */
 export interface AssociateSkillGroupWithRoomCommandOutput
   extends AssociateSkillGroupWithRoomResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a skill group with a given room. This enables all skills in the associated
  *          skill group on all devices in the room.</p>
  * @example
@@ -39,13 +42,23 @@ export interface AssociateSkillGroupWithRoomCommandOutput
  * import { AlexaForBusinessClient, AssociateSkillGroupWithRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateSkillGroupWithRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // AssociateSkillGroupWithRoomRequest
+ *   SkillGroupArn: "STRING_VALUE",
+ *   RoomArn: "STRING_VALUE",
+ * };
  * const command = new AssociateSkillGroupWithRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSkillGroupWithRoomCommandInput - {@link AssociateSkillGroupWithRoomCommandInput}
+ * @returns {@link AssociateSkillGroupWithRoomCommandOutput}
  * @see {@link AssociateSkillGroupWithRoomCommandInput} for command's `input` shape.
  * @see {@link AssociateSkillGroupWithRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
  *
  */
 export class AssociateSkillGroupWithRoomCommand extends $Command<
@@ -65,6 +78,9 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSkillGroupWithRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +109,8 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSkillGroupWithRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSkillGroupWithRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +120,21 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSkillGroupWithRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateSkillGroupWithRoomCommand(input, context);
+    return se_AssociateSkillGroupWithRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateSkillGroupWithRoomCommandOutput> {
-    return deserializeAws_json1_1AssociateSkillGroupWithRoomCommand(output, context);
+    return de_AssociateSkillGroupWithRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

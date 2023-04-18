@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetUsageStatisticsRequest,
-  GetUsageStatisticsRequestFilterSensitiveLog,
-  GetUsageStatisticsResponse,
-  GetUsageStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUsageStatisticsCommand,
-  serializeAws_restJson1GetUsageStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetUsageStatisticsRequest, GetUsageStatisticsResponse } from "../models/models_0";
+import { de_GetUsageStatisticsCommand, se_GetUsageStatisticsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetUsageStatisticsCommand}.
+ */
 export interface GetUsageStatisticsCommandInput extends GetUsageStatisticsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUsageStatisticsCommand}.
+ */
 export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) quotas and aggregated usage data for one or more accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,55 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * import { Macie2Client, GetUsageStatisticsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetUsageStatisticsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // GetUsageStatisticsRequest
+ *   filterBy: [ // __listOfUsageStatisticsFilter
+ *     { // UsageStatisticsFilter
+ *       comparator: "GT" || "GTE" || "LT" || "LTE" || "EQ" || "NE" || "CONTAINS",
+ *       key: "accountId" || "serviceLimit" || "freeTrialStartDate" || "total",
+ *       values: [ // __listOf__string
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   sortBy: { // UsageStatisticsSortBy
+ *     key: "accountId" || "total" || "serviceLimitValue" || "freeTrialStartDate",
+ *     orderBy: "ASC" || "DESC",
+ *   },
+ *   timeRange: "MONTH_TO_DATE" || "PAST_30_DAYS",
+ * };
  * const command = new GetUsageStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsageStatisticsCommandInput - {@link GetUsageStatisticsCommandInput}
+ * @returns {@link GetUsageStatisticsCommandOutput}
  * @see {@link GetUsageStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetUsageStatisticsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class GetUsageStatisticsCommand extends $Command<
@@ -62,6 +107,9 @@ export class GetUsageStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsageStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +138,8 @@ export class GetUsageStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUsageStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUsageStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +149,18 @@ export class GetUsageStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsageStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUsageStatisticsCommand(input, context);
+    return se_GetUsageStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsageStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetUsageStatisticsCommand(output, context);
+    return de_GetUsageStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

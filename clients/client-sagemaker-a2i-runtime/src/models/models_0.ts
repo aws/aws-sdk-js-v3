@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SageMakerA2IRuntimeServiceException as __BaseException } from "./SageMakerA2IRuntimeServiceException";
 
+/**
+ * @public
+ */
 export interface DeleteHumanLoopRequest {
   /**
    * <p>The name of the human loop that you want to delete.</p>
@@ -10,9 +13,13 @@ export interface DeleteHumanLoopRequest {
   HumanLoopName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteHumanLoopResponse {}
 
 /**
+ * @public
  * <p>We couldn't process your request because of an issue with the server. Try again
  *       later.</p>
  */
@@ -35,6 +42,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We couldn't find the requested resource. Check that your resources exists and were created
  *       in the same AWS Region as your request, and try your request again. </p>
  */
@@ -57,6 +65,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You exceeded
  *       the
  *       maximum number of requests.</p>
@@ -80,6 +89,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The
  *       request isn't valid. Check the syntax and try again.</p>
  */
@@ -101,6 +111,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeHumanLoopRequest {
   /**
    * <p>The name of the human loop that you want information about.</p>
@@ -109,6 +122,7 @@ export interface DescribeHumanLoopRequest {
 }
 
 /**
+ * @public
  * <p>Information about where the human output will be stored.</p>
  */
 export interface HumanLoopOutput {
@@ -118,14 +132,26 @@ export interface HumanLoopOutput {
   OutputS3Uri: string | undefined;
 }
 
-export enum HumanLoopStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HumanLoopStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
 
+/**
+ * @public
+ */
+export type HumanLoopStatus = (typeof HumanLoopStatus)[keyof typeof HumanLoopStatus];
+
+/**
+ * @public
+ */
 export interface DescribeHumanLoopResponse {
   /**
    * <p>The creation time when Amazon Augmented AI created the human loop.</p>
@@ -173,11 +199,23 @@ export interface DescribeHumanLoopResponse {
   HumanLoopOutput?: HumanLoopOutput;
 }
 
-export enum SortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
 
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
 export interface ListHumanLoopsRequest {
   /**
    * <p>(Optional) The timestamp of the date when you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.</p>
@@ -214,6 +252,7 @@ export interface ListHumanLoopsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information about the human loop.</p>
  */
 export interface HumanLoopSummary {
@@ -245,6 +284,9 @@ export interface HumanLoopSummary {
   FlowDefinitionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHumanLoopsResponse {
   /**
    * <p>An array of objects that contain information about the human loops.</p>
@@ -258,6 +300,7 @@ export interface ListHumanLoopsResponse {
 }
 
 /**
+ * @public
  * <p>Your request has the same name as another active human loop but has different input data. You cannot start two
  *     human loops with the same name and different input data.</p>
  */
@@ -280,6 +323,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
  *       maximum number of service resources or operations for your AWS account. For a list of
  *       Amazon A2I service quotes, see <a href="https://docs.aws.amazon.com/general/latest/gr/a2i.html">Amazon Augmented AI Service Quotes</a>. Delete some resources or request an increase in your
@@ -305,12 +349,22 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContentClassifier = {
+  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
+} as const;
 
 /**
+ * @public
+ */
+export type ContentClassifier = (typeof ContentClassifier)[keyof typeof ContentClassifier];
+
+/**
+ * @public
  * <p>Attributes of the data specified by the customer. Use these to describe the data to be labeled.</p>
  */
 export interface HumanLoopDataAttributes {
@@ -322,6 +376,7 @@ export interface HumanLoopDataAttributes {
 }
 
 /**
+ * @public
  * <p>An object containing the human loop input in JSON format.</p>
  */
 export interface HumanLoopInput {
@@ -331,6 +386,9 @@ export interface HumanLoopInput {
   InputContent: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartHumanLoopRequest {
   /**
    * <p>The name of the human loop.</p>
@@ -355,6 +413,9 @@ export interface StartHumanLoopRequest {
   DataAttributes?: HumanLoopDataAttributes;
 }
 
+/**
+ * @public
+ */
 export interface StartHumanLoopResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the human loop.</p>
@@ -362,6 +423,9 @@ export interface StartHumanLoopResponse {
   HumanLoopArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopHumanLoopRequest {
   /**
    * <p>The name of the human loop that you want to stop.</p>
@@ -369,102 +433,7 @@ export interface StopHumanLoopRequest {
   HumanLoopName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopHumanLoopResponse {}
-
-/**
- * @internal
- */
-export const DeleteHumanLoopRequestFilterSensitiveLog = (obj: DeleteHumanLoopRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHumanLoopResponseFilterSensitiveLog = (obj: DeleteHumanLoopResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHumanLoopRequestFilterSensitiveLog = (obj: DescribeHumanLoopRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanLoopOutputFilterSensitiveLog = (obj: HumanLoopOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHumanLoopResponseFilterSensitiveLog = (obj: DescribeHumanLoopResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHumanLoopsRequestFilterSensitiveLog = (obj: ListHumanLoopsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanLoopSummaryFilterSensitiveLog = (obj: HumanLoopSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHumanLoopsResponseFilterSensitiveLog = (obj: ListHumanLoopsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanLoopDataAttributesFilterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanLoopInputFilterSensitiveLog = (obj: HumanLoopInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartHumanLoopRequestFilterSensitiveLog = (obj: StartHumanLoopRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartHumanLoopResponseFilterSensitiveLog = (obj: StartHumanLoopResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopHumanLoopRequestFilterSensitiveLog = (obj: StopHumanLoopRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopHumanLoopResponseFilterSensitiveLog = (obj: StopHumanLoopResponse): any => ({
-  ...obj,
-});

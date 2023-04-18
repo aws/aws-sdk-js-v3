@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  StopGameSessionPlacementInput,
-  StopGameSessionPlacementInputFilterSensitiveLog,
-  StopGameSessionPlacementOutput,
-  StopGameSessionPlacementOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopGameSessionPlacementCommand,
-  serializeAws_json1_1StopGameSessionPlacementCommand,
-} from "../protocols/Aws_json1_1";
+import { StopGameSessionPlacementInput, StopGameSessionPlacementOutput } from "../models/models_0";
+import { de_StopGameSessionPlacementCommand, se_StopGameSessionPlacementCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopGameSessionPlacementCommand}.
+ */
 export interface StopGameSessionPlacementCommandInput extends StopGameSessionPlacementInput {}
+/**
+ * @public
+ *
+ * The output of {@link StopGameSessionPlacementCommand}.
+ */
 export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a game session placement that is in <code>PENDING</code> status. To stop a
  *             placement, provide the placement ID values. If successful, the placement is moved to
  *                 <code>CANCELLED</code> status.</p>
@@ -38,13 +41,33 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  * import { GameLiftClient, StopGameSessionPlacementCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StopGameSessionPlacementCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // StopGameSessionPlacementInput
+ *   PlacementId: "STRING_VALUE", // required
+ * };
  * const command = new StopGameSessionPlacementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopGameSessionPlacementCommandInput - {@link StopGameSessionPlacementCommandInput}
+ * @returns {@link StopGameSessionPlacementCommandOutput}
  * @see {@link StopGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link StopGameSessionPlacementCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class StopGameSessionPlacementCommand extends $Command<
@@ -64,6 +87,9 @@ export class StopGameSessionPlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopGameSessionPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class StopGameSessionPlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopGameSessionPlacementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopGameSessionPlacementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class StopGameSessionPlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopGameSessionPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopGameSessionPlacementCommand(input, context);
+    return se_StopGameSessionPlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopGameSessionPlacementCommandOutput> {
-    return deserializeAws_json1_1StopGameSessionPlacementCommand(output, context);
+    return de_StopGameSessionPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

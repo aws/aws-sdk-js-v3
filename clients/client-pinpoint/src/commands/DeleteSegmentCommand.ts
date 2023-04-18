@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSegmentRequest,
-  DeleteSegmentRequestFilterSensitiveLog,
-  DeleteSegmentResponse,
-  DeleteSegmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSegmentRequest, DeleteSegmentResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteSegmentCommand,
-  serializeAws_restJson1DeleteSegmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSegmentCommand, se_DeleteSegmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSegmentCommand}.
+ */
 export interface DeleteSegmentCommandInput extends DeleteSegmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSegmentCommand}.
+ */
 export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a segment from an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * import { PinpointClient, DeleteSegmentCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteSegmentCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeleteSegmentRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   SegmentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSegmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSegmentCommandInput - {@link DeleteSegmentCommandInput}
+ * @returns {@link DeleteSegmentCommandOutput}
  * @see {@link DeleteSegmentCommandInput} for command's `input` shape.
  * @see {@link DeleteSegmentCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class DeleteSegmentCommand extends $Command<
@@ -62,6 +93,9 @@ export class DeleteSegmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSegmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +122,8 @@ export class DeleteSegmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSegmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSegmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +133,18 @@ export class DeleteSegmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSegmentCommand(input, context);
+    return se_DeleteSegmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSegmentCommandOutput> {
-    return deserializeAws_restJson1DeleteSegmentCommand(output, context);
+    return de_DeleteSegmentCommand(output, context);
   }
 
   // Start section: command_body_extra

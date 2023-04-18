@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListRecipesCommand, ListRecipesCommandInput, ListRecipesCommandOutput } from "../commands/ListRecipesCommand";
-import { DataBrew } from "../DataBrew";
 import { DataBrewClient } from "../DataBrewClient";
 import { DataBrewPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DataBrewClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListRecipesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DataBrew,
-  input: ListRecipesCommandInput,
-  ...args: any
-): Promise<ListRecipesCommandOutput> => {
-  // @ts-ignore
-  return await client.listRecipes(input, ...args);
-};
 export async function* paginateListRecipes(
   config: DataBrewPaginationConfiguration,
   input: ListRecipesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListRecipes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof DataBrew) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DataBrewClient) {
+    if (config.client instanceof DataBrewClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DataBrew | DataBrewClient");

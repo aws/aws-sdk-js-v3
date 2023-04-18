@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { GetPullRequestApprovalStatesInput, GetPullRequestApprovalStatesOutput } from "../models/models_0";
 import {
-  GetPullRequestApprovalStatesInput,
-  GetPullRequestApprovalStatesInputFilterSensitiveLog,
-  GetPullRequestApprovalStatesOutput,
-  GetPullRequestApprovalStatesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPullRequestApprovalStatesCommand,
-  serializeAws_json1_1GetPullRequestApprovalStatesCommand,
+  de_GetPullRequestApprovalStatesCommand,
+  se_GetPullRequestApprovalStatesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPullRequestApprovalStatesCommand}.
+ */
 export interface GetPullRequestApprovalStatesCommandInput extends GetPullRequestApprovalStatesInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetPullRequestApprovalStatesCommand}.
+ */
 export interface GetPullRequestApprovalStatesCommandOutput
   extends GetPullRequestApprovalStatesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the approval states for a specified pull request. Approval states only apply to pull requests that have one or more
  *         approval rules applied to them.</p>
  * @example
@@ -39,13 +45,50 @@ export interface GetPullRequestApprovalStatesCommandOutput
  * import { CodeCommitClient, GetPullRequestApprovalStatesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetPullRequestApprovalStatesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetPullRequestApprovalStatesInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE", // required
+ * };
  * const command = new GetPullRequestApprovalStatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPullRequestApprovalStatesCommandInput - {@link GetPullRequestApprovalStatesCommandInput}
+ * @returns {@link GetPullRequestApprovalStatesCommandOutput}
  * @see {@link GetPullRequestApprovalStatesCommandInput} for command's `input` shape.
  * @see {@link GetPullRequestApprovalStatesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidPullRequestIdException} (client fault)
+ *  <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+ *
+ * @throws {@link InvalidRevisionIdException} (client fault)
+ *  <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
+ *
+ * @throws {@link PullRequestDoesNotExistException} (client fault)
+ *  <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+ *
+ * @throws {@link PullRequestIdRequiredException} (client fault)
+ *  <p>A pull request ID is required, but none was provided.</p>
+ *
+ * @throws {@link RevisionIdRequiredException} (client fault)
+ *  <p>A revision ID is required, but was not provided.</p>
+ *
  *
  */
 export class GetPullRequestApprovalStatesCommand extends $Command<
@@ -65,6 +108,9 @@ export class GetPullRequestApprovalStatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPullRequestApprovalStatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +139,8 @@ export class GetPullRequestApprovalStatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPullRequestApprovalStatesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPullRequestApprovalStatesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +150,21 @@ export class GetPullRequestApprovalStatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPullRequestApprovalStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPullRequestApprovalStatesCommand(input, context);
+    return se_GetPullRequestApprovalStatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPullRequestApprovalStatesCommandOutput> {
-    return deserializeAws_json1_1GetPullRequestApprovalStatesCommand(output, context);
+    return de_GetPullRequestApprovalStatesCommand(output, context);
   }
 
   // Start section: command_body_extra

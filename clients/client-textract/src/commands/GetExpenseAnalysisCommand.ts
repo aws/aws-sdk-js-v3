@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetExpenseAnalysisRequest,
-  GetExpenseAnalysisRequestFilterSensitiveLog,
-  GetExpenseAnalysisResponse,
-  GetExpenseAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetExpenseAnalysisCommand,
-  serializeAws_json1_1GetExpenseAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { GetExpenseAnalysisRequest, GetExpenseAnalysisResponse } from "../models/models_0";
+import { de_GetExpenseAnalysisCommand, se_GetExpenseAnalysisCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetExpenseAnalysisCommand}.
+ */
 export interface GetExpenseAnalysisCommandInput extends GetExpenseAnalysisRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetExpenseAnalysisCommand}.
+ */
 export interface GetExpenseAnalysisCommandOutput extends GetExpenseAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes invoices and
  *    receipts. Amazon Textract finds contact information, items purchased, and vendor name, from input
  *    invoices and receipts.</p>
@@ -52,13 +55,55 @@ export interface GetExpenseAnalysisCommandOutput extends GetExpenseAnalysisRespo
  * import { TextractClient, GetExpenseAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, GetExpenseAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // GetExpenseAnalysisRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetExpenseAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExpenseAnalysisCommandInput - {@link GetExpenseAnalysisCommandInput}
+ * @returns {@link GetExpenseAnalysisCommandOutput}
  * @see {@link GetExpenseAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetExpenseAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
+ *             of an authorized user or IAM role to perform the operation.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Textract experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidJobIdException} (client fault)
+ *  <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+ *
+ * @throws {@link InvalidKMSKeyException} (client fault)
+ *  <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
+ *         was entered incorrectly. </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An input parameter violated a constraint. For example, in synchronous operations,
+ *        an <code>InvalidParameterException</code> exception occurs
+ *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
+ *       request parameter.
+ *        Validate your parameter before calling the API operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Textract is unable to access the S3 object that's specified in the request.
+ *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
+ *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
+ *          </p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
+ *          contact Amazon Textract.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class GetExpenseAnalysisCommand extends $Command<
@@ -78,6 +123,9 @@ export class GetExpenseAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExpenseAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +154,8 @@ export class GetExpenseAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExpenseAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetExpenseAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +165,18 @@ export class GetExpenseAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExpenseAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetExpenseAnalysisCommand(input, context);
+    return se_GetExpenseAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExpenseAnalysisCommandOutput> {
-    return deserializeAws_json1_1GetExpenseAnalysisCommand(output, context);
+    return de_GetExpenseAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

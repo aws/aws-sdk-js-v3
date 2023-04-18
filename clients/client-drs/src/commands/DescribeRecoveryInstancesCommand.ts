@@ -16,19 +16,26 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   DescribeRecoveryInstancesRequest,
-  DescribeRecoveryInstancesRequestFilterSensitiveLog,
   DescribeRecoveryInstancesResponse,
   DescribeRecoveryInstancesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRecoveryInstancesCommand,
-  serializeAws_restJson1DescribeRecoveryInstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeRecoveryInstancesCommand, se_DescribeRecoveryInstancesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRecoveryInstancesCommand}.
+ */
 export interface DescribeRecoveryInstancesCommandInput extends DescribeRecoveryInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRecoveryInstancesCommand}.
+ */
 export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecoveryInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Recovery Instances or multiple Recovery Instances by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,40 @@ export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecovery
  * import { DrsClient, DescribeRecoveryInstancesCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeRecoveryInstancesCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // DescribeRecoveryInstancesRequest
+ *   filters: { // DescribeRecoveryInstancesRequestFilters
+ *     recoveryInstanceIDs: [ // RecoveryInstanceIDs
+ *       "STRING_VALUE",
+ *     ],
+ *     sourceServerIDs: [ // SourceServerIDs
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeRecoveryInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecoveryInstancesCommandInput - {@link DescribeRecoveryInstancesCommandInput}
+ * @returns {@link DescribeRecoveryInstancesCommandOutput}
  * @see {@link DescribeRecoveryInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeRecoveryInstancesCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>The account performing the request has not been initialized.</p>
+ *
  *
  */
 export class DescribeRecoveryInstancesCommand extends $Command<
@@ -62,6 +96,9 @@ export class DescribeRecoveryInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecoveryInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +127,7 @@ export class DescribeRecoveryInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecoveryInstancesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeRecoveryInstancesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +138,21 @@ export class DescribeRecoveryInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecoveryInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRecoveryInstancesCommand(input, context);
+    return se_DescribeRecoveryInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRecoveryInstancesCommandOutput> {
-    return deserializeAws_restJson1DescribeRecoveryInstancesCommand(output, context);
+    return de_DescribeRecoveryInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

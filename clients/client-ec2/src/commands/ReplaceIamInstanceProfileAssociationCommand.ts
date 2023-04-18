@@ -16,21 +16,30 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ReplaceIamInstanceProfileAssociationRequest,
-  ReplaceIamInstanceProfileAssociationRequestFilterSensitiveLog,
   ReplaceIamInstanceProfileAssociationResult,
-  ReplaceIamInstanceProfileAssociationResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommand,
-  serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand,
+  de_ReplaceIamInstanceProfileAssociationCommand,
+  se_ReplaceIamInstanceProfileAssociationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ReplaceIamInstanceProfileAssociationCommand}.
+ */
 export interface ReplaceIamInstanceProfileAssociationCommandInput extends ReplaceIamInstanceProfileAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReplaceIamInstanceProfileAssociationCommand}.
+ */
 export interface ReplaceIamInstanceProfileAssociationCommandOutput
   extends ReplaceIamInstanceProfileAssociationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces an IAM instance profile for the specified running instance. You can use
  *             this action to change the IAM instance profile that's associated with an instance
  *             without having to disassociate the existing IAM instance profile first.</p>
@@ -42,13 +51,23 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  * import { EC2Client, ReplaceIamInstanceProfileAssociationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReplaceIamInstanceProfileAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ReplaceIamInstanceProfileAssociationRequest
+ *   IamInstanceProfile: { // IamInstanceProfileSpecification
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *   },
+ *   AssociationId: "STRING_VALUE", // required
+ * };
  * const command = new ReplaceIamInstanceProfileAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceIamInstanceProfileAssociationCommandInput - {@link ReplaceIamInstanceProfileAssociationCommandInput}
+ * @returns {@link ReplaceIamInstanceProfileAssociationCommandOutput}
  * @see {@link ReplaceIamInstanceProfileAssociationCommandInput} for command's `input` shape.
  * @see {@link ReplaceIamInstanceProfileAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
@@ -68,6 +87,9 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceIamInstanceProfileAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +118,8 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplaceIamInstanceProfileAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplaceIamInstanceProfileAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +129,24 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ReplaceIamInstanceProfileAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand(input, context);
+    return se_ReplaceIamInstanceProfileAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceIamInstanceProfileAssociationCommandOutput> {
-    return deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommand(output, context);
+    return de_ReplaceIamInstanceProfileAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

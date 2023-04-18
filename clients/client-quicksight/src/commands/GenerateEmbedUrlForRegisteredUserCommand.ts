@@ -15,22 +15,32 @@ import {
 
 import {
   GenerateEmbedUrlForRegisteredUserRequest,
-  GenerateEmbedUrlForRegisteredUserRequestFilterSensitiveLog,
   GenerateEmbedUrlForRegisteredUserResponse,
   GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
-  deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand,
-  serializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand,
+  de_GenerateEmbedUrlForRegisteredUserCommand,
+  se_GenerateEmbedUrlForRegisteredUserCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GenerateEmbedUrlForRegisteredUserCommand}.
+ */
 export interface GenerateEmbedUrlForRegisteredUserCommandInput extends GenerateEmbedUrlForRegisteredUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GenerateEmbedUrlForRegisteredUserCommand}.
+ */
 export interface GenerateEmbedUrlForRegisteredUserCommandOutput
   extends GenerateEmbedUrlForRegisteredUserResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates an embed URL that you can use to embed an Amazon QuickSight experience in your website. This action can be used for any type of user registered in an Amazon QuickSight account.
  *             Before you use this action, make sure that you have configured the relevant Amazon QuickSight resource and permissions.</p>
  *          <p>The following rules apply to the generated URL:</p>
@@ -58,13 +68,96 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * import { QuickSightClient, GenerateEmbedUrlForRegisteredUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, GenerateEmbedUrlForRegisteredUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // GenerateEmbedUrlForRegisteredUserRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   SessionLifetimeInMinutes: Number("long"),
+ *   UserArn: "STRING_VALUE", // required
+ *   ExperienceConfiguration: { // RegisteredUserEmbeddingExperienceConfiguration
+ *     Dashboard: { // RegisteredUserDashboardEmbeddingConfiguration
+ *       InitialDashboardId: "STRING_VALUE", // required
+ *       FeatureConfigurations: { // RegisteredUserDashboardFeatureConfigurations
+ *         StatePersistence: { // StatePersistenceConfigurations
+ *           Enabled: true || false, // required
+ *         },
+ *       },
+ *     },
+ *     QuickSightConsole: { // RegisteredUserQuickSightConsoleEmbeddingConfiguration
+ *       InitialPath: "STRING_VALUE",
+ *       FeatureConfigurations: { // RegisteredUserConsoleFeatureConfigurations
+ *         StatePersistence: {
+ *           Enabled: true || false, // required
+ *         },
+ *       },
+ *     },
+ *     QSearchBar: { // RegisteredUserQSearchBarEmbeddingConfiguration
+ *       InitialTopicId: "STRING_VALUE",
+ *     },
+ *     DashboardVisual: { // RegisteredUserDashboardVisualEmbeddingConfiguration
+ *       InitialDashboardVisualId: { // DashboardVisualId
+ *         DashboardId: "STRING_VALUE", // required
+ *         SheetId: "STRING_VALUE", // required
+ *         VisualId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   AllowedDomains: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GenerateEmbedUrlForRegisteredUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateEmbedUrlForRegisteredUserCommandInput - {@link GenerateEmbedUrlForRegisteredUserCommandInput}
+ * @returns {@link GenerateEmbedUrlForRegisteredUserCommandOutput}
  * @see {@link GenerateEmbedUrlForRegisteredUserCommandInput} for command's `input` shape.
  * @see {@link GenerateEmbedUrlForRegisteredUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link QuickSightUserNotFoundException} (client fault)
+ *  <p>The user with the provided name isn't found. This error can happen in any operation
+ * 			that requires finding a user based on a provided user name, such as
+ * 				<code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link SessionLifetimeInMinutesInvalidException} (client fault)
+ *  <p>The number of minutes specified for the lifetime of a session isn't valid. The session
+ * 			lifetime must be 15-600 minutes.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
+ * @throws {@link UnsupportedPricingPlanException} (client fault)
+ *  <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
+ * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
+ * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You
+ * 		    can do this on the <b>Manage Amazon QuickSight</b> page. </p>
+ *          <p>After capacity pricing is added, you can use the
+ *             <code>
+ *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
+ *             </code> API operation with the
+ *             <code>--identity-type ANONYMOUS</code> option.</p>
+ *
+ * @throws {@link UnsupportedUserEditionException} (client fault)
+ *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ *
  *
  */
 export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
@@ -84,6 +177,9 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateEmbedUrlForRegisteredUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +208,7 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateEmbedUrlForRegisteredUserRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,18 +219,24 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateEmbedUrlForRegisteredUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand(input, context);
+    return se_GenerateEmbedUrlForRegisteredUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateEmbedUrlForRegisteredUserCommandOutput> {
-    return deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand(output, context);
+    return de_GenerateEmbedUrlForRegisteredUserCommand(output, context);
   }
 
   // Start section: command_body_extra

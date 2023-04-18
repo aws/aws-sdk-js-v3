@@ -6,12 +6,11 @@ import {
   DescribeSenderIdsCommandInput,
   DescribeSenderIdsCommandOutput,
 } from "../commands/DescribeSenderIdsCommand";
-import { PinpointSMSVoiceV2 } from "../PinpointSMSVoiceV2";
 import { PinpointSMSVoiceV2Client } from "../PinpointSMSVoiceV2Client";
 import { PinpointSMSVoiceV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PinpointSMSVoiceV2Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeSenderIdsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: PinpointSMSVoiceV2,
-  input: DescribeSenderIdsCommandInput,
-  ...args: any
-): Promise<DescribeSenderIdsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeSenderIds(input, ...args);
-};
 export async function* paginateDescribeSenderIds(
   config: PinpointSMSVoiceV2PaginationConfiguration,
   input: DescribeSenderIdsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeSenderIds(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof PinpointSMSVoiceV2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PinpointSMSVoiceV2Client) {
+    if (config.client instanceof PinpointSMSVoiceV2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PinpointSMSVoiceV2 | PinpointSMSVoiceV2Client");

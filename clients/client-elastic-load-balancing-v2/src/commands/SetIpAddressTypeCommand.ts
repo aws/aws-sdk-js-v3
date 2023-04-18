@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  SetIpAddressTypeInput,
-  SetIpAddressTypeInputFilterSensitiveLog,
-  SetIpAddressTypeOutput,
-  SetIpAddressTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetIpAddressTypeCommand,
-  serializeAws_querySetIpAddressTypeCommand,
-} from "../protocols/Aws_query";
+import { SetIpAddressTypeInput, SetIpAddressTypeOutput } from "../models/models_0";
+import { de_SetIpAddressTypeCommand, se_SetIpAddressTypeCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link SetIpAddressTypeCommand}.
+ */
 export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetIpAddressTypeCommand}.
+ */
 export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,29 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * import { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // SetIpAddressTypeInput
+ *   LoadBalancerArn: "STRING_VALUE", // required
+ *   IpAddressType: "ipv4" || "dualstack", // required
+ * };
  * const command = new SetIpAddressTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetIpAddressTypeCommandInput - {@link SetIpAddressTypeCommandInput}
+ * @returns {@link SetIpAddressTypeCommandOutput}
  * @see {@link SetIpAddressTypeCommandInput} for command's `input` shape.
  * @see {@link SetIpAddressTypeCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration is not valid.</p>
+ *
+ * @throws {@link InvalidSubnetException} (client fault)
+ *  <p>The specified subnet is out of available addresses.</p>
+ *
+ * @throws {@link LoadBalancerNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
  *
  */
 export class SetIpAddressTypeCommand extends $Command<
@@ -66,6 +85,9 @@ export class SetIpAddressTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetIpAddressTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +116,8 @@ export class SetIpAddressTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIpAddressTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetIpAddressTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +127,18 @@ export class SetIpAddressTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetIpAddressTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetIpAddressTypeCommand(input, context);
+    return se_SetIpAddressTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetIpAddressTypeCommandOutput> {
-    return deserializeAws_querySetIpAddressTypeCommand(output, context);
+    return de_SetIpAddressTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

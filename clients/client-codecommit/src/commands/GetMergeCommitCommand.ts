@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetMergeCommitInput,
-  GetMergeCommitInputFilterSensitiveLog,
-  GetMergeCommitOutput,
-  GetMergeCommitOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMergeCommitCommand,
-  serializeAws_json1_1GetMergeCommitCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMergeCommitInput, GetMergeCommitOutput } from "../models/models_0";
+import { de_GetMergeCommitCommand, se_GetMergeCommitCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMergeCommitCommand}.
+ */
 export interface GetMergeCommitCommandInput extends GetMergeCommitInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetMergeCommitCommand}.
+ */
 export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specified merge commit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,68 @@ export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __Met
  * import { CodeCommitClient, GetMergeCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetMergeCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetMergeCommitInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   sourceCommitSpecifier: "STRING_VALUE", // required
+ *   destinationCommitSpecifier: "STRING_VALUE", // required
+ *   conflictDetailLevel: "STRING_VALUE",
+ *   conflictResolutionStrategy: "STRING_VALUE",
+ * };
  * const command = new GetMergeCommitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMergeCommitCommandInput - {@link GetMergeCommitCommandInput}
+ * @returns {@link GetMergeCommitCommandOutput}
  * @see {@link GetMergeCommitCommandInput} for command's `input` shape.
  * @see {@link GetMergeCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link CommitDoesNotExistException} (client fault)
+ *  <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ *
+ * @throws {@link CommitRequiredException} (client fault)
+ *  <p>A commit was not specified.</p>
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidCommitException} (client fault)
+ *  <p>The specified commit is not valid.</p>
+ *
+ * @throws {@link InvalidConflictDetailLevelException} (client fault)
+ *  <p>The specified conflict detail level is not valid.</p>
+ *
+ * @throws {@link InvalidConflictResolutionStrategyException} (client fault)
+ *  <p>The specified conflict resolution strategy is not valid.</p>
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
+ *
+ * @throws {@link RepositoryNameRequiredException} (client fault)
+ *  <p>A repository name is required, but was not specified.</p>
+ *
  *
  */
 export class GetMergeCommitCommand extends $Command<
@@ -62,6 +120,9 @@ export class GetMergeCommitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMergeCommitCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +151,8 @@ export class GetMergeCommitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMergeCommitInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMergeCommitOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +162,18 @@ export class GetMergeCommitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMergeCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMergeCommitCommand(input, context);
+    return se_GetMergeCommitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMergeCommitCommandOutput> {
-    return deserializeAws_json1_1GetMergeCommitCommand(output, context);
+    return de_GetMergeCommitCommand(output, context);
   }
 
   // Start section: command_body_extra

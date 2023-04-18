@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListImagesRequest,
-  ListImagesRequestFilterSensitiveLog,
-  ListImagesResponse,
-  ListImagesResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListImagesCommand,
-  serializeAws_json1_1ListImagesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListImagesRequest, ListImagesResponse } from "../models/models_3";
+import { de_ListImagesCommand, se_ListImagesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListImagesCommand}.
+ */
 export interface ListImagesCommandInput extends ListImagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListImagesCommand}.
+ */
 export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the images in your account and their properties. The list can be filtered by
  *         creation time or modified time, and whether the image name contains a specified string.</p>
  * @example
@@ -37,13 +40,27 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * import { SageMakerClient, ListImagesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListImagesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListImagesRequest
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "CREATION_TIME" || "LAST_MODIFIED_TIME" || "IMAGE_NAME",
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImagesCommandInput - {@link ListImagesCommandInput}
+ * @returns {@link ListImagesCommandOutput}
  * @see {@link ListImagesCommandInput} for command's `input` shape.
  * @see {@link ListImagesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListImagesCommand extends $Command<
@@ -63,6 +80,9 @@ export class ListImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +109,8 @@ export class ListImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +120,18 @@ export class ListImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListImagesCommand(input, context);
+    return se_ListImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagesCommandOutput> {
-    return deserializeAws_json1_1ListImagesCommand(output, context);
+    return de_ListImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  PutAttributesRequest,
-  PutAttributesRequestFilterSensitiveLog,
-  PutAttributesResponse,
-  PutAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAttributesCommand,
-  serializeAws_json1_1PutAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { PutAttributesRequest, PutAttributesResponse } from "../models/models_0";
+import { de_PutAttributesCommand, se_PutAttributesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutAttributesCommand}.
+ */
 export interface PutAttributesCommandInput extends PutAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutAttributesCommand}.
+ */
 export interface PutAttributesCommandOutput extends PutAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create or update an attribute on an Amazon ECS resource. If the attribute doesn't exist,
  * 			it's created. If the attribute exists, its value is replaced with the specified value.
  * 			To delete an attribute, use <a>DeleteAttributes</a>. For more information,
@@ -39,13 +42,44 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  * import { ECSClient, PutAttributesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, PutAttributesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // PutAttributesRequest
+ *   cluster: "STRING_VALUE",
+ *   attributes: [ // Attributes // required
+ *     { // Attribute
+ *       name: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *       targetType: "container-instance",
+ *       targetId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAttributesCommandInput - {@link PutAttributesCommandInput}
+ * @returns {@link PutAttributesCommandOutput}
  * @see {@link PutAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAttributesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link AttributeLimitExceededException} (client fault)
+ *  <p>You can apply up to 10 custom attributes for each resource. You can view the
+ * 			attributes of a resource with <a>ListAttributes</a>. You can remove existing
+ * 			attributes on a resource with <a>DeleteAttributes</a>.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link TargetNotFoundException} (client fault)
+ *  <p>The specified target wasn't found. You can view your available container instances
+ * 			with <a>ListContainerInstances</a>. Amazon ECS container instances are
+ * 			cluster-specific and Region-specific.</p>
+ *
  *
  */
 export class PutAttributesCommand extends $Command<
@@ -65,6 +99,9 @@ export class PutAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +128,8 @@ export class PutAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +139,18 @@ export class PutAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAttributesCommand(input, context);
+    return se_PutAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAttributesCommandOutput> {
-    return deserializeAws_json1_1PutAttributesCommand(output, context);
+    return de_PutAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
+import { PutThirdPartyJobSuccessResultInput } from "../models/models_0";
 import {
-  PutThirdPartyJobSuccessResultInput,
-  PutThirdPartyJobSuccessResultInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutThirdPartyJobSuccessResultCommand,
-  serializeAws_json1_1PutThirdPartyJobSuccessResultCommand,
+  de_PutThirdPartyJobSuccessResultCommand,
+  se_PutThirdPartyJobSuccessResultCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutThirdPartyJobSuccessResultCommand}.
+ */
 export interface PutThirdPartyJobSuccessResultCommandInput extends PutThirdPartyJobSuccessResultInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutThirdPartyJobSuccessResultCommand}.
+ */
 export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents the success of a third party job as returned to the pipeline by a job
  *             worker. Used for partner actions only.</p>
  * @example
@@ -35,13 +43,44 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
  * import { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // PutThirdPartyJobSuccessResultInput
+ *   jobId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ *   currentRevision: { // CurrentRevision
+ *     revision: "STRING_VALUE", // required
+ *     changeIdentifier: "STRING_VALUE", // required
+ *     created: new Date("TIMESTAMP"),
+ *     revisionSummary: "STRING_VALUE",
+ *   },
+ *   continuationToken: "STRING_VALUE",
+ *   executionDetails: { // ExecutionDetails
+ *     summary: "STRING_VALUE",
+ *     externalExecutionId: "STRING_VALUE",
+ *     percentComplete: Number("int"),
+ *   },
+ * };
  * const command = new PutThirdPartyJobSuccessResultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutThirdPartyJobSuccessResultCommandInput - {@link PutThirdPartyJobSuccessResultCommandInput}
+ * @returns {@link PutThirdPartyJobSuccessResultCommandOutput}
  * @see {@link PutThirdPartyJobSuccessResultCommandInput} for command's `input` shape.
  * @see {@link PutThirdPartyJobSuccessResultCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link InvalidClientTokenException} (client fault)
+ *  <p>The client token was specified in an invalid format</p>
+ *
+ * @throws {@link InvalidJobStateException} (client fault)
+ *  <p>The job state was specified in an invalid format.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
  *
  */
 export class PutThirdPartyJobSuccessResultCommand extends $Command<
@@ -61,6 +100,9 @@ export class PutThirdPartyJobSuccessResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutThirdPartyJobSuccessResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +131,8 @@ export class PutThirdPartyJobSuccessResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutThirdPartyJobSuccessResultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,15 +142,21 @@ export class PutThirdPartyJobSuccessResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutThirdPartyJobSuccessResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutThirdPartyJobSuccessResultCommand(input, context);
+    return se_PutThirdPartyJobSuccessResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutThirdPartyJobSuccessResultCommandOutput> {
-    return deserializeAws_json1_1PutThirdPartyJobSuccessResultCommand(output, context);
+    return de_PutThirdPartyJobSuccessResultCommand(output, context);
   }
 
   // Start section: command_body_extra

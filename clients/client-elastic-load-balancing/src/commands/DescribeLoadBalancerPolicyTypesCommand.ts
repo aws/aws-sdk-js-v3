@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
+import { DescribeLoadBalancerPolicyTypesInput, DescribeLoadBalancerPolicyTypesOutput } from "../models/models_0";
 import {
-  DescribeLoadBalancerPolicyTypesInput,
-  DescribeLoadBalancerPolicyTypesInputFilterSensitiveLog,
-  DescribeLoadBalancerPolicyTypesOutput,
-  DescribeLoadBalancerPolicyTypesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand,
-  serializeAws_queryDescribeLoadBalancerPolicyTypesCommand,
+  de_DescribeLoadBalancerPolicyTypesCommand,
+  se_DescribeLoadBalancerPolicyTypesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLoadBalancerPolicyTypesCommand}.
+ */
 export interface DescribeLoadBalancerPolicyTypesCommandInput extends DescribeLoadBalancerPolicyTypesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLoadBalancerPolicyTypesCommand}.
+ */
 export interface DescribeLoadBalancerPolicyTypesCommandOutput
   extends DescribeLoadBalancerPolicyTypesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified load balancer policy types or all load balancer policy types.</p>
  *          <p>The description of each type indicates how it can be used. For example,
  *            some policies can be used only with layer 7 listeners,
@@ -49,13 +55,54 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  * import { ElasticLoadBalancingClient, DescribeLoadBalancerPolicyTypesCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DescribeLoadBalancerPolicyTypesCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // DescribeLoadBalancerPolicyTypesInput
+ *   PolicyTypeNames: [ // PolicyTypeNames
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeLoadBalancerPolicyTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoadBalancerPolicyTypesCommandInput - {@link DescribeLoadBalancerPolicyTypesCommandInput}
+ * @returns {@link DescribeLoadBalancerPolicyTypesCommandOutput}
  * @see {@link DescribeLoadBalancerPolicyTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerPolicyTypesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
+ *
+ * @throws {@link PolicyTypeNotFoundException} (client fault)
+ *  <p>One or more of the specified policy types do not exist.</p>
+ *
+ *
+ * @example To describe a load balancer policy type defined by Elastic Load Balancing
+ * ```javascript
+ * // This example describes the specified load balancer policy type.
+ * const input = {
+ *   "PolicyTypeNames": [
+ *     "ProxyProtocolPolicyType"
+ *   ]
+ * };
+ * const command = new DescribeLoadBalancerPolicyTypesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PolicyTypeDescriptions": [
+ *     {
+ *       "Description": "Policy that controls whether to include the IP address and port of the originating request for TCP messages. This policy operates on TCP listeners only.",
+ *       "PolicyAttributeTypeDescriptions": [
+ *         {
+ *           "AttributeName": "ProxyProtocol",
+ *           "AttributeType": "Boolean",
+ *           "Cardinality": "ONE"
+ *         }
+ *       ],
+ *       "PolicyTypeName": "ProxyProtocolPolicyType"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elb-describe-load-balancer-policy-types-1
+ * ```
  *
  */
 export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
@@ -75,6 +122,9 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoadBalancerPolicyTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +153,8 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoadBalancerPolicyTypesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoadBalancerPolicyTypesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +164,24 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLoadBalancerPolicyTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoadBalancerPolicyTypesCommand(input, context);
+    return se_DescribeLoadBalancerPolicyTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> {
-    return deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand(output, context);
+    return de_DescribeLoadBalancerPolicyTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

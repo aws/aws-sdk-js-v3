@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ChimeSDKVoice } from "../ChimeSDKVoice";
 import { ChimeSDKVoiceClient } from "../ChimeSDKVoiceClient";
 import {
   ListVoiceConnectorGroupsCommand,
@@ -11,7 +10,7 @@ import {
 import { ChimeSDKVoicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeSDKVoiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListVoiceConnectorGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ChimeSDKVoice,
-  input: ListVoiceConnectorGroupsCommandInput,
-  ...args: any
-): Promise<ListVoiceConnectorGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listVoiceConnectorGroups(input, ...args);
-};
 export async function* paginateListVoiceConnectorGroups(
   config: ChimeSDKVoicePaginationConfiguration,
   input: ListVoiceConnectorGroupsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListVoiceConnectorGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ChimeSDKVoice) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ChimeSDKVoiceClient) {
+    if (config.client instanceof ChimeSDKVoiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ChimeSDKVoice | ChimeSDKVoiceClient");

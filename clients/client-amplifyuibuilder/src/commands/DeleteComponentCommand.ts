@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import { DeleteComponentRequest, DeleteComponentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteComponentCommand,
-  serializeAws_restJson1DeleteComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteComponentRequest } from "../models/models_0";
+import { de_DeleteComponentCommand, se_DeleteComponentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteComponentCommand}.
+ */
 export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteComponentCommand}.
+ */
 export interface DeleteComponentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a component from an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,30 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  * import { AmplifyUIBuilderClient, DeleteComponentCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, DeleteComponentCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = { // DeleteComponentRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
+ * @returns {@link DeleteComponentCommandOutput}
  * @see {@link DeleteComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteComponentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.</p>
+ *
  *
  */
 export class DeleteComponentCommand extends $Command<
@@ -57,6 +82,9 @@ export class DeleteComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +113,8 @@ export class DeleteComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +124,18 @@ export class DeleteComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteComponentCommand(input, context);
+    return se_DeleteComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteComponentCommandOutput> {
-    return deserializeAws_restJson1DeleteComponentCommand(output, context);
+    return de_DeleteComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

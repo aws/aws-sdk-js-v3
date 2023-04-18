@@ -1,10 +1,13 @@
 import { Pluggable } from "@aws-sdk/types";
 
 import { TokenResolvedConfig } from "./configurations";
-import { tokenMiddleware, TokenMiddlewareOptions } from "./tokenMiddleware";
+import { tokenMiddleware, tokenMiddlewareOptions } from "./tokenMiddleware";
 
+/**
+ * @internal
+ */
 export const getTokenPlugin = (options: TokenResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
-    clientStack.addRelativeTo(tokenMiddleware(options), TokenMiddlewareOptions);
+    clientStack.addRelativeTo(tokenMiddleware(options), tokenMiddlewareOptions);
   },
 });

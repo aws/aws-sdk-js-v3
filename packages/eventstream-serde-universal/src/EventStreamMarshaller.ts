@@ -4,13 +4,22 @@ import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Mess
 import { getChunkedStream } from "./getChunkedStream";
 import { getUnmarshalledStream } from "./getUnmarshalledStream";
 
+/**
+ * @internal
+ */
 export interface EventStreamMarshaller extends IEventStreamMarshaller {}
 
+/**
+ * @internal
+ */
 export interface EventStreamMarshallerOptions {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
 }
 
+/**
+ * @internal
+ */
 export class EventStreamMarshaller {
   private readonly eventStreamCodec: EventStreamCodec;
   private readonly utfEncoder: Encoder;
@@ -27,9 +36,11 @@ export class EventStreamMarshaller {
     const chunkedStream = getChunkedStream(body);
     const unmarshalledStream = getUnmarshalledStream(chunkedStream, {
       eventStreamCodec: this.eventStreamCodec,
+      // @ts-expect-error Type 'T' is not assignable to type 'Record<string, any>'
       deserializer,
       toUtf8: this.utfEncoder,
     });
+    // @ts-expect-error 'T' could be instantiated with an arbitrary type which could be unrelated to 'Record<string, any>'.
     return unmarshalledStream;
   }
 

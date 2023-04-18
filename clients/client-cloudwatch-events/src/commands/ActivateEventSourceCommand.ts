@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { ActivateEventSourceRequest, ActivateEventSourceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1ActivateEventSourceCommand,
-  serializeAws_json1_1ActivateEventSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { ActivateEventSourceRequest } from "../models/models_0";
+import { de_ActivateEventSourceCommand, se_ActivateEventSourceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ActivateEventSourceCommand}.
+ */
 export interface ActivateEventSourceCommandInput extends ActivateEventSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ActivateEventSourceCommand}.
+ */
 export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates a partner event source that has been deactivated. Once activated, your matching
  *       event bus will start receiving events from the event source.</p>
  * @example
@@ -32,13 +40,34 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  * import { CloudWatchEventsClient, ActivateEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ActivateEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // ActivateEventSourceRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new ActivateEventSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateEventSourceCommandInput - {@link ActivateEventSourceCommandInput}
+ * @returns {@link ActivateEventSourceCommandOutput}
  * @see {@link ActivateEventSourceCommandInput} for command's `input` shape.
  * @see {@link ActivateEventSourceCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The specified state is not a valid state for an event source.</p>
+ *
+ * @throws {@link OperationDisabledException} (client fault)
+ *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class ActivateEventSourceCommand extends $Command<
@@ -58,6 +87,9 @@ export class ActivateEventSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateEventSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +118,8 @@ export class ActivateEventSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ActivateEventSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +129,18 @@ export class ActivateEventSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ActivateEventSourceCommand(input, context);
+    return se_ActivateEventSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateEventSourceCommandOutput> {
-    return deserializeAws_json1_1ActivateEventSourceCommand(output, context);
+    return de_ActivateEventSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

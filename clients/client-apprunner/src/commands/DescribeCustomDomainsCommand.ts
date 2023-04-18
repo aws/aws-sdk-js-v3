@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  DescribeCustomDomainsRequest,
-  DescribeCustomDomainsRequestFilterSensitiveLog,
-  DescribeCustomDomainsResponse,
-  DescribeCustomDomainsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeCustomDomainsCommand,
-  serializeAws_json1_0DescribeCustomDomainsCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeCustomDomainsRequest, DescribeCustomDomainsResponse } from "../models/models_0";
+import { de_DescribeCustomDomainsCommand, se_DescribeCustomDomainsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCustomDomainsCommand}.
+ */
 export interface DescribeCustomDomainsCommandInput extends DescribeCustomDomainsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCustomDomainsCommand}.
+ */
 export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a description of custom domain names that are associated with an App Runner service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomain
  * import { AppRunnerClient, DescribeCustomDomainsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DescribeCustomDomainsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // DescribeCustomDomainsRequest
+ *   ServiceArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeCustomDomainsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCustomDomainsCommandInput - {@link DescribeCustomDomainsCommandInput}
+ * @returns {@link DescribeCustomDomainsCommandOutput}
  * @see {@link DescribeCustomDomainsCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomDomainsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+ *
  *
  */
 export class DescribeCustomDomainsCommand extends $Command<
@@ -62,6 +82,9 @@ export class DescribeCustomDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCustomDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DescribeCustomDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCustomDomainsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCustomDomainsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class DescribeCustomDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCustomDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeCustomDomainsCommand(input, context);
+    return se_DescribeCustomDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCustomDomainsCommandOutput> {
-    return deserializeAws_json1_0DescribeCustomDomainsCommand(output, context);
+    return de_DescribeCustomDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

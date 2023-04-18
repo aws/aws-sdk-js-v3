@@ -33,6 +33,7 @@ import {
 } from "./models_0";
 
 /**
+ * @public
  * <p>You have reached the limit of the number of delivery channels
  * 			you can create.</p>
  */
@@ -53,6 +54,7 @@ export class MaxNumberOfDeliveryChannelsExceededException extends __BaseExceptio
 }
 
 /**
+ * @public
  * <p>You have reached the limit of the number of organization Config rules you can create. For more information, see see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
  *             </a> in the Config Developer Guide.</p>
@@ -75,6 +77,7 @@ export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseE
 }
 
 /**
+ * @public
  * <p>You have reached the limit of the number of organization conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
  *             </a> in the Config Developer Guide.</p>
@@ -97,6 +100,7 @@ export class MaxNumberOfOrganizationConformancePacksExceededException extends __
 }
 
 /**
+ * @public
  * <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
  */
 export class MaxNumberOfRetentionConfigurationsExceededException extends __BaseException {
@@ -117,6 +121,7 @@ export class MaxNumberOfRetentionConfigurationsExceededException extends __BaseE
 }
 
 /**
+ * @public
  * <p>There is no delivery channel available to record
  * 			configurations.</p>
  */
@@ -137,6 +142,7 @@ export class NoAvailableDeliveryChannelException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Organization is no longer available.</p>
  */
 export class NoAvailableOrganizationException extends __BaseException {
@@ -156,6 +162,7 @@ export class NoAvailableOrganizationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified Amazon S3 bucket does not exist.</p>
  */
 export class NoSuchBucketException extends __BaseException {
@@ -175,6 +182,7 @@ export class NoSuchBucketException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Config resource cannot be created because your organization does not have all features enabled.</p>
  */
 export class OrganizationAllFeaturesNotEnabledException extends __BaseException {
@@ -194,7 +202,8 @@ export class OrganizationAllFeaturesNotEnabledException extends __BaseException 
 }
 
 /**
- * <p>You have specified a template that is invalid or supported.</p>
+ * @public
+ * <p>You have specified a template that is not valid or supported.</p>
  */
 export class OrganizationConformancePackTemplateValidationException extends __BaseException {
   readonly name: "OrganizationConformancePackTemplateValidationException" =
@@ -214,6 +223,7 @@ export class OrganizationConformancePackTemplateValidationException extends __Ba
 }
 
 /**
+ * @public
  * <p>An
  * 			object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have
  * 			debug logging enabled, and other custom rule metadata, such as resource type, resource
@@ -228,8 +238,7 @@ export interface OrganizationCustomPolicyRuleMetadata {
   /**
    * <p>The type of notification that initiates Config to run an evaluation for a rule.
    * 			For Config Custom Policy rules, Config supports change-initiated notification types:</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ConfigurationItemChangeNotification</code> - Initiates an evaluation when Config delivers a configuration item as a result of a resource
@@ -294,6 +303,9 @@ export interface OrganizationCustomPolicyRuleMetadata {
   DebugLogDeliveryAccounts?: string[];
 }
 
+/**
+ * @public
+ */
 export interface PutAggregationAuthorizationRequest {
   /**
    * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
@@ -311,6 +323,9 @@ export interface PutAggregationAuthorizationRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutAggregationAuthorizationResponse {
   /**
    * <p>Returns an AggregationAuthorization object.
@@ -320,6 +335,9 @@ export interface PutAggregationAuthorizationResponse {
   AggregationAuthorization?: AggregationAuthorization;
 }
 
+/**
+ * @public
+ */
 export interface PutConfigRuleRequest {
   /**
    * <p>The rule that you want to add to your account.</p>
@@ -332,6 +350,9 @@ export interface PutConfigRuleRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutConfigurationAggregatorRequest {
   /**
    * <p>The name of the configuration aggregator.</p>
@@ -356,6 +377,9 @@ export interface PutConfigurationAggregatorRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutConfigurationAggregatorResponse {
   /**
    * <p>Returns a ConfigurationAggregator object.</p>
@@ -364,6 +388,7 @@ export interface PutConfigurationAggregatorResponse {
 }
 
 /**
+ * @public
  * <p>The input for the <a>PutConfigurationRecorder</a>
  * 			action.</p>
  */
@@ -375,6 +400,9 @@ export interface PutConfigurationRecorderRequest {
   ConfigurationRecorder: ConfigurationRecorder | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutConformancePackRequest {
   /**
    * <p>The unique name of the conformance pack you want to deploy.</p>
@@ -383,7 +411,7 @@ export interface PutConformancePackRequest {
 
   /**
    * <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same Region as the conformance pack. </p>
-   * 		       <note>
+   *          <note>
    *             <p>You must have access to read Amazon S3 bucket.</p>
    *          </note>
    */
@@ -391,7 +419,7 @@ export interface PutConformancePackRequest {
 
   /**
    * <p>A string containing the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
-   * 		       <note>
+   *          <note>
    *             <p>You can use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
    *          </note>
    */
@@ -399,7 +427,7 @@ export interface PutConformancePackRequest {
 
   /**
    * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional.</p>
    *          </note>
    */
@@ -407,7 +435,7 @@ export interface PutConformancePackRequest {
 
   /**
    * <p>The prefix for the Amazon S3 bucket. </p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional.</p>
    *          </note>
    */
@@ -424,6 +452,9 @@ export interface PutConformancePackRequest {
   TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails;
 }
 
+/**
+ * @public
+ */
 export interface PutConformancePackResponse {
   /**
    * <p>ARN of the conformance pack.</p>
@@ -432,6 +463,7 @@ export interface PutConformancePackResponse {
 }
 
 /**
+ * @public
  * <p>The input for the <a>PutDeliveryChannel</a>
  * 			action.</p>
  */
@@ -445,6 +477,7 @@ export interface PutDeliveryChannelRequest {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface PutEvaluationsRequest {
@@ -467,18 +500,18 @@ export interface PutEvaluationsRequest {
    * 			<code>PutEvaluations</code>. You can verify whether your Lambda function will deliver evaluation results to Config. No
    * 			updates occur to your existing evaluations, and evaluation results
    * 			are not sent to Config.</p>
-   *
-   * 		       <note>
-   * 			         <p>When <code>TestMode</code> is <code>true</code>,
+   *          <note>
+   *             <p>When <code>TestMode</code> is <code>true</code>,
    * 					<code>PutEvaluations</code> doesn't require a valid value
    * 				for the <code>ResultToken</code> parameter, but the value cannot
    * 				be null.</p>
-   * 		       </note>
+   *          </note>
    */
   TestMode?: boolean;
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface PutEvaluationsResponse {
@@ -489,6 +522,9 @@ export interface PutEvaluationsResponse {
   FailedEvaluations?: Evaluation[];
 }
 
+/**
+ * @public
+ */
 export interface PutExternalEvaluationRequest {
   /**
    * <p>The name of the Config rule.</p>
@@ -501,8 +537,14 @@ export interface PutExternalEvaluationRequest {
   ExternalEvaluation: ExternalEvaluation | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutExternalEvaluationResponse {}
 
+/**
+ * @public
+ */
 export interface PutOrganizationConfigRuleRequest {
   /**
    * <p>The name that you assign to an organization Config rule.</p>
@@ -536,6 +578,9 @@ export interface PutOrganizationConfigRuleRequest {
   OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadata;
 }
 
+/**
+ * @public
+ */
 export interface PutOrganizationConfigRuleResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of an organization Config rule.</p>
@@ -543,6 +588,9 @@ export interface PutOrganizationConfigRuleResponse {
   OrganizationConfigRuleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutOrganizationConformancePackRequest {
   /**
    * <p>Name of the organization conformance pack you want to create.</p>
@@ -552,7 +600,7 @@ export interface PutOrganizationConformancePackRequest {
   /**
    * <p>Location of file containing the template body. The uri must point to the conformance pack template
    * 			(max size: 300 KB).</p>
-   * 		       <note>
+   *          <note>
    *             <p>You must have access to read Amazon S3 bucket.</p>
    *          </note>
    */
@@ -566,7 +614,7 @@ export interface PutOrganizationConformancePackRequest {
 
   /**
    * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional. If used, it must be prefixed with <code>awsconfigconforms</code>.</p>
    *          </note>
    */
@@ -574,7 +622,7 @@ export interface PutOrganizationConformancePackRequest {
 
   /**
    * <p>The prefix for the Amazon S3 bucket.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional.</p>
    *          </note>
    */
@@ -591,6 +639,9 @@ export interface PutOrganizationConformancePackRequest {
   ExcludedAccounts?: string[];
 }
 
+/**
+ * @public
+ */
 export interface PutOrganizationConformancePackResponse {
   /**
    * <p>ARN of the organization conformance pack.</p>
@@ -598,6 +649,9 @@ export interface PutOrganizationConformancePackResponse {
   OrganizationConformancePackArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutRemediationConfigurationsRequest {
   /**
    * <p>A list of remediation configuration objects.</p>
@@ -605,6 +659,9 @@ export interface PutRemediationConfigurationsRequest {
   RemediationConfigurations: RemediationConfiguration[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRemediationConfigurationsResponse {
   /**
    * <p>Returns a list of failed remediation batch objects.</p>
@@ -612,6 +669,9 @@ export interface PutRemediationConfigurationsResponse {
   FailedBatches?: FailedRemediationBatch[];
 }
 
+/**
+ * @public
+ */
 export interface PutRemediationExceptionsRequest {
   /**
    * <p>The name of the Config rule for which you want to create remediation exception.</p>
@@ -634,6 +694,9 @@ export interface PutRemediationExceptionsRequest {
   ExpirationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface PutRemediationExceptionsResponse {
   /**
    * <p>Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
@@ -641,10 +704,13 @@ export interface PutRemediationExceptionsResponse {
   FailedBatches?: FailedRemediationExceptionBatch[];
 }
 
+/**
+ * @public
+ */
 export interface PutResourceConfigRequest {
   /**
    * <p>The type of the resource. The custom resource type must be registered with CloudFormation. </p>
-   * 		       <note>
+   *          <note>
    *             <p>You cannot use the organization names “amzn”, “amazon”, “alexa”, “custom” with custom resource types. It is the first part of the ResourceType up to the first ::.</p>
    *          </note>
    */
@@ -667,7 +733,7 @@ export interface PutResourceConfigRequest {
 
   /**
    * <p>The configuration object of the resource in valid JSON format. It must match the schema registered with CloudFormation.</p>
-   * 		       <note>
+   *          <note>
    *             <p>The configuration JSON must not exceed 64 KB.</p>
    *          </note>
    */
@@ -675,7 +741,7 @@ export interface PutResourceConfigRequest {
 
   /**
    * <p>Tags associated with the resource.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is not to be confused with the Amazon Web Services-wide tag feature for Amazon Web Services resources.
    * 			Tags for <code>PutResourceConfig</code> are tags that you supply for the configuration items of your custom resources.</p>
    *          </note>
@@ -683,18 +749,24 @@ export interface PutResourceConfigRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutRetentionConfigurationRequest {
   /**
    * <p>Number of days Config stores your historical
    * 			information.</p>
-   * 		       <note>
-   * 			         <p>Currently, only applicable to the configuration item
+   *          <note>
+   *             <p>Currently, only applicable to the configuration item
    * 				history.</p>
-   * 		       </note>
+   *          </note>
    */
   RetentionPeriodInDays: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRetentionConfigurationResponse {
   /**
    * <p>Returns a retention configuration object.</p>
@@ -702,11 +774,14 @@ export interface PutRetentionConfigurationResponse {
   RetentionConfiguration?: RetentionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutStoredQueryRequest {
   /**
    * <p>A list of <code>StoredQuery</code> objects.
    * 			The mandatory fields are <code>QueryName</code> and <code>Expression</code>.</p>
-   * 		       <note>
+   *          <note>
    *             <p>When you are creating a query, you must provide a query name and an expression.
    * 			When you are updating a query, you must provide a query name but updating the description is optional.</p>
    *          </note>
@@ -719,6 +794,9 @@ export interface PutStoredQueryRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutStoredQueryResponse {
   /**
    * <p>Amazon Resource Name (ARN) of the query.
@@ -728,6 +806,7 @@ export interface PutStoredQueryResponse {
 }
 
 /**
+ * @public
  * <p>Two users are trying to modify the same query at the same time. Wait for a moment and try again.</p>
  */
 export class ResourceConcurrentModificationException extends __BaseException {
@@ -747,6 +826,7 @@ export class ResourceConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have reached the limit of the number of tags you can use.
  * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
@@ -769,6 +849,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Details about the query.</p>
  */
 export interface QueryInfo {
@@ -778,6 +859,9 @@ export interface QueryInfo {
   SelectFields?: FieldInfo[];
 }
 
+/**
+ * @public
+ */
 export interface SelectAggregateResourceConfigRequest {
   /**
    * <p>The SQL query SELECT command. </p>
@@ -805,6 +889,9 @@ export interface SelectAggregateResourceConfigRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SelectAggregateResourceConfigResponse {
   /**
    * <p>Returns the results for the SQL query.</p>
@@ -822,6 +909,9 @@ export interface SelectAggregateResourceConfigResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SelectResourceConfigRequest {
   /**
    * <p>The SQL query <code>SELECT</code> command.</p>
@@ -839,6 +929,9 @@ export interface SelectResourceConfigRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SelectResourceConfigResponse {
   /**
    * <p>Returns the results for the SQL query.</p>
@@ -857,6 +950,7 @@ export interface SelectResourceConfigResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface StartConfigRulesEvaluationRequest {
@@ -868,11 +962,13 @@ export interface StartConfigRulesEvaluationRequest {
 }
 
 /**
+ * @public
  * <p>The output when you start the evaluation for the specified Config rule.</p>
  */
 export interface StartConfigRulesEvaluationResponse {}
 
 /**
+ * @public
  * <p>The input for the <a>StartConfigurationRecorder</a>
  * 			action.</p>
  */
@@ -884,6 +980,9 @@ export interface StartConfigurationRecorderRequest {
   ConfigurationRecorderName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartRemediationExecutionRequest {
   /**
    * <p>The list of names of Config rules that you want to run remediation execution for.</p>
@@ -896,6 +995,9 @@ export interface StartRemediationExecutionRequest {
   ResourceKeys: ResourceKey[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartRemediationExecutionResponse {
   /**
    * <p>Returns a failure message. For example, the resource is already compliant.</p>
@@ -908,6 +1010,9 @@ export interface StartRemediationExecutionResponse {
   FailedItems?: ResourceKey[];
 }
 
+/**
+ * @public
+ */
 export interface StartResourceEvaluationRequest {
   /**
    * <p>Returns a <code>ResourceDetails</code> object.</p>
@@ -920,7 +1025,7 @@ export interface StartResourceEvaluationRequest {
   EvaluationContext?: EvaluationContext;
 
   /**
-   * <p>The mode of an evaluation. The valid value for this API is <code>Proactive</code>.</p>
+   * <p>The mode of an evaluation. The valid values for this API are <code>DETECTIVE</code> and <code>PROACTIVE</code>.</p>
    */
   EvaluationMode: EvaluationMode | string | undefined;
 
@@ -932,7 +1037,7 @@ export interface StartResourceEvaluationRequest {
   /**
    * <p>A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * 			To make an idempotent API request using one of these actions, specify a client token in the request.</p>
-   * 		       <note>
+   *          <note>
    *             <p>Avoid reusing the same client token for other API requests. If you retry
    * 				a request that completed successfully using the same client token and the same
    * 				parameters, the retry succeeds without performing any further actions. If you retry
@@ -944,6 +1049,9 @@ export interface StartResourceEvaluationRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartResourceEvaluationResponse {
   /**
    * <p>A
@@ -953,6 +1061,7 @@ export interface StartResourceEvaluationResponse {
 }
 
 /**
+ * @public
  * <p>The input for the <a>StopConfigurationRecorder</a> action.</p>
  */
 export interface StopConfigurationRecorderRequest {
@@ -962,6 +1071,9 @@ export interface StopConfigurationRecorderRequest {
   ConfigurationRecorderName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
@@ -974,6 +1086,9 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
@@ -985,313 +1100,3 @@ export interface UntagResourceRequest {
    */
   TagKeys: string[] | undefined;
 }
-
-/**
- * @internal
- */
-export const OrganizationCustomPolicyRuleMetadataFilterSensitiveLog = (
-  obj: OrganizationCustomPolicyRuleMetadata
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAggregationAuthorizationRequestFilterSensitiveLog = (obj: PutAggregationAuthorizationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAggregationAuthorizationResponseFilterSensitiveLog = (
-  obj: PutAggregationAuthorizationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConfigRuleRequestFilterSensitiveLog = (obj: PutConfigRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConfigurationAggregatorRequestFilterSensitiveLog = (obj: PutConfigurationAggregatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConfigurationAggregatorResponseFilterSensitiveLog = (obj: PutConfigurationAggregatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConfigurationRecorderRequestFilterSensitiveLog = (obj: PutConfigurationRecorderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConformancePackRequestFilterSensitiveLog = (obj: PutConformancePackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConformancePackResponseFilterSensitiveLog = (obj: PutConformancePackResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutDeliveryChannelRequestFilterSensitiveLog = (obj: PutDeliveryChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEvaluationsRequestFilterSensitiveLog = (obj: PutEvaluationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEvaluationsResponseFilterSensitiveLog = (obj: PutEvaluationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutExternalEvaluationRequestFilterSensitiveLog = (obj: PutExternalEvaluationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutExternalEvaluationResponseFilterSensitiveLog = (obj: PutExternalEvaluationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutOrganizationConfigRuleRequestFilterSensitiveLog = (obj: PutOrganizationConfigRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutOrganizationConfigRuleResponseFilterSensitiveLog = (obj: PutOrganizationConfigRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutOrganizationConformancePackRequestFilterSensitiveLog = (
-  obj: PutOrganizationConformancePackRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutOrganizationConformancePackResponseFilterSensitiveLog = (
-  obj: PutOrganizationConformancePackResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRemediationConfigurationsRequestFilterSensitiveLog = (
-  obj: PutRemediationConfigurationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRemediationConfigurationsResponseFilterSensitiveLog = (
-  obj: PutRemediationConfigurationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRemediationExceptionsRequestFilterSensitiveLog = (obj: PutRemediationExceptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRemediationExceptionsResponseFilterSensitiveLog = (obj: PutRemediationExceptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourceConfigRequestFilterSensitiveLog = (obj: PutResourceConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRetentionConfigurationRequestFilterSensitiveLog = (obj: PutRetentionConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRetentionConfigurationResponseFilterSensitiveLog = (obj: PutRetentionConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutStoredQueryRequestFilterSensitiveLog = (obj: PutStoredQueryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutStoredQueryResponseFilterSensitiveLog = (obj: PutStoredQueryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryInfoFilterSensitiveLog = (obj: QueryInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelectAggregateResourceConfigRequestFilterSensitiveLog = (
-  obj: SelectAggregateResourceConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelectAggregateResourceConfigResponseFilterSensitiveLog = (
-  obj: SelectAggregateResourceConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelectResourceConfigRequestFilterSensitiveLog = (obj: SelectResourceConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelectResourceConfigResponseFilterSensitiveLog = (obj: SelectResourceConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartConfigRulesEvaluationRequestFilterSensitiveLog = (obj: StartConfigRulesEvaluationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartConfigRulesEvaluationResponseFilterSensitiveLog = (obj: StartConfigRulesEvaluationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartConfigurationRecorderRequestFilterSensitiveLog = (obj: StartConfigurationRecorderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRemediationExecutionRequestFilterSensitiveLog = (obj: StartRemediationExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRemediationExecutionResponseFilterSensitiveLog = (obj: StartRemediationExecutionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartResourceEvaluationRequestFilterSensitiveLog = (obj: StartResourceEvaluationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartResourceEvaluationResponseFilterSensitiveLog = (obj: StartResourceEvaluationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopConfigurationRecorderRequestFilterSensitiveLog = (obj: StopConfigurationRecorderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});

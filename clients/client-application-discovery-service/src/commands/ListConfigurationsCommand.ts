@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  ListConfigurationsRequest,
-  ListConfigurationsRequestFilterSensitiveLog,
-  ListConfigurationsResponse,
-  ListConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListConfigurationsCommand,
-  serializeAws_json1_1ListConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListConfigurationsRequest, ListConfigurationsResponse } from "../models/models_0";
+import { de_ListConfigurationsCommand, se_ListConfigurationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListConfigurationsCommand}.
+ */
 export interface ListConfigurationsCommandInput extends ListConfigurationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListConfigurationsCommand}.
+ */
 export interface ListConfigurationsCommandOutput extends ListConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of configuration items as specified by the value passed to the
  *       required parameter <code>configurationType</code>. Optional filtering may be applied to refine
  *       search results.</p>
@@ -42,13 +45,57 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * import { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // ListConfigurationsRequest
+ *   configurationType: "SERVER" || "PROCESS" || "CONNECTION" || "APPLICATION", // required
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "STRING_VALUE", // required
+ *       values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       condition: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   orderBy: [ // OrderByList
+ *     { // OrderByElement
+ *       fieldName: "STRING_VALUE", // required
+ *       sortOrder: "ASC" || "DESC",
+ *     },
+ *   ],
+ * };
  * const command = new ListConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigurationsCommandInput - {@link ListConfigurationsCommandInput}
+ * @returns {@link ListConfigurationsCommandOutput}
  * @see {@link ListConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *       policy associated with this account.</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of one or more parameters are either invalid or out of range. Verify the
+ *       parameter values and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified configuration ID was not located. Verify the configuration ID and try
+ *       again.</p>
+ *
+ * @throws {@link ServerInternalErrorException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
  *
  */
 export class ListConfigurationsCommand extends $Command<
@@ -68,6 +115,9 @@ export class ListConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +146,8 @@ export class ListConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +157,18 @@ export class ListConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListConfigurationsCommand(input, context);
+    return se_ListConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListConfigurationsCommand(output, context);
+    return de_ListConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVpnConnectionsRequest,
-  DescribeVpnConnectionsRequestFilterSensitiveLog,
-  DescribeVpnConnectionsResult,
-  DescribeVpnConnectionsResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2DescribeVpnConnectionsCommand,
-  serializeAws_ec2DescribeVpnConnectionsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeVpnConnectionsRequest, DescribeVpnConnectionsResult } from "../models/models_5";
+import { de_DescribeVpnConnectionsCommand, se_DescribeVpnConnectionsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVpnConnectionsCommand}.
+ */
 export interface DescribeVpnConnectionsCommandInput extends DescribeVpnConnectionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVpnConnectionsCommand}.
+ */
 export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnectionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your VPN connections.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
  *                 User Guide</i>.</p>
@@ -38,13 +41,30 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  * import { EC2Client, DescribeVpnConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpnConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVpnConnectionsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   VpnConnectionIds: [ // VpnConnectionIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeVpnConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpnConnectionsCommandInput - {@link DescribeVpnConnectionsCommandInput}
+ * @returns {@link DescribeVpnConnectionsCommandOutput}
  * @see {@link DescribeVpnConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpnConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeVpnConnectionsCommand extends $Command<
@@ -64,6 +84,9 @@ export class DescribeVpnConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpnConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class DescribeVpnConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpnConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpnConnectionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +126,18 @@ export class DescribeVpnConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpnConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpnConnectionsCommand(input, context);
+    return se_DescribeVpnConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpnConnectionsCommandOutput> {
-    return deserializeAws_ec2DescribeVpnConnectionsCommand(output, context);
+    return de_DescribeVpnConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

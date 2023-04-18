@@ -3,12 +3,22 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SchedulerServiceException as __BaseException } from "./SchedulerServiceException";
 
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
+
+/**
+ * @public
  * <p>Unexpected error encountered while processing the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -29,6 +39,9 @@ export class InternalServerException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The ARN of the EventBridge Scheduler resource for which you want to view tags.</p>
@@ -37,6 +50,7 @@ export interface ListTagsForResourceInput {
 }
 
 /**
+ * @public
  * <p>Tag to associate with a schedule group.</p>
  */
 export interface Tag {
@@ -51,6 +65,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tags associated with the specified resource.</p>
@@ -59,6 +76,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>The request references a resource which does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -80,6 +98,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -101,6 +120,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -122,6 +142,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Updating or deleting the resource can cause an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -142,12 +163,22 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum FlexibleTimeWindowMode {
-  FLEXIBLE = "FLEXIBLE",
-  OFF = "OFF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FlexibleTimeWindowMode = {
+  FLEXIBLE: "FLEXIBLE",
+  OFF: "OFF",
+} as const;
 
 /**
+ * @public
+ */
+export type FlexibleTimeWindowMode = (typeof FlexibleTimeWindowMode)[keyof typeof FlexibleTimeWindowMode];
+
+/**
+ * @public
  * <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
  */
 export interface FlexibleTimeWindow {
@@ -162,12 +193,22 @@ export interface FlexibleTimeWindow {
   MaximumWindowInMinutes?: number;
 }
 
-export enum ScheduleState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduleState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ScheduleState = (typeof ScheduleState)[keyof typeof ScheduleState];
+
+/**
+ * @public
  * <p>An object that contains information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue.</p>
  */
 export interface DeadLetterConfig {
@@ -178,6 +219,7 @@ export interface DeadLetterConfig {
 }
 
 /**
+ * @public
  * <p>The details of a capacity provider strategy.</p>
  */
 export interface CapacityProviderStrategyItem {
@@ -199,13 +241,23 @@ export interface CapacityProviderStrategyItem {
   base?: number;
 }
 
-export enum LaunchType {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchType = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
+
+/**
+ * @public
  * <p>This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.</p>
  */
 export interface AwsVpcConfiguration {
@@ -227,6 +279,7 @@ export interface AwsVpcConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the network configuration for an ECS task.</p>
  */
 export interface NetworkConfiguration {
@@ -236,12 +289,22 @@ export interface NetworkConfiguration {
   awsvpcConfiguration?: AwsVpcConfiguration;
 }
 
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlacementConstraintType = {
+  DISTINCT_INSTANCE: "distinctInstance",
+  MEMBER_OF: "memberOf",
+} as const;
 
 /**
+ * @public
+ */
+export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
+
+/**
+ * @public
  * <p>An object representing a constraint on task placement.</p>
  */
 export interface PlacementConstraint {
@@ -257,13 +320,23 @@ export interface PlacementConstraint {
   expression?: string;
 }
 
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlacementStrategyType = {
+  BINPACK: "binpack",
+  RANDOM: "random",
+  SPREAD: "spread",
+} as const;
 
 /**
+ * @public
+ */
+export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof PlacementStrategyType];
+
+/**
+ * @public
  * <p>The task placement strategy for a task or service.</p>
  */
 export interface PlacementStrategy {
@@ -282,11 +355,21 @@ export interface PlacementStrategy {
   field?: string;
 }
 
-export enum PropagateTags {
-  TASK_DEFINITION = "TASK_DEFINITION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PropagateTags = {
+  TASK_DEFINITION: "TASK_DEFINITION",
+} as const;
 
 /**
+ * @public
+ */
+export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
+
+/**
+ * @public
  * <p>The templated target type for the Amazon ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">
  *                <code>RunTask</code>
  *             </a> API operation.</p>
@@ -375,6 +458,7 @@ export interface EcsParameters {
 }
 
 /**
+ * @public
  * <p>The templated target type for the EventBridge <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html">
  *                <code>PutEvents</code>
  *             </a> API operation.</p>
@@ -392,6 +476,7 @@ export interface EventBridgeParameters {
 }
 
 /**
+ * @public
  * <p>The templated target type for the Amazon Kinesis <a href="kinesis/latest/APIReference/API_PutRecord.html">
  *                <code>PutRecord</code>
  *             </a> API operation.</p>
@@ -405,6 +490,7 @@ export interface KinesisParameters {
 }
 
 /**
+ * @public
  * <p>A <code>RetryPolicy</code> object that includes information about the retry policy settings, including the maximum age of an event, and the maximum number of times EventBridge Scheduler will try to deliver the event to a target.</p>
  */
 export interface RetryPolicy {
@@ -421,6 +507,7 @@ export interface RetryPolicy {
 }
 
 /**
+ * @public
  * <p>The name and value pair of a parameter to use to start execution of a SageMaker Model Building Pipeline.</p>
  */
 export interface SageMakerPipelineParameter {
@@ -436,6 +523,7 @@ export interface SageMakerPipelineParameter {
 }
 
 /**
+ * @public
  * <p>The templated target type for the Amazon SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html">
  *                <code>StartPipelineExecution</code>
  *             </a> API operation.</p>
@@ -448,6 +536,7 @@ export interface SageMakerPipelineParameters {
 }
 
 /**
+ * @public
  * <p>The templated target type for the Amazon SQS <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html">
  *                <code>SendMessage</code>
  *             </a> API operation.
@@ -464,6 +553,7 @@ export interface SqsParameters {
 }
 
 /**
+ * @public
  * <p>The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to
  *         invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.</p>
  */
@@ -534,6 +624,9 @@ export interface Target {
   SqsParameters?: SqsParameters;
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduleInput {
   /**
    * <p>The name of the schedule that you are creating.</p>
@@ -636,6 +729,9 @@ export interface CreateScheduleInput {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduleOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the schedule.</p>
@@ -644,6 +740,7 @@ export interface CreateScheduleOutput {
 }
 
 /**
+ * @public
  * <p>The request exceeds a service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -664,6 +761,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduleInput {
   /**
    * <p>The name of the schedule to delete.</p>
@@ -684,8 +784,14 @@ export interface DeleteScheduleInput {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduleOutput {}
 
+/**
+ * @public
+ */
 export interface GetScheduleInput {
   /**
    * <p>The name of the schedule to retrieve.</p>
@@ -698,6 +804,9 @@ export interface GetScheduleInput {
   GroupName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetScheduleOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the schedule.</p>
@@ -807,6 +916,9 @@ export interface GetScheduleOutput {
   FlexibleTimeWindow?: FlexibleTimeWindow;
 }
 
+/**
+ * @public
+ */
 export interface ListSchedulesInput {
   /**
    * <p>If specified, only lists the schedules whose associated schedule group matches the given filter.</p>
@@ -835,6 +947,7 @@ export interface ListSchedulesInput {
 }
 
 /**
+ * @public
  * <p>The details of a target.</p>
  */
 export interface TargetSummary {
@@ -845,6 +958,7 @@ export interface TargetSummary {
 }
 
 /**
+ * @public
  * <p>The details of a schedule.</p>
  */
 export interface ScheduleSummary {
@@ -884,6 +998,9 @@ export interface ScheduleSummary {
   Target?: TargetSummary;
 }
 
+/**
+ * @public
+ */
 export interface ListSchedulesOutput {
   /**
    * <p>Indicates whether there are additional results to retrieve. If the value is null, there are no more results.</p>
@@ -896,6 +1013,9 @@ export interface ListSchedulesOutput {
   Schedules: ScheduleSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScheduleInput {
   /**
    * <p>The name of the schedule that you are updating.</p>
@@ -999,6 +1119,9 @@ export interface UpdateScheduleInput {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScheduleOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the schedule that you updated.</p>
@@ -1006,6 +1129,9 @@ export interface UpdateScheduleOutput {
   ScheduleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduleGroupInput {
   /**
    * <p>The name of the schedule group that you are creating.</p>
@@ -1026,6 +1152,9 @@ export interface CreateScheduleGroupInput {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduleGroupOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the schedule group.</p>
@@ -1033,6 +1162,9 @@ export interface CreateScheduleGroupOutput {
   ScheduleGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduleGroupInput {
   /**
    * <p>The name of the schedule group to delete.</p>
@@ -1048,8 +1180,14 @@ export interface DeleteScheduleGroupInput {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduleGroupOutput {}
 
+/**
+ * @public
+ */
 export interface GetScheduleGroupInput {
   /**
    * <p>The name of the schedule group to retrieve.</p>
@@ -1057,11 +1195,23 @@ export interface GetScheduleGroupInput {
   Name: string | undefined;
 }
 
-export enum ScheduleGroupState {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduleGroupState = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+} as const;
 
+/**
+ * @public
+ */
+export type ScheduleGroupState = (typeof ScheduleGroupState)[keyof typeof ScheduleGroupState];
+
+/**
+ * @public
+ */
 export interface GetScheduleGroupOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the schedule group.</p>
@@ -1089,6 +1239,9 @@ export interface GetScheduleGroupOutput {
   LastModificationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListScheduleGroupsInput {
   /**
    * <p>The name prefix that you can use to return a filtered list of your schedule groups.</p>
@@ -1107,6 +1260,7 @@ export interface ListScheduleGroupsInput {
 }
 
 /**
+ * @public
  * <p>The details of a schedule group.</p>
  */
 export interface ScheduleGroupSummary {
@@ -1136,6 +1290,9 @@ export interface ScheduleGroupSummary {
   LastModificationDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListScheduleGroupsOutput {
   /**
    * <p>Indicates whether there are additional results to retrieve. If the value is null, there are no more results.</p>
@@ -1148,6 +1305,9 @@ export interface ListScheduleGroupsOutput {
   ScheduleGroups: ScheduleGroupSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the schedule group that you are adding tags to.</p>
@@ -1160,8 +1320,14 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the schedule group from which you are removing tags.</p>
@@ -1174,305 +1340,7 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlexibleTimeWindowFilterSensitiveLog = (obj: FlexibleTimeWindow): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeadLetterConfigFilterSensitiveLog = (obj: DeadLetterConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityProviderStrategyItemFilterSensitiveLog = (obj: CapacityProviderStrategyItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsVpcConfigurationFilterSensitiveLog = (obj: AwsVpcConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementConstraintFilterSensitiveLog = (obj: PlacementConstraint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementStrategyFilterSensitiveLog = (obj: PlacementStrategy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsParametersFilterSensitiveLog = (obj: EcsParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventBridgeParametersFilterSensitiveLog = (obj: EventBridgeParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KinesisParametersFilterSensitiveLog = (obj: KinesisParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetryPolicyFilterSensitiveLog = (obj: RetryPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SageMakerPipelineParameterFilterSensitiveLog = (obj: SageMakerPipelineParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SageMakerPipelineParametersFilterSensitiveLog = (obj: SageMakerPipelineParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SqsParametersFilterSensitiveLog = (obj: SqsParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetFilterSensitiveLog = (obj: Target): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScheduleInputFilterSensitiveLog = (obj: CreateScheduleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScheduleOutputFilterSensitiveLog = (obj: CreateScheduleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScheduleInputFilterSensitiveLog = (obj: DeleteScheduleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScheduleOutputFilterSensitiveLog = (obj: DeleteScheduleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetScheduleInputFilterSensitiveLog = (obj: GetScheduleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetScheduleOutputFilterSensitiveLog = (obj: GetScheduleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchedulesInputFilterSensitiveLog = (obj: ListSchedulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetSummaryFilterSensitiveLog = (obj: TargetSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleSummaryFilterSensitiveLog = (obj: ScheduleSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchedulesOutputFilterSensitiveLog = (obj: ListSchedulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateScheduleInputFilterSensitiveLog = (obj: UpdateScheduleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateScheduleOutputFilterSensitiveLog = (obj: UpdateScheduleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScheduleGroupInputFilterSensitiveLog = (obj: CreateScheduleGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScheduleGroupOutputFilterSensitiveLog = (obj: CreateScheduleGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScheduleGroupInputFilterSensitiveLog = (obj: DeleteScheduleGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScheduleGroupOutputFilterSensitiveLog = (obj: DeleteScheduleGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetScheduleGroupInputFilterSensitiveLog = (obj: GetScheduleGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetScheduleGroupOutputFilterSensitiveLog = (obj: GetScheduleGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListScheduleGroupsInputFilterSensitiveLog = (obj: ListScheduleGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleGroupSummaryFilterSensitiveLog = (obj: ScheduleGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListScheduleGroupsOutputFilterSensitiveLog = (obj: ListScheduleGroupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});

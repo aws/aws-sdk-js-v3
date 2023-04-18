@@ -16,21 +16,30 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribePendingAggregationRequestsRequest,
-  DescribePendingAggregationRequestsRequestFilterSensitiveLog,
   DescribePendingAggregationRequestsResponse,
-  DescribePendingAggregationRequestsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribePendingAggregationRequestsCommand,
-  serializeAws_json1_1DescribePendingAggregationRequestsCommand,
+  de_DescribePendingAggregationRequestsCommand,
+  se_DescribePendingAggregationRequestsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePendingAggregationRequestsCommand}.
+ */
 export interface DescribePendingAggregationRequestsCommandInput extends DescribePendingAggregationRequestsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePendingAggregationRequestsCommand}.
+ */
 export interface DescribePendingAggregationRequestsCommandOutput
   extends DescribePendingAggregationRequestsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all pending aggregation requests.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,32 @@ export interface DescribePendingAggregationRequestsCommandOutput
  * import { ConfigServiceClient, DescribePendingAggregationRequestsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribePendingAggregationRequestsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribePendingAggregationRequestsRequest
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribePendingAggregationRequestsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePendingAggregationRequestsCommandInput - {@link DescribePendingAggregationRequestsCommandInput}
+ * @returns {@link DescribePendingAggregationRequestsCommandOutput}
  * @see {@link DescribePendingAggregationRequestsCommandInput} for command's `input` shape.
  * @see {@link DescribePendingAggregationRequestsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidLimitException} (client fault)
+ *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is not valid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are not valid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
  *
  */
 export class DescribePendingAggregationRequestsCommand extends $Command<
@@ -64,6 +92,9 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePendingAggregationRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePendingAggregationRequestsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePendingAggregationRequestsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +134,24 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePendingAggregationRequestsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePendingAggregationRequestsCommand(input, context);
+    return se_DescribePendingAggregationRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePendingAggregationRequestsCommandOutput> {
-    return deserializeAws_json1_1DescribePendingAggregationRequestsCommand(output, context);
+    return de_DescribePendingAggregationRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

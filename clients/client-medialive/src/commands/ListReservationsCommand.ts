@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  ListReservationsRequest,
-  ListReservationsRequestFilterSensitiveLog,
-  ListReservationsResponse,
-  ListReservationsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListReservationsCommand,
-  serializeAws_restJson1ListReservationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListReservationsRequest, ListReservationsResponse } from "../models/models_1";
+import { de_ListReservationsCommand, se_ListReservationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListReservationsCommand}.
+ */
 export interface ListReservationsCommandInput extends ListReservationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListReservationsCommand}.
+ */
 export interface ListReservationsCommandOutput extends ListReservationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * List purchased reservations.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  * import { MediaLiveClient, ListReservationsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListReservationsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // ListReservationsRequest
+ *   ChannelClass: "STRING_VALUE",
+ *   Codec: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   MaximumBitrate: "STRING_VALUE",
+ *   MaximumFramerate: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Resolution: "STRING_VALUE",
+ *   ResourceType: "STRING_VALUE",
+ *   SpecialFeature: "STRING_VALUE",
+ *   VideoQuality: "STRING_VALUE",
+ * };
  * const command = new ListReservationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReservationsCommandInput - {@link ListReservationsCommandInput}
+ * @returns {@link ListReservationsCommandOutput}
  * @see {@link ListReservationsCommandInput} for command's `input` shape.
  * @see {@link ListReservationsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class ListReservationsCommand extends $Command<
@@ -62,6 +98,9 @@ export class ListReservationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReservationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class ListReservationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReservationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReservationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +140,18 @@ export class ListReservationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReservationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReservationsCommand(input, context);
+    return se_ListReservationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReservationsCommandOutput> {
-    return deserializeAws_restJson1ListReservationsCommand(output, context);
+    return de_ListReservationsCommand(output, context);
   }
 
   // Start section: command_body_extra

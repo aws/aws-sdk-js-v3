@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateRdsDbInstanceRequest, UpdateRdsDbInstanceRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateRdsDbInstanceRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateRdsDbInstanceCommand,
-  serializeAws_json1_1UpdateRdsDbInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRdsDbInstanceCommand, se_UpdateRdsDbInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateRdsDbInstanceCommand}.
+ */
 export interface UpdateRdsDbInstanceCommandInput extends UpdateRdsDbInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateRdsDbInstanceCommand}.
+ */
 export interface UpdateRdsDbInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon RDS instance.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -36,13 +44,27 @@ export interface UpdateRdsDbInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateRdsDbInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateRdsDbInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UpdateRdsDbInstanceRequest
+ *   RdsDbInstanceArn: "STRING_VALUE", // required
+ *   DbUser: "STRING_VALUE",
+ *   DbPassword: "STRING_VALUE",
+ * };
  * const command = new UpdateRdsDbInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRdsDbInstanceCommandInput - {@link UpdateRdsDbInstanceCommandInput}
+ * @returns {@link UpdateRdsDbInstanceCommandOutput}
  * @see {@link UpdateRdsDbInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateRdsDbInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class UpdateRdsDbInstanceCommand extends $Command<
@@ -62,6 +84,9 @@ export class UpdateRdsDbInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRdsDbInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class UpdateRdsDbInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRdsDbInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class UpdateRdsDbInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRdsDbInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRdsDbInstanceCommand(input, context);
+    return se_UpdateRdsDbInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRdsDbInstanceCommandOutput> {
-    return deserializeAws_json1_1UpdateRdsDbInstanceCommand(output, context);
+    return de_UpdateRdsDbInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

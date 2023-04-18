@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAccessControlRulesRequest,
-  ListAccessControlRulesRequestFilterSensitiveLog,
-  ListAccessControlRulesResponse,
-  ListAccessControlRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAccessControlRulesCommand,
-  serializeAws_json1_1ListAccessControlRulesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAccessControlRulesRequest, ListAccessControlRulesResponse } from "../models/models_0";
+import { de_ListAccessControlRulesCommand, se_ListAccessControlRulesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAccessControlRulesCommand}.
+ */
 export interface ListAccessControlRulesCommandInput extends ListAccessControlRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAccessControlRulesCommand}.
+ */
 export interface ListAccessControlRulesCommandOutput extends ListAccessControlRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the access control rules for the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
  * import { WorkMailClient, ListAccessControlRulesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListAccessControlRulesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListAccessControlRulesRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new ListAccessControlRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessControlRulesCommandInput - {@link ListAccessControlRulesCommandInput}
+ * @returns {@link ListAccessControlRulesCommandOutput}
  * @see {@link ListAccessControlRulesCommandInput} for command's `input` shape.
  * @see {@link ListAccessControlRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class ListAccessControlRulesCommand extends $Command<
@@ -62,6 +79,9 @@ export class ListAccessControlRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessControlRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class ListAccessControlRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessControlRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessControlRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class ListAccessControlRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessControlRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccessControlRulesCommand(input, context);
+    return se_ListAccessControlRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessControlRulesCommandOutput> {
-    return deserializeAws_json1_1ListAccessControlRulesCommand(output, context);
+    return de_ListAccessControlRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

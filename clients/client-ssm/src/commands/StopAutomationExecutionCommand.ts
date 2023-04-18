@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopAutomationExecutionRequest,
-  StopAutomationExecutionRequestFilterSensitiveLog,
-  StopAutomationExecutionResult,
-  StopAutomationExecutionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1StopAutomationExecutionCommand,
-  serializeAws_json1_1StopAutomationExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { StopAutomationExecutionRequest, StopAutomationExecutionResult } from "../models/models_1";
+import { de_StopAutomationExecutionCommand, se_StopAutomationExecutionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopAutomationExecutionCommand}.
+ */
 export interface StopAutomationExecutionCommandInput extends StopAutomationExecutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopAutomationExecutionCommand}.
+ */
 export interface StopAutomationExecutionCommandOutput extends StopAutomationExecutionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stop an Automation that is currently running.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
  * import { SSMClient, StopAutomationExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, StopAutomationExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // StopAutomationExecutionRequest
+ *   AutomationExecutionId: "STRING_VALUE", // required
+ *   Type: "Complete" || "Cancel",
+ * };
  * const command = new StopAutomationExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopAutomationExecutionCommandInput - {@link StopAutomationExecutionCommandInput}
+ * @returns {@link StopAutomationExecutionCommandOutput}
  * @see {@link StopAutomationExecutionCommandInput} for command's `input` shape.
  * @see {@link StopAutomationExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link AutomationExecutionNotFoundException} (client fault)
+ *  <p>There is no automation execution information for the requested automation execution
+ *    ID.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidAutomationStatusUpdateException} (client fault)
+ *  <p>The specified update status operation isn't valid.</p>
+ *
  *
  */
 export class StopAutomationExecutionCommand extends $Command<
@@ -62,6 +82,9 @@ export class StopAutomationExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopAutomationExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class StopAutomationExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopAutomationExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopAutomationExecutionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class StopAutomationExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopAutomationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopAutomationExecutionCommand(input, context);
+    return se_StopAutomationExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAutomationExecutionCommandOutput> {
-    return deserializeAws_json1_1StopAutomationExecutionCommand(output, context);
+    return de_StopAutomationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

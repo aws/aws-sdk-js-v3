@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -61,6 +63,14 @@ import {
   BatchEnableStandardsCommandOutput,
 } from "./commands/BatchEnableStandardsCommand";
 import {
+  BatchGetSecurityControlsCommandInput,
+  BatchGetSecurityControlsCommandOutput,
+} from "./commands/BatchGetSecurityControlsCommand";
+import {
+  BatchGetStandardsControlAssociationsCommandInput,
+  BatchGetStandardsControlAssociationsCommandOutput,
+} from "./commands/BatchGetStandardsControlAssociationsCommand";
+import {
   BatchImportFindingsCommandInput,
   BatchImportFindingsCommandOutput,
 } from "./commands/BatchImportFindingsCommand";
@@ -68,6 +78,10 @@ import {
   BatchUpdateFindingsCommandInput,
   BatchUpdateFindingsCommandOutput,
 } from "./commands/BatchUpdateFindingsCommand";
+import {
+  BatchUpdateStandardsControlAssociationsCommandInput,
+  BatchUpdateStandardsControlAssociationsCommandOutput,
+} from "./commands/BatchUpdateStandardsControlAssociationsCommand";
 import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "./commands/CreateActionTargetCommand";
 import {
   CreateFindingAggregatorCommandInput,
@@ -166,6 +180,14 @@ import {
   ListOrganizationAdminAccountsCommandOutput,
 } from "./commands/ListOrganizationAdminAccountsCommand";
 import {
+  ListSecurityControlDefinitionsCommandInput,
+  ListSecurityControlDefinitionsCommandOutput,
+} from "./commands/ListSecurityControlDefinitionsCommand";
+import {
+  ListStandardsControlAssociationsCommandInput,
+  ListStandardsControlAssociationsCommandOutput,
+} from "./commands/ListStandardsControlAssociationsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -198,13 +220,19 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptAdministratorInvitationCommandInput
   | AcceptInvitationCommandInput
   | BatchDisableStandardsCommandInput
   | BatchEnableStandardsCommandInput
+  | BatchGetSecurityControlsCommandInput
+  | BatchGetStandardsControlAssociationsCommandInput
   | BatchImportFindingsCommandInput
   | BatchUpdateFindingsCommandInput
+  | BatchUpdateStandardsControlAssociationsCommandInput
   | CreateActionTargetCommandInput
   | CreateFindingAggregatorCommandInput
   | CreateInsightCommandInput
@@ -245,6 +273,8 @@ export type ServiceInputTypes =
   | ListInvitationsCommandInput
   | ListMembersCommandInput
   | ListOrganizationAdminAccountsCommandInput
+  | ListSecurityControlDefinitionsCommandInput
+  | ListStandardsControlAssociationsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -256,13 +286,19 @@ export type ServiceInputTypes =
   | UpdateSecurityHubConfigurationCommandInput
   | UpdateStandardsControlCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptAdministratorInvitationCommandOutput
   | AcceptInvitationCommandOutput
   | BatchDisableStandardsCommandOutput
   | BatchEnableStandardsCommandOutput
+  | BatchGetSecurityControlsCommandOutput
+  | BatchGetStandardsControlAssociationsCommandOutput
   | BatchImportFindingsCommandOutput
   | BatchUpdateFindingsCommandOutput
+  | BatchUpdateStandardsControlAssociationsCommandOutput
   | CreateActionTargetCommandOutput
   | CreateFindingAggregatorCommandOutput
   | CreateInsightCommandOutput
@@ -303,6 +339,8 @@ export type ServiceOutputTypes =
   | ListInvitationsCommandOutput
   | ListMembersCommandOutput
   | ListOrganizationAdminAccountsCommandOutput
+  | ListSecurityControlDefinitionsCommandOutput
+  | ListStandardsControlAssociationsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -314,6 +352,9 @@ export type ServiceOutputTypes =
   | UpdateSecurityHubConfigurationCommandOutput
   | UpdateStandardsControlCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -321,11 +362,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -382,19 +423,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -405,12 +437,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -430,11 +456,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type SecurityHubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -445,10 +489,15 @@ type SecurityHubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOp
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SecurityHubClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SecurityHubClient class constructor that set the region, credentials and other options.
  */
 export interface SecurityHubClientConfig extends SecurityHubClientConfigType {}
 
+/**
+ * @public
+ */
 type SecurityHubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -459,24 +508,24 @@ type SecurityHubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SecurityHubClient class. This is resolved and normalized from the {@link SecurityHubClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SecurityHubClient class. This is resolved and normalized from the {@link SecurityHubClientConfig | constructor configuration interface}.
  */
 export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolvedConfigType {}
 
 /**
- * <p>Security Hub provides you with a comprehensive view of the security state of your Amazon Web Services environment and resources. It also provides you with the readiness status
- *          of your environment based on controls from supported security standards. Security Hub collects
- *          security data from Amazon Web Services accounts, services, and integrated third-party products and helps
- *          you analyze security trends in your environment to identify the highest priority security
- *          issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
- *                <i>Security HubUser
- *             Guide</i>
- *             </a>.</p>
- *          <p>When you use operations in the Security Hub API, the requests are executed only in the Amazon Web Services
- *          Region that is currently active or in the specific Amazon Web Services Region that you specify in your
- *          request. Any configuration or settings change that results from the operation is applied
- *          only to that Region. To make the same change in other Regions, execute the same command for
- *          each Region to apply the change to.</p>
+ * @public
+ * <p>Security Hub provides you with a comprehensive view of the security state of
+ *          your Amazon Web Services environment and resources. It also provides you with the readiness
+ *          status of your environment based on controls from supported security standards. Security Hub collects security data from Amazon Web Services accounts, services, and
+ *          integrated third-party products and helps you analyze security trends in your environment
+ *          to identify the highest priority security issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">Security HubUser
+ *             Guide</a>.</p>
+ *          <p>When you use operations in the Security Hub API, the requests are executed only in
+ *          the Amazon Web Services Region that is currently active or in the specific Amazon Web Services Region that you specify in your request. Any configuration or settings change
+ *          that results from the operation is applied only to that Region. To make the same change in
+ *          other Regions, run the same command for each Region in which you want to apply the change.</p>
  *          <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account to Security Hub, the association of
  *          the member account with the administrator account is created only in the <code>us-west-2</code>
  *          Region. Security Hub must be enabled for the member account in the same Region that the invitation
@@ -485,8 +534,8 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>BatchEnableStandards</code> - <code>RateLimit</code> of 1
- *                request per second, <code>BurstLimit</code> of 1 request per second.</p>
+ *                   <code>BatchEnableStandards</code> - <code>RateLimit</code> of 1 request per
+ *                second. <code>BurstLimit</code> of 1 request per second.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -505,8 +554,8 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
  *             </li>
  *             <li>
  *                <p>
- *                   <code>UpdateStandardsControl</code> - <code>RateLimit</code> of
- *                1 request per second, <code>BurstLimit</code> of 5 requests per second.</p>
+ *                   <code>UpdateStandardsControl</code> - <code>RateLimit</code> of 1 request per
+ *                second. <code>BurstLimit</code> of 5 requests per second.</p>
  *             </li>
  *             <li>
  *                <p>All other operations - <code>RateLimit</code> of 10 requests per second.

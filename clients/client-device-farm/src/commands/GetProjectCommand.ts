@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetProjectRequest,
-  GetProjectRequestFilterSensitiveLog,
-  GetProjectResult,
-  GetProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetProjectCommand,
-  serializeAws_json1_1GetProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { GetProjectRequest, GetProjectResult } from "../models/models_0";
+import { de_GetProjectCommand, se_GetProjectCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetProjectCommand}.
+ */
 export interface GetProjectCommandInput extends GetProjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetProjectCommand}.
+ */
 export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,51 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  * import { DeviceFarmClient, GetProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetProjectRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProjectCommandInput - {@link GetProjectCommandInput}
+ * @returns {@link GetProjectCommandOutput}
  * @see {@link GetProjectCommandInput} for command's `input` shape.
  * @see {@link GetProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ *
+ * @example To get information about a project
+ * ```javascript
+ * // The following example gets information about a specific project.
+ * const input = {
+ *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE"
+ * };
+ * const command = new GetProjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "project": {
+ *     "name": "My Project",
+ *     "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
+ *     "created": "1472660939.152"
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-a-project-1470975038449
+ * ```
  *
  */
 export class GetProjectCommand extends $Command<
@@ -62,6 +103,9 @@ export class GetProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +132,8 @@ export class GetProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +143,18 @@ export class GetProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetProjectCommand(input, context);
+    return se_GetProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProjectCommandOutput> {
-    return deserializeAws_json1_1GetProjectCommand(output, context);
+    return de_GetProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

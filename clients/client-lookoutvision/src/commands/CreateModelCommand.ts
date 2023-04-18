@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import {
-  CreateModelRequest,
-  CreateModelRequestFilterSensitiveLog,
-  CreateModelResponse,
-  CreateModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateModelCommand,
-  serializeAws_restJson1CreateModelCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateModelRequest, CreateModelResponse } from "../models/models_0";
+import { de_CreateModelCommand, se_CreateModelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateModelCommand}.
+ */
 export interface CreateModelCommandInput extends CreateModelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateModelCommand}.
+ */
 export interface CreateModelCommandOutput extends CreateModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of a model within an an Amazon Lookout for Vision project.
  *       <code>CreateModel</code> is an asynchronous operation in which Amazon Lookout for Vision trains, tests,
  *        and evaluates a new version of a model. </p>
@@ -49,13 +52,57 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * import { LookoutVisionClient, CreateModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, CreateModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = { // CreateModelRequest
+ *   ProjectName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   OutputConfig: { // OutputConfig
+ *     S3Location: { // S3Location
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   KmsKeyId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelCommandInput - {@link CreateModelCommandInput}
+ * @returns {@link CreateModelCommandOutput}
  * @see {@link CreateModelCommandInput} for command's `input` shape.
  * @see {@link CreateModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The update or deletion of a resource caused an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Amazon Lookout for Vision experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>A service quota was exceeded the allowed limit. For more information, see
+ *         Limits in Amazon Lookout for Vision in the Amazon Lookout for Vision Developer Guide. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Amazon Lookout for Vision is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An input validation error occured. For example, invalid characters in a project name,
+ *       or if a pagination token is invalid.</p>
+ *
  *
  */
 export class CreateModelCommand extends $Command<
@@ -75,6 +122,9 @@ export class CreateModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +151,8 @@ export class CreateModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +162,18 @@ export class CreateModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateModelCommand(input, context);
+    return se_CreateModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelCommandOutput> {
-    return deserializeAws_restJson1CreateModelCommand(output, context);
+    return de_CreateModelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { DescribeFleetAdvisorCollectorsRequest, DescribeFleetAdvisorCollectorsResponse } from "../models/models_0";
 import {
-  DescribeFleetAdvisorCollectorsRequest,
-  DescribeFleetAdvisorCollectorsRequestFilterSensitiveLog,
-  DescribeFleetAdvisorCollectorsResponse,
-  DescribeFleetAdvisorCollectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetAdvisorCollectorsCommand,
-  serializeAws_json1_1DescribeFleetAdvisorCollectorsCommand,
+  de_DescribeFleetAdvisorCollectorsCommand,
+  se_DescribeFleetAdvisorCollectorsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetAdvisorCollectorsCommand}.
+ */
 export interface DescribeFleetAdvisorCollectorsCommandInput extends DescribeFleetAdvisorCollectorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetAdvisorCollectorsCommand}.
+ */
 export interface DescribeFleetAdvisorCollectorsCommandOutput
   extends DescribeFleetAdvisorCollectorsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the Fleet Advisor collectors in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +48,31 @@ export interface DescribeFleetAdvisorCollectorsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorCollectorsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorCollectorsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeFleetAdvisorCollectorsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetAdvisorCollectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAdvisorCollectorsCommandInput - {@link DescribeFleetAdvisorCollectorsCommandInput}
+ * @returns {@link DescribeFleetAdvisorCollectorsCommandOutput}
  * @see {@link DescribeFleetAdvisorCollectorsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAdvisorCollectorsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
  *
  */
 export class DescribeFleetAdvisorCollectorsCommand extends $Command<
@@ -68,6 +92,9 @@ export class DescribeFleetAdvisorCollectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAdvisorCollectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +123,8 @@ export class DescribeFleetAdvisorCollectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetAdvisorCollectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetAdvisorCollectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +134,24 @@ export class DescribeFleetAdvisorCollectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFleetAdvisorCollectorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetAdvisorCollectorsCommand(input, context);
+    return se_DescribeFleetAdvisorCollectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetAdvisorCollectorsCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetAdvisorCollectorsCommand(output, context);
+    return de_DescribeFleetAdvisorCollectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

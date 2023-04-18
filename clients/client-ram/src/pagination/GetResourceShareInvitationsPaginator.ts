@@ -6,12 +6,11 @@ import {
   GetResourceShareInvitationsCommandInput,
   GetResourceShareInvitationsCommandOutput,
 } from "../commands/GetResourceShareInvitationsCommand";
-import { RAM } from "../RAM";
 import { RAMClient } from "../RAMClient";
 import { RAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RAMClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetResourceShareInvitationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RAM,
-  input: GetResourceShareInvitationsCommandInput,
-  ...args: any
-): Promise<GetResourceShareInvitationsCommandOutput> => {
-  // @ts-ignore
-  return await client.getResourceShareInvitations(input, ...args);
-};
 export async function* paginateGetResourceShareInvitations(
   config: RAMPaginationConfiguration,
   input: GetResourceShareInvitationsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetResourceShareInvitations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RAMClient) {
+    if (config.client instanceof RAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RAM | RAMClient");

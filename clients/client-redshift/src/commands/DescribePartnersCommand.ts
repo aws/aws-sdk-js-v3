@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePartnersInputMessage,
-  DescribePartnersInputMessageFilterSensitiveLog,
-  DescribePartnersOutputMessage,
-  DescribePartnersOutputMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribePartnersCommand,
-  serializeAws_queryDescribePartnersCommand,
-} from "../protocols/Aws_query";
+import { DescribePartnersInputMessage, DescribePartnersOutputMessage } from "../models/models_1";
+import { de_DescribePartnersCommand, se_DescribePartnersCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribePartnersCommand}.
+ */
 export interface DescribePartnersCommandInput extends DescribePartnersInputMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribePartnersCommand}.
+ */
 export interface DescribePartnersCommandOutput extends DescribePartnersOutputMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the partner integrations defined for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface DescribePartnersCommandOutput extends DescribePartnersOutputMes
  * import { RedshiftClient, DescribePartnersCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribePartnersCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribePartnersInputMessage
+ *   AccountId: "STRING_VALUE", // required
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE",
+ *   PartnerName: "STRING_VALUE",
+ * };
  * const command = new DescribePartnersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePartnersCommandInput - {@link DescribePartnersCommandInput}
+ * @returns {@link DescribePartnersCommandOutput}
  * @see {@link DescribePartnersCommandInput} for command's `input` shape.
  * @see {@link DescribePartnersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
+ *  <p>The partner integration is not authorized.</p>
+ *
  *
  */
 export class DescribePartnersCommand extends $Command<
@@ -62,6 +81,9 @@ export class DescribePartnersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePartnersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class DescribePartnersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePartnersInputMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePartnersOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class DescribePartnersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePartnersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribePartnersCommand(input, context);
+    return se_DescribePartnersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePartnersCommandOutput> {
-    return deserializeAws_queryDescribePartnersCommand(output, context);
+    return de_DescribePartnersCommand(output, context);
   }
 
   // Start section: command_body_extra

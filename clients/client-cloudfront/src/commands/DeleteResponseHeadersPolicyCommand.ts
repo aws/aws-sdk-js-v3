@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  DeleteResponseHeadersPolicyRequest,
-  DeleteResponseHeadersPolicyRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteResponseHeadersPolicyCommand,
-  serializeAws_restXmlDeleteResponseHeadersPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteResponseHeadersPolicyRequest } from "../models/models_1";
+import { de_DeleteResponseHeadersPolicyCommand, se_DeleteResponseHeadersPolicyCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteResponseHeadersPolicyCommand}.
+ */
 export interface DeleteResponseHeadersPolicyCommandInput extends DeleteResponseHeadersPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteResponseHeadersPolicyCommand}.
+ */
 export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a response headers policy.</p>
  *          <p>You cannot delete a response headers policy if it's attached to a cache behavior.
  * 			First update your distributions to remove the response headers policy from all cache
@@ -40,13 +45,40 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  * import { CloudFrontClient, DeleteResponseHeadersPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteResponseHeadersPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteResponseHeadersPolicyRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteResponseHeadersPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResponseHeadersPolicyCommandInput - {@link DeleteResponseHeadersPolicyCommandInput}
+ * @returns {@link DeleteResponseHeadersPolicyCommandOutput}
  * @see {@link DeleteResponseHeadersPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResponseHeadersPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link IllegalDelete} (client fault)
+ *  <p>You cannot delete a managed policy.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
+ *  <p>The response headers policy does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link ResponseHeadersPolicyInUse} (client fault)
+ *  <p>Cannot delete the response headers policy because it is attached to one or more cache
+ * 			behaviors in a CloudFront distribution.</p>
+ *
  *
  */
 export class DeleteResponseHeadersPolicyCommand extends $Command<
@@ -66,6 +98,9 @@ export class DeleteResponseHeadersPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResponseHeadersPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +129,8 @@ export class DeleteResponseHeadersPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResponseHeadersPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +140,21 @@ export class DeleteResponseHeadersPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResponseHeadersPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteResponseHeadersPolicyCommand(input, context);
+    return se_DeleteResponseHeadersPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteResponseHeadersPolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteResponseHeadersPolicyCommand(output, context);
+    return de_DeleteResponseHeadersPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

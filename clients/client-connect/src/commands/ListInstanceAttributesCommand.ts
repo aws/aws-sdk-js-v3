@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListInstanceAttributesRequest,
-  ListInstanceAttributesRequestFilterSensitiveLog,
-  ListInstanceAttributesResponse,
-  ListInstanceAttributesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListInstanceAttributesCommand,
-  serializeAws_restJson1ListInstanceAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInstanceAttributesRequest, ListInstanceAttributesResponse } from "../models/models_1";
+import { de_ListInstanceAttributesCommand, se_ListInstanceAttributesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListInstanceAttributesCommand}.
+ */
 export interface ListInstanceAttributesCommandInput extends ListInstanceAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListInstanceAttributesCommand}.
+ */
 export interface ListInstanceAttributesCommandOutput extends ListInstanceAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all attribute types for the given instance.</p>
  * @example
@@ -37,13 +40,36 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
  * import { ConnectClient, ListInstanceAttributesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListInstanceAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListInstanceAttributesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListInstanceAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceAttributesCommandInput - {@link ListInstanceAttributesCommandInput}
+ * @returns {@link ListInstanceAttributesCommandOutput}
  * @see {@link ListInstanceAttributesCommandInput} for command's `input` shape.
  * @see {@link ListInstanceAttributesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class ListInstanceAttributesCommand extends $Command<
@@ -63,6 +89,9 @@ export class ListInstanceAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +120,8 @@ export class ListInstanceAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstanceAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInstanceAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +131,18 @@ export class ListInstanceAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInstanceAttributesCommand(input, context);
+    return se_ListInstanceAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceAttributesCommandOutput> {
-    return deserializeAws_restJson1ListInstanceAttributesCommand(output, context);
+    return de_ListInstanceAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

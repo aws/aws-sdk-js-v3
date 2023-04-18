@@ -18,33 +18,66 @@ import {
   StartQueryPlanningRequest,
   StartQueryPlanningRequestFilterSensitiveLog,
   StartQueryPlanningResponse,
-  StartQueryPlanningResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartQueryPlanningCommand,
-  serializeAws_restJson1StartQueryPlanningCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartQueryPlanningCommand, se_StartQueryPlanningCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartQueryPlanningCommand}.
+ */
 export interface StartQueryPlanningCommandInput extends StartQueryPlanningRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartQueryPlanningCommand}.
+ */
 export interface StartQueryPlanningCommandOutput extends StartQueryPlanningResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits a request to process a query statement.</p>
- *
- * 	        <p>This operation generates work units that can be retrieved with the <code>GetWorkUnits</code> operation as soon as the query state is WORKUNITS_AVAILABLE or FINISHED.</p>
+ *          <p>This operation generates work units that can be retrieved with the <code>GetWorkUnits</code> operation as soon as the query state is WORKUNITS_AVAILABLE or FINISHED.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LakeFormationClient, StartQueryPlanningCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, StartQueryPlanningCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // StartQueryPlanningRequest
+ *   QueryPlanningContext: { // QueryPlanningContext
+ *     CatalogId: "STRING_VALUE",
+ *     DatabaseName: "STRING_VALUE", // required
+ *     QueryAsOfTime: new Date("TIMESTAMP"),
+ *     QueryParameters: { // QueryParameterMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TransactionId: "STRING_VALUE",
+ *   },
+ *   QueryString: "STRING_VALUE", // required
+ * };
  * const command = new StartQueryPlanningCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartQueryPlanningCommandInput - {@link StartQueryPlanningCommandInput}
+ * @returns {@link StartQueryPlanningCommandOutput}
  * @see {@link StartQueryPlanningCommandInput} for command's `input` shape.
  * @see {@link StartQueryPlanningCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>Contains details about an error where the query request was throttled.</p>
+ *
  *
  */
 export class StartQueryPlanningCommand extends $Command<
@@ -64,6 +97,9 @@ export class StartQueryPlanningCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartQueryPlanningCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +129,7 @@ export class StartQueryPlanningCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartQueryPlanningRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartQueryPlanningResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +139,18 @@ export class StartQueryPlanningCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartQueryPlanningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartQueryPlanningCommand(input, context);
+    return se_StartQueryPlanningCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartQueryPlanningCommandOutput> {
-    return deserializeAws_restJson1StartQueryPlanningCommand(output, context);
+    return de_StartQueryPlanningCommand(output, context);
   }
 
   // Start section: command_body_extra

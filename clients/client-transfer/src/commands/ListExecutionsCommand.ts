@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListExecutionsRequest,
-  ListExecutionsRequestFilterSensitiveLog,
-  ListExecutionsResponse,
-  ListExecutionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListExecutionsCommand,
-  serializeAws_json1_1ListExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListExecutionsRequest, ListExecutionsResponse } from "../models/models_0";
+import { de_ListExecutionsCommand, se_ListExecutionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListExecutionsCommand}.
+ */
 export interface ListExecutionsCommandInput extends ListExecutionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListExecutionsCommand}.
+ */
 export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all executions for the specified workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * import { TransferClient, ListExecutionsCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListExecutionsCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // ListExecutionsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   WorkflowId: "STRING_VALUE", // required
+ * };
  * const command = new ListExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExecutionsCommandInput - {@link ListExecutionsCommandInput}
+ * @returns {@link ListExecutionsCommandOutput}
  * @see {@link ListExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListExecutionsCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
  *
  */
 export class ListExecutionsCommand extends $Command<
@@ -62,6 +89,9 @@ export class ListExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class ListExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class ListExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListExecutionsCommand(input, context);
+    return se_ListExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListExecutionsCommand(output, context);
+    return de_ListExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

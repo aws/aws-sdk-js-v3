@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartRunRequest,
-  StartRunRequestFilterSensitiveLog,
-  StartRunResponse,
-  StartRunResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartRunRequest, StartRunResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1StartRunCommand,
-  serializeAws_restJson1StartRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartRunCommand, se_StartRunCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartRunCommand}.
+ */
 export interface StartRunCommandInput extends StartRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartRunCommand}.
+ */
 export interface StartRunCommandOutput extends StartRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,57 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * import { OmicsClient, StartRunCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartRunCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // StartRunRequest
+ *   workflowId: "STRING_VALUE",
+ *   workflowType: "STRING_VALUE",
+ *   runId: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   runGroupId: "STRING_VALUE",
+ *   priority: Number("int"),
+ *   parameters: "DOCUMENT_VALUE",
+ *   storageCapacity: Number("int"),
+ *   outputUri: "STRING_VALUE",
+ *   logLevel: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   requestId: "STRING_VALUE", // required
+ * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRunCommandInput - {@link StartRunCommandInput}
+ * @returns {@link StartRunCommandOutput}
  * @see {@link StartRunCommandInput} for command's `input` shape.
  * @see {@link StartRunCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request cannot be applied to the target resource in its current state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeds a service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class StartRunCommand extends $Command<StartRunCommandInput, StartRunCommandOutput, OmicsClientResolvedConfig> {
@@ -58,6 +105,9 @@ export class StartRunCommand extends $Command<StartRunCommandInput, StartRunComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +134,8 @@ export class StartRunCommand extends $Command<StartRunCommandInput, StartRunComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +145,18 @@ export class StartRunCommand extends $Command<StartRunCommandInput, StartRunComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartRunCommand(input, context);
+    return se_StartRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRunCommandOutput> {
-    return deserializeAws_restJson1StartRunCommand(output, context);
+    return de_StartRunCommand(output, context);
   }
 
   // Start section: command_body_extra

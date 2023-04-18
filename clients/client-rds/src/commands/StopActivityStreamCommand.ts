@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopActivityStreamRequest,
-  StopActivityStreamRequestFilterSensitiveLog,
-  StopActivityStreamResponse,
-  StopActivityStreamResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryStopActivityStreamCommand,
-  serializeAws_queryStopActivityStreamCommand,
-} from "../protocols/Aws_query";
+import { StopActivityStreamRequest, StopActivityStreamResponse } from "../models/models_1";
+import { de_StopActivityStreamCommand, se_StopActivityStreamCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopActivityStreamCommand}.
+ */
 export interface StopActivityStreamCommandInput extends StopActivityStreamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopActivityStreamCommand}.
+ */
 export interface StopActivityStreamCommandOutput extends StopActivityStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a database activity stream that was started using the Amazon Web Services console,
  *             the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code> action.</p>
  *          <p>For more information, see
@@ -44,13 +47,56 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * import { RDSClient, StopActivityStreamCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StopActivityStreamCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // StopActivityStreamRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   ApplyImmediately: true || false,
+ * };
  * const command = new StopActivityStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopActivityStreamCommandInput - {@link StopActivityStreamCommandInput}
+ * @returns {@link StopActivityStreamCommandOutput}
  * @see {@link StopActivityStreamCommandInput} for command's `input` shape.
  * @see {@link StopActivityStreamCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The specified resource ID was not found.</p>
+ *
+ *
+ * @example To stop a database activity stream
+ * ```javascript
+ * // The following example stops an activity stream in an Aurora cluster named my-pg-cluster.
+ * const input = {
+ *   "ApplyImmediately": true,
+ *   "ResourceArn": "arn:aws:rds:us-east-1:1234567890123:cluster:my-pg-cluster"
+ * };
+ * const command = new StopActivityStreamCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KinesisStreamName": "aws-rds-das-cluster-0ABCDEFGHI1JKLM2NOPQ3R4S",
+ *   "KmsKeyId": "arn:aws:kms:us-east-1:1234567890123:key/a12c345d-6ef7-890g-h123-456i789jk0l1",
+ *   "Status": "stopping"
+ * }
+ * *\/
+ * // example id: to-stop-a-database-activity-stream-1679945843823
+ * ```
  *
  */
 export class StopActivityStreamCommand extends $Command<
@@ -70,6 +116,9 @@ export class StopActivityStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopActivityStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +147,8 @@ export class StopActivityStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopActivityStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopActivityStreamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +158,18 @@ export class StopActivityStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopActivityStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopActivityStreamCommand(input, context);
+    return se_StopActivityStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopActivityStreamCommandOutput> {
-    return deserializeAws_queryStopActivityStreamCommand(output, context);
+    return de_StopActivityStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

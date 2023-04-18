@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  DisassociateApplicationsRequest,
-  DisassociateApplicationsRequestFilterSensitiveLog,
-  DisassociateApplicationsResponse,
-  DisassociateApplicationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateApplicationsCommand,
-  serializeAws_restJson1DisassociateApplicationsCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateApplicationsRequest, DisassociateApplicationsResponse } from "../models/models_0";
+import { de_DisassociateApplicationsCommand, se_DisassociateApplicationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateApplicationsCommand}.
+ */
 export interface DisassociateApplicationsCommandInput extends DisassociateApplicationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateApplicationsCommand}.
+ */
 export interface DisassociateApplicationsCommandOutput extends DisassociateApplicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociate applications from wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * import { MgnClient, DisassociateApplicationsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DisassociateApplicationsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // DisassociateApplicationsRequest
+ *   waveID: "STRING_VALUE", // required
+ *   applicationIDs: [ // ApplicationIDs // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateApplicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateApplicationsCommandInput - {@link DisassociateApplicationsCommandInput}
+ * @returns {@link DisassociateApplicationsCommandOutput}
  * @see {@link DisassociateApplicationsCommandInput} for command's `input` shape.
  * @see {@link DisassociateApplicationsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
  *
  */
 export class DisassociateApplicationsCommand extends $Command<
@@ -62,6 +83,9 @@ export class DisassociateApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class DisassociateApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateApplicationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateApplicationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class DisassociateApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateApplicationsCommand(input, context);
+    return se_DisassociateApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateApplicationsCommandOutput> {
-    return deserializeAws_restJson1DisassociateApplicationsCommand(output, context);
+    return de_DisassociateApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

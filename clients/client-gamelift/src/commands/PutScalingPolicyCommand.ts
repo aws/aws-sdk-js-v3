@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  PutScalingPolicyInput,
-  PutScalingPolicyInputFilterSensitiveLog,
-  PutScalingPolicyOutput,
-  PutScalingPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutScalingPolicyCommand,
-  serializeAws_json1_1PutScalingPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutScalingPolicyInput, PutScalingPolicyOutput } from "../models/models_0";
+import { de_PutScalingPolicyCommand, se_PutScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutScalingPolicyCommand}.
+ */
 export interface PutScalingPolicyCommandInput extends PutScalingPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutScalingPolicyCommand}.
+ */
 export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a scaling policy for a fleet. Scaling policies are used to
  *             automatically scale a fleet's hosting capacity to meet player demand. An active scaling
  *             policy instructs Amazon GameLift to track a fleet metric and automatically change the fleet's
@@ -93,13 +96,44 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  * import { GameLiftClient, PutScalingPolicyCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, PutScalingPolicyCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // PutScalingPolicyInput
+ *   Name: "STRING_VALUE", // required
+ *   FleetId: "STRING_VALUE", // required
+ *   ScalingAdjustment: Number("int"),
+ *   ScalingAdjustmentType: "ChangeInCapacity" || "ExactCapacity" || "PercentChangeInCapacity",
+ *   Threshold: Number("double"),
+ *   ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold",
+ *   EvaluationPeriods: Number("int"),
+ *   MetricName: "ActivatingGameSessions" || "ActiveGameSessions" || "ActiveInstances" || "AvailableGameSessions" || "AvailablePlayerSessions" || "CurrentPlayerSessions" || "IdleInstances" || "PercentAvailableGameSessions" || "PercentIdleInstances" || "QueueDepth" || "WaitTime" || "ConcurrentActivatableGameSessions", // required
+ *   PolicyType: "RuleBased" || "TargetBased",
+ *   TargetConfiguration: { // TargetConfiguration
+ *     TargetValue: Number("double"), // required
+ *   },
+ * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
+ * @returns {@link PutScalingPolicyCommandOutput}
  * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class PutScalingPolicyCommand extends $Command<
@@ -119,6 +153,9 @@ export class PutScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +184,8 @@ export class PutScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutScalingPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutScalingPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,12 +195,18 @@ export class PutScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutScalingPolicyCommand(input, context);
+    return se_PutScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1PutScalingPolicyCommand(output, context);
+    return de_PutScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

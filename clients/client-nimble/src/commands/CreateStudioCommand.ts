@@ -20,15 +20,23 @@ import {
   CreateStudioResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1CreateStudioCommand,
-  serializeAws_restJson1CreateStudioCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateStudioCommand, se_CreateStudioCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateStudioCommand}.
+ */
 export interface CreateStudioCommandInput extends CreateStudioRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateStudioCommand}.
+ */
 export interface CreateStudioCommandOutput extends CreateStudioResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new studio.</p>
  *         <p>When creating a studio, two IAM roles must be provided: the admin role
  *             and the user role. These roles are assumed by your users when they log in to the Nimble Studio portal.</p>
@@ -55,13 +63,54 @@ export interface CreateStudioCommandOutput extends CreateStudioResponse, __Metad
  * import { NimbleClient, CreateStudioCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, CreateStudioCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // CreateStudioRequest
+ *   adminRoleArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   displayName: "STRING_VALUE", // required
+ *   studioEncryptionConfiguration: { // StudioEncryptionConfiguration
+ *     keyArn: "STRING_VALUE",
+ *     keyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY", // required
+ *   },
+ *   studioName: "STRING_VALUE", // required
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   userRoleArn: "STRING_VALUE", // required
+ * };
  * const command = new CreateStudioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStudioCommandInput - {@link CreateStudioCommandInput}
+ * @returns {@link CreateStudioCommandOutput}
  * @see {@link CreateStudioCommandInput} for command's `input` shape.
  * @see {@link CreateStudioCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform this operation. Check your IAM
+ *             policies, and ensure that you are using the correct access keys.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Another operation is in progress. </p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current quota does not allow you to perform the request action. You can request
+ *             increases for some quotas, and other quotas cannot be increased.</p>
+ *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class CreateStudioCommand extends $Command<
@@ -81,6 +130,9 @@ export class CreateStudioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,12 +170,18 @@ export class CreateStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateStudioCommand(input, context);
+    return se_CreateStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStudioCommandOutput> {
-    return deserializeAws_restJson1CreateStudioCommand(output, context);
+    return de_CreateStudioCommand(output, context);
   }
 
   // Start section: command_body_extra

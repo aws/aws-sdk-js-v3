@@ -16,19 +16,26 @@ import {
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import {
   GetResourceRequestStatusInput,
-  GetResourceRequestStatusInputFilterSensitiveLog,
   GetResourceRequestStatusOutput,
   GetResourceRequestStatusOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetResourceRequestStatusCommand,
-  serializeAws_json1_0GetResourceRequestStatusCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetResourceRequestStatusCommand, se_GetResourceRequestStatusCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetResourceRequestStatusCommand}.
+ */
 export interface GetResourceRequestStatusCommandInput extends GetResourceRequestStatusInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetResourceRequestStatusCommand}.
+ */
 export interface GetResourceRequestStatusCommandOutput extends GetResourceRequestStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current status of a resource operation request. For more information, see
  *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track">Tracking the progress of resource operation requests</a> in the
  *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
@@ -38,13 +45,22 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * import { CloudControlClient, GetResourceRequestStatusCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, GetResourceRequestStatusCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
  * const client = new CloudControlClient(config);
+ * const input = { // GetResourceRequestStatusInput
+ *   RequestToken: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceRequestStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceRequestStatusCommandInput - {@link GetResourceRequestStatusCommandInput}
+ * @returns {@link GetResourceRequestStatusCommandOutput}
  * @see {@link GetResourceRequestStatusCommandInput} for command's `input` shape.
  * @see {@link GetResourceRequestStatusCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
+ *
+ * @throws {@link RequestTokenNotFoundException} (client fault)
+ *  <p>A resource operation with the specified request token can't be found.</p>
+ *
  *
  */
 export class GetResourceRequestStatusCommand extends $Command<
@@ -64,6 +80,9 @@ export class GetResourceRequestStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceRequestStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +111,7 @@ export class GetResourceRequestStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceRequestStatusInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetResourceRequestStatusOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,12 +122,18 @@ export class GetResourceRequestStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceRequestStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetResourceRequestStatusCommand(input, context);
+    return se_GetResourceRequestStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceRequestStatusCommandOutput> {
-    return deserializeAws_json1_0GetResourceRequestStatusCommand(output, context);
+    return de_GetResourceRequestStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

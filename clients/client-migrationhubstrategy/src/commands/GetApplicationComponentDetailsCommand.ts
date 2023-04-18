@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
+import { GetApplicationComponentDetailsRequest, GetApplicationComponentDetailsResponse } from "../models/models_0";
 import {
-  GetApplicationComponentDetailsRequest,
-  GetApplicationComponentDetailsRequestFilterSensitiveLog,
-  GetApplicationComponentDetailsResponse,
-  GetApplicationComponentDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApplicationComponentDetailsCommand,
-  serializeAws_restJson1GetApplicationComponentDetailsCommand,
+  de_GetApplicationComponentDetailsCommand,
+  se_GetApplicationComponentDetailsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetApplicationComponentDetailsCommand}.
+ */
 export interface GetApplicationComponentDetailsCommandInput extends GetApplicationComponentDetailsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetApplicationComponentDetailsCommand}.
+ */
 export interface GetApplicationComponentDetailsCommandOutput
   extends GetApplicationComponentDetailsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves details about an application component. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +48,28 @@ export interface GetApplicationComponentDetailsCommandOutput
  * import { MigrationHubStrategyClient, GetApplicationComponentDetailsCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetApplicationComponentDetailsCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // GetApplicationComponentDetailsRequest
+ *   applicationComponentId: "STRING_VALUE", // required
+ * };
  * const command = new GetApplicationComponentDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApplicationComponentDetailsCommandInput - {@link GetApplicationComponentDetailsCommandInput}
+ * @returns {@link GetApplicationComponentDetailsCommandOutput}
  * @see {@link GetApplicationComponentDetailsCommandInput} for command's `input` shape.
  * @see {@link GetApplicationComponentDetailsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ID in the request is not found. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
  *
  */
 export class GetApplicationComponentDetailsCommand extends $Command<
@@ -68,6 +89,9 @@ export class GetApplicationComponentDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApplicationComponentDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +120,8 @@ export class GetApplicationComponentDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApplicationComponentDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApplicationComponentDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +131,24 @@ export class GetApplicationComponentDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetApplicationComponentDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationComponentDetailsCommand(input, context);
+    return se_GetApplicationComponentDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApplicationComponentDetailsCommandOutput> {
-    return deserializeAws_restJson1GetApplicationComponentDetailsCommand(output, context);
+    return de_GetApplicationComponentDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

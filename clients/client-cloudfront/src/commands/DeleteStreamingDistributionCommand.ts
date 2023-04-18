@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  DeleteStreamingDistributionRequest,
-  DeleteStreamingDistributionRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteStreamingDistributionCommand,
-  serializeAws_restXmlDeleteStreamingDistributionCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteStreamingDistributionRequest } from "../models/models_1";
+import { de_DeleteStreamingDistributionCommand, se_DeleteStreamingDistributionCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteStreamingDistributionCommand}.
+ */
 export interface DeleteStreamingDistributionCommandInput extends DeleteStreamingDistributionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteStreamingDistributionCommand}.
+ */
 export interface DeleteStreamingDistributionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a streaming distribution. To delete an RTMP distribution using the CloudFront API,
  * 			perform the following steps.</p>
  *          <p>
@@ -82,13 +87,37 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  * import { CloudFrontClient, DeleteStreamingDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteStreamingDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteStreamingDistributionRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteStreamingDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamingDistributionCommandInput - {@link DeleteStreamingDistributionCommandInput}
+ * @returns {@link DeleteStreamingDistributionCommandOutput}
  * @see {@link DeleteStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchStreamingDistribution} (client fault)
+ *  <p>The specified streaming distribution does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link StreamingDistributionNotDisabled} (client fault)
+ *  <p>The specified CloudFront distribution is not disabled. You must disable the distribution
+ * 			before you can delete it.</p>
+ *
  *
  */
 export class DeleteStreamingDistributionCommand extends $Command<
@@ -108,6 +137,9 @@ export class DeleteStreamingDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamingDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +168,8 @@ export class DeleteStreamingDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamingDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,15 +179,21 @@ export class DeleteStreamingDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteStreamingDistributionCommand(input, context);
+    return se_DeleteStreamingDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStreamingDistributionCommandOutput> {
-    return deserializeAws_restXmlDeleteStreamingDistributionCommand(output, context);
+    return de_DeleteStreamingDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

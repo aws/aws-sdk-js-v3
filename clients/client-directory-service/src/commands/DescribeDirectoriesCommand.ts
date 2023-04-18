@@ -16,19 +16,26 @@ import {
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import {
   DescribeDirectoriesRequest,
-  DescribeDirectoriesRequestFilterSensitiveLog,
   DescribeDirectoriesResult,
   DescribeDirectoriesResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDirectoriesCommand,
-  serializeAws_json1_1DescribeDirectoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDirectoriesCommand, se_DescribeDirectoriesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDirectoriesCommand}.
+ */
 export interface DescribeDirectoriesCommandInput extends DescribeDirectoriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDirectoriesCommand}.
+ */
 export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains information about the directories that belong to this account.</p>
  *          <p>You can retrieve information about specific directories by passing the directory
  *       identifiers in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong
@@ -46,13 +53,38 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * import { DirectoryServiceClient, DescribeDirectoriesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeDirectoriesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DescribeDirectoriesRequest
+ *   DirectoryIds: [ // DirectoryIds
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeDirectoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDirectoriesCommandInput - {@link DescribeDirectoriesCommandInput}
+ * @returns {@link DescribeDirectoriesCommandOutput}
  * @see {@link DescribeDirectoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
  *
  */
 export class DescribeDirectoriesCommand extends $Command<
@@ -72,6 +104,9 @@ export class DescribeDirectoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDirectoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,7 +135,7 @@ export class DescribeDirectoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDirectoriesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeDirectoriesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -111,12 +146,18 @@ export class DescribeDirectoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDirectoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectoriesCommand(input, context);
+    return se_DescribeDirectoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDirectoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectoriesCommand(output, context);
+    return de_DescribeDirectoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

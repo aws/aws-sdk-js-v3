@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  SearchSystemInstancesRequest,
-  SearchSystemInstancesRequestFilterSensitiveLog,
-  SearchSystemInstancesResponse,
-  SearchSystemInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchSystemInstancesCommand,
-  serializeAws_json1_1SearchSystemInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchSystemInstancesRequest, SearchSystemInstancesResponse } from "../models/models_0";
+import { de_SearchSystemInstancesCommand, se_SearchSystemInstancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchSystemInstancesCommand}.
+ */
 export interface SearchSystemInstancesCommandInput extends SearchSystemInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchSystemInstancesCommand}.
+ */
 export interface SearchSystemInstancesCommandOutput extends SearchSystemInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Searches for system instances in the user's account.</p>
@@ -38,13 +41,37 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
  * import { IoTThingsGraphClient, SearchSystemInstancesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchSystemInstancesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // SearchSystemInstancesRequest
+ *   filters: [ // SystemInstanceFilters
+ *     { // SystemInstanceFilter
+ *       name: "STRING_VALUE",
+ *       value: [ // SystemInstanceFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new SearchSystemInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchSystemInstancesCommandInput - {@link SearchSystemInstancesCommandInput}
+ * @returns {@link SearchSystemInstancesCommandOutput}
  * @see {@link SearchSystemInstancesCommandInput} for command's `input` shape.
  * @see {@link SearchSystemInstancesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class SearchSystemInstancesCommand extends $Command<
@@ -64,6 +91,9 @@ export class SearchSystemInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchSystemInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class SearchSystemInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchSystemInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchSystemInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +133,18 @@ export class SearchSystemInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchSystemInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchSystemInstancesCommand(input, context);
+    return se_SearchSystemInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSystemInstancesCommandOutput> {
-    return deserializeAws_json1_1SearchSystemInstancesCommand(output, context);
+    return de_SearchSystemInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

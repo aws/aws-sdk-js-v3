@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StopTriggerRequest,
-  StopTriggerRequestFilterSensitiveLog,
-  StopTriggerResponse,
-  StopTriggerResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1StopTriggerCommand,
-  serializeAws_json1_1StopTriggerCommand,
-} from "../protocols/Aws_json1_1";
+import { StopTriggerRequest, StopTriggerResponse } from "../models/models_2";
+import { de_StopTriggerCommand, se_StopTriggerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopTriggerCommand}.
+ */
 export interface StopTriggerCommandInput extends StopTriggerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopTriggerCommand}.
+ */
 export interface StopTriggerCommandOutput extends StopTriggerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a specified trigger.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface StopTriggerCommandOutput extends StopTriggerResponse, __Metadat
  * import { GlueClient, StopTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StopTriggerRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StopTriggerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTriggerCommandInput - {@link StopTriggerCommandInput}
+ * @returns {@link StopTriggerCommandOutput}
  * @see {@link StopTriggerCommandInput} for command's `input` shape.
  * @see {@link StopTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class StopTriggerCommand extends $Command<
@@ -62,6 +86,9 @@ export class StopTriggerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTriggerCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class StopTriggerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTriggerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopTriggerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class StopTriggerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTriggerCommand(input, context);
+    return se_StopTriggerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTriggerCommandOutput> {
-    return deserializeAws_json1_1StopTriggerCommand(output, context);
+    return de_StopTriggerCommand(output, context);
   }
 
   // Start section: command_body_extra

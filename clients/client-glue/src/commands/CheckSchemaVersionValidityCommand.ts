@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CheckSchemaVersionValidityInput,
-  CheckSchemaVersionValidityInputFilterSensitiveLog,
-  CheckSchemaVersionValidityResponse,
-  CheckSchemaVersionValidityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CheckSchemaVersionValidityCommand,
-  serializeAws_json1_1CheckSchemaVersionValidityCommand,
-} from "../protocols/Aws_json1_1";
+import { CheckSchemaVersionValidityInput, CheckSchemaVersionValidityResponse } from "../models/models_0";
+import { de_CheckSchemaVersionValidityCommand, se_CheckSchemaVersionValidityCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CheckSchemaVersionValidityCommand}.
+ */
 export interface CheckSchemaVersionValidityCommandInput extends CheckSchemaVersionValidityInput {}
+/**
+ * @public
+ *
+ * The output of {@link CheckSchemaVersionValidityCommand}.
+ */
 export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVersionValidityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates the supplied schema. This call has no side effects, it simply validates using the supplied schema using <code>DataFormat</code> as the format. Since it does not take a schema set name, no compatibility checks are performed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVers
  * import { GlueClient, CheckSchemaVersionValidityCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CheckSchemaVersionValidityCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CheckSchemaVersionValidityInput
+ *   DataFormat: "AVRO" || "JSON" || "PROTOBUF", // required
+ *   SchemaDefinition: "STRING_VALUE", // required
+ * };
  * const command = new CheckSchemaVersionValidityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckSchemaVersionValidityCommandInput - {@link CheckSchemaVersionValidityCommandInput}
+ * @returns {@link CheckSchemaVersionValidityCommandOutput}
  * @see {@link CheckSchemaVersionValidityCommandInput} for command's `input` shape.
  * @see {@link CheckSchemaVersionValidityCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
  *
  */
 export class CheckSchemaVersionValidityCommand extends $Command<
@@ -62,6 +81,9 @@ export class CheckSchemaVersionValidityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckSchemaVersionValidityCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class CheckSchemaVersionValidityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckSchemaVersionValidityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CheckSchemaVersionValidityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +123,21 @@ export class CheckSchemaVersionValidityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckSchemaVersionValidityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CheckSchemaVersionValidityCommand(input, context);
+    return se_CheckSchemaVersionValidityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CheckSchemaVersionValidityCommandOutput> {
-    return deserializeAws_json1_1CheckSchemaVersionValidityCommand(output, context);
+    return de_CheckSchemaVersionValidityCommand(output, context);
   }
 
   // Start section: command_body_extra

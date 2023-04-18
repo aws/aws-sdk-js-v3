@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
+import { DescribeConditionalForwardersRequest, DescribeConditionalForwardersResult } from "../models/models_0";
 import {
-  DescribeConditionalForwardersRequest,
-  DescribeConditionalForwardersRequestFilterSensitiveLog,
-  DescribeConditionalForwardersResult,
-  DescribeConditionalForwardersResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConditionalForwardersCommand,
-  serializeAws_json1_1DescribeConditionalForwardersCommand,
+  de_DescribeConditionalForwardersCommand,
+  se_DescribeConditionalForwardersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConditionalForwardersCommand}.
+ */
 export interface DescribeConditionalForwardersCommandInput extends DescribeConditionalForwardersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConditionalForwardersCommand}.
+ */
 export interface DescribeConditionalForwardersCommandOutput
   extends DescribeConditionalForwardersResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains information about the conditional forwarders for this account.</p>
  *          <p>If no input parameters are provided for RemoteDomainNames, this request describes all
  *       conditional forwarders for the specified directory ID.</p>
@@ -40,13 +46,40 @@ export interface DescribeConditionalForwardersCommandOutput
  * import { DirectoryServiceClient, DescribeConditionalForwardersCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeConditionalForwardersCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DescribeConditionalForwardersRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   RemoteDomainNames: [ // RemoteDomainNames
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeConditionalForwardersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConditionalForwardersCommandInput - {@link DescribeConditionalForwardersCommandInput}
+ * @returns {@link DescribeConditionalForwardersCommandOutput}
  * @see {@link DescribeConditionalForwardersCommandInput} for command's `input` shape.
  * @see {@link DescribeConditionalForwardersCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable or could not be found.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
  *
  */
 export class DescribeConditionalForwardersCommand extends $Command<
@@ -66,6 +99,9 @@ export class DescribeConditionalForwardersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConditionalForwardersCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +130,8 @@ export class DescribeConditionalForwardersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConditionalForwardersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConditionalForwardersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +141,21 @@ export class DescribeConditionalForwardersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConditionalForwardersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConditionalForwardersCommand(input, context);
+    return se_DescribeConditionalForwardersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConditionalForwardersCommandOutput> {
-    return deserializeAws_json1_1DescribeConditionalForwardersCommand(output, context);
+    return de_DescribeConditionalForwardersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  CreateBackendStorageRequest,
-  CreateBackendStorageRequestFilterSensitiveLog,
-  CreateBackendStorageResponse,
-  CreateBackendStorageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBackendStorageCommand,
-  serializeAws_restJson1CreateBackendStorageCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateBackendStorageRequest, CreateBackendStorageResponse } from "../models/models_0";
+import { de_CreateBackendStorageCommand, se_CreateBackendStorageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBackendStorageCommand}.
+ */
 export interface CreateBackendStorageCommandInput extends CreateBackendStorageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBackendStorageCommand}.
+ */
 export interface CreateBackendStorageCommandOutput extends CreateBackendStorageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  * import { AmplifyBackendClient, CreateBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CreateBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // CreateBackendStorageRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   ResourceConfig: { // CreateBackendStorageResourceConfig
+ *     BucketName: "STRING_VALUE",
+ *     Permissions: { // BackendStoragePermissions
+ *       Authenticated: [ // ListOfAuthenticatedElement // required
+ *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ *       ],
+ *       UnAuthenticated: [ // ListOfUnAuthenticatedElement
+ *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ *       ],
+ *     },
+ *     ServiceName: "S3", // required
+ *   },
+ *   ResourceName: "STRING_VALUE", // required
+ * };
  * const command = new CreateBackendStorageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackendStorageCommandInput - {@link CreateBackendStorageCommandInput}
+ * @returns {@link CreateBackendStorageCommandOutput}
  * @see {@link CreateBackendStorageCommandInput} for command's `input` shape.
  * @see {@link CreateBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>An error returned if a request is not formed properly.</p>
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  <p>An error returned if there's a temporary issue with the service.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>An error returned when a specific resource type is not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+ *
  *
  */
 export class CreateBackendStorageCommand extends $Command<
@@ -62,6 +97,9 @@ export class CreateBackendStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackendStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class CreateBackendStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackendStorageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackendStorageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class CreateBackendStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackendStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBackendStorageCommand(input, context);
+    return se_CreateBackendStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackendStorageCommandOutput> {
-    return deserializeAws_restJson1CreateBackendStorageCommand(output, context);
+    return de_CreateBackendStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

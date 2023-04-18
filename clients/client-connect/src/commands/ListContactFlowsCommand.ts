@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListContactFlowsRequest,
-  ListContactFlowsRequestFilterSensitiveLog,
-  ListContactFlowsResponse,
-  ListContactFlowsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListContactFlowsCommand,
-  serializeAws_restJson1ListContactFlowsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListContactFlowsRequest, ListContactFlowsResponse } from "../models/models_1";
+import { de_ListContactFlowsCommand, se_ListContactFlowsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListContactFlowsCommand}.
+ */
 export interface ListContactFlowsCommandInput extends ListContactFlowsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListContactFlowsCommand}.
+ */
 export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the flows for the specified Amazon Connect instance.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
@@ -40,13 +43,39 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  * import { ConnectClient, ListContactFlowsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListContactFlowsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListContactFlowsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactFlowTypes: [ // ContactFlowTypes
+ *     "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListContactFlowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContactFlowsCommandInput - {@link ListContactFlowsCommandInput}
+ * @returns {@link ListContactFlowsCommandOutput}
  * @see {@link ListContactFlowsCommandInput} for command's `input` shape.
  * @see {@link ListContactFlowsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class ListContactFlowsCommand extends $Command<
@@ -66,6 +95,9 @@ export class ListContactFlowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContactFlowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +126,8 @@ export class ListContactFlowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContactFlowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContactFlowsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +137,18 @@ export class ListContactFlowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContactFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListContactFlowsCommand(input, context);
+    return se_ListContactFlowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactFlowsCommandOutput> {
-    return deserializeAws_restJson1ListContactFlowsCommand(output, context);
+    return de_ListContactFlowsCommand(output, context);
   }
 
   // Start section: command_body_extra

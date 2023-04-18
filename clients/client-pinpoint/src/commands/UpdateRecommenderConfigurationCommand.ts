@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRecommenderConfigurationRequest,
-  UpdateRecommenderConfigurationRequestFilterSensitiveLog,
-  UpdateRecommenderConfigurationResponse,
-  UpdateRecommenderConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateRecommenderConfigurationRequest, UpdateRecommenderConfigurationResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1UpdateRecommenderConfigurationCommand,
-  serializeAws_restJson1UpdateRecommenderConfigurationCommand,
+  de_UpdateRecommenderConfigurationCommand,
+  se_UpdateRecommenderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateRecommenderConfigurationCommand}.
+ */
 export interface UpdateRecommenderConfigurationCommandInput extends UpdateRecommenderConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateRecommenderConfigurationCommand}.
+ */
 export interface UpdateRecommenderConfigurationCommandOutput
   extends UpdateRecommenderConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon Pinpoint configuration for a recommender model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,53 @@ export interface UpdateRecommenderConfigurationCommandOutput
  * import { PinpointClient, UpdateRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateRecommenderConfigurationRequest
+ *   RecommenderId: "STRING_VALUE", // required
+ *   UpdateRecommenderConfiguration: { // UpdateRecommenderConfigurationShape
+ *     Attributes: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Description: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     RecommendationProviderIdType: "STRING_VALUE",
+ *     RecommendationProviderRoleArn: "STRING_VALUE", // required
+ *     RecommendationProviderUri: "STRING_VALUE", // required
+ *     RecommendationTransformerUri: "STRING_VALUE",
+ *     RecommendationsDisplayName: "STRING_VALUE",
+ *     RecommendationsPerMessage: Number("int"),
+ *   },
+ * };
  * const command = new UpdateRecommenderConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRecommenderConfigurationCommandInput - {@link UpdateRecommenderConfigurationCommandInput}
+ * @returns {@link UpdateRecommenderConfigurationCommandOutput}
  * @see {@link UpdateRecommenderConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateRecommenderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class UpdateRecommenderConfigurationCommand extends $Command<
@@ -64,6 +110,9 @@ export class UpdateRecommenderConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRecommenderConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +141,8 @@ export class UpdateRecommenderConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRecommenderConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRecommenderConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +152,24 @@ export class UpdateRecommenderConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateRecommenderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRecommenderConfigurationCommand(input, context);
+    return se_UpdateRecommenderConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRecommenderConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateRecommenderConfigurationCommand(output, context);
+    return de_UpdateRecommenderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

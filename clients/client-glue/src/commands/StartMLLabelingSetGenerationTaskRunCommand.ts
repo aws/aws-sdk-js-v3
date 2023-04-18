@@ -16,21 +16,30 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   StartMLLabelingSetGenerationTaskRunRequest,
-  StartMLLabelingSetGenerationTaskRunRequestFilterSensitiveLog,
   StartMLLabelingSetGenerationTaskRunResponse,
-  StartMLLabelingSetGenerationTaskRunResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand,
-  serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand,
+  de_StartMLLabelingSetGenerationTaskRunCommand,
+  se_StartMLLabelingSetGenerationTaskRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartMLLabelingSetGenerationTaskRunCommand}.
+ */
 export interface StartMLLabelingSetGenerationTaskRunCommandInput extends StartMLLabelingSetGenerationTaskRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartMLLabelingSetGenerationTaskRunCommand}.
+ */
 export interface StartMLLabelingSetGenerationTaskRunCommandOutput
   extends StartMLLabelingSetGenerationTaskRunResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the active learning workflow for your machine learning transform to improve the
  *       transform's quality by generating label sets and adding labels.</p>
  *          <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
@@ -48,13 +57,35 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  * import { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StartMLLabelingSetGenerationTaskRunRequest
+ *   TransformId: "STRING_VALUE", // required
+ *   OutputS3Path: "STRING_VALUE", // required
+ * };
  * const command = new StartMLLabelingSetGenerationTaskRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMLLabelingSetGenerationTaskRunCommandInput - {@link StartMLLabelingSetGenerationTaskRunCommandInput}
+ * @returns {@link StartMLLabelingSetGenerationTaskRunCommandOutput}
  * @see {@link StartMLLabelingSetGenerationTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartMLLabelingSetGenerationTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link ConcurrentRunsExceededException} (client fault)
+ *  <p>Too many jobs are being run concurrently.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
@@ -74,6 +105,9 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMLLabelingSetGenerationTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +136,8 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMLLabelingSetGenerationTaskRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMLLabelingSetGenerationTaskRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +147,24 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartMLLabelingSetGenerationTaskRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand(input, context);
+    return se_StartMLLabelingSetGenerationTaskRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMLLabelingSetGenerationTaskRunCommandOutput> {
-    return deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand(output, context);
+    return de_StartMLLabelingSetGenerationTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

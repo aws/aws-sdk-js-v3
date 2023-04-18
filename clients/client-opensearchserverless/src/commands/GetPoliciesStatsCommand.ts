@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPoliciesStatsRequest,
-  GetPoliciesStatsRequestFilterSensitiveLog,
-  GetPoliciesStatsResponse,
-  GetPoliciesStatsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPoliciesStatsRequest, GetPoliciesStatsResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0GetPoliciesStatsCommand,
-  serializeAws_json1_0GetPoliciesStatsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetPoliciesStatsCommand, se_GetPoliciesStatsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPoliciesStatsCommand}.
+ */
 export interface GetPoliciesStatsCommandInput extends GetPoliciesStatsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPoliciesStatsCommand}.
+ */
 export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns statistical information about your OpenSearch Serverless access policies, security
  *             configurations, and security policies.</p>
  * @example
@@ -41,13 +44,20 @@ export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse,
  * import { OpenSearchServerlessClient, GetPoliciesStatsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, GetPoliciesStatsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = {};
  * const command = new GetPoliciesStatsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPoliciesStatsCommandInput - {@link GetPoliciesStatsCommandInput}
+ * @returns {@link GetPoliciesStatsCommandOutput}
  * @see {@link GetPoliciesStatsCommandInput} for command's `input` shape.
  * @see {@link GetPoliciesStatsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
  *
  */
 export class GetPoliciesStatsCommand extends $Command<
@@ -67,6 +77,9 @@ export class GetPoliciesStatsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPoliciesStatsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +108,8 @@ export class GetPoliciesStatsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPoliciesStatsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPoliciesStatsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +119,18 @@ export class GetPoliciesStatsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPoliciesStatsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetPoliciesStatsCommand(input, context);
+    return se_GetPoliciesStatsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPoliciesStatsCommandOutput> {
-    return deserializeAws_json1_0GetPoliciesStatsCommand(output, context);
+    return de_GetPoliciesStatsCommand(output, context);
   }
 
   // Start section: command_body_extra

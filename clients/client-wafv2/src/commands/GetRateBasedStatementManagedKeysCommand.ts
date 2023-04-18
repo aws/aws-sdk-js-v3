@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetRateBasedStatementManagedKeysRequest, GetRateBasedStatementManagedKeysResponse } from "../models/models_0";
 import {
-  GetRateBasedStatementManagedKeysRequest,
-  GetRateBasedStatementManagedKeysRequestFilterSensitiveLog,
-  GetRateBasedStatementManagedKeysResponse,
-  GetRateBasedStatementManagedKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand,
-  serializeAws_json1_1GetRateBasedStatementManagedKeysCommand,
+  de_GetRateBasedStatementManagedKeysCommand,
+  se_GetRateBasedStatementManagedKeysCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRateBasedStatementManagedKeysCommand}.
+ */
 export interface GetRateBasedStatementManagedKeysCommandInput extends GetRateBasedStatementManagedKeysRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRateBasedStatementManagedKeysCommand}.
+ */
 export interface GetRateBasedStatementManagedKeysCommandOutput
   extends GetRateBasedStatementManagedKeysResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the keys that are currently blocked by a rate-based rule instance. The maximum
  *          number of managed keys that can be blocked for a single rate-based rule instance is 10,000.
  *          If more than 10,000 addresses exceed the rate limit, those with the highest rates are
@@ -51,13 +57,57 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
  * import { WAFV2Client, GetRateBasedStatementManagedKeysCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetRateBasedStatementManagedKeysCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // GetRateBasedStatementManagedKeysRequest
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   WebACLName: "STRING_VALUE", // required
+ *   WebACLId: "STRING_VALUE", // required
+ *   RuleGroupRuleName: "STRING_VALUE",
+ *   RuleName: "STRING_VALUE", // required
+ * };
  * const command = new GetRateBasedStatementManagedKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRateBasedStatementManagedKeysCommandInput - {@link GetRateBasedStatementManagedKeysCommandInput}
+ * @returns {@link GetRateBasedStatementManagedKeysCommandOutput}
  * @see {@link GetRateBasedStatementManagedKeysCommandInput} for command's `input` shape.
  * @see {@link GetRateBasedStatementManagedKeysCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
+ *          problem. Retry your request. </p>
+ *
+ * @throws {@link WAFInvalidOperationException} (client fault)
+ *  <p>The operation isn't valid. </p>
+ *
+ * @throws {@link WAFInvalidParameterException} (client fault)
+ *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
+ *          example: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified a parameter name or value that isn't valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
+ *                can’t be nested. </p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
+ *                isn't among the types available at <a>DefaultAction</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                with which a web ACL can't be associated.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>WAF couldn’t perform the operation because your resource doesn't exist.
+ *        If you've just created a resource that you're using in this operation, you might
+ *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
+ *        for changes to propagate. </p>
+ *
  *
  */
 export class GetRateBasedStatementManagedKeysCommand extends $Command<
@@ -77,6 +127,9 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRateBasedStatementManagedKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +158,8 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRateBasedStatementManagedKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRateBasedStatementManagedKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +169,24 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRateBasedStatementManagedKeysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRateBasedStatementManagedKeysCommand(input, context);
+    return se_GetRateBasedStatementManagedKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRateBasedStatementManagedKeysCommandOutput> {
-    return deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand(output, context);
+    return de_GetRateBasedStatementManagedKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

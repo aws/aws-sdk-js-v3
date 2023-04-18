@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSimulationJobsRequest,
-  ListSimulationJobsRequestFilterSensitiveLog,
-  ListSimulationJobsResponse,
-  ListSimulationJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSimulationJobsCommand,
-  serializeAws_restJson1ListSimulationJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSimulationJobsRequest, ListSimulationJobsResponse } from "../models/models_0";
+import { de_ListSimulationJobsCommand, se_ListSimulationJobsCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSimulationJobsCommand}.
+ */
 export interface ListSimulationJobsCommandInput extends ListSimulationJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSimulationJobsCommand}.
+ */
 export interface ListSimulationJobsCommandOutput extends ListSimulationJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
  *          specific simulation jobs. </p>
  * @example
@@ -37,13 +40,38 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * import { RoboMakerClient, ListSimulationJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListSimulationJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // ListSimulationJobsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListSimulationJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSimulationJobsCommandInput - {@link ListSimulationJobsCommandInput}
+ * @returns {@link ListSimulationJobsCommandOutput}
  * @see {@link ListSimulationJobsCommandInput} for command's `input` shape.
  * @see {@link ListSimulationJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class ListSimulationJobsCommand extends $Command<
@@ -63,6 +91,9 @@ export class ListSimulationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSimulationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +122,8 @@ export class ListSimulationJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSimulationJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSimulationJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +133,18 @@ export class ListSimulationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSimulationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSimulationJobsCommand(input, context);
+    return se_ListSimulationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSimulationJobsCommandOutput> {
-    return deserializeAws_restJson1ListSimulationJobsCommand(output, context);
+    return de_ListSimulationJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

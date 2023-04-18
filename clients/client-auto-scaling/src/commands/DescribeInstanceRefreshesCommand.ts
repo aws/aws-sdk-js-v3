@@ -14,73 +14,99 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DescribeInstanceRefreshesAnswer,
-  DescribeInstanceRefreshesAnswerFilterSensitiveLog,
-  DescribeInstanceRefreshesType,
-  DescribeInstanceRefreshesTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeInstanceRefreshesCommand,
-  serializeAws_queryDescribeInstanceRefreshesCommand,
-} from "../protocols/Aws_query";
+import { DescribeInstanceRefreshesAnswer, DescribeInstanceRefreshesType } from "../models/models_0";
+import { de_DescribeInstanceRefreshesCommand, se_DescribeInstanceRefreshesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstanceRefreshesCommand}.
+ */
 export interface DescribeInstanceRefreshesCommandInput extends DescribeInstanceRefreshesType {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstanceRefreshesCommand}.
+ */
 export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstanceRefreshesAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the instance refreshes for the specified Auto Scaling group.</p>
  *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
  *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
  *             after you make configuration changes.</p>
- *          <p>To help you determine the status of an instance refresh, this operation returns
- *             information about the instance refreshes you previously initiated, including their
- *             status, end time, the percentage of the instance refresh that is complete, and the
- *             number of instances remaining to update before the instance refresh is complete.</p>
- *          <p>The following are the possible statuses: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>Pending</code> - The request was created, but the operation has not
- *                     started.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>InProgress</code> - The operation is in progress.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Successful</code> - The operation completed successfully.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Failed</code> - The operation failed to complete. You can troubleshoot
- *                     using the status reason and the scaling activities. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Cancelling</code> - An ongoing operation is being cancelled.
- *                     Cancellation does not roll back any replacements that have already been
- *                     completed, but it prevents new replacements from being started. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Cancelled</code> - The operation is cancelled. </p>
- *             </li>
- *          </ul>
+ *          <p>To help you determine the status of an instance refresh, Amazon EC2 Auto Scaling returns information
+ *             about the instance refreshes you previously initiated, including their status, start
+ *             time, end time, the percentage of the instance refresh that is complete, and the number
+ *             of instances remaining to update before the instance refresh is complete. If a rollback
+ *             is initiated while an instance refresh is in progress, Amazon EC2 Auto Scaling also returns information
+ *             about the rollback of the instance refresh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, DescribeInstanceRefreshesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeInstanceRefreshesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DescribeInstanceRefreshesType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   InstanceRefreshIds: [ // InstanceRefreshIds
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeInstanceRefreshesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceRefreshesCommandInput - {@link DescribeInstanceRefreshesCommandInput}
+ * @returns {@link DescribeInstanceRefreshesCommandOutput}
  * @see {@link DescribeInstanceRefreshesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceRefreshesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To list instance refreshes
+ * ```javascript
+ * // This example describes the instance refreshes for the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new DescribeInstanceRefreshesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceRefreshes": [
+ *     {
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b",
+ *       "InstancesToUpdate": 5,
+ *       "PercentageComplete": 0,
+ *       "StartTime": "2020-06-02T18:11:27Z",
+ *       "Status": "InProgress"
+ *     },
+ *     {
+ *       "AutoScalingGroupName": "my-auto-scaling-group",
+ *       "EndTime": "2020-06-02T16:53:37Z",
+ *       "InstanceRefreshId": "dd7728d0-5bc4-4575-96a3-1b2c52bf8bb1",
+ *       "InstancesToUpdate": 0,
+ *       "PercentageComplete": 100,
+ *       "StartTime": "2020-06-02T16:43:19Z",
+ *       "Status": "Successful"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-instance-refreshes-1592959593746
+ * ```
  *
  */
 export class DescribeInstanceRefreshesCommand extends $Command<
@@ -100,6 +126,9 @@ export class DescribeInstanceRefreshesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceRefreshesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +157,8 @@ export class DescribeInstanceRefreshesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceRefreshesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceRefreshesAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +168,21 @@ export class DescribeInstanceRefreshesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceRefreshesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeInstanceRefreshesCommand(input, context);
+    return se_DescribeInstanceRefreshesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceRefreshesCommandOutput> {
-    return deserializeAws_queryDescribeInstanceRefreshesCommand(output, context);
+    return de_DescribeInstanceRefreshesCommand(output, context);
   }
 
   // Start section: command_body_extra

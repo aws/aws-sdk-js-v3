@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListCrawlersRequest,
-  ListCrawlersRequestFilterSensitiveLog,
-  ListCrawlersResponse,
-  ListCrawlersResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListCrawlersCommand,
-  serializeAws_json1_1ListCrawlersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCrawlersRequest, ListCrawlersResponse } from "../models/models_2";
+import { de_ListCrawlersCommand, se_ListCrawlersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCrawlersCommand}.
+ */
 export interface ListCrawlersCommandInput extends ListCrawlersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCrawlersCommand}.
+ */
 export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the names of all crawler resources in this Amazon Web Services account, or the
  *       resources with the specified tag. This operation allows you to see which
  *       resources are available in your account, and their names.</p>
@@ -41,13 +44,26 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  * import { GlueClient, ListCrawlersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListCrawlersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListCrawlersRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListCrawlersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCrawlersCommandInput - {@link ListCrawlersCommandInput}
+ * @returns {@link ListCrawlersCommandOutput}
  * @see {@link ListCrawlersCommandInput} for command's `input` shape.
  * @see {@link ListCrawlersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class ListCrawlersCommand extends $Command<
@@ -67,6 +83,9 @@ export class ListCrawlersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCrawlersCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +112,8 @@ export class ListCrawlersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCrawlersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCrawlersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +123,18 @@ export class ListCrawlersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCrawlersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCrawlersCommand(input, context);
+    return se_ListCrawlersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCrawlersCommandOutput> {
-    return deserializeAws_json1_1ListCrawlersCommand(output, context);
+    return de_ListCrawlersCommand(output, context);
   }
 
   // Start section: command_body_extra

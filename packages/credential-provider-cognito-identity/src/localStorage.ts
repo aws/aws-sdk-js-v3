@@ -4,6 +4,9 @@ import { Storage } from "./Storage";
 
 const inMemoryStorage = new InMemoryStorage();
 
+/**
+ * @internal
+ */
 export function localStorage(): Storage {
   if (typeof self === "object" && self.indexedDB) {
     return new IndexedDbStorage();

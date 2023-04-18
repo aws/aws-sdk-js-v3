@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  UpdateProfilingGroupRequest,
-  UpdateProfilingGroupRequestFilterSensitiveLog,
-  UpdateProfilingGroupResponse,
-  UpdateProfilingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateProfilingGroupCommand,
-  serializeAws_restJson1UpdateProfilingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateProfilingGroupRequest, UpdateProfilingGroupResponse } from "../models/models_0";
+import { de_UpdateProfilingGroupCommand, se_UpdateProfilingGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateProfilingGroupCommand}.
+ */
 export interface UpdateProfilingGroupCommandInput extends UpdateProfilingGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateProfilingGroupCommand}.
+ */
 export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  * import { CodeGuruProfilerClient, UpdateProfilingGroupCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, UpdateProfilingGroupCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // UpdateProfilingGroupRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   agentOrchestrationConfig: { // AgentOrchestrationConfig
+ *     profilingEnabled: true || false, // required
+ *   },
+ * };
  * const command = new UpdateProfilingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProfilingGroupCommandInput - {@link UpdateProfilingGroupCommandInput}
+ * @returns {@link UpdateProfilingGroupCommandOutput}
  * @see {@link UpdateProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateProfilingGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state
+ *         of a service resource associated with the request. Resolve the conflict
+ *         before retrying this request.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class UpdateProfilingGroupCommand extends $Command<
@@ -62,6 +92,9 @@ export class UpdateProfilingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProfilingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class UpdateProfilingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProfilingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProfilingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class UpdateProfilingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProfilingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProfilingGroupCommand(input, context);
+    return se_UpdateProfilingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProfilingGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateProfilingGroupCommand(output, context);
+    return de_UpdateProfilingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

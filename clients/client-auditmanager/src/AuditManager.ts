@@ -289,6 +289,7 @@ import {
 } from "./commands/ValidateAssessmentReportIntegrityCommand";
 
 /**
+ * @public
  * <p>Welcome to the Audit Manager API reference. This guide is for developers who
  *          need detailed information about the Audit Manager API operations, data types, and
  *          errors. </p>
@@ -328,6 +329,7 @@ import {
  */
 export class AuditManager extends AuditManagerClient {
   /**
+   * @public
    * <p> Associates an evidence folder to an assessment report in an Audit Manager
    *          assessment. </p>
    */
@@ -363,6 +365,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Associates a list of evidence to an assessment report in an Audit Manager
    *          assessment. </p>
    */
@@ -398,6 +401,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Creates a batch of delegations for an assessment in Audit Manager. </p>
    */
   public batchCreateDelegationByAssessment(
@@ -430,6 +434,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Deletes a batch of delegations for an assessment in Audit Manager. </p>
    */
   public batchDeleteDelegationByAssessment(
@@ -462,6 +467,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Disassociates a list of evidence from an assessment report in Audit Manager.
    *       </p>
    */
@@ -497,6 +503,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Uploads one or more pieces of evidence to a control in an Audit Manager assessment.
    *          You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3) bucket by
    *          specifying the S3 URI of the evidence. </p>
@@ -552,6 +559,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Creates an assessment in Audit Manager. </p>
    */
   public createAssessment(
@@ -584,6 +592,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Creates a custom framework in Audit Manager. </p>
    */
   public createAssessmentFramework(
@@ -616,6 +625,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Creates an assessment report for the specified assessment. </p>
    */
   public createAssessmentReport(
@@ -648,6 +658,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Creates a new custom control in Audit Manager. </p>
    */
   public createControl(
@@ -680,6 +691,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Deletes an assessment in Audit Manager. </p>
    */
   public deleteAssessment(
@@ -712,6 +724,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Deletes a custom framework in Audit Manager. </p>
    */
   public deleteAssessmentFramework(
@@ -744,6 +757,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Deletes a share request for a custom framework in Audit Manager. </p>
    */
   public deleteAssessmentFrameworkShare(
@@ -776,6 +790,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Deletes an assessment report in Audit Manager. </p>
    *          <p>When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager
    *          attempts to delete the following data:</p>
@@ -829,6 +844,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Deletes a custom control in Audit Manager. </p>
    */
   public deleteControl(
@@ -861,6 +877,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Deregisters an account in Audit Manager. </p>
    *          <note>
    *             <p>Before you deregister, you can use the <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html">UpdateSettings</a> API operation to set your preferred data retention policy. By
@@ -902,6 +919,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified Amazon Web Services account as a delegated administrator for
    *             Audit Manager. </p>
    *          <p>When you remove a delegated administrator from your Audit Manager settings, you
@@ -993,6 +1011,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Disassociates an evidence folder from the specified assessment report in Audit Manager. </p>
    */
   public disassociateAssessmentReportEvidenceFolder(
@@ -1027,6 +1046,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns the registration status of an account in Audit Manager. </p>
    */
   public getAccountStatus(
@@ -1059,6 +1079,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns an assessment from Audit Manager. </p>
    */
   public getAssessment(
@@ -1091,6 +1112,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns a framework from Audit Manager. </p>
    */
   public getAssessmentFramework(
@@ -1123,6 +1145,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns the URL of an assessment report in Audit Manager. </p>
    */
   public getAssessmentReportUrl(
@@ -1155,6 +1178,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of changelogs from Audit Manager. </p>
    */
   public getChangeLogs(
@@ -1187,6 +1211,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a control from Audit Manager. </p>
    */
   public getControl(args: GetControlCommandInput, options?: __HttpHandlerOptions): Promise<GetControlCommandOutput>;
@@ -1213,6 +1238,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of delegations from an audit owner to a delegate. </p>
    */
   public getDelegations(
@@ -1245,6 +1271,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns evidence from Audit Manager. </p>
    */
   public getEvidence(args: GetEvidenceCommandInput, options?: __HttpHandlerOptions): Promise<GetEvidenceCommandOutput>;
@@ -1271,6 +1298,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns all evidence from a specified evidence folder in Audit Manager. </p>
    */
   public getEvidenceByEvidenceFolder(
@@ -1303,6 +1331,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns an evidence folder from the specified assessment in Audit Manager.
    *       </p>
    */
@@ -1336,6 +1365,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns the evidence folders from a specified assessment in Audit Manager.
    *       </p>
    */
@@ -1369,6 +1399,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of evidence folders that are associated with a specified control in an
    *             Audit Manager assessment. </p>
    */
@@ -1404,6 +1435,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets the latest analytics data for all your current active assessments. </p>
    */
   public getInsights(args: GetInsightsCommandInput, options?: __HttpHandlerOptions): Promise<GetInsightsCommandOutput>;
@@ -1430,6 +1462,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Gets the latest analytics data for a specific active assessment. </p>
    */
   public getInsightsByAssessment(
@@ -1462,6 +1495,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns the name of the delegated Amazon Web Services administrator account for the
    *          organization. </p>
    */
@@ -1495,6 +1529,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all of the Amazon Web Services that you can choose to include
    *          in your assessment. When you <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html">create an assessment</a>, specify which of these services you want to include to
    *          narrow the assessment's <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Scope.html">scope</a>.</p>
@@ -1529,6 +1564,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns the settings for the specified Amazon Web Services account. </p>
    */
   public getSettings(args: GetSettingsCommandInput, options?: __HttpHandlerOptions): Promise<GetSettingsCommandOutput>;
@@ -1555,6 +1591,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the latest analytics data for controls within a specific control domain and a
    *          specific active assessment.</p>
    *          <note>
@@ -1596,6 +1633,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of the frameworks that are available in the Audit Manager framework
    *          library. </p>
    */
@@ -1629,6 +1667,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of sent or received share requests for custom frameworks in Audit Manager. </p>
    */
   public listAssessmentFrameworkShareRequests(
@@ -1661,6 +1700,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of assessment reports created in Audit Manager. </p>
    */
   public listAssessmentReports(
@@ -1693,6 +1733,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of current and past assessments from Audit Manager. </p>
    */
   public listAssessments(
@@ -1725,6 +1766,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the latest analytics data for control domains across all of your active
    *          assessments. </p>
    *          <note>
@@ -1764,6 +1806,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists analytics data for control domains within a specified active assessment.</p>
    *          <note>
    *             <p>A control domain is listed only if at least one of the controls within that domain
@@ -1804,6 +1847,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p>Lists the latest analytics data for controls within a specific control domain across all
    *          active assessments.</p>
    *          <note>
@@ -1843,6 +1887,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of controls from Audit Manager. </p>
    */
   public listControls(
@@ -1872,6 +1917,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of keywords that are pre-mapped to the specified control data source.
    *       </p>
    */
@@ -1905,6 +1951,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of all Audit Manager notifications. </p>
    */
   public listNotifications(
@@ -1937,6 +1984,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Returns a list of tags for the specified resource in Audit Manager. </p>
    */
   public listTagsForResource(
@@ -1969,6 +2017,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Enables Audit Manager for the specified Amazon Web Services account. </p>
    */
   public registerAccount(
@@ -2001,6 +2050,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Enables an Amazon Web Services account within the organization as the delegated
    *          administrator for Audit Manager. </p>
    */
@@ -2034,6 +2084,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Creates a share request for a custom framework in Audit Manager. </p>
    *          <p>The share request specifies a recipient and notifies them that a custom framework is
    *          available. Recipients have 120 days to accept or decline the request. If no action is
@@ -2102,6 +2153,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Tags the specified resource in Audit Manager. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2128,6 +2180,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Removes a tag from a resource in Audit Manager. </p>
    */
   public untagResource(
@@ -2160,6 +2213,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Edits an Audit Manager assessment. </p>
    */
   public updateAssessment(
@@ -2192,6 +2246,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Updates a control within an assessment in Audit Manager. </p>
    */
   public updateAssessmentControl(
@@ -2224,6 +2279,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Updates the status of a control set in an Audit Manager assessment. </p>
    */
   public updateAssessmentControlSetStatus(
@@ -2256,6 +2312,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Updates a custom framework in Audit Manager. </p>
    */
   public updateAssessmentFramework(
@@ -2288,6 +2345,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Updates a share request for a custom framework in Audit Manager. </p>
    */
   public updateAssessmentFrameworkShare(
@@ -2320,6 +2378,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Updates the status of an assessment in Audit Manager. </p>
    */
   public updateAssessmentStatus(
@@ -2352,6 +2411,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Updates a custom control in Audit Manager. </p>
    */
   public updateControl(
@@ -2384,7 +2444,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p> Updates Audit Manager settings for the current user account. </p>
+   * @public
+   * <p> Updates Audit Manager settings for the current account. </p>
    */
   public updateSettings(
     args: UpdateSettingsCommandInput,
@@ -2416,6 +2477,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
+   * @public
    * <p> Validates the integrity of an assessment report in Audit Manager. </p>
    */
   public validateAssessmentReportIntegrity(

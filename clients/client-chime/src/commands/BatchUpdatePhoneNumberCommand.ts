@@ -18,17 +18,24 @@ import {
   BatchUpdatePhoneNumberRequest,
   BatchUpdatePhoneNumberRequestFilterSensitiveLog,
   BatchUpdatePhoneNumberResponse,
-  BatchUpdatePhoneNumberResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpdatePhoneNumberCommand,
-  serializeAws_restJson1BatchUpdatePhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchUpdatePhoneNumberCommand, se_BatchUpdatePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchUpdatePhoneNumberCommand}.
+ */
 export interface BatchUpdatePhoneNumberCommandInput extends BatchUpdatePhoneNumberRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchUpdatePhoneNumberCommand}.
+ */
 export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates phone number product types or calling names. You can update one attribute at a time for each <code>UpdatePhoneNumberRequestItem</code>. For example, you can update the product type or the calling name.</p>
  *          <p>For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For numbers outside the U.S., you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
  *          <p>Updates to outbound calling names can take up to 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
@@ -38,13 +45,46 @@ export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNum
  * import { ChimeClient, BatchUpdatePhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, BatchUpdatePhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // BatchUpdatePhoneNumberRequest
+ *   UpdatePhoneNumberRequestItems: [ // UpdatePhoneNumberRequestItemList // required
+ *     { // UpdatePhoneNumberRequestItem
+ *       PhoneNumberId: "STRING_VALUE", // required
+ *       ProductType: "STRING_VALUE",
+ *       CallingName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchUpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdatePhoneNumberCommandInput - {@link BatchUpdatePhoneNumberCommandInput}
+ * @returns {@link BatchUpdatePhoneNumberCommandOutput}
  * @see {@link BatchUpdatePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link BatchUpdatePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class BatchUpdatePhoneNumberCommand extends $Command<
@@ -64,6 +104,9 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdatePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +136,7 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchUpdatePhoneNumberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdatePhoneNumberResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +146,18 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdatePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdatePhoneNumberCommand(input, context);
+    return se_BatchUpdatePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdatePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1BatchUpdatePhoneNumberCommand(output, context);
+    return de_BatchUpdatePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

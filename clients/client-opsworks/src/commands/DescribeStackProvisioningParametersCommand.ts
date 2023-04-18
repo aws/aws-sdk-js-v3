@@ -15,22 +15,31 @@ import {
 
 import {
   DescribeStackProvisioningParametersRequest,
-  DescribeStackProvisioningParametersRequestFilterSensitiveLog,
   DescribeStackProvisioningParametersResult,
-  DescribeStackProvisioningParametersResultFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
-  deserializeAws_json1_1DescribeStackProvisioningParametersCommand,
-  serializeAws_json1_1DescribeStackProvisioningParametersCommand,
+  de_DescribeStackProvisioningParametersCommand,
+  se_DescribeStackProvisioningParametersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeStackProvisioningParametersCommand}.
+ */
 export interface DescribeStackProvisioningParametersCommandInput extends DescribeStackProvisioningParametersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeStackProvisioningParametersCommand}.
+ */
 export interface DescribeStackProvisioningParametersCommandOutput
   extends DescribeStackProvisioningParametersResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a description of a stack's provisioning parameters.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
@@ -43,13 +52,25 @@ export interface DescribeStackProvisioningParametersCommandOutput
  * import { OpsWorksClient, DescribeStackProvisioningParametersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeStackProvisioningParametersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeStackProvisioningParametersRequest
+ *   StackId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStackProvisioningParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackProvisioningParametersCommandInput - {@link DescribeStackProvisioningParametersCommandInput}
+ * @returns {@link DescribeStackProvisioningParametersCommandOutput}
  * @see {@link DescribeStackProvisioningParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeStackProvisioningParametersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DescribeStackProvisioningParametersCommand extends $Command<
@@ -69,6 +90,9 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackProvisioningParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +121,8 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStackProvisioningParametersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStackProvisioningParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +132,24 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeStackProvisioningParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStackProvisioningParametersCommand(input, context);
+    return se_DescribeStackProvisioningParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStackProvisioningParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeStackProvisioningParametersCommand(output, context);
+    return de_DescribeStackProvisioningParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

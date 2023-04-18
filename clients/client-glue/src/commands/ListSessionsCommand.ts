@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListSessionsRequest,
-  ListSessionsRequestFilterSensitiveLog,
-  ListSessionsResponse,
-  ListSessionsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListSessionsCommand,
-  serializeAws_json1_1ListSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSessionsRequest, ListSessionsResponse } from "../models/models_2";
+import { de_ListSessionsCommand, se_ListSessionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSessionsCommand}.
+ */
 export interface ListSessionsCommandInput extends ListSessionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSessionsCommand}.
+ */
 export interface ListSessionsCommandOutput extends ListSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve a list of sessions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * import { GlueClient, ListSessionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListSessionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListSessionsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   RequestOrigin: "STRING_VALUE",
+ * };
  * const command = new ListSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSessionsCommandInput - {@link ListSessionsCommandInput}
+ * @returns {@link ListSessionsCommandOutput}
  * @see {@link ListSessionsCommandInput} for command's `input` shape.
  * @see {@link ListSessionsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class ListSessionsCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class ListSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSessionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class ListSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSessionsCommand(input, context);
+    return se_ListSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSessionsCommandOutput> {
-    return deserializeAws_json1_1ListSessionsCommand(output, context);
+    return de_ListSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

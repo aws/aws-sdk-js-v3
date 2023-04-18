@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  ListDistributedGrantsRequest,
-  ListDistributedGrantsRequestFilterSensitiveLog,
-  ListDistributedGrantsResponse,
-  ListDistributedGrantsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDistributedGrantsCommand,
-  serializeAws_json1_1ListDistributedGrantsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDistributedGrantsRequest, ListDistributedGrantsResponse } from "../models/models_0";
+import { de_ListDistributedGrantsCommand, se_ListDistributedGrantsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDistributedGrantsCommand}.
+ */
 export interface ListDistributedGrantsCommandInput extends ListDistributedGrantsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDistributedGrantsCommand}.
+ */
 export interface ListDistributedGrantsCommandOutput extends ListDistributedGrantsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the grants distributed for the specified license.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,53 @@ export interface ListDistributedGrantsCommandOutput extends ListDistributedGrant
  * import { LicenseManagerClient, ListDistributedGrantsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListDistributedGrantsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListDistributedGrantsRequest
+ *   GrantArns: [ // ArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDistributedGrantsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributedGrantsCommandInput - {@link ListDistributedGrantsCommandInput}
+ * @returns {@link ListDistributedGrantsCommandOutput}
  * @see {@link ListDistributedGrantsCommandInput} for command's `input` shape.
  * @see {@link ListDistributedGrantsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
  *
  */
 export class ListDistributedGrantsCommand extends $Command<
@@ -62,6 +105,9 @@ export class ListDistributedGrantsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributedGrantsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +136,8 @@ export class ListDistributedGrantsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributedGrantsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDistributedGrantsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +147,18 @@ export class ListDistributedGrantsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDistributedGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDistributedGrantsCommand(input, context);
+    return se_ListDistributedGrantsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDistributedGrantsCommandOutput> {
-    return deserializeAws_json1_1ListDistributedGrantsCommand(output, context);
+    return de_ListDistributedGrantsCommand(output, context);
   }
 
   // Start section: command_body_extra

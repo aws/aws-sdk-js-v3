@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateVTLDeviceTypeInput,
-  UpdateVTLDeviceTypeInputFilterSensitiveLog,
-  UpdateVTLDeviceTypeOutput,
-  UpdateVTLDeviceTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateVTLDeviceTypeCommand,
-  serializeAws_json1_1UpdateVTLDeviceTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateVTLDeviceTypeInput, UpdateVTLDeviceTypeOutput } from "../models/models_0";
+import { de_UpdateVTLDeviceTypeCommand, se_UpdateVTLDeviceTypeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateVTLDeviceTypeCommand}.
+ */
 export interface UpdateVTLDeviceTypeCommandInput extends UpdateVTLDeviceTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateVTLDeviceTypeCommand}.
+ */
 export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the type of medium changer in a tape gateway. When you activate a tape gateway,
  *          you select a medium changer type for the tape gateway. This operation enables you to select
  *          a different type of medium changer after a tape gateway is activated. This operation is
@@ -39,13 +42,45 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  * import { StorageGatewayClient, UpdateVTLDeviceTypeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateVTLDeviceTypeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // UpdateVTLDeviceTypeInput
+ *   VTLDeviceARN: "STRING_VALUE", // required
+ *   DeviceType: "STRING_VALUE", // required
+ * };
  * const command = new UpdateVTLDeviceTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVTLDeviceTypeCommandInput - {@link UpdateVTLDeviceTypeCommandInput}
+ * @returns {@link UpdateVTLDeviceTypeCommandOutput}
  * @see {@link UpdateVTLDeviceTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateVTLDeviceTypeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To update a VTL device type
+ * ```javascript
+ * // Updates the type of medium changer in a gateway-VTL after a gateway-VTL is activated.
+ * const input = {
+ *   "DeviceType": "Medium Changer",
+ *   "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
+ * };
+ * const command = new UpdateVTLDeviceTypeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
+ * }
+ * *\/
+ * // example id: to-update-a-vtl-device-type-1472153012967
+ * ```
  *
  */
 export class UpdateVTLDeviceTypeCommand extends $Command<
@@ -65,6 +100,9 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVTLDeviceTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +131,8 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVTLDeviceTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVTLDeviceTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +142,18 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVTLDeviceTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVTLDeviceTypeCommand(input, context);
+    return se_UpdateVTLDeviceTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVTLDeviceTypeCommandOutput> {
-    return deserializeAws_json1_1UpdateVTLDeviceTypeCommand(output, context);
+    return de_UpdateVTLDeviceTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

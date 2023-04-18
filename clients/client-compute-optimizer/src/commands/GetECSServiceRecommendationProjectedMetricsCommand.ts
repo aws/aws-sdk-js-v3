@@ -16,22 +16,31 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   GetECSServiceRecommendationProjectedMetricsRequest,
-  GetECSServiceRecommendationProjectedMetricsRequestFilterSensitiveLog,
   GetECSServiceRecommendationProjectedMetricsResponse,
-  GetECSServiceRecommendationProjectedMetricsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand,
-  serializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand,
+  de_GetECSServiceRecommendationProjectedMetricsCommand,
+  se_GetECSServiceRecommendationProjectedMetricsCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetECSServiceRecommendationProjectedMetricsCommand}.
+ */
 export interface GetECSServiceRecommendationProjectedMetricsCommandInput
   extends GetECSServiceRecommendationProjectedMetricsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetECSServiceRecommendationProjectedMetricsCommand}.
+ */
 export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
   extends GetECSServiceRecommendationProjectedMetricsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Returns the projected metrics of Amazon ECS service recommendations.
  *         </p>
@@ -41,13 +50,48 @@ export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
  * import { ComputeOptimizerClient, GetECSServiceRecommendationProjectedMetricsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetECSServiceRecommendationProjectedMetricsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetECSServiceRecommendationProjectedMetricsRequest
+ *   serviceArn: "STRING_VALUE", // required
+ *   stat: "Maximum" || "Average", // required
+ *   period: Number("int"), // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new GetECSServiceRecommendationProjectedMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetECSServiceRecommendationProjectedMetricsCommandInput - {@link GetECSServiceRecommendationProjectedMetricsCommandInput}
+ * @returns {@link GetECSServiceRecommendationProjectedMetricsCommandOutput}
  * @see {@link GetECSServiceRecommendationProjectedMetricsCommandInput} for command's `input` shape.
  * @see {@link GetECSServiceRecommendationProjectedMetricsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value supplied for the input parameter is out of range or not valid.</p>
+ *
+ * @throws {@link MissingAuthenticationToken} (client fault)
+ *  <p>The request must contain either a valid (registered) Amazon Web Services access key ID
+ *             or X.509 certificate.</p>
+ *
+ * @throws {@link OptInRequiredException} (client fault)
+ *  <p>The account is not opted in to Compute Optimizer.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command<
@@ -67,6 +111,9 @@ export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetECSServiceRecommendationProjectedMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +148,8 @@ export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetECSServiceRecommendationProjectedMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetECSServiceRecommendationProjectedMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +159,24 @@ export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetECSServiceRecommendationProjectedMetricsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand(input, context);
+    return se_GetECSServiceRecommendationProjectedMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetECSServiceRecommendationProjectedMetricsCommandOutput> {
-    return deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand(output, context);
+    return de_GetECSServiceRecommendationProjectedMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

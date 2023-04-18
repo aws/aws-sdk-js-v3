@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  UpdateApiKeyRequest,
-  UpdateApiKeyRequestFilterSensitiveLog,
-  UpdateApiKeyResponse,
-  UpdateApiKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateApiKeyCommand,
-  serializeAws_restJson1UpdateApiKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateApiKeyRequest, UpdateApiKeyResponse } from "../models/models_0";
+import { de_UpdateApiKeyCommand, se_UpdateApiKeyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateApiKeyCommand}.
+ */
 export interface UpdateApiKeyCommandInput extends UpdateApiKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateApiKeyCommand}.
+ */
 export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an API key. You can update the key as long as it's not deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __Metad
  * import { AppSyncClient, UpdateApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // UpdateApiKeyRequest
+ *   apiId: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   expires: Number("long"),
+ * };
  * const command = new UpdateApiKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApiKeyCommandInput - {@link UpdateApiKeyCommandInput}
+ * @returns {@link UpdateApiKeyCommandOutput}
  * @see {@link UpdateApiKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateApiKeyCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link ApiKeyValidityOutOfBoundsException} (client fault)
+ *  <p>The API key expiration must be set to a value between 1 and 365 days from creation (for
+ *             <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
  *
  */
 export class UpdateApiKeyCommand extends $Command<
@@ -62,6 +94,9 @@ export class UpdateApiKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApiKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +123,8 @@ export class UpdateApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApiKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApiKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +134,18 @@ export class UpdateApiKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApiKeyCommand(input, context);
+    return se_UpdateApiKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApiKeyCommandOutput> {
-    return deserializeAws_restJson1UpdateApiKeyCommand(output, context);
+    return de_UpdateApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

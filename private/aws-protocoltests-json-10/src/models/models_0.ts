@@ -3,37 +3,44 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { JSONRPC10ServiceException as __BaseException } from "./JSONRPC10ServiceException";
 
+/**
+ * @public
+ */
 export interface GreetingStruct {
   hi?: string;
 }
 
 /**
- * @internal
+ * @public
+ * @enum
  */
-export const GreetingStructFilterSensitiveLog = (obj: GreetingStruct): any => ({
-  ...obj,
-});
+export const FooEnum = {
+  BAR: "Bar",
+  BAZ: "Baz",
+  FOO: "Foo",
+  ONE: "1",
+  ZERO: "0",
+} as const;
+/**
+ * @public
+ */
+export type FooEnum = (typeof FooEnum)[keyof typeof FooEnum];
 
-export enum FooEnum {
-  BAR = "Bar",
-  BAZ = "Baz",
-  FOO = "Foo",
-  ONE = "1",
-  ZERO = "0",
+export enum IntegerEnum {
+  A = 1,
+  B = 2,
+  C = 3,
 }
 
+/**
+ * @public
+ */
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
 
 /**
- * @internal
- */
-export const ComplexNestedErrorDataFilterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
-  ...obj,
-});
-
-/**
+ * @public
  * This error is thrown when a request is invalid.
  */
 export class ComplexError extends __BaseException {
@@ -56,38 +63,25 @@ export class ComplexError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface EmptyInputAndEmptyOutputInput {}
 
 /**
- * @internal
+ * @public
  */
-export const EmptyInputAndEmptyOutputInputFilterSensitiveLog = (obj: EmptyInputAndEmptyOutputInput): any => ({
-  ...obj,
-});
-
 export interface EmptyInputAndEmptyOutputOutput {}
 
 /**
- * @internal
+ * @public
  */
-export const EmptyInputAndEmptyOutputOutputFilterSensitiveLog = (obj: EmptyInputAndEmptyOutputOutput): any => ({
-  ...obj,
-});
-
 export interface EndpointWithHostLabelOperationInput {
   label: string | undefined;
 }
 
 /**
- * @internal
- */
-export const EndpointWithHostLabelOperationInputFilterSensitiveLog = (
-  obj: EndpointWithHostLabelOperationInput
-): any => ({
-  ...obj,
-});
-
-/**
+ * @public
  * This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
  */
@@ -107,29 +101,22 @@ export class FooError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GreetingWithErrorsInput {
   greeting?: string;
 }
 
 /**
- * @internal
+ * @public
  */
-export const GreetingWithErrorsInputFilterSensitiveLog = (obj: GreetingWithErrorsInput): any => ({
-  ...obj,
-});
-
 export interface GreetingWithErrorsOutput {
   greeting?: string;
 }
 
 /**
- * @internal
- */
-export const GreetingWithErrorsOutputFilterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
-  ...obj,
-});
-
-/**
+ * @public
  * This error is thrown when an invalid greeting value is provided.
  */
 export class InvalidGreeting extends __BaseException {
@@ -151,12 +138,14 @@ export class InvalidGreeting extends __BaseException {
 }
 
 /**
+ * @public
  * A union with a representative set of types for members.
  */
 export type MyUnion =
   | MyUnion.BlobValueMember
   | MyUnion.BooleanValueMember
   | MyUnion.EnumValueMember
+  | MyUnion.IntEnumValueMember
   | MyUnion.ListValueMember
   | MyUnion.MapValueMember
   | MyUnion.NumberValueMember
@@ -165,6 +154,9 @@ export type MyUnion =
   | MyUnion.TimestampValueMember
   | MyUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace MyUnion {
   export interface StringValueMember {
     stringValue: string;
@@ -173,6 +165,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -186,6 +179,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -199,6 +193,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -212,6 +207,7 @@ export namespace MyUnion {
     blobValue: Uint8Array;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -225,6 +221,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue: Date;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -238,6 +235,21 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue: FooEnum | string;
+    intEnumValue?: never;
+    listValue?: never;
+    mapValue?: never;
+    structureValue?: never;
+    $unknown?: never;
+  }
+
+  export interface IntEnumValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue?: never;
+    intEnumValue: IntegerEnum | number;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -251,6 +263,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue: string[];
     mapValue?: never;
     structureValue?: never;
@@ -264,6 +277,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue: Record<string, string>;
     structureValue?: never;
@@ -277,6 +291,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue: GreetingStruct;
@@ -290,6 +305,7 @@ export namespace MyUnion {
     blobValue?: never;
     timestampValue?: never;
     enumValue?: never;
+    intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -303,6 +319,7 @@ export namespace MyUnion {
     blobValue: (value: Uint8Array) => T;
     timestampValue: (value: Date) => T;
     enumValue: (value: FooEnum | string) => T;
+    intEnumValue: (value: IntegerEnum | number) => T;
     listValue: (value: string[]) => T;
     mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;
@@ -316,28 +333,17 @@ export namespace MyUnion {
     if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
     if (value.timestampValue !== undefined) return visitor.timestampValue(value.timestampValue);
     if (value.enumValue !== undefined) return visitor.enumValue(value.enumValue);
+    if (value.intEnumValue !== undefined) return visitor.intEnumValue(value.intEnumValue);
     if (value.listValue !== undefined) return visitor.listValue(value.listValue);
     if (value.mapValue !== undefined) return visitor.mapValue(value.mapValue);
     if (value.structureValue !== undefined) return visitor.structureValue(value.structureValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
-/**
- * @internal
- */
-export const MyUnionFilterSensitiveLog = (obj: MyUnion): any => {
-  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-  if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
-  if (obj.numberValue !== undefined) return { numberValue: obj.numberValue };
-  if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
-  if (obj.timestampValue !== undefined) return { timestampValue: obj.timestampValue };
-  if (obj.enumValue !== undefined) return { enumValue: obj.enumValue };
-  if (obj.listValue !== undefined) return { listValue: obj.listValue };
-  if (obj.mapValue !== undefined) return { mapValue: obj.mapValue };
-  if (obj.structureValue !== undefined) return { structureValue: GreetingStructFilterSensitiveLog(obj.structureValue) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
+/**
+ * @public
+ */
 export interface JsonUnionsInput {
   /**
    * A union with a representative set of types for members.
@@ -346,13 +352,8 @@ export interface JsonUnionsInput {
 }
 
 /**
- * @internal
+ * @public
  */
-export const JsonUnionsInputFilterSensitiveLog = (obj: JsonUnionsInput): any => ({
-  ...obj,
-  ...(obj.contents && { contents: MyUnionFilterSensitiveLog(obj.contents) }),
-});
-
 export interface JsonUnionsOutput {
   /**
    * A union with a representative set of types for members.
@@ -361,42 +362,22 @@ export interface JsonUnionsOutput {
 }
 
 /**
- * @internal
+ * @public
  */
-export const JsonUnionsOutputFilterSensitiveLog = (obj: JsonUnionsOutput): any => ({
-  ...obj,
-  ...(obj.contents && { contents: MyUnionFilterSensitiveLog(obj.contents) }),
-});
-
 export interface NoInputAndOutputOutput {}
 
 /**
- * @internal
+ * @public
  */
-export const NoInputAndOutputOutputFilterSensitiveLog = (obj: NoInputAndOutputOutput): any => ({
-  ...obj,
-});
-
 export interface SimpleScalarPropertiesInput {
   floatValue?: number;
   doubleValue?: number;
 }
 
 /**
- * @internal
+ * @public
  */
-export const SimpleScalarPropertiesInputFilterSensitiveLog = (obj: SimpleScalarPropertiesInput): any => ({
-  ...obj,
-});
-
 export interface SimpleScalarPropertiesOutput {
   floatValue?: number;
   doubleValue?: number;
 }
-
-/**
- * @internal
- */
-export const SimpleScalarPropertiesOutputFilterSensitiveLog = (obj: SimpleScalarPropertiesOutput): any => ({
-  ...obj,
-});

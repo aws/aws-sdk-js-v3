@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  BatchAssociateScramSecretRequest,
-  BatchAssociateScramSecretRequestFilterSensitiveLog,
-  BatchAssociateScramSecretResponse,
-  BatchAssociateScramSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchAssociateScramSecretCommand,
-  serializeAws_restJson1BatchAssociateScramSecretCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchAssociateScramSecretRequest, BatchAssociateScramSecretResponse } from "../models/models_0";
+import { de_BatchAssociateScramSecretCommand, se_BatchAssociateScramSecretCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchAssociateScramSecretCommand}.
+ */
 export interface BatchAssociateScramSecretCommandInput extends BatchAssociateScramSecretRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchAssociateScramSecretCommand}.
+ */
 export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateScramSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates one or more Scram Secrets with an Amazon MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  * import { KafkaClient, BatchAssociateScramSecretCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, BatchAssociateScramSecretCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // BatchAssociateScramSecretRequest
+ *   ClusterArn: "STRING_VALUE", // required
+ *   SecretArnList: [ // __listOf__string // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchAssociateScramSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateScramSecretCommandInput - {@link BatchAssociateScramSecretCommandInput}
+ * @returns {@link BatchAssociateScramSecretCommandOutput}
  * @see {@link BatchAssociateScramSecretCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateScramSecretCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
  *
  */
 export class BatchAssociateScramSecretCommand extends $Command<
@@ -62,6 +95,9 @@ export class BatchAssociateScramSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateScramSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class BatchAssociateScramSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchAssociateScramSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchAssociateScramSecretResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +137,21 @@ export class BatchAssociateScramSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchAssociateScramSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchAssociateScramSecretCommand(input, context);
+    return se_BatchAssociateScramSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateScramSecretCommandOutput> {
-    return deserializeAws_restJson1BatchAssociateScramSecretCommand(output, context);
+    return de_BatchAssociateScramSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

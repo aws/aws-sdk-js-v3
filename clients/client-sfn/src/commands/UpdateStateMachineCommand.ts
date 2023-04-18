@@ -17,18 +17,25 @@ import {
   UpdateStateMachineInput,
   UpdateStateMachineInputFilterSensitiveLog,
   UpdateStateMachineOutput,
-  UpdateStateMachineOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateStateMachineCommand,
-  serializeAws_json1_0UpdateStateMachineCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateStateMachineCommand, se_UpdateStateMachineCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateStateMachineCommand}.
+ */
 export interface UpdateStateMachineCommandInput extends UpdateStateMachineInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateStateMachineCommand}.
+ */
 export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing state machine by modifying its <code>definition</code>,
  *         <code>roleArn</code>, or <code>loggingConfiguration</code>. Running executions will continue
  *       to use the previous <code>definition</code> and <code>roleArn</code>. You must include at
@@ -51,13 +58,61 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * import { SFNClient, UpdateStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, UpdateStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // UpdateStateMachineInput
+ *   stateMachineArn: "STRING_VALUE", // required
+ *   definition: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE",
+ *   loggingConfiguration: { // LoggingConfiguration
+ *     level: "ALL" || "ERROR" || "FATAL" || "OFF",
+ *     includeExecutionData: true || false,
+ *     destinations: [ // LogDestinationList
+ *       { // LogDestination
+ *         cloudWatchLogsLogGroup: { // CloudWatchLogsLogGroup
+ *           logGroupArn: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   tracingConfiguration: { // TracingConfiguration
+ *     enabled: true || false,
+ *   },
+ * };
  * const command = new UpdateStateMachineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStateMachineCommandInput - {@link UpdateStateMachineCommandInput}
+ * @returns {@link UpdateStateMachineCommandOutput}
  * @see {@link UpdateStateMachineCommandInput} for command's `input` shape.
  * @see {@link UpdateStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link InvalidDefinition} (client fault)
+ *  <p>The provided Amazon States Language definition is not valid.</p>
+ *
+ * @throws {@link InvalidLoggingConfiguration} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidTracingConfiguration} (client fault)
+ *  <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not
+ *       been set to <code>true</code> or <code>false</code>.</p>
+ *
+ * @throws {@link MissingRequiredParameter} (client fault)
+ *  <p>Request is missing a required parameter. This error occurs if both <code>definition</code>
+ *       and <code>roleArn</code> are not specified.</p>
+ *
+ * @throws {@link StateMachineDeleting} (client fault)
+ *  <p>The specified state machine is being deleted.</p>
+ *
+ * @throws {@link StateMachineDoesNotExist} (client fault)
+ *  <p>The specified state machine does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class UpdateStateMachineCommand extends $Command<
@@ -77,6 +132,9 @@ export class UpdateStateMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStateMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +164,7 @@ export class UpdateStateMachineCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateStateMachineInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStateMachineOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +174,18 @@ export class UpdateStateMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStateMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateStateMachineCommand(input, context);
+    return se_UpdateStateMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStateMachineCommandOutput> {
-    return deserializeAws_json1_0UpdateStateMachineCommand(output, context);
+    return de_UpdateStateMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

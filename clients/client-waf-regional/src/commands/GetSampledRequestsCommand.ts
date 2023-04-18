@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSampledRequestsRequest,
-  GetSampledRequestsRequestFilterSensitiveLog,
-  GetSampledRequestsResponse,
-  GetSampledRequestsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSampledRequestsCommand,
-  serializeAws_json1_1GetSampledRequestsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSampledRequestsRequest, GetSampledRequestsResponse } from "../models/models_0";
+import { de_GetSampledRequestsCommand, se_GetSampledRequestsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSampledRequestsCommand}.
+ */
 export interface GetSampledRequestsCommandInput extends GetSampledRequestsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSampledRequestsCommand}.
+ */
 export interface GetSampledRequestsCommandOutput extends GetSampledRequestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -48,13 +51,76 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * import { WAFRegionalClient, GetSampledRequestsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetSampledRequestsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // GetSampledRequestsRequest
+ *   WebAclId: "STRING_VALUE", // required
+ *   RuleId: "STRING_VALUE", // required
+ *   TimeWindow: { // TimeWindow
+ *     StartTime: new Date("TIMESTAMP"), // required
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *   },
+ *   MaxItems: Number("long"), // required
+ * };
  * const command = new GetSampledRequestsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSampledRequestsCommandInput - {@link GetSampledRequestsCommandInput}
+ * @returns {@link GetSampledRequestsCommandOutput}
  * @see {@link GetSampledRequestsCommandInput} for command's `input` shape.
  * @see {@link GetSampledRequestsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ *
+ * @example To get a sampled requests
+ * ```javascript
+ * // The following example returns detailed information about 100 requests --a sample-- that AWS WAF randomly selects from among the first 5,000 requests that your AWS resource received between the time period 2016-09-27T15:50Z to 2016-09-27T15:50Z.
+ * const input = {
+ *   "MaxItems": 100,
+ *   "RuleId": "WAFRule-1-Example",
+ *   "TimeWindow": {
+ *     "EndTime": "2016-09-27T15:50Z",
+ *     "StartTime": "2016-09-27T15:50Z"
+ *   },
+ *   "WebAclId": "createwebacl-1472061481310"
+ * };
+ * const command = new GetSampledRequestsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PopulationSize": 50,
+ *   "SampledRequests": [
+ *     {
+ *       "Action": "BLOCK",
+ *       "Request": {
+ *         "ClientIP": "192.0.2.44",
+ *         "Country": "US",
+ *         "HTTPVersion": "HTTP/1.1",
+ *         "Headers": [
+ *           {
+ *             "Name": "User-Agent",
+ *             "Value": "BadBot "
+ *           }
+ *         ],
+ *         "Method": "HEAD"
+ *       },
+ *       "Timestamp": "2016-09-27T14:55Z",
+ *       "Weight": 1
+ *     }
+ *   ],
+ *   "TimeWindow": {
+ *     "EndTime": "2016-09-27T15:50Z",
+ *     "StartTime": "2016-09-27T14:50Z"
+ *   }
+ * }
+ * *\/
+ * // example id: getsampledrequests-1474927997195
+ * ```
  *
  */
 export class GetSampledRequestsCommand extends $Command<
@@ -74,6 +140,9 @@ export class GetSampledRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSampledRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +171,8 @@ export class GetSampledRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSampledRequestsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSampledRequestsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +182,18 @@ export class GetSampledRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSampledRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSampledRequestsCommand(input, context);
+    return se_GetSampledRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSampledRequestsCommandOutput> {
-    return deserializeAws_json1_1GetSampledRequestsCommand(output, context);
+    return de_GetSampledRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

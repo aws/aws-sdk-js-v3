@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetOutcomesRequest,
-  GetOutcomesRequestFilterSensitiveLog,
-  GetOutcomesResult,
-  GetOutcomesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOutcomesCommand,
-  serializeAws_json1_1GetOutcomesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetOutcomesRequest, GetOutcomesResult } from "../models/models_0";
+import { de_GetOutcomesCommand, se_GetOutcomesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOutcomesCommand}.
+ */
 export interface GetOutcomesCommandInput extends GetOutcomesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetOutcomesCommand}.
+ */
 export interface GetOutcomesCommandOutput extends GetOutcomesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets one or more outcomes. This is a paginated
  *          API. If you provide a null <code>maxResults</code>, this actions retrieves a maximum of
  *          100 records per page. If you provide a <code>maxResults</code>, the value must be
@@ -41,13 +44,36 @@ export interface GetOutcomesCommandOutput extends GetOutcomesResult, __MetadataB
  * import { FraudDetectorClient, GetOutcomesCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetOutcomesCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetOutcomesRequest
+ *   name: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetOutcomesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOutcomesCommandInput - {@link GetOutcomesCommandInput}
+ * @returns {@link GetOutcomesCommandOutput}
  * @see {@link GetOutcomesCommandInput} for command's `input` shape.
  * @see {@link GetOutcomesCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class GetOutcomesCommand extends $Command<
@@ -67,6 +93,9 @@ export class GetOutcomesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOutcomesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +122,8 @@ export class GetOutcomesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOutcomesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOutcomesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +133,18 @@ export class GetOutcomesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOutcomesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOutcomesCommand(input, context);
+    return se_GetOutcomesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOutcomesCommandOutput> {
-    return deserializeAws_json1_1GetOutcomesCommand(output, context);
+    return de_GetOutcomesCommand(output, context);
   }
 
   // Start section: command_body_extra

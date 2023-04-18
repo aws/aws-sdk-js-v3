@@ -1,6 +1,7 @@
 import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
-import { HashConstructor, HttpRequest } from "@aws-sdk/types";
+import { ChecksumConstructor, HashConstructor, HttpRequest } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+import { toUint8Array } from "@aws-sdk/util-utf8";
 
 import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
 
@@ -9,7 +10,7 @@ import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
  */
 export const getPayloadHash = async (
   { headers, body }: HttpRequest,
-  hashConstructor: HashConstructor
+  hashConstructor: ChecksumConstructor | HashConstructor
 ): Promise<string> => {
   for (const headerName of Object.keys(headers)) {
     if (headerName.toLowerCase() === SHA256_HEADER) {
@@ -21,7 +22,7 @@ export const getPayloadHash = async (
     return "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
   } else if (typeof body === "string" || ArrayBuffer.isView(body) || isArrayBuffer(body)) {
     const hashCtor = new hashConstructor();
-    hashCtor.update(body);
+    hashCtor.update(toUint8Array(body));
     return toHex(await hashCtor.digest());
   }
 

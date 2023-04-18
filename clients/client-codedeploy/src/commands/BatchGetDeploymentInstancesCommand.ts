@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  BatchGetDeploymentInstancesInput,
-  BatchGetDeploymentInstancesInputFilterSensitiveLog,
-  BatchGetDeploymentInstancesOutput,
-  BatchGetDeploymentInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetDeploymentInstancesCommand,
-  serializeAws_json1_1BatchGetDeploymentInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetDeploymentInstancesInput, BatchGetDeploymentInstancesOutput } from "../models/models_0";
+import { de_BatchGetDeploymentInstancesCommand, se_BatchGetDeploymentInstancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetDeploymentInstancesCommand}.
+ */
 export interface BatchGetDeploymentInstancesCommandInput extends BatchGetDeploymentInstancesInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetDeploymentInstancesCommand}.
+ */
 export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploymentInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <note>
@@ -45,13 +48,44 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  * import { CodeDeployClient, BatchGetDeploymentInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetDeploymentInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // BatchGetDeploymentInstancesInput
+ *   deploymentId: "STRING_VALUE", // required
+ *   instanceIds: [ // InstancesList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetDeploymentInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDeploymentInstancesCommandInput - {@link BatchGetDeploymentInstancesCommandInput}
+ * @returns {@link BatchGetDeploymentInstancesCommandOutput}
  * @see {@link BatchGetDeploymentInstancesCommandInput} for command's `input` shape.
  * @see {@link BatchGetDeploymentInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link BatchLimitExceededException} (client fault)
+ *  <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+ *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link InstanceIdRequiredException} (client fault)
+ *  <p>The instance ID was not specified.</p>
+ *
+ * @throws {@link InvalidComputePlatformException} (client fault)
+ *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
  *
  */
 export class BatchGetDeploymentInstancesCommand extends $Command<
@@ -71,6 +105,9 @@ export class BatchGetDeploymentInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDeploymentInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +136,8 @@ export class BatchGetDeploymentInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetDeploymentInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetDeploymentInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +147,21 @@ export class BatchGetDeploymentInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDeploymentInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetDeploymentInstancesCommand(input, context);
+    return se_BatchGetDeploymentInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetDeploymentInstancesCommandOutput> {
-    return deserializeAws_json1_1BatchGetDeploymentInstancesCommand(output, context);
+    return de_BatchGetDeploymentInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

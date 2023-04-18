@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetInstanceUefiDataRequest,
-  GetInstanceUefiDataRequestFilterSensitiveLog,
-  GetInstanceUefiDataResult,
-  GetInstanceUefiDataResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetInstanceUefiDataCommand,
-  serializeAws_ec2GetInstanceUefiDataCommand,
-} from "../protocols/Aws_ec2";
+import { GetInstanceUefiDataRequest, GetInstanceUefiDataResult } from "../models/models_5";
+import { de_GetInstanceUefiDataCommand, se_GetInstanceUefiDataCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetInstanceUefiDataCommand}.
+ */
 export interface GetInstanceUefiDataCommandInput extends GetInstanceUefiDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetInstanceUefiDataCommand}.
+ */
 export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A binary representation of the UEFI variable store. Only non-volatile variables are
  *             stored. This is a base64 encoded and zlib compressed binary value that must be properly
  *             encoded.</p>
@@ -46,13 +49,20 @@ export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataRes
  * import { EC2Client, GetInstanceUefiDataCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetInstanceUefiDataCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetInstanceUefiDataRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new GetInstanceUefiDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceUefiDataCommandInput - {@link GetInstanceUefiDataCommandInput}
+ * @returns {@link GetInstanceUefiDataCommandOutput}
  * @see {@link GetInstanceUefiDataCommandInput} for command's `input` shape.
  * @see {@link GetInstanceUefiDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class GetInstanceUefiDataCommand extends $Command<
@@ -72,6 +82,9 @@ export class GetInstanceUefiDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceUefiDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +113,8 @@ export class GetInstanceUefiDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceUefiDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceUefiDataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +124,18 @@ export class GetInstanceUefiDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceUefiDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetInstanceUefiDataCommand(input, context);
+    return se_GetInstanceUefiDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceUefiDataCommandOutput> {
-    return deserializeAws_ec2GetInstanceUefiDataCommand(output, context);
+    return de_GetInstanceUefiDataCommand(output, context);
   }
 
   // Start section: command_body_extra

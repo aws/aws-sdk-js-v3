@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteTriggerRequest,
-  DeleteTriggerRequestFilterSensitiveLog,
-  DeleteTriggerResponse,
-  DeleteTriggerResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteTriggerCommand,
-  serializeAws_json1_1DeleteTriggerCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTriggerRequest, DeleteTriggerResponse } from "../models/models_1";
+import { de_DeleteTriggerCommand, se_DeleteTriggerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTriggerCommand}.
+ */
 export interface DeleteTriggerCommandInput extends DeleteTriggerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTriggerCommand}.
+ */
 export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified trigger. If the trigger is not found, no
  *       exception is thrown.</p>
  * @example
@@ -37,13 +40,31 @@ export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __Met
  * import { GlueClient, DeleteTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteTriggerRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTriggerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTriggerCommandInput - {@link DeleteTriggerCommandInput}
+ * @returns {@link DeleteTriggerCommandOutput}
  * @see {@link DeleteTriggerCommandInput} for command's `input` shape.
  * @see {@link DeleteTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class DeleteTriggerCommand extends $Command<
@@ -63,6 +84,9 @@ export class DeleteTriggerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTriggerCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +113,8 @@ export class DeleteTriggerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTriggerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTriggerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +124,18 @@ export class DeleteTriggerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTriggerCommand(input, context);
+    return se_DeleteTriggerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTriggerCommandOutput> {
-    return deserializeAws_json1_1DeleteTriggerCommand(output, context);
+    return de_DeleteTriggerCommand(output, context);
   }
 
   // Start section: command_body_extra

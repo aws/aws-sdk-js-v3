@@ -6,12 +6,11 @@ import {
   GetConnectionsCommandInput,
   GetConnectionsCommandOutput,
 } from "../commands/GetConnectionsCommand";
-import { Glue } from "../Glue";
 import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlueClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetConnectionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Glue,
-  input: GetConnectionsCommandInput,
-  ...args: any
-): Promise<GetConnectionsCommandOutput> => {
-  // @ts-ignore
-  return await client.getConnections(input, ...args);
-};
 export async function* paginateGetConnections(
   config: GluePaginationConfiguration,
   input: GetConnectionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetConnections(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Glue) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlueClient) {
+    if (config.client instanceof GlueClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Glue | GlueClient");

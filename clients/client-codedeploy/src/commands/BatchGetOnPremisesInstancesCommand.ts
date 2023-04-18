@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  BatchGetOnPremisesInstancesInput,
-  BatchGetOnPremisesInstancesInputFilterSensitiveLog,
-  BatchGetOnPremisesInstancesOutput,
-  BatchGetOnPremisesInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetOnPremisesInstancesCommand,
-  serializeAws_json1_1BatchGetOnPremisesInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetOnPremisesInstancesInput, BatchGetOnPremisesInstancesOutput } from "../models/models_0";
+import { de_BatchGetOnPremisesInstancesCommand, se_BatchGetOnPremisesInstancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetOnPremisesInstancesCommand}.
+ */
 export interface BatchGetOnPremisesInstancesCommandInput extends BatchGetOnPremisesInstancesInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetOnPremisesInstancesCommand}.
+ */
 export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPremisesInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about one or more on-premises instances. The maximum number of
  *             on-premises instances that can be returned is 25.</p>
  * @example
@@ -37,13 +40,30 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * import { CodeDeployClient, BatchGetOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // BatchGetOnPremisesInstancesInput
+ *   instanceNames: [ // InstanceNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetOnPremisesInstancesCommandInput - {@link BatchGetOnPremisesInstancesCommandInput}
+ * @returns {@link BatchGetOnPremisesInstancesCommandOutput}
  * @see {@link BatchGetOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link BatchGetOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link BatchLimitExceededException} (client fault)
+ *  <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+ *
+ * @throws {@link InstanceNameRequiredException} (client fault)
+ *  <p>An on-premises instance name was not specified.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
  *
  */
 export class BatchGetOnPremisesInstancesCommand extends $Command<
@@ -63,6 +83,9 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetOnPremisesInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +114,8 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetOnPremisesInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetOnPremisesInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +125,21 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetOnPremisesInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetOnPremisesInstancesCommand(input, context);
+    return se_BatchGetOnPremisesInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetOnPremisesInstancesCommandOutput> {
-    return deserializeAws_json1_1BatchGetOnPremisesInstancesCommand(output, context);
+    return de_BatchGetOnPremisesInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

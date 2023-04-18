@@ -13,14 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TagQueueRequest, TagQueueRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryTagQueueCommand, serializeAws_queryTagQueueCommand } from "../protocols/Aws_query";
+import { TagQueueRequest } from "../models/models_0";
+import { de_TagQueueCommand, se_TagQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link TagQueueCommand}.
+ */
 export interface TagQueueCommandInput extends TagQueueRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagQueueCommand}.
+ */
 export interface TagQueueCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
  * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *
@@ -53,13 +64,22 @@ export interface TagQueueCommandOutput extends __MetadataBearer {}
  * import { SQSClient, TagQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, TagQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // TagQueueRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ *   Tags: { // TagMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagQueueCommandInput - {@link TagQueueCommandInput}
+ * @returns {@link TagQueueCommandOutput}
  * @see {@link TagQueueCommandInput} for command's `input` shape.
  * @see {@link TagQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
  *
  */
 export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueCommandOutput, SQSClientResolvedConfig> {
@@ -75,6 +95,9 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +124,8 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +135,18 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagQueueCommand(input, context);
+    return se_TagQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagQueueCommandOutput> {
-    return deserializeAws_queryTagQueueCommand(output, context);
+    return de_TagQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

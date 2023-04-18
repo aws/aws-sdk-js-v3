@@ -20,21 +20,30 @@ import {
 } from "../KinesisAnalyticsV2Client";
 import {
   AddApplicationReferenceDataSourceRequest,
-  AddApplicationReferenceDataSourceRequestFilterSensitiveLog,
   AddApplicationReferenceDataSourceResponse,
-  AddApplicationReferenceDataSourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AddApplicationReferenceDataSourceCommand,
-  serializeAws_json1_1AddApplicationReferenceDataSourceCommand,
+  de_AddApplicationReferenceDataSourceCommand,
+  se_AddApplicationReferenceDataSourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AddApplicationReferenceDataSourceCommand}.
+ */
 export interface AddApplicationReferenceDataSourceCommandInput extends AddApplicationReferenceDataSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AddApplicationReferenceDataSourceCommand}.
+ */
 export interface AddApplicationReferenceDataSourceCommandOutput
   extends AddApplicationReferenceDataSourceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.</p>
  *          <p>Kinesis Data Analytics reads reference data (that is, an Amazon S3 object) and creates an
  *       in-application table within your application. In the request, you provide the source (S3
@@ -47,13 +56,66 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * import { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // AddApplicationReferenceDataSourceRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   ReferenceDataSource: { // ReferenceDataSource
+ *     TableName: "STRING_VALUE", // required
+ *     S3ReferenceDataSource: { // S3ReferenceDataSource
+ *       BucketARN: "STRING_VALUE",
+ *       FileKey: "STRING_VALUE",
+ *     },
+ *     ReferenceSchema: { // SourceSchema
+ *       RecordFormat: { // RecordFormat
+ *         RecordFormatType: "JSON" || "CSV", // required
+ *         MappingParameters: { // MappingParameters
+ *           JSONMappingParameters: { // JSONMappingParameters
+ *             RecordRowPath: "STRING_VALUE", // required
+ *           },
+ *           CSVMappingParameters: { // CSVMappingParameters
+ *             RecordRowDelimiter: "STRING_VALUE", // required
+ *             RecordColumnDelimiter: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *       RecordEncoding: "STRING_VALUE",
+ *       RecordColumns: [ // RecordColumns // required
+ *         { // RecordColumn
+ *           Name: "STRING_VALUE", // required
+ *           Mapping: "STRING_VALUE",
+ *           SqlType: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new AddApplicationReferenceDataSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationReferenceDataSourceCommandInput - {@link AddApplicationReferenceDataSourceCommandInput}
+ * @returns {@link AddApplicationReferenceDataSourceCommandOutput}
  * @see {@link AddApplicationReferenceDataSourceCommandInput} for command's `input` shape.
  * @see {@link AddApplicationReferenceDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
+ *       be the result of attempting to modify an application without using the current application
+ *       ID.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter value is not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The application is not available for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
  *
  */
 export class AddApplicationReferenceDataSourceCommand extends $Command<
@@ -73,6 +135,9 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationReferenceDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +166,8 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationReferenceDataSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationReferenceDataSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +177,24 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddApplicationReferenceDataSourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationReferenceDataSourceCommand(input, context);
+    return se_AddApplicationReferenceDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddApplicationReferenceDataSourceCommandOutput> {
-    return deserializeAws_json1_1AddApplicationReferenceDataSourceCommand(output, context);
+    return de_AddApplicationReferenceDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

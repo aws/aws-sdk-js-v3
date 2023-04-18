@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  CreateClusterRequest,
-  CreateClusterRequestFilterSensitiveLog,
-  CreateClusterResponse,
-  CreateClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateClusterCommand,
-  serializeAws_restJson1CreateClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0";
+import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateClusterCommand}.
+ */
 export interface CreateClusterCommandInput extends CreateClusterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateClusterCommand}.
+ */
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon EKS control plane. </p>
  *          <p>The Amazon EKS control plane consists of control plane instances that run the
  *             Kubernetes software, such as <code>etcd</code> and the API server. The control plane
@@ -56,13 +59,121 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { EKSClient, CreateClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // CreateClusterRequest
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE", // required
+ *   resourcesVpcConfig: { // VpcConfigRequest
+ *     subnetIds: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     endpointPublicAccess: true || false,
+ *     endpointPrivateAccess: true || false,
+ *     publicAccessCidrs: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   kubernetesNetworkConfig: { // KubernetesNetworkConfigRequest
+ *     serviceIpv4Cidr: "STRING_VALUE",
+ *     ipFamily: "ipv4" || "ipv6",
+ *   },
+ *   logging: { // Logging
+ *     clusterLogging: [ // LogSetups
+ *       { // LogSetup
+ *         types: [ // LogTypes
+ *           "api" || "audit" || "authenticator" || "controllerManager" || "scheduler",
+ *         ],
+ *         enabled: true || false,
+ *       },
+ *     ],
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   encryptionConfig: [ // EncryptionConfigList
+ *     { // EncryptionConfig
+ *       resources: [
+ *         "STRING_VALUE",
+ *       ],
+ *       provider: { // Provider
+ *         keyArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   outpostConfig: { // OutpostConfigRequest
+ *     outpostArns: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     controlPlaneInstanceType: "STRING_VALUE", // required
+ *     controlPlanePlacement: { // ControlPlanePlacementRequest
+ *       groupName: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
+ * @returns {@link CreateClusterCommandOutput}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>You have encountered a service limit on the specified resource.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
+ * @throws {@link UnsupportedAvailabilityZoneException} (client fault)
+ *  <p>At least one of your specified cluster subnets is in an Availability Zone that does
+ *             not support Amazon EKS. The exception output specifies the supported
+ *             Availability Zones for your account, from which you can choose subnets for your
+ *             cluster.</p>
+ *
+ *
+ * @example To create a new cluster
+ * ```javascript
+ * // The following example creates an Amazon EKS cluster called prod.
+ * const input = {
+ *   "version": "1.10",
+ *   "name": "prod",
+ *   "clientRequestToken": "1d2129a1-3d38-460a-9756-e5b91fddb951",
+ *   "resourcesVpcConfig": {
+ *     "securityGroupIds": [
+ *       "sg-6979fe18"
+ *     ],
+ *     "subnetIds": [
+ *       "subnet-6782e71e",
+ *       "subnet-e7e761ac"
+ *     ]
+ *   },
+ *   "roleArn": "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI"
+ * };
+ * const command = new CreateClusterCommand(input);
+ * await client.send(command);
+ * // example id: to-create-a-new-cluster-1527868185648
+ * ```
  *
  */
 export class CreateClusterCommand extends $Command<
@@ -82,6 +193,9 @@ export class CreateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +222,8 @@ export class CreateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +233,18 @@ export class CreateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateClusterCommand(input, context);
+    return se_CreateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
-    return deserializeAws_restJson1CreateClusterCommand(output, context);
+    return de_CreateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -126,7 +126,16 @@ lerna run build --scope [package name] --include-dependencies
 
 You don't need to run this command if the dependency packages are not changed.
 
-### Generating Service Clients
+## Build caching
+
+Build caching is optionally available via Turborepo. See `turbo.json`.
+Codegen build caching is not supported, but you can use it to run the
+basic `build`, `types`, and `docs` processes that have deterministic
+outputs in the `dist-*` folders.
+
+For usage and code, see [`./scripts/remote-cache`][build-cache].
+
+## Generating Service Clients
 
 If you made changes to either [AWS Smithy TypeScript generator](./codegen/smithy-aws-typescript-codegen)
 or [Smithy TypeScript generator][smithy typescript repo], you should include
@@ -145,12 +154,73 @@ the generated code change to your PR. Here's how to generate clients:
    ./gradlew clean build publishToMavenLocal
    ```
 
-1. Generate service clients in JavaScript SDK repo:
+1. Generate all service clients in JavaScript SDK repo:
+
    ```
    yarn generate-clients
    ```
+
    `generate-clients` is a util script to facilitate the code generation. For more
    information, please refer [codegen](./codegen/README.md)
+
+1. Generate a single client:
+   ```
+   # in the client package folder.
+   clients/client-X> yarn generate:client
+   ```
+
+### CLI dispatch helper
+
+There is an optional CLI helper.
+The CLI helper assists in the dispatch of commands to package contexts.
+
+To activate the default alias run:
+
+```
+. ./scripts/cli-dispatcher/set-alias.sh
+```
+
+This enables the command bin/exe
+
+```
+b
+```
+
+#### General Syntax
+
+```
+b (package name query) - (npm script query)
+```
+
+#### Syntax Examples:
+
+Usage examples
+
+```
+b s3 - b
+```
+
+yarn **b**uild in clients/client-**s3**
+
+```
+b mar ent - doc
+```
+
+yarn build:**doc**s in clients/client-**mar**ketplace-**ent**itlement-service
+
+```
+b m sign - t
+```
+
+yarn **t**est in packages/**m**iddleware-**sign**ing
+
+The package name query is used to find the package within clients, lib, or packages, and the npm script query is used to
+find a command to execute from within `package.json` `scripts`.
+
+In both queries, you can use space-separated substrings. They must occur in the matching package or command in linear order. Priority is given to whole-word matches, initial word matches, and shorter strings. If your instructions are ambiguous the first priority match will be executed. Use the dry-run or confirm options to check your command before execution.
+
+Additional options:
+--dry (dry run), --c (confirm before execution), --help
 
 [issues]: https://github.com/aws/aws-sdk-js-v3/issues
 [pr]: https://github.com/aws/aws-sdk-js-v3/pulls
@@ -159,3 +229,4 @@ the generated code change to your PR. Here's how to generate clients:
 [aws service models]: https://github.com/aws/aws-sdk-js-v3/tree/main/models
 [conventional commits]: https://www.conventionalcommits.org/
 [smithy typescript repo]: https://github.com/awslabs/smithy-typescript
+[build-cache]: https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/remote-cache

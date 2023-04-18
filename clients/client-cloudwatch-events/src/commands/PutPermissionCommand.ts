@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { PutPermissionRequest, PutPermissionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutPermissionCommand,
-  serializeAws_json1_1PutPermissionCommand,
-} from "../protocols/Aws_json1_1";
+import { PutPermissionRequest } from "../models/models_0";
+import { de_PutPermissionCommand, se_PutPermissionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutPermissionCommand}.
+ */
 export interface PutPermissionCommandInput extends PutPermissionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutPermissionCommand}.
+ */
 export interface PutPermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or Amazon Web Services organization
  *       to put events to the specified <i>event bus</i>. Amazon EventBridge (CloudWatch
  *       Events) rules in your account are triggered by these events arriving to an event bus in your
@@ -50,13 +58,43 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  * import { CloudWatchEventsClient, PutPermissionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutPermissionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // PutPermissionRequest
+ *   EventBusName: "STRING_VALUE",
+ *   Action: "STRING_VALUE",
+ *   Principal: "STRING_VALUE",
+ *   StatementId: "STRING_VALUE",
+ *   Condition: { // Condition
+ *     Type: "STRING_VALUE", // required
+ *     Key: "STRING_VALUE", // required
+ *     Value: "STRING_VALUE", // required
+ *   },
+ *   Policy: "STRING_VALUE",
+ * };
  * const command = new PutPermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPermissionCommandInput - {@link PutPermissionCommandInput}
+ * @returns {@link PutPermissionCommandOutput}
  * @see {@link PutPermissionCommandInput} for command's `input` shape.
  * @see {@link PutPermissionCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link OperationDisabledException} (client fault)
+ *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * @throws {@link PolicyLengthExceededException} (client fault)
+ *  <p>The event bus policy is too long. For more information, see the limits.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class PutPermissionCommand extends $Command<
@@ -76,6 +114,9 @@ export class PutPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +143,8 @@ export class PutPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +154,18 @@ export class PutPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutPermissionCommand(input, context);
+    return se_PutPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPermissionCommandOutput> {
-    return deserializeAws_json1_1PutPermissionCommand(output, context);
+    return de_PutPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

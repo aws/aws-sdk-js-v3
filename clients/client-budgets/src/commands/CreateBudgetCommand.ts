@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import {
-  CreateBudgetRequest,
-  CreateBudgetRequestFilterSensitiveLog,
-  CreateBudgetResponse,
-  CreateBudgetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBudgetCommand,
-  serializeAws_json1_1CreateBudgetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateBudgetRequest, CreateBudgetRequestFilterSensitiveLog, CreateBudgetResponse } from "../models/models_0";
+import { de_CreateBudgetCommand, se_CreateBudgetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBudgetCommand}.
+ */
 export interface CreateBudgetCommandInput extends CreateBudgetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBudgetCommand}.
+ */
 export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a budget and, if included, notifications and subscribers. </p>
  * 		       <important>
  * 			         <p>Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present in the syntax at one time. Use the syntax that matches your case. The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudget.html#API_CreateBudget_Examples">Examples</a> section. </p>
@@ -39,13 +42,112 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  * import { BudgetsClient, CreateBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, CreateBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // CreateBudgetRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   Budget: { // Budget
+ *     BudgetName: "STRING_VALUE", // required
+ *     BudgetLimit: { // Spend
+ *       Amount: "STRING_VALUE", // required
+ *       Unit: "STRING_VALUE", // required
+ *     },
+ *     PlannedBudgetLimits: { // PlannedBudgetLimits
+ *       "<keys>": {
+ *         Amount: "STRING_VALUE", // required
+ *         Unit: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     CostFilters: { // CostFilters
+ *       "<keys>": [ // DimensionValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     CostTypes: { // CostTypes
+ *       IncludeTax: true || false,
+ *       IncludeSubscription: true || false,
+ *       UseBlended: true || false,
+ *       IncludeRefund: true || false,
+ *       IncludeCredit: true || false,
+ *       IncludeUpfront: true || false,
+ *       IncludeRecurring: true || false,
+ *       IncludeOtherSubscription: true || false,
+ *       IncludeSupport: true || false,
+ *       IncludeDiscount: true || false,
+ *       UseAmortized: true || false,
+ *     },
+ *     TimeUnit: "STRING_VALUE", // required
+ *     TimePeriod: { // TimePeriod
+ *       Start: new Date("TIMESTAMP"),
+ *       End: new Date("TIMESTAMP"),
+ *     },
+ *     CalculatedSpend: { // CalculatedSpend
+ *       ActualSpend: {
+ *         Amount: "STRING_VALUE", // required
+ *         Unit: "STRING_VALUE", // required
+ *       },
+ *       ForecastedSpend: {
+ *         Amount: "STRING_VALUE", // required
+ *         Unit: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     BudgetType: "STRING_VALUE", // required
+ *     LastUpdatedTime: new Date("TIMESTAMP"),
+ *     AutoAdjustData: { // AutoAdjustData
+ *       AutoAdjustType: "STRING_VALUE", // required
+ *       HistoricalOptions: { // HistoricalOptions
+ *         BudgetAdjustmentPeriod: Number("int"), // required
+ *         LookBackAvailablePeriods: Number("int"),
+ *       },
+ *       LastAutoAdjustTime: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ *   NotificationsWithSubscribers: [ // NotificationWithSubscribersList
+ *     { // NotificationWithSubscribers
+ *       Notification: { // Notification
+ *         NotificationType: "STRING_VALUE", // required
+ *         ComparisonOperator: "STRING_VALUE", // required
+ *         Threshold: Number("double"), // required
+ *         ThresholdType: "STRING_VALUE",
+ *         NotificationState: "STRING_VALUE",
+ *       },
+ *       Subscribers: [ // Subscribers // required
+ *         { // Subscriber
+ *           SubscriptionType: "STRING_VALUE", // required
+ *           Address: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateBudgetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBudgetCommandInput - {@link CreateBudgetCommandInput}
+ * @returns {@link CreateBudgetCommandOutput}
  * @see {@link CreateBudgetCommandInput} for command's `input` shape.
  * @see {@link CreateBudgetCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to use this operation with the given parameters.</p>
+ *
+ * @throws {@link CreationLimitExceededException} (client fault)
+ *  <p>You've exceeded the notification or subscriber limit.</p>
+ *
+ * @throws {@link DuplicateRecordException} (client fault)
+ *  <p>The budget name already exists. Budget names must be unique within an account.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
+ *     </p>
+ *
  *
  */
 export class CreateBudgetCommand extends $Command<
@@ -65,6 +167,9 @@ export class CreateBudgetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBudgetCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +197,7 @@ export class CreateBudgetCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateBudgetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBudgetResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +207,18 @@ export class CreateBudgetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBudgetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBudgetCommand(input, context);
+    return se_CreateBudgetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBudgetCommandOutput> {
-    return deserializeAws_json1_1CreateBudgetCommand(output, context);
+    return de_CreateBudgetCommand(output, context);
   }
 
   // Start section: command_body_extra

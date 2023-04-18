@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { RevokeCertificateRequest, RevokeCertificateRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1RevokeCertificateCommand,
-  serializeAws_json1_1RevokeCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { RevokeCertificateRequest } from "../models/models_0";
+import { de_RevokeCertificateCommand, se_RevokeCertificateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RevokeCertificateCommand}.
+ */
 export interface RevokeCertificateCommandInput extends RevokeCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RevokeCertificateCommand}.
+ */
 export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes a certificate that was issued inside Amazon Web Services Private CA. If you enable a certificate
  * 			revocation list (CRL) when you create or update your private CA, information about the
  * 			revoked certificates will be included in the CRL. Amazon Web Services Private CA writes the CRL to an S3
@@ -50,13 +58,51 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  * import { ACMPCAClient, RevokeCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, RevokeCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // RevokeCertificateRequest
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   CertificateSerial: "STRING_VALUE", // required
+ *   RevocationReason: "UNSPECIFIED" || "KEY_COMPROMISE" || "CERTIFICATE_AUTHORITY_COMPROMISE" || "AFFILIATION_CHANGED" || "SUPERSEDED" || "CESSATION_OF_OPERATION" || "PRIVILEGE_WITHDRAWN" || "A_A_COMPROMISE", // required
+ * };
  * const command = new RevokeCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeCertificateCommandInput - {@link RevokeCertificateCommandInput}
+ * @returns {@link RevokeCertificateCommandOutput}
  * @see {@link RevokeCertificateCommandInput} for command's `input` shape.
  * @see {@link RevokeCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>A previous update to your private CA is still ongoing.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ * 			resource.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request action cannot be performed or is prohibited.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine
+ * 			the quota that was exceeded.</p>
+ *
+ * @throws {@link RequestAlreadyProcessedException} (client fault)
+ *  <p>Your request has already been completed.</p>
+ *
+ * @throws {@link RequestFailedException} (client fault)
+ *  <p>The request has failed for an unspecified reason.</p>
+ *
+ * @throws {@link RequestInProgressException} (client fault)
+ *  <p>Your request is already in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
+ *
  *
  */
 export class RevokeCertificateCommand extends $Command<
@@ -76,6 +122,9 @@ export class RevokeCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +153,8 @@ export class RevokeCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +164,18 @@ export class RevokeCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RevokeCertificateCommand(input, context);
+    return se_RevokeCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeCertificateCommandOutput> {
-    return deserializeAws_json1_1RevokeCertificateCommand(output, context);
+    return de_RevokeCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

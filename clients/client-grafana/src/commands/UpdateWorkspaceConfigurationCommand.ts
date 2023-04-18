@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
+import { UpdateWorkspaceConfigurationRequest, UpdateWorkspaceConfigurationResponse } from "../models/models_0";
 import {
-  UpdateWorkspaceConfigurationRequest,
-  UpdateWorkspaceConfigurationRequestFilterSensitiveLog,
-  UpdateWorkspaceConfigurationResponse,
-  UpdateWorkspaceConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkspaceConfigurationCommand,
-  serializeAws_restJson1UpdateWorkspaceConfigurationCommand,
+  de_UpdateWorkspaceConfigurationCommand,
+  se_UpdateWorkspaceConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateWorkspaceConfigurationCommand}.
+ */
 export interface UpdateWorkspaceConfigurationCommandInput extends UpdateWorkspaceConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateWorkspaceConfigurationCommand}.
+ */
 export interface UpdateWorkspaceConfigurationCommandOutput
   extends UpdateWorkspaceConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration string for the given workspace</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,38 @@ export interface UpdateWorkspaceConfigurationCommandOutput
  * import { GrafanaClient, UpdateWorkspaceConfigurationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdateWorkspaceConfigurationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // UpdateWorkspaceConfigurationRequest
+ *   configuration: "STRING_VALUE", // required
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceConfigurationCommandInput - {@link UpdateWorkspaceConfigurationCommandInput}
+ * @returns {@link UpdateWorkspaceConfigurationCommandOutput}
  * @see {@link UpdateWorkspaceConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A resource was in an inconsistent state during an update or a deletion.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class UpdateWorkspaceConfigurationCommand extends $Command<
@@ -64,6 +95,9 @@ export class UpdateWorkspaceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +126,8 @@ export class UpdateWorkspaceConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkspaceConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkspaceConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +137,21 @@ export class UpdateWorkspaceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkspaceConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkspaceConfigurationCommand(input, context);
+    return se_UpdateWorkspaceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateWorkspaceConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkspaceConfigurationCommand(output, context);
+    return de_UpdateWorkspaceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

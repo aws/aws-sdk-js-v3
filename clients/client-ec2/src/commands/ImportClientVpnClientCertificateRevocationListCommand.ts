@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ImportClientVpnClientCertificateRevocationListRequest,
-  ImportClientVpnClientCertificateRevocationListRequestFilterSensitiveLog,
   ImportClientVpnClientCertificateRevocationListResult,
-  ImportClientVpnClientCertificateRevocationListResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand,
-  serializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand,
+  de_ImportClientVpnClientCertificateRevocationListCommand,
+  se_ImportClientVpnClientCertificateRevocationListCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportClientVpnClientCertificateRevocationListCommand}.
+ */
 export interface ImportClientVpnClientCertificateRevocationListCommandInput
   extends ImportClientVpnClientCertificateRevocationListRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ImportClientVpnClientCertificateRevocationListCommand}.
+ */
 export interface ImportClientVpnClientCertificateRevocationListCommandOutput
   extends ImportClientVpnClientCertificateRevocationListResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p>
  *          <p>Uploading a client certificate revocation list resets existing client connections.</p>
  * @example
@@ -40,13 +49,21 @@ export interface ImportClientVpnClientCertificateRevocationListCommandOutput
  * import { EC2Client, ImportClientVpnClientCertificateRevocationListCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ImportClientVpnClientCertificateRevocationListCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ImportClientVpnClientCertificateRevocationListRequest
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   CertificateRevocationList: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ImportClientVpnClientCertificateRevocationListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportClientVpnClientCertificateRevocationListCommandInput - {@link ImportClientVpnClientCertificateRevocationListCommandInput}
+ * @returns {@link ImportClientVpnClientCertificateRevocationListCommandOutput}
  * @see {@link ImportClientVpnClientCertificateRevocationListCommandInput} for command's `input` shape.
  * @see {@link ImportClientVpnClientCertificateRevocationListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ImportClientVpnClientCertificateRevocationListCommand extends $Command<
@@ -66,6 +83,9 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportClientVpnClientCertificateRevocationListCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +120,8 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportClientVpnClientCertificateRevocationListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportClientVpnClientCertificateRevocationListResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +131,24 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ImportClientVpnClientCertificateRevocationListCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand(input, context);
+    return se_ImportClientVpnClientCertificateRevocationListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ImportClientVpnClientCertificateRevocationListCommandOutput> {
-    return deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand(output, context);
+    return de_ImportClientVpnClientCertificateRevocationListCommand(output, context);
   }
 
   // Start section: command_body_extra

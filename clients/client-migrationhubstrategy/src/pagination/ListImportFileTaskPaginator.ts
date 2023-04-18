@@ -6,12 +6,11 @@ import {
   ListImportFileTaskCommandInput,
   ListImportFileTaskCommandOutput,
 } from "../commands/ListImportFileTaskCommand";
-import { MigrationHubStrategy } from "../MigrationHubStrategy";
 import { MigrationHubStrategyClient } from "../MigrationHubStrategyClient";
 import { MigrationHubStrategyPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MigrationHubStrategyClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListImportFileTaskCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MigrationHubStrategy,
-  input: ListImportFileTaskCommandInput,
-  ...args: any
-): Promise<ListImportFileTaskCommandOutput> => {
-  // @ts-ignore
-  return await client.listImportFileTask(input, ...args);
-};
 export async function* paginateListImportFileTask(
   config: MigrationHubStrategyPaginationConfiguration,
   input: ListImportFileTaskCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListImportFileTask(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof MigrationHubStrategy) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MigrationHubStrategyClient) {
+    if (config.client instanceof MigrationHubStrategyClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MigrationHubStrategy | MigrationHubStrategyClient");

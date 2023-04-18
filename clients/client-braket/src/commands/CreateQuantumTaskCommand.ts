@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import {
-  CreateQuantumTaskRequest,
-  CreateQuantumTaskRequestFilterSensitiveLog,
-  CreateQuantumTaskResponse,
-  CreateQuantumTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateQuantumTaskCommand,
-  serializeAws_restJson1CreateQuantumTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateQuantumTaskRequest, CreateQuantumTaskResponse } from "../models/models_0";
+import { de_CreateQuantumTaskCommand, se_CreateQuantumTaskCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateQuantumTaskCommand}.
+ */
 export interface CreateQuantumTaskCommandInput extends CreateQuantumTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateQuantumTaskCommand}.
+ */
 export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a quantum task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,51 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * import { BraketClient, CreateQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, CreateQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
+ * const input = { // CreateQuantumTaskRequest
+ *   clientToken: "STRING_VALUE", // required
+ *   deviceArn: "STRING_VALUE", // required
+ *   deviceParameters: "STRING_VALUE",
+ *   shots: Number("long"), // required
+ *   outputS3Bucket: "STRING_VALUE", // required
+ *   outputS3KeyPrefix: "STRING_VALUE", // required
+ *   action: "STRING_VALUE", // required
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   jobToken: "STRING_VALUE",
+ * };
  * const command = new CreateQuantumTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQuantumTaskCommandInput - {@link CreateQuantumTaskCommandInput}
+ * @returns {@link CreateQuantumTaskCommandOutput}
  * @see {@link CreateQuantumTaskCommandInput} for command's `input` shape.
  * @see {@link CreateQuantumTaskCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link DeviceOfflineException} (client fault)
+ *  <p>The specified device is currently offline.</p>
+ *
+ * @throws {@link DeviceRetiredException} (client fault)
+ *  <p>The specified device has been retired.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or
+ *          failure.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request failed because a service quota is exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling rate limit is met.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class CreateQuantumTaskCommand extends $Command<
@@ -62,6 +103,9 @@ export class CreateQuantumTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQuantumTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +134,8 @@ export class CreateQuantumTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQuantumTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateQuantumTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +145,18 @@ export class CreateQuantumTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateQuantumTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateQuantumTaskCommand(input, context);
+    return se_CreateQuantumTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQuantumTaskCommandOutput> {
-    return deserializeAws_restJson1CreateQuantumTaskCommand(output, context);
+    return de_CreateQuantumTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

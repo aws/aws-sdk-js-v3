@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteHostKeyRequest, DeleteHostKeyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteHostKeyCommand,
-  serializeAws_json1_1DeleteHostKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteHostKeyRequest } from "../models/models_0";
+import { de_DeleteHostKeyCommand, se_DeleteHostKeyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteHostKeyCommand}.
+ */
 export interface DeleteHostKeyCommandInput extends DeleteHostKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteHostKeyCommand}.
+ */
 export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the host key that's specified in the <code>HoskKeyId</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,36 @@ export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DeleteHostKeyRequest
+ *   ServerId: "STRING_VALUE", // required
+ *   HostKeyId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHostKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHostKeyCommandInput - {@link DeleteHostKeyCommandInput}
+ * @returns {@link DeleteHostKeyCommandOutput}
  * @see {@link DeleteHostKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteHostKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class DeleteHostKeyCommand extends $Command<
@@ -57,6 +88,9 @@ export class DeleteHostKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHostKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,8 +117,8 @@ export class DeleteHostKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHostKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +128,18 @@ export class DeleteHostKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHostKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteHostKeyCommand(input, context);
+    return se_DeleteHostKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHostKeyCommandOutput> {
-    return deserializeAws_json1_1DeleteHostKeyCommand(output, context);
+    return de_DeleteHostKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

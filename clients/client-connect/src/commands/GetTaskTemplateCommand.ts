@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  GetTaskTemplateRequest,
-  GetTaskTemplateRequestFilterSensitiveLog,
-  GetTaskTemplateResponse,
-  GetTaskTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTaskTemplateCommand,
-  serializeAws_restJson1GetTaskTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTaskTemplateRequest, GetTaskTemplateResponse } from "../models/models_0";
+import { de_GetTaskTemplateCommand, se_GetTaskTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTaskTemplateCommand}.
+ */
 export interface GetTaskTemplateCommandInput extends GetTaskTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTaskTemplateCommand}.
+ */
 export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a specific task template in the specified Amazon Connect
  *    instance.</p>
  * @example
@@ -37,13 +40,36 @@ export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, _
  * import { ConnectClient, GetTaskTemplateCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetTaskTemplateCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // GetTaskTemplateRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   TaskTemplateId: "STRING_VALUE", // required
+ *   SnapshotVersion: "STRING_VALUE",
+ * };
  * const command = new GetTaskTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTaskTemplateCommandInput - {@link GetTaskTemplateCommandInput}
+ * @returns {@link GetTaskTemplateCommandOutput}
  * @see {@link GetTaskTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class GetTaskTemplateCommand extends $Command<
@@ -63,6 +89,9 @@ export class GetTaskTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTaskTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +120,8 @@ export class GetTaskTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTaskTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTaskTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +131,18 @@ export class GetTaskTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTaskTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTaskTemplateCommand(input, context);
+    return se_GetTaskTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTaskTemplateCommandOutput> {
-    return deserializeAws_restJson1GetTaskTemplateCommand(output, context);
+    return de_GetTaskTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

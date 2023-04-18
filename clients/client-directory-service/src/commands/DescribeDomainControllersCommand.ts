@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DescribeDomainControllersRequest,
-  DescribeDomainControllersRequestFilterSensitiveLog,
-  DescribeDomainControllersResult,
-  DescribeDomainControllersResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDomainControllersCommand,
-  serializeAws_json1_1DescribeDomainControllersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDomainControllersRequest, DescribeDomainControllersResult } from "../models/models_0";
+import { de_DescribeDomainControllersCommand, se_DescribeDomainControllersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDomainControllersCommand}.
+ */
 export interface DescribeDomainControllersCommandInput extends DescribeDomainControllersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDomainControllersCommand}.
+ */
 export interface DescribeDomainControllersCommandOutput extends DescribeDomainControllersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about any domain controllers in your directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * import { DirectoryServiceClient, DescribeDomainControllersCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeDomainControllersCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DescribeDomainControllersRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   DomainControllerIds: [ // DomainControllerIds
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeDomainControllersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainControllersCommandInput - {@link DescribeDomainControllersCommandInput}
+ * @returns {@link DescribeDomainControllersCommandOutput}
  * @see {@link DescribeDomainControllersCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainControllersCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
  *
  */
 export class DescribeDomainControllersCommand extends $Command<
@@ -62,6 +94,9 @@ export class DescribeDomainControllersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainControllersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class DescribeDomainControllersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainControllersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainControllersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +136,21 @@ export class DescribeDomainControllersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainControllersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDomainControllersCommand(input, context);
+    return se_DescribeDomainControllersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainControllersCommandOutput> {
-    return deserializeAws_json1_1DescribeDomainControllersCommand(output, context);
+    return de_DescribeDomainControllersCommand(output, context);
   }
 
   // Start section: command_body_extra

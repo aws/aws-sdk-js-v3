@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  GetAccessTokenRequest,
-  GetAccessTokenRequestFilterSensitiveLog,
-  GetAccessTokenResponse,
-  GetAccessTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAccessTokenCommand,
-  serializeAws_json1_1GetAccessTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAccessTokenRequest, GetAccessTokenResponse } from "../models/models_0";
+import { de_GetAccessTokenCommand, se_GetAccessTokenCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccessTokenCommand}.
+ */
 export interface GetAccessTokenCommandInput extends GetAccessTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccessTokenCommand}.
+ */
 export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a temporary access token to use with AssumeRoleWithWebIdentity. Access tokens
  *           are valid for one hour.</p>
  * @example
@@ -37,13 +40,38 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  * import { LicenseManagerClient, GetAccessTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, GetAccessTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // GetAccessTokenRequest
+ *   Token: "STRING_VALUE", // required
+ *   TokenProperties: [ // MaxSize3StringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetAccessTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessTokenCommandInput - {@link GetAccessTokenCommandInput}
+ * @returns {@link GetAccessTokenCommandOutput}
  * @see {@link GetAccessTokenCommandInput} for command's `input` shape.
  * @see {@link GetAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
  *
  */
 export class GetAccessTokenCommand extends $Command<
@@ -63,6 +91,9 @@ export class GetAccessTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +122,8 @@ export class GetAccessTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +133,18 @@ export class GetAccessTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccessTokenCommand(input, context);
+    return se_GetAccessTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessTokenCommandOutput> {
-    return deserializeAws_json1_1GetAccessTokenCommand(output, context);
+    return de_GetAccessTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

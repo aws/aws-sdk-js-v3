@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReferencesRequest,
-  ListReferencesRequestFilterSensitiveLog,
-  ListReferencesResponse,
-  ListReferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListReferencesRequest, ListReferencesResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListReferencesCommand,
-  serializeAws_restJson1ListReferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListReferencesCommand, se_ListReferencesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListReferencesCommand}.
+ */
 export interface ListReferencesCommandInput extends ListReferencesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListReferencesCommand}.
+ */
 export interface ListReferencesCommandOutput extends ListReferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of references.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface ListReferencesCommandOutput extends ListReferencesResponse, __M
  * import { OmicsClient, ListReferencesCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReferencesCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // ListReferencesRequest
+ *   referenceStoreId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filter: { // ReferenceFilter
+ *     name: "STRING_VALUE",
+ *     md5: "STRING_VALUE",
+ *     createdAfter: new Date("TIMESTAMP"),
+ *     createdBefore: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new ListReferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReferencesCommandInput - {@link ListReferencesCommandInput}
+ * @returns {@link ListReferencesCommandOutput}
  * @see {@link ListReferencesCommandInput} for command's `input` shape.
  * @see {@link ListReferencesCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ListReferencesCommand extends $Command<
@@ -62,6 +97,9 @@ export class ListReferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class ListReferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class ListReferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReferencesCommand(input, context);
+    return se_ListReferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReferencesCommandOutput> {
-    return deserializeAws_restJson1ListReferencesCommand(output, context);
+    return de_ListReferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

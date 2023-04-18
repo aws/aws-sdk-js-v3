@@ -6,12 +6,11 @@ import {
   ListUsageLimitsCommandInput,
   ListUsageLimitsCommandOutput,
 } from "../commands/ListUsageLimitsCommand";
-import { RedshiftServerless } from "../RedshiftServerless";
 import { RedshiftServerlessClient } from "../RedshiftServerlessClient";
 import { RedshiftServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RedshiftServerlessClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListUsageLimitsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RedshiftServerless,
-  input: ListUsageLimitsCommandInput,
-  ...args: any
-): Promise<ListUsageLimitsCommandOutput> => {
-  // @ts-ignore
-  return await client.listUsageLimits(input, ...args);
-};
 export async function* paginateListUsageLimits(
   config: RedshiftServerlessPaginationConfiguration,
   input: ListUsageLimitsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListUsageLimits(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RedshiftServerless) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RedshiftServerlessClient) {
+    if (config.client instanceof RedshiftServerlessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RedshiftServerless | RedshiftServerlessClient");

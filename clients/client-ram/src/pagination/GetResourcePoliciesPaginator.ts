@@ -6,12 +6,11 @@ import {
   GetResourcePoliciesCommandInput,
   GetResourcePoliciesCommandOutput,
 } from "../commands/GetResourcePoliciesCommand";
-import { RAM } from "../RAM";
 import { RAMClient } from "../RAMClient";
 import { RAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RAMClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetResourcePoliciesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RAM,
-  input: GetResourcePoliciesCommandInput,
-  ...args: any
-): Promise<GetResourcePoliciesCommandOutput> => {
-  // @ts-ignore
-  return await client.getResourcePolicies(input, ...args);
-};
 export async function* paginateGetResourcePolicies(
   config: RAMPaginationConfiguration,
   input: GetResourcePoliciesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetResourcePolicies(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RAMClient) {
+    if (config.client instanceof RAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RAM | RAMClient");

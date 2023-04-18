@@ -15,22 +15,31 @@ import {
 
 import {
   ListOrganizationServiceAccessStatusRequest,
-  ListOrganizationServiceAccessStatusRequestFilterSensitiveLog,
   ListOrganizationServiceAccessStatusResponse,
-  ListOrganizationServiceAccessStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1ListOrganizationServiceAccessStatusCommand,
-  serializeAws_restJson1ListOrganizationServiceAccessStatusCommand,
+  de_ListOrganizationServiceAccessStatusCommand,
+  se_ListOrganizationServiceAccessStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListOrganizationServiceAccessStatusCommand}.
+ */
 export interface ListOrganizationServiceAccessStatusCommandInput extends ListOrganizationServiceAccessStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListOrganizationServiceAccessStatusCommand}.
+ */
 export interface ListOrganizationServiceAccessStatusCommandOutput
   extends ListOrganizationServiceAccessStatusResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of the Service Linked Role (SLR) deployment for the accounts in a given Amazon Web Services Organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,20 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
  * import { NetworkManagerClient, ListOrganizationServiceAccessStatusCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListOrganizationServiceAccessStatusCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // ListOrganizationServiceAccessStatusRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListOrganizationServiceAccessStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationServiceAccessStatusCommandInput - {@link ListOrganizationServiceAccessStatusCommandInput}
+ * @returns {@link ListOrganizationServiceAccessStatusCommandOutput}
  * @see {@link ListOrganizationServiceAccessStatusCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationServiceAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
  *
  */
 export class ListOrganizationServiceAccessStatusCommand extends $Command<
@@ -64,6 +80,9 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationServiceAccessStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +111,8 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOrganizationServiceAccessStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOrganizationServiceAccessStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +122,24 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListOrganizationServiceAccessStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOrganizationServiceAccessStatusCommand(input, context);
+    return se_ListOrganizationServiceAccessStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOrganizationServiceAccessStatusCommandOutput> {
-    return deserializeAws_restJson1ListOrganizationServiceAccessStatusCommand(output, context);
+    return de_ListOrganizationServiceAccessStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

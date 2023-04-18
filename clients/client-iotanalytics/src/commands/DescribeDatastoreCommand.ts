@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  DescribeDatastoreRequest,
-  DescribeDatastoreRequestFilterSensitiveLog,
-  DescribeDatastoreResponse,
-  DescribeDatastoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDatastoreCommand,
-  serializeAws_restJson1DescribeDatastoreCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDatastoreRequest, DescribeDatastoreResponse } from "../models/models_0";
+import { de_DescribeDatastoreCommand, se_DescribeDatastoreCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDatastoreCommand}.
+ */
 export interface DescribeDatastoreCommandInput extends DescribeDatastoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDatastoreCommand}.
+ */
 export interface DescribeDatastoreCommandOutput extends DescribeDatastoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DescribeDatastoreCommandOutput extends DescribeDatastoreRespons
  * import { IoTAnalyticsClient, DescribeDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DescribeDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // DescribeDatastoreRequest
+ *   datastoreName: "STRING_VALUE", // required
+ *   includeStatistics: true || false,
+ * };
  * const command = new DescribeDatastoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatastoreCommandInput - {@link DescribeDatastoreCommandInput}
+ * @returns {@link DescribeDatastoreCommandOutput}
  * @see {@link DescribeDatastoreCommandInput} for command's `input` shape.
  * @see {@link DescribeDatastoreCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>There was an internal failure.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource with the specified name could not be found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class DescribeDatastoreCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class DescribeDatastoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatastoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatastoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class DescribeDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDatastoreCommand(input, context);
+    return se_DescribeDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatastoreCommandOutput> {
-    return deserializeAws_restJson1DescribeDatastoreCommand(output, context);
+    return de_DescribeDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  StopPiiEntitiesDetectionJobRequest,
-  StopPiiEntitiesDetectionJobRequestFilterSensitiveLog,
-  StopPiiEntitiesDetectionJobResponse,
-  StopPiiEntitiesDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopPiiEntitiesDetectionJobCommand,
-  serializeAws_json1_1StopPiiEntitiesDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopPiiEntitiesDetectionJobRequest, StopPiiEntitiesDetectionJobResponse } from "../models/models_0";
+import { de_StopPiiEntitiesDetectionJobCommand, se_StopPiiEntitiesDetectionJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopPiiEntitiesDetectionJobCommand}.
+ */
 export interface StopPiiEntitiesDetectionJobCommandInput extends StopPiiEntitiesDetectionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopPiiEntitiesDetectionJobCommand}.
+ */
 export interface StopPiiEntitiesDetectionJobCommandOutput
   extends StopPiiEntitiesDetectionJobResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a PII entities detection job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,28 @@ export interface StopPiiEntitiesDetectionJobCommandOutput
  * import { ComprehendClient, StopPiiEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopPiiEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // StopPiiEntitiesDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopPiiEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopPiiEntitiesDetectionJobCommandInput - {@link StopPiiEntitiesDetectionJobCommandInput}
+ * @returns {@link StopPiiEntitiesDetectionJobCommandOutput}
  * @see {@link StopPiiEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopPiiEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The specified job was not found. Check the job ID and try again.</p>
+ *
  *
  */
 export class StopPiiEntitiesDetectionJobCommand extends $Command<
@@ -64,6 +82,9 @@ export class StopPiiEntitiesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopPiiEntitiesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class StopPiiEntitiesDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopPiiEntitiesDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopPiiEntitiesDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +124,21 @@ export class StopPiiEntitiesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopPiiEntitiesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopPiiEntitiesDetectionJobCommand(input, context);
+    return se_StopPiiEntitiesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopPiiEntitiesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopPiiEntitiesDetectionJobCommand(output, context);
+    return de_StopPiiEntitiesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

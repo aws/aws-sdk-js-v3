@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQueueStatusRequest, UpdateQueueStatusRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateQueueStatusCommand,
-  serializeAws_restJson1UpdateQueueStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateQueueStatusRequest } from "../models/models_1";
+import { de_UpdateQueueStatusCommand, se_UpdateQueueStatusCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateQueueStatusCommand}.
+ */
 export interface UpdateQueueStatusCommandInput extends UpdateQueueStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateQueueStatusCommand}.
+ */
 export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the status of the queue.</p>
  * @example
@@ -32,13 +40,36 @@ export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateQueueStatusCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQueueStatusCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateQueueStatusRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   QueueId: "STRING_VALUE", // required
+ *   Status: "ENABLED" || "DISABLED", // required
+ * };
  * const command = new UpdateQueueStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQueueStatusCommandInput - {@link UpdateQueueStatusCommandInput}
+ * @returns {@link UpdateQueueStatusCommandOutput}
  * @see {@link UpdateQueueStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class UpdateQueueStatusCommand extends $Command<
@@ -58,6 +89,9 @@ export class UpdateQueueStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQueueStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +120,8 @@ export class UpdateQueueStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQueueStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +131,18 @@ export class UpdateQueueStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQueueStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateQueueStatusCommand(input, context);
+    return se_UpdateQueueStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQueueStatusCommandOutput> {
-    return deserializeAws_restJson1UpdateQueueStatusCommand(output, context);
+    return de_UpdateQueueStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

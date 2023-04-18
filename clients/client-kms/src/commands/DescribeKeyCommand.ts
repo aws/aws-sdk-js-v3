@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  DescribeKeyRequest,
-  DescribeKeyRequestFilterSensitiveLog,
-  DescribeKeyResponse,
-  DescribeKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeKeyCommand,
-  serializeAws_json1_1DescribeKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeKeyRequest, DescribeKeyResponse } from "../models/models_0";
+import { de_DescribeKeyCommand, se_DescribeKeyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeKeyCommand}.
+ */
 export interface DescribeKeyCommandInput extends DescribeKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeKeyCommand}.
+ */
 export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides detailed information about a KMS key. You can run <code>DescribeKey</code> on a
  *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed
  *         key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
@@ -70,7 +73,6 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DescribeKey</a> (key policy)</p>
  *          <p>
@@ -119,13 +121,266 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * import { KMSClient, DescribeKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DescribeKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // DescribeKeyRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeKeyCommandInput - {@link DescribeKeyCommandInput}
+ * @returns {@link DescribeKeyCommandOutput}
  * @see {@link DescribeKeyCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
+ *       valid.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ *
+ * @example To get details about a KMS key
+ * ```javascript
+ * // The following example gets metadata for a symmetric encryption KMS key.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new DescribeKeyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyMetadata": {
+ *     "AWSAccountId": "111122223333",
+ *     "Arn": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     "CreationDate": "2017-07-05T14:04:55-07:00",
+ *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
+ *     "Description": "",
+ *     "Enabled": true,
+ *     "EncryptionAlgorithms": [
+ *       "SYMMETRIC_DEFAULT"
+ *     ],
+ *     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     "KeyManager": "CUSTOMER",
+ *     "KeySpec": "SYMMETRIC_DEFAULT",
+ *     "KeyState": "Enabled",
+ *     "KeyUsage": "ENCRYPT_DECRYPT",
+ *     "MultiRegion": false,
+ *     "Origin": "AWS_KMS"
+ *   }
+ * }
+ * *\/
+ * // example id: get-key-details-1
+ * ```
+ *
+ * @example To get details about an RSA asymmetric KMS key
+ * ```javascript
+ * // The following example gets metadata for an asymmetric RSA KMS key used for signing and verification.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new DescribeKeyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyMetadata": {
+ *     "AWSAccountId": "111122223333",
+ *     "Arn": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     "CreationDate": 1571767572.317,
+ *     "CustomerMasterKeySpec": "RSA_2048",
+ *     "Description": "",
+ *     "Enabled": false,
+ *     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     "KeyManager": "CUSTOMER",
+ *     "KeySpec": "RSA_2048",
+ *     "KeyState": "Disabled",
+ *     "KeyUsage": "SIGN_VERIFY",
+ *     "MultiRegion": false,
+ *     "Origin": "AWS_KMS",
+ *     "SigningAlgorithms": [
+ *       "RSASSA_PKCS1_V1_5_SHA_256",
+ *       "RSASSA_PKCS1_V1_5_SHA_384",
+ *       "RSASSA_PKCS1_V1_5_SHA_512",
+ *       "RSASSA_PSS_SHA_256",
+ *       "RSASSA_PSS_SHA_384",
+ *       "RSASSA_PSS_SHA_512"
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-details-about-an-rsa-asymmetric-kms-key-2
+ * ```
+ *
+ * @example To get details about a multi-Region key
+ * ```javascript
+ * // The following example gets metadata for a multi-Region replica key. This multi-Region key is a symmetric encryption key. DescribeKey returns information about the primary key and all of its replicas.
+ * const input = {
+ *   "KeyId": "arn:aws:kms:ap-northeast-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab"
+ * };
+ * const command = new DescribeKeyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyMetadata": {
+ *     "AWSAccountId": "111122223333",
+ *     "Arn": "arn:aws:kms:ap-northeast-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *     "CreationDate": 1586329200.918,
+ *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
+ *     "Description": "",
+ *     "Enabled": true,
+ *     "EncryptionAlgorithms": [
+ *       "SYMMETRIC_DEFAULT"
+ *     ],
+ *     "KeyId": "mrk-1234abcd12ab34cd56ef1234567890ab",
+ *     "KeyManager": "CUSTOMER",
+ *     "KeyState": "Enabled",
+ *     "KeyUsage": "ENCRYPT_DECRYPT",
+ *     "MultiRegion": true,
+ *     "MultiRegionConfiguration": {
+ *       "MultiRegionKeyType": "PRIMARY",
+ *       "PrimaryKey": {
+ *         "Arn": "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *         "Region": "us-west-2"
+ *       },
+ *       "ReplicaKeys": [
+ *         {
+ *           "Arn": "arn:aws:kms:eu-west-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *           "Region": "eu-west-1"
+ *         },
+ *         {
+ *           "Arn": "arn:aws:kms:ap-northeast-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *           "Region": "ap-northeast-1"
+ *         },
+ *         {
+ *           "Arn": "arn:aws:kms:sa-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *           "Region": "sa-east-1"
+ *         }
+ *       ]
+ *     },
+ *     "Origin": "AWS_KMS"
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-details-about-a-multi-region-key-3
+ * ```
+ *
+ * @example To get details about an HMAC KMS key
+ * ```javascript
+ * // The following example gets the metadata of an HMAC KMS key.
+ * const input = {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new DescribeKeyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyMetadata": {
+ *     "AWSAccountId": "123456789012",
+ *     "Arn": "arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     "CreationDate": 1566160362.664,
+ *     "CustomerMasterKeySpec": "HMAC_256",
+ *     "Description": "Development test key",
+ *     "Enabled": true,
+ *     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     "KeyManager": "CUSTOMER",
+ *     "KeyState": "Enabled",
+ *     "KeyUsage": "GENERATE_VERIFY_MAC",
+ *     "MacAlgorithms": [
+ *       "HMAC_SHA_256"
+ *     ],
+ *     "MultiRegion": false,
+ *     "Origin": "AWS_KMS"
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-details-about-an-hmac-kms-key-4
+ * ```
+ *
+ * @example To get details about a KMS key in an AWS CloudHSM key store
+ * ```javascript
+ * // The following example gets the metadata of a KMS key in an AWS CloudHSM key store.
+ * const input = {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new DescribeKeyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyMetadata": {
+ *     "AWSAccountId": "123456789012",
+ *     "Arn": "arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     "CloudHsmClusterId": "cluster-1a23b4cdefg",
+ *     "CreationDate": 1646160362.664,
+ *     "CustomKeyStoreId": "cks-1234567890abcdef0",
+ *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
+ *     "Description": "CloudHSM key store test key",
+ *     "Enabled": true,
+ *     "EncryptionAlgorithms": [
+ *       "SYMMETRIC_DEFAULT"
+ *     ],
+ *     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     "KeyManager": "CUSTOMER",
+ *     "KeySpec": "SYMMETRIC_DEFAULT",
+ *     "KeyState": "Enabled",
+ *     "KeyUsage": "ENCRYPT_DECRYPT",
+ *     "MultiRegion": false,
+ *     "Origin": "AWS_CLOUDHSM"
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-details-about-a-kms-key-in-an-AWS-CloudHSM-key-store-5
+ * ```
+ *
+ * @example To get details about a KMS key in an external key store
+ * ```javascript
+ * // The following example gets the metadata of a KMS key in an external key store.
+ * const input = {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new DescribeKeyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyMetadata": {
+ *     "AWSAccountId": "123456789012",
+ *     "Arn": "arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     "CreationDate": 1646160362.664,
+ *     "CustomKeyStoreId": "cks-1234567890abcdef0",
+ *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
+ *     "Description": "External key store test key",
+ *     "Enabled": true,
+ *     "EncryptionAlgorithms": [
+ *       "SYMMETRIC_DEFAULT"
+ *     ],
+ *     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     "KeyManager": "CUSTOMER",
+ *     "KeySpec": "SYMMETRIC_DEFAULT",
+ *     "KeyState": "Enabled",
+ *     "KeyUsage": "ENCRYPT_DECRYPT",
+ *     "MultiRegion": false,
+ *     "Origin": "EXTERNAL_KEY_STORE",
+ *     "XksKeyConfiguration": {
+ *       "Id": "bb8562717f809024"
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-details-about-a-kms-key-in-an-external-key-store-6
+ * ```
  *
  */
 export class DescribeKeyCommand extends $Command<
@@ -145,6 +400,9 @@ export class DescribeKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,8 +429,8 @@ export class DescribeKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -182,12 +440,18 @@ export class DescribeKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeKeyCommand(input, context);
+    return se_DescribeKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeKeyCommandOutput> {
-    return deserializeAws_json1_1DescribeKeyCommand(output, context);
+    return de_DescribeKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

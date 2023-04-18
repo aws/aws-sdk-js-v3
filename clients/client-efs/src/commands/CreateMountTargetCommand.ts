@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  CreateMountTargetRequest,
-  CreateMountTargetRequestFilterSensitiveLog,
-  MountTargetDescription,
-  MountTargetDescriptionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMountTargetCommand,
-  serializeAws_restJson1CreateMountTargetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMountTargetRequest, MountTargetDescription } from "../models/models_0";
+import { de_CreateMountTargetCommand, se_CreateMountTargetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMountTargetCommand}.
+ */
 export interface CreateMountTargetCommandInput extends CreateMountTargetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMountTargetCommand}.
+ */
 export interface CreateMountTargetCommandOutput extends MountTargetDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a mount target for a file system. You can then mount the file system on EC2
  *       instances by using the mount target.</p>
  *          <p>You can create one mount target in each Availability Zone in your VPC. All EC2
@@ -67,7 +70,6 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <p>After creating the mount target, Amazon EFS returns a response that includes, a
  *         <code>MountTargetId</code> and an <code>IpAddress</code>. You use this IP address when
  *       mounting the file system in an EC2 instance. You can also use the mount target's DNS name
@@ -88,7 +90,6 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  *           mount targets</p>
  *             </li>
  *          </ul>
- *
  *          <p>If the request satisfies the requirements, Amazon EFS does the following:</p>
  *          <ul>
  *             <li>
@@ -177,13 +178,101 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * import { EFSClient, CreateMountTargetCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateMountTargetCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // CreateMountTargetRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ *   SubnetId: "STRING_VALUE", // required
+ *   IpAddress: "STRING_VALUE",
+ *   SecurityGroups: [ // SecurityGroups
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateMountTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMountTargetCommandInput - {@link CreateMountTargetCommandInput}
+ * @returns {@link CreateMountTargetCommandOutput}
  * @see {@link CreateMountTargetCommandInput} for command's `input` shape.
  * @see {@link CreateMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link AvailabilityZonesMismatch} (client fault)
+ *  <p>Returned if the Availability Zone that was specified for a mount target is
+ *             different from the Availability Zone that was specified for One Zone storage.
+ *             For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html">Regional and One Zone storage redundancy</a>.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
+ *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link IpAddressInUse} (client fault)
+ *  <p>Returned if the request specified an <code>IpAddress</code> that is already in use
+ *             in the subnet.</p>
+ *
+ * @throws {@link MountTargetConflict} (client fault)
+ *  <p>Returned if the mount target would violate one of the specified restrictions based
+ *             on the file system's existing mount targets.</p>
+ *
+ * @throws {@link NetworkInterfaceLimitExceeded} (client fault)
+ *  <p>The calling account has reached the limit for elastic network interfaces for the
+ *             specific Amazon Web Services Region. Either delete some network interfaces or request
+ *             that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Quotas</a>
+ *             in the <i>Amazon VPC User Guide</i> (see the <b>Network
+ *                 interfaces per Region</b> entry in the <b>Network
+ *                 interfaces</b> table). </p>
+ *
+ * @throws {@link NoFreeAddressesInSubnet} (client fault)
+ *  <p>Returned if <code>IpAddress</code> was not specified in the request and there are
+ *             no free IP addresses in the subnet.</p>
+ *
+ * @throws {@link SecurityGroupLimitExceeded} (client fault)
+ *  <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
+ *             greater than five.</p>
+ *
+ * @throws {@link SecurityGroupNotFound} (client fault)
+ *  <p>Returned if one of the specified security groups doesn't exist in the subnet's
+ *             virtual private cloud (VPC).</p>
+ *
+ * @throws {@link SubnetNotFound} (client fault)
+ *  <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the
+ *             request.</p>
+ *
+ * @throws {@link UnsupportedAvailabilityZone} (client fault)
+ *  <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
+ *
+ *
+ * @example To create a new mount target
+ * ```javascript
+ * // This operation creates a new mount target for an EFS file system.
+ * const input = {
+ *   "FileSystemId": "fs-01234567",
+ *   "SubnetId": "subnet-1234abcd"
+ * };
+ * const command = new CreateMountTargetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "FileSystemId": "fs-01234567",
+ *   "IpAddress": "192.0.0.2",
+ *   "LifeCycleState": "creating",
+ *   "MountTargetId": "fsmt-12340abc",
+ *   "NetworkInterfaceId": "eni-cedf6789",
+ *   "OwnerId": "012345678912",
+ *   "SubnetId": "subnet-1234abcd"
+ * }
+ * *\/
+ * // example id: to-create-a-new-mount-target-1481842289329
+ * ```
  *
  */
 export class CreateMountTargetCommand extends $Command<
@@ -203,6 +292,9 @@ export class CreateMountTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMountTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -231,8 +323,8 @@ export class CreateMountTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMountTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MountTargetDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -242,12 +334,18 @@ export class CreateMountTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMountTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMountTargetCommand(input, context);
+    return se_CreateMountTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMountTargetCommandOutput> {
-    return deserializeAws_restJson1CreateMountTargetCommand(output, context);
+    return de_CreateMountTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

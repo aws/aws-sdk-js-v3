@@ -90,10 +90,12 @@ import {
 import { TranslateClient } from "./TranslateClient";
 
 /**
+ * @public
  * <p>Provides translation of the input content from the source language to the target language.</p>
  */
 export class Translate extends TranslateClient {
   /**
+   * @public
    * <p>Creates a parallel data resource in Amazon Translate by importing an input file from
    *       Amazon S3. Parallel data files contain examples that show how you want segments of text to be
    *       translated. By adding parallel data, you can influence the style, tone, and word choice in
@@ -129,6 +131,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Deletes a parallel data resource in Amazon Translate.</p>
    */
   public deleteParallelData(
@@ -161,6 +164,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>A synchronous action that deletes a custom terminology.</p>
    */
   public deleteTerminology(
@@ -193,6 +197,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Gets the properties associated with an asynchronous batch translation job including name,
    *       ID, status, source and target languages, input/output S3 buckets, and so on.</p>
    */
@@ -226,6 +231,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Provides information about a parallel data resource.</p>
    */
   public getParallelData(
@@ -258,6 +264,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a custom terminology.</p>
    */
   public getTerminology(
@@ -290,6 +297,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a custom terminology, depending on whether one already exists for the
    *       given terminology name. Importing a terminology with the same name as an existing one will
    *       merge the terminologies based on the chosen merge strategy. The only supported merge strategy
@@ -329,6 +337,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of languages (RFC-5646 codes and names) that Amazon Translate supports.</p>
    */
   public listLanguages(
@@ -361,6 +370,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of your parallel data resources in Amazon Translate.</p>
    */
   public listParallelData(
@@ -393,6 +403,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags associated with a given Amazon Translate resource.
    *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
    *         Tagging your resources</a>.</p>
@@ -427,6 +438,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Provides a list of custom terminologies associated with your account.</p>
    */
   public listTerminologies(
@@ -459,6 +471,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of the batch translation jobs that you have submitted.</p>
    */
   public listTextTranslationJobs(
@@ -491,6 +504,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Starts an asynchronous batch translation job. Use batch translation jobs to
    *       translate large volumes of text across multiple documents at once.
    *       For batch translation, you can input documents with different source languages (specify <code>auto</code>
@@ -531,6 +545,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Stops an asynchronous batch translation job that is in progress.</p>
    *          <p>If the job's state is <code>IN_PROGRESS</code>, the job will be marked for termination and
    *       put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped,
@@ -569,6 +584,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Associates a specific tag with a resource. A tag is a key-value pair
    *       that adds as a metadata to a resource.
    *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
@@ -598,6 +614,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Translates input text from the source language to the target language. For a list of
    *       available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
    */
@@ -631,6 +648,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Removes a specific tag associated with an Amazon Translate resource.
    *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
    *         Tagging your resources</a>.</p>
@@ -665,6 +683,7 @@ export class Translate extends TranslateClient {
   }
 
   /**
+   * @public
    * <p>Updates a previously created parallel data resource by importing a new input file from
    *       Amazon S3.</p>
    */

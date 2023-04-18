@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { BackupGateway } from "../BackupGateway";
 import { BackupGatewayClient } from "../BackupGatewayClient";
 import {
   ListGatewaysCommand,
@@ -11,7 +10,7 @@ import {
 import { BackupGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BackupGatewayClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListGatewaysCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: BackupGateway,
-  input: ListGatewaysCommandInput,
-  ...args: any
-): Promise<ListGatewaysCommandOutput> => {
-  // @ts-ignore
-  return await client.listGateways(input, ...args);
-};
 export async function* paginateListGateways(
   config: BackupGatewayPaginationConfiguration,
   input: ListGatewaysCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListGateways(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof BackupGateway) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof BackupGatewayClient) {
+    if (config.client instanceof BackupGatewayClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected BackupGateway | BackupGatewayClient");

@@ -13,25 +13,41 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRegexPatternSetRequest,
-  UpdateRegexPatternSetRequestFilterSensitiveLog,
-  UpdateRegexPatternSetResponse,
-  UpdateRegexPatternSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRegexPatternSetCommand,
-  serializeAws_json1_1UpdateRegexPatternSetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse } from "../models/models_0";
+import { de_UpdateRegexPatternSetCommand, se_UpdateRegexPatternSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateRegexPatternSetCommand}.
+ */
 export interface UpdateRegexPatternSetCommandInput extends UpdateRegexPatternSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateRegexPatternSetCommand}.
+ */
 export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified <a>RegexPatternSet</a>.</p>
  *          <note>
- *             <p>This operation completely replaces the mutable specifications that you already have for the regex pattern set with the ones that you provide to this call. To modify the regex pattern set, retrieve it by calling <a>GetRegexPatternSet</a>, update the settings as needed, and then provide the complete regex pattern set specification to this call.</p>
+ *             <p>This operation completely replaces the mutable specifications that you already have for the regex pattern set with the ones that you provide to this call. </p>
+ *             <p>To modify a regex pattern set, do the following: </p>
+ *             <ol>
+ *                <li>
+ *                   <p>Retrieve it by calling <a>GetRegexPatternSet</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>Update its settings as needed</p>
+ *                </li>
+ *                <li>
+ *                   <p>Provide the complete regex pattern set specification to this call</p>
+ *                </li>
+ *             </ol>
  *          </note>
  *          <p>When you make changes to web ACLs or web ACL components, like rules and rule groups, WAF propagates the changes everywhere that the web ACL and its components are stored and used. Your changes are applied within seconds, but there might be a brief period of inconsistency when the changes have arrived in some places and not in others. So, for example, if you change a rule action setting, the action might be the old action in one area and the new action in another area. Or if you add an IP address to an IP set used in a blocking rule, the new address might briefly be blocked in one area while still allowed in another. This temporary inconsistency can occur when you first associate a web ACL with an Amazon Web Services resource and when you change a web ACL that is already associated with a resource. Generally, any inconsistencies of this type last only a few seconds.</p>
  * @example
@@ -40,13 +56,77 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * import { WAFV2Client, UpdateRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, UpdateRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // UpdateRegexPatternSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Id: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   RegularExpressionList: [ // RegularExpressionList // required
+ *     { // Regex
+ *       RegexString: "STRING_VALUE",
+ *     },
+ *   ],
+ *   LockToken: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRegexPatternSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRegexPatternSetCommandInput - {@link UpdateRegexPatternSetCommandInput}
+ * @returns {@link UpdateRegexPatternSetCommandOutput}
  * @see {@link UpdateRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link UpdateRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
+ *
+ * @throws {@link WAFDuplicateItemException} (client fault)
+ *  <p>WAF couldn’t perform the operation because the resource that you tried to save is
+ *          a duplicate of an existing one.</p>
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
+ *          problem. Retry your request. </p>
+ *
+ * @throws {@link WAFInvalidOperationException} (client fault)
+ *  <p>The operation isn't valid. </p>
+ *
+ * @throws {@link WAFInvalidParameterException} (client fault)
+ *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
+ *          example: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified a parameter name or value that isn't valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
+ *                can’t be nested. </p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
+ *                isn't among the types available at <a>DefaultAction</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                with which a web ACL can't be associated.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link WAFLimitsExceededException} (client fault)
+ *  <p>WAF couldn’t perform the operation because you exceeded your resource limit. For
+ *          example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services
+ *          account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+ *             <i>WAF Developer Guide</i>.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>WAF couldn’t perform the operation because your resource doesn't exist.
+ *        If you've just created a resource that you're using in this operation, you might
+ *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
+ *        for changes to propagate. </p>
+ *
+ * @throws {@link WAFOptimisticLockException} (client fault)
+ *  <p>WAF couldn’t save your changes because you tried to update or delete a resource
+ *          that has changed since you last retrieved it. Get the resource again, make any changes you
+ *          need to make to the new copy, and retry your operation. </p>
+ *
  *
  */
 export class UpdateRegexPatternSetCommand extends $Command<
@@ -66,6 +146,9 @@ export class UpdateRegexPatternSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRegexPatternSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +177,8 @@ export class UpdateRegexPatternSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRegexPatternSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRegexPatternSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +188,18 @@ export class UpdateRegexPatternSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRegexPatternSetCommand(input, context);
+    return se_UpdateRegexPatternSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegexPatternSetCommandOutput> {
-    return deserializeAws_json1_1UpdateRegexPatternSetCommand(output, context);
+    return de_UpdateRegexPatternSetCommand(output, context);
   }
 
   // Start section: command_body_extra

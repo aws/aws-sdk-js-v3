@@ -233,3 +233,246 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateAwsLogSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/createawslogsourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createawslogsourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createawslogsourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateCustomLogSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/createcustomlogsourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createcustomlogsourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createcustomlogsourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateDatalake
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/createdatalakecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createdatalakecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createdatalakecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateDatalakeAutoEnable
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/createdatalakeautoenablecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createdatalakeautoenablecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createdatalakeautoenablecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateDatalakeDelegatedAdmin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/createdatalakedelegatedadmincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createdatalakedelegatedadmincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createdatalakedelegatedadmincommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateDatalakeExceptionsSubscription
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/createdatalakeexceptionssubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createdatalakeexceptionssubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createdatalakeexceptionssubscriptioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSubscriber
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/createsubscribercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createsubscribercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createsubscribercommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSubscriptionNotificationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/createsubscriptionnotificationconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createsubscriptionnotificationconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/createsubscriptionnotificationconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteAwsLogSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/deleteawslogsourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deleteawslogsourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deleteawslogsourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteCustomLogSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/deletecustomlogsourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletecustomlogsourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletecustomlogsourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteDatalake
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/deletedatalakecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletedatalakecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletedatalakecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteDatalakeAutoEnable
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/deletedatalakeautoenablecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletedatalakeautoenablecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletedatalakeautoenablecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteDatalakeDelegatedAdmin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/deletedatalakedelegatedadmincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletedatalakedelegatedadmincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletedatalakedelegatedadmincommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteDatalakeExceptionsSubscription
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/deletedatalakeexceptionssubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletedatalakeexceptionssubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletedatalakeexceptionssubscriptioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSubscriber
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/deletesubscribercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletesubscribercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletesubscribercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSubscriptionNotificationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/deletesubscriptionnotificationconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletesubscriptionnotificationconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/deletesubscriptionnotificationconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDatalake
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/getdatalakecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getdatalakecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getdatalakecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDatalakeAutoEnable
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/getdatalakeautoenablecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getdatalakeautoenablecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getdatalakeautoenablecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDatalakeExceptionsExpiry
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/getdatalakeexceptionsexpirycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getdatalakeexceptionsexpirycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getdatalakeexceptionsexpirycommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDatalakeExceptionsSubscription
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/getdatalakeexceptionssubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getdatalakeexceptionssubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getdatalakeexceptionssubscriptioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDatalakeStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/getdatalakestatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getdatalakestatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getdatalakestatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSubscriber
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/getsubscribercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getsubscribercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/getsubscribercommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDatalakeExceptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/listdatalakeexceptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/listdatalakeexceptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/listdatalakeexceptionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListLogSources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/listlogsourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/listlogsourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/listlogsourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSubscribers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/listsubscriberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/listsubscriberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/listsubscriberscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateDatalake
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/updatedatalakecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/updatedatalakecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/updatedatalakecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateDatalakeExceptionsExpiry
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/updatedatalakeexceptionsexpirycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/updatedatalakeexceptionsexpirycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/updatedatalakeexceptionsexpirycommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateDatalakeExceptionsSubscription
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/updatedatalakeexceptionssubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/updatedatalakeexceptionssubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/updatedatalakeexceptionssubscriptioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSubscriber
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/updatesubscribercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/updatesubscribercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/updatesubscribercommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSubscriptionNotificationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/classes/updatesubscriptionnotificationconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/updatesubscriptionnotificationconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securitylake/interfaces/updatesubscriptionnotificationconfigurationcommandoutput.html)
+
+</details>

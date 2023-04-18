@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDatasetImportJobRequest,
-  CreateDatasetImportJobRequestFilterSensitiveLog,
-  CreateDatasetImportJobResponse,
-  CreateDatasetImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDatasetImportJobRequest, CreateDatasetImportJobResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateDatasetImportJobCommand,
-  serializeAws_json1_1CreateDatasetImportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDatasetImportJobCommand, se_CreateDatasetImportJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDatasetImportJobCommand}.
+ */
 export interface CreateDatasetImportJobCommandInput extends CreateDatasetImportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDatasetImportJobCommand}.
+ */
 export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job that imports training data from your data source (an
  *       Amazon S3 bucket) to an Amazon Personalize dataset. To allow Amazon Personalize to import the
  *       training data, you must specify an IAM service role that has permission to
@@ -83,13 +86,50 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * import { PersonalizeClient, CreateDatasetImportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateDatasetImportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateDatasetImportJobRequest
+ *   jobName: "STRING_VALUE", // required
+ *   datasetArn: "STRING_VALUE", // required
+ *   dataSource: { // DataSource
+ *     dataLocation: "STRING_VALUE",
+ *   },
+ *   roleArn: "STRING_VALUE", // required
+ *   tags: [ // Tags
+ *     { // Tag
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   importMode: "FULL" || "INCREMENTAL",
+ *   publishAttributionMetricsToS3: true || false,
+ * };
  * const command = new CreateDatasetImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetImportJobCommandInput - {@link CreateDatasetImportJobCommandInput}
+ * @returns {@link CreateDatasetImportJobCommandOutput}
  * @see {@link CreateDatasetImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetImportJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
  *
  */
 export class CreateDatasetImportJobCommand extends $Command<
@@ -109,6 +149,9 @@ export class CreateDatasetImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +180,8 @@ export class CreateDatasetImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatasetImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +191,18 @@ export class CreateDatasetImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDatasetImportJobCommand(input, context);
+    return se_CreateDatasetImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetImportJobCommandOutput> {
-    return deserializeAws_json1_1CreateDatasetImportJobCommand(output, context);
+    return de_CreateDatasetImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

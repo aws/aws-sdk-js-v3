@@ -15,22 +15,31 @@ import {
 
 import {
   DescribeCompanyNetworkConfigurationRequest,
-  DescribeCompanyNetworkConfigurationRequestFilterSensitiveLog,
   DescribeCompanyNetworkConfigurationResponse,
-  DescribeCompanyNetworkConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeCompanyNetworkConfigurationCommand,
-  serializeAws_restJson1DescribeCompanyNetworkConfigurationCommand,
+  de_DescribeCompanyNetworkConfigurationCommand,
+  se_DescribeCompanyNetworkConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCompanyNetworkConfigurationCommand}.
+ */
 export interface DescribeCompanyNetworkConfigurationCommandInput extends DescribeCompanyNetworkConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCompanyNetworkConfigurationCommand}.
+ */
 export interface DescribeCompanyNetworkConfigurationCommandOutput
   extends DescribeCompanyNetworkConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Describes the networking configuration to access the internal websites associated with
@@ -41,13 +50,34 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
  * import { WorkLinkClient, DescribeCompanyNetworkConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeCompanyNetworkConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // DescribeCompanyNetworkConfigurationRequest
+ *   FleetArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCompanyNetworkConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCompanyNetworkConfigurationCommandInput - {@link DescribeCompanyNetworkConfigurationCommandInput}
+ * @returns {@link DescribeCompanyNetworkConfigurationCommandOutput}
  * @see {@link DescribeCompanyNetworkConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeCompanyNetworkConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this action.</p>
+ *
  *
  */
 export class DescribeCompanyNetworkConfigurationCommand extends $Command<
@@ -67,6 +97,9 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCompanyNetworkConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +128,8 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCompanyNetworkConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCompanyNetworkConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +139,24 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeCompanyNetworkConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCompanyNetworkConfigurationCommand(input, context);
+    return se_DescribeCompanyNetworkConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCompanyNetworkConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeCompanyNetworkConfigurationCommand(output, context);
+    return de_DescribeCompanyNetworkConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

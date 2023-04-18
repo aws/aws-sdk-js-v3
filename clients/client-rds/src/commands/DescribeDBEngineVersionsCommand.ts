@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBEngineVersionMessage,
-  DBEngineVersionMessageFilterSensitiveLog,
-  DescribeDBEngineVersionsMessage,
-  DescribeDBEngineVersionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBEngineVersionsCommand,
-  serializeAws_queryDescribeDBEngineVersionsCommand,
-} from "../protocols/Aws_query";
+import { DBEngineVersionMessage, DescribeDBEngineVersionsMessage } from "../models/models_0";
+import { de_DescribeDBEngineVersionsCommand, se_DescribeDBEngineVersionsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDBEngineVersionsCommand}.
+ */
 export interface DescribeDBEngineVersionsCommandInput extends DescribeDBEngineVersionsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDBEngineVersionsCommand}.
+ */
 export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available DB engines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,75 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * import { RDSClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBEngineVersionsMessage
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   DBParameterGroupFamily: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   DefaultOnly: true || false,
+ *   ListSupportedCharacterSets: true || false,
+ *   ListSupportedTimezones: true || false,
+ *   IncludeAll: true || false,
+ * };
  * const command = new DescribeDBEngineVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBEngineVersionsCommandInput - {@link DescribeDBEngineVersionsCommandInput}
+ * @returns {@link DescribeDBEngineVersionsCommandOutput}
  * @see {@link DescribeDBEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ *
+ * @example To describe the DB engine versions for the MySQL DB engine
+ * ```javascript
+ * // The following example displays details about each of the DB engine versions for the specified DB engine.
+ * const input = {
+ *   "Engine": "mysql"
+ * };
+ * const command = new DescribeDBEngineVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBEngineVersions": [
+ *     {
+ *       "DBEngineDescription": "MySQL Community Edition",
+ *       "DBEngineVersionDescription": "MySQL 5.7.33",
+ *       "DBParameterGroupFamily": "mysql5.7",
+ *       "Engine": "mysql",
+ *       "EngineVersion": "5.7.33",
+ *       "ValidUpgradeTarget": [
+ *         {
+ *           "AutoUpgrade": false,
+ *           "Description": "MySQL 5.7.34",
+ *           "Engine": "mysql",
+ *           "EngineVersion": "5.7.34",
+ *           "IsMajorVersionUpgrade": false
+ *         },
+ *         {
+ *           "AutoUpgrade": false,
+ *           "Description": "MySQL 5.7.36",
+ *           "Engine": "mysql",
+ *           "EngineVersion": "5.7.36",
+ *           "IsMajorVersionUpgrade": false
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-db-engine-versions-for-the-mysql-db-engine-1680216738909
+ * ```
  *
  */
 export class DescribeDBEngineVersionsCommand extends $Command<
@@ -62,6 +127,9 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBEngineVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +158,8 @@ export class DescribeDBEngineVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBEngineVersionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBEngineVersionMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +169,18 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBEngineVersionsCommand(input, context);
+    return se_DescribeDBEngineVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBEngineVersionsCommandOutput> {
-    return deserializeAws_queryDescribeDBEngineVersionsCommand(output, context);
+    return de_DescribeDBEngineVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

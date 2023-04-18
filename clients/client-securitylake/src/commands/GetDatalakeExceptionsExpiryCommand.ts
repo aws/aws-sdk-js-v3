@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetDatalakeExceptionsExpiryRequest, GetDatalakeExceptionsExpiryResponse } from "../models/models_0";
 import {
-  GetDatalakeExceptionsExpiryRequest,
-  GetDatalakeExceptionsExpiryRequestFilterSensitiveLog,
-  GetDatalakeExceptionsExpiryResponse,
-  GetDatalakeExceptionsExpiryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDatalakeExceptionsExpiryCommand,
-  serializeAws_restJson1GetDatalakeExceptionsExpiryCommand,
+  de_GetDatalakeExceptionsExpiryCommand,
+  se_GetDatalakeExceptionsExpiryCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDatalakeExceptionsExpiryCommand}.
+ */
 export interface GetDatalakeExceptionsExpiryCommandInput extends GetDatalakeExceptionsExpiryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDatalakeExceptionsExpiryCommand}.
+ */
 export interface GetDatalakeExceptionsExpiryCommandOutput
   extends GetDatalakeExceptionsExpiryResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the expiration period and time-to-live (TTL) for which the exception message
  *          will remain. Exceptions are stored by default, for 2 weeks from when a record was created
  *          in Amazon Security Lake. This API does not take input parameters.</p>
@@ -40,13 +46,35 @@ export interface GetDatalakeExceptionsExpiryCommandOutput
  * import { SecurityLakeClient, GetDatalakeExceptionsExpiryCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetDatalakeExceptionsExpiryCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {};
  * const command = new GetDatalakeExceptionsExpiryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatalakeExceptionsExpiryCommandInput - {@link GetDatalakeExceptionsExpiryCommandInput}
+ * @returns {@link GetDatalakeExceptionsExpiryCommandOutput}
  * @see {@link GetDatalakeExceptionsExpiryCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeExceptionsExpiryCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
+ *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
+ *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
+ *          no applicable Allow statement.</p>
+ *
+ * @throws {@link AccountNotFoundException} (client fault)
+ *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
+ *          specified, or the account whose credentials you used to make this request isn't a member of
+ *          an organization.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
+ *          troubleshooting, perform the operation again. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your signing certificate could not be validated. </p>
+ *
  *
  */
 export class GetDatalakeExceptionsExpiryCommand extends $Command<
@@ -66,6 +94,9 @@ export class GetDatalakeExceptionsExpiryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatalakeExceptionsExpiryCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +125,8 @@ export class GetDatalakeExceptionsExpiryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatalakeExceptionsExpiryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDatalakeExceptionsExpiryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +136,21 @@ export class GetDatalakeExceptionsExpiryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatalakeExceptionsExpiryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDatalakeExceptionsExpiryCommand(input, context);
+    return se_GetDatalakeExceptionsExpiryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDatalakeExceptionsExpiryCommandOutput> {
-    return deserializeAws_restJson1GetDatalakeExceptionsExpiryCommand(output, context);
+    return de_GetDatalakeExceptionsExpiryCommand(output, context);
   }
 
   // Start section: command_body_extra

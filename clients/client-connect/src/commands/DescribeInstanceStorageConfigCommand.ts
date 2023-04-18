@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { DescribeInstanceStorageConfigRequest, DescribeInstanceStorageConfigResponse } from "../models/models_0";
 import {
-  DescribeInstanceStorageConfigRequest,
-  DescribeInstanceStorageConfigRequestFilterSensitiveLog,
-  DescribeInstanceStorageConfigResponse,
-  DescribeInstanceStorageConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeInstanceStorageConfigCommand,
-  serializeAws_restJson1DescribeInstanceStorageConfigCommand,
+  de_DescribeInstanceStorageConfigCommand,
+  se_DescribeInstanceStorageConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstanceStorageConfigCommand}.
+ */
 export interface DescribeInstanceStorageConfigCommandInput extends DescribeInstanceStorageConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstanceStorageConfigCommand}.
+ */
 export interface DescribeInstanceStorageConfigCommandOutput
   extends DescribeInstanceStorageConfigResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Retrieves the current storage configurations for the specified resource type, association
  *    ID, and instance ID.</p>
@@ -40,13 +46,36 @@ export interface DescribeInstanceStorageConfigCommandOutput
  * import { ConnectClient, DescribeInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeInstanceStorageConfigRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   AssociationId: "STRING_VALUE", // required
+ *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS", // required
+ * };
  * const command = new DescribeInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceStorageConfigCommandInput - {@link DescribeInstanceStorageConfigCommandInput}
+ * @returns {@link DescribeInstanceStorageConfigCommandOutput}
  * @see {@link DescribeInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class DescribeInstanceStorageConfigCommand extends $Command<
@@ -66,6 +95,9 @@ export class DescribeInstanceStorageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceStorageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +126,8 @@ export class DescribeInstanceStorageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceStorageConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceStorageConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +137,21 @@ export class DescribeInstanceStorageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceStorageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInstanceStorageConfigCommand(input, context);
+    return se_DescribeInstanceStorageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceStorageConfigCommandOutput> {
-    return deserializeAws_restJson1DescribeInstanceStorageConfigCommand(output, context);
+    return de_DescribeInstanceStorageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

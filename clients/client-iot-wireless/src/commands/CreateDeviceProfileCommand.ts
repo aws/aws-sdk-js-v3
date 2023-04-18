@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  CreateDeviceProfileRequest,
-  CreateDeviceProfileRequestFilterSensitiveLog,
-  CreateDeviceProfileResponse,
-  CreateDeviceProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDeviceProfileCommand,
-  serializeAws_restJson1CreateDeviceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDeviceProfileRequest, CreateDeviceProfileResponse } from "../models/models_0";
+import { de_CreateDeviceProfileCommand, se_CreateDeviceProfileCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDeviceProfileCommand}.
+ */
 export interface CreateDeviceProfileCommandInput extends CreateDeviceProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDeviceProfileCommand}.
+ */
 export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new device profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,65 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  * import { IoTWirelessClient, CreateDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // CreateDeviceProfileRequest
+ *   Name: "STRING_VALUE",
+ *   LoRaWAN: { // LoRaWANDeviceProfile
+ *     SupportsClassB: true || false,
+ *     ClassBTimeout: Number("int"),
+ *     PingSlotPeriod: Number("int"),
+ *     PingSlotDr: Number("int"),
+ *     PingSlotFreq: Number("int"),
+ *     SupportsClassC: true || false,
+ *     ClassCTimeout: Number("int"),
+ *     MacVersion: "STRING_VALUE",
+ *     RegParamsRevision: "STRING_VALUE",
+ *     RxDelay1: Number("int"),
+ *     RxDrOffset1: Number("int"),
+ *     RxDataRate2: Number("int"),
+ *     RxFreq2: Number("int"),
+ *     FactoryPresetFreqsList: [ // FactoryPresetFreqsList
+ *       Number("int"),
+ *     ],
+ *     MaxEirp: Number("int"),
+ *     MaxDutyCycle: Number("int"),
+ *     RfRegion: "STRING_VALUE",
+ *     SupportsJoin: true || false,
+ *     Supports32BitFCnt: true || false,
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Sidewalk: {},
+ * };
  * const command = new CreateDeviceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeviceProfileCommandInput - {@link CreateDeviceProfileCommandInput}
+ * @returns {@link CreateDeviceProfileCommandOutput}
  * @see {@link CreateDeviceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class CreateDeviceProfileCommand extends $Command<
@@ -62,6 +117,9 @@ export class CreateDeviceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeviceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +148,8 @@ export class CreateDeviceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeviceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeviceProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +159,18 @@ export class CreateDeviceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeviceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeviceProfileCommand(input, context);
+    return se_CreateDeviceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeviceProfileCommandOutput> {
-    return deserializeAws_restJson1CreateDeviceProfileCommand(output, context);
+    return de_CreateDeviceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

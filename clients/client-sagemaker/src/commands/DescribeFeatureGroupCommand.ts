@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeFeatureGroupRequest,
-  DescribeFeatureGroupRequestFilterSensitiveLog,
-  DescribeFeatureGroupResponse,
-  DescribeFeatureGroupResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeFeatureGroupCommand,
-  serializeAws_json1_1DescribeFeatureGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFeatureGroupRequest, DescribeFeatureGroupResponse } from "../models/models_2";
+import { de_DescribeFeatureGroupCommand, se_DescribeFeatureGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFeatureGroupCommand}.
+ */
 export interface DescribeFeatureGroupCommandInput extends DescribeFeatureGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFeatureGroupCommand}.
+ */
 export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to describe a <code>FeatureGroup</code>. The response includes
  *          information on the creation time, <code>FeatureGroup</code> name, the unique identifier for
  *          each <code>FeatureGroup</code>, and more.</p>
@@ -38,13 +41,23 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  * import { SageMakerClient, DescribeFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeFeatureGroupRequest
+ *   FeatureGroupName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFeatureGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFeatureGroupCommandInput - {@link DescribeFeatureGroupCommandInput}
+ * @returns {@link DescribeFeatureGroupCommandOutput}
  * @see {@link DescribeFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeFeatureGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeFeatureGroupCommand extends $Command<
@@ -64,6 +77,9 @@ export class DescribeFeatureGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFeatureGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +108,8 @@ export class DescribeFeatureGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFeatureGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFeatureGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +119,18 @@ export class DescribeFeatureGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFeatureGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFeatureGroupCommand(input, context);
+    return se_DescribeFeatureGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFeatureGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeFeatureGroupCommand(output, context);
+    return de_DescribeFeatureGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

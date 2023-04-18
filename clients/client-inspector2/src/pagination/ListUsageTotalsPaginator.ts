@@ -6,12 +6,11 @@ import {
   ListUsageTotalsCommandInput,
   ListUsageTotalsCommandOutput,
 } from "../commands/ListUsageTotalsCommand";
-import { Inspector2 } from "../Inspector2";
 import { Inspector2Client } from "../Inspector2Client";
 import { Inspector2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Inspector2Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListUsageTotalsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Inspector2,
-  input: ListUsageTotalsCommandInput,
-  ...args: any
-): Promise<ListUsageTotalsCommandOutput> => {
-  // @ts-ignore
-  return await client.listUsageTotals(input, ...args);
-};
 export async function* paginateListUsageTotals(
   config: Inspector2PaginationConfiguration,
   input: ListUsageTotalsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListUsageTotals(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Inspector2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof Inspector2Client) {
+    if (config.client instanceof Inspector2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Inspector2 | Inspector2Client");

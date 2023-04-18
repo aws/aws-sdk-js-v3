@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DeregisterCertificateRequest,
-  DeregisterCertificateRequestFilterSensitiveLog,
-  DeregisterCertificateResult,
-  DeregisterCertificateResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterCertificateCommand,
-  serializeAws_json1_1DeregisterCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { DeregisterCertificateRequest, DeregisterCertificateResult } from "../models/models_0";
+import { de_DeregisterCertificateCommand, se_DeregisterCertificateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterCertificateCommand}.
+ */
 export interface DeregisterCertificateCommandInput extends DeregisterCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterCertificateCommand}.
+ */
 export interface DeregisterCertificateCommandOutput extends DeregisterCertificateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes from the system the certificate that was registered for secure LDAP or client certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface DeregisterCertificateCommandOutput extends DeregisterCertificat
  * import { DirectoryServiceClient, DeregisterCertificateCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeregisterCertificateCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DeregisterCertificateRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   CertificateId: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterCertificateCommandInput - {@link DeregisterCertificateCommandInput}
+ * @returns {@link DeregisterCertificateCommandOutput}
  * @see {@link DeregisterCertificateCommandInput} for command's `input` shape.
  * @see {@link DeregisterCertificateCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link CertificateDoesNotExistException} (client fault)
+ *  <p>The certificate is not present in the system for describe or deregister activities.</p>
+ *
+ * @throws {@link CertificateInUseException} (client fault)
+ *  <p>The certificate is being used for the LDAP security connection and cannot be removed
+ *       without disabling LDAP security.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryDoesNotExistException} (client fault)
+ *  <p>The specified directory does not exist in the system.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable or could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
  *
  */
 export class DeregisterCertificateCommand extends $Command<
@@ -62,6 +97,9 @@ export class DeregisterCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class DeregisterCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class DeregisterCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterCertificateCommand(input, context);
+    return se_DeregisterCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterCertificateCommandOutput> {
-    return deserializeAws_json1_1DeregisterCertificateCommand(output, context);
+    return de_DeregisterCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

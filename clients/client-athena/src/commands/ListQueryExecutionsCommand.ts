@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListQueryExecutionsInput,
-  ListQueryExecutionsInputFilterSensitiveLog,
-  ListQueryExecutionsOutput,
-  ListQueryExecutionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListQueryExecutionsCommand,
-  serializeAws_json1_1ListQueryExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListQueryExecutionsInput, ListQueryExecutionsOutput } from "../models/models_0";
+import { de_ListQueryExecutionsCommand, se_ListQueryExecutionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListQueryExecutionsCommand}.
+ */
 export interface ListQueryExecutionsCommandInput extends ListQueryExecutionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListQueryExecutionsCommand}.
+ */
 export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of available query execution IDs for the queries in the specified
  *             workgroup. If a workgroup is not specified, returns a list of query execution IDs for
  *             the primary workgroup. Requires you to have access to the workgroup in which the queries
@@ -42,13 +45,29 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  * import { AthenaClient, ListQueryExecutionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListQueryExecutionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListQueryExecutionsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   WorkGroup: "STRING_VALUE",
+ * };
  * const command = new ListQueryExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueryExecutionsCommandInput - {@link ListQueryExecutionsCommandInput}
+ * @returns {@link ListQueryExecutionsCommandOutput}
  * @see {@link ListQueryExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListQueryExecutionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
  *
  */
 export class ListQueryExecutionsCommand extends $Command<
@@ -68,6 +87,9 @@ export class ListQueryExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueryExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +118,8 @@ export class ListQueryExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueryExecutionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQueryExecutionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +129,18 @@ export class ListQueryExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueryExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListQueryExecutionsCommand(input, context);
+    return se_ListQueryExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueryExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListQueryExecutionsCommand(output, context);
+    return de_ListQueryExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

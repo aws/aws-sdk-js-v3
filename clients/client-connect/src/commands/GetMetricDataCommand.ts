@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  GetMetricDataRequest,
-  GetMetricDataRequestFilterSensitiveLog,
-  GetMetricDataResponse,
-  GetMetricDataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMetricDataCommand,
-  serializeAws_restJson1GetMetricDataCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMetricDataRequest, GetMetricDataResponse } from "../models/models_0";
+import { de_GetMetricDataCommand, se_GetMetricDataCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMetricDataCommand}.
+ */
 export interface GetMetricDataCommandInput extends GetMetricDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMetricDataCommand}.
+ */
 export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
  *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics
  *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -38,13 +41,63 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * import { ConnectClient, GetMetricDataCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetMetricDataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // GetMetricDataRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   Filters: { // Filters
+ *     Queues: [ // Queues
+ *       "STRING_VALUE",
+ *     ],
+ *     Channels: [ // Channels
+ *       "VOICE" || "CHAT" || "TASK",
+ *     ],
+ *     RoutingProfiles: [ // RoutingProfiles
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Groupings: [ // Groupings
+ *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE",
+ *   ],
+ *   HistoricalMetrics: [ // HistoricalMetrics // required
+ *     { // HistoricalMetric
+ *       Name: "CONTACTS_QUEUED" || "CONTACTS_HANDLED" || "CONTACTS_ABANDONED" || "CONTACTS_CONSULTED" || "CONTACTS_AGENT_HUNG_UP_FIRST" || "CONTACTS_HANDLED_INCOMING" || "CONTACTS_HANDLED_OUTBOUND" || "CONTACTS_HOLD_ABANDONS" || "CONTACTS_TRANSFERRED_IN" || "CONTACTS_TRANSFERRED_OUT" || "CONTACTS_TRANSFERRED_IN_FROM_QUEUE" || "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE" || "CONTACTS_MISSED" || "CALLBACK_CONTACTS_HANDLED" || "API_CONTACTS_HANDLED" || "OCCUPANCY" || "HANDLE_TIME" || "AFTER_CONTACT_WORK_TIME" || "QUEUED_TIME" || "ABANDON_TIME" || "QUEUE_ANSWER_TIME" || "HOLD_TIME" || "INTERACTION_TIME" || "INTERACTION_AND_HOLD_TIME" || "SERVICE_LEVEL",
+ *       Threshold: { // Threshold
+ *         Comparison: "LT",
+ *         ThresholdValue: Number("double"),
+ *       },
+ *       Statistic: "SUM" || "MAX" || "AVG",
+ *       Unit: "SECONDS" || "COUNT" || "PERCENT",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetMetricDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricDataCommandInput - {@link GetMetricDataCommandInput}
+ * @returns {@link GetMetricDataCommandOutput}
  * @see {@link GetMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetMetricDataCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class GetMetricDataCommand extends $Command<
@@ -64,6 +117,9 @@ export class GetMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +146,8 @@ export class GetMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetricDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMetricDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +157,18 @@ export class GetMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMetricDataCommand(input, context);
+    return se_GetMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricDataCommandOutput> {
-    return deserializeAws_restJson1GetMetricDataCommand(output, context);
+    return de_GetMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

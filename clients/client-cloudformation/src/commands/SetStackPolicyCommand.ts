@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { SetStackPolicyInput, SetStackPolicyInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_querySetStackPolicyCommand,
-  serializeAws_querySetStackPolicyCommand,
-} from "../protocols/Aws_query";
+import { SetStackPolicyInput } from "../models/models_0";
+import { de_SetStackPolicyCommand, se_SetStackPolicyCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link SetStackPolicyCommand}.
+ */
 export interface SetStackPolicyCommandInput extends SetStackPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetStackPolicyCommand}.
+ */
 export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets a stack policy for a specified stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,21 @@ export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
  * import { CloudFormationClient, SetStackPolicyCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, SetStackPolicyCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // SetStackPolicyInput
+ *   StackName: "STRING_VALUE", // required
+ *   StackPolicyBody: "STRING_VALUE",
+ *   StackPolicyURL: "STRING_VALUE",
+ * };
  * const command = new SetStackPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetStackPolicyCommandInput - {@link SetStackPolicyCommandInput}
+ * @returns {@link SetStackPolicyCommandOutput}
  * @see {@link SetStackPolicyCommandInput} for command's `input` shape.
  * @see {@link SetStackPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
  *
  */
 export class SetStackPolicyCommand extends $Command<
@@ -57,6 +73,9 @@ export class SetStackPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetStackPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +104,8 @@ export class SetStackPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetStackPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +115,18 @@ export class SetStackPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetStackPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetStackPolicyCommand(input, context);
+    return se_SetStackPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetStackPolicyCommandOutput> {
-    return deserializeAws_querySetStackPolicyCommand(output, context);
+    return de_SetStackPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

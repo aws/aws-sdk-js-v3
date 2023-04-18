@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAdmChannelRequest,
-  DeleteAdmChannelRequestFilterSensitiveLog,
-  DeleteAdmChannelResponse,
-  DeleteAdmChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAdmChannelRequest, DeleteAdmChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteAdmChannelCommand,
-  serializeAws_restJson1DeleteAdmChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAdmChannelCommand, se_DeleteAdmChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAdmChannelCommand}.
+ */
 export interface DeleteAdmChannelCommandInput extends DeleteAdmChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAdmChannelCommand}.
+ */
 export interface DeleteAdmChannelCommandOutput extends DeleteAdmChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the ADM channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface DeleteAdmChannelCommandOutput extends DeleteAdmChannelResponse,
  * import { PinpointClient, DeleteAdmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteAdmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeleteAdmChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAdmChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAdmChannelCommandInput - {@link DeleteAdmChannelCommandInput}
+ * @returns {@link DeleteAdmChannelCommandOutput}
  * @see {@link DeleteAdmChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteAdmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class DeleteAdmChannelCommand extends $Command<
@@ -62,6 +92,9 @@ export class DeleteAdmChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAdmChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class DeleteAdmChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAdmChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAdmChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class DeleteAdmChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAdmChannelCommand(input, context);
+    return se_DeleteAdmChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAdmChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteAdmChannelCommand(output, context);
+    return de_DeleteAdmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

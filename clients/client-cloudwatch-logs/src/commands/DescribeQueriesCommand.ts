@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DescribeQueriesRequest,
-  DescribeQueriesRequestFilterSensitiveLog,
-  DescribeQueriesResponse,
-  DescribeQueriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeQueriesCommand,
-  serializeAws_json1_1DescribeQueriesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeQueriesRequest, DescribeQueriesResponse } from "../models/models_0";
+import { de_DescribeQueriesCommand, se_DescribeQueriesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeQueriesCommand}.
+ */
 export interface DescribeQueriesCommandInput extends DescribeQueriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeQueriesCommand}.
+ */
 export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, running, or have
  *       been run recently in this account. You can request all queries or limit it to queries of a
  *       specific log group or queries with a certain status.</p>
@@ -38,13 +41,31 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * import { CloudWatchLogsClient, DescribeQueriesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeQueriesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeQueriesRequest
+ *   logGroupName: "STRING_VALUE",
+ *   status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeQueriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQueriesCommandInput - {@link DescribeQueriesCommandInput}
+ * @returns {@link DescribeQueriesCommandOutput}
  * @see {@link DescribeQueriesCommandInput} for command's `input` shape.
  * @see {@link DescribeQueriesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class DescribeQueriesCommand extends $Command<
@@ -64,6 +85,9 @@ export class DescribeQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class DescribeQueriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQueriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQueriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +127,18 @@ export class DescribeQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQueriesCommand(input, context);
+    return se_DescribeQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueriesCommandOutput> {
-    return deserializeAws_json1_1DescribeQueriesCommand(output, context);
+    return de_DescribeQueriesCommand(output, context);
   }
 
   // Start section: command_body_extra

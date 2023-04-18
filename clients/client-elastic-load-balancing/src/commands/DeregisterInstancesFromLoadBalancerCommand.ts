@@ -18,21 +18,27 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
+import { DeregisterEndPointsInput, DeregisterEndPointsOutput } from "../models/models_0";
 import {
-  DeregisterEndPointsInput,
-  DeregisterEndPointsInputFilterSensitiveLog,
-  DeregisterEndPointsOutput,
-  DeregisterEndPointsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand,
-  serializeAws_queryDeregisterInstancesFromLoadBalancerCommand,
+  de_DeregisterInstancesFromLoadBalancerCommand,
+  se_DeregisterInstancesFromLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterInstancesFromLoadBalancerCommand}.
+ */
 export interface DeregisterInstancesFromLoadBalancerCommandInput extends DeregisterEndPointsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterInstancesFromLoadBalancerCommand}.
+ */
 export interface DeregisterInstancesFromLoadBalancerCommandOutput extends DeregisterEndPointsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.</p>
  *
  *         <p>You can use <a>DescribeLoadBalancers</a> to verify that the instance is deregistered from the load balancer.</p>
@@ -45,13 +51,58 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * import { ElasticLoadBalancingClient, DeregisterInstancesFromLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DeregisterInstancesFromLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // DeregisterEndPointsInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   Instances: [ // Instances // required
+ *     { // Instance
+ *       InstanceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DeregisterInstancesFromLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterInstancesFromLoadBalancerCommandInput - {@link DeregisterInstancesFromLoadBalancerCommandInput}
+ * @returns {@link DeregisterInstancesFromLoadBalancerCommandOutput}
  * @see {@link DeregisterInstancesFromLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DeregisterInstancesFromLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
+ *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link InvalidEndPointException} (client fault)
+ *  <p>The specified endpoint is not valid.</p>
+ *
+ *
+ * @example To deregister instances from a load balancer
+ * ```javascript
+ * // This example deregisters the specified instance from the specified load balancer.
+ * const input = {
+ *   "Instances": [
+ *     {
+ *       "InstanceId": "i-d6f6fae3"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new DeregisterInstancesFromLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Instances": [
+ *     {
+ *       "InstanceId": "i-207d9717"
+ *     },
+ *     {
+ *       "InstanceId": "i-afefb49b"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elb-deregister-instances-from-load-balancer-1
+ * ```
  *
  */
 export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
@@ -71,6 +122,9 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterInstancesFromLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +153,8 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterEndPointsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterEndPointsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +164,24 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterInstancesFromLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeregisterInstancesFromLoadBalancerCommand(input, context);
+    return se_DeregisterInstancesFromLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> {
-    return deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand(output, context);
+    return de_DeregisterInstancesFromLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

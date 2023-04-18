@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TerminateWorkflowExecutionInput, TerminateWorkflowExecutionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0TerminateWorkflowExecutionCommand,
-  serializeAws_json1_0TerminateWorkflowExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { TerminateWorkflowExecutionInput } from "../models/models_0";
+import { de_TerminateWorkflowExecutionCommand, se_TerminateWorkflowExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link TerminateWorkflowExecutionCommand}.
+ */
 export interface TerminateWorkflowExecutionCommandInput extends TerminateWorkflowExecutionInput {}
+/**
+ * @public
+ *
+ * The output of {@link TerminateWorkflowExecutionCommand}.
+ */
 export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Records a <code>WorkflowExecutionTerminated</code> event and forces closure of the
  *       workflow execution identified by the given domain, runId, and workflowId. The child policy,
  *       registered with the workflow type or specified when starting this execution, is applied to any
@@ -74,13 +82,30 @@ export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBeare
  * import { SWFClient, TerminateWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, TerminateWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // TerminateWorkflowExecutionInput
+ *   domain: "STRING_VALUE", // required
+ *   workflowId: "STRING_VALUE", // required
+ *   runId: "STRING_VALUE",
+ *   reason: "STRING_VALUE",
+ *   details: "STRING_VALUE",
+ *   childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
+ * };
  * const command = new TerminateWorkflowExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateWorkflowExecutionCommandInput - {@link TerminateWorkflowExecutionCommandInput}
+ * @returns {@link TerminateWorkflowExecutionCommandOutput}
  * @see {@link TerminateWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link TerminateWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
  *
  */
 export class TerminateWorkflowExecutionCommand extends $Command<
@@ -100,6 +125,9 @@ export class TerminateWorkflowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateWorkflowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +156,8 @@ export class TerminateWorkflowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateWorkflowExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +167,21 @@ export class TerminateWorkflowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0TerminateWorkflowExecutionCommand(input, context);
+    return se_TerminateWorkflowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0TerminateWorkflowExecutionCommand(output, context);
+    return de_TerminateWorkflowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

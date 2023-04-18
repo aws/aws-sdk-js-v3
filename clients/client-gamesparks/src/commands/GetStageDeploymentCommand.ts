@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  GetStageDeploymentRequest,
-  GetStageDeploymentRequestFilterSensitiveLog,
-  GetStageDeploymentResult,
-  GetStageDeploymentResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetStageDeploymentCommand,
-  serializeAws_restJson1GetStageDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetStageDeploymentRequest, GetStageDeploymentResult } from "../models/models_0";
+import { de_GetStageDeploymentCommand, se_GetStageDeploymentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetStageDeploymentCommand}.
+ */
 export interface GetStageDeploymentCommandInput extends GetStageDeploymentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetStageDeploymentCommand}.
+ */
 export interface GetStageDeploymentCommandOutput extends GetStageDeploymentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a stage deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface GetStageDeploymentCommandOutput extends GetStageDeploymentResul
  * import { GameSparksClient, GetStageDeploymentCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetStageDeploymentCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // GetStageDeploymentRequest
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ *   DeploymentId: "STRING_VALUE",
+ * };
  * const command = new GetStageDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStageDeploymentCommandInput - {@link GetStageDeploymentCommandInput}
+ * @returns {@link GetStageDeploymentCommandOutput}
  * @see {@link GetStageDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetStageDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class GetStageDeploymentCommand extends $Command<
@@ -62,6 +88,9 @@ export class GetStageDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStageDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class GetStageDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStageDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStageDeploymentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class GetStageDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStageDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStageDeploymentCommand(input, context);
+    return se_GetStageDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStageDeploymentCommandOutput> {
-    return deserializeAws_restJson1GetStageDeploymentCommand(output, context);
+    return de_GetStageDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

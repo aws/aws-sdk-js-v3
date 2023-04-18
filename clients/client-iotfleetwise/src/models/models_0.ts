@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { IoTFleetWiseServiceException as __BaseException } from "./IoTFleetWiseServiceException";
 
 /**
+ * @public
  * <p>You don't have sufficient permission to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,37 +23,47 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum NodeDataType {
-  BOOLEAN = "BOOLEAN",
-  BOOLEAN_ARRAY = "BOOLEAN_ARRAY",
-  DOUBLE = "DOUBLE",
-  DOUBLE_ARRAY = "DOUBLE_ARRAY",
-  FLOAT = "FLOAT",
-  FLOAT_ARRAY = "FLOAT_ARRAY",
-  INT16 = "INT16",
-  INT16_ARRAY = "INT16_ARRAY",
-  INT32 = "INT32",
-  INT32_ARRAY = "INT32_ARRAY",
-  INT64 = "INT64",
-  INT64_ARRAY = "INT64_ARRAY",
-  INT8 = "INT8",
-  INT8_ARRAY = "INT8_ARRAY",
-  STRING = "STRING",
-  STRING_ARRAY = "STRING_ARRAY",
-  UINT16 = "UINT16",
-  UINT16_ARRAY = "UINT16_ARRAY",
-  UINT32 = "UINT32",
-  UINT32_ARRAY = "UINT32_ARRAY",
-  UINT64 = "UINT64",
-  UINT64_ARRAY = "UINT64_ARRAY",
-  UINT8 = "UINT8",
-  UINT8_ARRAY = "UINT8_ARRAY",
-  UNIX_TIMESTAMP = "UNIX_TIMESTAMP",
-  UNIX_TIMESTAMP_ARRAY = "UNIX_TIMESTAMP_ARRAY",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeDataType = {
+  BOOLEAN: "BOOLEAN",
+  BOOLEAN_ARRAY: "BOOLEAN_ARRAY",
+  DOUBLE: "DOUBLE",
+  DOUBLE_ARRAY: "DOUBLE_ARRAY",
+  FLOAT: "FLOAT",
+  FLOAT_ARRAY: "FLOAT_ARRAY",
+  INT16: "INT16",
+  INT16_ARRAY: "INT16_ARRAY",
+  INT32: "INT32",
+  INT32_ARRAY: "INT32_ARRAY",
+  INT64: "INT64",
+  INT64_ARRAY: "INT64_ARRAY",
+  INT8: "INT8",
+  INT8_ARRAY: "INT8_ARRAY",
+  STRING: "STRING",
+  STRING_ARRAY: "STRING_ARRAY",
+  UINT16: "UINT16",
+  UINT16_ARRAY: "UINT16_ARRAY",
+  UINT32: "UINT32",
+  UINT32_ARRAY: "UINT32_ARRAY",
+  UINT64: "UINT64",
+  UINT64_ARRAY: "UINT64_ARRAY",
+  UINT8: "UINT8",
+  UINT8_ARRAY: "UINT8_ARRAY",
+  UNIX_TIMESTAMP: "UNIX_TIMESTAMP",
+  UNIX_TIMESTAMP_ARRAY: "UNIX_TIMESTAMP_ARRAY",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type NodeDataType = (typeof NodeDataType)[keyof typeof NodeDataType];
+
+/**
+ * @public
  * <p>A signal that represents a vehicle device such as the engine, heater, and door locks.
  *             Data from an actuator reports the state of a certain vehicle device.</p>
  *         <note>
@@ -105,6 +116,9 @@ export interface Actuator {
   assignedValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateVehicleFleetRequest {
   /**
    * <p> The unique ID of the vehicle to associate with the fleet. </p>
@@ -117,9 +131,13 @@ export interface AssociateVehicleFleetRequest {
   fleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateVehicleFleetResponse {}
 
 /**
+ * @public
  * <p>The request couldn't be completed because the server temporarily failed.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -145,6 +163,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource wasn't found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -176,6 +195,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request couldn't be completed due to throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -213,6 +233,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A validation error due to mismatch between the expected data type, length, or pattern
  *             of the parameter and the input.</p>
  */
@@ -228,14 +249,24 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -267,6 +298,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A signal that represents static information about the vehicle, such as engine type or
  *             manufacturing date.</p>
  */
@@ -320,12 +352,22 @@ export interface Attribute {
   defaultValue?: string;
 }
 
-export enum VehicleAssociationBehavior {
-  CREATE_IOT_THING = "CreateIotThing",
-  VALIDATE_IOT_THING_EXISTS = "ValidateIotThingExists",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VehicleAssociationBehavior = {
+  CREATE_IOT_THING: "CreateIotThing",
+  VALIDATE_IOT_THING_EXISTS: "ValidateIotThingExists",
+} as const;
 
 /**
+ * @public
+ */
+export type VehicleAssociationBehavior = (typeof VehicleAssociationBehavior)[keyof typeof VehicleAssociationBehavior];
+
+/**
+ * @public
  * <p>A set of key/value pairs that are used to manage the resource.</p>
  */
 export interface Tag {
@@ -341,6 +383,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Information about the vehicle to create.</p>
  */
 export interface CreateVehicleRequestItem {
@@ -379,6 +422,9 @@ export interface CreateVehicleRequestItem {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateVehicleRequest {
   /**
    * <p> A list of information about each vehicle to create. For more information, see the
@@ -388,6 +434,7 @@ export interface BatchCreateVehicleRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP error resulting from creating a vehicle.</p>
  */
 export interface CreateVehicleError {
@@ -408,6 +455,7 @@ export interface CreateVehicleError {
 }
 
 /**
+ * @public
  * <p>Information about a created vehicle.</p>
  */
 export interface CreateVehicleResponseItem {
@@ -427,6 +475,9 @@ export interface CreateVehicleResponseItem {
   thingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchCreateVehicleResponse {
   /**
    * <p> A list of information about a batch of created vehicles. For more information, see
@@ -442,6 +493,7 @@ export interface BatchCreateVehicleResponse {
 }
 
 /**
+ * @public
  * <p>A service quota was exceeded. </p>
  */
 export class LimitExceededException extends __BaseException {
@@ -472,12 +524,22 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
-export enum UpdateMode {
-  MERGE = "Merge",
-  OVERWRITE = "Overwrite",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UpdateMode = {
+  MERGE: "Merge",
+  OVERWRITE: "Overwrite",
+} as const;
 
 /**
+ * @public
+ */
+export type UpdateMode = (typeof UpdateMode)[keyof typeof UpdateMode];
+
+/**
+ * @public
  * <p>Information about the vehicle to update.</p>
  */
 export interface UpdateVehicleRequestItem {
@@ -513,6 +575,9 @@ export interface UpdateVehicleRequestItem {
   attributeUpdateMode?: UpdateMode | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateVehicleRequest {
   /**
    * <p> A list of information about the vehicles to update. For more information, see the
@@ -522,6 +587,7 @@ export interface BatchUpdateVehicleRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP error resulting from updating the description for a vehicle.</p>
  */
 export interface UpdateVehicleError {
@@ -542,6 +608,7 @@ export interface UpdateVehicleError {
 }
 
 /**
+ * @public
  * <p>Information about the updated vehicle.</p>
  */
 export interface UpdateVehicleResponseItem {
@@ -556,6 +623,9 @@ export interface UpdateVehicleResponseItem {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateVehicleResponse {
   /**
    * <p> A list of information about the batch of updated vehicles. </p>
@@ -573,6 +643,7 @@ export interface BatchUpdateVehicleResponse {
 }
 
 /**
+ * @public
  * <p>A group of signals that are defined in a hierarchical structure.</p>
  */
 export interface Branch {
@@ -589,6 +660,7 @@ export interface Branch {
 }
 
 /**
+ * @public
  * <p>The request has conflicting operations. This can occur if you're trying to perform
  *             more than one operation on the same resource at the same time.</p>
  */
@@ -620,12 +692,22 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum TriggerMode {
-  ALWAYS = "ALWAYS",
-  RISING_EDGE = "RISING_EDGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TriggerMode = {
+  ALWAYS: "ALWAYS",
+  RISING_EDGE: "RISING_EDGE",
+} as const;
 
 /**
+ * @public
+ */
+export type TriggerMode = (typeof TriggerMode)[keyof typeof TriggerMode];
+
+/**
+ * @public
  * <p>Information about a collection scheme that uses a simple logical expression to
  *             recognize what data to collect.</p>
  */
@@ -661,6 +743,7 @@ export interface ConditionBasedCollectionScheme {
 }
 
 /**
+ * @public
  * <p>Information about a collection scheme that uses a time period to decide how often to
  *             collect data.</p>
  */
@@ -674,6 +757,7 @@ export interface TimeBasedCollectionScheme {
 }
 
 /**
+ * @public
  * <p>Specifies what data to collect and how often or when to collect it.</p>
  */
 export type CollectionScheme =
@@ -681,6 +765,9 @@ export type CollectionScheme =
   | CollectionScheme.TimeBasedCollectionSchemeMember
   | CollectionScheme.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace CollectionScheme {
   /**
    * <p>Information about a collection scheme that uses a time period to decide how often to
@@ -723,17 +810,36 @@ export namespace CollectionScheme {
   };
 }
 
-export enum Compression {
-  OFF = "OFF",
-  SNAPPY = "SNAPPY",
-}
-
-export enum DiagnosticsMode {
-  OFF = "OFF",
-  SEND_ACTIVE_DTCS = "SEND_ACTIVE_DTCS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Compression = {
+  OFF: "OFF",
+  SNAPPY: "SNAPPY",
+} as const;
 
 /**
+ * @public
+ */
+export type Compression = (typeof Compression)[keyof typeof Compression];
+
+/**
+ * @public
+ * @enum
+ */
+export const DiagnosticsMode = {
+  OFF: "OFF",
+  SEND_ACTIVE_DTCS: "SEND_ACTIVE_DTCS",
+} as const;
+
+/**
+ * @public
+ */
+export type DiagnosticsMode = (typeof DiagnosticsMode)[keyof typeof DiagnosticsMode];
+
+/**
+ * @public
  * <p>Information about a signal.</p>
  */
 export interface SignalInformation {
@@ -757,11 +863,23 @@ export interface SignalInformation {
   minimumSamplingIntervalMs?: number;
 }
 
-export enum SpoolingMode {
-  OFF = "OFF",
-  TO_DISK = "TO_DISK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SpoolingMode = {
+  OFF: "OFF",
+  TO_DISK: "TO_DISK",
+} as const;
 
+/**
+ * @public
+ */
+export type SpoolingMode = (typeof SpoolingMode)[keyof typeof SpoolingMode];
+
+/**
+ * @public
+ */
 export interface CreateCampaignRequest {
   /**
    * <p> The name of the campaign to create. </p>
@@ -868,6 +986,9 @@ export interface CreateCampaignRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCampaignResponse {
   /**
    * <p>The name of the created campaign.</p>
@@ -880,6 +1001,9 @@ export interface CreateCampaignResponse {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCampaignRequest {
   /**
    * <p> The name of the campaign to delete. </p>
@@ -887,6 +1011,9 @@ export interface DeleteCampaignRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCampaignResponse {
   /**
    * <p>The name of the deleted campaign.</p>
@@ -902,6 +1029,9 @@ export interface DeleteCampaignResponse {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignRequest {
   /**
    * <p> The name of the campaign to retrieve information about. </p>
@@ -909,13 +1039,25 @@ export interface GetCampaignRequest {
   name: string | undefined;
 }
 
-export enum CampaignStatus {
-  CREATING = "CREATING",
-  RUNNING = "RUNNING",
-  SUSPENDED = "SUSPENDED",
-  WAITING_FOR_APPROVAL = "WAITING_FOR_APPROVAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CampaignStatus = {
+  CREATING: "CREATING",
+  RUNNING: "RUNNING",
+  SUSPENDED: "SUSPENDED",
+  WAITING_FOR_APPROVAL: "WAITING_FOR_APPROVAL",
+} as const;
 
+/**
+ * @public
+ */
+export type CampaignStatus = (typeof CampaignStatus)[keyof typeof CampaignStatus];
+
+/**
+ * @public
+ */
 export interface GetCampaignResponse {
   /**
    * <p>The name of the campaign.</p>
@@ -1019,6 +1161,9 @@ export interface GetCampaignResponse {
   lastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListCampaignsRequest {
   /**
    * <p>A pagination token for the next set of results.</p>
@@ -1041,6 +1186,7 @@ export interface ListCampaignsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a campaign. </p>
  *         <p>You can use the  API operation to return this
  *             information about multiple created campaigns.</p>
@@ -1110,6 +1256,9 @@ export interface CampaignSummary {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCampaignsResponse {
   /**
    * <p> A summary of information about each campaign. </p>
@@ -1122,13 +1271,25 @@ export interface ListCampaignsResponse {
   nextToken?: string;
 }
 
-export enum UpdateCampaignAction {
-  APPROVE = "APPROVE",
-  RESUME = "RESUME",
-  SUSPEND = "SUSPEND",
-  UPDATE = "UPDATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UpdateCampaignAction = {
+  APPROVE: "APPROVE",
+  RESUME: "RESUME",
+  SUSPEND: "SUSPEND",
+  UPDATE: "UPDATE",
+} as const;
 
+/**
+ * @public
+ */
+export type UpdateCampaignAction = (typeof UpdateCampaignAction)[keyof typeof UpdateCampaignAction];
+
+/**
+ * @public
+ */
 export interface UpdateCampaignRequest {
   /**
    * <p> The name of the campaign to update. </p>
@@ -1171,6 +1332,9 @@ export interface UpdateCampaignRequest {
   action: UpdateCampaignAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCampaignResponse {
   /**
    * <p> The Amazon Resource Name (ARN) of the campaign. </p>
@@ -1212,6 +1376,7 @@ export interface UpdateCampaignResponse {
 }
 
 /**
+ * @public
  * <p>Configurations used to create a decoder manifest.</p>
  */
 export interface CanDbcDefinition {
@@ -1233,6 +1398,7 @@ export interface CanDbcDefinition {
 }
 
 /**
+ * @public
  * <p>A single controller area network (CAN) device interface.</p>
  */
 export interface CanInterface {
@@ -1253,6 +1419,7 @@ export interface CanInterface {
 }
 
 /**
+ * @public
  * <p>Information about a single controller area network (CAN) signal and the messages it
  *             receives and transmits.</p>
  */
@@ -1298,12 +1465,22 @@ export interface CanSignal {
   name?: string;
 }
 
-export enum LogType {
-  ERROR = "ERROR",
-  OFF = "OFF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LogType = {
+  ERROR: "ERROR",
+  OFF: "OFF",
+} as const;
 
 /**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
+
+/**
+ * @public
  * <p>The log delivery option to send data to Amazon CloudWatch Logs.</p>
  */
 export interface CloudWatchLogDeliveryOptions {
@@ -1319,6 +1496,7 @@ export interface CloudWatchLogDeliveryOptions {
 }
 
 /**
+ * @public
  * <p>A network interface that specifies the On-board diagnostic (OBD) II network protocol.</p>
  */
 export interface ObdInterface {
@@ -1358,12 +1536,22 @@ export interface ObdInterface {
   hasTransmissionEcu?: boolean;
 }
 
-export enum NetworkInterfaceType {
-  CAN_INTERFACE = "CAN_INTERFACE",
-  OBD_INTERFACE = "OBD_INTERFACE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfaceType = {
+  CAN_INTERFACE: "CAN_INTERFACE",
+  OBD_INTERFACE: "OBD_INTERFACE",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
+
+/**
+ * @public
  * <p>Represents a node and its specifications in an in-vehicle communication network. All
  *             signal decoders must be associated with a network node. </p>
  *         <p> To return this information about all the network interfaces specified in a decoder
@@ -1398,6 +1586,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>Information about signal messages using the on-board diagnostics (OBD) II protocol in
  *             a vehicle.</p>
  */
@@ -1448,12 +1637,22 @@ export interface ObdSignal {
   bitMaskLength?: number;
 }
 
-export enum SignalDecoderType {
-  CAN_SIGNAL = "CAN_SIGNAL",
-  OBD_SIGNAL = "OBD_SIGNAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SignalDecoderType = {
+  CAN_SIGNAL: "CAN_SIGNAL",
+  OBD_SIGNAL: "OBD_SIGNAL",
+} as const;
 
 /**
+ * @public
+ */
+export type SignalDecoderType = (typeof SignalDecoderType)[keyof typeof SignalDecoderType];
+
+/**
+ * @public
  * <p>Information about a signal decoder.</p>
  */
 export interface SignalDecoder {
@@ -1486,6 +1685,9 @@ export interface SignalDecoder {
   obdSignal?: ObdSignal;
 }
 
+/**
+ * @public
+ */
 export interface CreateDecoderManifestRequest {
   /**
    * <p> The unique name of the decoder manifest to create.</p>
@@ -1518,6 +1720,9 @@ export interface CreateDecoderManifestRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDecoderManifestResponse {
   /**
    * <p> The name of the created decoder manifest. </p>
@@ -1530,16 +1735,27 @@ export interface CreateDecoderManifestResponse {
   arn: string | undefined;
 }
 
-export enum NetworkInterfaceFailureReason {
-  CAN_NETWORK_INTERFACE_INFO_IS_NULL = "CAN_NETWORK_INTERFACE_INFO_IS_NULL",
-  CONFLICTING_NETWORK_INTERFACE = "CONFLICTING_NETWORK_INTERFACE",
-  DUPLICATE_INTERFACE = "DUPLICATE_NETWORK_INTERFACE",
-  NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS = "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS",
-  NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS = "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS",
-  OBD_NETWORK_INTERFACE_INFO_IS_NULL = "OBD_NETWORK_INTERFACE_INFO_IS_NULL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfaceFailureReason = {
+  CAN_NETWORK_INTERFACE_INFO_IS_NULL: "CAN_NETWORK_INTERFACE_INFO_IS_NULL",
+  CONFLICTING_NETWORK_INTERFACE: "CONFLICTING_NETWORK_INTERFACE",
+  DUPLICATE_INTERFACE: "DUPLICATE_NETWORK_INTERFACE",
+  NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS: "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS",
+  NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS: "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS",
+  OBD_NETWORK_INTERFACE_INFO_IS_NULL: "OBD_NETWORK_INTERFACE_INFO_IS_NULL",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkInterfaceFailureReason =
+  (typeof NetworkInterfaceFailureReason)[keyof typeof NetworkInterfaceFailureReason];
+
+/**
+ * @public
  * <p>A reason a vehicle network interface isn't valid.</p>
  */
 export interface InvalidNetworkInterface {
@@ -1554,19 +1770,30 @@ export interface InvalidNetworkInterface {
   reason?: NetworkInterfaceFailureReason | string;
 }
 
-export enum SignalDecoderFailureReason {
-  CAN_SIGNAL_INFO_IS_NULL = "CAN_SIGNAL_INFO_IS_NULL",
-  CONFLICTING_SIGNAL = "CONFLICTING_SIGNAL",
-  DUPLICATE_SIGNAL = "DUPLICATE_SIGNAL",
-  NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE = "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE",
-  NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL = "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL",
-  OBD_SIGNAL_INFO_IS_NULL = "OBD_SIGNAL_INFO_IS_NULL",
-  SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE = "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE",
-  SIGNAL_NOT_IN_MODEL = "SIGNAL_NOT_IN_MODEL",
-  SIGNAL_TO_ADD_ALREADY_EXISTS = "SIGNAL_TO_ADD_ALREADY_EXISTS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SignalDecoderFailureReason = {
+  CAN_SIGNAL_INFO_IS_NULL: "CAN_SIGNAL_INFO_IS_NULL",
+  CONFLICTING_SIGNAL: "CONFLICTING_SIGNAL",
+  DUPLICATE_SIGNAL: "DUPLICATE_SIGNAL",
+  NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE:
+    "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE",
+  NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL: "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL",
+  OBD_SIGNAL_INFO_IS_NULL: "OBD_SIGNAL_INFO_IS_NULL",
+  SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE: "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE",
+  SIGNAL_NOT_IN_MODEL: "SIGNAL_NOT_IN_MODEL",
+  SIGNAL_TO_ADD_ALREADY_EXISTS: "SIGNAL_TO_ADD_ALREADY_EXISTS",
+} as const;
 
 /**
+ * @public
+ */
+export type SignalDecoderFailureReason = (typeof SignalDecoderFailureReason)[keyof typeof SignalDecoderFailureReason];
+
+/**
+ * @public
  * <p>A reason that a signal decoder isn't valid.</p>
  */
 export interface InvalidSignalDecoder {
@@ -1582,6 +1809,7 @@ export interface InvalidSignalDecoder {
 }
 
 /**
+ * @public
  * <p>The request couldn't be completed because it contains signal decoders with one or more validation errors.</p>
  */
 export class DecoderManifestValidationException extends __BaseException {
@@ -1612,6 +1840,9 @@ export class DecoderManifestValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetRequest {
   /**
    * <p> The unique ID of the fleet to create. </p>
@@ -1634,6 +1865,9 @@ export interface CreateFleetRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetResponse {
   /**
    * <p> The ID of the created fleet. </p>
@@ -1646,6 +1880,9 @@ export interface CreateFleetResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateModelManifestRequest {
   /**
    * <p> The name of the vehicle model to create.</p>
@@ -1673,6 +1910,9 @@ export interface CreateModelManifestRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateModelManifestResponse {
   /**
    * <p> The name of the created vehicle model.</p>
@@ -1686,6 +1926,7 @@ export interface CreateModelManifestResponse {
 }
 
 /**
+ * @public
  * <p>A reason that a signal isn't valid.</p>
  */
 export interface InvalidSignal {
@@ -1701,6 +1942,7 @@ export interface InvalidSignal {
 }
 
 /**
+ * @public
  * <p>The request couldn't be completed because it contains signals that aren't valid.</p>
  */
 export class InvalidSignalsException extends __BaseException {
@@ -1726,6 +1968,7 @@ export class InvalidSignalsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An input component that reports the environmental condition of a vehicle.</p>
  *         <note>
  *             <p>You can collect data about fluid levels, temperatures, vibrations, or battery
@@ -1771,6 +2014,7 @@ export interface Sensor {
 }
 
 /**
+ * @public
  * <p>A general abstraction of a signal. A node can be specified as an actuator, attribute,
  *             branch, or sensor.</p>
  */
@@ -1781,6 +2025,9 @@ export type Node =
   | Node.SensorMember
   | Node.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Node {
   /**
    * <p>Information about a node specified as a branch.</p>
@@ -1864,6 +2111,9 @@ export namespace Node {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateSignalCatalogRequest {
   /**
    * <p> The name of the signal catalog to create. </p>
@@ -1887,6 +2137,9 @@ export interface CreateSignalCatalogRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSignalCatalogResponse {
   /**
    * <p> The name of the created signal catalog. </p>
@@ -1900,6 +2153,7 @@ export interface CreateSignalCatalogResponse {
 }
 
 /**
+ * @public
  * <p>The specified node type doesn't match the expected node type for a node. You can
  *             specify the node type as branch, sensor, actuator, or attribute.</p>
  */
@@ -1931,6 +2185,9 @@ export class InvalidNodeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateVehicleRequest {
   /**
    * <p> The unique ID of the vehicle to create. </p>
@@ -1968,6 +2225,9 @@ export interface CreateVehicleRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateVehicleResponse {
   /**
    * <p>The unique ID of the created vehicle.</p>
@@ -1985,6 +2245,9 @@ export interface CreateVehicleResponse {
   thingArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDecoderManifestRequest {
   /**
    * <p> The name of the decoder manifest to delete. </p>
@@ -1992,6 +2255,9 @@ export interface DeleteDecoderManifestRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDecoderManifestResponse {
   /**
    * <p>The name of the deleted decoder manifest.</p>
@@ -2004,6 +2270,9 @@ export interface DeleteDecoderManifestResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDecoderManifestRequest {
   /**
    * <p> The name of the decoder manifest to retrieve information about. </p>
@@ -2011,11 +2280,23 @@ export interface GetDecoderManifestRequest {
   name: string | undefined;
 }
 
-export enum ManifestStatus {
-  ACTIVE = "ACTIVE",
-  DRAFT = "DRAFT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ManifestStatus = {
+  ACTIVE: "ACTIVE",
+  DRAFT: "DRAFT",
+} as const;
 
+/**
+ * @public
+ */
+export type ManifestStatus = (typeof ManifestStatus)[keyof typeof ManifestStatus];
+
+/**
+ * @public
+ */
 export interface GetDecoderManifestResponse {
   /**
    * <p> The name of the decoder manifest. </p>
@@ -2057,10 +2338,14 @@ export interface GetDecoderManifestResponse {
 }
 
 /**
+ * @public
  * <p>Specifications for defining a vehicle network.</p>
  */
 export type NetworkFileDefinition = NetworkFileDefinition.CanDbcMember | NetworkFileDefinition.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace NetworkFileDefinition {
   /**
    * <p>Information, including CAN DBC files, about the configurations used to create a
@@ -2087,6 +2372,9 @@ export namespace NetworkFileDefinition {
   };
 }
 
+/**
+ * @public
+ */
 export interface ImportDecoderManifestRequest {
   /**
    * <p> The name of the decoder manifest to import. </p>
@@ -2099,6 +2387,9 @@ export interface ImportDecoderManifestRequest {
   networkFileDefinitions: NetworkFileDefinition[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportDecoderManifestResponse {
   /**
    * <p> The name of the imported decoder manifest. </p>
@@ -2111,6 +2402,9 @@ export interface ImportDecoderManifestResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestNetworkInterfacesRequest {
   /**
    * <p> The name of the decoder manifest to list information about. </p>
@@ -2129,6 +2423,9 @@ export interface ListDecoderManifestNetworkInterfacesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestNetworkInterfacesResponse {
   /**
    * <p> A list of information about network interfaces. </p>
@@ -2141,6 +2438,9 @@ export interface ListDecoderManifestNetworkInterfacesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestsRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of a vehicle model (model manifest) associated with
@@ -2161,6 +2461,7 @@ export interface ListDecoderManifestsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a created decoder manifest. You can use the  API operation to return this information about
  *             multiple decoder manifests.</p>
  */
@@ -2207,6 +2508,9 @@ export interface DecoderManifestSummary {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestsResponse {
   /**
    * <p> A list of information about each decoder manifest. </p>
@@ -2219,6 +2523,9 @@ export interface ListDecoderManifestsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestSignalsRequest {
   /**
    * <p> The name of the decoder manifest to list information about. </p>
@@ -2237,6 +2544,9 @@ export interface ListDecoderManifestSignalsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDecoderManifestSignalsResponse {
   /**
    * <p> Information about a list of signals to decode. </p>
@@ -2249,6 +2559,9 @@ export interface ListDecoderManifestSignalsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDecoderManifestRequest {
   /**
    * <p> The name of the decoder manifest to update.</p>
@@ -2302,6 +2615,9 @@ export interface UpdateDecoderManifestRequest {
   status?: ManifestStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDecoderManifestResponse {
   /**
    * <p> The name of the updated decoder manifest. </p>
@@ -2314,6 +2630,9 @@ export interface UpdateDecoderManifestResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetRequest {
   /**
    * <p> The ID of the fleet to delete. </p>
@@ -2321,6 +2640,9 @@ export interface DeleteFleetRequest {
   fleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetResponse {
   /**
    * <p>The ID of the deleted fleet.</p>
@@ -2333,6 +2655,9 @@ export interface DeleteFleetResponse {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteModelManifestRequest {
   /**
    * <p> The name of the model manifest to delete. </p>
@@ -2340,6 +2665,9 @@ export interface DeleteModelManifestRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteModelManifestResponse {
   /**
    * <p>The name of the deleted model manifest.</p>
@@ -2352,6 +2680,9 @@ export interface DeleteModelManifestResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSignalCatalogRequest {
   /**
    * <p> The name of the signal catalog to delete. </p>
@@ -2359,6 +2690,9 @@ export interface DeleteSignalCatalogRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSignalCatalogResponse {
   /**
    * <p>The name of the deleted signal catalog.</p>
@@ -2371,6 +2705,9 @@ export interface DeleteSignalCatalogResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVehicleRequest {
   /**
    * <p>The ID of the vehicle to delete. </p>
@@ -2378,6 +2715,9 @@ export interface DeleteVehicleRequest {
   vehicleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVehicleResponse {
   /**
    * <p>The ID of the deleted vehicle.</p>
@@ -2390,6 +2730,9 @@ export interface DeleteVehicleResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateVehicleFleetRequest {
   /**
    * <p> The unique ID of the vehicle to disassociate from the fleet.</p>
@@ -2402,8 +2745,14 @@ export interface DisassociateVehicleFleetRequest {
   fleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateVehicleFleetResponse {}
 
+/**
+ * @public
+ */
 export interface ListFleetsForVehicleRequest {
   /**
    * <p> The ID of the vehicle to retrieve information about. </p>
@@ -2422,6 +2771,9 @@ export interface ListFleetsForVehicleRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsForVehicleResponse {
   /**
    * <p> A list of fleet IDs that the vehicle is associated with. </p>
@@ -2434,6 +2786,9 @@ export interface ListFleetsForVehicleResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFleetRequest {
   /**
    * <p> The ID of the fleet to retrieve information about. </p>
@@ -2441,6 +2796,9 @@ export interface GetFleetRequest {
   fleetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFleetResponse {
   /**
    * <p> The ID of the fleet.</p>
@@ -2475,6 +2833,9 @@ export interface GetFleetResponse {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsRequest {
   /**
    * <p>A pagination token for the next set of results.</p>
@@ -2489,6 +2850,7 @@ export interface ListFleetsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a fleet.</p>
  *         <p>You can use the  API operation to return this
  *             information about multiple fleets.</p>
@@ -2527,6 +2889,9 @@ export interface FleetSummary {
   lastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsResponse {
   /**
    * <p> A list of information for each fleet. </p>
@@ -2539,6 +2904,9 @@ export interface ListFleetsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetRequest {
   /**
    * <p> The ID of the fleet to update. </p>
@@ -2551,6 +2919,9 @@ export interface UpdateFleetRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFleetResponse {
   /**
    * <p>The ID of the updated fleet.</p>
@@ -2563,6 +2934,9 @@ export interface UpdateFleetResponse {
   arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListVehiclesInFleetRequest {
   /**
    * <p> The ID of a fleet. </p>
@@ -2581,6 +2955,9 @@ export interface ListVehiclesInFleetRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListVehiclesInFleetResponse {
   /**
    * <p> A list of vehicles associated with the fleet. </p>
@@ -2594,12 +2971,16 @@ export interface ListVehiclesInFleetResponse {
 }
 
 /**
+ * @public
  * <p>Vehicle Signal Specification (VSS) is a precise language used to describe and model
  *             signals in vehicle networks. The JSON file collects signal specificiations in a VSS
  *             format.</p>
  */
 export type FormattedVss = FormattedVss.VssJsonMember | FormattedVss.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace FormattedVss {
   /**
    * <p>Provides the VSS in JSON format.</p>
@@ -2625,8 +3006,14 @@ export namespace FormattedVss {
   };
 }
 
+/**
+ * @public
+ */
 export interface GetLoggingOptionsRequest {}
 
+/**
+ * @public
+ */
 export interface GetLoggingOptionsResponse {
   /**
    * <p>Returns information about log delivery to Amazon CloudWatch Logs.</p>
@@ -2634,6 +3021,9 @@ export interface GetLoggingOptionsResponse {
   cloudWatchLogDelivery: CloudWatchLogDeliveryOptions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetModelManifestRequest {
   /**
    * <p> The name of the vehicle model to retrieve information about. </p>
@@ -2641,6 +3031,9 @@ export interface GetModelManifestRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetModelManifestResponse {
   /**
    * <p> The name of the vehicle model. </p>
@@ -2681,15 +3074,28 @@ export interface GetModelManifestResponse {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRegisterAccountStatusRequest {}
 
-export enum RegistrationStatus {
-  REGISTRATION_FAILURE = "REGISTRATION_FAILURE",
-  REGISTRATION_PENDING = "REGISTRATION_PENDING",
-  REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RegistrationStatus = {
+  REGISTRATION_FAILURE: "REGISTRATION_FAILURE",
+  REGISTRATION_PENDING: "REGISTRATION_PENDING",
+  REGISTRATION_SUCCESS: "REGISTRATION_SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof RegistrationStatus];
+
+/**
+ * @public
  * <p>Information about registering an Identity and Access Management (IAM) resource so Amazon Web Services IoT FleetWise edge agent
  *             software can transfer your vehicle data to Amazon Timestream.</p>
  */
@@ -2713,6 +3119,7 @@ export interface IamRegistrationResponse {
 }
 
 /**
+ * @public
  * <p>Information about the registered Amazon Timestream resources or errors, if any.</p>
  */
 export interface TimestreamRegistrationResponse {
@@ -2749,6 +3156,9 @@ export interface TimestreamRegistrationResponse {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRegisterAccountStatusResponse {
   /**
    * <p> The unique ID of the Amazon Web Services account, provided at account creation. </p>
@@ -2801,6 +3211,9 @@ export interface GetRegisterAccountStatusResponse {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSignalCatalogRequest {
   /**
    * <p> The name of the signal catalog to retrieve information about. </p>
@@ -2809,6 +3222,7 @@ export interface GetSignalCatalogRequest {
 }
 
 /**
+ * @public
  * <p>Information about the number of nodes and node types in a vehicle network.</p>
  */
 export interface NodeCounts {
@@ -2838,6 +3252,9 @@ export interface NodeCounts {
   totalActuators?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSignalCatalogResponse {
   /**
    * <p> The name of the signal catalog. </p>
@@ -2870,6 +3287,9 @@ export interface GetSignalCatalogResponse {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVehicleRequest {
   /**
    * <p> The ID of the vehicle to retrieve information about. </p>
@@ -2877,6 +3297,9 @@ export interface GetVehicleRequest {
   vehicleName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVehicleResponse {
   /**
    * <p>The ID of the vehicle.</p>
@@ -2917,6 +3340,9 @@ export interface GetVehicleResponse {
   lastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetVehicleStatusRequest {
   /**
    * <p>A pagination token for the next set of results.</p>
@@ -2935,15 +3361,25 @@ export interface GetVehicleStatusRequest {
   vehicleName: string | undefined;
 }
 
-export enum VehicleState {
-  CREATED = "CREATED",
-  DELETING = "DELETING",
-  HEALTHY = "HEALTHY",
-  READY = "READY",
-  SUSPENDED = "SUSPENDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VehicleState = {
+  CREATED: "CREATED",
+  DELETING: "DELETING",
+  HEALTHY: "HEALTHY",
+  READY: "READY",
+  SUSPENDED: "SUSPENDED",
+} as const;
 
 /**
+ * @public
+ */
+export type VehicleState = (typeof VehicleState)[keyof typeof VehicleState];
+
+/**
+ * @public
  * <p>Information about the state of a vehicle and how it relates to the status of a
  *             campaign.</p>
  */
@@ -2990,6 +3426,9 @@ export interface VehicleStatus {
   status?: VehicleState | string;
 }
 
+/**
+ * @public
+ */
 export interface GetVehicleStatusResponse {
   /**
    * <p> Lists information about the state of the vehicle with deployed campaigns. </p>
@@ -3003,6 +3442,7 @@ export interface GetVehicleStatusResponse {
 }
 
 /**
+ * @public
  * <p>The IAM resource that enables Amazon Web Services IoT FleetWise edge agent software to send data to
  *             Amazon Timestream. </p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
@@ -3017,6 +3457,9 @@ export interface IamResources {
   roleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportSignalCatalogRequest {
   /**
    * <p>The name of the signal catalog to import.</p>
@@ -3040,6 +3483,9 @@ export interface ImportSignalCatalogRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportSignalCatalogResponse {
   /**
    * <p> The name of the imported signal catalog. </p>
@@ -3052,6 +3498,9 @@ export interface ImportSignalCatalogResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -3059,6 +3508,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource.</p>
@@ -3066,6 +3518,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListModelManifestNodesRequest {
   /**
    * <p> The name of the vehicle model to list information about. </p>
@@ -3084,6 +3539,9 @@ export interface ListModelManifestNodesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListModelManifestNodesResponse {
   /**
    * <p> A list of information about nodes. </p>
@@ -3096,6 +3554,9 @@ export interface ListModelManifestNodesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListModelManifestsRequest {
   /**
    * <p> The ARN of a signal catalog. If you specify a signal catalog, only the vehicle models
@@ -3116,6 +3577,7 @@ export interface ListModelManifestsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a vehicle model (model manifest). You can use the  API operation to return this information about
  *             multiple vehicle models.</p>
  */
@@ -3160,6 +3622,9 @@ export interface ModelManifestSummary {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListModelManifestsResponse {
   /**
    * <p> A list of information about vehicle models.</p>
@@ -3172,6 +3637,9 @@ export interface ListModelManifestsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelManifestRequest {
   /**
    * <p> The name of the vehicle model to update. </p>
@@ -3203,6 +3671,9 @@ export interface UpdateModelManifestRequest {
   status?: ManifestStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelManifestResponse {
   /**
    * <p> The name of the updated vehicle model. </p>
@@ -3215,6 +3686,9 @@ export interface UpdateModelManifestResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLoggingOptionsRequest {
   /**
    * <p>Creates or updates the log delivery option to Amazon CloudWatch Logs.</p>
@@ -3222,9 +3696,13 @@ export interface PutLoggingOptionsRequest {
   cloudWatchLogDelivery: CloudWatchLogDeliveryOptions | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutLoggingOptionsResponse {}
 
 /**
+ * @public
  * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
  *             your vehicle data to.</p>
  */
@@ -3240,6 +3718,9 @@ export interface TimestreamResources {
   timestreamTableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAccountRequest {
   /**
    * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
@@ -3255,6 +3736,9 @@ export interface RegisterAccountRequest {
   iamResources?: IamResources;
 }
 
+/**
+ * @public
+ */
 export interface RegisterAccountResponse {
   /**
    * <p> The status of registering your Amazon Web Services account, IAM role, and Timestream resources.
@@ -3286,6 +3770,9 @@ export interface RegisterAccountResponse {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSignalCatalogNodesRequest {
   /**
    * <p> The name of the signal catalog to list information about. </p>
@@ -3304,6 +3791,9 @@ export interface ListSignalCatalogNodesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSignalCatalogNodesResponse {
   /**
    * <p> A list of information about nodes. </p>
@@ -3316,6 +3806,9 @@ export interface ListSignalCatalogNodesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSignalCatalogsRequest {
   /**
    * <p>A pagination token for the next set of results.</p>
@@ -3330,6 +3823,7 @@ export interface ListSignalCatalogsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a collection of standardized signals, which can be attributes,
  *             branches, sensors, or actuators.</p>
  */
@@ -3355,6 +3849,9 @@ export interface SignalCatalogSummary {
   lastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSignalCatalogsResponse {
   /**
    * <p> A list of information about each signal catalog. </p>
@@ -3367,6 +3864,9 @@ export interface ListSignalCatalogsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSignalCatalogRequest {
   /**
    * <p> The name of the signal catalog to update. </p>
@@ -3395,6 +3895,9 @@ export interface UpdateSignalCatalogRequest {
   nodesToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSignalCatalogResponse {
   /**
    * <p> The name of the updated signal catalog. </p>
@@ -3407,6 +3910,9 @@ export interface UpdateSignalCatalogResponse {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -3419,8 +3925,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -3433,8 +3945,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface ListVehiclesRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of a vehicle model (model manifest). You can use this optional
@@ -3455,6 +3973,7 @@ export interface ListVehiclesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a vehicle.</p>
  *         <p>To return this information about vehicles in your account, you can use the  API operation.</p>
  */
@@ -3490,6 +4009,9 @@ export interface VehicleSummary {
   lastModificationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListVehiclesResponse {
   /**
    * <p> A list of vehicles and information about them. </p>
@@ -3502,6 +4024,9 @@ export interface ListVehiclesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVehicleRequest {
   /**
    * <p>The unique ID of the vehicle to update.</p>
@@ -3535,6 +4060,9 @@ export interface UpdateVehicleRequest {
   attributeUpdateMode?: UpdateMode | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVehicleResponse {
   /**
    * <p>The ID of the updated vehicle.</p>
@@ -3546,1026 +4074,3 @@ export interface UpdateVehicleResponse {
    */
   arn?: string;
 }
-
-/**
- * @internal
- */
-export const ActuatorFilterSensitiveLog = (obj: Actuator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateVehicleFleetRequestFilterSensitiveLog = (obj: AssociateVehicleFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateVehicleFleetResponseFilterSensitiveLog = (obj: AssociateVehicleFleetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeFilterSensitiveLog = (obj: Attribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVehicleRequestItemFilterSensitiveLog = (obj: CreateVehicleRequestItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateVehicleRequestFilterSensitiveLog = (obj: BatchCreateVehicleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVehicleErrorFilterSensitiveLog = (obj: CreateVehicleError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVehicleResponseItemFilterSensitiveLog = (obj: CreateVehicleResponseItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateVehicleResponseFilterSensitiveLog = (obj: BatchCreateVehicleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVehicleRequestItemFilterSensitiveLog = (obj: UpdateVehicleRequestItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateVehicleRequestFilterSensitiveLog = (obj: BatchUpdateVehicleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVehicleErrorFilterSensitiveLog = (obj: UpdateVehicleError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVehicleResponseItemFilterSensitiveLog = (obj: UpdateVehicleResponseItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateVehicleResponseFilterSensitiveLog = (obj: BatchUpdateVehicleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BranchFilterSensitiveLog = (obj: Branch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionBasedCollectionSchemeFilterSensitiveLog = (obj: ConditionBasedCollectionScheme): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeBasedCollectionSchemeFilterSensitiveLog = (obj: TimeBasedCollectionScheme): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollectionSchemeFilterSensitiveLog = (obj: CollectionScheme): any => {
-  if (obj.timeBasedCollectionScheme !== undefined)
-    return { timeBasedCollectionScheme: TimeBasedCollectionSchemeFilterSensitiveLog(obj.timeBasedCollectionScheme) };
-  if (obj.conditionBasedCollectionScheme !== undefined)
-    return {
-      conditionBasedCollectionScheme: ConditionBasedCollectionSchemeFilterSensitiveLog(
-        obj.conditionBasedCollectionScheme
-      ),
-    };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SignalInformationFilterSensitiveLog = (obj: SignalInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCampaignRequestFilterSensitiveLog = (obj: CreateCampaignRequest): any => ({
-  ...obj,
-  ...(obj.collectionScheme && { collectionScheme: CollectionSchemeFilterSensitiveLog(obj.collectionScheme) }),
-});
-
-/**
- * @internal
- */
-export const CreateCampaignResponseFilterSensitiveLog = (obj: CreateCampaignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCampaignRequestFilterSensitiveLog = (obj: DeleteCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCampaignResponseFilterSensitiveLog = (obj: DeleteCampaignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignRequestFilterSensitiveLog = (obj: GetCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignResponseFilterSensitiveLog = (obj: GetCampaignResponse): any => ({
-  ...obj,
-  ...(obj.collectionScheme && { collectionScheme: CollectionSchemeFilterSensitiveLog(obj.collectionScheme) }),
-});
-
-/**
- * @internal
- */
-export const ListCampaignsRequestFilterSensitiveLog = (obj: ListCampaignsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignSummaryFilterSensitiveLog = (obj: CampaignSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCampaignsResponseFilterSensitiveLog = (obj: ListCampaignsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCampaignRequestFilterSensitiveLog = (obj: UpdateCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCampaignResponseFilterSensitiveLog = (obj: UpdateCampaignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CanDbcDefinitionFilterSensitiveLog = (obj: CanDbcDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CanInterfaceFilterSensitiveLog = (obj: CanInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CanSignalFilterSensitiveLog = (obj: CanSignal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogDeliveryOptionsFilterSensitiveLog = (obj: CloudWatchLogDeliveryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ObdInterfaceFilterSensitiveLog = (obj: ObdInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ObdSignalFilterSensitiveLog = (obj: ObdSignal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SignalDecoderFilterSensitiveLog = (obj: SignalDecoder): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDecoderManifestRequestFilterSensitiveLog = (obj: CreateDecoderManifestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDecoderManifestResponseFilterSensitiveLog = (obj: CreateDecoderManifestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InvalidNetworkInterfaceFilterSensitiveLog = (obj: InvalidNetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InvalidSignalDecoderFilterSensitiveLog = (obj: InvalidSignalDecoder): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetRequestFilterSensitiveLog = (obj: CreateFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetResponseFilterSensitiveLog = (obj: CreateFleetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateModelManifestRequestFilterSensitiveLog = (obj: CreateModelManifestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateModelManifestResponseFilterSensitiveLog = (obj: CreateModelManifestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InvalidSignalFilterSensitiveLog = (obj: InvalidSignal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SensorFilterSensitiveLog = (obj: Sensor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeFilterSensitiveLog = (obj: Node): any => {
-  if (obj.branch !== undefined) return { branch: BranchFilterSensitiveLog(obj.branch) };
-  if (obj.sensor !== undefined) return { sensor: SensorFilterSensitiveLog(obj.sensor) };
-  if (obj.actuator !== undefined) return { actuator: ActuatorFilterSensitiveLog(obj.actuator) };
-  if (obj.attribute !== undefined) return { attribute: AttributeFilterSensitiveLog(obj.attribute) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateSignalCatalogRequestFilterSensitiveLog = (obj: CreateSignalCatalogRequest): any => ({
-  ...obj,
-  ...(obj.nodes && { nodes: obj.nodes.map((item) => NodeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateSignalCatalogResponseFilterSensitiveLog = (obj: CreateSignalCatalogResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVehicleRequestFilterSensitiveLog = (obj: CreateVehicleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVehicleResponseFilterSensitiveLog = (obj: CreateVehicleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDecoderManifestRequestFilterSensitiveLog = (obj: DeleteDecoderManifestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDecoderManifestResponseFilterSensitiveLog = (obj: DeleteDecoderManifestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDecoderManifestRequestFilterSensitiveLog = (obj: GetDecoderManifestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDecoderManifestResponseFilterSensitiveLog = (obj: GetDecoderManifestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkFileDefinitionFilterSensitiveLog = (obj: NetworkFileDefinition): any => {
-  if (obj.canDbc !== undefined) return { canDbc: CanDbcDefinitionFilterSensitiveLog(obj.canDbc) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ImportDecoderManifestRequestFilterSensitiveLog = (obj: ImportDecoderManifestRequest): any => ({
-  ...obj,
-  ...(obj.networkFileDefinitions && {
-    networkFileDefinitions: obj.networkFileDefinitions.map((item) => NetworkFileDefinitionFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ImportDecoderManifestResponseFilterSensitiveLog = (obj: ImportDecoderManifestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDecoderManifestNetworkInterfacesRequestFilterSensitiveLog = (
-  obj: ListDecoderManifestNetworkInterfacesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDecoderManifestNetworkInterfacesResponseFilterSensitiveLog = (
-  obj: ListDecoderManifestNetworkInterfacesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDecoderManifestsRequestFilterSensitiveLog = (obj: ListDecoderManifestsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DecoderManifestSummaryFilterSensitiveLog = (obj: DecoderManifestSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDecoderManifestsResponseFilterSensitiveLog = (obj: ListDecoderManifestsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDecoderManifestSignalsRequestFilterSensitiveLog = (obj: ListDecoderManifestSignalsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDecoderManifestSignalsResponseFilterSensitiveLog = (obj: ListDecoderManifestSignalsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDecoderManifestRequestFilterSensitiveLog = (obj: UpdateDecoderManifestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDecoderManifestResponseFilterSensitiveLog = (obj: UpdateDecoderManifestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetRequestFilterSensitiveLog = (obj: DeleteFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetResponseFilterSensitiveLog = (obj: DeleteFleetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteModelManifestRequestFilterSensitiveLog = (obj: DeleteModelManifestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteModelManifestResponseFilterSensitiveLog = (obj: DeleteModelManifestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSignalCatalogRequestFilterSensitiveLog = (obj: DeleteSignalCatalogRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSignalCatalogResponseFilterSensitiveLog = (obj: DeleteSignalCatalogResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVehicleRequestFilterSensitiveLog = (obj: DeleteVehicleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVehicleResponseFilterSensitiveLog = (obj: DeleteVehicleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateVehicleFleetRequestFilterSensitiveLog = (obj: DisassociateVehicleFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateVehicleFleetResponseFilterSensitiveLog = (obj: DisassociateVehicleFleetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFleetsForVehicleRequestFilterSensitiveLog = (obj: ListFleetsForVehicleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFleetsForVehicleResponseFilterSensitiveLog = (obj: ListFleetsForVehicleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFleetRequestFilterSensitiveLog = (obj: GetFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFleetResponseFilterSensitiveLog = (obj: GetFleetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFleetsRequestFilterSensitiveLog = (obj: ListFleetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetSummaryFilterSensitiveLog = (obj: FleetSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFleetsResponseFilterSensitiveLog = (obj: ListFleetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFleetRequestFilterSensitiveLog = (obj: UpdateFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFleetResponseFilterSensitiveLog = (obj: UpdateFleetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVehiclesInFleetRequestFilterSensitiveLog = (obj: ListVehiclesInFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVehiclesInFleetResponseFilterSensitiveLog = (obj: ListVehiclesInFleetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FormattedVssFilterSensitiveLog = (obj: FormattedVss): any => {
-  if (obj.vssJson !== undefined) return { vssJson: obj.vssJson };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const GetLoggingOptionsRequestFilterSensitiveLog = (obj: GetLoggingOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLoggingOptionsResponseFilterSensitiveLog = (obj: GetLoggingOptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetModelManifestRequestFilterSensitiveLog = (obj: GetModelManifestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetModelManifestResponseFilterSensitiveLog = (obj: GetModelManifestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegisterAccountStatusRequestFilterSensitiveLog = (obj: GetRegisterAccountStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IamRegistrationResponseFilterSensitiveLog = (obj: IamRegistrationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimestreamRegistrationResponseFilterSensitiveLog = (obj: TimestreamRegistrationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegisterAccountStatusResponseFilterSensitiveLog = (obj: GetRegisterAccountStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSignalCatalogRequestFilterSensitiveLog = (obj: GetSignalCatalogRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeCountsFilterSensitiveLog = (obj: NodeCounts): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSignalCatalogResponseFilterSensitiveLog = (obj: GetSignalCatalogResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVehicleRequestFilterSensitiveLog = (obj: GetVehicleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVehicleResponseFilterSensitiveLog = (obj: GetVehicleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVehicleStatusRequestFilterSensitiveLog = (obj: GetVehicleStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VehicleStatusFilterSensitiveLog = (obj: VehicleStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVehicleStatusResponseFilterSensitiveLog = (obj: GetVehicleStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IamResourcesFilterSensitiveLog = (obj: IamResources): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportSignalCatalogRequestFilterSensitiveLog = (obj: ImportSignalCatalogRequest): any => ({
-  ...obj,
-  ...(obj.vss && { vss: FormattedVssFilterSensitiveLog(obj.vss) }),
-});
-
-/**
- * @internal
- */
-export const ImportSignalCatalogResponseFilterSensitiveLog = (obj: ImportSignalCatalogResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelManifestNodesRequestFilterSensitiveLog = (obj: ListModelManifestNodesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelManifestNodesResponseFilterSensitiveLog = (obj: ListModelManifestNodesResponse): any => ({
-  ...obj,
-  ...(obj.nodes && { nodes: obj.nodes.map((item) => NodeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListModelManifestsRequestFilterSensitiveLog = (obj: ListModelManifestsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelManifestSummaryFilterSensitiveLog = (obj: ModelManifestSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListModelManifestsResponseFilterSensitiveLog = (obj: ListModelManifestsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateModelManifestRequestFilterSensitiveLog = (obj: UpdateModelManifestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateModelManifestResponseFilterSensitiveLog = (obj: UpdateModelManifestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutLoggingOptionsRequestFilterSensitiveLog = (obj: PutLoggingOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutLoggingOptionsResponseFilterSensitiveLog = (obj: PutLoggingOptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimestreamResourcesFilterSensitiveLog = (obj: TimestreamResources): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterAccountRequestFilterSensitiveLog = (obj: RegisterAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterAccountResponseFilterSensitiveLog = (obj: RegisterAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSignalCatalogNodesRequestFilterSensitiveLog = (obj: ListSignalCatalogNodesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSignalCatalogNodesResponseFilterSensitiveLog = (obj: ListSignalCatalogNodesResponse): any => ({
-  ...obj,
-  ...(obj.nodes && { nodes: obj.nodes.map((item) => NodeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListSignalCatalogsRequestFilterSensitiveLog = (obj: ListSignalCatalogsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SignalCatalogSummaryFilterSensitiveLog = (obj: SignalCatalogSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSignalCatalogsResponseFilterSensitiveLog = (obj: ListSignalCatalogsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSignalCatalogRequestFilterSensitiveLog = (obj: UpdateSignalCatalogRequest): any => ({
-  ...obj,
-  ...(obj.nodesToAdd && { nodesToAdd: obj.nodesToAdd.map((item) => NodeFilterSensitiveLog(item)) }),
-  ...(obj.nodesToUpdate && { nodesToUpdate: obj.nodesToUpdate.map((item) => NodeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateSignalCatalogResponseFilterSensitiveLog = (obj: UpdateSignalCatalogResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVehiclesRequestFilterSensitiveLog = (obj: ListVehiclesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VehicleSummaryFilterSensitiveLog = (obj: VehicleSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVehiclesResponseFilterSensitiveLog = (obj: ListVehiclesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVehicleRequestFilterSensitiveLog = (obj: UpdateVehicleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVehicleResponseFilterSensitiveLog = (obj: UpdateVehicleResponse): any => ({
-  ...obj,
-});

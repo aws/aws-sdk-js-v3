@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  RejectGrantRequest,
-  RejectGrantRequestFilterSensitiveLog,
-  RejectGrantResponse,
-  RejectGrantResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RejectGrantCommand,
-  serializeAws_json1_1RejectGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { RejectGrantRequest, RejectGrantResponse } from "../models/models_0";
+import { de_RejectGrantCommand, se_RejectGrantCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RejectGrantCommand}.
+ */
 export interface RejectGrantCommandInput extends RejectGrantRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RejectGrantCommand}.
+ */
 export interface RejectGrantCommandOutput extends RejectGrantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects the specified grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface RejectGrantCommandOutput extends RejectGrantResponse, __Metadat
  * import { LicenseManagerClient, RejectGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, RejectGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // RejectGrantRequest
+ *   GrantArn: "STRING_VALUE", // required
+ * };
  * const command = new RejectGrantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectGrantCommandInput - {@link RejectGrantCommandInput}
+ * @returns {@link RejectGrantCommandOutput}
  * @see {@link RejectGrantCommandInput} for command's `input` shape.
  * @see {@link RejectGrantCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
  *
  */
 export class RejectGrantCommand extends $Command<
@@ -62,6 +93,9 @@ export class RejectGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +122,8 @@ export class RejectGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectGrantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectGrantResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +133,18 @@ export class RejectGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectGrantCommand(input, context);
+    return se_RejectGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectGrantCommandOutput> {
-    return deserializeAws_json1_1RejectGrantCommand(output, context);
+    return de_RejectGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

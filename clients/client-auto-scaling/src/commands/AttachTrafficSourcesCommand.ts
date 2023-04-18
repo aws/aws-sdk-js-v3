@@ -14,43 +14,96 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  AttachTrafficSourcesResultType,
-  AttachTrafficSourcesResultTypeFilterSensitiveLog,
-  AttachTrafficSourcesType,
-  AttachTrafficSourcesTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryAttachTrafficSourcesCommand,
-  serializeAws_queryAttachTrafficSourcesCommand,
-} from "../protocols/Aws_query";
+import { AttachTrafficSourcesResultType, AttachTrafficSourcesType } from "../models/models_0";
+import { de_AttachTrafficSourcesCommand, se_AttachTrafficSourcesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link AttachTrafficSourcesCommand}.
+ */
 export interface AttachTrafficSourcesCommandInput extends AttachTrafficSourcesType {}
+/**
+ * @public
+ *
+ * The output of {@link AttachTrafficSourcesCommand}.
+ */
 export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesResultType, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
- *             Do not use this API for production workloads. This API is also subject to change.</b>
- *          </p>
- *          <p>Attaches one or more traffic sources to the specified Auto Scaling group.</p>
- *          <p>To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a> API. To detach a traffic source from the Auto Scaling
- *             group, call the <a>DetachTrafficSources</a> API.</p>
+ * @public
+ * <p>Attaches one or more traffic sources to the specified Auto Scaling group.</p>
+ *          <p>You can use any of the following as traffic sources for an Auto Scaling group:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Application Load Balancer</p>
+ *             </li>
+ *             <li>
+ *                <p>Classic Load Balancer</p>
+ *             </li>
+ *             <li>
+ *                <p>Gateway Load Balancer</p>
+ *             </li>
+ *             <li>
+ *                <p>Network Load Balancer</p>
+ *             </li>
+ *             <li>
+ *                <p>VPC Lattice</p>
+ *             </li>
+ *          </ul>
  *          <p>This operation is additive and does not detach existing traffic sources from the Auto Scaling
- *             group.</p>
+ *             group. </p>
+ *          <p>After the operation completes, use the <a>DescribeTrafficSources</a> API to
+ *             return details about the state of the attachments between traffic sources and your Auto Scaling
+ *             group. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, AttachTrafficSourcesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, AttachTrafficSourcesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // AttachTrafficSourcesType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   TrafficSources: [ // TrafficSources // required
+ *     { // TrafficSourceIdentifier
+ *       Identifier: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AttachTrafficSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachTrafficSourcesCommandInput - {@link AttachTrafficSourcesCommandInput}
+ * @returns {@link AttachTrafficSourcesCommandOutput}
  * @see {@link AttachTrafficSourcesCommandInput} for command's `input` shape.
  * @see {@link AttachTrafficSourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ * @throws {@link ServiceLinkedRoleFailure} (server fault)
+ *  <p>The service-linked role is not yet ready for use.</p>
+ *
+ *
+ * @example To attach a target group to an Auto Scaling group
+ * ```javascript
+ * // This example attaches the specified target group to the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "TrafficSources": [
+ *     {
+ *       "Identifier": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *     }
+ *   ]
+ * };
+ * const command = new AttachTrafficSourcesCommand(input);
+ * await client.send(command);
+ * // example id: to-attach-a-target-group-to-an-auto-scaling-group-1680036570089
+ * ```
  *
  */
 export class AttachTrafficSourcesCommand extends $Command<
@@ -70,6 +123,9 @@ export class AttachTrafficSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachTrafficSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +154,8 @@ export class AttachTrafficSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachTrafficSourcesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachTrafficSourcesResultTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +165,18 @@ export class AttachTrafficSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachTrafficSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAttachTrafficSourcesCommand(input, context);
+    return se_AttachTrafficSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachTrafficSourcesCommandOutput> {
-    return deserializeAws_queryAttachTrafficSourcesCommand(output, context);
+    return de_AttachTrafficSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

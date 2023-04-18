@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  UpdateInstanceProfileRequest,
-  UpdateInstanceProfileRequestFilterSensitiveLog,
-  UpdateInstanceProfileResult,
-  UpdateInstanceProfileResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateInstanceProfileCommand,
-  serializeAws_json1_1UpdateInstanceProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateInstanceProfileRequest, UpdateInstanceProfileResult } from "../models/models_0";
+import { de_UpdateInstanceProfileCommand, se_UpdateInstanceProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateInstanceProfileCommand}.
+ */
 export interface UpdateInstanceProfileCommandInput extends UpdateInstanceProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateInstanceProfileCommand}.
+ */
 export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about an existing private device instance profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  * import { DeviceFarmClient, UpdateInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // UpdateInstanceProfileRequest
+ *   arn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   packageCleanup: true || false,
+ *   excludeAppPackagesFromCleanup: [ // PackageIds
+ *     "STRING_VALUE",
+ *   ],
+ *   rebootAfterUse: true || false,
+ * };
  * const command = new UpdateInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInstanceProfileCommandInput - {@link UpdateInstanceProfileCommandInput}
+ * @returns {@link UpdateInstanceProfileCommandOutput}
  * @see {@link UpdateInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
  *
  */
 export class UpdateInstanceProfileCommand extends $Command<
@@ -62,6 +90,9 @@ export class UpdateInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class UpdateInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInstanceProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class UpdateInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateInstanceProfileCommand(input, context);
+    return se_UpdateInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInstanceProfileCommandOutput> {
-    return deserializeAws_json1_1UpdateInstanceProfileCommand(output, context);
+    return de_UpdateInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

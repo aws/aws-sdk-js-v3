@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import {
-  StartApplicationRequest,
-  StartApplicationRequestFilterSensitiveLog,
-  StartApplicationResponse,
-  StartApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartApplicationCommand,
-  serializeAws_restJson1StartApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
+import { de_StartApplicationCommand, se_StartApplicationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartApplicationCommand}.
+ */
 export interface StartApplicationCommandInput extends StartApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartApplicationCommand}.
+ */
 export interface StartApplicationCommandOutput extends StartApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a specified application and initializes initial capacity if configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * import { EMRServerlessClient, StartApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, StartApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
+ * const input = { // StartApplicationRequest
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartApplicationCommandInput - {@link StartApplicationCommandInput}
+ * @returns {@link StartApplicationCommandOutput}
  * @see {@link StartApplicationCommandInput} for command's `input` shape.
  * @see {@link StartApplicationCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The maximum number of resources per account has been reached.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
+ *
  *
  */
 export class StartApplicationCommand extends $Command<
@@ -62,6 +84,9 @@ export class StartApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class StartApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class StartApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartApplicationCommand(input, context);
+    return se_StartApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartApplicationCommandOutput> {
-    return deserializeAws_restJson1StartApplicationCommand(output, context);
+    return de_StartApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

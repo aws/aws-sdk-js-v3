@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from Cloud9 service.
  */
 export class Cloud9ServiceException extends __ServiceException {

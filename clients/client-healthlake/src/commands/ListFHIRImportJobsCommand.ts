@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
-import {
-  ListFHIRImportJobsRequest,
-  ListFHIRImportJobsRequestFilterSensitiveLog,
-  ListFHIRImportJobsResponse,
-  ListFHIRImportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListFHIRImportJobsCommand,
-  serializeAws_json1_0ListFHIRImportJobsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListFHIRImportJobsRequest, ListFHIRImportJobsResponse } from "../models/models_0";
+import { de_ListFHIRImportJobsCommand, se_ListFHIRImportJobsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFHIRImportJobsCommand}.
+ */
 export interface ListFHIRImportJobsCommandInput extends ListFHIRImportJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFHIRImportJobsCommand}.
+ */
 export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Lists all FHIR import jobs associated with an account and their statuses.
  *          </p>
@@ -38,13 +41,40 @@ export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsRespo
  * import { HealthLakeClient, ListFHIRImportJobsCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, ListFHIRImportJobsCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
+ * const input = { // ListFHIRImportJobsRequest
+ *   DatastoreId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   JobName: "STRING_VALUE",
+ *   JobStatus: "STRING_VALUE",
+ *   SubmittedBefore: new Date("TIMESTAMP"),
+ *   SubmittedAfter: new Date("TIMESTAMP"),
+ * };
  * const command = new ListFHIRImportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFHIRImportJobsCommandInput - {@link ListFHIRImportJobsCommandInput}
+ * @returns {@link ListFHIRImportJobsCommandOutput}
  * @see {@link ListFHIRImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListFHIRImportJobsCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unknown error occurs in the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The requested Data Store was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input parameter was invalid.</p>
+ *
  *
  */
 export class ListFHIRImportJobsCommand extends $Command<
@@ -64,6 +94,9 @@ export class ListFHIRImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFHIRImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +125,8 @@ export class ListFHIRImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFHIRImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFHIRImportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +136,18 @@ export class ListFHIRImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFHIRImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListFHIRImportJobsCommand(input, context);
+    return se_ListFHIRImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFHIRImportJobsCommandOutput> {
-    return deserializeAws_json1_0ListFHIRImportJobsCommand(output, context);
+    return de_ListFHIRImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

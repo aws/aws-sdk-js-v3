@@ -20,15 +20,23 @@ import {
   DetectSyntaxResponse,
   DetectSyntaxResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectSyntaxCommand,
-  serializeAws_json1_1DetectSyntaxCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectSyntaxCommand, se_DetectSyntaxCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DetectSyntaxCommand}.
+ */
 export interface DetectSyntaxCommandInput extends DetectSyntaxRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DetectSyntaxCommand}.
+ */
 export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects text for syntax and the part of speech of words in the document. For more
  *       information, see
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
@@ -39,13 +47,36 @@ export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __Metad
  * import { ComprehendClient, DetectSyntaxCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectSyntaxCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DetectSyntaxRequest
+ *   Text: "STRING_VALUE", // required
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt", // required
+ * };
  * const command = new DetectSyntaxCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectSyntaxCommandInput - {@link DetectSyntaxCommandInput}
+ * @returns {@link DetectSyntaxCommandOutput}
  * @see {@link DetectSyntaxCommandInput} for command's `input` shape.
  * @see {@link DetectSyntaxCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link TextSizeLimitExceededException} (client fault)
+ *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
+ * @throws {@link UnsupportedLanguageException} (client fault)
+ *  <p>Amazon Comprehend can't process the language of the input text. For custom entity
+ *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
+ *       For a list of supported languages,
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
+ *     </p>
+ *
  *
  */
 export class DetectSyntaxCommand extends $Command<
@@ -65,6 +96,9 @@ export class DetectSyntaxCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectSyntaxCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,12 +136,18 @@ export class DetectSyntaxCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectSyntaxCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectSyntaxCommand(input, context);
+    return se_DetectSyntaxCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectSyntaxCommandOutput> {
-    return deserializeAws_json1_1DetectSyntaxCommand(output, context);
+    return de_DetectSyntaxCommand(output, context);
   }
 
   // Start section: command_body_extra

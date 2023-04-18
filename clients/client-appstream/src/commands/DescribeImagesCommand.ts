@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeImagesRequest,
-  DescribeImagesRequestFilterSensitiveLog,
-  DescribeImagesResult,
-  DescribeImagesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImagesCommand,
-  serializeAws_json1_1DescribeImagesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeImagesRequest, DescribeImagesResult } from "../models/models_0";
+import { de_DescribeImagesCommand, se_DescribeImagesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeImagesCommand}.
+ */
 export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeImagesCommand}.
+ */
 export interface DescribeImagesCommandOutput extends DescribeImagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more specified images, if the image names or image ARNs are provided. Otherwise, all images in the account are described.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * import { AppStreamClient, DescribeImagesCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeImagesCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeImagesRequest
+ *   Names: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Arns: [ // ArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Type: "PUBLIC" || "PRIVATE" || "SHARED",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeImagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImagesCommandInput - {@link DescribeImagesCommandInput}
+ * @returns {@link DescribeImagesCommandOutput}
  * @see {@link DescribeImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DescribeImagesCommand extends $Command<
@@ -62,6 +85,9 @@ export class DescribeImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class DescribeImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImagesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class DescribeImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImagesCommand(input, context);
+    return se_DescribeImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImagesCommandOutput> {
-    return deserializeAws_json1_1DescribeImagesCommand(output, context);
+    return de_DescribeImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

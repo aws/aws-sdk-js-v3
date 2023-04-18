@@ -20,6 +20,7 @@ import {
 import { MarketplaceMeteringClient } from "./MarketplaceMeteringClient";
 
 /**
+ * @public
  * <fullname>AWS Marketplace Metering Service</fullname>
  *         <p>This reference provides descriptions of the low-level AWS Marketplace Metering Service
  *             API.</p>
@@ -86,6 +87,7 @@ import { MarketplaceMeteringClient } from "./MarketplaceMeteringClient";
  */
 export class MarketplaceMetering extends MarketplaceMeteringClient {
   /**
+   * @public
    * <p>
    *             <code>BatchMeterUsage</code> is called from a SaaS application listed on AWS
    *             Marketplace to post metering records for a set of customers.</p>
@@ -144,6 +146,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   }
 
   /**
+   * @public
    * <p>API to emit metering records. For identical requests, the API is idempotent. It simply
    *             returns the metering record ID.</p>
    *         <p>
@@ -180,6 +183,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   }
 
   /**
+   * @public
    * <p>Paid container software products sold through AWS Marketplace must integrate with the
    *             AWS Marketplace Metering Service and call the <code>RegisterUsage</code> operation for
    *             software entitlement and metering. Free and BYOL products for Amazon ECS or Amazon EKS
@@ -251,6 +255,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>ResolveCustomer</code> is called by a SaaS application during the registration
    *             process. When a buyer visits your website during the registration process, the buyer

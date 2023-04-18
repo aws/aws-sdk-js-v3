@@ -6,7 +6,13 @@ import { promisify } from "util";
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { ProcessCredentials } from "./ProcessCredentials";
 
-export const resolveProcessCredentials = async (profileName: string, profiles: ParsedIniData): Promise<AwsCredentialIdentity> => {
+/**
+ * @internal
+ */
+export const resolveProcessCredentials = async (
+  profileName: string,
+  profiles: ParsedIniData
+): Promise<AwsCredentialIdentity> => {
   const profile = profiles[profileName];
 
   if (profiles[profileName]) {

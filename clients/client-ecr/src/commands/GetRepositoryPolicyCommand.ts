@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  GetRepositoryPolicyRequest,
-  GetRepositoryPolicyRequestFilterSensitiveLog,
-  GetRepositoryPolicyResponse,
-  GetRepositoryPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRepositoryPolicyCommand,
-  serializeAws_json1_1GetRepositoryPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRepositoryPolicyRequest, GetRepositoryPolicyResponse } from "../models/models_0";
+import { de_GetRepositoryPolicyCommand, se_GetRepositoryPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRepositoryPolicyCommand}.
+ */
 export interface GetRepositoryPolicyCommandInput extends GetRepositoryPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRepositoryPolicyCommand}.
+ */
 export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the repository policy for the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,53 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * import { ECRClient, GetRepositoryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetRepositoryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // GetRepositoryPolicyRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new GetRepositoryPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRepositoryPolicyCommandInput - {@link GetRepositoryPolicyCommandInput}
+ * @returns {@link GetRepositoryPolicyCommandOutput}
  * @see {@link GetRepositoryPolicyCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link RepositoryPolicyNotFoundException} (client fault)
+ *  <p>The specified repository and registry combination does not have an associated
+ *             repository policy.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ *
+ * @example To get the current policy for a repository
+ * ```javascript
+ * // This example obtains the repository policy for the repository named ubuntu.
+ * const input = {
+ *   "repositoryName": "ubuntu"
+ * };
+ * const command = new GetRepositoryPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "policyText": "{\n  \"Version\" : \"2008-10-17\",\n  \"Statement\" : [ {\n    \"Sid\" : \"new statement\",\n    \"Effect\" : \"Allow\",\n    \"Principal\" : {\n     \"AWS\" : \"arn:aws:iam::012345678901:role/CodeDeployDemo\"\n    },\n\"Action\" : [ \"ecr:GetDownloadUrlForLayer\", \"ecr:BatchGetImage\", \"ecr:BatchCheckLayerAvailability\" ]\n } ]\n}",
+ *   "registryId": "012345678901",
+ *   "repositoryName": "ubuntu"
+ * }
+ * *\/
+ * // example id: getrepositorypolicy-example-1470867669211
+ * ```
  *
  */
 export class GetRepositoryPolicyCommand extends $Command<
@@ -62,6 +105,9 @@ export class GetRepositoryPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRepositoryPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +136,8 @@ export class GetRepositoryPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRepositoryPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRepositoryPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +147,18 @@ export class GetRepositoryPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRepositoryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRepositoryPolicyCommand(input, context);
+    return se_GetRepositoryPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRepositoryPolicyCommandOutput> {
-    return deserializeAws_json1_1GetRepositoryPolicyCommand(output, context);
+    return de_GetRepositoryPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

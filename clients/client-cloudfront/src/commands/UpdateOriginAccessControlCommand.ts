@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  UpdateOriginAccessControlRequest,
-  UpdateOriginAccessControlRequestFilterSensitiveLog,
-  UpdateOriginAccessControlResult,
-  UpdateOriginAccessControlResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateOriginAccessControlCommand,
-  serializeAws_restXmlUpdateOriginAccessControlCommand,
-} from "../protocols/Aws_restXml";
+import { UpdateOriginAccessControlRequest, UpdateOriginAccessControlResult } from "../models/models_1";
+import { de_UpdateOriginAccessControlCommand, se_UpdateOriginAccessControlCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateOriginAccessControlCommand}.
+ */
 export interface UpdateOriginAccessControlCommandInput extends UpdateOriginAccessControlRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateOriginAccessControlCommand}.
+ */
 export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAccessControlResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a CloudFront origin access control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  * import { CloudFrontClient, UpdateOriginAccessControlCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateOriginAccessControlCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // UpdateOriginAccessControlRequest
+ *   OriginAccessControlConfig: { // OriginAccessControlConfig
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     SigningProtocol: "sigv4", // required
+ *     SigningBehavior: "never" || "always" || "no-override", // required
+ *     OriginAccessControlOriginType: "s3" || "mediastore", // required
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new UpdateOriginAccessControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOriginAccessControlCommandInput - {@link UpdateOriginAccessControlCommandInput}
+ * @returns {@link UpdateOriginAccessControlCommandOutput}
  * @see {@link UpdateOriginAccessControlCommandInput} for command's `input` shape.
  * @see {@link UpdateOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link IllegalUpdate} (client fault)
+ *  <p>The update contains modifications that are not allowed.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchOriginAccessControl} (client fault)
+ *  <p>The origin access control does not exist.</p>
+ *
+ * @throws {@link OriginAccessControlAlreadyExists} (client fault)
+ *  <p>An origin access control with the specified parameters already exists.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
  *
  */
 export class UpdateOriginAccessControlCommand extends $Command<
@@ -62,6 +101,9 @@ export class UpdateOriginAccessControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOriginAccessControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +132,8 @@ export class UpdateOriginAccessControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOriginAccessControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOriginAccessControlResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +143,21 @@ export class UpdateOriginAccessControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateOriginAccessControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateOriginAccessControlCommand(input, context);
+    return se_UpdateOriginAccessControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOriginAccessControlCommandOutput> {
-    return deserializeAws_restXmlUpdateOriginAccessControlCommand(output, context);
+    return de_UpdateOriginAccessControlCommand(output, context);
   }
 
   // Start section: command_body_extra

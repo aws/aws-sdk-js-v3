@@ -16,19 +16,26 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import {
   RequestUploadCredentialsInput,
-  RequestUploadCredentialsInputFilterSensitiveLog,
   RequestUploadCredentialsOutput,
   RequestUploadCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RequestUploadCredentialsCommand,
-  serializeAws_json1_1RequestUploadCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RequestUploadCredentialsCommand, se_RequestUploadCredentialsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RequestUploadCredentialsCommand}.
+ */
 export interface RequestUploadCredentialsCommandInput extends RequestUploadCredentialsInput {}
+/**
+ * @public
+ *
+ * The output of {@link RequestUploadCredentialsCommand}.
+ */
 export interface RequestUploadCredentialsCommandOutput extends RequestUploadCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a fresh set of credentials for use when uploading a new set of game build
  *             files to Amazon GameLift's Amazon S3. This is done as part of the build creation process; see
  *                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html">GameSession</a>.</p>
@@ -50,13 +57,33 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
  * import { GameLiftClient, RequestUploadCredentialsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, RequestUploadCredentialsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // RequestUploadCredentialsInput
+ *   BuildId: "STRING_VALUE", // required
+ * };
  * const command = new RequestUploadCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestUploadCredentialsCommandInput - {@link RequestUploadCredentialsCommandInput}
+ * @returns {@link RequestUploadCredentialsCommandOutput}
  * @see {@link RequestUploadCredentialsCommandInput} for command's `input` shape.
  * @see {@link RequestUploadCredentialsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class RequestUploadCredentialsCommand extends $Command<
@@ -76,6 +103,9 @@ export class RequestUploadCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestUploadCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,7 +134,7 @@ export class RequestUploadCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestUploadCredentialsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RequestUploadCredentialsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -115,12 +145,18 @@ export class RequestUploadCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestUploadCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RequestUploadCredentialsCommand(input, context);
+    return se_RequestUploadCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestUploadCredentialsCommandOutput> {
-    return deserializeAws_json1_1RequestUploadCredentialsCommand(output, context);
+    return de_RequestUploadCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

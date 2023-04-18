@@ -294,6 +294,7 @@ import {
 } from "./commands/ValidateTemplateCommand";
 
 /**
+ * @public
  * <fullname>CloudFormation</fullname>
  *          <p>CloudFormation allows you to create and manage Amazon Web Services infrastructure
  *          deployments predictably and repeatedly. You can use CloudFormation to leverage
@@ -314,6 +315,7 @@ import {
  */
 export class CloudFormation extends CloudFormationClient {
   /**
+   * @public
    * <p>Activates a public third-party extension, making it available for use in stack
    *          templates. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html">Using
    *             public extensions</a> in the <i>CloudFormation User Guide</i>.</p>
@@ -348,6 +350,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns configuration data for the specified CloudFormation extensions, from
    *          the CloudFormation registry for the account and region.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the
@@ -383,6 +386,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Cancels an update on the specified stack. If the call completes successfully, the stack
    *          rolls back the update and reverts to the previous stack configuration.</p>
    *          <note>
@@ -420,6 +424,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>For a specified stack that's in the <code>UPDATE_ROLLBACK_FAILED</code> state, continues
    *          rolling it back to the <code>UPDATE_ROLLBACK_COMPLETE</code> state. Depending on the cause
    *          of the failure, you can manually <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed"> fix the error</a> and continue the rollback. By continuing the rollback, you can
@@ -461,6 +466,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Creates a list of changes that will be applied to a stack so that you can review the
    *          changes before executing them. You can create a change set for a stack that doesn't exist
    *          or an existing stack. If you create a change set for a stack that doesn't exist, the change
@@ -513,6 +519,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Creates a stack as specified in the template. After the call completes successfully, the
    *          stack creation starts. You can check the status of the stack through the <a>DescribeStacks</a>operation.</p>
    */
@@ -540,6 +547,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Creates stack instances for the specified accounts, within the specified Amazon Web Services Regions. A stack instance refers to a stack in a specific account and Region.
    *          You must specify at least one value for either <code>Accounts</code> or
    *             <code>DeploymentTargets</code>, and you must specify at least one value for
@@ -575,6 +583,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Creates a stack set.</p>
    */
   public createStackSet(
@@ -607,6 +616,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Deactivates a public extension that was previously activated in this account and
    *          region.</p>
    *          <p>Once deactivated, an extension can't be used in any CloudFormation operation.
@@ -644,6 +654,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified change set. Deleting change sets ensures that no one executes the
    *          wrong change set.</p>
    *          <p>If the call successfully completes, CloudFormation successfully deleted the change
@@ -683,6 +694,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specified stack. Once the call completes successfully, stack deletion starts.
    *          Deleted stacks don't show up in the <a>DescribeStacks</a> operation if the
    *          deletion has been completed successfully.</p>
@@ -711,6 +723,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Deletes stack instances for the specified accounts, in the specified Amazon Web Services Regions.</p>
    */
   public deleteStackInstances(
@@ -743,6 +756,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Deletes a stack set. Before you can delete a stack set, all its member stack instances
    *          must be deleted. For more information about how to complete this, see <a>DeleteStackInstances</a>.</p>
    */
@@ -776,6 +790,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Marks an extension or extension version as <code>DEPRECATED</code> in the CloudFormation registry, removing it from active use. Deprecated extensions or
    *          extension versions cannot be used in CloudFormation operations.</p>
    *          <p>To deregister an entire extension, you must individually deregister all active versions
@@ -817,6 +832,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Retrieves your account's CloudFormation limits, such as the maximum number of stacks
    *          that you can create in your account. For more information about account limits, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation Quotas</a> in the
    *          <i>CloudFormation User Guide</i>.</p>
@@ -851,6 +867,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns the inputs for the change set and a list of changes that CloudFormation will
    *          make if you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating Stacks Using Change Sets</a> in the CloudFormation User Guide.</p>
    */
@@ -884,6 +901,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns hook-related information for the change set and a list of changes that CloudFormation makes when you run the change set.</p>
    */
   public describeChangeSetHooks(
@@ -916,6 +934,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a CloudFormation extension publisher.</p>
    *          <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension
    *          publisher, <code>DescribePublisher</code> returns information about your own publisher
@@ -965,6 +984,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a stack drift detection operation. A stack drift detection
    *          operation detects whether a stack's actual configuration differs, or has
    *             <i>drifted</i>, from it's expected configuration, as defined in the stack
@@ -1009,6 +1029,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns all stack related events for a specified stack in reverse chronological order.
    *          For more information about a stack's event history, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html">Stacks</a> in the
    *          CloudFormation User Guide.</p>
@@ -1047,6 +1068,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns the stack instance that's associated with the specified stack set, Amazon Web Services account, and Region.</p>
    *          <p>For a list of stack instances that are associated with a specific stack set, use <a>ListStackInstances</a>.</p>
    */
@@ -1080,6 +1102,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns a description of the specified resource in the specified stack.</p>
    *          <p>For deleted stacks, DescribeStackResource returns resource information for up to 90 days
    *          after the stack has been deleted.</p>
@@ -1114,6 +1137,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns drift information for the resources that have been checked for drift in the
    *          specified stack. This includes actual and expected configuration values for resources where
    *          CloudFormation detects configuration drift.</p>
@@ -1155,6 +1179,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns Amazon Web Services resource descriptions for running and deleted stacks. If
    *             <code>StackName</code> is specified, all the associated resources that are part of the
    *          stack are returned. If <code>PhysicalResourceId</code> is specified, the associated
@@ -1205,6 +1230,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns the description for the specified stack; if no stack name was specified, then it
    *          returns the description for all the stacks created.</p>
    *          <note>
@@ -1241,6 +1267,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns the description of the specified stack set.</p>
    */
   public describeStackSet(
@@ -1273,6 +1300,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns the description of the specified stack set operation.</p>
    */
   public describeStackSetOperation(
@@ -1305,6 +1333,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns detailed information about an extension that has been registered.</p>
    *          <p>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information
    *          about that specific extension version. Otherwise, it returns information about the default
@@ -1337,6 +1366,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an extension's registration, including its current status and
    *          type and version identifiers.</p>
    *          <p>When you initiate a registration request using <code>
@@ -1379,6 +1409,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Detects whether a stack's actual configuration differs, or has
    *             <i>drifted</i>, from it's expected configuration, as defined in the stack
    *          template and any values specified as template parameters. For each resource in the stack
@@ -1431,6 +1462,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns information about whether a resource's actual configuration differs, or has
    *             <i>drifted</i>, from it's expected configuration, as defined in the stack
    *          template and any values specified as template parameters. This information includes actual
@@ -1474,6 +1506,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Detect drift on a stack set. When CloudFormation performs drift detection on a
    *          stack set, it performs drift detection on the stack associated with each stack instance in
    *          the stack set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">How CloudFormation performs drift detection on a stack set</a>.</p>
@@ -1550,6 +1583,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple Monthly Calculator URL with a query string that describes the
    *          resources required to run the template.</p>
    */
@@ -1583,6 +1617,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Updates a stack using the input information that was provided when the specified change
    *          set was created. After the call successfully completes, CloudFormation starts updating
    *          the stack. Use the <a>DescribeStacks</a> action to view the status of the
@@ -1625,6 +1660,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns the stack policy for a specified stack. If a stack doesn't have a policy, a null
    *          value is returned.</p>
    */
@@ -1658,6 +1694,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns the template body for a specified stack. You can get the template for running or
    *          deleted stacks.</p>
    *          <p>For deleted stacks, <code>GetTemplate</code> returns the template for up to 90 days
@@ -1690,6 +1727,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a new or existing template. The
    *             <code>GetTemplateSummary</code> action is useful for viewing parameter information, such
    *          as default parameter values and parameter types, before you create or update a stack or
@@ -1730,6 +1768,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Import existing stacks into a new stack sets. Use the stack import operation to import
    *          up to 10 stacks into a new stack set in the same account as the source stack or in a
    *          different administrator account and Region, by specifying the stack ID of the stack you
@@ -1770,6 +1809,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns the ID and status of each active change set for a stack. For example, CloudFormation lists change sets that are in the <code>CREATE_IN_PROGRESS</code> or
    *             <code>CREATE_PENDING</code> state.</p>
    */
@@ -1803,6 +1843,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Lists all exported output values in the account and Region in which you call this
    *          action. Use this action to see the exported output values that you can import into other
    *          stacks. To import values, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">
@@ -1835,6 +1876,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Lists all stacks that are importing an exported output value. To modify or remove an
    *          exported output value, first use this action to see which stacks are using it. To see the
    *          exported output values in your account, see <a>ListExports</a>.</p>
@@ -1866,6 +1908,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns summary information about stack instances that are associated with the specified
    *          stack set. You can filter for stack instances that are associated with a specific Amazon Web Services account name or Region, or that have a specific status.</p>
    */
@@ -1899,6 +1942,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns descriptions of all resources of the specified stack.</p>
    *          <p>For deleted stacks, ListStackResources returns resource information for up to 90 days
    *          after the stack has been deleted.</p>
@@ -1933,6 +1977,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns the summary information for stacks whose status matches the specified
    *          StackStatusFilter. Summary information for stacks that have been deleted is kept for 90
    *          days after the stack is deleted. If no StackStatusFilter is specified, summary information
@@ -1963,6 +2008,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns summary information about the results of a stack set operation.</p>
    */
   public listStackSetOperationResults(
@@ -1995,6 +2041,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns summary information about operations performed on a stack set.</p>
    */
   public listStackSetOperations(
@@ -2027,6 +2074,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns summary information about stack sets that are associated with the user.</p>
    *          <ul>
    *             <li>
@@ -2077,6 +2125,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of registration tokens for the specified extension(s).</p>
    */
   public listTypeRegistrations(
@@ -2109,6 +2158,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns summary information about extension that have been registered with CloudFormation.</p>
    */
   public listTypes(args: ListTypesCommandInput, options?: __HttpHandlerOptions): Promise<ListTypesCommandOutput>;
@@ -2135,6 +2185,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Returns summary information about the versions of an extension.</p>
    */
   public listTypeVersions(
@@ -2167,6 +2218,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Publishes the specified extension to the CloudFormation registry as a public
    *          extension in this region. Public extensions are available for use by all CloudFormation users. For more information about publishing extensions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to make them available for public use</a> in the
    *                <i>CloudFormation CLI User Guide</i>.</p>
@@ -2196,6 +2248,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Reports progress of a resource handler to CloudFormation.</p>
    *          <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. Don't use this API in your code.</p>
    */
@@ -2229,6 +2282,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Registers your account as a publisher of public extensions in the CloudFormation registry. Public extensions are available for use by all CloudFormation users.
    *          This publisher ID applies to your account in all Amazon Web Services Regions.</p>
    *          <p>For information about requirements for registering as a public extension publisher, see
@@ -2267,6 +2321,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Registers an extension with the CloudFormation service. Registering an
    *          extension makes it available for use in CloudFormation templates in your Amazon Web Services account, and includes:</p>
    *          <ul>
@@ -2322,6 +2377,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>When specifying <code>RollbackStack</code>, you preserve the state of previously
    *          provisioned resources when an operation fails. You can check the status of the stack
    *          through the <a>DescribeStacks</a> operation.</p>
@@ -2388,6 +2444,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Sets a stack policy for a specified stack.</p>
    */
   public setStackPolicy(
@@ -2420,6 +2477,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Specifies the configuration data for a registered CloudFormation extension, in
    *          the given account and region.</p>
    *          <p>To view the current configuration data for an extension, refer to the
@@ -2464,6 +2522,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Specify the default version of an extension. The default version of an extension will be
    *          used in CloudFormation operations.</p>
    */
@@ -2497,6 +2556,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Sends a signal to the specified resource with a success or failure status. You can use
    *          the <code>SignalResource</code> operation in conjunction with a creation policy or update
    *          policy. CloudFormation doesn't proceed with a stack creation or update until
@@ -2534,6 +2594,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Stops an in-progress operation on a stack set and its associated stack instances.
    *          StackSets will cancel all the unstarted stack instance deployments and wait for those are
    *          in-progress to complete.</p>
@@ -2568,6 +2629,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Tests a registered extension to make sure it meets all necessary requirements for being
    *          published in the CloudFormation registry.</p>
    *          <ul>
@@ -2616,6 +2678,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Updates a stack as specified in the template. After the call completes successfully, the
    *          stack update starts. You can check the status of the stack through the <a>DescribeStacks</a> action.</p>
    *          <p>To get a copy of the template for an existing stack, you can use the <a>GetTemplate</a> action.</p>
@@ -2647,6 +2710,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Updates the parameter values for stack instances for the specified accounts, within the
    *          specified Amazon Web Services Regions. A stack instance refers to a stack in a specific
    *          account and Region.</p>
@@ -2692,6 +2756,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Updates the stack set, and associated stack instances in the specified accounts and
    *             Amazon Web Services Regions.</p>
    *          <p>Even if the stack set operation created by updating the stack set fails (completely or
@@ -2729,6 +2794,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Updates termination protection for the specified stack. If a user attempts to delete a
    *          stack with termination protection enabled, the operation fails and the stack remains
    *          unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a
@@ -2767,6 +2833,7 @@ export class CloudFormation extends CloudFormationClient {
   }
 
   /**
+   * @public
    * <p>Validates a specified template. CloudFormation first checks if the template is
    *          valid JSON. If it isn't, CloudFormation checks if the template is valid YAML. If
    *          both these checks fail, CloudFormation returns a template validation error.</p>

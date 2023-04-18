@@ -6,12 +6,11 @@ import {
   ListProposalVotesCommandInput,
   ListProposalVotesCommandOutput,
 } from "../commands/ListProposalVotesCommand";
-import { ManagedBlockchain } from "../ManagedBlockchain";
 import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
 import { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ManagedBlockchainClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListProposalVotesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ManagedBlockchain,
-  input: ListProposalVotesCommandInput,
-  ...args: any
-): Promise<ListProposalVotesCommandOutput> => {
-  // @ts-ignore
-  return await client.listProposalVotes(input, ...args);
-};
 export async function* paginateListProposalVotes(
   config: ManagedBlockchainPaginationConfiguration,
   input: ListProposalVotesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListProposalVotes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ManagedBlockchain) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ManagedBlockchainClient) {
+    if (config.client instanceof ManagedBlockchainClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ManagedBlockchain | ManagedBlockchainClient");

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ComposeEnvironmentsMessage,
-  ComposeEnvironmentsMessageFilterSensitiveLog,
-  EnvironmentDescriptionsMessage,
-  EnvironmentDescriptionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryComposeEnvironmentsCommand,
-  serializeAws_queryComposeEnvironmentsCommand,
-} from "../protocols/Aws_query";
+import { ComposeEnvironmentsMessage, EnvironmentDescriptionsMessage } from "../models/models_0";
+import { de_ComposeEnvironmentsCommand, se_ComposeEnvironmentsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ComposeEnvironmentsCommand}.
+ */
 export interface ComposeEnvironmentsCommandInput extends ComposeEnvironmentsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ComposeEnvironmentsCommand}.
+ */
 export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescriptionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create or update a group of environments that each run a separate component of a single
  *       application. Takes a list of version labels that specify application source bundles for each
  *       of the environments to create or update. The name of each environment and other required
@@ -41,13 +44,30 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  * import { ElasticBeanstalkClient, ComposeEnvironmentsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ComposeEnvironmentsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // ComposeEnvironmentsMessage
+ *   ApplicationName: "STRING_VALUE",
+ *   GroupName: "STRING_VALUE",
+ *   VersionLabels: [ // VersionLabels
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ComposeEnvironmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ComposeEnvironmentsCommandInput - {@link ComposeEnvironmentsCommandInput}
+ * @returns {@link ComposeEnvironmentsCommandOutput}
  * @see {@link ComposeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ComposeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link TooManyEnvironmentsException} (client fault)
+ *  <p>The specified account has reached its limit of environments.</p>
+ *
  *
  */
 export class ComposeEnvironmentsCommand extends $Command<
@@ -67,6 +87,9 @@ export class ComposeEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ComposeEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +118,8 @@ export class ComposeEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ComposeEnvironmentsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EnvironmentDescriptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +129,18 @@ export class ComposeEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ComposeEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryComposeEnvironmentsCommand(input, context);
+    return se_ComposeEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ComposeEnvironmentsCommandOutput> {
-    return deserializeAws_queryComposeEnvironmentsCommand(output, context);
+    return de_ComposeEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

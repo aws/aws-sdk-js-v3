@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { GroundStation } from "../GroundStation";
 import { GroundStationClient } from "../GroundStationClient";
 
+/**
+ * @public
+ */
 export interface GroundStationPaginationConfiguration extends PaginationConfiguration {
-  client: GroundStation | GroundStationClient;
+  client: GroundStationClient;
 }

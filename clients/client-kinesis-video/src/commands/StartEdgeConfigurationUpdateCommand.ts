@@ -21,16 +21,27 @@ import {
   StartEdgeConfigurationUpdateOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartEdgeConfigurationUpdateCommand,
-  serializeAws_restJson1StartEdgeConfigurationUpdateCommand,
+  de_StartEdgeConfigurationUpdateCommand,
+  se_StartEdgeConfigurationUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartEdgeConfigurationUpdateCommand}.
+ */
 export interface StartEdgeConfigurationUpdateCommandInput extends StartEdgeConfigurationUpdateInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartEdgeConfigurationUpdateCommand}.
+ */
 export interface StartEdgeConfigurationUpdateCommandOutput
   extends StartEdgeConfigurationUpdateOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>An asynchronous API that updates a stream’s existing edge configuration.
  *             The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass
  *             component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary
@@ -49,13 +60,83 @@ export interface StartEdgeConfigurationUpdateCommandOutput
  * import { KinesisVideoClient, StartEdgeConfigurationUpdateCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, StartEdgeConfigurationUpdateCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // StartEdgeConfigurationUpdateInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   EdgeConfig: { // EdgeConfig
+ *     HubDeviceArn: "STRING_VALUE", // required
+ *     RecorderConfig: { // RecorderConfig
+ *       MediaSourceConfig: { // MediaSourceConfig
+ *         MediaUriSecretArn: "STRING_VALUE", // required
+ *         MediaUriType: "RTSP_URI" || "FILE_URI", // required
+ *       },
+ *       ScheduleConfig: { // ScheduleConfig
+ *         ScheduleExpression: "STRING_VALUE", // required
+ *         DurationInSeconds: Number("int"), // required
+ *       },
+ *     },
+ *     UploaderConfig: { // UploaderConfig
+ *       ScheduleConfig: {
+ *         ScheduleExpression: "STRING_VALUE", // required
+ *         DurationInSeconds: Number("int"), // required
+ *       },
+ *     },
+ *     DeletionConfig: { // DeletionConfig
+ *       EdgeRetentionInHours: Number("int"),
+ *       LocalSizeConfig: { // LocalSizeConfig
+ *         MaxLocalMediaSizeInMB: Number("int"),
+ *         StrategyOnFullSize: "DELETE_OLDEST_MEDIA" || "DENY_NEW_MEDIA",
+ *       },
+ *       DeleteAfterUpload: true || false,
+ *     },
+ *   },
+ * };
  * const command = new StartEdgeConfigurationUpdateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartEdgeConfigurationUpdateCommandInput - {@link StartEdgeConfigurationUpdateCommandInput}
+ * @returns {@link StartEdgeConfigurationUpdateCommandOutput}
  * @see {@link StartEdgeConfigurationUpdateCommandInput} for command's `input` shape.
  * @see {@link StartEdgeConfigurationUpdateCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link NoDataRetentionException} (client fault)
+ *  <p>The Stream data retention in hours is equal to zero.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
+ *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
+ *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
+ *             or <code>ChannelARN</code> is not in Active status, try one of the following : </p>
+ *          <ol>
+ *             <li>
+ *                <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource.
+ *             </p>
+ *             </li>
+ *          </ol>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
  *
  */
 export class StartEdgeConfigurationUpdateCommand extends $Command<
@@ -75,6 +156,9 @@ export class StartEdgeConfigurationUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartEdgeConfigurationUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,15 +198,21 @@ export class StartEdgeConfigurationUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartEdgeConfigurationUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartEdgeConfigurationUpdateCommand(input, context);
+    return se_StartEdgeConfigurationUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartEdgeConfigurationUpdateCommandOutput> {
-    return deserializeAws_restJson1StartEdgeConfigurationUpdateCommand(output, context);
+    return de_StartEdgeConfigurationUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

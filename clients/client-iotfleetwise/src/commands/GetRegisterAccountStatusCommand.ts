@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetRegisterAccountStatusRequest,
-  GetRegisterAccountStatusRequestFilterSensitiveLog,
-  GetRegisterAccountStatusResponse,
-  GetRegisterAccountStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetRegisterAccountStatusCommand,
-  serializeAws_json1_0GetRegisterAccountStatusCommand,
-} from "../protocols/Aws_json1_0";
+import { GetRegisterAccountStatusRequest, GetRegisterAccountStatusResponse } from "../models/models_0";
+import { de_GetRegisterAccountStatusCommand, se_GetRegisterAccountStatusCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRegisterAccountStatusCommand}.
+ */
 export interface GetRegisterAccountStatusCommandInput extends GetRegisterAccountStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRegisterAccountStatusCommand}.
+ */
 export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccountStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about the status of registering your Amazon Web Services account, IAM, and
  *             Amazon Timestream resources so that Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web Services
  *             Cloud. </p>
@@ -42,13 +45,32 @@ export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccoun
  * import { IoTFleetWiseClient, GetRegisterAccountStatusCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetRegisterAccountStatusCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {};
  * const command = new GetRegisterAccountStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegisterAccountStatusCommandInput - {@link GetRegisterAccountStatusCommandInput}
+ * @returns {@link GetRegisterAccountStatusCommandOutput}
  * @see {@link GetRegisterAccountStatusCommandInput} for command's `input` shape.
  * @see {@link GetRegisterAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class GetRegisterAccountStatusCommand extends $Command<
@@ -68,6 +90,9 @@ export class GetRegisterAccountStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegisterAccountStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +121,8 @@ export class GetRegisterAccountStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegisterAccountStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRegisterAccountStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +132,18 @@ export class GetRegisterAccountStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegisterAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRegisterAccountStatusCommand(input, context);
+    return se_GetRegisterAccountStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegisterAccountStatusCommandOutput> {
-    return deserializeAws_json1_0GetRegisterAccountStatusCommand(output, context);
+    return de_GetRegisterAccountStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

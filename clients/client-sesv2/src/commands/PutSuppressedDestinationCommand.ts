@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutSuppressedDestinationRequest,
-  PutSuppressedDestinationRequestFilterSensitiveLog,
-  PutSuppressedDestinationResponse,
-  PutSuppressedDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSuppressedDestinationCommand,
-  serializeAws_restJson1PutSuppressedDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { PutSuppressedDestinationRequest, PutSuppressedDestinationResponse } from "../models/models_0";
+import { de_PutSuppressedDestinationCommand, se_PutSuppressedDestinationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutSuppressedDestinationCommand}.
+ */
 export interface PutSuppressedDestinationCommandInput extends PutSuppressedDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutSuppressedDestinationCommand}.
+ */
 export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an email address to the suppression list for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDest
  * import { SESv2Client, PutSuppressedDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutSuppressedDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutSuppressedDestinationRequest
+ *   EmailAddress: "STRING_VALUE", // required
+ *   Reason: "BOUNCE" || "COMPLAINT", // required
+ * };
  * const command = new PutSuppressedDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSuppressedDestinationCommandInput - {@link PutSuppressedDestinationCommandInput}
+ * @returns {@link PutSuppressedDestinationCommandOutput}
  * @see {@link PutSuppressedDestinationCommandInput} for command's `input` shape.
  * @see {@link PutSuppressedDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class PutSuppressedDestinationCommand extends $Command<
@@ -62,6 +78,9 @@ export class PutSuppressedDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSuppressedDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class PutSuppressedDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSuppressedDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSuppressedDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class PutSuppressedDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSuppressedDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSuppressedDestinationCommand(input, context);
+    return se_PutSuppressedDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSuppressedDestinationCommandOutput> {
-    return deserializeAws_restJson1PutSuppressedDestinationCommand(output, context);
+    return de_PutSuppressedDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

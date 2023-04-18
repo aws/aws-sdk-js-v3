@@ -104,6 +104,11 @@ import {
   CreateDomainEntryCommandOutput,
 } from "./commands/CreateDomainEntryCommand";
 import {
+  CreateGUISessionAccessDetailsCommand,
+  CreateGUISessionAccessDetailsCommandInput,
+  CreateGUISessionAccessDetailsCommandOutput,
+} from "./commands/CreateGUISessionAccessDetailsCommand";
+import {
   CreateInstancesCommand,
   CreateInstancesCommandInput,
   CreateInstancesCommandOutput,
@@ -360,6 +365,11 @@ import {
   GetContainerServicesCommandInput,
   GetContainerServicesCommandOutput,
 } from "./commands/GetContainerServicesCommand";
+import {
+  GetCostEstimateCommand,
+  GetCostEstimateCommandInput,
+  GetCostEstimateCommandOutput,
+} from "./commands/GetCostEstimateCommand";
 import { GetDiskCommand, GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand";
 import { GetDisksCommand, GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
 import {
@@ -603,6 +613,11 @@ import {
   SetResourceAccessForBucketCommandOutput,
 } from "./commands/SetResourceAccessForBucketCommand";
 import {
+  StartGUISessionCommand,
+  StartGUISessionCommandInput,
+  StartGUISessionCommandOutput,
+} from "./commands/StartGUISessionCommand";
+import {
   StartInstanceCommand,
   StartInstanceCommandInput,
   StartInstanceCommandOutput,
@@ -612,6 +627,11 @@ import {
   StartRelationalDatabaseCommandInput,
   StartRelationalDatabaseCommandOutput,
 } from "./commands/StartRelationalDatabaseCommand";
+import {
+  StopGUISessionCommand,
+  StopGUISessionCommandInput,
+  StopGUISessionCommandOutput,
+} from "./commands/StopGUISessionCommand";
 import {
   StopInstanceCommand,
   StopInstanceCommandInput,
@@ -683,6 +703,7 @@ import {
 import { LightsailClient } from "./LightsailClient";
 
 /**
+ * @public
  * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (Amazon Web Services) for developers who need to build websites or web applications. It includes
  *       everything you need to launch your project quickly - instances (virtual private servers),
  *       container services, storage buckets, managed databases, SSD-based block storage, static IP
@@ -700,6 +721,7 @@ import { LightsailClient } from "./LightsailClient";
  */
 export class Lightsail extends LightsailClient {
   /**
+   * @public
    * <p>Allocates a static IP address.</p>
    */
   public allocateStaticIp(
@@ -732,6 +754,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Attaches an SSL/TLS certificate to your Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
    *          <p>After the certificate is attached, your distribution accepts HTTPS traffic for all of the
@@ -776,6 +799,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Attaches a block storage disk to a running or stopped Lightsail instance and exposes it
    *       to the instance with the specified disk name.</p>
    *          <p>The <code>attach disk</code> operation supports tag-based access control via resource tags
@@ -806,6 +830,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Attaches one or more Lightsail instances to a load balancer.</p>
    *          <p>After some time, the instances are attached to the load balancer and the health check
    *       status is available.</p>
@@ -843,6 +868,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is just
    *       an updated, more secure version of Secure Socket Layer (SSL).</p>
    *          <p>Once you create and validate your certificate, you can attach it to your load balancer.
@@ -883,6 +909,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Attaches a static IP address to a specific Amazon Lightsail instance.</p>
    */
   public attachStaticIp(
@@ -915,6 +942,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Closes ports for a specific Amazon Lightsail instance.</p>
    *          <p>The <code>CloseInstancePublicPorts</code> action supports tag-based access control via
    *       resource tags applied to the resource identified by <code>instanceName</code>. For more
@@ -950,6 +978,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an
    *       automatic snapshot of an instance or disk as a manual snapshot. This operation can also be
    *       used to copy a manual or automatic snapshot of an instance or a disk from one Amazon Web Services Region to another in Amazon Lightsail.</p>
@@ -988,6 +1017,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Lightsail bucket.</p>
    *          <p>A bucket is a cloud storage resource available in the Lightsail object storage service.
    *       Use buckets to store objects such as data and its descriptive metadata. For more information
@@ -1021,6 +1051,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a new access key for the specified Amazon Lightsail bucket. Access keys consist of
    *       an access key ID and corresponding secret access key.</p>
    *          <p>Access keys grant full programmatic access to the specified bucket and its objects. You
@@ -1064,6 +1095,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates an SSL/TLS certificate for an Amazon Lightsail content delivery network (CDN)
    *       distribution and a container service.</p>
    *          <p>After the certificate is valid, use the <code>AttachCertificateToDistribution</code>
@@ -1108,6 +1140,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates an AWS CloudFormation stack, which creates a new Amazon EC2 instance from an exported
    *       Amazon Lightsail snapshot. This operation results in a CloudFormation stack record that can be
    *       used to track the AWS CloudFormation stack created. Use the <code>get cloud formation stack
@@ -1147,6 +1180,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates an email or SMS text message contact method.</p>
    *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
    *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
@@ -1183,6 +1217,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Lightsail container service.</p>
    *          <p>A Lightsail container service is a compute resource to which you can deploy containers.
    *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev
@@ -1218,6 +1253,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a deployment for your Amazon Lightsail container service.</p>
    *          <p>A deployment specifies the containers that will be launched on the container service and
    *       their settings, such as the ports to open, the environment variables to apply, and the launch
@@ -1259,6 +1295,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a temporary set of log in credentials that you can use to log in to the Docker
    *       process on your local machine. After you're logged in, you can use the native Docker commands
    *       to push your local container images to the container image registry of your Amazon Lightsail
@@ -1310,6 +1347,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a block storage disk that can be attached to an Amazon Lightsail instance in the
    *       same Availability Zone (e.g., <code>us-east-2a</code>).</p>
    *          <p>The <code>create disk</code> operation supports tag-based access control via request tags.
@@ -1339,6 +1377,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a block storage disk from a manual or automatic snapshot of a disk. The resulting
    *       disk can be attached to an Amazon Lightsail instance in the same Availability Zone (e.g.,
    *         <code>us-east-2a</code>).</p>
@@ -1376,6 +1415,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a snapshot of a block storage disk. You can use snapshots for backups, to make
    *       copies of disks, and to save data before shutting down a Lightsail instance.</p>
    *          <p>You can take a snapshot of an attached disk that is in use; however, snapshots only
@@ -1426,6 +1466,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates an Amazon Lightsail content delivery network (CDN) distribution.</p>
    *          <p>A distribution is a globally distributed network of caching servers that improve the
    *       performance of your website or web application hosted on a Lightsail instance. For more
@@ -1461,6 +1502,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a domain resource for the specified domain (e.g., example.com).</p>
    *          <p>The <code>create domain</code> operation supports tag-based access control via request
    *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -1492,6 +1534,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates one of the following domain name system (DNS) records in a domain DNS zone:
    *       Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority
    *       (SOA), service locator (SRV), or text (TXT).</p>
@@ -1529,6 +1572,42 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
+   * <p>Creates two URLs that are used to access a virtual computer’s graphical user interface (GUI)
+   *       session. The primary URL initiates a web-based NICE DCV session to the virtual computer's application. The secondary URL initiates a web-based NICE DCV session to the virtual computer's operating session. </p>
+   *          <p>Use <code>StartGUISession</code> to open the session.</p>
+   */
+  public createGUISessionAccessDetails(
+    args: CreateGUISessionAccessDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGUISessionAccessDetailsCommandOutput>;
+  public createGUISessionAccessDetails(
+    args: CreateGUISessionAccessDetailsCommandInput,
+    cb: (err: any, data?: CreateGUISessionAccessDetailsCommandOutput) => void
+  ): void;
+  public createGUISessionAccessDetails(
+    args: CreateGUISessionAccessDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGUISessionAccessDetailsCommandOutput) => void
+  ): void;
+  public createGUISessionAccessDetails(
+    args: CreateGUISessionAccessDetailsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGUISessionAccessDetailsCommandOutput) => void),
+    cb?: (err: any, data?: CreateGUISessionAccessDetailsCommandOutput) => void
+  ): Promise<CreateGUISessionAccessDetailsCommandOutput> | void {
+    const command = new CreateGUISessionAccessDetailsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Creates one or more Amazon Lightsail instances.</p>
    *          <p>The <code>create instances</code> operation supports tag-based access control via request
    *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Developer Guide</a>.</p>
@@ -1563,6 +1642,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates one or more new instances from a manual or automatic snapshot of an
    *       instance.</p>
    *          <p>The <code>create instances from snapshot</code> operation supports tag-based access
@@ -1599,6 +1679,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a snapshot of a specific virtual private server, or <i>instance</i>.
    *       You can use a snapshot to create a new instance that is based on that snapshot.</p>
    *          <p>The <code>create instance snapshot</code> operation supports tag-based access control via
@@ -1634,6 +1715,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a custom SSH key pair that you can use with an Amazon Lightsail
    *       instance.</p>
    *          <note>
@@ -1674,6 +1756,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a Lightsail load balancer. To learn more about deciding whether to load balance
    *       your application, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing">Configure your Lightsail instances for load balancing</a>. You can create up to 5
    *       load balancers per AWS Region in your account.</p>
@@ -1713,6 +1796,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates an SSL/TLS certificate for an Amazon Lightsail load balancer.</p>
    *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
    *          <p>The <code>CreateLoadBalancerTlsCertificate</code> operation supports tag-based access
@@ -1749,6 +1833,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a new database in Amazon Lightsail.</p>
    *          <p>The <code>create relational database</code> operation supports tag-based access control
    *       via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -1783,6 +1868,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a new database from an existing database snapshot in Amazon Lightsail.</p>
    *          <p>You can create a new database from a snapshot in if something goes wrong with your
    *       original database, or to change it to a different plan, such as a high availability or
@@ -1821,6 +1907,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups,
    *       to make copies of a database, and to save data before deleting a database.</p>
    *          <p>The <code>create relational database snapshot</code> operation supports tag-based access
@@ -1856,6 +1943,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes an alarm.</p>
    *          <p>An alarm is used to monitor a single metric for one of your resources. When a metric
    *       condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
@@ -1886,6 +1974,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes an automatic snapshot of an instance or disk. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    */
   public deleteAutoSnapshot(
@@ -1918,6 +2007,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Amazon Lightsail bucket.</p>
    *          <note>
    *             <p>When you delete your bucket, the bucket name is released and can be reused for a new
@@ -1951,6 +2041,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes an access key for the specified Amazon Lightsail bucket.</p>
    *          <p>We recommend that you delete an access key if the secret access key is compromised.</p>
    *          <p>For more information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
@@ -1986,6 +2077,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes an SSL/TLS certificate for your Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
    *          <p>Certificates that are currently attached to a distribution cannot be deleted. Use the
@@ -2022,6 +2114,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a contact method.</p>
    *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
    *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
@@ -2058,6 +2151,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a container image that is registered to your Amazon Lightsail container
    *       service.</p>
    */
@@ -2091,6 +2185,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes your Amazon Lightsail container service.</p>
    */
   public deleteContainerService(
@@ -2123,6 +2218,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified block storage disk. The disk must be in the <code>available</code>
    *       state (not attached to a Lightsail instance).</p>
    *          <note>
@@ -2156,6 +2252,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified disk snapshot.</p>
    *          <p>When you make periodic snapshots of a disk, the snapshots are incremental, and only the
    *       blocks on the device that have changed since your last snapshot are saved in the new snapshot.
@@ -2196,6 +2293,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes your Amazon Lightsail content delivery network (CDN) distribution.</p>
    */
   public deleteDistribution(
@@ -2228,6 +2326,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified domain recordset and all of its domain records.</p>
    *          <p>The <code>delete domain</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>domain name</code>. For more information, see
@@ -2260,6 +2359,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specific domain entry.</p>
    *          <p>The <code>delete domain entry</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by <code>domain name</code>. For more
@@ -2295,6 +2395,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes an Amazon Lightsail instance.</p>
    *          <p>The <code>delete instance</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>instance name</code>. For more information,
@@ -2330,6 +2431,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specific snapshot of a virtual private server (or
    *       <i>instance</i>).</p>
    *          <p>The <code>delete instance snapshot</code> operation supports tag-based access control via
@@ -2366,6 +2468,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified key pair by removing the public key from Amazon Lightsail.</p>
    *          <p>You can delete key pairs that were created using the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html">ImportKeyPair</a> and
    *         <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html">CreateKeyPair</a> actions, as well as the Lightsail default key pair. A new default
@@ -2405,6 +2508,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes the known host key or certificate used by the Amazon Lightsail browser-based SSH or
    *       RDP clients to authenticate an instance. This operation enables the Lightsail browser-based
    *       SSH or RDP clients to connect to the instance after a host key mismatch.</p>
@@ -2445,6 +2549,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a Lightsail load balancer and all its associated SSL/TLS certificates. Once the
    *       load balancer is deleted, you will need to create a new load balancer, create a new
    *       certificate, and verify domain ownership again.</p>
@@ -2482,6 +2587,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes an SSL/TLS certificate associated with a Lightsail load balancer.</p>
    *          <p>The <code>DeleteLoadBalancerTlsCertificate</code> operation supports tag-based access
    *       control via resource tags applied to the resource identified by <code>load balancer
@@ -2517,6 +2623,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a database in Amazon Lightsail.</p>
    *          <p>The <code>delete relational database</code> operation supports tag-based access control
    *       via resource tags applied to the resource identified by relationalDatabaseName. For more
@@ -2552,6 +2659,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a database snapshot in Amazon Lightsail.</p>
    *          <p>The <code>delete relational database snapshot</code> operation supports tag-based access
    *       control via resource tags applied to the resource identified by relationalDatabaseName. For
@@ -2587,6 +2695,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Detaches an SSL/TLS certificate from your Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
    *          <p>After the certificate is detached, your distribution stops accepting traffic for all of
@@ -2622,6 +2731,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount
    *       any file systems on the device within your operating system before stopping the instance and
    *       detaching the disk.</p>
@@ -2653,6 +2763,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Detaches the specified instances from a Lightsail load balancer.</p>
    *          <p>This operation waits until the instances are no longer needed before they are detached
    *       from the load balancer.</p>
@@ -2690,6 +2801,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Detaches a static IP from the Amazon Lightsail instance to which it is attached.</p>
    */
   public detachStaticIp(
@@ -2722,6 +2834,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Disables an add-on for an Amazon Lightsail resource. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    */
   public disableAddOn(
@@ -2751,6 +2864,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Downloads the regional Amazon Lightsail default key pair.</p>
    *          <p>This action also creates a Lightsail default key pair if a default key pair
    *       does not currently exist in the Amazon Web Services Region.</p>
@@ -2785,6 +2899,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see
    *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    */
@@ -2812,6 +2927,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic Compute Cloud (Amazon EC2).
    *       This operation results in an export snapshot record that can be used with the <code>create
    *         cloud formation stack</code> operation to create new Amazon EC2 instances.</p>
@@ -2858,6 +2974,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the names of all active (not deleted) resources.</p>
    */
   public getActiveNames(
@@ -2890,6 +3007,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the configured alarms. Specify an alarm name in your request to
    *       return information about a specific alarm, or specify a monitored resource name to return
    *       information about all alarms for a specific resource.</p>
@@ -2922,6 +3040,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the available automatic snapshots for an instance or disk. For more information,
    *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    */
@@ -2955,6 +3074,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of available instance images, or <i>blueprints</i>. You can
    *       use a blueprint to create a new instance already running a specific operating system, as well
    *       as a preinstalled app or development stack. The software each instance is running depends on
@@ -2996,6 +3116,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the existing access key IDs for the specified Amazon Lightsail bucket.</p>
    *          <important>
    *             <p>This action does not return the secret access key value of an access key. You can get a
@@ -3033,6 +3154,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the bundles that you can apply to a Amazon Lightsail bucket.</p>
    *          <p>The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a
    *       bucket.</p>
@@ -3069,6 +3191,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the data points of a specific metric for an Amazon Lightsail bucket.</p>
    *          <p>Metrics report the utilization of a bucket. View and collect metric data regularly to
    *       monitor the number of objects stored in a bucket (including object versions) and the storage
@@ -3104,6 +3227,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about one or more Amazon Lightsail buckets. The information returned
    *       includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
    *       account-level block public access feature for your Lightsail buckets.</p>
@@ -3134,6 +3258,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the bundles that you can apply to an Amazon Lightsail instance when you create
    *       it.</p>
    *          <p>A bundle describes the specifications of an instance, such as the monthly cost, amount of
@@ -3168,6 +3293,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about one or more Amazon Lightsail SSL/TLS certificates.</p>
    *          <note>
    *             <p>To get a summary of a certificate, ommit <code>includeCertificateDetails</code> from
@@ -3205,6 +3331,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the CloudFormation stack record created as a result of the <code>create cloud
    *         formation stack</code> operation.</p>
    *          <p>An AWS CloudFormation stack is used to create a new Amazon EC2 instance from an exported Lightsail
@@ -3240,6 +3367,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the configured contact methods. Specify a protocol in your
    *       request to return information about a specific contact method.</p>
    *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
@@ -3277,6 +3405,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about Amazon Lightsail containers, such as the current version of the
    *       Lightsail Control (lightsailctl) plugin.</p>
    */
@@ -3310,6 +3439,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the container images that are registered to your Amazon Lightsail container
    *       service.</p>
    *          <note>
@@ -3348,6 +3478,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the log events of a container of your Amazon Lightsail container service.</p>
    *          <p>If your container service has more than one node (i.e., a scale greater than 1), then the
    *       log events that are returned for the specified container are merged from all nodes on your
@@ -3389,6 +3520,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the deployments for your Amazon Lightsail container service</p>
    *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
    *       that are deployed to your container service.</p>
@@ -3431,6 +3563,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the data points of a specific metric of your Amazon Lightsail container
    *       service.</p>
    *          <p>Metrics report the utilization of your resources. Monitor and collect metric data
@@ -3466,6 +3599,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of powers that can be specified for your Amazon Lightsail container
    *       services.</p>
    *          <p>The power specifies the amount of memory, the number of vCPUs, and the base price of the
@@ -3501,6 +3635,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about one or more of your Amazon Lightsail container services.</p>
    */
   public getContainerServices(
@@ -3533,6 +3668,40 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
+   * <p>Retrieves information about the cost estimate for a specified resource. A cost estimate will not generate for a resource that has been deleted.</p>
+   */
+  public getCostEstimate(
+    args: GetCostEstimateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostEstimateCommandOutput>;
+  public getCostEstimate(
+    args: GetCostEstimateCommandInput,
+    cb: (err: any, data?: GetCostEstimateCommandOutput) => void
+  ): void;
+  public getCostEstimate(
+    args: GetCostEstimateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostEstimateCommandOutput) => void
+  ): void;
+  public getCostEstimate(
+    args: GetCostEstimateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostEstimateCommandOutput) => void),
+    cb?: (err: any, data?: GetCostEstimateCommandOutput) => void
+  ): Promise<GetCostEstimateCommandOutput> | void {
+    const command = new GetCostEstimateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Returns information about a specific block storage disk.</p>
    */
   public getDisk(args: GetDiskCommandInput, options?: __HttpHandlerOptions): Promise<GetDiskCommandOutput>;
@@ -3559,6 +3728,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all block storage disks in your AWS account and region.</p>
    */
   public getDisks(args: GetDisksCommandInput, options?: __HttpHandlerOptions): Promise<GetDisksCommandOutput>;
@@ -3585,6 +3755,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific block storage disk snapshot.</p>
    */
   public getDiskSnapshot(
@@ -3617,6 +3788,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all block storage disk snapshots in your AWS account and
    *       region.</p>
    */
@@ -3650,6 +3822,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the bundles that can be applied to your Amazon Lightsail content delivery network
    *       (CDN) distributions.</p>
    *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
@@ -3685,6 +3858,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail
    *       content delivery network (CDN) distribution.</p>
    */
@@ -3718,6 +3892,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the data points of a specific metric for an Amazon Lightsail content delivery
    *       network (CDN) distribution.</p>
    *          <p>Metrics report the utilization of your resources, and the error counts generated by them.
@@ -3754,6 +3929,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about one or more of your Amazon Lightsail content delivery network
    *       (CDN) distributions.</p>
    */
@@ -3787,6 +3963,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific domain recordset.</p>
    */
   public getDomain(args: GetDomainCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainCommandOutput>;
@@ -3813,6 +3990,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all domains in the user's account.</p>
    */
   public getDomains(args: GetDomainsCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainsCommandOutput>;
@@ -3839,6 +4017,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns all export snapshot records created as a result of the <code>export
    *         snapshot</code> operation.</p>
    *          <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related
@@ -3875,6 +4054,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific Amazon Lightsail instance, which is a virtual private
    *       server.</p>
    */
@@ -3902,6 +4082,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns temporary SSH keys you can use to connect to a specific virtual private server, or
    *         <i>instance</i>.</p>
    *          <p>The <code>get instance access details</code> operation supports tag-based access control
@@ -3938,6 +4119,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the data points for the specified Amazon Lightsail instance metric, given an
    *       instance name.</p>
    *          <p>Metrics report the utilization of your resources, and the error counts generated by them.
@@ -3974,6 +4156,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the firewall port states for a specific Amazon Lightsail instance, the IP addresses
    *       allowed to connect to the instance through the ports, and the protocol.</p>
    */
@@ -4007,6 +4190,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all Amazon Lightsail virtual private servers, or
    *         <i>instances</i>.</p>
    */
@@ -4037,6 +4221,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific instance snapshot.</p>
    */
   public getInstanceSnapshot(
@@ -4069,6 +4254,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns all instance snapshots for the user's account.</p>
    */
   public getInstanceSnapshots(
@@ -4101,6 +4287,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the state of a specific instance. Works on one instance at a time.</p>
    */
   public getInstanceState(
@@ -4133,6 +4320,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific key pair.</p>
    */
   public getKeyPair(args: GetKeyPairCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyPairCommandOutput>;
@@ -4159,6 +4347,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all key pairs in the user's account.</p>
    */
   public getKeyPairs(args: GetKeyPairsCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyPairsCommandOutput>;
@@ -4185,6 +4374,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the specified Lightsail load balancer.</p>
    */
   public getLoadBalancer(
@@ -4217,6 +4407,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about health metrics for your Lightsail load balancer.</p>
    *          <p>Metrics report the utilization of your resources, and the error counts generated by them.
    *       Monitor and collect metric data regularly to maintain the reliability, availability, and
@@ -4252,6 +4443,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all load balancers in an account.</p>
    */
   public getLoadBalancers(
@@ -4284,6 +4476,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the TLS certificates that are associated with the specified
    *       Lightsail load balancer.</p>
    *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
@@ -4320,6 +4513,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of TLS security policies that you can apply to Lightsail load
    *       balancers.</p>
    *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
@@ -4355,6 +4549,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific operation. Operations include events such as when you
    *       create an instance, allocate a static IP, attach a static IP, and so on.</p>
    */
@@ -4385,6 +4580,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all operations.</p>
    *          <p>Results are returned from oldest to newest, up to a maximum of 200. Results can be paged
    *       by making each subsequent call to <code>GetOperations</code> use the maximum (last)
@@ -4420,6 +4616,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Gets operations for a specific resource (e.g., an instance or a static IP).</p>
    */
   public getOperationsForResource(
@@ -4452,6 +4649,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all valid regions for Amazon Lightsail. Use the <code>include
    *         availability zones</code> parameter to also return the Availability Zones in a
    *       region.</p>
@@ -4480,6 +4678,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific database in Amazon Lightsail.</p>
    */
   public getRelationalDatabase(
@@ -4512,6 +4711,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of available database blueprints in Amazon Lightsail. A blueprint describes
    *       the major engine version of a database.</p>
    *          <p>You can use a blueprint ID to create a new database that runs a specific database
@@ -4547,6 +4747,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the list of bundles that are available in Amazon Lightsail. A bundle describes the
    *       performance specifications for a database.</p>
    *          <p>You can use a bundle ID to create a new database with explicit performance
@@ -4582,6 +4783,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of events for a specific database in Amazon Lightsail.</p>
    */
   public getRelationalDatabaseEvents(
@@ -4614,6 +4816,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of log events for a database in Amazon Lightsail.</p>
    */
   public getRelationalDatabaseLogEvents(
@@ -4646,6 +4849,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of available log streams for a specific database in Amazon Lightsail.</p>
    */
   public getRelationalDatabaseLogStreams(
@@ -4678,6 +4882,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the current, previous, or pending versions of the master user password for a
    *       Lightsail database.</p>
    *          <p>The <code>GetRelationalDatabaseMasterUserPassword</code> operation supports tag-based
@@ -4716,6 +4921,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns the data points of the specified metric for a database in Amazon Lightsail.</p>
    *          <p>Metrics report the utilization of your resources, and the error counts generated by them.
    *       Monitor and collect metric data regularly to maintain the reliability, availability, and
@@ -4751,6 +4957,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns all of the runtime parameters offered by the underlying database software, or
    *       engine, for a specific database in Amazon Lightsail.</p>
    *          <p>In addition to the parameter names and values, this operation returns other information
@@ -4787,6 +4994,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all of your databases in Amazon Lightsail.</p>
    */
   public getRelationalDatabases(
@@ -4819,6 +5027,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific database snapshot in Amazon Lightsail.</p>
    */
   public getRelationalDatabaseSnapshot(
@@ -4851,6 +5060,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all of your database snapshots in Amazon Lightsail.</p>
    */
   public getRelationalDatabaseSnapshots(
@@ -4883,6 +5093,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about an Amazon Lightsail static IP.</p>
    */
   public getStaticIp(args: GetStaticIpCommandInput, options?: __HttpHandlerOptions): Promise<GetStaticIpCommandOutput>;
@@ -4909,6 +5120,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all static IPs in the user's account.</p>
    */
   public getStaticIps(
@@ -4938,6 +5150,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Imports a public SSH key from a specific key pair.</p>
    */
   public importKeyPair(
@@ -4970,6 +5183,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>
    */
   public isVpcPeered(args: IsVpcPeeredCommandInput, options?: __HttpHandlerOptions): Promise<IsVpcPeeredCommandOutput>;
@@ -4996,6 +5210,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses
    *       allowed to connect to the instance through the ports, and the protocol.</p>
    *          <p>The <code>OpenInstancePublicPorts</code> action supports tag-based access control via
@@ -5032,6 +5247,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Peers the Lightsail VPC with the user's default VPC.</p>
    */
   public peerVpc(args: PeerVpcCommandInput, options?: __HttpHandlerOptions): Promise<PeerVpcCommandOutput>;
@@ -5058,6 +5274,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates an alarm, and associates it with the specified metric.</p>
    *          <p>An alarm is used to monitor a single metric for one of your resources. When a metric
    *       condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
@@ -5094,6 +5311,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses
    *       allowed to connect to the instance through the ports, and the protocol. This action also
    *       closes all currently open ports that are not included in the request. Include all of the ports
@@ -5134,6 +5352,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Restarts a specific instance.</p>
    *          <p>The <code>reboot instance</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>instance name</code>. For more information,
@@ -5169,6 +5388,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Restarts a specific database in Amazon Lightsail.</p>
    *          <p>The <code>reboot relational database</code> operation supports tag-based access control
    *       via resource tags applied to the resource identified by relationalDatabaseName. For more
@@ -5204,6 +5424,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Registers a container image to your Amazon Lightsail container service.</p>
    *          <note>
    *             <p>This action is not required if you install and use the Lightsail Control
@@ -5242,6 +5463,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes a specific static IP from your account.</p>
    */
   public releaseStaticIp(
@@ -5274,6 +5496,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes currently cached content from your Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
    *          <p>After resetting the cache, the next time a content request is made, your distribution
@@ -5309,6 +5532,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Sends a verification request to an email contact method to ensure it's owned by the
    *       requester. SMS contact methods don't need to be verified.</p>
    *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
@@ -5353,6 +5577,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Sets the IP address type for an Amazon Lightsail resource.</p>
    *          <p>Use this action to enable dual-stack for a resource, which enables IPv4 and IPv6 for the
    *       specified resource. Alternately, you can use this action to disable dual-stack, and enable
@@ -5388,6 +5613,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Sets the Amazon Lightsail resources that can access the specified Lightsail
    *       bucket.</p>
    *          <p>Lightsail buckets currently support setting access for Lightsail instances in the same
@@ -5423,6 +5649,41 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
+   * <p>Initiates a graphical user interface (GUI) session that’s used to access a virtual
+   *       computer’s operating system and application. The session will be active for 1 hour. Use this action to resume the session after it expires. </p>
+   */
+  public startGUISession(
+    args: StartGUISessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartGUISessionCommandOutput>;
+  public startGUISession(
+    args: StartGUISessionCommandInput,
+    cb: (err: any, data?: StartGUISessionCommandOutput) => void
+  ): void;
+  public startGUISession(
+    args: StartGUISessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartGUISessionCommandOutput) => void
+  ): void;
+  public startGUISession(
+    args: StartGUISessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartGUISessionCommandOutput) => void),
+    cb?: (err: any, data?: StartGUISessionCommandOutput) => void
+  ): Promise<StartGUISessionCommandOutput> | void {
+    const command = new StartGUISessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance,
    *       use the <code>reboot instance</code> operation.</p>
    *          <note>
@@ -5464,6 +5725,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Starts a specific database from a stopped state in Amazon Lightsail. To restart a database,
    *       use the <code>reboot relational database</code> operation.</p>
    *          <p>The <code>start relational database</code> operation supports tag-based access control via
@@ -5500,6 +5762,41 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
+   * <p>Terminates a web-based NICE DCV session that’s used to access a virtual computer’s
+   *       operating system or application. The session will close and any unsaved data will be lost.</p>
+   */
+  public stopGUISession(
+    args: StopGUISessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopGUISessionCommandOutput>;
+  public stopGUISession(
+    args: StopGUISessionCommandInput,
+    cb: (err: any, data?: StopGUISessionCommandOutput) => void
+  ): void;
+  public stopGUISession(
+    args: StopGUISessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopGUISessionCommandOutput) => void
+  ): void;
+  public stopGUISession(
+    args: StopGUISessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopGUISessionCommandOutput) => void),
+    cb?: (err: any, data?: StopGUISessionCommandOutput) => void
+  ): Promise<StopGUISessionCommandOutput> | void {
+    const command = new StopGUISessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Stops a specific Amazon Lightsail instance that is currently running.</p>
    *          <note>
    *             <p>When you start a stopped instance, Lightsail assigns a new public IP address to the
@@ -5537,6 +5834,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Stops a specific database that is currently running in Amazon Lightsail.</p>
    *          <p>The <code>stop relational database</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by relationalDatabaseName. For more
@@ -5572,6 +5870,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Adds one or more tags to the specified Amazon Lightsail resource. Each resource can have a
    *       maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys must be unique
    *       per resource. For more information about tags, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -5603,6 +5902,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Tests an alarm by displaying a banner on the Amazon Lightsail console. If a notification
    *       trigger is configured for the specified alarm, the test also sends a notification to the
    *       notification protocol (<code>Email</code> and/or <code>SMS</code>) configured for the
@@ -5636,6 +5936,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Unpeers the Lightsail VPC from the user's default VPC.</p>
    */
   public unpeerVpc(args: UnpeerVpcCommandInput, options?: __HttpHandlerOptions): Promise<UnpeerVpcCommandOutput>;
@@ -5662,6 +5963,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified set of tag keys and their values from the specified Amazon Lightsail
    *       resource.</p>
    *          <p>The <code>untag resource</code> operation supports tag-based access control via request
@@ -5698,6 +6000,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing Amazon Lightsail bucket.</p>
    *          <p>Use this action to update the configuration of an existing bucket, such as versioning,
    *       public accessibility, and the Amazon Web Services accounts that can access the bucket.</p>
@@ -5729,6 +6032,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.</p>
    *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
    *       bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services
@@ -5773,6 +6077,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration of your Amazon Lightsail container service, such as its power,
    *       scale, and public domain names.</p>
    */
@@ -5806,6 +6111,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing Amazon Lightsail content delivery network (CDN) distribution.</p>
    *          <p>Use this action to update the configuration of your existing distribution.</p>
    */
@@ -5839,6 +6145,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Updates the bundle of your Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
    *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
@@ -5879,6 +6186,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Updates a domain recordset after it is created.</p>
    *          <p>The <code>update domain entry</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by <code>domain name</code>. For more
@@ -5914,6 +6222,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Modifies the Amazon Lightsail instance metadata parameters on a running or stopped
    *       instance. When you modify the parameters on a running instance, the <code>GetInstance</code>
    *       or <code>GetInstances</code> API operation initially responds with a state of
@@ -5951,6 +6260,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified attribute for a load balancer. You can only update one attribute at
    *       a time.</p>
    *          <p>The <code>update load balancer attribute</code> operation supports tag-based access
@@ -5987,6 +6297,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Allows the update of one or more attributes of a database in Amazon Lightsail.</p>
    *          <p>Updates are applied immediately, or in cases where the updates could result in an outage,
    *       are applied during the database's predefined maintenance window.</p>
@@ -6024,6 +6335,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * @public
    * <p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p>
    *          <p>Parameter updates don't cause outages; therefore, their application is not subject to the
    *       preferred maintenance window. However, there are two ways in which parameter updates are

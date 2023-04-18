@@ -17,20 +17,30 @@ import {
   DescribeResourcePermissionsRequest,
   DescribeResourcePermissionsRequestFilterSensitiveLog,
   DescribeResourcePermissionsResponse,
-  DescribeResourcePermissionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeResourcePermissionsCommand,
-  serializeAws_restJson1DescribeResourcePermissionsCommand,
+  de_DescribeResourcePermissionsCommand,
+  se_DescribeResourcePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeResourcePermissionsCommand}.
+ */
 export interface DescribeResourcePermissionsCommandInput extends DescribeResourcePermissionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeResourcePermissionsCommand}.
+ */
 export interface DescribeResourcePermissionsCommandOutput
   extends DescribeResourcePermissionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions of a specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +48,40 @@ export interface DescribeResourcePermissionsCommandOutput
  * import { WorkDocsClient, DescribeResourcePermissionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeResourcePermissionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DescribeResourcePermissionsRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE", // required
+ *   PrincipalId: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeResourcePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourcePermissionsCommandInput - {@link DescribeResourcePermissionsCommandInput}
+ * @returns {@link DescribeResourcePermissionsCommandOutput}
  * @see {@link DescribeResourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The pagination marker or limit fields are not valid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
  *
  */
 export class DescribeResourcePermissionsCommand extends $Command<
@@ -64,6 +101,9 @@ export class DescribeResourcePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourcePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +133,7 @@ export class DescribeResourcePermissionsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DescribeResourcePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeResourcePermissionsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +143,21 @@ export class DescribeResourcePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeResourcePermissionsCommand(input, context);
+    return se_DescribeResourcePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeResourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeResourcePermissionsCommand(output, context);
+    return de_DescribeResourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

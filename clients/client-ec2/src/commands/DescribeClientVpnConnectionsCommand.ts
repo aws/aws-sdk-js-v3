@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeClientVpnConnectionsRequest,
-  DescribeClientVpnConnectionsRequestFilterSensitiveLog,
-  DescribeClientVpnConnectionsResult,
-  DescribeClientVpnConnectionsResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeClientVpnConnectionsCommand,
-  serializeAws_ec2DescribeClientVpnConnectionsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeClientVpnConnectionsRequest, DescribeClientVpnConnectionsResult } from "../models/models_3";
+import { de_DescribeClientVpnConnectionsCommand, se_DescribeClientVpnConnectionsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeClientVpnConnectionsCommand}.
+ */
 export interface DescribeClientVpnConnectionsCommandInput extends DescribeClientVpnConnectionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeClientVpnConnectionsCommand}.
+ */
 export interface DescribeClientVpnConnectionsCommandOutput
   extends DescribeClientVpnConnectionsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes active client connections and connections that have been terminated within the last 60
  * 			minutes for the specified Client VPN endpoint.</p>
  * @example
@@ -39,13 +42,30 @@ export interface DescribeClientVpnConnectionsCommandOutput
  * import { EC2Client, DescribeClientVpnConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeClientVpnConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeClientVpnConnectionsRequest
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeClientVpnConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientVpnConnectionsCommandInput - {@link DescribeClientVpnConnectionsCommandInput}
+ * @returns {@link DescribeClientVpnConnectionsCommandOutput}
  * @see {@link DescribeClientVpnConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeClientVpnConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeClientVpnConnectionsCommand extends $Command<
@@ -65,6 +85,9 @@ export class DescribeClientVpnConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientVpnConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +116,8 @@ export class DescribeClientVpnConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClientVpnConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClientVpnConnectionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +127,21 @@ export class DescribeClientVpnConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClientVpnConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeClientVpnConnectionsCommand(input, context);
+    return se_DescribeClientVpnConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClientVpnConnectionsCommandOutput> {
-    return deserializeAws_ec2DescribeClientVpnConnectionsCommand(output, context);
+    return de_DescribeClientVpnConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

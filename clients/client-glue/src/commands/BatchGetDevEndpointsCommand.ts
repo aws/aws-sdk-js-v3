@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchGetDevEndpointsRequest,
-  BatchGetDevEndpointsRequestFilterSensitiveLog,
-  BatchGetDevEndpointsResponse,
-  BatchGetDevEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetDevEndpointsCommand,
-  serializeAws_json1_1BatchGetDevEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetDevEndpointsRequest, BatchGetDevEndpointsResponse } from "../models/models_0";
+import { de_BatchGetDevEndpointsCommand, se_BatchGetDevEndpointsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetDevEndpointsCommand}.
+ */
 export interface BatchGetDevEndpointsCommandInput extends BatchGetDevEndpointsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetDevEndpointsCommand}.
+ */
 export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of resource metadata for a given list of development endpoint names. After
  *       calling the <code>ListDevEndpoints</code> operation, you can call this operation to access the
  *       data to which you have been granted permissions. This operation supports all IAM permissions,
@@ -39,13 +42,33 @@ export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsR
  * import { GlueClient, BatchGetDevEndpointsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetDevEndpointsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchGetDevEndpointsRequest
+ *   DevEndpointNames: [ // DevEndpointNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetDevEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDevEndpointsCommandInput - {@link BatchGetDevEndpointsCommandInput}
+ * @returns {@link BatchGetDevEndpointsCommandOutput}
  * @see {@link BatchGetDevEndpointsCommandInput} for command's `input` shape.
  * @see {@link BatchGetDevEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class BatchGetDevEndpointsCommand extends $Command<
@@ -65,6 +88,9 @@ export class BatchGetDevEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDevEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +119,8 @@ export class BatchGetDevEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetDevEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetDevEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +130,18 @@ export class BatchGetDevEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDevEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetDevEndpointsCommand(input, context);
+    return se_BatchGetDevEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDevEndpointsCommandOutput> {
-    return deserializeAws_json1_1BatchGetDevEndpointsCommand(output, context);
+    return de_BatchGetDevEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

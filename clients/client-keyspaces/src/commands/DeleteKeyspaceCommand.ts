@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import {
-  DeleteKeyspaceRequest,
-  DeleteKeyspaceRequestFilterSensitiveLog,
-  DeleteKeyspaceResponse,
-  DeleteKeyspaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteKeyspaceCommand,
-  serializeAws_json1_0DeleteKeyspaceCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteKeyspaceRequest, DeleteKeyspaceResponse } from "../models/models_0";
+import { de_DeleteKeyspaceCommand, se_DeleteKeyspaceCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteKeyspaceCommand}.
+ */
 export interface DeleteKeyspaceCommandInput extends DeleteKeyspaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteKeyspaceCommand}.
+ */
 export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>DeleteKeyspace</code> operation deletes a keyspace and all of its tables. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  * import { KeyspacesClient, DeleteKeyspaceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, DeleteKeyspaceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = { // DeleteKeyspaceRequest
+ *   keyspaceName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteKeyspaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteKeyspaceCommandInput - {@link DeleteKeyspaceCommandInput}
+ * @returns {@link DeleteKeyspaceCommandOutput}
  * @see {@link DeleteKeyspaceCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyspaceCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Amazon Keyspaces could not complete the requested action. This error may occur if you try to
+ *          perform an action and the same or a different action is already
+ *          in progress, or if you try to create a resource that already exists. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
+ *             Guide</i>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation failed due to an invalid or malformed request.</p>
+ *
  *
  */
 export class DeleteKeyspaceCommand extends $Command<
@@ -62,6 +92,9 @@ export class DeleteKeyspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKeyspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class DeleteKeyspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteKeyspaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteKeyspaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class DeleteKeyspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKeyspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteKeyspaceCommand(input, context);
+    return se_DeleteKeyspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyspaceCommandOutput> {
-    return deserializeAws_json1_0DeleteKeyspaceCommand(output, context);
+    return de_DeleteKeyspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,18 @@
 import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
 import { Encoder, Message } from "@aws-sdk/types";
 
+/**
+ * @internal
+ */
 export type UnmarshalledStreamOptions<T> = {
   eventStreamCodec: EventStreamCodec;
   deserializer: (input: Record<string, Message>) => Promise<T>;
   toUtf8: Encoder;
 };
 
+/**
+ * @internal
+ */
 export function getUnmarshalledStream<T extends Record<string, any>>(
   source: AsyncIterable<Uint8Array>,
   options: UnmarshalledStreamOptions<T>

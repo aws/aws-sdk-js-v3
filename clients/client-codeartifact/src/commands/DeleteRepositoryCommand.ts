@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  DeleteRepositoryRequest,
-  DeleteRepositoryRequestFilterSensitiveLog,
-  DeleteRepositoryResult,
-  DeleteRepositoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRepositoryCommand,
-  serializeAws_restJson1DeleteRepositoryCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRepositoryRequest, DeleteRepositoryResult } from "../models/models_0";
+import { de_DeleteRepositoryCommand, se_DeleteRepositoryCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRepositoryCommand}.
+ */
 export interface DeleteRepositoryCommandInput extends DeleteRepositoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRepositoryCommand}.
+ */
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Deletes a repository.
  *        </p>
@@ -38,13 +41,49 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  * import { CodeartifactClient, DeleteRepositoryCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DeleteRepositoryCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // DeleteRepositoryRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRepositoryCommandInput - {@link DeleteRepositoryCommandInput}
+ * @returns {@link DeleteRepositoryCommandOutput}
  * @see {@link DeleteRepositoryCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *         The operation did not succeed because of an unauthorized access attempt.
+ *       </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>
+ *         The operation did not succeed because prerequisites are not met.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *       The operation did not succeed because the resource requested is not found in the service.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The operation did not succeed because too many requests are sent to the service.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *       The operation did not succeed because a parameter in the request was sent with an invalid value.
+ *     </p>
+ *
  *
  */
 export class DeleteRepositoryCommand extends $Command<
@@ -64,6 +103,9 @@ export class DeleteRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +134,8 @@ export class DeleteRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRepositoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRepositoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +145,18 @@ export class DeleteRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRepositoryCommand(input, context);
+    return se_DeleteRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRepositoryCommandOutput> {
-    return deserializeAws_restJson1DeleteRepositoryCommand(output, context);
+    return de_DeleteRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

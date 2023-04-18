@@ -16,19 +16,26 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   CreateProvisioningClaimRequest,
-  CreateProvisioningClaimRequestFilterSensitiveLog,
   CreateProvisioningClaimResponse,
   CreateProvisioningClaimResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProvisioningClaimCommand,
-  serializeAws_restJson1CreateProvisioningClaimCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateProvisioningClaimCommand, se_CreateProvisioningClaimCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateProvisioningClaimCommand}.
+ */
 export interface CreateProvisioningClaimCommandInput extends CreateProvisioningClaimRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateProvisioningClaimCommand}.
+ */
 export interface CreateProvisioningClaimCommandOutput extends CreateProvisioningClaimResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a provisioning claim.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningClaim</a> action.</p>
  * @example
@@ -37,13 +44,37 @@ export interface CreateProvisioningClaimCommandOutput extends CreateProvisioning
  * import { IoTClient, CreateProvisioningClaimCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateProvisioningClaimCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateProvisioningClaimRequest
+ *   templateName: "STRING_VALUE", // required
+ * };
  * const command = new CreateProvisioningClaimCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProvisioningClaimCommandInput - {@link CreateProvisioningClaimCommandInput}
+ * @returns {@link CreateProvisioningClaimCommandOutput}
  * @see {@link CreateProvisioningClaimCommandInput} for command's `input` shape.
  * @see {@link CreateProvisioningClaimCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class CreateProvisioningClaimCommand extends $Command<
@@ -63,6 +94,9 @@ export class CreateProvisioningClaimCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProvisioningClaimCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +125,7 @@ export class CreateProvisioningClaimCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProvisioningClaimRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateProvisioningClaimResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -102,12 +136,18 @@ export class CreateProvisioningClaimCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProvisioningClaimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProvisioningClaimCommand(input, context);
+    return se_CreateProvisioningClaimCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProvisioningClaimCommandOutput> {
-    return deserializeAws_restJson1CreateProvisioningClaimCommand(output, context);
+    return de_CreateProvisioningClaimCommand(output, context);
   }
 
   // Start section: command_body_extra

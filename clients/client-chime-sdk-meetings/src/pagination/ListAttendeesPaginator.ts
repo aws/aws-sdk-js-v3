@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ChimeSDKMeetings } from "../ChimeSDKMeetings";
 import { ChimeSDKMeetingsClient } from "../ChimeSDKMeetingsClient";
 import {
   ListAttendeesCommand,
@@ -11,7 +10,7 @@ import {
 import { ChimeSDKMeetingsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeSDKMeetingsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAttendeesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ChimeSDKMeetings,
-  input: ListAttendeesCommandInput,
-  ...args: any
-): Promise<ListAttendeesCommandOutput> => {
-  // @ts-ignore
-  return await client.listAttendees(input, ...args);
-};
 export async function* paginateListAttendees(
   config: ChimeSDKMeetingsPaginationConfiguration,
   input: ListAttendeesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListAttendees(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ChimeSDKMeetings) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ChimeSDKMeetingsClient) {
+    if (config.client instanceof ChimeSDKMeetingsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ChimeSDKMeetings | ChimeSDKMeetingsClient");

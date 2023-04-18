@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyAccountRequest,
-  ModifyAccountRequestFilterSensitiveLog,
-  ModifyAccountResult,
-  ModifyAccountResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyAccountCommand,
-  serializeAws_json1_1ModifyAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifyAccountRequest, ModifyAccountResult } from "../models/models_0";
+import { de_ModifyAccountCommand, se_ModifyAccountCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyAccountCommand}.
+ */
 export interface ModifyAccountCommandInput extends ModifyAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyAccountCommand}.
+ */
 export interface ModifyAccountCommandOutput extends ModifyAccountResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the configuration of Bring Your Own License (BYOL) for the specified
  *          account.</p>
  * @example
@@ -37,13 +40,35 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  * import { WorkSpacesClient, ModifyAccountCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyAccountCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // ModifyAccountRequest
+ *   DedicatedTenancySupport: "ENABLED",
+ *   DedicatedTenancyManagementCidrRange: "STRING_VALUE",
+ * };
  * const command = new ModifyAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyAccountCommandInput - {@link ModifyAccountCommandInput}
+ * @returns {@link ModifyAccountCommandOutput}
  * @see {@link ModifyAccountCommandInput} for command's `input` shape.
  * @see {@link ModifyAccountCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>The specified resource is not available.</p>
+ *
  *
  */
 export class ModifyAccountCommand extends $Command<
@@ -63,6 +88,9 @@ export class ModifyAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +117,8 @@ export class ModifyAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyAccountResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +128,18 @@ export class ModifyAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyAccountCommand(input, context);
+    return se_ModifyAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyAccountCommandOutput> {
-    return deserializeAws_json1_1ModifyAccountCommand(output, context);
+    return de_ModifyAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

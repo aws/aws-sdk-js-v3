@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateProfileRequest,
-  UpdateProfileRequestFilterSensitiveLog,
-  UpdateProfileResponse,
-  UpdateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProfileCommand,
-  serializeAws_json1_1UpdateProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_0";
+import { de_UpdateProfileCommand, se_UpdateProfileCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateProfileCommand}.
+ */
 export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateProfileCommand}.
+ */
 export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates some of the parameters for an existing profile. Provide the <code>ProfileId</code>
  *       for the profile that you want to update, along with the new values for the parameters to
  *       update.</p>
@@ -38,13 +41,38 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * import { TransferClient, UpdateProfileCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateProfileCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // UpdateProfileRequest
+ *   ProfileId: "STRING_VALUE", // required
+ *   CertificateIds: [ // CertificateIds
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProfileCommandInput - {@link UpdateProfileCommandInput}
+ * @returns {@link UpdateProfileCommandOutput}
  * @see {@link UpdateProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class UpdateProfileCommand extends $Command<
@@ -64,6 +92,9 @@ export class UpdateProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class UpdateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class UpdateProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProfileCommand(input, context);
+    return se_UpdateProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProfileCommandOutput> {
-    return deserializeAws_json1_1UpdateProfileCommand(output, context);
+    return de_UpdateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

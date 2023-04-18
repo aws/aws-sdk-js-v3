@@ -294,11 +294,13 @@ import {
 import { OmicsClient } from "./OmicsClient";
 
 /**
+ * @public
  * <p>This is the <i>Amazon Omics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is Amazon Omics?</a> in the
  *       <i>Amazon Omics Developer Guide</i>.</p>
  */
 export class Omics extends OmicsClient {
   /**
+   * @public
    * <p>Deletes one or more read sets.</p>
    */
   public batchDeleteReadSet(
@@ -331,6 +333,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Cancels an annotation import job.</p>
    */
   public cancelAnnotationImportJob(
@@ -363,6 +366,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Cancels a run.</p>
    */
   public cancelRun(args: CancelRunCommandInput, options?: __HttpHandlerOptions): Promise<CancelRunCommandOutput>;
@@ -389,6 +393,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Cancels a variant import job.</p>
    */
   public cancelVariantImportJob(
@@ -421,6 +426,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Creates an annotation store.</p>
    */
   public createAnnotationStore(
@@ -453,6 +459,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Creates a reference store.</p>
    */
   public createReferenceStore(
@@ -485,6 +492,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Creates a run group.</p>
    */
   public createRunGroup(
@@ -517,6 +525,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Creates a sequence store.</p>
    */
   public createSequenceStore(
@@ -549,6 +558,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Creates a variant store.</p>
    */
   public createVariantStore(
@@ -581,6 +591,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Creates a workflow.</p>
    */
   public createWorkflow(
@@ -613,6 +624,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Deletes an annotation store.</p>
    */
   public deleteAnnotationStore(
@@ -645,6 +657,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a genome reference.</p>
    */
   public deleteReference(
@@ -677,6 +690,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a genome reference store.</p>
    */
   public deleteReferenceStore(
@@ -709,6 +723,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a workflow run.</p>
    */
   public deleteRun(args: DeleteRunCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRunCommandOutput>;
@@ -735,6 +750,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a workflow run group.</p>
    */
   public deleteRunGroup(
@@ -767,6 +783,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a sequence store.</p>
    */
   public deleteSequenceStore(
@@ -799,6 +816,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a variant store.</p>
    */
   public deleteVariantStore(
@@ -831,6 +849,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a workflow.</p>
    */
   public deleteWorkflow(
@@ -863,6 +882,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an annotation import job.</p>
    */
   public getAnnotationImportJob(
@@ -895,6 +915,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about an annotation store.</p>
    */
   public getAnnotationStore(
@@ -927,6 +948,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets a file from a read set.</p>
    */
   public getReadSet(args: GetReadSetCommandInput, options?: __HttpHandlerOptions): Promise<GetReadSetCommandOutput>;
@@ -953,6 +975,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a read set activation job.</p>
    */
   public getReadSetActivationJob(
@@ -985,6 +1008,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a read set export job.</p>
    */
   public getReadSetExportJob(
@@ -1017,6 +1041,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a read set import job.</p>
    */
   public getReadSetImportJob(
@@ -1049,6 +1074,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets details about a read set.</p>
    */
   public getReadSetMetadata(
@@ -1081,6 +1107,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets a reference file.</p>
    */
   public getReference(
@@ -1110,6 +1137,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a reference import job.</p>
    */
   public getReferenceImportJob(
@@ -1142,6 +1170,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a genome reference's metadata.</p>
    */
   public getReferenceMetadata(
@@ -1174,6 +1203,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a reference store.</p>
    */
   public getReferenceStore(
@@ -1206,6 +1236,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a workflow run.</p>
    */
   public getRun(args: GetRunCommandInput, options?: __HttpHandlerOptions): Promise<GetRunCommandOutput>;
@@ -1232,6 +1263,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a workflow run group.</p>
    */
   public getRunGroup(args: GetRunGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetRunGroupCommandOutput>;
@@ -1258,6 +1290,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a workflow run task.</p>
    */
   public getRunTask(args: GetRunTaskCommandInput, options?: __HttpHandlerOptions): Promise<GetRunTaskCommandOutput>;
@@ -1284,6 +1317,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a sequence store.</p>
    */
   public getSequenceStore(
@@ -1316,6 +1350,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a variant import job.</p>
    */
   public getVariantImportJob(
@@ -1348,6 +1383,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a variant store.</p>
    */
   public getVariantStore(
@@ -1380,6 +1416,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Gets information about a workflow.</p>
    */
   public getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
@@ -1406,6 +1443,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of annotation import jobs.</p>
    */
   public listAnnotationImportJobs(
@@ -1438,6 +1476,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of annotation stores.</p>
    */
   public listAnnotationStores(
@@ -1470,6 +1509,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of read set activation jobs.</p>
    */
   public listReadSetActivationJobs(
@@ -1502,6 +1542,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of read set export jobs.</p>
    */
   public listReadSetExportJobs(
@@ -1534,6 +1575,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of read set import jobs.</p>
    */
   public listReadSetImportJobs(
@@ -1566,6 +1608,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of read sets.</p>
    */
   public listReadSets(
@@ -1595,6 +1638,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of reference import jobs.</p>
    */
   public listReferenceImportJobs(
@@ -1627,6 +1671,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of references.</p>
    */
   public listReferences(
@@ -1659,6 +1704,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of reference stores.</p>
    */
   public listReferenceStores(
@@ -1691,6 +1737,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of run groups.</p>
    */
   public listRunGroups(
@@ -1723,6 +1770,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of runs.</p>
    */
   public listRuns(args: ListRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListRunsCommandOutput>;
@@ -1749,6 +1797,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of tasks for a run.</p>
    */
   public listRunTasks(
@@ -1778,6 +1827,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of sequence stores.</p>
    */
   public listSequenceStores(
@@ -1810,6 +1860,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of tags for a resource.</p>
    */
   public listTagsForResource(
@@ -1842,6 +1893,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of variant import jobs.</p>
    */
   public listVariantImportJobs(
@@ -1874,6 +1926,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of variant stores.</p>
    */
   public listVariantStores(
@@ -1906,6 +1959,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of workflows.</p>
    */
   public listWorkflows(
@@ -1938,6 +1992,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Starts an annotation import job.</p>
    */
   public startAnnotationImportJob(
@@ -1970,7 +2025,9 @@ export class Omics extends OmicsClient {
   }
 
   /**
-   * <p>Starts a read set activation job.</p>
+   * @public
+   * <p>Activates an archived read set. To reduce storage charges, Amazon Omics archives unused read
+   *        sets after 30 days.</p>
    */
   public startReadSetActivationJob(
     args: StartReadSetActivationJobCommandInput,
@@ -2002,7 +2059,8 @@ export class Omics extends OmicsClient {
   }
 
   /**
-   * <p>Starts a read set export job.</p>
+   * @public
+   * <p>Exports a read set to Amazon S3.</p>
    */
   public startReadSetExportJob(
     args: StartReadSetExportJobCommandInput,
@@ -2034,6 +2092,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Starts a read set import job.</p>
    */
   public startReadSetImportJob(
@@ -2066,6 +2125,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Starts a reference import job.</p>
    */
   public startReferenceImportJob(
@@ -2098,6 +2158,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Starts a run.</p>
    */
   public startRun(args: StartRunCommandInput, options?: __HttpHandlerOptions): Promise<StartRunCommandOutput>;
@@ -2124,6 +2185,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Starts a variant import job.</p>
    */
   public startVariantImportJob(
@@ -2156,6 +2218,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Tags a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2182,6 +2245,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a resource.</p>
    */
   public untagResource(
@@ -2214,6 +2278,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Updates an annotation store.</p>
    */
   public updateAnnotationStore(
@@ -2246,6 +2311,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Updates a run group.</p>
    */
   public updateRunGroup(
@@ -2278,6 +2344,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Updates a variant store.</p>
    */
   public updateVariantStore(
@@ -2310,6 +2377,7 @@ export class Omics extends OmicsClient {
   }
 
   /**
+   * @public
    * <p>Updates a workflow.</p>
    */
   public updateWorkflow(

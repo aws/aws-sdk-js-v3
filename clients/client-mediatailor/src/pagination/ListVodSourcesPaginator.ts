@@ -6,12 +6,11 @@ import {
   ListVodSourcesCommandInput,
   ListVodSourcesCommandOutput,
 } from "../commands/ListVodSourcesCommand";
-import { MediaTailor } from "../MediaTailor";
 import { MediaTailorClient } from "../MediaTailorClient";
 import { MediaTailorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaTailorClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListVodSourcesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MediaTailor,
-  input: ListVodSourcesCommandInput,
-  ...args: any
-): Promise<ListVodSourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listVodSources(input, ...args);
-};
 export async function* paginateListVodSources(
   config: MediaTailorPaginationConfiguration,
   input: ListVodSourcesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListVodSources(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaTailor) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaTailorClient) {
+    if (config.client instanceof MediaTailorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaTailor | MediaTailorClient");

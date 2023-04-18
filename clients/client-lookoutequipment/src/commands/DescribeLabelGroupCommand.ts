@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  DescribeLabelGroupRequest,
-  DescribeLabelGroupRequestFilterSensitiveLog,
-  DescribeLabelGroupResponse,
-  DescribeLabelGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeLabelGroupCommand,
-  serializeAws_json1_0DescribeLabelGroupCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeLabelGroupRequest, DescribeLabelGroupResponse } from "../models/models_0";
+import { de_DescribeLabelGroupCommand, se_DescribeLabelGroupCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLabelGroupCommand}.
+ */
 export interface DescribeLabelGroupCommandInput extends DescribeLabelGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLabelGroupCommand}.
+ */
 export interface DescribeLabelGroupCommandOutput extends DescribeLabelGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Returns information about the label group.
  * </p>
@@ -38,13 +41,38 @@ export interface DescribeLabelGroupCommandOutput extends DescribeLabelGroupRespo
  * import { LookoutEquipmentClient, DescribeLabelGroupCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DescribeLabelGroupCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // DescribeLabelGroupRequest
+ *   LabelGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLabelGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLabelGroupCommandInput - {@link DescribeLabelGroupCommandInput}
+ * @returns {@link DescribeLabelGroupCommandOutput}
  * @see {@link DescribeLabelGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeLabelGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request could not be completed because you do not have access to the resource.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> Processing of the request has failed because of an unknown error, exception or failure.
+ *       </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource requested could not be found. Verify the resource ID and retry your
+ *          request. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
+ *          related AWS service that's being utilized. </p>
+ *
  *
  */
 export class DescribeLabelGroupCommand extends $Command<
@@ -64,6 +92,9 @@ export class DescribeLabelGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLabelGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class DescribeLabelGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLabelGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLabelGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +134,18 @@ export class DescribeLabelGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLabelGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeLabelGroupCommand(input, context);
+    return se_DescribeLabelGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLabelGroupCommandOutput> {
-    return deserializeAws_json1_0DescribeLabelGroupCommand(output, context);
+    return de_DescribeLabelGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

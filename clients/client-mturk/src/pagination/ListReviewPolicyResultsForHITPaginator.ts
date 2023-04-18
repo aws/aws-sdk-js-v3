@@ -6,12 +6,11 @@ import {
   ListReviewPolicyResultsForHITCommandInput,
   ListReviewPolicyResultsForHITCommandOutput,
 } from "../commands/ListReviewPolicyResultsForHITCommand";
-import { MTurk } from "../MTurk";
 import { MTurkClient } from "../MTurkClient";
 import { MTurkPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MTurkClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListReviewPolicyResultsForHITCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MTurk,
-  input: ListReviewPolicyResultsForHITCommandInput,
-  ...args: any
-): Promise<ListReviewPolicyResultsForHITCommandOutput> => {
-  // @ts-ignore
-  return await client.listReviewPolicyResultsForHIT(input, ...args);
-};
 export async function* paginateListReviewPolicyResultsForHIT(
   config: MTurkPaginationConfiguration,
   input: ListReviewPolicyResultsForHITCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListReviewPolicyResultsForHIT(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MTurk) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MTurkClient) {
+    if (config.client instanceof MTurkClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MTurk | MTurkClient");

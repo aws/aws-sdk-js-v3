@@ -16,22 +16,31 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   GetCloudFrontOriginAccessIdentityConfigRequest,
-  GetCloudFrontOriginAccessIdentityConfigRequestFilterSensitiveLog,
   GetCloudFrontOriginAccessIdentityConfigResult,
-  GetCloudFrontOriginAccessIdentityConfigResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand,
-  serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand,
+  de_GetCloudFrontOriginAccessIdentityConfigCommand,
+  se_GetCloudFrontOriginAccessIdentityConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCloudFrontOriginAccessIdentityConfigCommand}.
+ */
 export interface GetCloudFrontOriginAccessIdentityConfigCommandInput
   extends GetCloudFrontOriginAccessIdentityConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCloudFrontOriginAccessIdentityConfigCommand}.
+ */
 export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput
   extends GetCloudFrontOriginAccessIdentityConfigResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the configuration information about an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,25 @@ export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput
  * import { CloudFrontClient, GetCloudFrontOriginAccessIdentityConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetCloudFrontOriginAccessIdentityConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetCloudFrontOriginAccessIdentityConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetCloudFrontOriginAccessIdentityConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCloudFrontOriginAccessIdentityConfigCommandInput - {@link GetCloudFrontOriginAccessIdentityConfigCommandInput}
+ * @returns {@link GetCloudFrontOriginAccessIdentityConfigCommandOutput}
  * @see {@link GetCloudFrontOriginAccessIdentityConfigCommandInput} for command's `input` shape.
  * @see {@link GetCloudFrontOriginAccessIdentityConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchCloudFrontOriginAccessIdentity} (client fault)
+ *  <p>The specified origin access identity does not exist.</p>
+ *
  *
  */
 export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
@@ -65,6 +86,9 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCloudFrontOriginAccessIdentityConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +123,8 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCloudFrontOriginAccessIdentityConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCloudFrontOriginAccessIdentityConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +134,24 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetCloudFrontOriginAccessIdentityConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(input, context);
+    return se_GetCloudFrontOriginAccessIdentityConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> {
-    return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(output, context);
+    return de_GetCloudFrontOriginAccessIdentityConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

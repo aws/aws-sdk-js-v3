@@ -16,18 +16,71 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   GetPhoneNumberOrderRequest,
-  GetPhoneNumberOrderRequestFilterSensitiveLog,
   GetPhoneNumberOrderResponse,
   GetPhoneNumberOrderResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPhoneNumberOrderCommand,
-  serializeAws_restJson1GetPhoneNumberOrderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPhoneNumberOrderCommand, se_GetPhoneNumberOrderCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPhoneNumberOrderCommand}.
+ */
 export interface GetPhoneNumberOrderCommandInput extends GetPhoneNumberOrderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPhoneNumberOrderCommand}.
+ */
 export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Retrieves details for the specified phone number order, such as the order
+ *          creation timestamp, phone numbers in E.164 format, product type, and
+ *          order status.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, GetPhoneNumberOrderCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetPhoneNumberOrderCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // GetPhoneNumberOrderRequest
+ *   PhoneNumberOrderId: "STRING_VALUE", // required
+ * };
+ * const command = new GetPhoneNumberOrderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param GetPhoneNumberOrderCommandInput - {@link GetPhoneNumberOrderCommandInput}
+ * @returns {@link GetPhoneNumberOrderCommandOutput}
+ * @see {@link GetPhoneNumberOrderCommandInput} for command's `input` shape.
+ * @see {@link GetPhoneNumberOrderCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class GetPhoneNumberOrderCommand extends $Command<
   GetPhoneNumberOrderCommandInput,
   GetPhoneNumberOrderCommandOutput,
@@ -45,6 +98,9 @@ export class GetPhoneNumberOrderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPhoneNumberOrderCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,7 +129,7 @@ export class GetPhoneNumberOrderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPhoneNumberOrderRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPhoneNumberOrderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -84,12 +140,18 @@ export class GetPhoneNumberOrderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPhoneNumberOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPhoneNumberOrderCommand(input, context);
+    return se_GetPhoneNumberOrderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPhoneNumberOrderCommandOutput> {
-    return deserializeAws_restJson1GetPhoneNumberOrderCommand(output, context);
+    return de_GetPhoneNumberOrderCommand(output, context);
   }
 
   // Start section: command_body_extra

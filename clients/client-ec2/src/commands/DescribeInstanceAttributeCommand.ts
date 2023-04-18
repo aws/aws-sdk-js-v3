@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeInstanceAttributeRequest,
-  DescribeInstanceAttributeRequestFilterSensitiveLog,
-  InstanceAttribute,
-  InstanceAttributeFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeInstanceAttributeCommand,
-  serializeAws_ec2DescribeInstanceAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeInstanceAttributeRequest, InstanceAttribute } from "../models/models_3";
+import { de_DescribeInstanceAttributeCommand, se_DescribeInstanceAttributeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstanceAttributeCommand}.
+ */
 export interface DescribeInstanceAttributeCommandInput extends DescribeInstanceAttributeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstanceAttributeCommand}.
+ */
 export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribute, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified attribute of the specified instance. You can specify only one
  *             attribute at a time. Valid attribute values are: <code>instanceType</code> |
  *                 <code>kernel</code> | <code>ramdisk</code> | <code>userData</code> |
@@ -43,13 +46,101 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * import { EC2Client, DescribeInstanceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInstanceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeInstanceAttributeRequest
+ *   Attribute: "instanceType" || "kernel" || "ramdisk" || "userData" || "disableApiTermination" || "instanceInitiatedShutdownBehavior" || "rootDeviceName" || "blockDeviceMapping" || "productCodes" || "sourceDestCheck" || "groupSet" || "ebsOptimized" || "sriovNetSupport" || "enaSupport" || "enclaveOptions" || "disableApiStop", // required
+ *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInstanceAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceAttributeCommandInput - {@link DescribeInstanceAttributeCommandInput}
+ * @returns {@link DescribeInstanceAttributeCommandOutput}
  * @see {@link DescribeInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe the instance type
+ * ```javascript
+ * // This example describes the instance type of the specified instance.
+ * //
+ * const input = {
+ *   "Attribute": "instanceType",
+ *   "InstanceId": "i-1234567890abcdef0"
+ * };
+ * const command = new DescribeInstanceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InstanceId": "i-1234567890abcdef0",
+ *   "InstanceType": {
+ *     "Value": "t1.micro"
+ *   }
+ * }
+ * *\/
+ * // example id: to-describe-the-instance-type-1472712432132
+ * ```
+ *
+ * @example To describe the disableApiTermination attribute
+ * ```javascript
+ * // This example describes the ``disableApiTermination`` attribute of the specified instance.
+ * //
+ * const input = {
+ *   "Attribute": "disableApiTermination",
+ *   "InstanceId": "i-1234567890abcdef0"
+ * };
+ * const command = new DescribeInstanceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DisableApiTermination": {
+ *     "Value": "false"
+ *   },
+ *   "InstanceId": "i-1234567890abcdef0"
+ * }
+ * *\/
+ * // example id: to-describe-the-disableapitermination-attribute-1472712533466
+ * ```
+ *
+ * @example To describe the block device mapping for an instance
+ * ```javascript
+ * // This example describes the ``blockDeviceMapping`` attribute of the specified instance.
+ * //
+ * const input = {
+ *   "Attribute": "blockDeviceMapping",
+ *   "InstanceId": "i-1234567890abcdef0"
+ * };
+ * const command = new DescribeInstanceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "BlockDeviceMappings": [
+ *     {
+ *       "DeviceName": "/dev/sda1",
+ *       "Ebs": {
+ *         "AttachTime": "2013-05-17T22:42:34.000Z",
+ *         "DeleteOnTermination": true,
+ *         "Status": "attached",
+ *         "VolumeId": "vol-049df61146c4d7901"
+ *       }
+ *     },
+ *     {
+ *       "DeviceName": "/dev/sdf",
+ *       "Ebs": {
+ *         "AttachTime": "2013-09-10T23:07:00.000Z",
+ *         "DeleteOnTermination": false,
+ *         "Status": "attached",
+ *         "VolumeId": "vol-049df61146c4d7901"
+ *       }
+ *     }
+ *   ],
+ *   "InstanceId": "i-1234567890abcdef0"
+ * }
+ * *\/
+ * // example id: to-describe-the-block-device-mapping-for-an-instance-1472712645423
+ * ```
  *
  */
 export class DescribeInstanceAttributeCommand extends $Command<
@@ -69,6 +160,9 @@ export class DescribeInstanceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +191,8 @@ export class DescribeInstanceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InstanceAttributeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +202,21 @@ export class DescribeInstanceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstanceAttributeCommand(input, context);
+    return se_DescribeInstanceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceAttributeCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceAttributeCommand(output, context);
+    return de_DescribeInstanceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,19 +16,26 @@ import {
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import {
   ListFunctionsRequest,
-  ListFunctionsRequestFilterSensitiveLog,
   ListFunctionsResponse,
   ListFunctionsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFunctionsCommand,
-  serializeAws_restJson1ListFunctionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFunctionsCommand, se_ListFunctionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFunctionsCommand}.
+ */
 export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFunctionsCommand}.
+ */
 export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50
  *       functions per call.</p>
  *          <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in
@@ -36,7 +43,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  *          <note>
  *             <p>The <code>ListFunctions</code> operation returns a subset of the <a>FunctionConfiguration</a> fields.
  *         To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason,
- *         LastUpdateStatusReasonCode) for a function or version, use <a>GetFunction</a>.</p>
+ *         LastUpdateStatusReasonCode,  RuntimeVersionConfig) for a function or version, use <a>GetFunction</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,13 +51,31 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * import { LambdaClient, ListFunctionsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListFunctionsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // ListFunctionsRequest
+ *   MasterRegion: "STRING_VALUE",
+ *   FunctionVersion: "ALL",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListFunctionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionsCommandInput - {@link ListFunctionsCommandInput}
+ * @returns {@link ListFunctionsCommandOutput}
  * @see {@link ListFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
  *
  */
 export class ListFunctionsCommand extends $Command<
@@ -70,6 +95,9 @@ export class ListFunctionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +124,7 @@ export class ListFunctionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFunctionsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListFunctionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -107,12 +135,18 @@ export class ListFunctionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFunctionsCommand(input, context);
+    return se_ListFunctionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionsCommandOutput> {
-    return deserializeAws_restJson1ListFunctionsCommand(output, context);
+    return de_ListFunctionsCommand(output, context);
   }
 
   // Start section: command_body_extra

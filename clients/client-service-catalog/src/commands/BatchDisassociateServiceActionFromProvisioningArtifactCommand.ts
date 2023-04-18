@@ -15,23 +15,32 @@ import {
 
 import {
   BatchDisassociateServiceActionFromProvisioningArtifactInput,
-  BatchDisassociateServiceActionFromProvisioningArtifactInputFilterSensitiveLog,
   BatchDisassociateServiceActionFromProvisioningArtifactOutput,
-  BatchDisassociateServiceActionFromProvisioningArtifactOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand,
-  serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand,
+  de_BatchDisassociateServiceActionFromProvisioningArtifactCommand,
+  se_BatchDisassociateServiceActionFromProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDisassociateServiceActionFromProvisioningArtifactCommand}.
+ */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandInput
   extends BatchDisassociateServiceActionFromProvisioningArtifactInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDisassociateServiceActionFromProvisioningArtifactCommand}.
+ */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
   extends BatchDisassociateServiceActionFromProvisioningArtifactOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a batch of self-service actions from the specified provisioning artifact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,29 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  * import { ServiceCatalogClient, BatchDisassociateServiceActionFromProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, BatchDisassociateServiceActionFromProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // BatchDisassociateServiceActionFromProvisioningArtifactInput
+ *   ServiceActionAssociations: [ // ServiceActionAssociations // required
+ *     { // ServiceActionAssociation
+ *       ServiceActionId: "STRING_VALUE", // required
+ *       ProductId: "STRING_VALUE", // required
+ *       ProvisioningArtifactId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new BatchDisassociateServiceActionFromProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateServiceActionFromProvisioningArtifactCommandInput - {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandInput}
+ * @returns {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput}
  * @see {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
  *
  */
 export class BatchDisassociateServiceActionFromProvisioningArtifactCommand extends $Command<
@@ -65,6 +90,9 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +127,8 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisassociateServiceActionFromProvisioningArtifactInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateServiceActionFromProvisioningArtifactOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +138,24 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand(input, context);
+    return se_BatchDisassociateServiceActionFromProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand(output, context);
+    return de_BatchDisassociateServiceActionFromProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  ListLayersRequest,
-  ListLayersRequestFilterSensitiveLog,
-  ListLayersResponse,
-  ListLayersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLayersCommand,
-  serializeAws_restJson1ListLayersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListLayersRequest, ListLayersResponse } from "../models/models_0";
+import { de_ListLayersCommand, se_ListLayersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLayersCommand}.
+ */
 export interface ListLayersCommandInput extends ListLayersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLayersCommand}.
+ */
 export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html">Lambda
  *         layers</a> and shows information about the latest version of each. Specify a
  *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
@@ -41,13 +44,31 @@ export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataB
  * import { LambdaClient, ListLayersCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListLayersCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // ListLayersRequest
+ *   CompatibleRuntime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   CompatibleArchitecture: "x86_64" || "arm64",
+ * };
  * const command = new ListLayersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLayersCommandInput - {@link ListLayersCommandInput}
+ * @returns {@link ListLayersCommandOutput}
  * @see {@link ListLayersCommandInput} for command's `input` shape.
  * @see {@link ListLayersCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
  *
  */
 export class ListLayersCommand extends $Command<
@@ -67,6 +88,9 @@ export class ListLayersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLayersCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +117,8 @@ export class ListLayersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLayersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLayersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +128,18 @@ export class ListLayersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLayersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLayersCommand(input, context);
+    return se_ListLayersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLayersCommandOutput> {
-    return deserializeAws_restJson1ListLayersCommand(output, context);
+    return de_ListLayersCommand(output, context);
   }
 
   // Start section: command_body_extra

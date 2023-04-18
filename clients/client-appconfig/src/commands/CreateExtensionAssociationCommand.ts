@@ -14,26 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  CreateExtensionAssociationRequest,
-  CreateExtensionAssociationRequestFilterSensitiveLog,
-  ExtensionAssociation,
-  ExtensionAssociationFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateExtensionAssociationCommand,
-  serializeAws_restJson1CreateExtensionAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateExtensionAssociationRequest, ExtensionAssociation } from "../models/models_0";
+import { de_CreateExtensionAssociationCommand, se_CreateExtensionAssociationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateExtensionAssociationCommand}.
+ */
 export interface CreateExtensionAssociationCommandInput extends CreateExtensionAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateExtensionAssociationCommand}.
+ */
 export interface CreateExtensionAssociationCommandOutput extends ExtensionAssociation, __MetadataBearer {}
 
 /**
- * <p>When you create an extension or configure an Amazon Web Services-authored extension, you
+ * @public
+ * <p>When you create an extension or configure an Amazon Web Services authored extension, you
  *          associate the extension with an AppConfig application, environment, or
  *          configuration profile. For example, you can choose to run the <code>AppConfig
  *             deployment events to Amazon SNS</code>
- *          Amazon Web Services-authored extension and receive notifications on an Amazon SNS
+ *          Amazon Web Services authored extension and receive notifications on an Amazon SNS
  *          topic anytime a configuration deployment is started for a specific application. Defining
  *          which extension to associate with an AppConfig resource is called an
  *             <i>extension association</i>. An extension association is a specified
@@ -48,13 +51,39 @@ export interface CreateExtensionAssociationCommandOutput extends ExtensionAssoci
  * import { AppConfigClient, CreateExtensionAssociationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateExtensionAssociationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // CreateExtensionAssociationRequest
+ *   ExtensionIdentifier: "STRING_VALUE", // required
+ *   ExtensionVersionNumber: Number("int"),
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   Parameters: { // ParameterValueMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateExtensionAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExtensionAssociationCommandInput - {@link CreateExtensionAssociationCommandInput}
+ * @returns {@link CreateExtensionAssociationCommandOutput}
  * @see {@link CreateExtensionAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateExtensionAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
+ *
  *
  */
 export class CreateExtensionAssociationCommand extends $Command<
@@ -74,6 +103,9 @@ export class CreateExtensionAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExtensionAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +134,8 @@ export class CreateExtensionAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExtensionAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtensionAssociationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +145,21 @@ export class CreateExtensionAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExtensionAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateExtensionAssociationCommand(input, context);
+    return se_CreateExtensionAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateExtensionAssociationCommandOutput> {
-    return deserializeAws_restJson1CreateExtensionAssociationCommand(output, context);
+    return de_CreateExtensionAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

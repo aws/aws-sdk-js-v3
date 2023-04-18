@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteImageRequest,
-  DeleteImageRequestFilterSensitiveLog,
-  DeleteImageResponse,
-  DeleteImageResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteImageCommand,
-  serializeAws_json1_1DeleteImageCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteImageRequest, DeleteImageResponse } from "../models/models_1";
+import { de_DeleteImageCommand, se_DeleteImageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteImageCommand}.
+ */
 export interface DeleteImageCommandInput extends DeleteImageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteImageCommand}.
+ */
 export interface DeleteImageCommandOutput extends DeleteImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a SageMaker image and all versions of the image. The container images aren't
  *         deleted.</p>
  * @example
@@ -37,13 +40,25 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * import { SageMakerClient, DeleteImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteImageRequest
+ *   ImageName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImageCommandInput - {@link DeleteImageCommandInput}
+ * @returns {@link DeleteImageCommandOutput}
  * @see {@link DeleteImageCommandInput} for command's `input` shape.
  * @see {@link DeleteImageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DeleteImageCommand extends $Command<
@@ -63,6 +78,9 @@ export class DeleteImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +107,8 @@ export class DeleteImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +118,18 @@ export class DeleteImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteImageCommand(input, context);
+    return se_DeleteImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImageCommandOutput> {
-    return deserializeAws_json1_1DeleteImageCommand(output, context);
+    return de_DeleteImageCommand(output, context);
   }
 
   // Start section: command_body_extra

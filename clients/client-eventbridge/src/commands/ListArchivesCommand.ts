@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  ListArchivesRequest,
-  ListArchivesRequestFilterSensitiveLog,
-  ListArchivesResponse,
-  ListArchivesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListArchivesCommand,
-  serializeAws_json1_1ListArchivesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListArchivesRequest, ListArchivesResponse } from "../models/models_0";
+import { de_ListArchivesCommand, se_ListArchivesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListArchivesCommand}.
+ */
 export interface ListArchivesCommandInput extends ListArchivesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListArchivesCommand}.
+ */
 export interface ListArchivesCommandOutput extends ListArchivesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your archives. You can either list all the archives or you can provide a prefix to
  *       match to the archive names. Filter parameters are exclusive.</p>
  * @example
@@ -37,13 +40,29 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * import { EventBridgeClient, ListArchivesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListArchivesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // ListArchivesRequest
+ *   NamePrefix: "STRING_VALUE",
+ *   EventSourceArn: "STRING_VALUE",
+ *   State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListArchivesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListArchivesCommandInput - {@link ListArchivesCommandInput}
+ * @returns {@link ListArchivesCommandOutput}
  * @see {@link ListArchivesCommandInput} for command's `input` shape.
  * @see {@link ListArchivesCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class ListArchivesCommand extends $Command<
@@ -63,6 +82,9 @@ export class ListArchivesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListArchivesCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +111,8 @@ export class ListArchivesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListArchivesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListArchivesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +122,18 @@ export class ListArchivesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListArchivesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListArchivesCommand(input, context);
+    return se_ListArchivesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListArchivesCommandOutput> {
-    return deserializeAws_json1_1ListArchivesCommand(output, context);
+    return de_ListArchivesCommand(output, context);
   }
 
   // Start section: command_body_extra

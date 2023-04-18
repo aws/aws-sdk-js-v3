@@ -65,11 +65,13 @@ final class AwsProtocolUtils {
      */
     static void generateUnsignedPayloadSigV4Header(GenerationContext context, OperationShape operation) {
         TypeScriptWriter writer = context.getWriter();
+        if (includeUnsignedPayloadSigV4Header(operation)) {
+            writer.write("'x-amz-content-sha256': 'UNSIGNED-PAYLOAD',");
+        }
+    }
 
-        operation.getTrait(UnsignedPayloadTrait.class)
-                .ifPresent(trait -> {
-                    writer.write("'x-amz-content-sha256': 'UNSIGNED-PAYLOAD',");
-                });
+    static boolean includeUnsignedPayloadSigV4Header(OperationShape operation) {
+        return operation.hasTrait(UnsignedPayloadTrait.ID);
     }
 
     /**

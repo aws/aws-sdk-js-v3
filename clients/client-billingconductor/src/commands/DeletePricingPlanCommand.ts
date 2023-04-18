@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import {
-  DeletePricingPlanInput,
-  DeletePricingPlanInputFilterSensitiveLog,
-  DeletePricingPlanOutput,
-  DeletePricingPlanOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePricingPlanCommand,
-  serializeAws_restJson1DeletePricingPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { DeletePricingPlanInput, DeletePricingPlanOutput } from "../models/models_0";
+import { de_DeletePricingPlanCommand, se_DeletePricingPlanCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeletePricingPlanCommand}.
+ */
 export interface DeletePricingPlanCommandInput extends DeletePricingPlanInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePricingPlanCommand}.
+ */
 export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a pricing plan. The pricing plan must not be associated with any billing groups to
  *       delete successfully.</p>
  * @example
@@ -37,13 +40,38 @@ export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput,
  * import { BillingconductorClient, DeletePricingPlanCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, DeletePricingPlanCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // DeletePricingPlanInput
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new DeletePricingPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePricingPlanCommandInput - {@link DeletePricingPlanCommandInput}
+ * @returns {@link DeletePricingPlanCommandOutput}
  * @see {@link DeletePricingPlanCommandInput} for command's `input` shape.
  * @see {@link DeletePricingPlanCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.
+ *     </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You can cause an inconsistent state by updating or deleting a resource.
+ *     </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
  *
  */
 export class DeletePricingPlanCommand extends $Command<
@@ -63,6 +91,9 @@ export class DeletePricingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePricingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +122,8 @@ export class DeletePricingPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePricingPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePricingPlanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +133,18 @@ export class DeletePricingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePricingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePricingPlanCommand(input, context);
+    return se_DeletePricingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePricingPlanCommandOutput> {
-    return deserializeAws_restJson1DeletePricingPlanCommand(output, context);
+    return de_DeletePricingPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

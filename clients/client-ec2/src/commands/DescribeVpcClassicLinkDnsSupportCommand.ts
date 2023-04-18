@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeVpcClassicLinkDnsSupportRequest, DescribeVpcClassicLinkDnsSupportResult } from "../models/models_5";
 import {
-  DescribeVpcClassicLinkDnsSupportRequest,
-  DescribeVpcClassicLinkDnsSupportRequestFilterSensitiveLog,
-  DescribeVpcClassicLinkDnsSupportResult,
-  DescribeVpcClassicLinkDnsSupportResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand,
-  serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand,
+  de_DescribeVpcClassicLinkDnsSupportCommand,
+  se_DescribeVpcClassicLinkDnsSupportCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVpcClassicLinkDnsSupportCommand}.
+ */
 export interface DescribeVpcClassicLinkDnsSupportCommandInput extends DescribeVpcClassicLinkDnsSupportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVpcClassicLinkDnsSupportCommand}.
+ */
 export interface DescribeVpcClassicLinkDnsSupportCommandOutput
   extends DescribeVpcClassicLinkDnsSupportResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
@@ -45,13 +51,23 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
  * import { EC2Client, DescribeVpcClassicLinkDnsSupportCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcClassicLinkDnsSupportCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVpcClassicLinkDnsSupportRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   VpcIds: [ // VpcClassicLinkIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcClassicLinkDnsSupportCommandInput - {@link DescribeVpcClassicLinkDnsSupportCommandInput}
+ * @returns {@link DescribeVpcClassicLinkDnsSupportCommandOutput}
  * @see {@link DescribeVpcClassicLinkDnsSupportCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
@@ -71,6 +87,9 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcClassicLinkDnsSupportCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +118,8 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcClassicLinkDnsSupportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcClassicLinkDnsSupportResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +129,24 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcClassicLinkDnsSupportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(input, context);
+    return se_DescribeVpcClassicLinkDnsSupportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput> {
-    return deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(output, context);
+    return de_DescribeVpcClassicLinkDnsSupportCommand(output, context);
   }
 
   // Start section: command_body_extra

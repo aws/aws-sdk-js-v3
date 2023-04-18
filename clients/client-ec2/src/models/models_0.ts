@@ -1,5 +1,8 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 /**
+ * @public
  * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
  *          on an instance.</p>
  */
@@ -18,6 +21,7 @@ export interface AcceleratorCount {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
  *          on an instance. To exclude accelerator-enabled instance types, set <code>Max</code> to
  *             <code>0</code>.</p>
@@ -37,26 +41,45 @@ export interface AcceleratorCountRequest {
   Max?: number;
 }
 
-export enum AcceleratorManufacturer {
-  AMAZON_WEB_SERVICES = "amazon-web-services",
-  AMD = "amd",
-  NVIDIA = "nvidia",
-  XILINX = "xilinx",
-}
-
-export enum AcceleratorName {
-  A100 = "a100",
-  INFERENTIA = "inferentia",
-  K520 = "k520",
-  K80 = "k80",
-  M60 = "m60",
-  RADEON_PRO_V520 = "radeon-pro-v520",
-  T4 = "t4",
-  V100 = "v100",
-  VU9P = "vu9p",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AcceleratorManufacturer = {
+  AMAZON_WEB_SERVICES: "amazon-web-services",
+  AMD: "amd",
+  NVIDIA: "nvidia",
+  XILINX: "xilinx",
+} as const;
 
 /**
+ * @public
+ */
+export type AcceleratorManufacturer = (typeof AcceleratorManufacturer)[keyof typeof AcceleratorManufacturer];
+
+/**
+ * @public
+ * @enum
+ */
+export const AcceleratorName = {
+  A100: "a100",
+  INFERENTIA: "inferentia",
+  K520: "k520",
+  K80: "k80",
+  M60: "m60",
+  RADEON_PRO_V520: "radeon-pro-v520",
+  T4: "t4",
+  V100: "v100",
+  VU9P: "vu9p",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceleratorName = (typeof AcceleratorName)[keyof typeof AcceleratorName];
+
+/**
+ * @public
  * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
  */
 export interface AcceleratorTotalMemoryMiB {
@@ -74,6 +97,7 @@ export interface AcceleratorTotalMemoryMiB {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
  */
 export interface AcceleratorTotalMemoryMiBRequest {
@@ -90,99 +114,121 @@ export interface AcceleratorTotalMemoryMiBRequest {
   Max?: number;
 }
 
-export enum AcceleratorType {
-  FPGA = "fpga",
-  GPU = "gpu",
-  INFERENCE = "inference",
-}
-
-export enum ResourceType {
-  capacity_reservation = "capacity-reservation",
-  capacity_reservation_fleet = "capacity-reservation-fleet",
-  carrier_gateway = "carrier-gateway",
-  client_vpn_endpoint = "client-vpn-endpoint",
-  coip_pool = "coip-pool",
-  customer_gateway = "customer-gateway",
-  dedicated_host = "dedicated-host",
-  dhcp_options = "dhcp-options",
-  egress_only_internet_gateway = "egress-only-internet-gateway",
-  elastic_gpu = "elastic-gpu",
-  elastic_ip = "elastic-ip",
-  export_image_task = "export-image-task",
-  export_instance_task = "export-instance-task",
-  fleet = "fleet",
-  fpga_image = "fpga-image",
-  host_reservation = "host-reservation",
-  image = "image",
-  import_image_task = "import-image-task",
-  import_snapshot_task = "import-snapshot-task",
-  instance = "instance",
-  instance_event_window = "instance-event-window",
-  internet_gateway = "internet-gateway",
-  ipam = "ipam",
-  ipam_pool = "ipam-pool",
-  ipam_scope = "ipam-scope",
-  ipv4pool_ec2 = "ipv4pool-ec2",
-  ipv6pool_ec2 = "ipv6pool-ec2",
-  key_pair = "key-pair",
-  launch_template = "launch-template",
-  local_gateway = "local-gateway",
-  local_gateway_route_table = "local-gateway-route-table",
-  local_gateway_route_table_virtual_interface_group_association = "local-gateway-route-table-virtual-interface-group-association",
-  local_gateway_route_table_vpc_association = "local-gateway-route-table-vpc-association",
-  local_gateway_virtual_interface = "local-gateway-virtual-interface",
-  local_gateway_virtual_interface_group = "local-gateway-virtual-interface-group",
-  natgateway = "natgateway",
-  network_acl = "network-acl",
-  network_insights_access_scope = "network-insights-access-scope",
-  network_insights_access_scope_analysis = "network-insights-access-scope-analysis",
-  network_insights_analysis = "network-insights-analysis",
-  network_insights_path = "network-insights-path",
-  network_interface = "network-interface",
-  placement_group = "placement-group",
-  prefix_list = "prefix-list",
-  replace_root_volume_task = "replace-root-volume-task",
-  reserved_instances = "reserved-instances",
-  route_table = "route-table",
-  security_group = "security-group",
-  security_group_rule = "security-group-rule",
-  snapshot = "snapshot",
-  spot_fleet_request = "spot-fleet-request",
-  spot_instances_request = "spot-instances-request",
-  subnet = "subnet",
-  subnet_cidr_reservation = "subnet-cidr-reservation",
-  traffic_mirror_filter = "traffic-mirror-filter",
-  traffic_mirror_filter_rule = "traffic-mirror-filter-rule",
-  traffic_mirror_session = "traffic-mirror-session",
-  traffic_mirror_target = "traffic-mirror-target",
-  transit_gateway = "transit-gateway",
-  transit_gateway_attachment = "transit-gateway-attachment",
-  transit_gateway_connect_peer = "transit-gateway-connect-peer",
-  transit_gateway_multicast_domain = "transit-gateway-multicast-domain",
-  transit_gateway_policy_table = "transit-gateway-policy-table",
-  transit_gateway_route_table = "transit-gateway-route-table",
-  transit_gateway_route_table_announcement = "transit-gateway-route-table-announcement",
-  verified_access_endpoint = "verified-access-endpoint",
-  verified_access_group = "verified-access-group",
-  verified_access_instance = "verified-access-instance",
-  verified_access_policy = "verified-access-policy",
-  verified_access_trust_provider = "verified-access-trust-provider",
-  volume = "volume",
-  vpc = "vpc",
-  vpc_block_public_access_exclusion = "vpc-block-public-access-exclusion",
-  vpc_endpoint = "vpc-endpoint",
-  vpc_endpoint_connection = "vpc-endpoint-connection",
-  vpc_endpoint_connection_device_type = "vpc-endpoint-connection-device-type",
-  vpc_endpoint_service = "vpc-endpoint-service",
-  vpc_endpoint_service_permission = "vpc-endpoint-service-permission",
-  vpc_flow_log = "vpc-flow-log",
-  vpc_peering_connection = "vpc-peering-connection",
-  vpn_connection = "vpn-connection",
-  vpn_connection_device_type = "vpn-connection-device-type",
-  vpn_gateway = "vpn-gateway",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AcceleratorType = {
+  FPGA: "fpga",
+  GPU: "gpu",
+  INFERENCE: "inference",
+} as const;
 
 /**
+ * @public
+ */
+export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  capacity_reservation: "capacity-reservation",
+  capacity_reservation_fleet: "capacity-reservation-fleet",
+  carrier_gateway: "carrier-gateway",
+  client_vpn_endpoint: "client-vpn-endpoint",
+  coip_pool: "coip-pool",
+  customer_gateway: "customer-gateway",
+  dedicated_host: "dedicated-host",
+  dhcp_options: "dhcp-options",
+  egress_only_internet_gateway: "egress-only-internet-gateway",
+  elastic_gpu: "elastic-gpu",
+  elastic_ip: "elastic-ip",
+  export_image_task: "export-image-task",
+  export_instance_task: "export-instance-task",
+  fleet: "fleet",
+  fpga_image: "fpga-image",
+  host_reservation: "host-reservation",
+  image: "image",
+  import_image_task: "import-image-task",
+  import_snapshot_task: "import-snapshot-task",
+  instance: "instance",
+  instance_event_window: "instance-event-window",
+  internet_gateway: "internet-gateway",
+  ipam: "ipam",
+  ipam_pool: "ipam-pool",
+  ipam_resource_discovery: "ipam-resource-discovery",
+  ipam_resource_discovery_association: "ipam-resource-discovery-association",
+  ipam_scope: "ipam-scope",
+  ipv4pool_ec2: "ipv4pool-ec2",
+  ipv6pool_ec2: "ipv6pool-ec2",
+  key_pair: "key-pair",
+  launch_template: "launch-template",
+  local_gateway: "local-gateway",
+  local_gateway_route_table: "local-gateway-route-table",
+  local_gateway_route_table_virtual_interface_group_association:
+    "local-gateway-route-table-virtual-interface-group-association",
+  local_gateway_route_table_vpc_association: "local-gateway-route-table-vpc-association",
+  local_gateway_virtual_interface: "local-gateway-virtual-interface",
+  local_gateway_virtual_interface_group: "local-gateway-virtual-interface-group",
+  natgateway: "natgateway",
+  network_acl: "network-acl",
+  network_insights_access_scope: "network-insights-access-scope",
+  network_insights_access_scope_analysis: "network-insights-access-scope-analysis",
+  network_insights_analysis: "network-insights-analysis",
+  network_insights_path: "network-insights-path",
+  network_interface: "network-interface",
+  placement_group: "placement-group",
+  prefix_list: "prefix-list",
+  replace_root_volume_task: "replace-root-volume-task",
+  reserved_instances: "reserved-instances",
+  route_table: "route-table",
+  security_group: "security-group",
+  security_group_rule: "security-group-rule",
+  snapshot: "snapshot",
+  spot_fleet_request: "spot-fleet-request",
+  spot_instances_request: "spot-instances-request",
+  subnet: "subnet",
+  subnet_cidr_reservation: "subnet-cidr-reservation",
+  traffic_mirror_filter: "traffic-mirror-filter",
+  traffic_mirror_filter_rule: "traffic-mirror-filter-rule",
+  traffic_mirror_session: "traffic-mirror-session",
+  traffic_mirror_target: "traffic-mirror-target",
+  transit_gateway: "transit-gateway",
+  transit_gateway_attachment: "transit-gateway-attachment",
+  transit_gateway_connect_peer: "transit-gateway-connect-peer",
+  transit_gateway_multicast_domain: "transit-gateway-multicast-domain",
+  transit_gateway_policy_table: "transit-gateway-policy-table",
+  transit_gateway_route_table: "transit-gateway-route-table",
+  transit_gateway_route_table_announcement: "transit-gateway-route-table-announcement",
+  verified_access_endpoint: "verified-access-endpoint",
+  verified_access_group: "verified-access-group",
+  verified_access_instance: "verified-access-instance",
+  verified_access_policy: "verified-access-policy",
+  verified_access_trust_provider: "verified-access-trust-provider",
+  volume: "volume",
+  vpc: "vpc",
+  vpc_block_public_access_exclusion: "vpc-block-public-access-exclusion",
+  vpc_endpoint: "vpc-endpoint",
+  vpc_endpoint_connection: "vpc-endpoint-connection",
+  vpc_endpoint_connection_device_type: "vpc-endpoint-connection-device-type",
+  vpc_endpoint_service: "vpc-endpoint-service",
+  vpc_endpoint_service_permission: "vpc-endpoint-service-permission",
+  vpc_flow_log: "vpc-flow-log",
+  vpc_peering_connection: "vpc-peering-connection",
+  vpn_connection: "vpn-connection",
+  vpn_connection_device_type: "vpn-connection-device-type",
+  vpn_gateway: "vpn-gateway",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>Describes a tag.</p>
  */
 export interface Tag {
@@ -201,7 +247,9 @@ export interface Tag {
 }
 
 /**
- * <p>The tags to apply to a resource when the resource is being created.</p>
+ * @public
+ * <p>The tags to apply to a resource when the resource is being created. When you specify a tag, you must
+ *        specify the resource type to tag, otherwise the request will fail.</p>
  *          <note>
  *             <p>The <code>Valid Values</code> lists all the resource types that can be tagged.
  *             However, the action you're using might not support tagging all of these resource types.
@@ -221,6 +269,9 @@ export interface TagSpecification {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AcceptAddressTransferRequest {
   /**
    * <p>The Elastic IP address you are accepting for transfer.</p>
@@ -242,13 +293,23 @@ export interface AcceptAddressTransferRequest {
   DryRun?: boolean;
 }
 
-export enum AddressTransferStatus {
-  accepted = "accepted",
-  disabled = "disabled",
-  pending = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AddressTransferStatus = {
+  accepted: "accepted",
+  disabled: "disabled",
+  pending: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type AddressTransferStatus = (typeof AddressTransferStatus)[keyof typeof AddressTransferStatus];
+
+/**
+ * @public
  * <p>Details on the Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  */
 export interface AddressTransfer {
@@ -285,6 +346,9 @@ export interface AddressTransfer {
   AddressTransferStatus?: AddressTransferStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptAddressTransferResult {
   /**
    * <p>An Elastic IP address transfer.</p>
@@ -293,6 +357,7 @@ export interface AcceptAddressTransferResult {
 }
 
 /**
+ * @public
  * <p>Details about the target configuration.</p>
  */
 export interface TargetConfigurationRequest {
@@ -309,6 +374,7 @@ export interface TargetConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for accepting the quote.</p>
  */
 export interface AcceptReservedInstancesExchangeQuoteRequest {
@@ -333,6 +399,7 @@ export interface AcceptReservedInstancesExchangeQuoteRequest {
 }
 
 /**
+ * @public
  * <p>The result of the exchange and whether it was <code>successful</code>.</p>
  */
 export interface AcceptReservedInstancesExchangeQuoteResult {
@@ -342,6 +409,9 @@ export interface AcceptReservedInstancesExchangeQuoteResult {
   ExchangeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -366,26 +436,47 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
   DryRun?: boolean;
 }
 
-export enum TransitGatewayAttachmentResourceType {
-  connect = "connect",
-  direct_connect_gateway = "direct-connect-gateway",
-  peering = "peering",
-  tgw_peering = "tgw-peering",
-  vpc = "vpc",
-  vpn = "vpn",
-}
-
-export enum TransitGatewayMulitcastDomainAssociationState {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-  pendingAcceptance = "pendingAcceptance",
-  rejected = "rejected",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayAttachmentResourceType = {
+  connect: "connect",
+  direct_connect_gateway: "direct-connect-gateway",
+  peering: "peering",
+  tgw_peering: "tgw-peering",
+  vpc: "vpc",
+  vpn: "vpn",
+} as const;
 
 /**
+ * @public
+ */
+export type TransitGatewayAttachmentResourceType =
+  (typeof TransitGatewayAttachmentResourceType)[keyof typeof TransitGatewayAttachmentResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayMulitcastDomainAssociationState = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+  pendingAcceptance: "pendingAcceptance",
+  rejected: "rejected",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayMulitcastDomainAssociationState =
+  (typeof TransitGatewayMulitcastDomainAssociationState)[keyof typeof TransitGatewayMulitcastDomainAssociationState];
+
+/**
+ * @public
  * <p>Describes the subnet association with the transit gateway multicast domain.</p>
  */
 export interface SubnetAssociation {
@@ -401,6 +492,7 @@ export interface SubnetAssociation {
 }
 
 /**
+ * @public
  * <p>Describes the multicast domain associations.</p>
  */
 export interface TransitGatewayMulticastDomainAssociations {
@@ -435,6 +527,9 @@ export interface TransitGatewayMulticastDomainAssociations {
   Subnets?: SubnetAssociation[];
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayMulticastDomainAssociationsResult {
   /**
    * <p>Information about the multicast domain associations.</p>
@@ -442,6 +537,9 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsResult {
   Associations?: TransitGatewayMulticastDomainAssociations;
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayPeeringAttachmentRequest {
   /**
    * <p>The ID of the transit gateway attachment.</p>
@@ -457,6 +555,7 @@ export interface AcceptTransitGatewayPeeringAttachmentRequest {
 }
 
 /**
+ * @public
  * <p>Information about the transit gateway in the peering attachment.</p>
  */
 export interface PeeringTgwInfo {
@@ -481,12 +580,22 @@ export interface PeeringTgwInfo {
   Region?: string;
 }
 
-export enum DynamicRoutingValue {
-  disable = "disable",
-  enable = "enable",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DynamicRoutingValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
 
 /**
+ * @public
+ */
+export type DynamicRoutingValue = (typeof DynamicRoutingValue)[keyof typeof DynamicRoutingValue];
+
+/**
+ * @public
  * <p>Describes dynamic routing for the transit gateway peering attachment.</p>
  */
 export interface TransitGatewayPeeringAttachmentOptions {
@@ -496,23 +605,34 @@ export interface TransitGatewayPeeringAttachmentOptions {
   DynamicRouting?: DynamicRoutingValue | string;
 }
 
-export enum TransitGatewayAttachmentState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  failed = "failed",
-  failing = "failing",
-  initiating = "initiating",
-  initiatingRequest = "initiatingRequest",
-  modifying = "modifying",
-  pending = "pending",
-  pendingAcceptance = "pendingAcceptance",
-  rejected = "rejected",
-  rejecting = "rejecting",
-  rollingBack = "rollingBack",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayAttachmentState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  failed: "failed",
+  failing: "failing",
+  initiating: "initiating",
+  initiatingRequest: "initiatingRequest",
+  modifying: "modifying",
+  pending: "pending",
+  pendingAcceptance: "pendingAcceptance",
+  rejected: "rejected",
+  rejecting: "rejecting",
+  rollingBack: "rollingBack",
+} as const;
 
 /**
+ * @public
+ */
+export type TransitGatewayAttachmentState =
+  (typeof TransitGatewayAttachmentState)[keyof typeof TransitGatewayAttachmentState];
+
+/**
+ * @public
  * <p>The status of the transit gateway peering attachment.</p>
  */
 export interface PeeringAttachmentStatus {
@@ -528,6 +648,7 @@ export interface PeeringAttachmentStatus {
 }
 
 /**
+ * @public
  * <p>Describes the transit gateway peering attachment.</p>
  */
 export interface TransitGatewayPeeringAttachment {
@@ -577,6 +698,9 @@ export interface TransitGatewayPeeringAttachment {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayPeeringAttachmentResult {
   /**
    * <p>The transit gateway peering attachment.</p>
@@ -584,6 +708,9 @@ export interface AcceptTransitGatewayPeeringAttachmentResult {
   TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayVpcAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -598,22 +725,50 @@ export interface AcceptTransitGatewayVpcAttachmentRequest {
   DryRun?: boolean;
 }
 
-export enum ApplianceModeSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
-
-export enum DnsSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
-
-export enum Ipv6SupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplianceModeSupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplianceModeSupportValue = (typeof ApplianceModeSupportValue)[keyof typeof ApplianceModeSupportValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DnsSupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+
+/**
+ * @public
+ */
+export type DnsSupportValue = (typeof DnsSupportValue)[keyof typeof DnsSupportValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ipv6SupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+
+/**
+ * @public
+ */
+export type Ipv6SupportValue = (typeof Ipv6SupportValue)[keyof typeof Ipv6SupportValue];
+
+/**
+ * @public
  * <p>Describes the VPC attachment options.</p>
  */
 export interface TransitGatewayVpcAttachmentOptions {
@@ -634,6 +789,7 @@ export interface TransitGatewayVpcAttachmentOptions {
 }
 
 /**
+ * @public
  * <p>Describes a VPC attachment.</p>
  */
 export interface TransitGatewayVpcAttachment {
@@ -683,6 +839,9 @@ export interface TransitGatewayVpcAttachment {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AcceptTransitGatewayVpcAttachmentResult {
   /**
    * <p>The VPC attachment.</p>
@@ -690,6 +849,9 @@ export interface AcceptTransitGatewayVpcAttachmentResult {
   TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
 }
 
+/**
+ * @public
+ */
 export interface AcceptVpcEndpointConnectionsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -704,12 +866,13 @@ export interface AcceptVpcEndpointConnectionsRequest {
   ServiceId: string | undefined;
 
   /**
-   * <p>The IDs of one or more interface VPC endpoints.</p>
+   * <p>The IDs of the interface VPC endpoints.</p>
    */
   VpcEndpointIds: string[] | undefined;
 }
 
 /**
+ * @public
  * <p>Information about the error that occurred. For more information about errors, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
  */
 export interface UnsuccessfulItemError {
@@ -725,6 +888,7 @@ export interface UnsuccessfulItemError {
 }
 
 /**
+ * @public
  * <p>Information about items that were not successfully processed in a batch call.</p>
  */
 export interface UnsuccessfulItem {
@@ -739,6 +903,9 @@ export interface UnsuccessfulItem {
   ResourceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptVpcEndpointConnectionsResult {
   /**
    * <p>Information about the interface endpoints that were not accepted, if
@@ -747,6 +914,9 @@ export interface AcceptVpcEndpointConnectionsResult {
   Unsuccessful?: UnsuccessfulItem[];
 }
 
+/**
+ * @public
+ */
 export interface AcceptVpcPeeringConnectionRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -759,10 +929,11 @@ export interface AcceptVpcPeeringConnectionRequest {
    * <p>The ID of the VPC peering connection. You must specify this parameter in the
    * 			request.</p>
    */
-  VpcPeeringConnectionId?: string;
+  VpcPeeringConnectionId: string | undefined;
 }
 
 /**
+ * @public
  * <p>Describes an IPv4 CIDR block.</p>
  */
 export interface CidrBlock {
@@ -773,6 +944,7 @@ export interface CidrBlock {
 }
 
 /**
+ * @public
  * <p>Describes an IPv6 CIDR block.</p>
  */
 export interface Ipv6CidrBlock {
@@ -783,6 +955,7 @@ export interface Ipv6CidrBlock {
 }
 
 /**
+ * @public
  * <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
@@ -806,6 +979,7 @@ export interface VpcPeeringConnectionOptionsDescription {
 }
 
 /**
+ * @public
  * <p>Describes a VPC in a VPC peering connection.</p>
  */
 export interface VpcPeeringConnectionVpcInfo {
@@ -845,19 +1019,30 @@ export interface VpcPeeringConnectionVpcInfo {
   Region?: string;
 }
 
-export enum VpcPeeringConnectionStateReasonCode {
-  active = "active",
-  deleted = "deleted",
-  deleting = "deleting",
-  expired = "expired",
-  failed = "failed",
-  initiating_request = "initiating-request",
-  pending_acceptance = "pending-acceptance",
-  provisioning = "provisioning",
-  rejected = "rejected",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VpcPeeringConnectionStateReasonCode = {
+  active: "active",
+  deleted: "deleted",
+  deleting: "deleting",
+  expired: "expired",
+  failed: "failed",
+  initiating_request: "initiating-request",
+  pending_acceptance: "pending-acceptance",
+  provisioning: "provisioning",
+  rejected: "rejected",
+} as const;
 
 /**
+ * @public
+ */
+export type VpcPeeringConnectionStateReasonCode =
+  (typeof VpcPeeringConnectionStateReasonCode)[keyof typeof VpcPeeringConnectionStateReasonCode];
+
+/**
+ * @public
  * <p>Describes the status of a VPC peering connection.</p>
  */
 export interface VpcPeeringConnectionStateReason {
@@ -873,6 +1058,7 @@ export interface VpcPeeringConnectionStateReason {
 }
 
 /**
+ * @public
  * <p>Describes a VPC peering connection.</p>
  */
 export interface VpcPeeringConnection {
@@ -907,6 +1093,9 @@ export interface VpcPeeringConnection {
   VpcPeeringConnectionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptVpcPeeringConnectionResult {
   /**
    * <p>Information about the VPC peering connection.</p>
@@ -915,6 +1104,7 @@ export interface AcceptVpcPeeringConnectionResult {
 }
 
 /**
+ * @public
  * <p>Describes a range of ports.</p>
  */
 export interface PortRange {
@@ -930,6 +1120,7 @@ export interface PortRange {
 }
 
 /**
+ * @public
  * <p>Describes a network access control (ACL) rule.</p>
  */
 export interface AnalysisAclRule {
@@ -965,6 +1156,7 @@ export interface AnalysisAclRule {
 }
 
 /**
+ * @public
  * <p>Describes a path component.</p>
  */
 export interface AnalysisComponent {
@@ -985,11 +1177,60 @@ export interface AnalysisComponent {
 }
 
 /**
- * <p>Describes an additional detail for a path analysis.</p>
+ * @public
+ * <p>Describes additional settings for a stateful rule.</p>
+ */
+export interface RuleOption {
+  /**
+   * <p>The Suricata keyword.</p>
+   */
+  Keyword?: string;
+
+  /**
+   * <p>The settings for the keyword.</p>
+   */
+  Settings?: string[];
+}
+
+/**
+ * @public
+ * <p>Describes the rule options for a stateful rule group.</p>
+ */
+export interface RuleGroupRuleOptionsPair {
+  /**
+   * <p>The ARN of the rule group.</p>
+   */
+  RuleGroupArn?: string;
+
+  /**
+   * <p>The rule options.</p>
+   */
+  RuleOptions?: RuleOption[];
+}
+
+/**
+ * @public
+ * <p>Describes the type of a stateful rule group.</p>
+ */
+export interface RuleGroupTypePair {
+  /**
+   * <p>The ARN of the rule group.</p>
+   */
+  RuleGroupArn?: string;
+
+  /**
+   * <p>The rule group type. The possible values are <code>Domain List</code> and <code>Suricata</code>.</p>
+   */
+  RuleGroupType?: string;
+}
+
+/**
+ * @public
+ * <p>Describes an additional detail for a path analysis. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/additional-detail-codes.html">Reachability Analyzer additional detail codes</a>.</p>
  */
 export interface AdditionalDetail {
   /**
-   * <p>The information type.</p>
+   * <p>The additional detail code.</p>
    */
   AdditionalDetailType?: string;
 
@@ -997,9 +1238,40 @@ export interface AdditionalDetail {
    * <p>The path component.</p>
    */
   Component?: AnalysisComponent;
+
+  /**
+   * <p>The VPC endpoint service.</p>
+   */
+  VpcEndpointService?: AnalysisComponent;
+
+  /**
+   * <p>The rule options.</p>
+   */
+  RuleOptions?: RuleOption[];
+
+  /**
+   * <p>The rule group type.</p>
+   */
+  RuleGroupTypePairs?: RuleGroupTypePair[];
+
+  /**
+   * <p>The rule options.</p>
+   */
+  RuleGroupRuleOptionsPairs?: RuleGroupRuleOptionsPair[];
+
+  /**
+   * <p>The name of the VPC endpoint service.</p>
+   */
+  ServiceName?: string;
+
+  /**
+   * <p>The load balancers.</p>
+   */
+  LoadBalancers?: AnalysisComponent[];
 }
 
 /**
+ * @public
  * <p>Describes a load balancer listener.</p>
  */
 export interface AnalysisLoadBalancerListener {
@@ -1015,6 +1287,101 @@ export interface AnalysisLoadBalancerListener {
 }
 
 /**
+ * @public
+ * <p>Describes a stateful rule.</p>
+ */
+export interface FirewallStatefulRule {
+  /**
+   * <p>The ARN of the stateful rule group.</p>
+   */
+  RuleGroupArn?: string;
+
+  /**
+   * <p>The source IP addresses, in CIDR notation.</p>
+   */
+  Sources?: string[];
+
+  /**
+   * <p>The destination IP addresses, in CIDR notation.</p>
+   */
+  Destinations?: string[];
+
+  /**
+   * <p>The source ports.</p>
+   */
+  SourcePorts?: PortRange[];
+
+  /**
+   * <p>The destination ports.</p>
+   */
+  DestinationPorts?: PortRange[];
+
+  /**
+   * <p>The protocol.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>The rule action. The possible values are <code>pass</code>, <code>drop</code>, and
+   *          <code>alert</code>.</p>
+   */
+  RuleAction?: string;
+
+  /**
+   * <p>The direction. The possible values are <code>FORWARD</code> and <code>ANY</code>.</p>
+   */
+  Direction?: string;
+}
+
+/**
+ * @public
+ * <p>Describes a stateless rule.</p>
+ */
+export interface FirewallStatelessRule {
+  /**
+   * <p>The ARN of the stateless rule group.</p>
+   */
+  RuleGroupArn?: string;
+
+  /**
+   * <p>The source IP addresses, in CIDR notation.</p>
+   */
+  Sources?: string[];
+
+  /**
+   * <p>The destination IP addresses, in CIDR notation.</p>
+   */
+  Destinations?: string[];
+
+  /**
+   * <p>The source ports.</p>
+   */
+  SourcePorts?: PortRange[];
+
+  /**
+   * <p>The destination ports.</p>
+   */
+  DestinationPorts?: PortRange[];
+
+  /**
+   * <p>The protocols.</p>
+   */
+  Protocols?: number[];
+
+  /**
+   * <p>The rule action. The possible values are <code>pass</code>, <code>drop</code>, and
+   *          <code>forward_to_site</code>.</p>
+   */
+  RuleAction?: string;
+
+  /**
+   * <p>The rule priority.</p>
+   */
+  Priority?: number;
+}
+
+/**
+ * @public
  * <p>Describes a load balancer target.</p>
  */
 export interface AnalysisLoadBalancerTarget {
@@ -1040,6 +1407,7 @@ export interface AnalysisLoadBalancerTarget {
 }
 
 /**
+ * @public
  * <p>Describes a route table route.</p>
  */
 export interface AnalysisRouteTableRoute {
@@ -1116,9 +1484,25 @@ export interface AnalysisRouteTableRoute {
    *          </ul>
    */
   State?: string;
+
+  /**
+   * <p>The ID of a carrier gateway.</p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a core network.</p>
+   */
+  CoreNetworkArn?: string;
+
+  /**
+   * <p>The ID of a local gateway.</p>
+   */
+  LocalGatewayId?: string;
 }
 
 /**
+ * @public
  * <p>Describes a security group rule.</p>
  */
 export interface AnalysisSecurityGroupRule {
@@ -1162,6 +1546,7 @@ export interface AnalysisSecurityGroupRule {
 }
 
 /**
+ * @public
  * <p>Describes a route in a transit gateway route table.</p>
  */
 export interface TransitGatewayRouteTableRoute {
@@ -1210,6 +1595,7 @@ export interface TransitGatewayRouteTableRoute {
 }
 
 /**
+ * @public
  * <p>Describes an explanation code for an unreachable path. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
  */
 export interface Explanation {
@@ -1475,9 +1861,20 @@ export interface Explanation {
    * <p>The Region for the component.</p>
    */
   ComponentRegion?: string;
+
+  /**
+   * <p>The Network Firewall stateless rule.</p>
+   */
+  FirewallStatelessRule?: FirewallStatelessRule;
+
+  /**
+   * <p>The Network Firewall stateful rule.</p>
+   */
+  FirewallStatefulRule?: FirewallStatefulRule;
 }
 
 /**
+ * @public
  * <p>Describes a header. Reflects any changes made by a component as traffic passes through.
  *          The fields of an inbound header are null except for the first component of a path.</p>
  */
@@ -1509,6 +1906,7 @@ export interface AnalysisPacketHeader {
 }
 
 /**
+ * @public
  * <p>Describes a path component.</p>
  */
 export interface PathComponent {
@@ -1596,9 +1994,25 @@ export interface PathComponent {
    * <p>The load balancer listener.</p>
    */
   ElasticLoadBalancerListener?: AnalysisComponent;
+
+  /**
+   * <p>The Network Firewall stateless rule.</p>
+   */
+  FirewallStatelessRule?: FirewallStatelessRule;
+
+  /**
+   * <p>The Network Firewall stateful rule.</p>
+   */
+  FirewallStatefulRule?: FirewallStatefulRule;
+
+  /**
+   * <p>The name of the VPC endpoint service.</p>
+   */
+  ServiceName?: string;
 }
 
 /**
+ * @public
  * <p>Describes a finding for a Network Access Scope.</p>
  */
 export interface AccessScopeAnalysisFinding {
@@ -1623,12 +2037,22 @@ export interface AccessScopeAnalysisFinding {
   FindingComponents?: PathComponent[];
 }
 
-export enum Protocol {
-  tcp = "tcp",
-  udp = "udp",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Protocol = {
+  tcp: "tcp",
+  udp: "udp",
+} as const;
 
 /**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
+/**
+ * @public
  * <p>Describes a packet header statement.</p>
  */
 export interface PacketHeaderStatement {
@@ -1669,6 +2093,7 @@ export interface PacketHeaderStatement {
 }
 
 /**
+ * @public
  * <p>Describes a resource statement.</p>
  */
 export interface ResourceStatement {
@@ -1684,6 +2109,7 @@ export interface ResourceStatement {
 }
 
 /**
+ * @public
  * <p>Describes a path statement.</p>
  */
 export interface PathStatement {
@@ -1699,6 +2125,7 @@ export interface PathStatement {
 }
 
 /**
+ * @public
  * <p>Describes a through resource statement.</p>
  */
 export interface ThroughResourcesStatement {
@@ -1709,6 +2136,7 @@ export interface ThroughResourcesStatement {
 }
 
 /**
+ * @public
  * <p>Describes a path.</p>
  */
 export interface AccessScopePath {
@@ -1729,6 +2157,7 @@ export interface AccessScopePath {
 }
 
 /**
+ * @public
  * <p>Describes a packet header statement.</p>
  */
 export interface PacketHeaderStatementRequest {
@@ -1769,6 +2198,7 @@ export interface PacketHeaderStatementRequest {
 }
 
 /**
+ * @public
  * <p>Describes a resource statement.</p>
  */
 export interface ResourceStatementRequest {
@@ -1784,6 +2214,7 @@ export interface ResourceStatementRequest {
 }
 
 /**
+ * @public
  * <p>Describes a path statement.</p>
  */
 export interface PathStatementRequest {
@@ -1799,6 +2230,7 @@ export interface PathStatementRequest {
 }
 
 /**
+ * @public
  * <p>Describes a through resource statement.</p>
  */
 export interface ThroughResourcesStatementRequest {
@@ -1809,6 +2241,7 @@ export interface ThroughResourcesStatementRequest {
 }
 
 /**
+ * @public
  * <p>Describes a path.</p>
  */
 export interface AccessScopePathRequest {
@@ -1829,6 +2262,7 @@ export interface AccessScopePathRequest {
 }
 
 /**
+ * @public
  * <p>Describes a value of an account attribute.</p>
  */
 export interface AccountAttributeValue {
@@ -1839,6 +2273,7 @@ export interface AccountAttributeValue {
 }
 
 /**
+ * @public
  * <p>Describes an account attribute.</p>
  */
 export interface AccountAttribute {
@@ -1853,17 +2288,36 @@ export interface AccountAttribute {
   AttributeValues?: AccountAttributeValue[];
 }
 
-export enum AccountAttributeName {
-  default_vpc = "default-vpc",
-  supported_platforms = "supported-platforms",
-}
-
-export enum InstanceHealthStatus {
-  HEALTHY_STATUS = "healthy",
-  UNHEALTHY_STATUS = "unhealthy",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccountAttributeName = {
+  default_vpc: "default-vpc",
+  supported_platforms: "supported-platforms",
+} as const;
 
 /**
+ * @public
+ */
+export type AccountAttributeName = (typeof AccountAttributeName)[keyof typeof AccountAttributeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceHealthStatus = {
+  HEALTHY_STATUS: "healthy",
+  UNHEALTHY_STATUS: "unhealthy",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceHealthStatus = (typeof InstanceHealthStatus)[keyof typeof InstanceHealthStatus];
+
+/**
+ * @public
  * <p>Describes a running instance in a Spot Fleet.</p>
  */
 export interface ActiveInstance {
@@ -1890,23 +2344,42 @@ export interface ActiveInstance {
   InstanceHealth?: InstanceHealthStatus | string;
 }
 
-export enum ActivityStatus {
-  ERROR = "error",
-  FULFILLED = "fulfilled",
-  PENDING_FULFILLMENT = "pending_fulfillment",
-  PENDING_TERMINATION = "pending_termination",
-}
-
-export enum PrincipalType {
-  Account = "Account",
-  All = "All",
-  OrganizationUnit = "OrganizationUnit",
-  Role = "Role",
-  Service = "Service",
-  User = "User",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActivityStatus = {
+  ERROR: "error",
+  FULFILLED: "fulfilled",
+  PENDING_FULFILLMENT: "pending_fulfillment",
+  PENDING_TERMINATION: "pending_termination",
+} as const;
 
 /**
+ * @public
+ */
+export type ActivityStatus = (typeof ActivityStatus)[keyof typeof ActivityStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalType = {
+  Account: "Account",
+  All: "All",
+  OrganizationUnit: "OrganizationUnit",
+  Role: "Role",
+  Service: "Service",
+  User: "User",
+} as const;
+
+/**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+/**
+ * @public
  * <p>Describes a principal.</p>
  */
 export interface AddedPrincipal {
@@ -1932,8 +2405,8 @@ export interface AddedPrincipal {
 }
 
 /**
- * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
- *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ * @public
+ * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
  *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  */
@@ -1945,6 +2418,7 @@ export interface AddIpamOperatingRegion {
 }
 
 /**
+ * @public
  * <p>An entry for a prefix list.</p>
  */
 export interface AddPrefixListEntry {
@@ -1960,12 +2434,22 @@ export interface AddPrefixListEntry {
   Description?: string;
 }
 
-export enum DomainType {
-  standard = "standard",
-  vpc = "vpc",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DomainType = {
+  standard: "standard",
+  vpc: "vpc",
+} as const;
 
 /**
+ * @public
+ */
+export type DomainType = (typeof DomainType)[keyof typeof DomainType];
+
+/**
+ * @public
  * <p>Describes an Elastic IP address, or a carrier IP address.</p>
  */
 export interface Address {
@@ -2044,6 +2528,7 @@ export interface Address {
 }
 
 /**
+ * @public
  * <p>The status of an updated pointer (PTR) record for an Elastic IP address.</p>
  */
 export interface PtrUpdateStatus {
@@ -2064,6 +2549,7 @@ export interface PtrUpdateStatus {
 }
 
 /**
+ * @public
  * <p>The attributes associated with an Elastic IP address.</p>
  */
 export interface AddressAttribute {
@@ -2088,15 +2574,36 @@ export interface AddressAttribute {
   PtrRecordUpdate?: PtrUpdateStatus;
 }
 
-export enum AddressAttributeName {
-  domain_name = "domain-name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AddressAttributeName = {
+  domain_name: "domain-name",
+} as const;
 
-export enum AddressFamily {
-  ipv4 = "ipv4",
-  ipv6 = "ipv6",
-}
+/**
+ * @public
+ */
+export type AddressAttributeName = (typeof AddressAttributeName)[keyof typeof AddressAttributeName];
 
+/**
+ * @public
+ * @enum
+ */
+export const AddressFamily = {
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type AddressFamily = (typeof AddressFamily)[keyof typeof AddressFamily];
+
+/**
+ * @public
+ */
 export interface AdvertiseByoipCidrRequest {
   /**
    * <p>The address range, in CIDR notation. This must be the exact range that you provisioned.
@@ -2112,18 +2619,28 @@ export interface AdvertiseByoipCidrRequest {
   DryRun?: boolean;
 }
 
-export enum ByoipCidrState {
-  advertised = "advertised",
-  deprovisioned = "deprovisioned",
-  failed_deprovision = "failed-deprovision",
-  failed_provision = "failed-provision",
-  pending_deprovision = "pending-deprovision",
-  pending_provision = "pending-provision",
-  provisioned = "provisioned",
-  provisioned_not_publicly_advertisable = "provisioned-not-publicly-advertisable",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ByoipCidrState = {
+  advertised: "advertised",
+  deprovisioned: "deprovisioned",
+  failed_deprovision: "failed-deprovision",
+  failed_provision: "failed-provision",
+  pending_deprovision: "pending-deprovision",
+  pending_provision: "pending-provision",
+  provisioned: "provisioned",
+  provisioned_not_publicly_advertisable: "provisioned-not-publicly-advertisable",
+} as const;
 
 /**
+ * @public
+ */
+export type ByoipCidrState = (typeof ByoipCidrState)[keyof typeof ByoipCidrState];
+
+/**
+ * @public
  * <p>Information about an address range that is provisioned for use with your Amazon Web Services resources
  *          through bring your own IP addresses (BYOIP).</p>
  */
@@ -2149,6 +2666,9 @@ export interface ByoipCidr {
   State?: ByoipCidrState | string;
 }
 
+/**
+ * @public
+ */
 export interface AdvertiseByoipCidrResult {
   /**
    * <p>Information about the address range.</p>
@@ -2156,11 +2676,23 @@ export interface AdvertiseByoipCidrResult {
   ByoipCidr?: ByoipCidr;
 }
 
-export enum Affinity {
-  default = "default",
-  host = "host",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Affinity = {
+  default: "default",
+  host: "host",
+} as const;
 
+/**
+ * @public
+ */
+export type Affinity = (typeof Affinity)[keyof typeof Affinity];
+
+/**
+ * @public
+ */
 export interface AllocateAddressRequest {
   /**
    * <p>Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic.</p>
@@ -2210,6 +2742,9 @@ export interface AllocateAddressRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface AllocateAddressResult {
   /**
    * <p>The Elastic IP address.</p>
@@ -2255,16 +2790,51 @@ export interface AllocateAddressResult {
   CarrierIp?: string;
 }
 
-export enum AutoPlacement {
-  off = "off",
-  on = "on",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoPlacement = {
+  off: "off",
+  on: "on",
+} as const;
 
-export enum HostRecovery {
-  off = "off",
-  on = "on",
-}
+/**
+ * @public
+ */
+export type AutoPlacement = (typeof AutoPlacement)[keyof typeof AutoPlacement];
 
+/**
+ * @public
+ * @enum
+ */
+export const HostMaintenance = {
+  off: "off",
+  on: "on",
+} as const;
+
+/**
+ * @public
+ */
+export type HostMaintenance = (typeof HostMaintenance)[keyof typeof HostMaintenance];
+
+/**
+ * @public
+ * @enum
+ */
+export const HostRecovery = {
+  off: "off",
+  on: "on",
+} as const;
+
+/**
+ * @public
+ */
+export type HostRecovery = (typeof HostRecovery)[keyof typeof HostRecovery];
+
+/**
+ * @public
+ */
 export interface AllocateHostsRequest {
   /**
    * <p>Indicates whether the host accepts any untargeted instance launches that match its
@@ -2331,9 +2901,17 @@ export interface AllocateHostsRequest {
    *             the Dedicated Host.</p>
    */
   OutpostArn?: string;
+
+  /**
+   * <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html">Host
+   *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  HostMaintenance?: HostMaintenance | string;
 }
 
 /**
+ * @public
  * <p>Contains the output of AllocateHosts.</p>
  */
 export interface AllocateHostsResult {
@@ -2344,6 +2922,9 @@ export interface AllocateHostsResult {
   HostIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface AllocateIpamPoolCidrRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -2406,15 +2987,26 @@ export interface AllocateIpamPoolCidrRequest {
   DisallowedCidrs?: string[];
 }
 
-export enum IpamPoolAllocationResourceType {
-  custom = "custom",
-  ec2_public_ipv4_pool = "ec2-public-ipv4-pool",
-  ipam_pool = "ipam-pool",
-  vpc = "vpc",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpamPoolAllocationResourceType = {
+  custom: "custom",
+  ec2_public_ipv4_pool: "ec2-public-ipv4-pool",
+  ipam_pool: "ipam-pool",
+  vpc: "vpc",
+} as const;
 
 /**
- * <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.</p>
+ * @public
+ */
+export type IpamPoolAllocationResourceType =
+  (typeof IpamPoolAllocationResourceType)[keyof typeof IpamPoolAllocationResourceType];
+
+/**
+ * @public
+ * <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource.</p>
  */
 export interface IpamPoolAllocation {
   /**
@@ -2454,6 +3046,9 @@ export interface IpamPoolAllocation {
   ResourceOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface AllocateIpamPoolCidrResult {
   /**
    * <p>Information about the allocation created.</p>
@@ -2461,28 +3056,56 @@ export interface AllocateIpamPoolCidrResult {
   IpamPoolAllocation?: IpamPoolAllocation;
 }
 
-export enum AllocationState {
-  available = "available",
-  pending = "pending",
-  permanent_failure = "permanent-failure",
-  released = "released",
-  released_permanent_failure = "released-permanent-failure",
-  under_assessment = "under-assessment",
-}
-
-export enum AllocationStrategy {
-  CAPACITY_OPTIMIZED = "capacityOptimized",
-  CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized",
-  DIVERSIFIED = "diversified",
-  LOWEST_PRICE = "lowestPrice",
-  PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized",
-}
-
-export enum AllocationType {
-  used = "used",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AllocationState = {
+  available: "available",
+  pending: "pending",
+  permanent_failure: "permanent-failure",
+  released: "released",
+  released_permanent_failure: "released-permanent-failure",
+  under_assessment: "under-assessment",
+} as const;
 
 /**
+ * @public
+ */
+export type AllocationState = (typeof AllocationState)[keyof typeof AllocationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const AllocationStrategy = {
+  CAPACITY_OPTIMIZED: "capacityOptimized",
+  CAPACITY_OPTIMIZED_PRIORITIZED: "capacityOptimizedPrioritized",
+  DIVERSIFIED: "diversified",
+  LOWEST_PRICE: "lowestPrice",
+  PRICE_CAPACITY_OPTIMIZED: "priceCapacityOptimized",
+} as const;
+
+/**
+ * @public
+ */
+export type AllocationStrategy = (typeof AllocationStrategy)[keyof typeof AllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const AllocationType = {
+  used: "used",
+} as const;
+
+/**
+ * @public
+ */
+export type AllocationType = (typeof AllocationType)[keyof typeof AllocationType];
+
+/**
+ * @public
  * <p>Describes a principal.</p>
  */
 export interface AllowedPrincipal {
@@ -2512,12 +3135,23 @@ export interface AllowedPrincipal {
   ServiceId?: string;
 }
 
-export enum AllowsMultipleInstanceTypes {
-  off = "off",
-  on = "on",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AllowsMultipleInstanceTypes = {
+  off: "off",
+  on: "on",
+} as const;
 
 /**
+ * @public
+ */
+export type AllowsMultipleInstanceTypes =
+  (typeof AllowsMultipleInstanceTypes)[keyof typeof AllowsMultipleInstanceTypes];
+
+/**
+ * @public
  * <p>Describes an potential intermediate component of a feasible path.</p>
  */
 export interface AlternatePathHint {
@@ -2532,6 +3166,9 @@ export interface AlternatePathHint {
   ComponentArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ApplySecurityGroupsToClientVpnTargetNetworkRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -2555,6 +3192,9 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ApplySecurityGroupsToClientVpnTargetNetworkResult {
   /**
    * <p>The IDs of the applied security groups.</p>
@@ -2562,6 +3202,9 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkResult {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface AssignIpv6AddressesRequest {
   /**
    * <p>The number of additional IPv6 addresses to assign to the network interface.
@@ -2595,6 +3238,9 @@ export interface AssignIpv6AddressesRequest {
   NetworkInterfaceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssignIpv6AddressesResult {
   /**
    * <p>The new IPv6 addresses assigned to the network interface. Existing IPv6 addresses
@@ -2614,6 +3260,7 @@ export interface AssignIpv6AddressesResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for AssignPrivateIpAddresses.</p>
  */
 export interface AssignPrivateIpAddressesRequest {
@@ -2650,6 +3297,7 @@ export interface AssignPrivateIpAddressesRequest {
 }
 
 /**
+ * @public
  * <p>Describes an IPv4 prefix.</p>
  */
 export interface Ipv4PrefixSpecification {
@@ -2662,6 +3310,7 @@ export interface Ipv4PrefixSpecification {
 }
 
 /**
+ * @public
  * <p>Describes the private IP addresses assigned to a network interface.</p>
  */
 export interface AssignedPrivateIpAddress {
@@ -2671,6 +3320,9 @@ export interface AssignedPrivateIpAddress {
   PrivateIpAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssignPrivateIpAddressesResult {
   /**
    * <p>The ID of the network interface.</p>
@@ -2688,6 +3340,115 @@ export interface AssignPrivateIpAddressesResult {
   AssignedIpv4Prefixes?: Ipv4PrefixSpecification[];
 }
 
+/**
+ * @public
+ */
+export interface AssignPrivateNatGatewayAddressRequest {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId: string | undefined;
+
+  /**
+   * <p>The private IPv4 addresses you want to assign to the private NAT gateway.</p>
+   */
+  PrivateIpAddresses?: string[];
+
+  /**
+   * <p>The number of private IP addresses to assign to the NAT gateway. You can't specify this parameter when also specifying private IP addresses.</p>
+   */
+  PrivateIpAddressCount?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NatGatewayAddressStatus = {
+  ASSIGNING: "assigning",
+  ASSOCIATING: "associating",
+  DISASSOCIATING: "disassociating",
+  FAILED: "failed",
+  SUCCEEDED: "succeeded",
+  UNASSIGNING: "unassigning",
+} as const;
+
+/**
+ * @public
+ */
+export type NatGatewayAddressStatus = (typeof NatGatewayAddressStatus)[keyof typeof NatGatewayAddressStatus];
+
+/**
+ * @public
+ * <p>Describes the IP addresses and network interface associated with a NAT gateway.</p>
+ */
+export interface NatGatewayAddress {
+  /**
+   * <p>[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.</p>
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>The ID of the network interface associated with the NAT gateway.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The private IP address associated with the NAT gateway.</p>
+   */
+  PrivateIp?: string;
+
+  /**
+   * <p>[Public NAT gateway only] The Elastic IP address associated with the NAT gateway.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>[Public NAT gateway only] The association ID of the Elastic IP address that's associated with the NAT gateway.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>Defines if the IP address is the primary address.</p>
+   */
+  IsPrimary?: boolean;
+
+  /**
+   * <p>The address failure message.</p>
+   */
+  FailureMessage?: string;
+
+  /**
+   * <p>The address status.</p>
+   */
+  Status?: NatGatewayAddressStatus | string;
+}
+
+/**
+ * @public
+ */
+export interface AssignPrivateNatGatewayAddressResult {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>NAT gateway IP addresses.</p>
+   */
+  NatGatewayAddresses?: NatGatewayAddress[];
+}
+
+/**
+ * @public
+ */
 export interface AssociateAddressRequest {
   /**
    * <p>[EC2-VPC] The allocation ID. This is required for EC2-VPC.</p>
@@ -2732,6 +3493,9 @@ export interface AssociateAddressRequest {
   PrivateIpAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateAddressResult {
   /**
    * <p>[EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.</p>
@@ -2739,6 +3503,9 @@ export interface AssociateAddressResult {
   AssociationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateClientVpnTargetNetworkRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -2761,15 +3528,25 @@ export interface AssociateClientVpnTargetNetworkRequest {
   DryRun?: boolean;
 }
 
-export enum AssociationStatusCode {
-  associated = "associated",
-  associating = "associating",
-  association_failed = "association-failed",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssociationStatusCode = {
+  associated: "associated",
+  associating: "associating",
+  association_failed: "association-failed",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+} as const;
 
 /**
+ * @public
+ */
+export type AssociationStatusCode = (typeof AssociationStatusCode)[keyof typeof AssociationStatusCode];
+
+/**
+ * @public
  * <p>Describes the state of a target network association.</p>
  */
 export interface AssociationStatus {
@@ -2784,6 +3561,9 @@ export interface AssociationStatus {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateClientVpnTargetNetworkResult {
   /**
    * <p>The unique ID of the target network association.</p>
@@ -2796,6 +3576,9 @@ export interface AssociateClientVpnTargetNetworkResult {
   Status?: AssociationStatus;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDhcpOptionsRequest {
   /**
    * <p>The ID of the DHCP options set, or <code>default</code> to associate
@@ -2816,17 +3599,20 @@ export interface AssociateDhcpOptionsRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateEnclaveCertificateIamRoleRequest {
   /**
    * <p>The ARN of the ACM certificate with which to associate the IAM role.</p>
    */
-  CertificateArn?: string;
+  CertificateArn: string | undefined;
 
   /**
    * <p>The ARN of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM
    * 			certificate.</p>
    */
-  RoleArn?: string;
+  RoleArn: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -2834,6 +3620,9 @@ export interface AssociateEnclaveCertificateIamRoleRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateEnclaveCertificateIamRoleResult {
   /**
    * <p>The name of the Amazon S3 bucket to which the certificate was uploaded.</p>
@@ -2853,6 +3642,7 @@ export interface AssociateEnclaveCertificateIamRoleResult {
 }
 
 /**
+ * @public
  * <p>Describes an IAM instance profile.</p>
  */
 export interface IamInstanceProfileSpecification {
@@ -2867,6 +3657,9 @@ export interface IamInstanceProfileSpecification {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateIamInstanceProfileRequest {
   /**
    * <p>The IAM instance profile.</p>
@@ -2880,6 +3673,7 @@ export interface AssociateIamInstanceProfileRequest {
 }
 
 /**
+ * @public
  * <p>Describes an IAM instance profile.</p>
  */
 export interface IamInstanceProfile {
@@ -2894,14 +3688,25 @@ export interface IamInstanceProfile {
   Id?: string;
 }
 
-export enum IamInstanceProfileAssociationState {
-  ASSOCIATED = "associated",
-  ASSOCIATING = "associating",
-  DISASSOCIATED = "disassociated",
-  DISASSOCIATING = "disassociating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IamInstanceProfileAssociationState = {
+  ASSOCIATED: "associated",
+  ASSOCIATING: "associating",
+  DISASSOCIATED: "disassociated",
+  DISASSOCIATING: "disassociating",
+} as const;
 
 /**
+ * @public
+ */
+export type IamInstanceProfileAssociationState =
+  (typeof IamInstanceProfileAssociationState)[keyof typeof IamInstanceProfileAssociationState];
+
+/**
+ * @public
  * <p>Describes an association between an IAM instance profile and an instance.</p>
  */
 export interface IamInstanceProfileAssociation {
@@ -2931,6 +3736,9 @@ export interface IamInstanceProfileAssociation {
   Timestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AssociateIamInstanceProfileResult {
   /**
    * <p>Information about the IAM instance profile association.</p>
@@ -2939,6 +3747,7 @@ export interface AssociateIamInstanceProfileResult {
 }
 
 /**
+ * @public
  * <p>One or more targets associated with the specified event window. Only one
  *             <i>type</i> of target (instance ID, instance tag, or Dedicated Host ID)
  *          can be associated with an event window.</p>
@@ -2963,6 +3772,9 @@ export interface InstanceEventWindowAssociationRequest {
   DedicatedHostIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateInstanceEventWindowRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2983,6 +3795,7 @@ export interface AssociateInstanceEventWindowRequest {
 }
 
 /**
+ * @public
  * <p>One or more targets associated with the event window.</p>
  */
 export interface InstanceEventWindowAssociationTarget {
@@ -3003,24 +3816,43 @@ export interface InstanceEventWindowAssociationTarget {
   DedicatedHostIds?: string[];
 }
 
-export enum InstanceEventWindowState {
-  active = "active",
-  creating = "creating",
-  deleted = "deleted",
-  deleting = "deleting",
-}
-
-export enum WeekDay {
-  friday = "friday",
-  monday = "monday",
-  saturday = "saturday",
-  sunday = "sunday",
-  thursday = "thursday",
-  tuesday = "tuesday",
-  wednesday = "wednesday",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceEventWindowState = {
+  active: "active",
+  creating: "creating",
+  deleted: "deleted",
+  deleting: "deleting",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceEventWindowState = (typeof InstanceEventWindowState)[keyof typeof InstanceEventWindowState];
+
+/**
+ * @public
+ * @enum
+ */
+export const WeekDay = {
+  friday: "friday",
+  monday: "monday",
+  saturday: "saturday",
+  sunday: "sunday",
+  thursday: "thursday",
+  tuesday: "tuesday",
+  wednesday: "wednesday",
+} as const;
+
+/**
+ * @public
+ */
+export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];
+
+/**
+ * @public
  * <p>The start day and time and the end day and time of the time range, in UTC.</p>
  */
 export interface InstanceEventWindowTimeRange {
@@ -3046,6 +3878,7 @@ export interface InstanceEventWindowTimeRange {
 }
 
 /**
+ * @public
  * <p>The event window.</p>
  */
 export interface InstanceEventWindow {
@@ -3085,6 +3918,9 @@ export interface InstanceEventWindow {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateInstanceEventWindowResult {
   /**
    * <p>Information about the event window.</p>
@@ -3092,6 +3928,241 @@ export interface AssociateInstanceEventWindowResult {
   InstanceEventWindow?: InstanceEventWindow;
 }
 
+/**
+ * @public
+ */
+export interface AssociateIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>An IPAM ID.</p>
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>Tag specifications.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A client token.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamAssociatedResourceDiscoveryStatus = {
+  ACTIVE: "active",
+  NOT_FOUND: "not-found",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamAssociatedResourceDiscoveryStatus =
+  (typeof IpamAssociatedResourceDiscoveryStatus)[keyof typeof IpamAssociatedResourceDiscoveryStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamResourceDiscoveryAssociationState = {
+  ASSOCIATE_COMPLETE: "associate-complete",
+  ASSOCIATE_FAILED: "associate-failed",
+  ASSOCIATE_IN_PROGRESS: "associate-in-progress",
+  DISASSOCIATE_COMPLETE: "disassociate-complete",
+  DISASSOCIATE_FAILED: "disassociate-failed",
+  DISASSOCIATE_IN_PROGRESS: "disassociate-in-progress",
+  ISOLATE_COMPLETE: "isolate-complete",
+  ISOLATE_IN_PROGRESS: "isolate-in-progress",
+  RESTORE_IN_PROGRESS: "restore-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamResourceDiscoveryAssociationState =
+  (typeof IpamResourceDiscoveryAssociationState)[keyof typeof IpamResourceDiscoveryAssociationState];
+
+/**
+ * @public
+ * <p>An IPAM resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM. IPAM aggregates the resource CIDRs discovered by the associated resource discovery.</p>
+ */
+export interface IpamResourceDiscoveryAssociation {
+  /**
+   * <p>The Amazon Web Services account ID of the resource discovery owner.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The resource discovery association ID.</p>
+   */
+  IpamResourceDiscoveryAssociationId?: string;
+
+  /**
+   * <p>The resource discovery association Amazon Resource Name (ARN).</p>
+   */
+  IpamResourceDiscoveryAssociationArn?: string;
+
+  /**
+   * <p>The resource discovery ID.</p>
+   */
+  IpamResourceDiscoveryId?: string;
+
+  /**
+   * <p>The IPAM ID.</p>
+   */
+  IpamId?: string;
+
+  /**
+   * <p>The IPAM ARN.</p>
+   */
+  IpamArn?: string;
+
+  /**
+   * <p>The IPAM home Region.</p>
+   */
+  IpamRegion?: string;
+
+  /**
+   * <p>Defines if the resource discovery is the default. When you create an IPAM, a default resource discovery is created for your IPAM and it's associated with your IPAM.</p>
+   */
+  IsDefault?: boolean;
+
+  /**
+   * <p>The resource discovery status.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - Connection or permissions required to read the
+   *                results of the resource discovery are intact.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>not-found</code> - Connection or permissions required to read the
+   *                results of the resource discovery are broken. This may happen if the owner of the resource discovery stopped sharing it or deleted the resource discovery. Verify the resource discovery still exists and the Amazon Web Services RAM resource share is still intact.</p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceDiscoveryStatus?: IpamAssociatedResourceDiscoveryStatus | string;
+
+  /**
+   * <p>The lifecycle state of the association when you associate or disassociate a resource discovery.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>associate-in-progress</code> - Resource discovery is being associated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associate-complete</code> - Resource discovery association is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associate-failed</code> - Resource discovery association has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-in-progress</code> - Resource discovery is being disassociated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-complete</code> - Resource discovery disassociation is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociate-failed </code> - Resource discovery disassociation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isolate-in-progress</code> - Amazon Web Services account that created the resource discovery association has been removed and the resource discovery associatation is being isolated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>isolate-complete</code> - Resource discovery isolation is complete..</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>restore-in-progress</code> - Resource discovery is being restored.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: IpamResourceDiscoveryAssociationState | string;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface AssociateIpamResourceDiscoveryResult {
+  /**
+   * <p>A resource discovery association. An associated resource discovery is a resource discovery that has been associated with an IPAM.</p>
+   */
+  IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation;
+}
+
+/**
+ * @public
+ */
+export interface AssociateNatGatewayAddressRequest {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId: string | undefined;
+
+  /**
+   * <p>The allocation IDs of EIPs that you want to associate with your NAT gateway.</p>
+   */
+  AllocationIds: string[] | undefined;
+
+  /**
+   * <p>The private IPv4 addresses that you want to assign to the NAT gateway.</p>
+   */
+  PrivateIpAddresses?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface AssociateNatGatewayAddressResult {
+  /**
+   * <p>The NAT gateway ID.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>The IP addresses.</p>
+   */
+  NatGatewayAddresses?: NatGatewayAddress[];
+}
+
+/**
+ * @public
+ */
 export interface AssociateRouteTableRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3116,15 +4187,26 @@ export interface AssociateRouteTableRequest {
   GatewayId?: string;
 }
 
-export enum RouteTableAssociationStateCode {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RouteTableAssociationStateCode = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+} as const;
 
 /**
+ * @public
+ */
+export type RouteTableAssociationStateCode =
+  (typeof RouteTableAssociationStateCode)[keyof typeof RouteTableAssociationStateCode];
+
+/**
+ * @public
  * <p>Describes the state of an association between a route table and a subnet or gateway.</p>
  */
 export interface RouteTableAssociationState {
@@ -3139,6 +4221,9 @@ export interface RouteTableAssociationState {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateRouteTableResult {
   /**
    * <p>The route table association ID. This ID is required for disassociating the route
@@ -3152,6 +4237,9 @@ export interface AssociateRouteTableResult {
   AssociationState?: RouteTableAssociationState;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSubnetCidrBlockRequest {
   /**
    * <p>The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix
@@ -3165,16 +4253,26 @@ export interface AssociateSubnetCidrBlockRequest {
   SubnetId: string | undefined;
 }
 
-export enum SubnetCidrBlockStateCode {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-  failing = "failing",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SubnetCidrBlockStateCode = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+  failing: "failing",
+} as const;
 
 /**
+ * @public
+ */
+export type SubnetCidrBlockStateCode = (typeof SubnetCidrBlockStateCode)[keyof typeof SubnetCidrBlockStateCode];
+
+/**
+ * @public
  * <p>Describes the state of a CIDR block.</p>
  */
 export interface SubnetCidrBlockState {
@@ -3190,6 +4288,7 @@ export interface SubnetCidrBlockState {
 }
 
 /**
+ * @public
  * <p>Describes an association between a subnet and an IPv6 CIDR block.</p>
  */
 export interface SubnetIpv6CidrBlockAssociation {
@@ -3209,6 +4308,9 @@ export interface SubnetIpv6CidrBlockAssociation {
   Ipv6CidrBlockState?: SubnetCidrBlockState;
 }
 
+/**
+ * @public
+ */
 export interface AssociateSubnetCidrBlockResult {
   /**
    * <p>Information about the IPv6 association.</p>
@@ -3221,21 +4323,24 @@ export interface AssociateSubnetCidrBlockResult {
   SubnetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayMulticastDomainRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
-  TransitGatewayMulticastDomainId?: string;
+  TransitGatewayMulticastDomainId: string | undefined;
 
   /**
    * <p>The ID of the transit gateway attachment to associate with the transit gateway multicast domain.</p>
    */
-  TransitGatewayAttachmentId?: string;
+  TransitGatewayAttachmentId: string | undefined;
 
   /**
    * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
    */
-  SubnetIds?: string[];
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3245,6 +4350,9 @@ export interface AssociateTransitGatewayMulticastDomainRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayMulticastDomainResult {
   /**
    * <p>Information about the transit gateway multicast domain associations.</p>
@@ -3252,6 +4360,9 @@ export interface AssociateTransitGatewayMulticastDomainResult {
   Associations?: TransitGatewayMulticastDomainAssociations;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayPolicyTableRequest {
   /**
    * <p>The ID of the transit gateway policy table to associate with the transit gateway attachment.</p>
@@ -3271,14 +4382,25 @@ export interface AssociateTransitGatewayPolicyTableRequest {
   DryRun?: boolean;
 }
 
-export enum TransitGatewayAssociationState {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayAssociationState = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+} as const;
 
 /**
+ * @public
+ */
+export type TransitGatewayAssociationState =
+  (typeof TransitGatewayAssociationState)[keyof typeof TransitGatewayAssociationState];
+
+/**
+ * @public
  * <p>Describes a transit gateway policy table association.</p>
  */
 export interface TransitGatewayPolicyTableAssociation {
@@ -3308,6 +4430,9 @@ export interface TransitGatewayPolicyTableAssociation {
   State?: TransitGatewayAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayPolicyTableResult {
   /**
    * <p>Describes the association of a transit gateway and a transit gateway policy table.</p>
@@ -3315,6 +4440,9 @@ export interface AssociateTransitGatewayPolicyTableResult {
   Association?: TransitGatewayPolicyTableAssociation;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayRouteTableRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -3335,6 +4463,7 @@ export interface AssociateTransitGatewayRouteTableRequest {
 }
 
 /**
+ * @public
  * <p>Describes an association between a resource attachment and a transit gateway route table.</p>
  */
 export interface TransitGatewayAssociation {
@@ -3364,6 +4493,9 @@ export interface TransitGatewayAssociation {
   State?: TransitGatewayAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayRouteTableResult {
   /**
    * <p>The ID of the association.</p>
@@ -3371,6 +4503,9 @@ export interface AssociateTransitGatewayRouteTableResult {
   Association?: TransitGatewayAssociation;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTrunkInterfaceRequest {
   /**
    * <p>The ID of the branch network interface.</p>
@@ -3407,12 +4542,22 @@ export interface AssociateTrunkInterfaceRequest {
   DryRun?: boolean;
 }
 
-export enum InterfaceProtocolType {
-  GRE = "GRE",
-  VLAN = "VLAN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InterfaceProtocolType = {
+  GRE: "GRE",
+  VLAN: "VLAN",
+} as const;
 
 /**
+ * @public
+ */
+export type InterfaceProtocolType = (typeof InterfaceProtocolType)[keyof typeof InterfaceProtocolType];
+
+/**
+ * @public
  * <note>
  *             <p>Currently available in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
@@ -3456,6 +4601,9 @@ export interface TrunkInterfaceAssociation {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AssociateTrunkInterfaceResult {
   /**
    * <p>Information about the association between the trunk network interface and branch network interface.</p>
@@ -3470,6 +4618,9 @@ export interface AssociateTrunkInterfaceResult {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateVpcCidrBlockRequest {
   /**
    * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.</p>
@@ -3527,16 +4678,26 @@ export interface AssociateVpcCidrBlockRequest {
   Ipv6NetmaskLength?: number;
 }
 
-export enum VpcCidrBlockStateCode {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-  failing = "failing",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VpcCidrBlockStateCode = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+  failing: "failing",
+} as const;
 
 /**
+ * @public
+ */
+export type VpcCidrBlockStateCode = (typeof VpcCidrBlockStateCode)[keyof typeof VpcCidrBlockStateCode];
+
+/**
+ * @public
  * <p>Describes the state of a CIDR block.</p>
  */
 export interface VpcCidrBlockState {
@@ -3552,6 +4713,7 @@ export interface VpcCidrBlockState {
 }
 
 /**
+ * @public
  * <p>Describes an IPv4 CIDR block associated with a VPC.</p>
  */
 export interface VpcCidrBlockAssociation {
@@ -3572,6 +4734,7 @@ export interface VpcCidrBlockAssociation {
 }
 
 /**
+ * @public
  * <p>Describes an IPv6 CIDR block associated with a VPC.</p>
  */
 export interface VpcIpv6CidrBlockAssociation {
@@ -3602,6 +4765,9 @@ export interface VpcIpv6CidrBlockAssociation {
   Ipv6Pool?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateVpcCidrBlockResult {
   /**
    * <p>Information about the IPv6 CIDR block association.</p>
@@ -3619,6 +4785,9 @@ export interface AssociateVpcCidrBlockResult {
   VpcId?: string;
 }
 
+/**
+ * @public
+ */
 export interface AttachClassicLinkVpcRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3643,6 +4812,9 @@ export interface AttachClassicLinkVpcRequest {
   VpcId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AttachClassicLinkVpcResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -3650,6 +4822,9 @@ export interface AttachClassicLinkVpcResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AttachInternetGatewayRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3670,6 +4845,7 @@ export interface AttachInternetGatewayRequest {
 }
 
 /**
+ * @public
  * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it’s enabled, TCP traffic
  * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
  * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
@@ -3684,6 +4860,7 @@ export interface EnaSrdUdpSpecification {
 }
 
 /**
+ * @public
  * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
  * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
  * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
@@ -3706,6 +4883,7 @@ export interface EnaSrdSpecification {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for AttachNetworkInterface.</p>
  */
 export interface AttachNetworkInterfaceRequest {
@@ -3745,6 +4923,7 @@ export interface AttachNetworkInterfaceRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of AttachNetworkInterface.</p>
  */
 export interface AttachNetworkInterfaceResult {
@@ -3759,6 +4938,9 @@ export interface AttachNetworkInterfaceResult {
   NetworkCardIndex?: number;
 }
 
+/**
+ * @public
+ */
 export interface AttachVerifiedAccessTrustProviderRequest {
   /**
    * <p>The ID of the Amazon Web Services Verified Access instance.</p>
@@ -3784,22 +4966,50 @@ export interface AttachVerifiedAccessTrustProviderRequest {
   DryRun?: boolean;
 }
 
-export enum DeviceTrustProviderType {
-  crowdstrike = "crowdstrike",
-  jamf = "jamf",
-}
-
-export enum TrustProviderType {
-  device = "device",
-  user = "user",
-}
-
-export enum UserTrustProviderType {
-  iam_identity_center = "iam-identity-center",
-  oidc = "oidc",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceTrustProviderType = {
+  crowdstrike: "crowdstrike",
+  jamf: "jamf",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceTrustProviderType = (typeof DeviceTrustProviderType)[keyof typeof DeviceTrustProviderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustProviderType = {
+  device: "device",
+  user: "user",
+} as const;
+
+/**
+ * @public
+ */
+export type TrustProviderType = (typeof TrustProviderType)[keyof typeof TrustProviderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserTrustProviderType = {
+  iam_identity_center: "iam-identity-center",
+  oidc: "oidc",
+} as const;
+
+/**
+ * @public
+ */
+export type UserTrustProviderType = (typeof UserTrustProviderType)[keyof typeof UserTrustProviderType];
+
+/**
+ * @public
  * <p>Condensed information about a trust provider.</p>
  */
 export interface VerifiedAccessTrustProviderCondensed {
@@ -3830,6 +5040,7 @@ export interface VerifiedAccessTrustProviderCondensed {
 }
 
 /**
+ * @public
  * <p>Describes a Verified Access instance.</p>
  */
 export interface VerifiedAccessInstance {
@@ -3865,6 +5076,7 @@ export interface VerifiedAccessInstance {
 }
 
 /**
+ * @public
  * <p>Options for an Amazon Web Services Verified Access device-identity based trust provider.</p>
  */
 export interface DeviceOptions {
@@ -3875,6 +5087,7 @@ export interface DeviceOptions {
 }
 
 /**
+ * @public
  * <p>Options for OIDC-based, user-identity type trust provider.</p>
  */
 export interface OidcOptions {
@@ -3915,6 +5128,7 @@ export interface OidcOptions {
 }
 
 /**
+ * @public
  * <p>Describes a Verified Access trust provider.</p>
  */
 export interface VerifiedAccessTrustProvider {
@@ -3974,6 +5188,9 @@ export interface VerifiedAccessTrustProvider {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AttachVerifiedAccessTrustProviderResult {
   /**
    * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
@@ -3986,6 +5203,9 @@ export interface AttachVerifiedAccessTrustProviderResult {
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
+/**
+ * @public
+ */
 export interface AttachVolumeRequest {
   /**
    * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
@@ -4011,15 +5231,25 @@ export interface AttachVolumeRequest {
   DryRun?: boolean;
 }
 
-export enum VolumeAttachmentState {
-  attached = "attached",
-  attaching = "attaching",
-  busy = "busy",
-  detached = "detached",
-  detaching = "detaching",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VolumeAttachmentState = {
+  attached: "attached",
+  attaching: "attaching",
+  busy: "busy",
+  detached: "detached",
+  detaching: "detaching",
+} as const;
 
 /**
+ * @public
+ */
+export type VolumeAttachmentState = (typeof VolumeAttachmentState)[keyof typeof VolumeAttachmentState];
+
+/**
+ * @public
  * <p>Describes volume attachment details.</p>
  */
 export interface VolumeAttachment {
@@ -4055,6 +5285,7 @@ export interface VolumeAttachment {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for AttachVpnGateway.</p>
  */
 export interface AttachVpnGatewayRequest {
@@ -4077,14 +5308,24 @@ export interface AttachVpnGatewayRequest {
   DryRun?: boolean;
 }
 
-export enum AttachmentStatus {
-  attached = "attached",
-  attaching = "attaching",
-  detached = "detached",
-  detaching = "detaching",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AttachmentStatus = {
+  attached: "attached",
+  attaching: "attaching",
+  detached: "detached",
+  detaching: "detaching",
+} as const;
 
 /**
+ * @public
+ */
+export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof AttachmentStatus];
+
+/**
+ * @public
  * <p>Describes an attachment between a virtual private gateway and a VPC.</p>
  */
 export interface VpcAttachment {
@@ -4100,6 +5341,7 @@ export interface VpcAttachment {
 }
 
 /**
+ * @public
  * <p>Contains the output of AttachVpnGateway.</p>
  */
 export interface AttachVpnGatewayResult {
@@ -4109,6 +5351,9 @@ export interface AttachVpnGatewayResult {
   VpcAttachment?: VpcAttachment;
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeClientVpnIngressRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -4148,14 +5393,25 @@ export interface AuthorizeClientVpnIngressRequest {
   DryRun?: boolean;
 }
 
-export enum ClientVpnAuthorizationRuleStatusCode {
-  active = "active",
-  authorizing = "authorizing",
-  failed = "failed",
-  revoking = "revoking",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClientVpnAuthorizationRuleStatusCode = {
+  active: "active",
+  authorizing: "authorizing",
+  failed: "failed",
+  revoking: "revoking",
+} as const;
 
 /**
+ * @public
+ */
+export type ClientVpnAuthorizationRuleStatusCode =
+  (typeof ClientVpnAuthorizationRuleStatusCode)[keyof typeof ClientVpnAuthorizationRuleStatusCode];
+
+/**
+ * @public
  * <p>Describes the state of an authorization rule.</p>
  */
 export interface ClientVpnAuthorizationRuleStatus {
@@ -4170,6 +5426,9 @@ export interface ClientVpnAuthorizationRuleStatus {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeClientVpnIngressResult {
   /**
    * <p>The current state of the authorization rule.</p>
@@ -4178,6 +5437,7 @@ export interface AuthorizeClientVpnIngressResult {
 }
 
 /**
+ * @public
  * <p>Describes an IPv4 range.</p>
  */
 export interface IpRange {
@@ -4190,12 +5450,13 @@ export interface IpRange {
   /**
    * <p>A description for the security group rule that references this IPv4 address range.</p>
    *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
-   *         spaces, and ._-:/()#,@[]+=&;{}!$*</p>
+   *         spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    */
   Description?: string;
 }
 
 /**
+ * @public
  * <p>[EC2-VPC only] Describes an IPv6 range.</p>
  */
 export interface Ipv6Range {
@@ -4208,19 +5469,20 @@ export interface Ipv6Range {
   /**
    * <p>A description for the security group rule that references this IPv6 address range.</p>
    *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
-   *         spaces, and ._-:/()#,@[]+=&;{}!$*</p>
+   *         spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    */
   Description?: string;
 }
 
 /**
+ * @public
  * <p>Describes a prefix list ID.</p>
  */
 export interface PrefixListId {
   /**
    * <p>A description for the security group rule that references this prefix list ID.</p>
    *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
-   *       spaces, and ._-:/()#,@[]+=;{}!$*</p>
+   *       spaces, and ._-:/()#,@[]+=;\{\}!$*</p>
    */
   Description?: string;
 
@@ -4231,6 +5493,7 @@ export interface PrefixListId {
 }
 
 /**
+ * @public
  * <p>Describes a security group and Amazon Web Services account ID pair.</p>
  *          <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -4241,7 +5504,7 @@ export interface UserIdGroupPair {
    * <p>A description for the security group rule that references this user ID group
    * 			pair.</p>
    *          <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9,
-   *       spaces, and ._-:/()#,@[]+=;{}!$*</p>
+   *       spaces, and ._-:/()#,@[]+=;\{\}!$*</p>
    */
   Description?: string;
 
@@ -4286,13 +5549,14 @@ export interface UserIdGroupPair {
 }
 
 /**
+ * @public
  * <p>Describes a set of permissions for a security group rule.</p>
  */
 export interface IpPermission {
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
-   *         A value of <code>-1</code> indicates all ICMP/ICMPv6 types. If you specify all
-   * 		ICMP/ICMPv6 types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *         If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
+   *         If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   FromPort?: number;
 
@@ -4324,9 +5588,9 @@ export interface IpPermission {
   PrefixListIds?: PrefixListId[];
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value
-   * 		of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types,
-   *         you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *           If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes.
+   *           If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   ToPort?: number;
 
@@ -4336,6 +5600,9 @@ export interface IpPermission {
   UserIdGroupPairs?: UserIdGroupPair[];
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeSecurityGroupEgressRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4395,6 +5662,7 @@ export interface AuthorizeSecurityGroupEgressRequest {
 }
 
 /**
+ * @public
  * <p> Describes the security group that is referenced in the security group rule.</p>
  */
 export interface ReferencedSecurityGroup {
@@ -4425,6 +5693,7 @@ export interface ReferencedSecurityGroup {
 }
 
 /**
+ * @public
  * <p>Describes a security group rule.</p>
  */
 export interface SecurityGroupRule {
@@ -4456,14 +5725,16 @@ export interface SecurityGroupRule {
   IpProtocol?: string;
 
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value
-   *             of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must
-   *             specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
+   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   FromPort?: number;
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 codes.
+   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
    */
   ToPort?: number;
 
@@ -4498,6 +5769,9 @@ export interface SecurityGroupRule {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeSecurityGroupEgressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -4510,6 +5784,9 @@ export interface AuthorizeSecurityGroupEgressResult {
   SecurityGroupRules?: SecurityGroupRule[];
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeSecurityGroupIngressRequest {
   /**
    * <p>The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source
@@ -4519,9 +5796,9 @@ export interface AuthorizeSecurityGroupIngressRequest {
   CidrIp?: string;
 
   /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP type number.
-   * 			For the ICMP type number, use <code>-1</code> to specify all types. If you
-   * 			specify all ICMP types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *            If the protocol is ICMP, this is the type number. A value of -1 indicates all ICMP types.
+   *            If you specify all ICMP types, you must specify all ICMP codes.</p>
    *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
    */
   FromPort?: number;
@@ -4574,9 +5851,9 @@ export interface AuthorizeSecurityGroupIngressRequest {
   SourceSecurityGroupOwnerId?: string;
 
   /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP code number.
-   * 			For the ICMP code number, use <code>-1</code> to specify all codes. If you
-   * 			specify all ICMP types, you must specify all codes.</p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *            If the protocol is ICMP, this is the code. A value of -1 indicates all ICMP codes.
+   *            If you specify all ICMP types, you must specify all ICMP codes.</p>
    *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
    */
   ToPort?: number;
@@ -4594,6 +5871,9 @@ export interface AuthorizeSecurityGroupIngressRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeSecurityGroupIngressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -4607,13 +5887,15 @@ export interface AuthorizeSecurityGroupIngressResult {
 }
 
 /**
+ * @public
  * <p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed AMI.</p>
  */
 export interface S3Storage {
   /**
    * <p>The access key ID of the owner of the bucket. Before you specify a value for your access
-   *       key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best practices for managing
-   *         Amazon Web Services access keys</a>.</p>
+   *        key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html">Best
+   *          Practices for Amazon Web Services accounts</a> in the <i>Account ManagementReference
+   *            Guide</i>.</p>
    */
   AWSAccessKeyId?: string;
 
@@ -4639,6 +5921,7 @@ export interface S3Storage {
 }
 
 /**
+ * @public
  * <p>Describes the storage location for an instance store-backed AMI.</p>
  */
 export interface Storage {
@@ -4649,6 +5932,7 @@ export interface Storage {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for BundleInstance.</p>
  */
 export interface BundleInstanceRequest {
@@ -4674,6 +5958,7 @@ export interface BundleInstanceRequest {
 }
 
 /**
+ * @public
  * <p>Describes an error for <a>BundleInstance</a>.</p>
  */
 export interface BundleTaskError {
@@ -4688,17 +5973,27 @@ export interface BundleTaskError {
   Message?: string;
 }
 
-export enum BundleTaskState {
-  bundling = "bundling",
-  cancelling = "cancelling",
-  complete = "complete",
-  failed = "failed",
-  pending = "pending",
-  storing = "storing",
-  waiting_for_shutdown = "waiting-for-shutdown",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BundleTaskState = {
+  bundling: "bundling",
+  cancelling: "cancelling",
+  complete: "complete",
+  failed: "failed",
+  pending: "pending",
+  storing: "storing",
+  waiting_for_shutdown: "waiting-for-shutdown",
+} as const;
 
 /**
+ * @public
+ */
+export type BundleTaskState = (typeof BundleTaskState)[keyof typeof BundleTaskState];
+
+/**
+ * @public
  * <p>Describes a bundle task.</p>
  */
 export interface BundleTask {
@@ -4744,6 +6039,7 @@ export interface BundleTask {
 }
 
 /**
+ * @public
  * <p>Contains the output of BundleInstance.</p>
  */
 export interface BundleInstanceResult {
@@ -4754,6 +6050,7 @@ export interface BundleInstanceResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CancelBundleTask.</p>
  */
 export interface CancelBundleTaskRequest {
@@ -4771,6 +6068,7 @@ export interface CancelBundleTaskRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of CancelBundleTask.</p>
  */
 export interface CancelBundleTaskResult {
@@ -4780,6 +6078,9 @@ export interface CancelBundleTaskResult {
   BundleTask?: BundleTask;
 }
 
+/**
+ * @public
+ */
 export interface CancelCapacityReservationRequest {
   /**
    * <p>The ID of the Capacity Reservation to be cancelled.</p>
@@ -4792,6 +6093,9 @@ export interface CancelCapacityReservationRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CancelCapacityReservationResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -4799,6 +6103,9 @@ export interface CancelCapacityReservationResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CancelCapacityReservationFleetsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -4812,6 +6119,7 @@ export interface CancelCapacityReservationFleetsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a Capacity Reservation Fleet cancellation error.</p>
  */
 export interface CancelCapacityReservationFleetError {
@@ -4827,6 +6135,7 @@ export interface CancelCapacityReservationFleetError {
 }
 
 /**
+ * @public
  * <p>Describes a Capacity Reservation Fleet that could not be cancelled.</p>
  */
 export interface FailedCapacityReservationFleetCancellationResult {
@@ -4841,19 +6150,30 @@ export interface FailedCapacityReservationFleetCancellationResult {
   CancelCapacityReservationFleetError?: CancelCapacityReservationFleetError;
 }
 
-export enum CapacityReservationFleetState {
-  ACTIVE = "active",
-  CANCELLED = "cancelled",
-  CANCELLING = "cancelling",
-  EXPIRED = "expired",
-  EXPIRING = "expiring",
-  FAILED = "failed",
-  MODIFYING = "modifying",
-  PARTIALLY_FULFILLED = "partially_fulfilled",
-  SUBMITTED = "submitted",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationFleetState = {
+  ACTIVE: "active",
+  CANCELLED: "cancelled",
+  CANCELLING: "cancelling",
+  EXPIRED: "expired",
+  EXPIRING: "expiring",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+  PARTIALLY_FULFILLED: "partially_fulfilled",
+  SUBMITTED: "submitted",
+} as const;
 
 /**
+ * @public
+ */
+export type CapacityReservationFleetState =
+  (typeof CapacityReservationFleetState)[keyof typeof CapacityReservationFleetState];
+
+/**
+ * @public
  * <p>Describes a Capacity Reservation Fleet that was successfully cancelled.</p>
  */
 export interface CapacityReservationFleetCancellationState {
@@ -4873,6 +6193,9 @@ export interface CapacityReservationFleetCancellationState {
   CapacityReservationFleetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelCapacityReservationFleetsResult {
   /**
    * <p>Information about the Capacity Reservation Fleets that were successfully cancelled.</p>
@@ -4885,6 +6208,9 @@ export interface CancelCapacityReservationFleetsResult {
   FailedFleetCancellations?: FailedCapacityReservationFleetCancellationResult[];
 }
 
+/**
+ * @public
+ */
 export interface CancelConversionRequest {
   /**
    * <p>The ID of the conversion task.</p>
@@ -4904,6 +6230,9 @@ export interface CancelConversionRequest {
   ReasonMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelExportTaskRequest {
   /**
    * <p>The ID of the export task. This is the ID returned by <code>CreateInstanceExportTask</code>.</p>
@@ -4911,6 +6240,9 @@ export interface CancelExportTaskRequest {
   ExportTaskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelImageLaunchPermissionRequest {
   /**
    * <p>The ID of the AMI that was shared with your Amazon Web Services account.</p>
@@ -4925,6 +6257,9 @@ export interface CancelImageLaunchPermissionRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CancelImageLaunchPermissionResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -4932,6 +6267,9 @@ export interface CancelImageLaunchPermissionResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CancelImportTaskRequest {
   /**
    * <p>The reason for canceling the task.</p>
@@ -4951,6 +6289,9 @@ export interface CancelImportTaskRequest {
   ImportTaskId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelImportTaskResult {
   /**
    * <p>The ID of the task being canceled.</p>
@@ -4969,6 +6310,7 @@ export interface CancelImportTaskResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CancelReservedInstancesListing.</p>
  */
 export interface CancelReservedInstancesListingRequest {
@@ -4978,14 +6320,24 @@ export interface CancelReservedInstancesListingRequest {
   ReservedInstancesListingId: string | undefined;
 }
 
-export enum ListingState {
-  available = "available",
-  cancelled = "cancelled",
-  pending = "pending",
-  sold = "sold",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListingState = {
+  available: "available",
+  cancelled: "cancelled",
+  pending: "pending",
+  sold: "sold",
+} as const;
 
 /**
+ * @public
+ */
+export type ListingState = (typeof ListingState)[keyof typeof ListingState];
+
+/**
+ * @public
  * <p>Describes a Reserved Instance listing state.</p>
  */
 export interface InstanceCount {
@@ -5000,11 +6352,21 @@ export interface InstanceCount {
   State?: ListingState | string;
 }
 
-export enum CurrencyCodeValues {
-  USD = "USD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CurrencyCodeValues = {
+  USD: "USD",
+} as const;
 
 /**
+ * @public
+ */
+export type CurrencyCodeValues = (typeof CurrencyCodeValues)[keyof typeof CurrencyCodeValues];
+
+/**
+ * @public
  * <p>Describes the price for a Reserved Instance.</p>
  */
 export interface PriceSchedule {
@@ -5031,14 +6393,24 @@ export interface PriceSchedule {
   Term?: number;
 }
 
-export enum ListingStatus {
-  active = "active",
-  cancelled = "cancelled",
-  closed = "closed",
-  pending = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListingStatus = {
+  active: "active",
+  cancelled: "cancelled",
+  closed: "closed",
+  pending: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type ListingStatus = (typeof ListingStatus)[keyof typeof ListingStatus];
+
+/**
+ * @public
  * <p>Describes a Reserved Instance listing.</p>
  */
 export interface ReservedInstancesListing {
@@ -5095,6 +6467,7 @@ export interface ReservedInstancesListing {
 }
 
 /**
+ * @public
  * <p>Contains the output of CancelReservedInstancesListing.</p>
  */
 export interface CancelReservedInstancesListingResult {
@@ -5105,14 +6478,14 @@ export interface CancelReservedInstancesListingResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CancelSpotFleetRequests.</p>
  */
 export interface CancelSpotFleetRequestsRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -5122,23 +6495,35 @@ export interface CancelSpotFleetRequestsRequest {
   SpotFleetRequestIds: string[] | undefined;
 
   /**
-   * <p>Indicates whether to terminate instances for a Spot Fleet request if it is canceled
-   *             successfully.</p>
+   * <p>Indicates whether to terminate the associated instances when the Spot Fleet request is canceled.
+   *         The default is to terminate the instances.</p>
+   *          <p>To let the instances continue to run after the Spot Fleet request is canceled, specify
+   *           <code>no-terminate-instances</code>.</p>
    */
   TerminateInstances: boolean | undefined;
 }
 
-export enum BatchState {
-  ACTIVE = "active",
-  CANCELLED = "cancelled",
-  CANCELLED_RUNNING = "cancelled_running",
-  CANCELLED_TERMINATING_INSTANCES = "cancelled_terminating",
-  FAILED = "failed",
-  MODIFYING = "modifying",
-  SUBMITTED = "submitted",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BatchState = {
+  ACTIVE: "active",
+  CANCELLED: "cancelled",
+  CANCELLED_RUNNING: "cancelled_running",
+  CANCELLED_TERMINATING_INSTANCES: "cancelled_terminating",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+  SUBMITTED: "submitted",
+} as const;
 
 /**
+ * @public
+ */
+export type BatchState = (typeof BatchState)[keyof typeof BatchState];
+
+/**
+ * @public
  * <p>Describes a Spot Fleet request that was successfully canceled.</p>
  */
 export interface CancelSpotFleetRequestsSuccessItem {
@@ -5158,14 +6543,24 @@ export interface CancelSpotFleetRequestsSuccessItem {
   SpotFleetRequestId?: string;
 }
 
-export enum CancelBatchErrorCode {
-  FLEET_REQUEST_ID_DOES_NOT_EXIST = "fleetRequestIdDoesNotExist",
-  FLEET_REQUEST_ID_MALFORMED = "fleetRequestIdMalformed",
-  FLEET_REQUEST_NOT_IN_CANCELLABLE_STATE = "fleetRequestNotInCancellableState",
-  UNEXPECTED_ERROR = "unexpectedError",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CancelBatchErrorCode = {
+  FLEET_REQUEST_ID_DOES_NOT_EXIST: "fleetRequestIdDoesNotExist",
+  FLEET_REQUEST_ID_MALFORMED: "fleetRequestIdMalformed",
+  FLEET_REQUEST_NOT_IN_CANCELLABLE_STATE: "fleetRequestNotInCancellableState",
+  UNEXPECTED_ERROR: "unexpectedError",
+} as const;
 
 /**
+ * @public
+ */
+export type CancelBatchErrorCode = (typeof CancelBatchErrorCode)[keyof typeof CancelBatchErrorCode];
+
+/**
+ * @public
  * <p>Describes a Spot Fleet error.</p>
  */
 export interface CancelSpotFleetRequestsError {
@@ -5181,6 +6576,7 @@ export interface CancelSpotFleetRequestsError {
 }
 
 /**
+ * @public
  * <p>Describes a Spot Fleet request that was not successfully canceled.</p>
  */
 export interface CancelSpotFleetRequestsErrorItem {
@@ -5196,6 +6592,7 @@ export interface CancelSpotFleetRequestsErrorItem {
 }
 
 /**
+ * @public
  * <p>Contains the output of CancelSpotFleetRequests.</p>
  */
 export interface CancelSpotFleetRequestsResponse {
@@ -5211,6 +6608,7 @@ export interface CancelSpotFleetRequestsResponse {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CancelSpotInstanceRequests.</p>
  */
 export interface CancelSpotInstanceRequestsRequest {
@@ -5228,15 +6626,26 @@ export interface CancelSpotInstanceRequestsRequest {
   SpotInstanceRequestIds: string[] | undefined;
 }
 
-export enum CancelSpotInstanceRequestState {
-  active = "active",
-  cancelled = "cancelled",
-  closed = "closed",
-  completed = "completed",
-  open = "open",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CancelSpotInstanceRequestState = {
+  active: "active",
+  cancelled: "cancelled",
+  closed: "closed",
+  completed: "completed",
+  open: "open",
+} as const;
 
 /**
+ * @public
+ */
+export type CancelSpotInstanceRequestState =
+  (typeof CancelSpotInstanceRequestState)[keyof typeof CancelSpotInstanceRequestState];
+
+/**
+ * @public
  * <p>Describes a request to cancel a Spot Instance.</p>
  */
 export interface CancelledSpotInstanceRequest {
@@ -5252,6 +6661,7 @@ export interface CancelledSpotInstanceRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of CancelSpotInstanceRequests.</p>
  */
 export interface CancelSpotInstanceRequestsResult {
@@ -5261,6 +6671,9 @@ export interface CancelSpotInstanceRequestsResult {
   CancelledSpotInstanceRequests?: CancelledSpotInstanceRequest[];
 }
 
+/**
+ * @public
+ */
 export interface ConfirmProductInstanceRequest {
   /**
    * <p>The ID of the instance.</p>
@@ -5280,6 +6693,9 @@ export interface ConfirmProductInstanceRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ConfirmProductInstanceResult {
   /**
    * <p>The Amazon Web Services account ID of the instance owner. This is only present if the
@@ -5294,6 +6710,9 @@ export interface ConfirmProductInstanceResult {
   Return?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CopyFpgaImageRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5329,6 +6748,9 @@ export interface CopyFpgaImageRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopyFpgaImageResult {
   /**
    * <p>The ID of the new AFI.</p>
@@ -5337,6 +6759,7 @@ export interface CopyFpgaImageResult {
 }
 
 /**
+ * @public
  * <p>Contains the parameters for CopyImage.</p>
  */
 export interface CopyImageRequest {
@@ -5438,6 +6861,7 @@ export interface CopyImageRequest {
 }
 
 /**
+ * @public
  * <p>Contains the output of CopyImage.</p>
  */
 export interface CopyImageResult {
@@ -5447,6 +6871,9 @@ export interface CopyImageResult {
   ImageId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopySnapshotRequest {
   /**
    * <p>A description for the EBS snapshot.</p>
@@ -5549,6 +6976,9 @@ export interface CopySnapshotRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CopySnapshotResult {
   /**
    * <p>The ID of the new snapshot.</p>
@@ -5561,41 +6991,81 @@ export interface CopySnapshotResult {
   Tags?: Tag[];
 }
 
-export enum EndDateType {
-  limited = "limited",
-  unlimited = "unlimited",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndDateType = {
+  limited: "limited",
+  unlimited: "unlimited",
+} as const;
 
-export enum InstanceMatchCriteria {
-  open = "open",
-  targeted = "targeted",
-}
+/**
+ * @public
+ */
+export type EndDateType = (typeof EndDateType)[keyof typeof EndDateType];
 
-export enum CapacityReservationInstancePlatform {
-  LINUX_UNIX = "Linux/UNIX",
-  LINUX_WITH_SQL_SERVER_ENTERPRISE = "Linux with SQL Server Enterprise",
-  LINUX_WITH_SQL_SERVER_STANDARD = "Linux with SQL Server Standard",
-  LINUX_WITH_SQL_SERVER_WEB = "Linux with SQL Server Web",
-  RED_HAT_ENTERPRISE_LINUX = "Red Hat Enterprise Linux",
-  RHEL_WITH_HA = "RHEL with HA",
-  RHEL_WITH_HA_AND_SQL_SERVER_ENTERPRISE = "RHEL with HA and SQL Server Enterprise",
-  RHEL_WITH_HA_AND_SQL_SERVER_STANDARD = "RHEL with HA and SQL Server Standard",
-  RHEL_WITH_SQL_SERVER_ENTERPRISE = "RHEL with SQL Server Enterprise",
-  RHEL_WITH_SQL_SERVER_STANDARD = "RHEL with SQL Server Standard",
-  RHEL_WITH_SQL_SERVER_WEB = "RHEL with SQL Server Web",
-  SUSE_LINUX = "SUSE Linux",
-  WINDOWS = "Windows",
-  WINDOWS_WITH_SQL_SERVER = "Windows with SQL Server",
-  WINDOWS_WITH_SQL_SERVER_ENTERPRISE = "Windows with SQL Server Enterprise",
-  WINDOWS_WITH_SQL_SERVER_STANDARD = "Windows with SQL Server Standard",
-  WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceMatchCriteria = {
+  open: "open",
+  targeted: "targeted",
+} as const;
 
-export enum CapacityReservationTenancy {
-  dedicated = "dedicated",
-  default = "default",
-}
+/**
+ * @public
+ */
+export type InstanceMatchCriteria = (typeof InstanceMatchCriteria)[keyof typeof InstanceMatchCriteria];
 
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationInstancePlatform = {
+  LINUX_UNIX: "Linux/UNIX",
+  LINUX_WITH_SQL_SERVER_ENTERPRISE: "Linux with SQL Server Enterprise",
+  LINUX_WITH_SQL_SERVER_STANDARD: "Linux with SQL Server Standard",
+  LINUX_WITH_SQL_SERVER_WEB: "Linux with SQL Server Web",
+  RED_HAT_ENTERPRISE_LINUX: "Red Hat Enterprise Linux",
+  RHEL_WITH_HA: "RHEL with HA",
+  RHEL_WITH_HA_AND_SQL_SERVER_ENTERPRISE: "RHEL with HA and SQL Server Enterprise",
+  RHEL_WITH_HA_AND_SQL_SERVER_STANDARD: "RHEL with HA and SQL Server Standard",
+  RHEL_WITH_SQL_SERVER_ENTERPRISE: "RHEL with SQL Server Enterprise",
+  RHEL_WITH_SQL_SERVER_STANDARD: "RHEL with SQL Server Standard",
+  RHEL_WITH_SQL_SERVER_WEB: "RHEL with SQL Server Web",
+  SUSE_LINUX: "SUSE Linux",
+  WINDOWS: "Windows",
+  WINDOWS_WITH_SQL_SERVER: "Windows with SQL Server",
+  WINDOWS_WITH_SQL_SERVER_ENTERPRISE: "Windows with SQL Server Enterprise",
+  WINDOWS_WITH_SQL_SERVER_STANDARD: "Windows with SQL Server Standard",
+  WINDOWS_WITH_SQL_SERVER_WEB: "Windows with SQL Server Web",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationInstancePlatform =
+  (typeof CapacityReservationInstancePlatform)[keyof typeof CapacityReservationInstancePlatform];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationTenancy = {
+  dedicated: "dedicated",
+  default: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationTenancy = (typeof CapacityReservationTenancy)[keyof typeof CapacityReservationTenancy];
+
+/**
+ * @public
+ */
 export interface CreateCapacityReservationRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
@@ -5738,6 +7208,7 @@ export interface CreateCapacityReservationRequest {
 }
 
 /**
+ * @public
  * <p>Information about instance capacity usage for a Capacity Reservation.</p>
  */
 export interface CapacityAllocation {
@@ -5754,15 +7225,25 @@ export interface CapacityAllocation {
   Count?: number;
 }
 
-export enum CapacityReservationState {
-  active = "active",
-  cancelled = "cancelled",
-  expired = "expired",
-  failed = "failed",
-  pending = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationState = {
+  active: "active",
+  cancelled: "cancelled",
+  expired: "expired",
+  failed: "failed",
+  pending: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type CapacityReservationState = (typeof CapacityReservationState)[keyof typeof CapacityReservationState];
+
+/**
+ * @public
  * <p>Describes a Capacity Reservation.</p>
  */
 export interface CapacityReservation {
@@ -5958,6 +7439,9 @@ export interface CapacityReservation {
   CapacityAllocations?: CapacityAllocation[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCapacityReservationResult {
   /**
    * <p>Information about the Capacity Reservation.</p>
@@ -5965,588 +7449,676 @@ export interface CreateCapacityReservationResult {
   CapacityReservation?: CapacityReservation;
 }
 
-export enum FleetInstanceMatchCriteria {
-  open = "open",
-}
-
-export enum _InstanceType {
-  a1_2xlarge = "a1.2xlarge",
-  a1_4xlarge = "a1.4xlarge",
-  a1_large = "a1.large",
-  a1_medium = "a1.medium",
-  a1_metal = "a1.metal",
-  a1_xlarge = "a1.xlarge",
-  c1_medium = "c1.medium",
-  c1_xlarge = "c1.xlarge",
-  c3_2xlarge = "c3.2xlarge",
-  c3_4xlarge = "c3.4xlarge",
-  c3_8xlarge = "c3.8xlarge",
-  c3_large = "c3.large",
-  c3_xlarge = "c3.xlarge",
-  c4_2xlarge = "c4.2xlarge",
-  c4_4xlarge = "c4.4xlarge",
-  c4_8xlarge = "c4.8xlarge",
-  c4_large = "c4.large",
-  c4_xlarge = "c4.xlarge",
-  c5_12xlarge = "c5.12xlarge",
-  c5_18xlarge = "c5.18xlarge",
-  c5_24xlarge = "c5.24xlarge",
-  c5_2xlarge = "c5.2xlarge",
-  c5_4xlarge = "c5.4xlarge",
-  c5_9xlarge = "c5.9xlarge",
-  c5_large = "c5.large",
-  c5_metal = "c5.metal",
-  c5_xlarge = "c5.xlarge",
-  c5a_12xlarge = "c5a.12xlarge",
-  c5a_16xlarge = "c5a.16xlarge",
-  c5a_24xlarge = "c5a.24xlarge",
-  c5a_2xlarge = "c5a.2xlarge",
-  c5a_4xlarge = "c5a.4xlarge",
-  c5a_8xlarge = "c5a.8xlarge",
-  c5a_large = "c5a.large",
-  c5a_xlarge = "c5a.xlarge",
-  c5ad_12xlarge = "c5ad.12xlarge",
-  c5ad_16xlarge = "c5ad.16xlarge",
-  c5ad_24xlarge = "c5ad.24xlarge",
-  c5ad_2xlarge = "c5ad.2xlarge",
-  c5ad_4xlarge = "c5ad.4xlarge",
-  c5ad_8xlarge = "c5ad.8xlarge",
-  c5ad_large = "c5ad.large",
-  c5ad_xlarge = "c5ad.xlarge",
-  c5d_12xlarge = "c5d.12xlarge",
-  c5d_18xlarge = "c5d.18xlarge",
-  c5d_24xlarge = "c5d.24xlarge",
-  c5d_2xlarge = "c5d.2xlarge",
-  c5d_4xlarge = "c5d.4xlarge",
-  c5d_9xlarge = "c5d.9xlarge",
-  c5d_large = "c5d.large",
-  c5d_metal = "c5d.metal",
-  c5d_xlarge = "c5d.xlarge",
-  c5n_18xlarge = "c5n.18xlarge",
-  c5n_2xlarge = "c5n.2xlarge",
-  c5n_4xlarge = "c5n.4xlarge",
-  c5n_9xlarge = "c5n.9xlarge",
-  c5n_large = "c5n.large",
-  c5n_metal = "c5n.metal",
-  c5n_xlarge = "c5n.xlarge",
-  c6a_12xlarge = "c6a.12xlarge",
-  c6a_16xlarge = "c6a.16xlarge",
-  c6a_24xlarge = "c6a.24xlarge",
-  c6a_2xlarge = "c6a.2xlarge",
-  c6a_32xlarge = "c6a.32xlarge",
-  c6a_48xlarge = "c6a.48xlarge",
-  c6a_4xlarge = "c6a.4xlarge",
-  c6a_8xlarge = "c6a.8xlarge",
-  c6a_large = "c6a.large",
-  c6a_metal = "c6a.metal",
-  c6a_xlarge = "c6a.xlarge",
-  c6g_12xlarge = "c6g.12xlarge",
-  c6g_16xlarge = "c6g.16xlarge",
-  c6g_2xlarge = "c6g.2xlarge",
-  c6g_4xlarge = "c6g.4xlarge",
-  c6g_8xlarge = "c6g.8xlarge",
-  c6g_large = "c6g.large",
-  c6g_medium = "c6g.medium",
-  c6g_metal = "c6g.metal",
-  c6g_xlarge = "c6g.xlarge",
-  c6gd_12xlarge = "c6gd.12xlarge",
-  c6gd_16xlarge = "c6gd.16xlarge",
-  c6gd_2xlarge = "c6gd.2xlarge",
-  c6gd_4xlarge = "c6gd.4xlarge",
-  c6gd_8xlarge = "c6gd.8xlarge",
-  c6gd_large = "c6gd.large",
-  c6gd_medium = "c6gd.medium",
-  c6gd_metal = "c6gd.metal",
-  c6gd_xlarge = "c6gd.xlarge",
-  c6gn_12xlarge = "c6gn.12xlarge",
-  c6gn_16xlarge = "c6gn.16xlarge",
-  c6gn_2xlarge = "c6gn.2xlarge",
-  c6gn_4xlarge = "c6gn.4xlarge",
-  c6gn_8xlarge = "c6gn.8xlarge",
-  c6gn_large = "c6gn.large",
-  c6gn_medium = "c6gn.medium",
-  c6gn_xlarge = "c6gn.xlarge",
-  c6i_12xlarge = "c6i.12xlarge",
-  c6i_16xlarge = "c6i.16xlarge",
-  c6i_24xlarge = "c6i.24xlarge",
-  c6i_2xlarge = "c6i.2xlarge",
-  c6i_32xlarge = "c6i.32xlarge",
-  c6i_4xlarge = "c6i.4xlarge",
-  c6i_8xlarge = "c6i.8xlarge",
-  c6i_large = "c6i.large",
-  c6i_metal = "c6i.metal",
-  c6i_xlarge = "c6i.xlarge",
-  c6id_12xlarge = "c6id.12xlarge",
-  c6id_16xlarge = "c6id.16xlarge",
-  c6id_24xlarge = "c6id.24xlarge",
-  c6id_2xlarge = "c6id.2xlarge",
-  c6id_32xlarge = "c6id.32xlarge",
-  c6id_4xlarge = "c6id.4xlarge",
-  c6id_8xlarge = "c6id.8xlarge",
-  c6id_large = "c6id.large",
-  c6id_metal = "c6id.metal",
-  c6id_xlarge = "c6id.xlarge",
-  c7g_12xlarge = "c7g.12xlarge",
-  c7g_16xlarge = "c7g.16xlarge",
-  c7g_2xlarge = "c7g.2xlarge",
-  c7g_4xlarge = "c7g.4xlarge",
-  c7g_8xlarge = "c7g.8xlarge",
-  c7g_large = "c7g.large",
-  c7g_medium = "c7g.medium",
-  c7g_xlarge = "c7g.xlarge",
-  cc1_4xlarge = "cc1.4xlarge",
-  cc2_8xlarge = "cc2.8xlarge",
-  cg1_4xlarge = "cg1.4xlarge",
-  cr1_8xlarge = "cr1.8xlarge",
-  d2_2xlarge = "d2.2xlarge",
-  d2_4xlarge = "d2.4xlarge",
-  d2_8xlarge = "d2.8xlarge",
-  d2_xlarge = "d2.xlarge",
-  d3_2xlarge = "d3.2xlarge",
-  d3_4xlarge = "d3.4xlarge",
-  d3_8xlarge = "d3.8xlarge",
-  d3_xlarge = "d3.xlarge",
-  d3en_12xlarge = "d3en.12xlarge",
-  d3en_2xlarge = "d3en.2xlarge",
-  d3en_4xlarge = "d3en.4xlarge",
-  d3en_6xlarge = "d3en.6xlarge",
-  d3en_8xlarge = "d3en.8xlarge",
-  d3en_xlarge = "d3en.xlarge",
-  dl1_24xlarge = "dl1.24xlarge",
-  f1_16xlarge = "f1.16xlarge",
-  f1_2xlarge = "f1.2xlarge",
-  f1_4xlarge = "f1.4xlarge",
-  g2_2xlarge = "g2.2xlarge",
-  g2_8xlarge = "g2.8xlarge",
-  g3_16xlarge = "g3.16xlarge",
-  g3_4xlarge = "g3.4xlarge",
-  g3_8xlarge = "g3.8xlarge",
-  g3s_xlarge = "g3s.xlarge",
-  g4ad_16xlarge = "g4ad.16xlarge",
-  g4ad_2xlarge = "g4ad.2xlarge",
-  g4ad_4xlarge = "g4ad.4xlarge",
-  g4ad_8xlarge = "g4ad.8xlarge",
-  g4ad_xlarge = "g4ad.xlarge",
-  g4dn_12xlarge = "g4dn.12xlarge",
-  g4dn_16xlarge = "g4dn.16xlarge",
-  g4dn_2xlarge = "g4dn.2xlarge",
-  g4dn_4xlarge = "g4dn.4xlarge",
-  g4dn_8xlarge = "g4dn.8xlarge",
-  g4dn_metal = "g4dn.metal",
-  g4dn_xlarge = "g4dn.xlarge",
-  g5_12xlarge = "g5.12xlarge",
-  g5_16xlarge = "g5.16xlarge",
-  g5_24xlarge = "g5.24xlarge",
-  g5_2xlarge = "g5.2xlarge",
-  g5_48xlarge = "g5.48xlarge",
-  g5_4xlarge = "g5.4xlarge",
-  g5_8xlarge = "g5.8xlarge",
-  g5_xlarge = "g5.xlarge",
-  g5g_16xlarge = "g5g.16xlarge",
-  g5g_2xlarge = "g5g.2xlarge",
-  g5g_4xlarge = "g5g.4xlarge",
-  g5g_8xlarge = "g5g.8xlarge",
-  g5g_metal = "g5g.metal",
-  g5g_xlarge = "g5g.xlarge",
-  h1_16xlarge = "h1.16xlarge",
-  h1_2xlarge = "h1.2xlarge",
-  h1_4xlarge = "h1.4xlarge",
-  h1_8xlarge = "h1.8xlarge",
-  hi1_4xlarge = "hi1.4xlarge",
-  hpc6a_48xlarge = "hpc6a.48xlarge",
-  hpc6id_32xlarge = "hpc6id.32xlarge",
-  hs1_8xlarge = "hs1.8xlarge",
-  i2_2xlarge = "i2.2xlarge",
-  i2_4xlarge = "i2.4xlarge",
-  i2_8xlarge = "i2.8xlarge",
-  i2_xlarge = "i2.xlarge",
-  i3_16xlarge = "i3.16xlarge",
-  i3_2xlarge = "i3.2xlarge",
-  i3_4xlarge = "i3.4xlarge",
-  i3_8xlarge = "i3.8xlarge",
-  i3_large = "i3.large",
-  i3_metal = "i3.metal",
-  i3_xlarge = "i3.xlarge",
-  i3en_12xlarge = "i3en.12xlarge",
-  i3en_24xlarge = "i3en.24xlarge",
-  i3en_2xlarge = "i3en.2xlarge",
-  i3en_3xlarge = "i3en.3xlarge",
-  i3en_6xlarge = "i3en.6xlarge",
-  i3en_large = "i3en.large",
-  i3en_metal = "i3en.metal",
-  i3en_xlarge = "i3en.xlarge",
-  i4i_16xlarge = "i4i.16xlarge",
-  i4i_2xlarge = "i4i.2xlarge",
-  i4i_32xlarge = "i4i.32xlarge",
-  i4i_4xlarge = "i4i.4xlarge",
-  i4i_8xlarge = "i4i.8xlarge",
-  i4i_large = "i4i.large",
-  i4i_metal = "i4i.metal",
-  i4i_xlarge = "i4i.xlarge",
-  im4gn_16xlarge = "im4gn.16xlarge",
-  im4gn_2xlarge = "im4gn.2xlarge",
-  im4gn_4xlarge = "im4gn.4xlarge",
-  im4gn_8xlarge = "im4gn.8xlarge",
-  im4gn_large = "im4gn.large",
-  im4gn_xlarge = "im4gn.xlarge",
-  inf1_24xlarge = "inf1.24xlarge",
-  inf1_2xlarge = "inf1.2xlarge",
-  inf1_6xlarge = "inf1.6xlarge",
-  inf1_xlarge = "inf1.xlarge",
-  is4gen_2xlarge = "is4gen.2xlarge",
-  is4gen_4xlarge = "is4gen.4xlarge",
-  is4gen_8xlarge = "is4gen.8xlarge",
-  is4gen_large = "is4gen.large",
-  is4gen_medium = "is4gen.medium",
-  is4gen_xlarge = "is4gen.xlarge",
-  m1_large = "m1.large",
-  m1_medium = "m1.medium",
-  m1_small = "m1.small",
-  m1_xlarge = "m1.xlarge",
-  m2_2xlarge = "m2.2xlarge",
-  m2_4xlarge = "m2.4xlarge",
-  m2_xlarge = "m2.xlarge",
-  m3_2xlarge = "m3.2xlarge",
-  m3_large = "m3.large",
-  m3_medium = "m3.medium",
-  m3_xlarge = "m3.xlarge",
-  m4_10xlarge = "m4.10xlarge",
-  m4_16xlarge = "m4.16xlarge",
-  m4_2xlarge = "m4.2xlarge",
-  m4_4xlarge = "m4.4xlarge",
-  m4_large = "m4.large",
-  m4_xlarge = "m4.xlarge",
-  m5_12xlarge = "m5.12xlarge",
-  m5_16xlarge = "m5.16xlarge",
-  m5_24xlarge = "m5.24xlarge",
-  m5_2xlarge = "m5.2xlarge",
-  m5_4xlarge = "m5.4xlarge",
-  m5_8xlarge = "m5.8xlarge",
-  m5_large = "m5.large",
-  m5_metal = "m5.metal",
-  m5_xlarge = "m5.xlarge",
-  m5a_12xlarge = "m5a.12xlarge",
-  m5a_16xlarge = "m5a.16xlarge",
-  m5a_24xlarge = "m5a.24xlarge",
-  m5a_2xlarge = "m5a.2xlarge",
-  m5a_4xlarge = "m5a.4xlarge",
-  m5a_8xlarge = "m5a.8xlarge",
-  m5a_large = "m5a.large",
-  m5a_xlarge = "m5a.xlarge",
-  m5ad_12xlarge = "m5ad.12xlarge",
-  m5ad_16xlarge = "m5ad.16xlarge",
-  m5ad_24xlarge = "m5ad.24xlarge",
-  m5ad_2xlarge = "m5ad.2xlarge",
-  m5ad_4xlarge = "m5ad.4xlarge",
-  m5ad_8xlarge = "m5ad.8xlarge",
-  m5ad_large = "m5ad.large",
-  m5ad_xlarge = "m5ad.xlarge",
-  m5d_12xlarge = "m5d.12xlarge",
-  m5d_16xlarge = "m5d.16xlarge",
-  m5d_24xlarge = "m5d.24xlarge",
-  m5d_2xlarge = "m5d.2xlarge",
-  m5d_4xlarge = "m5d.4xlarge",
-  m5d_8xlarge = "m5d.8xlarge",
-  m5d_large = "m5d.large",
-  m5d_metal = "m5d.metal",
-  m5d_xlarge = "m5d.xlarge",
-  m5dn_12xlarge = "m5dn.12xlarge",
-  m5dn_16xlarge = "m5dn.16xlarge",
-  m5dn_24xlarge = "m5dn.24xlarge",
-  m5dn_2xlarge = "m5dn.2xlarge",
-  m5dn_4xlarge = "m5dn.4xlarge",
-  m5dn_8xlarge = "m5dn.8xlarge",
-  m5dn_large = "m5dn.large",
-  m5dn_metal = "m5dn.metal",
-  m5dn_xlarge = "m5dn.xlarge",
-  m5n_12xlarge = "m5n.12xlarge",
-  m5n_16xlarge = "m5n.16xlarge",
-  m5n_24xlarge = "m5n.24xlarge",
-  m5n_2xlarge = "m5n.2xlarge",
-  m5n_4xlarge = "m5n.4xlarge",
-  m5n_8xlarge = "m5n.8xlarge",
-  m5n_large = "m5n.large",
-  m5n_metal = "m5n.metal",
-  m5n_xlarge = "m5n.xlarge",
-  m5zn_12xlarge = "m5zn.12xlarge",
-  m5zn_2xlarge = "m5zn.2xlarge",
-  m5zn_3xlarge = "m5zn.3xlarge",
-  m5zn_6xlarge = "m5zn.6xlarge",
-  m5zn_large = "m5zn.large",
-  m5zn_metal = "m5zn.metal",
-  m5zn_xlarge = "m5zn.xlarge",
-  m6a_12xlarge = "m6a.12xlarge",
-  m6a_16xlarge = "m6a.16xlarge",
-  m6a_24xlarge = "m6a.24xlarge",
-  m6a_2xlarge = "m6a.2xlarge",
-  m6a_32xlarge = "m6a.32xlarge",
-  m6a_48xlarge = "m6a.48xlarge",
-  m6a_4xlarge = "m6a.4xlarge",
-  m6a_8xlarge = "m6a.8xlarge",
-  m6a_large = "m6a.large",
-  m6a_metal = "m6a.metal",
-  m6a_xlarge = "m6a.xlarge",
-  m6g_12xlarge = "m6g.12xlarge",
-  m6g_16xlarge = "m6g.16xlarge",
-  m6g_2xlarge = "m6g.2xlarge",
-  m6g_4xlarge = "m6g.4xlarge",
-  m6g_8xlarge = "m6g.8xlarge",
-  m6g_large = "m6g.large",
-  m6g_medium = "m6g.medium",
-  m6g_metal = "m6g.metal",
-  m6g_xlarge = "m6g.xlarge",
-  m6gd_12xlarge = "m6gd.12xlarge",
-  m6gd_16xlarge = "m6gd.16xlarge",
-  m6gd_2xlarge = "m6gd.2xlarge",
-  m6gd_4xlarge = "m6gd.4xlarge",
-  m6gd_8xlarge = "m6gd.8xlarge",
-  m6gd_large = "m6gd.large",
-  m6gd_medium = "m6gd.medium",
-  m6gd_metal = "m6gd.metal",
-  m6gd_xlarge = "m6gd.xlarge",
-  m6i_12xlarge = "m6i.12xlarge",
-  m6i_16xlarge = "m6i.16xlarge",
-  m6i_24xlarge = "m6i.24xlarge",
-  m6i_2xlarge = "m6i.2xlarge",
-  m6i_32xlarge = "m6i.32xlarge",
-  m6i_4xlarge = "m6i.4xlarge",
-  m6i_8xlarge = "m6i.8xlarge",
-  m6i_large = "m6i.large",
-  m6i_metal = "m6i.metal",
-  m6i_xlarge = "m6i.xlarge",
-  m6id_12xlarge = "m6id.12xlarge",
-  m6id_16xlarge = "m6id.16xlarge",
-  m6id_24xlarge = "m6id.24xlarge",
-  m6id_2xlarge = "m6id.2xlarge",
-  m6id_32xlarge = "m6id.32xlarge",
-  m6id_4xlarge = "m6id.4xlarge",
-  m6id_8xlarge = "m6id.8xlarge",
-  m6id_large = "m6id.large",
-  m6id_metal = "m6id.metal",
-  m6id_xlarge = "m6id.xlarge",
-  mac1_metal = "mac1.metal",
-  mac2_metal = "mac2.metal",
-  p2_16xlarge = "p2.16xlarge",
-  p2_8xlarge = "p2.8xlarge",
-  p2_xlarge = "p2.xlarge",
-  p3_16xlarge = "p3.16xlarge",
-  p3_2xlarge = "p3.2xlarge",
-  p3_8xlarge = "p3.8xlarge",
-  p3dn_24xlarge = "p3dn.24xlarge",
-  p4d_24xlarge = "p4d.24xlarge",
-  p4de_24xlarge = "p4de.24xlarge",
-  r3_2xlarge = "r3.2xlarge",
-  r3_4xlarge = "r3.4xlarge",
-  r3_8xlarge = "r3.8xlarge",
-  r3_large = "r3.large",
-  r3_xlarge = "r3.xlarge",
-  r4_16xlarge = "r4.16xlarge",
-  r4_2xlarge = "r4.2xlarge",
-  r4_4xlarge = "r4.4xlarge",
-  r4_8xlarge = "r4.8xlarge",
-  r4_large = "r4.large",
-  r4_xlarge = "r4.xlarge",
-  r5_12xlarge = "r5.12xlarge",
-  r5_16xlarge = "r5.16xlarge",
-  r5_24xlarge = "r5.24xlarge",
-  r5_2xlarge = "r5.2xlarge",
-  r5_4xlarge = "r5.4xlarge",
-  r5_8xlarge = "r5.8xlarge",
-  r5_large = "r5.large",
-  r5_metal = "r5.metal",
-  r5_xlarge = "r5.xlarge",
-  r5a_12xlarge = "r5a.12xlarge",
-  r5a_16xlarge = "r5a.16xlarge",
-  r5a_24xlarge = "r5a.24xlarge",
-  r5a_2xlarge = "r5a.2xlarge",
-  r5a_4xlarge = "r5a.4xlarge",
-  r5a_8xlarge = "r5a.8xlarge",
-  r5a_large = "r5a.large",
-  r5a_xlarge = "r5a.xlarge",
-  r5ad_12xlarge = "r5ad.12xlarge",
-  r5ad_16xlarge = "r5ad.16xlarge",
-  r5ad_24xlarge = "r5ad.24xlarge",
-  r5ad_2xlarge = "r5ad.2xlarge",
-  r5ad_4xlarge = "r5ad.4xlarge",
-  r5ad_8xlarge = "r5ad.8xlarge",
-  r5ad_large = "r5ad.large",
-  r5ad_xlarge = "r5ad.xlarge",
-  r5b_12xlarge = "r5b.12xlarge",
-  r5b_16xlarge = "r5b.16xlarge",
-  r5b_24xlarge = "r5b.24xlarge",
-  r5b_2xlarge = "r5b.2xlarge",
-  r5b_4xlarge = "r5b.4xlarge",
-  r5b_8xlarge = "r5b.8xlarge",
-  r5b_large = "r5b.large",
-  r5b_metal = "r5b.metal",
-  r5b_xlarge = "r5b.xlarge",
-  r5d_12xlarge = "r5d.12xlarge",
-  r5d_16xlarge = "r5d.16xlarge",
-  r5d_24xlarge = "r5d.24xlarge",
-  r5d_2xlarge = "r5d.2xlarge",
-  r5d_4xlarge = "r5d.4xlarge",
-  r5d_8xlarge = "r5d.8xlarge",
-  r5d_large = "r5d.large",
-  r5d_metal = "r5d.metal",
-  r5d_xlarge = "r5d.xlarge",
-  r5dn_12xlarge = "r5dn.12xlarge",
-  r5dn_16xlarge = "r5dn.16xlarge",
-  r5dn_24xlarge = "r5dn.24xlarge",
-  r5dn_2xlarge = "r5dn.2xlarge",
-  r5dn_4xlarge = "r5dn.4xlarge",
-  r5dn_8xlarge = "r5dn.8xlarge",
-  r5dn_large = "r5dn.large",
-  r5dn_metal = "r5dn.metal",
-  r5dn_xlarge = "r5dn.xlarge",
-  r5n_12xlarge = "r5n.12xlarge",
-  r5n_16xlarge = "r5n.16xlarge",
-  r5n_24xlarge = "r5n.24xlarge",
-  r5n_2xlarge = "r5n.2xlarge",
-  r5n_4xlarge = "r5n.4xlarge",
-  r5n_8xlarge = "r5n.8xlarge",
-  r5n_large = "r5n.large",
-  r5n_metal = "r5n.metal",
-  r5n_xlarge = "r5n.xlarge",
-  r6a_12xlarge = "r6a.12xlarge",
-  r6a_16xlarge = "r6a.16xlarge",
-  r6a_24xlarge = "r6a.24xlarge",
-  r6a_2xlarge = "r6a.2xlarge",
-  r6a_32xlarge = "r6a.32xlarge",
-  r6a_48xlarge = "r6a.48xlarge",
-  r6a_4xlarge = "r6a.4xlarge",
-  r6a_8xlarge = "r6a.8xlarge",
-  r6a_large = "r6a.large",
-  r6a_metal = "r6a.metal",
-  r6a_xlarge = "r6a.xlarge",
-  r6g_12xlarge = "r6g.12xlarge",
-  r6g_16xlarge = "r6g.16xlarge",
-  r6g_2xlarge = "r6g.2xlarge",
-  r6g_4xlarge = "r6g.4xlarge",
-  r6g_8xlarge = "r6g.8xlarge",
-  r6g_large = "r6g.large",
-  r6g_medium = "r6g.medium",
-  r6g_metal = "r6g.metal",
-  r6g_xlarge = "r6g.xlarge",
-  r6gd_12xlarge = "r6gd.12xlarge",
-  r6gd_16xlarge = "r6gd.16xlarge",
-  r6gd_2xlarge = "r6gd.2xlarge",
-  r6gd_4xlarge = "r6gd.4xlarge",
-  r6gd_8xlarge = "r6gd.8xlarge",
-  r6gd_large = "r6gd.large",
-  r6gd_medium = "r6gd.medium",
-  r6gd_metal = "r6gd.metal",
-  r6gd_xlarge = "r6gd.xlarge",
-  r6i_12xlarge = "r6i.12xlarge",
-  r6i_16xlarge = "r6i.16xlarge",
-  r6i_24xlarge = "r6i.24xlarge",
-  r6i_2xlarge = "r6i.2xlarge",
-  r6i_32xlarge = "r6i.32xlarge",
-  r6i_4xlarge = "r6i.4xlarge",
-  r6i_8xlarge = "r6i.8xlarge",
-  r6i_large = "r6i.large",
-  r6i_metal = "r6i.metal",
-  r6i_xlarge = "r6i.xlarge",
-  r6id_12xlarge = "r6id.12xlarge",
-  r6id_16xlarge = "r6id.16xlarge",
-  r6id_24xlarge = "r6id.24xlarge",
-  r6id_2xlarge = "r6id.2xlarge",
-  r6id_32xlarge = "r6id.32xlarge",
-  r6id_4xlarge = "r6id.4xlarge",
-  r6id_8xlarge = "r6id.8xlarge",
-  r6id_large = "r6id.large",
-  r6id_metal = "r6id.metal",
-  r6id_xlarge = "r6id.xlarge",
-  t1_micro = "t1.micro",
-  t2_2xlarge = "t2.2xlarge",
-  t2_large = "t2.large",
-  t2_medium = "t2.medium",
-  t2_micro = "t2.micro",
-  t2_nano = "t2.nano",
-  t2_small = "t2.small",
-  t2_xlarge = "t2.xlarge",
-  t3_2xlarge = "t3.2xlarge",
-  t3_large = "t3.large",
-  t3_medium = "t3.medium",
-  t3_micro = "t3.micro",
-  t3_nano = "t3.nano",
-  t3_small = "t3.small",
-  t3_xlarge = "t3.xlarge",
-  t3a_2xlarge = "t3a.2xlarge",
-  t3a_large = "t3a.large",
-  t3a_medium = "t3a.medium",
-  t3a_micro = "t3a.micro",
-  t3a_nano = "t3a.nano",
-  t3a_small = "t3a.small",
-  t3a_xlarge = "t3a.xlarge",
-  t4g_2xlarge = "t4g.2xlarge",
-  t4g_large = "t4g.large",
-  t4g_medium = "t4g.medium",
-  t4g_micro = "t4g.micro",
-  t4g_nano = "t4g.nano",
-  t4g_small = "t4g.small",
-  t4g_xlarge = "t4g.xlarge",
-  trn1_2xlarge = "trn1.2xlarge",
-  trn1_32xlarge = "trn1.32xlarge",
-  u_12tb1_112xlarge = "u-12tb1.112xlarge",
-  u_12tb1_metal = "u-12tb1.metal",
-  u_18tb1_112xlarge = "u-18tb1.112xlarge",
-  u_18tb1_metal = "u-18tb1.metal",
-  u_24tb1_112xlarge = "u-24tb1.112xlarge",
-  u_24tb1_metal = "u-24tb1.metal",
-  u_3tb1_56xlarge = "u-3tb1.56xlarge",
-  u_6tb1_112xlarge = "u-6tb1.112xlarge",
-  u_6tb1_56xlarge = "u-6tb1.56xlarge",
-  u_6tb1_metal = "u-6tb1.metal",
-  u_9tb1_112xlarge = "u-9tb1.112xlarge",
-  u_9tb1_metal = "u-9tb1.metal",
-  vt1_24xlarge = "vt1.24xlarge",
-  vt1_3xlarge = "vt1.3xlarge",
-  vt1_6xlarge = "vt1.6xlarge",
-  x1_16xlarge = "x1.16xlarge",
-  x1_32xlarge = "x1.32xlarge",
-  x1e_16xlarge = "x1e.16xlarge",
-  x1e_2xlarge = "x1e.2xlarge",
-  x1e_32xlarge = "x1e.32xlarge",
-  x1e_4xlarge = "x1e.4xlarge",
-  x1e_8xlarge = "x1e.8xlarge",
-  x1e_xlarge = "x1e.xlarge",
-  x2gd_12xlarge = "x2gd.12xlarge",
-  x2gd_16xlarge = "x2gd.16xlarge",
-  x2gd_2xlarge = "x2gd.2xlarge",
-  x2gd_4xlarge = "x2gd.4xlarge",
-  x2gd_8xlarge = "x2gd.8xlarge",
-  x2gd_large = "x2gd.large",
-  x2gd_medium = "x2gd.medium",
-  x2gd_metal = "x2gd.metal",
-  x2gd_xlarge = "x2gd.xlarge",
-  x2idn_16xlarge = "x2idn.16xlarge",
-  x2idn_24xlarge = "x2idn.24xlarge",
-  x2idn_32xlarge = "x2idn.32xlarge",
-  x2idn_metal = "x2idn.metal",
-  x2iedn_16xlarge = "x2iedn.16xlarge",
-  x2iedn_24xlarge = "x2iedn.24xlarge",
-  x2iedn_2xlarge = "x2iedn.2xlarge",
-  x2iedn_32xlarge = "x2iedn.32xlarge",
-  x2iedn_4xlarge = "x2iedn.4xlarge",
-  x2iedn_8xlarge = "x2iedn.8xlarge",
-  x2iedn_metal = "x2iedn.metal",
-  x2iedn_xlarge = "x2iedn.xlarge",
-  x2iezn_12xlarge = "x2iezn.12xlarge",
-  x2iezn_2xlarge = "x2iezn.2xlarge",
-  x2iezn_4xlarge = "x2iezn.4xlarge",
-  x2iezn_6xlarge = "x2iezn.6xlarge",
-  x2iezn_8xlarge = "x2iezn.8xlarge",
-  x2iezn_metal = "x2iezn.metal",
-  z1d_12xlarge = "z1d.12xlarge",
-  z1d_2xlarge = "z1d.2xlarge",
-  z1d_3xlarge = "z1d.3xlarge",
-  z1d_6xlarge = "z1d.6xlarge",
-  z1d_large = "z1d.large",
-  z1d_metal = "z1d.metal",
-  z1d_xlarge = "z1d.xlarge",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetInstanceMatchCriteria = {
+  open: "open",
+} as const;
 
 /**
+ * @public
+ */
+export type FleetInstanceMatchCriteria = (typeof FleetInstanceMatchCriteria)[keyof typeof FleetInstanceMatchCriteria];
+
+/**
+ * @public
+ * @enum
+ */
+export const _InstanceType = {
+  a1_2xlarge: "a1.2xlarge",
+  a1_4xlarge: "a1.4xlarge",
+  a1_large: "a1.large",
+  a1_medium: "a1.medium",
+  a1_metal: "a1.metal",
+  a1_xlarge: "a1.xlarge",
+  c1_medium: "c1.medium",
+  c1_xlarge: "c1.xlarge",
+  c3_2xlarge: "c3.2xlarge",
+  c3_4xlarge: "c3.4xlarge",
+  c3_8xlarge: "c3.8xlarge",
+  c3_large: "c3.large",
+  c3_xlarge: "c3.xlarge",
+  c4_2xlarge: "c4.2xlarge",
+  c4_4xlarge: "c4.4xlarge",
+  c4_8xlarge: "c4.8xlarge",
+  c4_large: "c4.large",
+  c4_xlarge: "c4.xlarge",
+  c5_12xlarge: "c5.12xlarge",
+  c5_18xlarge: "c5.18xlarge",
+  c5_24xlarge: "c5.24xlarge",
+  c5_2xlarge: "c5.2xlarge",
+  c5_4xlarge: "c5.4xlarge",
+  c5_9xlarge: "c5.9xlarge",
+  c5_large: "c5.large",
+  c5_metal: "c5.metal",
+  c5_xlarge: "c5.xlarge",
+  c5a_12xlarge: "c5a.12xlarge",
+  c5a_16xlarge: "c5a.16xlarge",
+  c5a_24xlarge: "c5a.24xlarge",
+  c5a_2xlarge: "c5a.2xlarge",
+  c5a_4xlarge: "c5a.4xlarge",
+  c5a_8xlarge: "c5a.8xlarge",
+  c5a_large: "c5a.large",
+  c5a_xlarge: "c5a.xlarge",
+  c5ad_12xlarge: "c5ad.12xlarge",
+  c5ad_16xlarge: "c5ad.16xlarge",
+  c5ad_24xlarge: "c5ad.24xlarge",
+  c5ad_2xlarge: "c5ad.2xlarge",
+  c5ad_4xlarge: "c5ad.4xlarge",
+  c5ad_8xlarge: "c5ad.8xlarge",
+  c5ad_large: "c5ad.large",
+  c5ad_xlarge: "c5ad.xlarge",
+  c5d_12xlarge: "c5d.12xlarge",
+  c5d_18xlarge: "c5d.18xlarge",
+  c5d_24xlarge: "c5d.24xlarge",
+  c5d_2xlarge: "c5d.2xlarge",
+  c5d_4xlarge: "c5d.4xlarge",
+  c5d_9xlarge: "c5d.9xlarge",
+  c5d_large: "c5d.large",
+  c5d_metal: "c5d.metal",
+  c5d_xlarge: "c5d.xlarge",
+  c5n_18xlarge: "c5n.18xlarge",
+  c5n_2xlarge: "c5n.2xlarge",
+  c5n_4xlarge: "c5n.4xlarge",
+  c5n_9xlarge: "c5n.9xlarge",
+  c5n_large: "c5n.large",
+  c5n_metal: "c5n.metal",
+  c5n_xlarge: "c5n.xlarge",
+  c6a_12xlarge: "c6a.12xlarge",
+  c6a_16xlarge: "c6a.16xlarge",
+  c6a_24xlarge: "c6a.24xlarge",
+  c6a_2xlarge: "c6a.2xlarge",
+  c6a_32xlarge: "c6a.32xlarge",
+  c6a_48xlarge: "c6a.48xlarge",
+  c6a_4xlarge: "c6a.4xlarge",
+  c6a_8xlarge: "c6a.8xlarge",
+  c6a_large: "c6a.large",
+  c6a_metal: "c6a.metal",
+  c6a_xlarge: "c6a.xlarge",
+  c6g_12xlarge: "c6g.12xlarge",
+  c6g_16xlarge: "c6g.16xlarge",
+  c6g_2xlarge: "c6g.2xlarge",
+  c6g_4xlarge: "c6g.4xlarge",
+  c6g_8xlarge: "c6g.8xlarge",
+  c6g_large: "c6g.large",
+  c6g_medium: "c6g.medium",
+  c6g_metal: "c6g.metal",
+  c6g_xlarge: "c6g.xlarge",
+  c6gd_12xlarge: "c6gd.12xlarge",
+  c6gd_16xlarge: "c6gd.16xlarge",
+  c6gd_2xlarge: "c6gd.2xlarge",
+  c6gd_4xlarge: "c6gd.4xlarge",
+  c6gd_8xlarge: "c6gd.8xlarge",
+  c6gd_large: "c6gd.large",
+  c6gd_medium: "c6gd.medium",
+  c6gd_metal: "c6gd.metal",
+  c6gd_xlarge: "c6gd.xlarge",
+  c6gn_12xlarge: "c6gn.12xlarge",
+  c6gn_16xlarge: "c6gn.16xlarge",
+  c6gn_2xlarge: "c6gn.2xlarge",
+  c6gn_4xlarge: "c6gn.4xlarge",
+  c6gn_8xlarge: "c6gn.8xlarge",
+  c6gn_large: "c6gn.large",
+  c6gn_medium: "c6gn.medium",
+  c6gn_xlarge: "c6gn.xlarge",
+  c6i_12xlarge: "c6i.12xlarge",
+  c6i_16xlarge: "c6i.16xlarge",
+  c6i_24xlarge: "c6i.24xlarge",
+  c6i_2xlarge: "c6i.2xlarge",
+  c6i_32xlarge: "c6i.32xlarge",
+  c6i_4xlarge: "c6i.4xlarge",
+  c6i_8xlarge: "c6i.8xlarge",
+  c6i_large: "c6i.large",
+  c6i_metal: "c6i.metal",
+  c6i_xlarge: "c6i.xlarge",
+  c6id_12xlarge: "c6id.12xlarge",
+  c6id_16xlarge: "c6id.16xlarge",
+  c6id_24xlarge: "c6id.24xlarge",
+  c6id_2xlarge: "c6id.2xlarge",
+  c6id_32xlarge: "c6id.32xlarge",
+  c6id_4xlarge: "c6id.4xlarge",
+  c6id_8xlarge: "c6id.8xlarge",
+  c6id_large: "c6id.large",
+  c6id_metal: "c6id.metal",
+  c6id_xlarge: "c6id.xlarge",
+  c6in_12xlarge: "c6in.12xlarge",
+  c6in_16xlarge: "c6in.16xlarge",
+  c6in_24xlarge: "c6in.24xlarge",
+  c6in_2xlarge: "c6in.2xlarge",
+  c6in_32xlarge: "c6in.32xlarge",
+  c6in_4xlarge: "c6in.4xlarge",
+  c6in_8xlarge: "c6in.8xlarge",
+  c6in_large: "c6in.large",
+  c6in_metal: "c6in.metal",
+  c6in_xlarge: "c6in.xlarge",
+  c7g_12xlarge: "c7g.12xlarge",
+  c7g_16xlarge: "c7g.16xlarge",
+  c7g_2xlarge: "c7g.2xlarge",
+  c7g_4xlarge: "c7g.4xlarge",
+  c7g_8xlarge: "c7g.8xlarge",
+  c7g_large: "c7g.large",
+  c7g_medium: "c7g.medium",
+  c7g_metal: "c7g.metal",
+  c7g_xlarge: "c7g.xlarge",
+  cc1_4xlarge: "cc1.4xlarge",
+  cc2_8xlarge: "cc2.8xlarge",
+  cg1_4xlarge: "cg1.4xlarge",
+  cr1_8xlarge: "cr1.8xlarge",
+  d2_2xlarge: "d2.2xlarge",
+  d2_4xlarge: "d2.4xlarge",
+  d2_8xlarge: "d2.8xlarge",
+  d2_xlarge: "d2.xlarge",
+  d3_2xlarge: "d3.2xlarge",
+  d3_4xlarge: "d3.4xlarge",
+  d3_8xlarge: "d3.8xlarge",
+  d3_xlarge: "d3.xlarge",
+  d3en_12xlarge: "d3en.12xlarge",
+  d3en_2xlarge: "d3en.2xlarge",
+  d3en_4xlarge: "d3en.4xlarge",
+  d3en_6xlarge: "d3en.6xlarge",
+  d3en_8xlarge: "d3en.8xlarge",
+  d3en_xlarge: "d3en.xlarge",
+  dl1_24xlarge: "dl1.24xlarge",
+  f1_16xlarge: "f1.16xlarge",
+  f1_2xlarge: "f1.2xlarge",
+  f1_4xlarge: "f1.4xlarge",
+  g2_2xlarge: "g2.2xlarge",
+  g2_8xlarge: "g2.8xlarge",
+  g3_16xlarge: "g3.16xlarge",
+  g3_4xlarge: "g3.4xlarge",
+  g3_8xlarge: "g3.8xlarge",
+  g3s_xlarge: "g3s.xlarge",
+  g4ad_16xlarge: "g4ad.16xlarge",
+  g4ad_2xlarge: "g4ad.2xlarge",
+  g4ad_4xlarge: "g4ad.4xlarge",
+  g4ad_8xlarge: "g4ad.8xlarge",
+  g4ad_xlarge: "g4ad.xlarge",
+  g4dn_12xlarge: "g4dn.12xlarge",
+  g4dn_16xlarge: "g4dn.16xlarge",
+  g4dn_2xlarge: "g4dn.2xlarge",
+  g4dn_4xlarge: "g4dn.4xlarge",
+  g4dn_8xlarge: "g4dn.8xlarge",
+  g4dn_metal: "g4dn.metal",
+  g4dn_xlarge: "g4dn.xlarge",
+  g5_12xlarge: "g5.12xlarge",
+  g5_16xlarge: "g5.16xlarge",
+  g5_24xlarge: "g5.24xlarge",
+  g5_2xlarge: "g5.2xlarge",
+  g5_48xlarge: "g5.48xlarge",
+  g5_4xlarge: "g5.4xlarge",
+  g5_8xlarge: "g5.8xlarge",
+  g5_xlarge: "g5.xlarge",
+  g5g_16xlarge: "g5g.16xlarge",
+  g5g_2xlarge: "g5g.2xlarge",
+  g5g_4xlarge: "g5g.4xlarge",
+  g5g_8xlarge: "g5g.8xlarge",
+  g5g_metal: "g5g.metal",
+  g5g_xlarge: "g5g.xlarge",
+  h1_16xlarge: "h1.16xlarge",
+  h1_2xlarge: "h1.2xlarge",
+  h1_4xlarge: "h1.4xlarge",
+  h1_8xlarge: "h1.8xlarge",
+  hi1_4xlarge: "hi1.4xlarge",
+  hpc6a_48xlarge: "hpc6a.48xlarge",
+  hpc6id_32xlarge: "hpc6id.32xlarge",
+  hs1_8xlarge: "hs1.8xlarge",
+  i2_2xlarge: "i2.2xlarge",
+  i2_4xlarge: "i2.4xlarge",
+  i2_8xlarge: "i2.8xlarge",
+  i2_xlarge: "i2.xlarge",
+  i3_16xlarge: "i3.16xlarge",
+  i3_2xlarge: "i3.2xlarge",
+  i3_4xlarge: "i3.4xlarge",
+  i3_8xlarge: "i3.8xlarge",
+  i3_large: "i3.large",
+  i3_metal: "i3.metal",
+  i3_xlarge: "i3.xlarge",
+  i3en_12xlarge: "i3en.12xlarge",
+  i3en_24xlarge: "i3en.24xlarge",
+  i3en_2xlarge: "i3en.2xlarge",
+  i3en_3xlarge: "i3en.3xlarge",
+  i3en_6xlarge: "i3en.6xlarge",
+  i3en_large: "i3en.large",
+  i3en_metal: "i3en.metal",
+  i3en_xlarge: "i3en.xlarge",
+  i4i_16xlarge: "i4i.16xlarge",
+  i4i_2xlarge: "i4i.2xlarge",
+  i4i_32xlarge: "i4i.32xlarge",
+  i4i_4xlarge: "i4i.4xlarge",
+  i4i_8xlarge: "i4i.8xlarge",
+  i4i_large: "i4i.large",
+  i4i_metal: "i4i.metal",
+  i4i_xlarge: "i4i.xlarge",
+  im4gn_16xlarge: "im4gn.16xlarge",
+  im4gn_2xlarge: "im4gn.2xlarge",
+  im4gn_4xlarge: "im4gn.4xlarge",
+  im4gn_8xlarge: "im4gn.8xlarge",
+  im4gn_large: "im4gn.large",
+  im4gn_xlarge: "im4gn.xlarge",
+  inf1_24xlarge: "inf1.24xlarge",
+  inf1_2xlarge: "inf1.2xlarge",
+  inf1_6xlarge: "inf1.6xlarge",
+  inf1_xlarge: "inf1.xlarge",
+  is4gen_2xlarge: "is4gen.2xlarge",
+  is4gen_4xlarge: "is4gen.4xlarge",
+  is4gen_8xlarge: "is4gen.8xlarge",
+  is4gen_large: "is4gen.large",
+  is4gen_medium: "is4gen.medium",
+  is4gen_xlarge: "is4gen.xlarge",
+  m1_large: "m1.large",
+  m1_medium: "m1.medium",
+  m1_small: "m1.small",
+  m1_xlarge: "m1.xlarge",
+  m2_2xlarge: "m2.2xlarge",
+  m2_4xlarge: "m2.4xlarge",
+  m2_xlarge: "m2.xlarge",
+  m3_2xlarge: "m3.2xlarge",
+  m3_large: "m3.large",
+  m3_medium: "m3.medium",
+  m3_xlarge: "m3.xlarge",
+  m4_10xlarge: "m4.10xlarge",
+  m4_16xlarge: "m4.16xlarge",
+  m4_2xlarge: "m4.2xlarge",
+  m4_4xlarge: "m4.4xlarge",
+  m4_large: "m4.large",
+  m4_xlarge: "m4.xlarge",
+  m5_12xlarge: "m5.12xlarge",
+  m5_16xlarge: "m5.16xlarge",
+  m5_24xlarge: "m5.24xlarge",
+  m5_2xlarge: "m5.2xlarge",
+  m5_4xlarge: "m5.4xlarge",
+  m5_8xlarge: "m5.8xlarge",
+  m5_large: "m5.large",
+  m5_metal: "m5.metal",
+  m5_xlarge: "m5.xlarge",
+  m5a_12xlarge: "m5a.12xlarge",
+  m5a_16xlarge: "m5a.16xlarge",
+  m5a_24xlarge: "m5a.24xlarge",
+  m5a_2xlarge: "m5a.2xlarge",
+  m5a_4xlarge: "m5a.4xlarge",
+  m5a_8xlarge: "m5a.8xlarge",
+  m5a_large: "m5a.large",
+  m5a_xlarge: "m5a.xlarge",
+  m5ad_12xlarge: "m5ad.12xlarge",
+  m5ad_16xlarge: "m5ad.16xlarge",
+  m5ad_24xlarge: "m5ad.24xlarge",
+  m5ad_2xlarge: "m5ad.2xlarge",
+  m5ad_4xlarge: "m5ad.4xlarge",
+  m5ad_8xlarge: "m5ad.8xlarge",
+  m5ad_large: "m5ad.large",
+  m5ad_xlarge: "m5ad.xlarge",
+  m5d_12xlarge: "m5d.12xlarge",
+  m5d_16xlarge: "m5d.16xlarge",
+  m5d_24xlarge: "m5d.24xlarge",
+  m5d_2xlarge: "m5d.2xlarge",
+  m5d_4xlarge: "m5d.4xlarge",
+  m5d_8xlarge: "m5d.8xlarge",
+  m5d_large: "m5d.large",
+  m5d_metal: "m5d.metal",
+  m5d_xlarge: "m5d.xlarge",
+  m5dn_12xlarge: "m5dn.12xlarge",
+  m5dn_16xlarge: "m5dn.16xlarge",
+  m5dn_24xlarge: "m5dn.24xlarge",
+  m5dn_2xlarge: "m5dn.2xlarge",
+  m5dn_4xlarge: "m5dn.4xlarge",
+  m5dn_8xlarge: "m5dn.8xlarge",
+  m5dn_large: "m5dn.large",
+  m5dn_metal: "m5dn.metal",
+  m5dn_xlarge: "m5dn.xlarge",
+  m5n_12xlarge: "m5n.12xlarge",
+  m5n_16xlarge: "m5n.16xlarge",
+  m5n_24xlarge: "m5n.24xlarge",
+  m5n_2xlarge: "m5n.2xlarge",
+  m5n_4xlarge: "m5n.4xlarge",
+  m5n_8xlarge: "m5n.8xlarge",
+  m5n_large: "m5n.large",
+  m5n_metal: "m5n.metal",
+  m5n_xlarge: "m5n.xlarge",
+  m5zn_12xlarge: "m5zn.12xlarge",
+  m5zn_2xlarge: "m5zn.2xlarge",
+  m5zn_3xlarge: "m5zn.3xlarge",
+  m5zn_6xlarge: "m5zn.6xlarge",
+  m5zn_large: "m5zn.large",
+  m5zn_metal: "m5zn.metal",
+  m5zn_xlarge: "m5zn.xlarge",
+  m6a_12xlarge: "m6a.12xlarge",
+  m6a_16xlarge: "m6a.16xlarge",
+  m6a_24xlarge: "m6a.24xlarge",
+  m6a_2xlarge: "m6a.2xlarge",
+  m6a_32xlarge: "m6a.32xlarge",
+  m6a_48xlarge: "m6a.48xlarge",
+  m6a_4xlarge: "m6a.4xlarge",
+  m6a_8xlarge: "m6a.8xlarge",
+  m6a_large: "m6a.large",
+  m6a_metal: "m6a.metal",
+  m6a_xlarge: "m6a.xlarge",
+  m6g_12xlarge: "m6g.12xlarge",
+  m6g_16xlarge: "m6g.16xlarge",
+  m6g_2xlarge: "m6g.2xlarge",
+  m6g_4xlarge: "m6g.4xlarge",
+  m6g_8xlarge: "m6g.8xlarge",
+  m6g_large: "m6g.large",
+  m6g_medium: "m6g.medium",
+  m6g_metal: "m6g.metal",
+  m6g_xlarge: "m6g.xlarge",
+  m6gd_12xlarge: "m6gd.12xlarge",
+  m6gd_16xlarge: "m6gd.16xlarge",
+  m6gd_2xlarge: "m6gd.2xlarge",
+  m6gd_4xlarge: "m6gd.4xlarge",
+  m6gd_8xlarge: "m6gd.8xlarge",
+  m6gd_large: "m6gd.large",
+  m6gd_medium: "m6gd.medium",
+  m6gd_metal: "m6gd.metal",
+  m6gd_xlarge: "m6gd.xlarge",
+  m6i_12xlarge: "m6i.12xlarge",
+  m6i_16xlarge: "m6i.16xlarge",
+  m6i_24xlarge: "m6i.24xlarge",
+  m6i_2xlarge: "m6i.2xlarge",
+  m6i_32xlarge: "m6i.32xlarge",
+  m6i_4xlarge: "m6i.4xlarge",
+  m6i_8xlarge: "m6i.8xlarge",
+  m6i_large: "m6i.large",
+  m6i_metal: "m6i.metal",
+  m6i_xlarge: "m6i.xlarge",
+  m6id_12xlarge: "m6id.12xlarge",
+  m6id_16xlarge: "m6id.16xlarge",
+  m6id_24xlarge: "m6id.24xlarge",
+  m6id_2xlarge: "m6id.2xlarge",
+  m6id_32xlarge: "m6id.32xlarge",
+  m6id_4xlarge: "m6id.4xlarge",
+  m6id_8xlarge: "m6id.8xlarge",
+  m6id_large: "m6id.large",
+  m6id_metal: "m6id.metal",
+  m6id_xlarge: "m6id.xlarge",
+  m6idn_12xlarge: "m6idn.12xlarge",
+  m6idn_16xlarge: "m6idn.16xlarge",
+  m6idn_24xlarge: "m6idn.24xlarge",
+  m6idn_2xlarge: "m6idn.2xlarge",
+  m6idn_32xlarge: "m6idn.32xlarge",
+  m6idn_4xlarge: "m6idn.4xlarge",
+  m6idn_8xlarge: "m6idn.8xlarge",
+  m6idn_large: "m6idn.large",
+  m6idn_metal: "m6idn.metal",
+  m6idn_xlarge: "m6idn.xlarge",
+  m6in_12xlarge: "m6in.12xlarge",
+  m6in_16xlarge: "m6in.16xlarge",
+  m6in_24xlarge: "m6in.24xlarge",
+  m6in_2xlarge: "m6in.2xlarge",
+  m6in_32xlarge: "m6in.32xlarge",
+  m6in_4xlarge: "m6in.4xlarge",
+  m6in_8xlarge: "m6in.8xlarge",
+  m6in_large: "m6in.large",
+  m6in_metal: "m6in.metal",
+  m6in_xlarge: "m6in.xlarge",
+  m7g_12xlarge: "m7g.12xlarge",
+  m7g_16xlarge: "m7g.16xlarge",
+  m7g_2xlarge: "m7g.2xlarge",
+  m7g_4xlarge: "m7g.4xlarge",
+  m7g_8xlarge: "m7g.8xlarge",
+  m7g_large: "m7g.large",
+  m7g_medium: "m7g.medium",
+  m7g_metal: "m7g.metal",
+  m7g_xlarge: "m7g.xlarge",
+  mac1_metal: "mac1.metal",
+  mac2_metal: "mac2.metal",
+  p2_16xlarge: "p2.16xlarge",
+  p2_8xlarge: "p2.8xlarge",
+  p2_xlarge: "p2.xlarge",
+  p3_16xlarge: "p3.16xlarge",
+  p3_2xlarge: "p3.2xlarge",
+  p3_8xlarge: "p3.8xlarge",
+  p3dn_24xlarge: "p3dn.24xlarge",
+  p4d_24xlarge: "p4d.24xlarge",
+  p4de_24xlarge: "p4de.24xlarge",
+  r3_2xlarge: "r3.2xlarge",
+  r3_4xlarge: "r3.4xlarge",
+  r3_8xlarge: "r3.8xlarge",
+  r3_large: "r3.large",
+  r3_xlarge: "r3.xlarge",
+  r4_16xlarge: "r4.16xlarge",
+  r4_2xlarge: "r4.2xlarge",
+  r4_4xlarge: "r4.4xlarge",
+  r4_8xlarge: "r4.8xlarge",
+  r4_large: "r4.large",
+  r4_xlarge: "r4.xlarge",
+  r5_12xlarge: "r5.12xlarge",
+  r5_16xlarge: "r5.16xlarge",
+  r5_24xlarge: "r5.24xlarge",
+  r5_2xlarge: "r5.2xlarge",
+  r5_4xlarge: "r5.4xlarge",
+  r5_8xlarge: "r5.8xlarge",
+  r5_large: "r5.large",
+  r5_metal: "r5.metal",
+  r5_xlarge: "r5.xlarge",
+  r5a_12xlarge: "r5a.12xlarge",
+  r5a_16xlarge: "r5a.16xlarge",
+  r5a_24xlarge: "r5a.24xlarge",
+  r5a_2xlarge: "r5a.2xlarge",
+  r5a_4xlarge: "r5a.4xlarge",
+  r5a_8xlarge: "r5a.8xlarge",
+  r5a_large: "r5a.large",
+  r5a_xlarge: "r5a.xlarge",
+  r5ad_12xlarge: "r5ad.12xlarge",
+  r5ad_16xlarge: "r5ad.16xlarge",
+  r5ad_24xlarge: "r5ad.24xlarge",
+  r5ad_2xlarge: "r5ad.2xlarge",
+  r5ad_4xlarge: "r5ad.4xlarge",
+  r5ad_8xlarge: "r5ad.8xlarge",
+  r5ad_large: "r5ad.large",
+  r5ad_xlarge: "r5ad.xlarge",
+  r5b_12xlarge: "r5b.12xlarge",
+  r5b_16xlarge: "r5b.16xlarge",
+  r5b_24xlarge: "r5b.24xlarge",
+  r5b_2xlarge: "r5b.2xlarge",
+  r5b_4xlarge: "r5b.4xlarge",
+  r5b_8xlarge: "r5b.8xlarge",
+  r5b_large: "r5b.large",
+  r5b_metal: "r5b.metal",
+  r5b_xlarge: "r5b.xlarge",
+  r5d_12xlarge: "r5d.12xlarge",
+  r5d_16xlarge: "r5d.16xlarge",
+  r5d_24xlarge: "r5d.24xlarge",
+  r5d_2xlarge: "r5d.2xlarge",
+  r5d_4xlarge: "r5d.4xlarge",
+  r5d_8xlarge: "r5d.8xlarge",
+  r5d_large: "r5d.large",
+  r5d_metal: "r5d.metal",
+  r5d_xlarge: "r5d.xlarge",
+  r5dn_12xlarge: "r5dn.12xlarge",
+  r5dn_16xlarge: "r5dn.16xlarge",
+  r5dn_24xlarge: "r5dn.24xlarge",
+  r5dn_2xlarge: "r5dn.2xlarge",
+  r5dn_4xlarge: "r5dn.4xlarge",
+  r5dn_8xlarge: "r5dn.8xlarge",
+  r5dn_large: "r5dn.large",
+  r5dn_metal: "r5dn.metal",
+  r5dn_xlarge: "r5dn.xlarge",
+  r5n_12xlarge: "r5n.12xlarge",
+  r5n_16xlarge: "r5n.16xlarge",
+  r5n_24xlarge: "r5n.24xlarge",
+  r5n_2xlarge: "r5n.2xlarge",
+  r5n_4xlarge: "r5n.4xlarge",
+  r5n_8xlarge: "r5n.8xlarge",
+  r5n_large: "r5n.large",
+  r5n_metal: "r5n.metal",
+  r5n_xlarge: "r5n.xlarge",
+  r6a_12xlarge: "r6a.12xlarge",
+  r6a_16xlarge: "r6a.16xlarge",
+  r6a_24xlarge: "r6a.24xlarge",
+  r6a_2xlarge: "r6a.2xlarge",
+  r6a_32xlarge: "r6a.32xlarge",
+  r6a_48xlarge: "r6a.48xlarge",
+  r6a_4xlarge: "r6a.4xlarge",
+  r6a_8xlarge: "r6a.8xlarge",
+  r6a_large: "r6a.large",
+  r6a_metal: "r6a.metal",
+  r6a_xlarge: "r6a.xlarge",
+  r6g_12xlarge: "r6g.12xlarge",
+  r6g_16xlarge: "r6g.16xlarge",
+  r6g_2xlarge: "r6g.2xlarge",
+  r6g_4xlarge: "r6g.4xlarge",
+  r6g_8xlarge: "r6g.8xlarge",
+  r6g_large: "r6g.large",
+  r6g_medium: "r6g.medium",
+  r6g_metal: "r6g.metal",
+  r6g_xlarge: "r6g.xlarge",
+  r6gd_12xlarge: "r6gd.12xlarge",
+  r6gd_16xlarge: "r6gd.16xlarge",
+  r6gd_2xlarge: "r6gd.2xlarge",
+  r6gd_4xlarge: "r6gd.4xlarge",
+  r6gd_8xlarge: "r6gd.8xlarge",
+  r6gd_large: "r6gd.large",
+  r6gd_medium: "r6gd.medium",
+  r6gd_metal: "r6gd.metal",
+  r6gd_xlarge: "r6gd.xlarge",
+  r6i_12xlarge: "r6i.12xlarge",
+  r6i_16xlarge: "r6i.16xlarge",
+  r6i_24xlarge: "r6i.24xlarge",
+  r6i_2xlarge: "r6i.2xlarge",
+  r6i_32xlarge: "r6i.32xlarge",
+  r6i_4xlarge: "r6i.4xlarge",
+  r6i_8xlarge: "r6i.8xlarge",
+  r6i_large: "r6i.large",
+  r6i_metal: "r6i.metal",
+  r6i_xlarge: "r6i.xlarge",
+  r6id_12xlarge: "r6id.12xlarge",
+  r6id_16xlarge: "r6id.16xlarge",
+  r6id_24xlarge: "r6id.24xlarge",
+  r6id_2xlarge: "r6id.2xlarge",
+  r6id_32xlarge: "r6id.32xlarge",
+  r6id_4xlarge: "r6id.4xlarge",
+  r6id_8xlarge: "r6id.8xlarge",
+  r6id_large: "r6id.large",
+  r6id_metal: "r6id.metal",
+  r6id_xlarge: "r6id.xlarge",
+  r6idn_12xlarge: "r6idn.12xlarge",
+  r6idn_16xlarge: "r6idn.16xlarge",
+  r6idn_24xlarge: "r6idn.24xlarge",
+  r6idn_2xlarge: "r6idn.2xlarge",
+  r6idn_32xlarge: "r6idn.32xlarge",
+  r6idn_4xlarge: "r6idn.4xlarge",
+  r6idn_8xlarge: "r6idn.8xlarge",
+  r6idn_large: "r6idn.large",
+  r6idn_metal: "r6idn.metal",
+  r6idn_xlarge: "r6idn.xlarge",
+  r6in_12xlarge: "r6in.12xlarge",
+  r6in_16xlarge: "r6in.16xlarge",
+  r6in_24xlarge: "r6in.24xlarge",
+  r6in_2xlarge: "r6in.2xlarge",
+  r6in_32xlarge: "r6in.32xlarge",
+  r6in_4xlarge: "r6in.4xlarge",
+  r6in_8xlarge: "r6in.8xlarge",
+  r6in_large: "r6in.large",
+  r6in_metal: "r6in.metal",
+  r6in_xlarge: "r6in.xlarge",
+  r7g_12xlarge: "r7g.12xlarge",
+  r7g_16xlarge: "r7g.16xlarge",
+  r7g_2xlarge: "r7g.2xlarge",
+  r7g_4xlarge: "r7g.4xlarge",
+  r7g_8xlarge: "r7g.8xlarge",
+  r7g_large: "r7g.large",
+  r7g_medium: "r7g.medium",
+  r7g_metal: "r7g.metal",
+  r7g_xlarge: "r7g.xlarge",
+  t1_micro: "t1.micro",
+  t2_2xlarge: "t2.2xlarge",
+  t2_large: "t2.large",
+  t2_medium: "t2.medium",
+  t2_micro: "t2.micro",
+  t2_nano: "t2.nano",
+  t2_small: "t2.small",
+  t2_xlarge: "t2.xlarge",
+  t3_2xlarge: "t3.2xlarge",
+  t3_large: "t3.large",
+  t3_medium: "t3.medium",
+  t3_micro: "t3.micro",
+  t3_nano: "t3.nano",
+  t3_small: "t3.small",
+  t3_xlarge: "t3.xlarge",
+  t3a_2xlarge: "t3a.2xlarge",
+  t3a_large: "t3a.large",
+  t3a_medium: "t3a.medium",
+  t3a_micro: "t3a.micro",
+  t3a_nano: "t3a.nano",
+  t3a_small: "t3a.small",
+  t3a_xlarge: "t3a.xlarge",
+  t4g_2xlarge: "t4g.2xlarge",
+  t4g_large: "t4g.large",
+  t4g_medium: "t4g.medium",
+  t4g_micro: "t4g.micro",
+  t4g_nano: "t4g.nano",
+  t4g_small: "t4g.small",
+  t4g_xlarge: "t4g.xlarge",
+  trn1_2xlarge: "trn1.2xlarge",
+  trn1_32xlarge: "trn1.32xlarge",
+  u_12tb1_112xlarge: "u-12tb1.112xlarge",
+  u_12tb1_metal: "u-12tb1.metal",
+  u_18tb1_112xlarge: "u-18tb1.112xlarge",
+  u_18tb1_metal: "u-18tb1.metal",
+  u_24tb1_112xlarge: "u-24tb1.112xlarge",
+  u_24tb1_metal: "u-24tb1.metal",
+  u_3tb1_56xlarge: "u-3tb1.56xlarge",
+  u_6tb1_112xlarge: "u-6tb1.112xlarge",
+  u_6tb1_56xlarge: "u-6tb1.56xlarge",
+  u_6tb1_metal: "u-6tb1.metal",
+  u_9tb1_112xlarge: "u-9tb1.112xlarge",
+  u_9tb1_metal: "u-9tb1.metal",
+  vt1_24xlarge: "vt1.24xlarge",
+  vt1_3xlarge: "vt1.3xlarge",
+  vt1_6xlarge: "vt1.6xlarge",
+  x1_16xlarge: "x1.16xlarge",
+  x1_32xlarge: "x1.32xlarge",
+  x1e_16xlarge: "x1e.16xlarge",
+  x1e_2xlarge: "x1e.2xlarge",
+  x1e_32xlarge: "x1e.32xlarge",
+  x1e_4xlarge: "x1e.4xlarge",
+  x1e_8xlarge: "x1e.8xlarge",
+  x1e_xlarge: "x1e.xlarge",
+  x2gd_12xlarge: "x2gd.12xlarge",
+  x2gd_16xlarge: "x2gd.16xlarge",
+  x2gd_2xlarge: "x2gd.2xlarge",
+  x2gd_4xlarge: "x2gd.4xlarge",
+  x2gd_8xlarge: "x2gd.8xlarge",
+  x2gd_large: "x2gd.large",
+  x2gd_medium: "x2gd.medium",
+  x2gd_metal: "x2gd.metal",
+  x2gd_xlarge: "x2gd.xlarge",
+  x2idn_16xlarge: "x2idn.16xlarge",
+  x2idn_24xlarge: "x2idn.24xlarge",
+  x2idn_32xlarge: "x2idn.32xlarge",
+  x2idn_metal: "x2idn.metal",
+  x2iedn_16xlarge: "x2iedn.16xlarge",
+  x2iedn_24xlarge: "x2iedn.24xlarge",
+  x2iedn_2xlarge: "x2iedn.2xlarge",
+  x2iedn_32xlarge: "x2iedn.32xlarge",
+  x2iedn_4xlarge: "x2iedn.4xlarge",
+  x2iedn_8xlarge: "x2iedn.8xlarge",
+  x2iedn_metal: "x2iedn.metal",
+  x2iedn_xlarge: "x2iedn.xlarge",
+  x2iezn_12xlarge: "x2iezn.12xlarge",
+  x2iezn_2xlarge: "x2iezn.2xlarge",
+  x2iezn_4xlarge: "x2iezn.4xlarge",
+  x2iezn_6xlarge: "x2iezn.6xlarge",
+  x2iezn_8xlarge: "x2iezn.8xlarge",
+  x2iezn_metal: "x2iezn.metal",
+  z1d_12xlarge: "z1d.12xlarge",
+  z1d_2xlarge: "z1d.2xlarge",
+  z1d_3xlarge: "z1d.3xlarge",
+  z1d_6xlarge: "z1d.6xlarge",
+  z1d_large: "z1d.large",
+  z1d_metal: "z1d.metal",
+  z1d_xlarge: "z1d.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
+
+/**
+ * @public
  * <p>Information about an instance type to use in a Capacity Reservation Fleet.</p>
  */
 export interface ReservationFleetInstanceSpecification {
@@ -6600,10 +8172,23 @@ export interface ReservationFleetInstanceSpecification {
   Priority?: number;
 }
 
-export enum FleetCapacityReservationTenancy {
-  default = "default",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetCapacityReservationTenancy = {
+  default: "default",
+} as const;
 
+/**
+ * @public
+ */
+export type FleetCapacityReservationTenancy =
+  (typeof FleetCapacityReservationTenancy)[keyof typeof FleetCapacityReservationTenancy];
+
+/**
+ * @public
+ */
 export interface CreateCapacityReservationFleetRequest {
   /**
    * <p>The strategy used by the Capacity Reservation Fleet to determine which of the
@@ -6688,6 +8273,7 @@ export interface CreateCapacityReservationFleetRequest {
 }
 
 /**
+ * @public
  * <p>Information about a Capacity Reservation in a Capacity Reservation Fleet.</p>
  */
 export interface FleetCapacityReservation {
@@ -6753,6 +8339,9 @@ export interface FleetCapacityReservation {
   Priority?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateCapacityReservationFleetResult {
   /**
    * <p>The ID of the Capacity Reservation Fleet.</p>
@@ -6810,6 +8399,9 @@ export interface CreateCapacityReservationFleetResult {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCarrierGatewayRequest {
   /**
    * <p>The ID of the VPC to associate with the carrier gateway.</p>
@@ -6836,14 +8428,24 @@ export interface CreateCarrierGatewayRequest {
   ClientToken?: string;
 }
 
-export enum CarrierGatewayState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CarrierGatewayState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type CarrierGatewayState = (typeof CarrierGatewayState)[keyof typeof CarrierGatewayState];
+
+/**
+ * @public
  * <p>Describes a carrier gateway.</p>
  */
 export interface CarrierGateway {
@@ -6873,6 +8475,9 @@ export interface CarrierGateway {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCarrierGatewayResult {
   /**
    * <p>Information about the carrier gateway.</p>
@@ -6881,6 +8486,7 @@ export interface CreateCarrierGatewayResult {
 }
 
 /**
+ * @public
  * <p>Describes the Active Directory to be used for client authentication.</p>
  */
 export interface DirectoryServiceAuthenticationRequest {
@@ -6891,6 +8497,7 @@ export interface DirectoryServiceAuthenticationRequest {
 }
 
 /**
+ * @public
  * <p>The IAM SAML identity provider used for federated authentication.</p>
  */
 export interface FederatedAuthenticationRequest {
@@ -6906,6 +8513,7 @@ export interface FederatedAuthenticationRequest {
 }
 
 /**
+ * @public
  * <p>Information about the client certificate to be used for authentication.</p>
  */
 export interface CertificateAuthenticationRequest {
@@ -6916,2139 +8524,10 @@ export interface CertificateAuthenticationRequest {
   ClientRootCertificateChainArn?: string;
 }
 
-export enum ClientVpnAuthenticationType {
-  certificate_authentication = "certificate-authentication",
-  directory_service_authentication = "directory-service-authentication",
-  federated_authentication = "federated-authentication",
-}
-
-/**
- * <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a>
- * 			in the <i>Client VPN Administrator Guide</i>.</p>
- */
-export interface ClientVpnAuthenticationRequest {
-  /**
-   * <p>The type of client authentication to be used.</p>
-   */
-  Type?: ClientVpnAuthenticationType | string;
-
-  /**
-   * <p>Information about the Active Directory to be used, if applicable. You must provide this information if <b>Type</b> is <code>directory-service-authentication</code>.</p>
-   */
-  ActiveDirectory?: DirectoryServiceAuthenticationRequest;
-
-  /**
-   * <p>Information about the authentication certificates to be used, if applicable. You must provide this information if <b>Type</b> is <code>certificate-authentication</code>.</p>
-   */
-  MutualAuthentication?: CertificateAuthenticationRequest;
-
-  /**
-   * <p>Information about the IAM SAML identity provider to be used, if applicable. You must provide this information if <b>Type</b> is <code>federated-authentication</code>.</p>
-   */
-  FederatedAuthentication?: FederatedAuthenticationRequest;
-}
-
-/**
- * <p>The options for managing connection authorization for new client connections.</p>
- */
-export interface ClientConnectOptions {
-  /**
-   * <p>Indicates whether client connect options are enabled. The default is <code>false</code> (not enabled).</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</p>
-   */
-  LambdaFunctionArn?: string;
-}
-
-/**
- * <p>Options for enabling a customizable text banner that will be displayed on
- * 			Amazon Web Services provided clients when a VPN session is established.</p>
- */
-export interface ClientLoginBannerOptions {
-  /**
-   * <p>Enable or disable a customizable text banner that will be displayed on
-   * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   *          <p>Valid values: <code>true | false</code>
-   *          </p>
-   *          <p>Default value: <code>false</code>
-   *          </p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>Customizable text that will be displayed in a banner on Amazon Web Services provided
-   * 			clients when a VPN session is established. UTF-8 encoded characters only. Maximum of
-   * 			1400 characters.</p>
-   */
-  BannerText?: string;
-}
-
-/**
- * <p>Describes the client connection logging options for the Client VPN endpoint.</p>
- */
-export interface ConnectionLogOptions {
-  /**
-   * <p>Indicates whether connection logging is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The name of the CloudWatch Logs log group. Required if connection logging is enabled.</p>
-   */
-  CloudwatchLogGroup?: string;
-
-  /**
-   * <p>The name of the CloudWatch Logs log stream to which the connection data is published.</p>
-   */
-  CloudwatchLogStream?: string;
-}
-
-export enum SelfServicePortal {
-  disabled = "disabled",
-  enabled = "enabled",
-}
-
-export enum TransportProtocol {
-  tcp = "tcp",
-  udp = "udp",
-}
-
-export interface CreateClientVpnEndpointRequest {
-  /**
-   * <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.</p>
-   */
-  ClientCidrBlock: string | undefined;
-
-  /**
-   * <p>The ARN of the server certificate. For more information, see
-   * 			the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
-   */
-  ServerCertificateArn: string | undefined;
-
-  /**
-   * <p>Information about the authentication method to be used to authenticate clients.</p>
-   */
-  AuthenticationOptions: ClientVpnAuthenticationRequest[] | undefined;
-
-  /**
-   * <p>Information about the client connection logging options.</p>
-   *          <p>If you enable client connection logging, data about client connections is sent to a
-   * 			Cloudwatch Logs log stream. The following information is logged:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection results (successful and unsuccessful)</p>
-   *             </li>
-   *             <li>
-   *                <p>Reasons for unsuccessful client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection termination time</p>
-   *             </li>
-   *          </ul>
-   */
-  ConnectionLogOptions: ConnectionLogOptions | undefined;
-
-  /**
-   * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can
-   * 			have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.</p>
-   */
-  DnsServers?: string[];
-
-  /**
-   * <p>The transport protocol to be used by the VPN session.</p>
-   *          <p>Default value: <code>udp</code>
-   *          </p>
-   */
-  TransportProtocol?: TransportProtocol | string;
-
-  /**
-   * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-   *          <p>Valid Values: <code>443</code> | <code>1194</code>
-   *          </p>
-   *          <p>Default Value: <code>443</code>
-   *          </p>
-   */
-  VpnPort?: number;
-
-  /**
-   * <p>A brief description of the Client VPN endpoint.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Indicates whether split-tunnel is enabled on the Client VPN endpoint.</p>
-   *          <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
-   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
-   * 			<i>Client VPN Administrator Guide</i>.</p>
-   */
-  SplitTunnel?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The tags to apply to the Client VPN endpoint during creation.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
-   *          <p>Default Value: <code>enabled</code>
-   *          </p>
-   */
-  SelfServicePortal?: SelfServicePortal | string;
-
-  /**
-   * <p>The options for managing connection authorization for new client connections.</p>
-   */
-  ClientConnectOptions?: ClientConnectOptions;
-
-  /**
-   * <p>The maximum VPN session duration time in hours.</p>
-   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
-   *          </p>
-   *          <p>Default value: <code>24</code>
-   *          </p>
-   */
-  SessionTimeoutHours?: number;
-
-  /**
-   * <p>Options for enabling a customizable text banner that will be displayed on
-   * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   */
-  ClientLoginBannerOptions?: ClientLoginBannerOptions;
-}
-
-export enum ClientVpnEndpointStatusCode {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending_associate = "pending-associate",
-}
-
-/**
- * <p>Describes the state of a Client VPN endpoint.</p>
- */
-export interface ClientVpnEndpointStatus {
-  /**
-   * <p>The state of the Client VPN endpoint. Possible states include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>pending-associate</code> - The Client VPN endpoint has been created but no target networks
-   * 					have been associated. The Client VPN endpoint cannot accept connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code> - The Client VPN endpoint has been created and a target network has been
-   * 					associated. The Client VPN endpoint can accept connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code> - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept
-   * 					connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code> - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept
-   * 					connections.</p>
-   *             </li>
-   *          </ul>
-   */
-  Code?: ClientVpnEndpointStatusCode | string;
-
-  /**
-   * <p>A message about the status of the Client VPN endpoint.</p>
-   */
-  Message?: string;
-}
-
-export interface CreateClientVpnEndpointResult {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId?: string;
-
-  /**
-   * <p>The current state of the Client VPN endpoint.</p>
-   */
-  Status?: ClientVpnEndpointStatus;
-
-  /**
-   * <p>The DNS name to be used by clients when establishing their VPN session.</p>
-   */
-  DnsName?: string;
-}
-
-export interface CreateClientVpnRouteRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint to which to add the route.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the route destination. For example:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To add a route for Internet access, enter <code>0.0.0.0/0</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range</p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for an on-premises network, enter the Amazon Web Services Site-to-Site VPN connection's IPv4 CIDR range</p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for the local network, enter the client CIDR range</p>
-   *             </li>
-   *          </ul>
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the subnet through which you want to route traffic. The specified subnet must be
-   * 			an existing target network of the Client VPN endpoint.</p>
-   *          <p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
-   */
-  TargetVpcSubnetId: string | undefined;
-
-  /**
-   * <p>A brief description of the route.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export enum ClientVpnRouteStatusCode {
-  active = "active",
-  creating = "creating",
-  deleting = "deleting",
-  failed = "failed",
-}
-
-/**
- * <p>Describes the state of a Client VPN endpoint route.</p>
- */
-export interface ClientVpnRouteStatus {
-  /**
-   * <p>The state of the Client VPN endpoint route.</p>
-   */
-  Code?: ClientVpnRouteStatusCode | string;
-
-  /**
-   * <p>A message about the status of the Client VPN endpoint route, if applicable.</p>
-   */
-  Message?: string;
-}
-
-export interface CreateClientVpnRouteResult {
-  /**
-   * <p>The current state of the route.</p>
-   */
-  Status?: ClientVpnRouteStatus;
-}
-
-export interface CreateCoipCidrRequest {
-  /**
-   * <p>
-   *       A customer-owned IP address range to create.
-   *       </p>
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>
-   *          The ID of the address pool.
-   *       </p>
-   */
-  CoipPoolId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>
- *       Information about a customer-owned IP address range.
- *       </p>
- */
-export interface CoipCidr {
-  /**
-   * <p>
-   *       An address range in a customer-owned IP address space.
-   *       </p>
-   */
-  Cidr?: string;
-
-  /**
-   * <p>
-   *          The ID of the address pool.
-   *       </p>
-   */
-  CoipPoolId?: string;
-
-  /**
-   * <p>
-   *       The ID of the local gateway route table.
-   *       </p>
-   */
-  LocalGatewayRouteTableId?: string;
-}
-
-/**
- * @internal
- */
-export const AcceleratorCountFilterSensitiveLog = (obj: AcceleratorCount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceleratorCountRequestFilterSensitiveLog = (obj: AcceleratorCountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceleratorTotalMemoryMiBFilterSensitiveLog = (obj: AcceleratorTotalMemoryMiB): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceleratorTotalMemoryMiBRequestFilterSensitiveLog = (obj: AcceleratorTotalMemoryMiBRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagSpecificationFilterSensitiveLog = (obj: TagSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptAddressTransferRequestFilterSensitiveLog = (obj: AcceptAddressTransferRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddressTransferFilterSensitiveLog = (obj: AddressTransfer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptAddressTransferResultFilterSensitiveLog = (obj: AcceptAddressTransferResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetConfigurationRequestFilterSensitiveLog = (obj: TargetConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptReservedInstancesExchangeQuoteRequestFilterSensitiveLog = (
-  obj: AcceptReservedInstancesExchangeQuoteRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptReservedInstancesExchangeQuoteResultFilterSensitiveLog = (
-  obj: AcceptReservedInstancesExchangeQuoteResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptTransitGatewayMulticastDomainAssociationsRequestFilterSensitiveLog = (
-  obj: AcceptTransitGatewayMulticastDomainAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetAssociationFilterSensitiveLog = (obj: SubnetAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayMulticastDomainAssociationsFilterSensitiveLog = (
-  obj: TransitGatewayMulticastDomainAssociations
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptTransitGatewayMulticastDomainAssociationsResultFilterSensitiveLog = (
-  obj: AcceptTransitGatewayMulticastDomainAssociationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptTransitGatewayPeeringAttachmentRequestFilterSensitiveLog = (
-  obj: AcceptTransitGatewayPeeringAttachmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PeeringTgwInfoFilterSensitiveLog = (obj: PeeringTgwInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayPeeringAttachmentOptionsFilterSensitiveLog = (
-  obj: TransitGatewayPeeringAttachmentOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PeeringAttachmentStatusFilterSensitiveLog = (obj: PeeringAttachmentStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayPeeringAttachmentFilterSensitiveLog = (obj: TransitGatewayPeeringAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptTransitGatewayPeeringAttachmentResultFilterSensitiveLog = (
-  obj: AcceptTransitGatewayPeeringAttachmentResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptTransitGatewayVpcAttachmentRequestFilterSensitiveLog = (
-  obj: AcceptTransitGatewayVpcAttachmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayVpcAttachmentOptionsFilterSensitiveLog = (obj: TransitGatewayVpcAttachmentOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayVpcAttachmentFilterSensitiveLog = (obj: TransitGatewayVpcAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptTransitGatewayVpcAttachmentResultFilterSensitiveLog = (
-  obj: AcceptTransitGatewayVpcAttachmentResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptVpcEndpointConnectionsRequestFilterSensitiveLog = (
-  obj: AcceptVpcEndpointConnectionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnsuccessfulItemErrorFilterSensitiveLog = (obj: UnsuccessfulItemError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnsuccessfulItemFilterSensitiveLog = (obj: UnsuccessfulItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptVpcEndpointConnectionsResultFilterSensitiveLog = (obj: AcceptVpcEndpointConnectionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptVpcPeeringConnectionRequestFilterSensitiveLog = (obj: AcceptVpcPeeringConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CidrBlockFilterSensitiveLog = (obj: CidrBlock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv6CidrBlockFilterSensitiveLog = (obj: Ipv6CidrBlock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcPeeringConnectionOptionsDescriptionFilterSensitiveLog = (
-  obj: VpcPeeringConnectionOptionsDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcPeeringConnectionVpcInfoFilterSensitiveLog = (obj: VpcPeeringConnectionVpcInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcPeeringConnectionStateReasonFilterSensitiveLog = (obj: VpcPeeringConnectionStateReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcPeeringConnectionFilterSensitiveLog = (obj: VpcPeeringConnection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptVpcPeeringConnectionResultFilterSensitiveLog = (obj: AcceptVpcPeeringConnectionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortRangeFilterSensitiveLog = (obj: PortRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisAclRuleFilterSensitiveLog = (obj: AnalysisAclRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisComponentFilterSensitiveLog = (obj: AnalysisComponent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdditionalDetailFilterSensitiveLog = (obj: AdditionalDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisLoadBalancerListenerFilterSensitiveLog = (obj: AnalysisLoadBalancerListener): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisLoadBalancerTargetFilterSensitiveLog = (obj: AnalysisLoadBalancerTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisRouteTableRouteFilterSensitiveLog = (obj: AnalysisRouteTableRoute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisSecurityGroupRuleFilterSensitiveLog = (obj: AnalysisSecurityGroupRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayRouteTableRouteFilterSensitiveLog = (obj: TransitGatewayRouteTableRoute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExplanationFilterSensitiveLog = (obj: Explanation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisPacketHeaderFilterSensitiveLog = (obj: AnalysisPacketHeader): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PathComponentFilterSensitiveLog = (obj: PathComponent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessScopeAnalysisFindingFilterSensitiveLog = (obj: AccessScopeAnalysisFinding): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PacketHeaderStatementFilterSensitiveLog = (obj: PacketHeaderStatement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceStatementFilterSensitiveLog = (obj: ResourceStatement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PathStatementFilterSensitiveLog = (obj: PathStatement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThroughResourcesStatementFilterSensitiveLog = (obj: ThroughResourcesStatement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessScopePathFilterSensitiveLog = (obj: AccessScopePath): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PacketHeaderStatementRequestFilterSensitiveLog = (obj: PacketHeaderStatementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceStatementRequestFilterSensitiveLog = (obj: ResourceStatementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PathStatementRequestFilterSensitiveLog = (obj: PathStatementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThroughResourcesStatementRequestFilterSensitiveLog = (obj: ThroughResourcesStatementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessScopePathRequestFilterSensitiveLog = (obj: AccessScopePathRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountAttributeValueFilterSensitiveLog = (obj: AccountAttributeValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountAttributeFilterSensitiveLog = (obj: AccountAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActiveInstanceFilterSensitiveLog = (obj: ActiveInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddedPrincipalFilterSensitiveLog = (obj: AddedPrincipal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddIpamOperatingRegionFilterSensitiveLog = (obj: AddIpamOperatingRegion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddPrefixListEntryFilterSensitiveLog = (obj: AddPrefixListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddressFilterSensitiveLog = (obj: Address): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PtrUpdateStatusFilterSensitiveLog = (obj: PtrUpdateStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddressAttributeFilterSensitiveLog = (obj: AddressAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdvertiseByoipCidrRequestFilterSensitiveLog = (obj: AdvertiseByoipCidrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ByoipCidrFilterSensitiveLog = (obj: ByoipCidr): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdvertiseByoipCidrResultFilterSensitiveLog = (obj: AdvertiseByoipCidrResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AllocateAddressRequestFilterSensitiveLog = (obj: AllocateAddressRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AllocateAddressResultFilterSensitiveLog = (obj: AllocateAddressResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AllocateHostsRequestFilterSensitiveLog = (obj: AllocateHostsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AllocateHostsResultFilterSensitiveLog = (obj: AllocateHostsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AllocateIpamPoolCidrRequestFilterSensitiveLog = (obj: AllocateIpamPoolCidrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamPoolAllocationFilterSensitiveLog = (obj: IpamPoolAllocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AllocateIpamPoolCidrResultFilterSensitiveLog = (obj: AllocateIpamPoolCidrResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AllowedPrincipalFilterSensitiveLog = (obj: AllowedPrincipal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlternatePathHintFilterSensitiveLog = (obj: AlternatePathHint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplySecurityGroupsToClientVpnTargetNetworkRequestFilterSensitiveLog = (
-  obj: ApplySecurityGroupsToClientVpnTargetNetworkRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplySecurityGroupsToClientVpnTargetNetworkResultFilterSensitiveLog = (
-  obj: ApplySecurityGroupsToClientVpnTargetNetworkResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssignIpv6AddressesRequestFilterSensitiveLog = (obj: AssignIpv6AddressesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssignIpv6AddressesResultFilterSensitiveLog = (obj: AssignIpv6AddressesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssignPrivateIpAddressesRequestFilterSensitiveLog = (obj: AssignPrivateIpAddressesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv4PrefixSpecificationFilterSensitiveLog = (obj: Ipv4PrefixSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssignedPrivateIpAddressFilterSensitiveLog = (obj: AssignedPrivateIpAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssignPrivateIpAddressesResultFilterSensitiveLog = (obj: AssignPrivateIpAddressesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateAddressRequestFilterSensitiveLog = (obj: AssociateAddressRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateAddressResultFilterSensitiveLog = (obj: AssociateAddressResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateClientVpnTargetNetworkRequestFilterSensitiveLog = (
-  obj: AssociateClientVpnTargetNetworkRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociationStatusFilterSensitiveLog = (obj: AssociationStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateClientVpnTargetNetworkResultFilterSensitiveLog = (
-  obj: AssociateClientVpnTargetNetworkResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDhcpOptionsRequestFilterSensitiveLog = (obj: AssociateDhcpOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateEnclaveCertificateIamRoleRequestFilterSensitiveLog = (
-  obj: AssociateEnclaveCertificateIamRoleRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateEnclaveCertificateIamRoleResultFilterSensitiveLog = (
-  obj: AssociateEnclaveCertificateIamRoleResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IamInstanceProfileSpecificationFilterSensitiveLog = (obj: IamInstanceProfileSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateIamInstanceProfileRequestFilterSensitiveLog = (obj: AssociateIamInstanceProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IamInstanceProfileFilterSensitiveLog = (obj: IamInstanceProfile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IamInstanceProfileAssociationFilterSensitiveLog = (obj: IamInstanceProfileAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateIamInstanceProfileResultFilterSensitiveLog = (obj: AssociateIamInstanceProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceEventWindowAssociationRequestFilterSensitiveLog = (
-  obj: InstanceEventWindowAssociationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateInstanceEventWindowRequestFilterSensitiveLog = (
-  obj: AssociateInstanceEventWindowRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceEventWindowAssociationTargetFilterSensitiveLog = (
-  obj: InstanceEventWindowAssociationTarget
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceEventWindowTimeRangeFilterSensitiveLog = (obj: InstanceEventWindowTimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceEventWindowFilterSensitiveLog = (obj: InstanceEventWindow): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateInstanceEventWindowResultFilterSensitiveLog = (obj: AssociateInstanceEventWindowResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateRouteTableRequestFilterSensitiveLog = (obj: AssociateRouteTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteTableAssociationStateFilterSensitiveLog = (obj: RouteTableAssociationState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateRouteTableResultFilterSensitiveLog = (obj: AssociateRouteTableResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSubnetCidrBlockRequestFilterSensitiveLog = (obj: AssociateSubnetCidrBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetCidrBlockStateFilterSensitiveLog = (obj: SubnetCidrBlockState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetIpv6CidrBlockAssociationFilterSensitiveLog = (obj: SubnetIpv6CidrBlockAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSubnetCidrBlockResultFilterSensitiveLog = (obj: AssociateSubnetCidrBlockResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTransitGatewayMulticastDomainRequestFilterSensitiveLog = (
-  obj: AssociateTransitGatewayMulticastDomainRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTransitGatewayMulticastDomainResultFilterSensitiveLog = (
-  obj: AssociateTransitGatewayMulticastDomainResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTransitGatewayPolicyTableRequestFilterSensitiveLog = (
-  obj: AssociateTransitGatewayPolicyTableRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayPolicyTableAssociationFilterSensitiveLog = (
-  obj: TransitGatewayPolicyTableAssociation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTransitGatewayPolicyTableResultFilterSensitiveLog = (
-  obj: AssociateTransitGatewayPolicyTableResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTransitGatewayRouteTableRequestFilterSensitiveLog = (
-  obj: AssociateTransitGatewayRouteTableRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayAssociationFilterSensitiveLog = (obj: TransitGatewayAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTransitGatewayRouteTableResultFilterSensitiveLog = (
-  obj: AssociateTransitGatewayRouteTableResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTrunkInterfaceRequestFilterSensitiveLog = (obj: AssociateTrunkInterfaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrunkInterfaceAssociationFilterSensitiveLog = (obj: TrunkInterfaceAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTrunkInterfaceResultFilterSensitiveLog = (obj: AssociateTrunkInterfaceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateVpcCidrBlockRequestFilterSensitiveLog = (obj: AssociateVpcCidrBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcCidrBlockStateFilterSensitiveLog = (obj: VpcCidrBlockState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcCidrBlockAssociationFilterSensitiveLog = (obj: VpcCidrBlockAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcIpv6CidrBlockAssociationFilterSensitiveLog = (obj: VpcIpv6CidrBlockAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateVpcCidrBlockResultFilterSensitiveLog = (obj: AssociateVpcCidrBlockResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachClassicLinkVpcRequestFilterSensitiveLog = (obj: AttachClassicLinkVpcRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachClassicLinkVpcResultFilterSensitiveLog = (obj: AttachClassicLinkVpcResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachInternetGatewayRequestFilterSensitiveLog = (obj: AttachInternetGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnaSrdUdpSpecificationFilterSensitiveLog = (obj: EnaSrdUdpSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnaSrdSpecificationFilterSensitiveLog = (obj: EnaSrdSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachNetworkInterfaceRequestFilterSensitiveLog = (obj: AttachNetworkInterfaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachNetworkInterfaceResultFilterSensitiveLog = (obj: AttachNetworkInterfaceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
-  obj: AttachVerifiedAccessTrustProviderRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessTrustProviderCondensedFilterSensitiveLog = (
-  obj: VerifiedAccessTrustProviderCondensed
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessInstanceFilterSensitiveLog = (obj: VerifiedAccessInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceOptionsFilterSensitiveLog = (obj: DeviceOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OidcOptionsFilterSensitiveLog = (obj: OidcOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessTrustProviderFilterSensitiveLog = (obj: VerifiedAccessTrustProvider): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
-  obj: AttachVerifiedAccessTrustProviderResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachVolumeRequestFilterSensitiveLog = (obj: AttachVolumeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeAttachmentFilterSensitiveLog = (obj: VolumeAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachVpnGatewayRequestFilterSensitiveLog = (obj: AttachVpnGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcAttachmentFilterSensitiveLog = (obj: VpcAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachVpnGatewayResultFilterSensitiveLog = (obj: AttachVpnGatewayResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeClientVpnIngressRequestFilterSensitiveLog = (obj: AuthorizeClientVpnIngressRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnAuthorizationRuleStatusFilterSensitiveLog = (obj: ClientVpnAuthorizationRuleStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeClientVpnIngressResultFilterSensitiveLog = (obj: AuthorizeClientVpnIngressResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpRangeFilterSensitiveLog = (obj: IpRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv6RangeFilterSensitiveLog = (obj: Ipv6Range): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrefixListIdFilterSensitiveLog = (obj: PrefixListId): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserIdGroupPairFilterSensitiveLog = (obj: UserIdGroupPair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpPermissionFilterSensitiveLog = (obj: IpPermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeSecurityGroupEgressRequestFilterSensitiveLog = (
-  obj: AuthorizeSecurityGroupEgressRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferencedSecurityGroupFilterSensitiveLog = (obj: ReferencedSecurityGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityGroupRuleFilterSensitiveLog = (obj: SecurityGroupRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeSecurityGroupEgressResultFilterSensitiveLog = (obj: AuthorizeSecurityGroupEgressResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeSecurityGroupIngressRequestFilterSensitiveLog = (
-  obj: AuthorizeSecurityGroupIngressRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeSecurityGroupIngressResultFilterSensitiveLog = (
-  obj: AuthorizeSecurityGroupIngressResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3StorageFilterSensitiveLog = (obj: S3Storage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StorageFilterSensitiveLog = (obj: Storage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BundleInstanceRequestFilterSensitiveLog = (obj: BundleInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BundleTaskErrorFilterSensitiveLog = (obj: BundleTaskError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BundleTaskFilterSensitiveLog = (obj: BundleTask): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BundleInstanceResultFilterSensitiveLog = (obj: BundleInstanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelBundleTaskRequestFilterSensitiveLog = (obj: CancelBundleTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelBundleTaskResultFilterSensitiveLog = (obj: CancelBundleTaskResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelCapacityReservationRequestFilterSensitiveLog = (obj: CancelCapacityReservationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelCapacityReservationResultFilterSensitiveLog = (obj: CancelCapacityReservationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelCapacityReservationFleetsRequestFilterSensitiveLog = (
-  obj: CancelCapacityReservationFleetsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelCapacityReservationFleetErrorFilterSensitiveLog = (
-  obj: CancelCapacityReservationFleetError
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailedCapacityReservationFleetCancellationResultFilterSensitiveLog = (
-  obj: FailedCapacityReservationFleetCancellationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityReservationFleetCancellationStateFilterSensitiveLog = (
-  obj: CapacityReservationFleetCancellationState
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelCapacityReservationFleetsResultFilterSensitiveLog = (
-  obj: CancelCapacityReservationFleetsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelConversionRequestFilterSensitiveLog = (obj: CancelConversionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelExportTaskRequestFilterSensitiveLog = (obj: CancelExportTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelImageLaunchPermissionRequestFilterSensitiveLog = (obj: CancelImageLaunchPermissionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelImageLaunchPermissionResultFilterSensitiveLog = (obj: CancelImageLaunchPermissionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelImportTaskRequestFilterSensitiveLog = (obj: CancelImportTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelImportTaskResultFilterSensitiveLog = (obj: CancelImportTaskResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelReservedInstancesListingRequestFilterSensitiveLog = (
-  obj: CancelReservedInstancesListingRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceCountFilterSensitiveLog = (obj: InstanceCount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PriceScheduleFilterSensitiveLog = (obj: PriceSchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedInstancesListingFilterSensitiveLog = (obj: ReservedInstancesListing): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelReservedInstancesListingResultFilterSensitiveLog = (
-  obj: CancelReservedInstancesListingResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelSpotFleetRequestsRequestFilterSensitiveLog = (obj: CancelSpotFleetRequestsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelSpotFleetRequestsSuccessItemFilterSensitiveLog = (obj: CancelSpotFleetRequestsSuccessItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelSpotFleetRequestsErrorFilterSensitiveLog = (obj: CancelSpotFleetRequestsError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelSpotFleetRequestsErrorItemFilterSensitiveLog = (obj: CancelSpotFleetRequestsErrorItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelSpotFleetRequestsResponseFilterSensitiveLog = (obj: CancelSpotFleetRequestsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelSpotInstanceRequestsRequestFilterSensitiveLog = (obj: CancelSpotInstanceRequestsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelledSpotInstanceRequestFilterSensitiveLog = (obj: CancelledSpotInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelSpotInstanceRequestsResultFilterSensitiveLog = (obj: CancelSpotInstanceRequestsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfirmProductInstanceRequestFilterSensitiveLog = (obj: ConfirmProductInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfirmProductInstanceResultFilterSensitiveLog = (obj: ConfirmProductInstanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyFpgaImageRequestFilterSensitiveLog = (obj: CopyFpgaImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyFpgaImageResultFilterSensitiveLog = (obj: CopyFpgaImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyImageRequestFilterSensitiveLog = (obj: CopyImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyImageResultFilterSensitiveLog = (obj: CopyImageResult): any => ({
-  ...obj,
-});
-
 /**
  * @internal
  */
 export const CopySnapshotRequestFilterSensitiveLog = (obj: CopySnapshotRequest): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const CopySnapshotResultFilterSensitiveLog = (obj: CopySnapshotResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCapacityReservationRequestFilterSensitiveLog = (obj: CreateCapacityReservationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityAllocationFilterSensitiveLog = (obj: CapacityAllocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityReservationFilterSensitiveLog = (obj: CapacityReservation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCapacityReservationResultFilterSensitiveLog = (obj: CreateCapacityReservationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservationFleetInstanceSpecificationFilterSensitiveLog = (
-  obj: ReservationFleetInstanceSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCapacityReservationFleetRequestFilterSensitiveLog = (
-  obj: CreateCapacityReservationFleetRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetCapacityReservationFilterSensitiveLog = (obj: FleetCapacityReservation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCapacityReservationFleetResultFilterSensitiveLog = (
-  obj: CreateCapacityReservationFleetResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCarrierGatewayRequestFilterSensitiveLog = (obj: CreateCarrierGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CarrierGatewayFilterSensitiveLog = (obj: CarrierGateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCarrierGatewayResultFilterSensitiveLog = (obj: CreateCarrierGatewayResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DirectoryServiceAuthenticationRequestFilterSensitiveLog = (
-  obj: DirectoryServiceAuthenticationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FederatedAuthenticationRequestFilterSensitiveLog = (obj: FederatedAuthenticationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateAuthenticationRequestFilterSensitiveLog = (obj: CertificateAuthenticationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnAuthenticationRequestFilterSensitiveLog = (obj: ClientVpnAuthenticationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientConnectOptionsFilterSensitiveLog = (obj: ClientConnectOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientLoginBannerOptionsFilterSensitiveLog = (obj: ClientLoginBannerOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionLogOptionsFilterSensitiveLog = (obj: ConnectionLogOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnEndpointRequestFilterSensitiveLog = (obj: CreateClientVpnEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnEndpointStatusFilterSensitiveLog = (obj: ClientVpnEndpointStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnEndpointResultFilterSensitiveLog = (obj: CreateClientVpnEndpointResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnRouteRequestFilterSensitiveLog = (obj: CreateClientVpnRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnRouteStatusFilterSensitiveLog = (obj: ClientVpnRouteStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnRouteResultFilterSensitiveLog = (obj: CreateClientVpnRouteResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipCidrRequestFilterSensitiveLog = (obj: CreateCoipCidrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoipCidrFilterSensitiveLog = (obj: CoipCidr): any => ({
-  ...obj,
+  ...(obj.PresignedUrl && { PresignedUrl: SENSITIVE_STRING }),
 });

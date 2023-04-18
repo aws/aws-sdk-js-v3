@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetDistributionLatestCacheResetRequest, GetDistributionLatestCacheResetResult } from "../models/models_1";
 import {
-  GetDistributionLatestCacheResetRequest,
-  GetDistributionLatestCacheResetRequestFilterSensitiveLog,
-  GetDistributionLatestCacheResetResult,
-  GetDistributionLatestCacheResetResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDistributionLatestCacheResetCommand,
-  serializeAws_json1_1GetDistributionLatestCacheResetCommand,
+  de_GetDistributionLatestCacheResetCommand,
+  se_GetDistributionLatestCacheResetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDistributionLatestCacheResetCommand}.
+ */
 export interface GetDistributionLatestCacheResetCommandInput extends GetDistributionLatestCacheResetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDistributionLatestCacheResetCommand}.
+ */
 export interface GetDistributionLatestCacheResetCommandOutput
   extends GetDistributionLatestCacheResetResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail
  *       content delivery network (CDN) distribution.</p>
  * @example
@@ -39,13 +45,45 @@ export interface GetDistributionLatestCacheResetCommandOutput
  * import { LightsailClient, GetDistributionLatestCacheResetCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDistributionLatestCacheResetCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetDistributionLatestCacheResetRequest
+ *   distributionName: "STRING_VALUE",
+ * };
  * const command = new GetDistributionLatestCacheResetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDistributionLatestCacheResetCommandInput - {@link GetDistributionLatestCacheResetCommandInput}
+ * @returns {@link GetDistributionLatestCacheResetCommandOutput}
  * @see {@link GetDistributionLatestCacheResetCommandInput} for command's `input` shape.
  * @see {@link GetDistributionLatestCacheResetCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class GetDistributionLatestCacheResetCommand extends $Command<
@@ -65,6 +103,9 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDistributionLatestCacheResetCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +134,8 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDistributionLatestCacheResetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDistributionLatestCacheResetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +145,24 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDistributionLatestCacheResetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDistributionLatestCacheResetCommand(input, context);
+    return se_GetDistributionLatestCacheResetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDistributionLatestCacheResetCommandOutput> {
-    return deserializeAws_json1_1GetDistributionLatestCacheResetCommand(output, context);
+    return de_GetDistributionLatestCacheResetCommand(output, context);
   }
 
   // Start section: command_body_extra

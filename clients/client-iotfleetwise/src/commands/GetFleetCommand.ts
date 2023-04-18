@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetFleetRequest,
-  GetFleetRequestFilterSensitiveLog,
-  GetFleetResponse,
-  GetFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_0GetFleetCommand, serializeAws_json1_0GetFleetCommand } from "../protocols/Aws_json1_0";
+import { GetFleetRequest, GetFleetResponse } from "../models/models_0";
+import { de_GetFleetCommand, se_GetFleetCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFleetCommand}.
+ */
 export interface GetFleetCommandInput extends GetFleetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFleetCommand}.
+ */
 export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about a fleet. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,34 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * import { IoTFleetWiseClient, GetFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // GetFleetRequest
+ *   fleetId: "STRING_VALUE", // required
+ * };
  * const command = new GetFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFleetCommandInput - {@link GetFleetCommandInput}
+ * @returns {@link GetFleetCommandOutput}
  * @see {@link GetFleetCommandInput} for command's `input` shape.
  * @see {@link GetFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class GetFleetCommand extends $Command<
@@ -59,6 +86,9 @@ export class GetFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +115,8 @@ export class GetFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +126,18 @@ export class GetFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetFleetCommand(input, context);
+    return se_GetFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFleetCommandOutput> {
-    return deserializeAws_json1_0GetFleetCommand(output, context);
+    return de_GetFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

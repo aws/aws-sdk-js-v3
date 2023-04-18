@@ -9,22 +9,20 @@
 
 AWS SDK for JavaScript ResourceGroups Client for Node.js, Browser and React Native.
 
-<fullname>AWS Resource Groups</fullname>
-
-<p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances, Amazon Relational Database Service
-databases, and Amazon S3 buckets into groups using criteria that you define as tags. A
+<p>Resource Groups lets you organize Amazon Web Services resources such as Amazon Elastic Compute Cloud instances, Amazon Relational Database Service
+databases, and Amazon Simple Storage Service buckets into groups using criteria that you define as tags. A
 resource group is a collection of resources that match the resource types specified in a
 query, and share one or more tags or portions of tags. You can create a group of
 resources based on their roles in your cloud infrastructure, lifecycle stages, regions,
 application layers, or virtually any criteria. Resource Groups enable you to automate management
-tasks, such as those in AWS Systems Manager Automation documents, on tag-related resources in
-AWS Systems Manager. Groups of tagged resources also let you quickly view a custom console in
-AWS Systems Manager that shows AWS Config compliance and other monitoring data about member
+tasks, such as those in Amazon Web Services Systems Manager Automation documents, on tag-related resources in
+Amazon Web Services Systems Manager. Groups of tagged resources also let you quickly view a custom console in
+Amazon Web Services Systems Manager that shows Config compliance and other monitoring data about member
 resources.</p>
 <p>To create a resource group, build a resource query, and specify tags that identify the
 criteria that members of the group have in common. Tags are key-value pairs.</p>
-<p>For more information about Resource Groups, see the <a href="https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html">AWS Resource Groups User Guide</a>.</p>
-<p>AWS Resource Groups uses a REST-compliant API that you can use to perform the following types of
+<p>For more information about Resource Groups, see the <a href="https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html">Resource Groups User Guide</a>.</p>
+<p>Resource Groups uses a REST-compliant API that you can use to perform the following types of
 operations.</p>
 <ul>
 <li>
@@ -42,7 +40,7 @@ results</p>
 <p>Getting data about resources that are members of a group</p>
 </li>
 <li>
-<p>Searching AWS resources based on a resource query</p>
+<p>Searching Amazon Web Services resources based on a resource query</p>
 </li>
 </ul>
 
@@ -238,3 +236,150 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/creategroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/creategroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/creategroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/deletegroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/deletegroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/deletegroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAccountSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/getaccountsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/getaccountsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/getaccountsettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/getgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/getgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/getgroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetGroupConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/getgroupconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/getgroupconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/getgroupconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetGroupQuery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/getgroupquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/getgroupquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/getgroupquerycommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/gettagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/gettagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/gettagscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GroupResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/groupresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/groupresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/groupresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListGroupResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/listgroupresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/listgroupresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/listgroupresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/listgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/listgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/listgroupscommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutGroupConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/putgroupconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/putgroupconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/putgroupconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SearchResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/searchresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/searchresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/searchresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+Tag
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/tagcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/tagcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/tagcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UngroupResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/ungroupresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/ungroupresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/ungroupresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+Untag
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/untagcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/untagcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/untagcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAccountSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/updateaccountsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/updateaccountsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/updateaccountsettingscommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/updategroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/updategroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/updategroupcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateGroupQuery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/classes/updategroupquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/updategroupquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups/interfaces/updategroupquerycommandoutput.html)
+
+</details>

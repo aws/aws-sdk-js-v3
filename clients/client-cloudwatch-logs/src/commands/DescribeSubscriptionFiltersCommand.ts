@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DescribeSubscriptionFiltersRequest,
-  DescribeSubscriptionFiltersRequestFilterSensitiveLog,
-  DescribeSubscriptionFiltersResponse,
-  DescribeSubscriptionFiltersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSubscriptionFiltersCommand,
-  serializeAws_json1_1DescribeSubscriptionFiltersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSubscriptionFiltersRequest, DescribeSubscriptionFiltersResponse } from "../models/models_0";
+import { de_DescribeSubscriptionFiltersCommand, se_DescribeSubscriptionFiltersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSubscriptionFiltersCommand}.
+ */
 export interface DescribeSubscriptionFiltersCommandInput extends DescribeSubscriptionFiltersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSubscriptionFiltersCommand}.
+ */
 export interface DescribeSubscriptionFiltersCommandOutput
   extends DescribeSubscriptionFiltersResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix.
  *       The results are ASCII-sorted by filter name.</p>
  * @example
@@ -39,13 +42,31 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * import { CloudWatchLogsClient, DescribeSubscriptionFiltersCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeSubscriptionFiltersCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeSubscriptionFiltersRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   filterNamePrefix: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new DescribeSubscriptionFiltersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSubscriptionFiltersCommandInput - {@link DescribeSubscriptionFiltersCommandInput}
+ * @returns {@link DescribeSubscriptionFiltersCommandOutput}
  * @see {@link DescribeSubscriptionFiltersCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscriptionFiltersCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class DescribeSubscriptionFiltersCommand extends $Command<
@@ -65,6 +86,9 @@ export class DescribeSubscriptionFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubscriptionFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +117,8 @@ export class DescribeSubscriptionFiltersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSubscriptionFiltersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSubscriptionFiltersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +128,21 @@ export class DescribeSubscriptionFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSubscriptionFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubscriptionFiltersCommand(input, context);
+    return se_DescribeSubscriptionFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSubscriptionFiltersCommandOutput> {
-    return deserializeAws_json1_1DescribeSubscriptionFiltersCommand(output, context);
+    return de_DescribeSubscriptionFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

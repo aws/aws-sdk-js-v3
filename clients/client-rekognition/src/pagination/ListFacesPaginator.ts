@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListFacesCommand, ListFacesCommandInput, ListFacesCommandOutput } from "../commands/ListFacesCommand";
-import { Rekognition } from "../Rekognition";
 import { RekognitionClient } from "../RekognitionClient";
 import { RekognitionPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RekognitionClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFacesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Rekognition,
-  input: ListFacesCommandInput,
-  ...args: any
-): Promise<ListFacesCommandOutput> => {
-  // @ts-ignore
-  return await client.listFaces(input, ...args);
-};
 export async function* paginateListFaces(
   config: RekognitionPaginationConfiguration,
   input: ListFacesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListFaces(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Rekognition) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RekognitionClient) {
+    if (config.client instanceof RekognitionClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Rekognition | RekognitionClient");

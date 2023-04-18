@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  ListMultiplexesRequest,
-  ListMultiplexesRequestFilterSensitiveLog,
-  ListMultiplexesResponse,
-  ListMultiplexesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListMultiplexesCommand,
-  serializeAws_restJson1ListMultiplexesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMultiplexesRequest, ListMultiplexesResponse } from "../models/models_1";
+import { de_ListMultiplexesCommand, se_ListMultiplexesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMultiplexesCommand}.
+ */
 export interface ListMultiplexesCommandInput extends ListMultiplexesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMultiplexesCommand}.
+ */
 export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve a list of the existing multiplexes.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
  * import { MediaLiveClient, ListMultiplexesCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListMultiplexesCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // ListMultiplexesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListMultiplexesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMultiplexesCommandInput - {@link ListMultiplexesCommandInput}
+ * @returns {@link ListMultiplexesCommandOutput}
  * @see {@link ListMultiplexesCommandInput} for command's `input` shape.
  * @see {@link ListMultiplexesCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class ListMultiplexesCommand extends $Command<
@@ -62,6 +90,9 @@ export class ListMultiplexesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMultiplexesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class ListMultiplexesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMultiplexesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMultiplexesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class ListMultiplexesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMultiplexesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMultiplexesCommand(input, context);
+    return se_ListMultiplexesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMultiplexesCommandOutput> {
-    return deserializeAws_restJson1ListMultiplexesCommand(output, context);
+    return de_ListMultiplexesCommand(output, context);
   }
 
   // Start section: command_body_extra

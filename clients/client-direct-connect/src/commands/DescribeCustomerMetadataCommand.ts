@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DescribeCustomerMetadataResponse,
-  DescribeCustomerMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCustomerMetadataCommand,
-  serializeAws_json1_1DescribeCustomerMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeCustomerMetadataResponse } from "../models/models_0";
+import { de_DescribeCustomerMetadataCommand, se_DescribeCustomerMetadataCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCustomerMetadataCommand}.
+ */
 export interface DescribeCustomerMetadataCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCustomerMetadataCommand}.
+ */
 export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get and view a list of customer agreements, along with their signed status and whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +39,23 @@ export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerM
  * import { DirectConnectClient, DescribeCustomerMetadataCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeCustomerMetadataCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {};
  * const command = new DescribeCustomerMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCustomerMetadataCommandInput - {@link DescribeCustomerMetadataCommandInput}
+ * @returns {@link DescribeCustomerMetadataCommandOutput}
  * @see {@link DescribeCustomerMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomerMetadataCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DescribeCustomerMetadataCommand extends $Command<
@@ -60,6 +75,9 @@ export class DescribeCustomerMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCustomerMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class DescribeCustomerMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeCustomerMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class DescribeCustomerMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCustomerMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCustomerMetadataCommand(input, context);
+    return se_DescribeCustomerMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCustomerMetadataCommandOutput> {
-    return deserializeAws_json1_1DescribeCustomerMetadataCommand(output, context);
+    return de_DescribeCustomerMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

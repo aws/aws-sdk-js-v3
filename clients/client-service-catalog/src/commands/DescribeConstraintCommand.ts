@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeConstraintInput,
-  DescribeConstraintInputFilterSensitiveLog,
-  DescribeConstraintOutput,
-  DescribeConstraintOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConstraintCommand,
-  serializeAws_json1_1DescribeConstraintCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeConstraintInput, DescribeConstraintOutput } from "../models/models_0";
+import { de_DescribeConstraintCommand, se_DescribeConstraintCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConstraintCommand}.
+ */
 export interface DescribeConstraintCommandInput extends DescribeConstraintInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConstraintCommand}.
+ */
 export interface DescribeConstraintCommandOutput extends DescribeConstraintOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified constraint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface DescribeConstraintCommandOutput extends DescribeConstraintOutpu
  * import { ServiceCatalogClient, DescribeConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeConstraintInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeConstraintCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConstraintCommandInput - {@link DescribeConstraintCommandInput}
+ * @returns {@link DescribeConstraintCommandOutput}
  * @see {@link DescribeConstraintCommandInput} for command's `input` shape.
  * @see {@link DescribeConstraintCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DescribeConstraintCommand extends $Command<
@@ -62,6 +75,9 @@ export class DescribeConstraintCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConstraintCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class DescribeConstraintCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConstraintInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConstraintOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class DescribeConstraintCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConstraintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConstraintCommand(input, context);
+    return se_DescribeConstraintCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConstraintCommandOutput> {
-    return deserializeAws_json1_1DescribeConstraintCommand(output, context);
+    return de_DescribeConstraintCommand(output, context);
   }
 
   // Start section: command_body_extra

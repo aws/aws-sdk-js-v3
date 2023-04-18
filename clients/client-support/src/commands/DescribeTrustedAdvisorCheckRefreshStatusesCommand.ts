@@ -15,23 +15,32 @@ import {
 
 import {
   DescribeTrustedAdvisorCheckRefreshStatusesRequest,
-  DescribeTrustedAdvisorCheckRefreshStatusesRequestFilterSensitiveLog,
   DescribeTrustedAdvisorCheckRefreshStatusesResponse,
-  DescribeTrustedAdvisorCheckRefreshStatusesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand,
-  serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand,
+  de_DescribeTrustedAdvisorCheckRefreshStatusesCommand,
+  se_DescribeTrustedAdvisorCheckRefreshStatusesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTrustedAdvisorCheckRefreshStatusesCommand}.
+ */
 export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandInput
   extends DescribeTrustedAdvisorCheckRefreshStatusesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTrustedAdvisorCheckRefreshStatusesCommand}.
+ */
 export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
   extends DescribeTrustedAdvisorCheckRefreshStatusesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the refresh status of the Trusted Advisor checks that have the specified check
  *             IDs. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
  *          <p>Some checks are refreshed automatically, and you can't return their refresh statuses
@@ -62,13 +71,24 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
  * import { SupportClient, DescribeTrustedAdvisorCheckRefreshStatusesCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeTrustedAdvisorCheckRefreshStatusesCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // DescribeTrustedAdvisorCheckRefreshStatusesRequest
+ *   checkIds: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeTrustedAdvisorCheckRefreshStatusesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrustedAdvisorCheckRefreshStatusesCommandInput - {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandInput}
+ * @returns {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput}
  * @see {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
  *
  */
 export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
@@ -88,6 +108,9 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +145,8 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrustedAdvisorCheckRefreshStatusesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrustedAdvisorCheckRefreshStatusesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +156,24 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand(input, context);
+    return se_DescribeTrustedAdvisorCheckRefreshStatusesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand(output, context);
+    return de_DescribeTrustedAdvisorCheckRefreshStatusesCommand(output, context);
   }
 
   // Start section: command_body_extra

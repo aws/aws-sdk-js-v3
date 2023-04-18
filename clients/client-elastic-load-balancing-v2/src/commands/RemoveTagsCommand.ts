@@ -18,18 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  RemoveTagsInput,
-  RemoveTagsInputFilterSensitiveLog,
-  RemoveTagsOutput,
-  RemoveTagsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryRemoveTagsCommand, serializeAws_queryRemoveTagsCommand } from "../protocols/Aws_query";
+import { RemoveTagsInput, RemoveTagsOutput } from "../models/models_0";
+import { de_RemoveTagsCommand, se_RemoveTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveTagsCommand}.
+ */
 export interface RemoveTagsCommandInput extends RemoveTagsInput {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveTagsCommand}.
+ */
 export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the specified Elastic Load Balancing resources. You can
  *       remove the tags for one or more Application Load Balancers, Network Load Balancers, Gateway
  *       Load Balancers, target groups, listeners, or rules.</p>
@@ -39,13 +45,56 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * import { ElasticLoadBalancingV2Client, RemoveTagsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, RemoveTagsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // RemoveTagsInput
+ *   ResourceArns: [ // ResourceArns // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TagKeys: [ // TagKeys // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
+ * @returns {@link RemoveTagsCommandOutput}
  * @see {@link RemoveTagsCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The specified listener does not exist.</p>
+ *
+ * @throws {@link LoadBalancerNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link RuleNotFoundException} (client fault)
+ *  <p>The specified rule does not exist.</p>
+ *
+ * @throws {@link TargetGroupNotFoundException} (client fault)
+ *  <p>The specified target group does not exist.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You've reached the limit on the number of tags per load balancer.</p>
+ *
+ *
+ * @example To remove tags from a load balancer
+ * ```javascript
+ * // This example removes the specified tags from the specified load balancer.
+ * const input = {
+ *   "ResourceArns": [
+ *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+ *   ],
+ *   "TagKeys": [
+ *     "project",
+ *     "department"
+ *   ]
+ * };
+ * const command = new RemoveTagsCommand(input);
+ * await client.send(command);
+ * // example id: elbv2-remove-tags-1
+ * ```
  *
  */
 export class RemoveTagsCommand extends $Command<
@@ -65,6 +114,9 @@ export class RemoveTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +143,8 @@ export class RemoveTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTagsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +154,18 @@ export class RemoveTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveTagsCommand(input, context);
+    return se_RemoveTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsCommandOutput> {
-    return deserializeAws_queryRemoveTagsCommand(output, context);
+    return de_RemoveTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

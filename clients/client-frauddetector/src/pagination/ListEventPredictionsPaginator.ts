@@ -6,12 +6,11 @@ import {
   ListEventPredictionsCommandInput,
   ListEventPredictionsCommandOutput,
 } from "../commands/ListEventPredictionsCommand";
-import { FraudDetector } from "../FraudDetector";
 import { FraudDetectorClient } from "../FraudDetectorClient";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FraudDetectorClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEventPredictionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: FraudDetector,
-  input: ListEventPredictionsCommandInput,
-  ...args: any
-): Promise<ListEventPredictionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEventPredictions(input, ...args);
-};
 export async function* paginateListEventPredictions(
   config: FraudDetectorPaginationConfiguration,
   input: ListEventPredictionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListEventPredictions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof FraudDetector) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FraudDetectorClient) {
+    if (config.client instanceof FraudDetectorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");

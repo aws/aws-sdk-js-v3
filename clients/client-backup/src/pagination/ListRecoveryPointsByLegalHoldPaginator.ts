@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { Backup } from "../Backup";
 import { BackupClient } from "../BackupClient";
 import {
   ListRecoveryPointsByLegalHoldCommand,
@@ -11,7 +10,7 @@ import {
 import { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BackupClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListRecoveryPointsByLegalHoldCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Backup,
-  input: ListRecoveryPointsByLegalHoldCommandInput,
-  ...args: any
-): Promise<ListRecoveryPointsByLegalHoldCommandOutput> => {
-  // @ts-ignore
-  return await client.listRecoveryPointsByLegalHold(input, ...args);
-};
 export async function* paginateListRecoveryPointsByLegalHold(
   config: BackupPaginationConfiguration,
   input: ListRecoveryPointsByLegalHoldCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListRecoveryPointsByLegalHold(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Backup) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof BackupClient) {
+    if (config.client instanceof BackupClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Backup | BackupClient");

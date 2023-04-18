@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { AssociateResourceSharePermissionRequest, AssociateResourceSharePermissionResponse } from "../models/models_0";
 import {
-  AssociateResourceSharePermissionRequest,
-  AssociateResourceSharePermissionRequestFilterSensitiveLog,
-  AssociateResourceSharePermissionResponse,
-  AssociateResourceSharePermissionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateResourceSharePermissionCommand,
-  serializeAws_restJson1AssociateResourceSharePermissionCommand,
+  de_AssociateResourceSharePermissionCommand,
+  se_AssociateResourceSharePermissionCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateResourceSharePermissionCommand}.
+ */
 export interface AssociateResourceSharePermissionCommandInput extends AssociateResourceSharePermissionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateResourceSharePermissionCommand}.
+ */
 export interface AssociateResourceSharePermissionCommandOutput
   extends AssociateResourceSharePermissionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or replaces the RAM permission for a resource type included in a resource share. You can
  *             have exactly one permission associated with each resource type in the resource share. You can add
  *             a new RAM permission only if there are currently no resources of that resource type
@@ -41,13 +47,44 @@ export interface AssociateResourceSharePermissionCommandOutput
  * import { RAMClient, AssociateResourceSharePermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, AssociateResourceSharePermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // AssociateResourceSharePermissionRequest
+ *   resourceShareArn: "STRING_VALUE", // required
+ *   permissionArn: "STRING_VALUE", // required
+ *   replace: true || false,
+ *   clientToken: "STRING_VALUE",
+ *   permissionVersion: Number("int"),
+ * };
  * const command = new AssociateResourceSharePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateResourceSharePermissionCommandInput - {@link AssociateResourceSharePermissionCommandInput}
+ * @returns {@link AssociateResourceSharePermissionCommandOutput}
  * @see {@link AssociateResourceSharePermissionCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceSharePermissionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
+ *
+ * @throws {@link InvalidClientTokenException} (client fault)
+ *  <p>The client token is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The requested operation is not permitted.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>A specified resource was not found.</p>
+ *
  *
  */
 export class AssociateResourceSharePermissionCommand extends $Command<
@@ -67,6 +104,9 @@ export class AssociateResourceSharePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateResourceSharePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +135,8 @@ export class AssociateResourceSharePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateResourceSharePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateResourceSharePermissionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +146,24 @@ export class AssociateResourceSharePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateResourceSharePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateResourceSharePermissionCommand(input, context);
+    return se_AssociateResourceSharePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateResourceSharePermissionCommandOutput> {
-    return deserializeAws_restJson1AssociateResourceSharePermissionCommand(output, context);
+    return de_AssociateResourceSharePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

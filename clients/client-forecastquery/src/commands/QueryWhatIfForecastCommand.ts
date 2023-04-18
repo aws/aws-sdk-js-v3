@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastqueryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastqueryClient";
-import {
-  QueryWhatIfForecastRequest,
-  QueryWhatIfForecastRequestFilterSensitiveLog,
-  QueryWhatIfForecastResponse,
-  QueryWhatIfForecastResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1QueryWhatIfForecastCommand,
-  serializeAws_json1_1QueryWhatIfForecastCommand,
-} from "../protocols/Aws_json1_1";
+import { QueryWhatIfForecastRequest, QueryWhatIfForecastResponse } from "../models/models_0";
+import { de_QueryWhatIfForecastCommand, se_QueryWhatIfForecastCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link QueryWhatIfForecastCommand}.
+ */
 export interface QueryWhatIfForecastCommandInput extends QueryWhatIfForecastRequest {}
+/**
+ * @public
+ *
+ * The output of {@link QueryWhatIfForecastCommand}.
+ */
 export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a what-if forecast.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  * import { ForecastqueryClient, QueryWhatIfForecastCommand } from "@aws-sdk/client-forecastquery"; // ES Modules import
  * // const { ForecastqueryClient, QueryWhatIfForecastCommand } = require("@aws-sdk/client-forecastquery"); // CommonJS import
  * const client = new ForecastqueryClient(config);
+ * const input = { // QueryWhatIfForecastRequest
+ *   WhatIfForecastArn: "STRING_VALUE", // required
+ *   StartDate: "STRING_VALUE",
+ *   EndDate: "STRING_VALUE",
+ *   Filters: { // Filters // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new QueryWhatIfForecastCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryWhatIfForecastCommandInput - {@link QueryWhatIfForecastCommandInput}
+ * @returns {@link QueryWhatIfForecastCommandOutput}
  * @see {@link QueryWhatIfForecastCommandInput} for command's `input` shape.
  * @see {@link QueryWhatIfForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastqueryClientResolvedConfig | config} for ForecastqueryClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The value is invalid or is too long.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find that resource. Check the information that you've provided and try
+ *       again.</p>
+ *
  *
  */
 export class QueryWhatIfForecastCommand extends $Command<
@@ -62,6 +93,9 @@ export class QueryWhatIfForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryWhatIfForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +124,8 @@ export class QueryWhatIfForecastCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryWhatIfForecastRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryWhatIfForecastResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +135,18 @@ export class QueryWhatIfForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryWhatIfForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1QueryWhatIfForecastCommand(input, context);
+    return se_QueryWhatIfForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryWhatIfForecastCommandOutput> {
-    return deserializeAws_json1_1QueryWhatIfForecastCommand(output, context);
+    return de_QueryWhatIfForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

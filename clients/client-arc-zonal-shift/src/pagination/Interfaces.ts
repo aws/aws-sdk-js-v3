@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { ARCZonalShift } from "../ARCZonalShift";
 import { ARCZonalShiftClient } from "../ARCZonalShiftClient";
 
+/**
+ * @public
+ */
 export interface ARCZonalShiftPaginationConfiguration extends PaginationConfiguration {
-  client: ARCZonalShift | ARCZonalShiftClient;
+  client: ARCZonalShiftClient;
 }

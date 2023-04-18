@@ -15,24 +15,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetMultiRegionAccessPointRoutesRequest, GetMultiRegionAccessPointRoutesResult } from "../models/models_0";
 import {
-  GetMultiRegionAccessPointRoutesRequest,
-  GetMultiRegionAccessPointRoutesRequestFilterSensitiveLog,
-  GetMultiRegionAccessPointRoutesResult,
-  GetMultiRegionAccessPointRoutesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetMultiRegionAccessPointRoutesCommand,
-  serializeAws_restXmlGetMultiRegionAccessPointRoutesCommand,
+  de_GetMultiRegionAccessPointRoutesCommand,
+  se_GetMultiRegionAccessPointRoutesCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMultiRegionAccessPointRoutesCommand}.
+ */
 export interface GetMultiRegionAccessPointRoutesCommandInput extends GetMultiRegionAccessPointRoutesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMultiRegionAccessPointRoutesCommand}.
+ */
 export interface GetMultiRegionAccessPointRoutesCommandOutput
   extends GetMultiRegionAccessPointRoutesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the routing configuration for a Multi-Region Access Point, indicating which Regions are active or
  *          passive.</p>
  *          <p>To obtain routing control changes and failover requests, use the Amazon S3 failover control
@@ -73,13 +79,20 @@ export interface GetMultiRegionAccessPointRoutesCommandOutput
  * import { S3ControlClient, GetMultiRegionAccessPointRoutesCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetMultiRegionAccessPointRoutesCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetMultiRegionAccessPointRoutesRequest
+ *   AccountId: "STRING_VALUE",
+ *   Mrap: "STRING_VALUE", // required
+ * };
  * const command = new GetMultiRegionAccessPointRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMultiRegionAccessPointRoutesCommandInput - {@link GetMultiRegionAccessPointRoutesCommandInput}
+ * @returns {@link GetMultiRegionAccessPointRoutesCommandOutput}
  * @see {@link GetMultiRegionAccessPointRoutesCommandInput} for command's `input` shape.
  * @see {@link GetMultiRegionAccessPointRoutesCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class GetMultiRegionAccessPointRoutesCommand extends $Command<
@@ -102,6 +115,9 @@ export class GetMultiRegionAccessPointRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMultiRegionAccessPointRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +148,8 @@ export class GetMultiRegionAccessPointRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMultiRegionAccessPointRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMultiRegionAccessPointRoutesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,18 +159,24 @@ export class GetMultiRegionAccessPointRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetMultiRegionAccessPointRoutesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetMultiRegionAccessPointRoutesCommand(input, context);
+    return se_GetMultiRegionAccessPointRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMultiRegionAccessPointRoutesCommandOutput> {
-    return deserializeAws_restXmlGetMultiRegionAccessPointRoutesCommand(output, context);
+    return de_GetMultiRegionAccessPointRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

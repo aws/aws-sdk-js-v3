@@ -24,15 +24,23 @@ import {
   CreateMediaCapturePipelineResponse,
   CreateMediaCapturePipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMediaCapturePipelineCommand,
-  serializeAws_restJson1CreateMediaCapturePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMediaCapturePipelineCommand, se_CreateMediaCapturePipelineCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMediaCapturePipelineCommand}.
+ */
 export interface CreateMediaCapturePipelineCommandInput extends CreateMediaCapturePipelineRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMediaCapturePipelineCommand}.
+ */
 export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapturePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +48,85 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * import { ChimeSDKMediaPipelinesClient, CreateMediaCapturePipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaCapturePipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
+ * const input = { // CreateMediaCapturePipelineRequest
+ *   SourceType: "ChimeSdkMeeting", // required
+ *   SourceArn: "STRING_VALUE", // required
+ *   SinkType: "S3Bucket", // required
+ *   SinkArn: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConfiguration
+ *     SourceConfiguration: { // SourceConfiguration
+ *       SelectedVideoStreams: { // SelectedVideoStreams
+ *         AttendeeIds: [ // AttendeeIdList
+ *           "STRING_VALUE",
+ *         ],
+ *         ExternalUserIds: [ // ExternalUserIdList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     ArtifactsConfiguration: { // ArtifactsConfiguration
+ *       Audio: { // AudioArtifactsConfiguration
+ *         MuxType: "AudioOnly" || "AudioWithActiveSpeakerVideo" || "AudioWithCompositedVideo", // required
+ *       },
+ *       Video: { // VideoArtifactsConfiguration
+ *         State: "Enabled" || "Disabled", // required
+ *         MuxType: "VideoOnly",
+ *       },
+ *       Content: { // ContentArtifactsConfiguration
+ *         State: "Enabled" || "Disabled", // required
+ *         MuxType: "ContentOnly",
+ *       },
+ *       CompositedVideo: { // CompositedVideoArtifactsConfiguration
+ *         Layout: "GridView",
+ *         Resolution: "HD" || "FHD",
+ *         GridViewConfiguration: { // GridViewConfiguration
+ *           ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
+ *           PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
+ *             PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMediaCapturePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMediaCapturePipelineCommandInput - {@link CreateMediaCapturePipelineCommandInput}
+ * @returns {@link CreateMediaCapturePipelineCommandOutput}
  * @see {@link CreateMediaCapturePipelineCommandInput} for command's `input` shape.
  * @see {@link CreateMediaCapturePipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class CreateMediaCapturePipelineCommand extends $Command<
@@ -66,6 +146,9 @@ export class CreateMediaCapturePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMediaCapturePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,15 +188,21 @@ export class CreateMediaCapturePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMediaCapturePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMediaCapturePipelineCommand(input, context);
+    return se_CreateMediaCapturePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMediaCapturePipelineCommandOutput> {
-    return deserializeAws_restJson1CreateMediaCapturePipelineCommand(output, context);
+    return de_CreateMediaCapturePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

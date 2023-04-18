@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  ListFleetsForVehicleRequest,
-  ListFleetsForVehicleRequestFilterSensitiveLog,
-  ListFleetsForVehicleResponse,
-  ListFleetsForVehicleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListFleetsForVehicleCommand,
-  serializeAws_json1_0ListFleetsForVehicleCommand,
-} from "../protocols/Aws_json1_0";
+import { ListFleetsForVehicleRequest, ListFleetsForVehicleResponse } from "../models/models_0";
+import { de_ListFleetsForVehicleCommand, se_ListFleetsForVehicleCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFleetsForVehicleCommand}.
+ */
 export interface ListFleetsForVehicleCommandInput extends ListFleetsForVehicleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFleetsForVehicleCommand}.
+ */
 export interface ListFleetsForVehicleCommandOutput extends ListFleetsForVehicleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of IDs for all fleets that the vehicle is associated with.</p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -39,13 +42,36 @@ export interface ListFleetsForVehicleCommandOutput extends ListFleetsForVehicleR
  * import { IoTFleetWiseClient, ListFleetsForVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListFleetsForVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // ListFleetsForVehicleRequest
+ *   vehicleName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListFleetsForVehicleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFleetsForVehicleCommandInput - {@link ListFleetsForVehicleCommandInput}
+ * @returns {@link ListFleetsForVehicleCommandOutput}
  * @see {@link ListFleetsForVehicleCommandInput} for command's `input` shape.
  * @see {@link ListFleetsForVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class ListFleetsForVehicleCommand extends $Command<
@@ -65,6 +91,9 @@ export class ListFleetsForVehicleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFleetsForVehicleCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +122,8 @@ export class ListFleetsForVehicleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFleetsForVehicleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFleetsForVehicleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +133,18 @@ export class ListFleetsForVehicleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFleetsForVehicleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListFleetsForVehicleCommand(input, context);
+    return se_ListFleetsForVehicleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFleetsForVehicleCommandOutput> {
-    return deserializeAws_json1_0ListFleetsForVehicleCommand(output, context);
+    return de_ListFleetsForVehicleCommand(output, context);
   }
 
   // Start section: command_body_extra

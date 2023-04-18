@@ -13,36 +13,74 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartReadSetExportJobRequest,
-  StartReadSetExportJobRequestFilterSensitiveLog,
-  StartReadSetExportJobResponse,
-  StartReadSetExportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartReadSetExportJobRequest, StartReadSetExportJobResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1StartReadSetExportJobCommand,
-  serializeAws_restJson1StartReadSetExportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartReadSetExportJobCommand, se_StartReadSetExportJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartReadSetExportJobCommand}.
+ */
 export interface StartReadSetExportJobCommandInput extends StartReadSetExportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartReadSetExportJobCommand}.
+ */
 export interface StartReadSetExportJobCommandOutput extends StartReadSetExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a read set export job.</p>
+ * @public
+ * <p>Exports a read set to Amazon S3.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OmicsClient, StartReadSetExportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartReadSetExportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // StartReadSetExportJobRequest
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   destination: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   sources: [ // ExportReadSetList // required
+ *     { // ExportReadSet
+ *       readSetId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new StartReadSetExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReadSetExportJobCommandInput - {@link StartReadSetExportJobCommandInput}
+ * @returns {@link StartReadSetExportJobCommandOutput}
  * @see {@link StartReadSetExportJobCommandInput} for command's `input` shape.
  * @see {@link StartReadSetExportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeds a service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class StartReadSetExportJobCommand extends $Command<
@@ -62,6 +100,9 @@ export class StartReadSetExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReadSetExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +131,8 @@ export class StartReadSetExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReadSetExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartReadSetExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +142,18 @@ export class StartReadSetExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReadSetExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartReadSetExportJobCommand(input, context);
+    return se_StartReadSetExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReadSetExportJobCommandOutput> {
-    return deserializeAws_restJson1StartReadSetExportJobCommand(output, context);
+    return de_StartReadSetExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

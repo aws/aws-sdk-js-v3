@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  UntagOpenIDConnectProviderRequest,
-  UntagOpenIDConnectProviderRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryUntagOpenIDConnectProviderCommand,
-  serializeAws_queryUntagOpenIDConnectProviderCommand,
-} from "../protocols/Aws_query";
+import { UntagOpenIDConnectProviderRequest } from "../models/models_0";
+import { de_UntagOpenIDConnectProviderCommand, se_UntagOpenIDConnectProviderCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link UntagOpenIDConnectProviderCommand}.
+ */
 export interface UntagOpenIDConnectProviderCommandInput extends UntagOpenIDConnectProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UntagOpenIDConnectProviderCommand}.
+ */
 export interface UntagOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the specified OpenID Connect (OIDC)-compatible identity
  *       provider in IAM. For more information about OIDC providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity federation</a>.
  *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
@@ -37,13 +42,38 @@ export interface UntagOpenIDConnectProviderCommandOutput extends __MetadataBeare
  * import { IAMClient, UntagOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UntagOpenIDConnectProviderRequest
+ *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ *   TagKeys: [ // tagKeyListType // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagOpenIDConnectProviderCommandInput - {@link UntagOpenIDConnectProviderCommandInput}
+ * @returns {@link UntagOpenIDConnectProviderCommandOutput}
  * @see {@link UntagOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link UntagOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class UntagOpenIDConnectProviderCommand extends $Command<
@@ -63,6 +93,9 @@ export class UntagOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +124,8 @@ export class UntagOpenIDConnectProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagOpenIDConnectProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +135,21 @@ export class UntagOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagOpenIDConnectProviderCommand(input, context);
+    return se_UntagOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UntagOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryUntagOpenIDConnectProviderCommand(output, context);
+    return de_UntagOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

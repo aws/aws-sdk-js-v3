@@ -16,19 +16,26 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
   CreateBucketAccessKeyRequest,
-  CreateBucketAccessKeyRequestFilterSensitiveLog,
   CreateBucketAccessKeyResult,
   CreateBucketAccessKeyResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBucketAccessKeyCommand,
-  serializeAws_json1_1CreateBucketAccessKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateBucketAccessKeyCommand, se_CreateBucketAccessKeyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBucketAccessKeyCommand}.
+ */
 export interface CreateBucketAccessKeyCommandInput extends CreateBucketAccessKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBucketAccessKeyCommand}.
+ */
 export interface CreateBucketAccessKeyCommandOutput extends CreateBucketAccessKeyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new access key for the specified Amazon Lightsail bucket. Access keys consist of
  *       an access key ID and corresponding secret access key.</p>
  *          <p>Access keys grant full programmatic access to the specified bucket and its objects. You
@@ -47,13 +54,42 @@ export interface CreateBucketAccessKeyCommandOutput extends CreateBucketAccessKe
  * import { LightsailClient, CreateBucketAccessKeyCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateBucketAccessKeyCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateBucketAccessKeyRequest
+ *   bucketName: "STRING_VALUE", // required
+ * };
  * const command = new CreateBucketAccessKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBucketAccessKeyCommandInput - {@link CreateBucketAccessKeyCommandInput}
+ * @returns {@link CreateBucketAccessKeyCommandOutput}
  * @see {@link CreateBucketAccessKeyCommandInput} for command's `input` shape.
  * @see {@link CreateBucketAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class CreateBucketAccessKeyCommand extends $Command<
@@ -73,6 +109,9 @@ export class CreateBucketAccessKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBucketAccessKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,7 +140,7 @@ export class CreateBucketAccessKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBucketAccessKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateBucketAccessKeyResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -112,12 +151,18 @@ export class CreateBucketAccessKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBucketAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBucketAccessKeyCommand(input, context);
+    return se_CreateBucketAccessKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketAccessKeyCommandOutput> {
-    return deserializeAws_json1_1CreateBucketAccessKeyCommand(output, context);
+    return de_CreateBucketAccessKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

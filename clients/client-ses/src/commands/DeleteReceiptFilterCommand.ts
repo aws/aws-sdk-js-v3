@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteReceiptFilterRequest,
-  DeleteReceiptFilterRequestFilterSensitiveLog,
-  DeleteReceiptFilterResponse,
-  DeleteReceiptFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteReceiptFilterCommand,
-  serializeAws_queryDeleteReceiptFilterCommand,
-} from "../protocols/Aws_query";
+import { DeleteReceiptFilterRequest, DeleteReceiptFilterResponse } from "../models/models_0";
+import { de_DeleteReceiptFilterCommand, se_DeleteReceiptFilterCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteReceiptFilterCommand}.
+ */
 export interface DeleteReceiptFilterCommandInput extends DeleteReceiptFilterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteReceiptFilterCommand}.
+ */
 export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified IP address filter.</p>
  *         <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -39,13 +42,30 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * import { SESClient, DeleteReceiptFilterCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteReceiptFilterCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DeleteReceiptFilterRequest
+ *   FilterName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReceiptFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReceiptFilterCommandInput - {@link DeleteReceiptFilterCommandInput}
+ * @returns {@link DeleteReceiptFilterCommandOutput}
  * @see {@link DeleteReceiptFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteReceiptFilterCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example DeleteReceiptFilter
+ * ```javascript
+ * // The following example deletes an IP address filter:
+ * const input = {
+ *   "FilterName": "MyFilter"
+ * };
+ * const command = new DeleteReceiptFilterCommand(input);
+ * await client.send(command);
+ * // example id: deletereceiptfilter-1469055456835
+ * ```
  *
  */
 export class DeleteReceiptFilterCommand extends $Command<
@@ -65,6 +85,9 @@ export class DeleteReceiptFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReceiptFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +116,8 @@ export class DeleteReceiptFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReceiptFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReceiptFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +127,18 @@ export class DeleteReceiptFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReceiptFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteReceiptFilterCommand(input, context);
+    return se_DeleteReceiptFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReceiptFilterCommandOutput> {
-    return deserializeAws_queryDeleteReceiptFilterCommand(output, context);
+    return de_DeleteReceiptFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

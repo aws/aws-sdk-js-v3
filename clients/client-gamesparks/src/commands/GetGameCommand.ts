@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  GetGameRequest,
-  GetGameRequestFilterSensitiveLog,
-  GetGameResult,
-  GetGameResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGameCommand,
-  serializeAws_restJson1GetGameCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGameRequest, GetGameResult } from "../models/models_0";
+import { de_GetGameCommand, se_GetGameCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetGameCommand}.
+ */
 export interface GetGameCommandInput extends GetGameRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetGameCommand}.
+ */
 export interface GetGameCommandOutput extends GetGameResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details about a game.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetGameCommandOutput extends GetGameResult, __MetadataBearer {}
  * import { GameSparksClient, GetGameCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetGameCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // GetGameRequest
+ *   GameName: "STRING_VALUE", // required
+ * };
  * const command = new GetGameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGameCommandInput - {@link GetGameCommandInput}
+ * @returns {@link GetGameCommandOutput}
  * @see {@link GetGameCommandInput} for command's `input` shape.
  * @see {@link GetGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class GetGameCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetGameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGameCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class GetGameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGameResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class GetGameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGameCommand(input, context);
+    return se_GetGameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGameCommandOutput> {
-    return deserializeAws_restJson1GetGameCommand(output, context);
+    return de_GetGameCommand(output, context);
   }
 
   // Start section: command_body_extra

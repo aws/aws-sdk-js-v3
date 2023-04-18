@@ -20,15 +20,23 @@ import {
   CreateMeetingWithAttendeesResponse,
   CreateMeetingWithAttendeesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMeetingWithAttendeesCommand,
-  serializeAws_restJson1CreateMeetingWithAttendeesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMeetingWithAttendeesCommand, se_CreateMeetingWithAttendeesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMeetingWithAttendeesCommand}.
+ */
 export interface CreateMeetingWithAttendeesCommandInput extends CreateMeetingWithAttendeesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMeetingWithAttendeesCommand}.
+ */
 export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWithAttendeesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *            Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see
  *            <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
@@ -42,13 +50,73 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * import { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = { // CreateMeetingWithAttendeesRequest
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   MediaRegion: "STRING_VALUE", // required
+ *   MeetingHostId: "STRING_VALUE",
+ *   ExternalMeetingId: "STRING_VALUE", // required
+ *   MeetingFeatures: { // MeetingFeaturesConfiguration
+ *     Audio: { // AudioFeatures
+ *       EchoReduction: "AVAILABLE" || "UNAVAILABLE",
+ *     },
+ *   },
+ *   NotificationsConfiguration: { // NotificationsConfiguration
+ *     LambdaFunctionArn: "STRING_VALUE",
+ *     SnsTopicArn: "STRING_VALUE",
+ *     SqsQueueArn: "STRING_VALUE",
+ *   },
+ *   Attendees: [ // CreateMeetingWithAttendeesRequestItemList // required
+ *     { // CreateAttendeeRequestItem
+ *       ExternalUserId: "STRING_VALUE", // required
+ *       Capabilities: { // AttendeeCapabilities
+ *         Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ *         Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ *         Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ *       },
+ *     },
+ *   ],
+ *   PrimaryMeetingId: "STRING_VALUE",
+ *   TenantIds: [ // TenantIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMeetingWithAttendeesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMeetingWithAttendeesCommandInput - {@link CreateMeetingWithAttendeesCommandInput}
+ * @returns {@link CreateMeetingWithAttendeesCommandOutput}
  * @see {@link CreateMeetingWithAttendeesCommandInput} for command's `input` shape.
  * @see {@link CreateMeetingWithAttendeesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The user isn't authorized to request a resource.</p>
+ *
  *
  */
 export class CreateMeetingWithAttendeesCommand extends $Command<
@@ -68,6 +136,9 @@ export class CreateMeetingWithAttendeesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMeetingWithAttendeesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,15 +178,21 @@ export class CreateMeetingWithAttendeesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMeetingWithAttendeesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMeetingWithAttendeesCommand(input, context);
+    return se_CreateMeetingWithAttendeesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMeetingWithAttendeesCommandOutput> {
-    return deserializeAws_restJson1CreateMeetingWithAttendeesCommand(output, context);
+    return de_CreateMeetingWithAttendeesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateEndpointInput,
-  UpdateEndpointInputFilterSensitiveLog,
-  UpdateEndpointOutput,
-  UpdateEndpointOutputFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1UpdateEndpointCommand,
-  serializeAws_json1_1UpdateEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateEndpointInput, UpdateEndpointOutput } from "../models/models_4";
+import { de_UpdateEndpointCommand, se_UpdateEndpointCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateEndpointCommand}.
+ */
 export interface UpdateEndpointCommandInput extends UpdateEndpointInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateEndpointCommand}.
+ */
 export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deploys the new <code>EndpointConfig</code> specified in the request, switches to
  *             using newly created endpoint, and then deletes resources provisioned for the endpoint
  *             using the previous <code>EndpointConfig</code> (there is no availability loss). </p>
@@ -52,13 +55,56 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  * import { SageMakerClient, UpdateEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateEndpointInput
+ *   EndpointName: "STRING_VALUE", // required
+ *   EndpointConfigName: "STRING_VALUE", // required
+ *   RetainAllVariantProperties: true || false,
+ *   ExcludeRetainedVariantProperties: [ // VariantPropertyList
+ *     { // VariantProperty
+ *       VariantPropertyType: "DesiredInstanceCount" || "DesiredWeight" || "DataCaptureConfig", // required
+ *     },
+ *   ],
+ *   DeploymentConfig: { // DeploymentConfig
+ *     BlueGreenUpdatePolicy: { // BlueGreenUpdatePolicy
+ *       TrafficRoutingConfiguration: { // TrafficRoutingConfig
+ *         Type: "ALL_AT_ONCE" || "CANARY" || "LINEAR", // required
+ *         WaitIntervalInSeconds: Number("int"), // required
+ *         CanarySize: { // CapacitySize
+ *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *           Value: Number("int"), // required
+ *         },
+ *         LinearStepSize: {
+ *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *           Value: Number("int"), // required
+ *         },
+ *       },
+ *       TerminationWaitInSeconds: Number("int"),
+ *       MaximumExecutionTimeoutInSeconds: Number("int"),
+ *     },
+ *     AutoRollbackConfiguration: { // AutoRollbackConfig
+ *       Alarms: [ // AlarmList
+ *         { // Alarm
+ *           AlarmName: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   RetainDeploymentConfig: true || false,
+ * };
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
+ * @returns {@link UpdateEndpointCommandOutput}
  * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
  *
  */
 export class UpdateEndpointCommand extends $Command<
@@ -78,6 +124,9 @@ export class UpdateEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +155,8 @@ export class UpdateEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEndpointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEndpointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +166,18 @@ export class UpdateEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEndpointCommand(input, context);
+    return se_UpdateEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointCommandOutput> {
-    return deserializeAws_json1_1UpdateEndpointCommand(output, context);
+    return de_UpdateEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

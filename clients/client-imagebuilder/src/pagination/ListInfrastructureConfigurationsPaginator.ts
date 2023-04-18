@@ -6,12 +6,11 @@ import {
   ListInfrastructureConfigurationsCommandInput,
   ListInfrastructureConfigurationsCommandOutput,
 } from "../commands/ListInfrastructureConfigurationsCommand";
-import { Imagebuilder } from "../Imagebuilder";
 import { ImagebuilderClient } from "../ImagebuilderClient";
 import { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ImagebuilderClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListInfrastructureConfigurationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Imagebuilder,
-  input: ListInfrastructureConfigurationsCommandInput,
-  ...args: any
-): Promise<ListInfrastructureConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listInfrastructureConfigurations(input, ...args);
-};
 export async function* paginateListInfrastructureConfigurations(
   config: ImagebuilderPaginationConfiguration,
   input: ListInfrastructureConfigurationsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListInfrastructureConfigurations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Imagebuilder) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ImagebuilderClient) {
+    if (config.client instanceof ImagebuilderClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Imagebuilder | ImagebuilderClient");

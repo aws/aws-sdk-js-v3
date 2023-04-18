@@ -15,25 +15,34 @@ import {
 
 import {
   UpdateConfigurationSetEventDestinationRequest,
-  UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog,
   UpdateConfigurationSetEventDestinationResponse,
-  UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand,
+  de_UpdateConfigurationSetEventDestinationCommand,
+  se_UpdateConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateConfigurationSetEventDestinationCommand}.
+ */
 export interface UpdateConfigurationSetEventDestinationCommandInput
   extends UpdateConfigurationSetEventDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateConfigurationSetEventDestinationCommand}.
+ */
 export interface UpdateConfigurationSetEventDestinationCommandOutput
   extends UpdateConfigurationSetEventDestinationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the configuration of an event destination for a configuration set.</p>
- *         <p>
+ *          <p>
  *             <i>Events</i> include message sends, deliveries, opens, clicks, bounces,
  *             and complaints. <i>Event destinations</i> are places that you can send
  *             information about these events to. For example, you can send event data to Amazon SNS to
@@ -45,13 +54,54 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * import { SESv2Client, UpdateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, UpdateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // UpdateConfigurationSetEventDestinationRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   EventDestinationName: "STRING_VALUE", // required
+ *   EventDestination: { // EventDestinationDefinition
+ *     Enabled: true || false,
+ *     MatchingEventTypes: [ // EventTypes
+ *       "SEND" || "REJECT" || "BOUNCE" || "COMPLAINT" || "DELIVERY" || "OPEN" || "CLICK" || "RENDERING_FAILURE" || "DELIVERY_DELAY" || "SUBSCRIPTION",
+ *     ],
+ *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *       IamRoleArn: "STRING_VALUE", // required
+ *       DeliveryStreamArn: "STRING_VALUE", // required
+ *     },
+ *     CloudWatchDestination: { // CloudWatchDestination
+ *       DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
+ *         { // CloudWatchDimensionConfiguration
+ *           DimensionName: "STRING_VALUE", // required
+ *           DimensionValueSource: "MESSAGE_TAG" || "EMAIL_HEADER" || "LINK_TAG", // required
+ *           DefaultDimensionValue: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     SnsDestination: { // SnsDestination
+ *       TopicArn: "STRING_VALUE", // required
+ *     },
+ *     PinpointDestination: { // PinpointDestination
+ *       ApplicationArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationSetEventDestinationCommandInput - {@link UpdateConfigurationSetEventDestinationCommandInput}
+ * @returns {@link UpdateConfigurationSetEventDestinationCommandOutput}
  * @see {@link UpdateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class UpdateConfigurationSetEventDestinationCommand extends $Command<
@@ -71,6 +121,9 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +152,8 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +163,24 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand(input, context);
+    return se_UpdateConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommand(output, context);
+    return de_UpdateConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

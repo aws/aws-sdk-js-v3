@@ -19,21 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  ListUserPoolsRequest,
-  ListUserPoolsRequestFilterSensitiveLog,
-  ListUserPoolsResponse,
-  ListUserPoolsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListUserPoolsCommand,
-  serializeAws_json1_1ListUserPoolsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListUserPoolsRequest, ListUserPoolsResponse } from "../models/models_0";
+import { de_ListUserPoolsCommand, se_ListUserPoolsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListUserPoolsCommand}.
+ */
 export interface ListUserPoolsCommandInput extends ListUserPoolsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListUserPoolsCommand}.
+ */
 export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the user pools associated with an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +44,34 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  * import { CognitoIdentityProviderClient, ListUserPoolsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListUserPoolsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ListUserPoolsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"), // required
+ * };
  * const command = new ListUserPoolsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserPoolsCommandInput - {@link ListUserPoolsCommandInput}
+ * @returns {@link ListUserPoolsCommandOutput}
  * @see {@link ListUserPoolsCommandInput} for command's `input` shape.
  * @see {@link ListUserPoolsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class ListUserPoolsCommand extends $Command<
@@ -67,6 +91,9 @@ export class ListUserPoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserPoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +121,8 @@ export class ListUserPoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUserPoolsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUserPoolsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +132,18 @@ export class ListUserPoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserPoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUserPoolsCommand(input, context);
+    return se_ListUserPoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserPoolsCommandOutput> {
-    return deserializeAws_json1_1ListUserPoolsCommand(output, context);
+    return de_ListUserPoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

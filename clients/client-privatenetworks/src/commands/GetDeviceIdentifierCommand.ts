@@ -15,20 +15,27 @@ import {
 
 import {
   GetDeviceIdentifierRequest,
-  GetDeviceIdentifierRequestFilterSensitiveLog,
   GetDeviceIdentifierResponse,
   GetDeviceIdentifierResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1GetDeviceIdentifierCommand,
-  serializeAws_restJson1GetDeviceIdentifierCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDeviceIdentifierCommand, se_GetDeviceIdentifierCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDeviceIdentifierCommand}.
+ */
 export interface GetDeviceIdentifierCommandInput extends GetDeviceIdentifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDeviceIdentifierCommand}.
+ */
 export interface GetDeviceIdentifierCommandOutput extends GetDeviceIdentifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified device identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,28 @@ export interface GetDeviceIdentifierCommandOutput extends GetDeviceIdentifierRes
  * import { PrivateNetworksClient, GetDeviceIdentifierCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, GetDeviceIdentifierCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // GetDeviceIdentifierRequest
+ *   deviceIdentifierArn: "STRING_VALUE", // required
+ * };
  * const command = new GetDeviceIdentifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeviceIdentifierCommandInput - {@link GetDeviceIdentifierCommandInput}
+ * @returns {@link GetDeviceIdentifierCommandOutput}
  * @see {@link GetDeviceIdentifierCommandInput} for command's `input` shape.
  * @see {@link GetDeviceIdentifierCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
  *
  */
 export class GetDeviceIdentifierCommand extends $Command<
@@ -62,6 +84,9 @@ export class GetDeviceIdentifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceIdentifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +115,7 @@ export class GetDeviceIdentifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceIdentifierRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDeviceIdentifierResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +126,18 @@ export class GetDeviceIdentifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeviceIdentifierCommand(input, context);
+    return se_GetDeviceIdentifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceIdentifierCommandOutput> {
-    return deserializeAws_restJson1GetDeviceIdentifierCommand(output, context);
+    return de_GetDeviceIdentifierCommand(output, context);
   }
 
   // Start section: command_body_extra

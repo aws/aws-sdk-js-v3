@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRunGroupsRequest,
-  ListRunGroupsRequestFilterSensitiveLog,
-  ListRunGroupsResponse,
-  ListRunGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRunGroupsRequest, ListRunGroupsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListRunGroupsCommand,
-  serializeAws_restJson1ListRunGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRunGroupsCommand, se_ListRunGroupsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRunGroupsCommand}.
+ */
 export interface ListRunGroupsCommandInput extends ListRunGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRunGroupsCommand}.
+ */
 export interface ListRunGroupsCommandOutput extends ListRunGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of run groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface ListRunGroupsCommandOutput extends ListRunGroupsResponse, __Met
  * import { OmicsClient, ListRunGroupsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListRunGroupsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // ListRunGroupsRequest
+ *   name: "STRING_VALUE",
+ *   startingToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRunGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRunGroupsCommandInput - {@link ListRunGroupsCommandInput}
+ * @returns {@link ListRunGroupsCommandOutput}
  * @see {@link ListRunGroupsCommandInput} for command's `input` shape.
  * @see {@link ListRunGroupsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request cannot be applied to the target resource in its current state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeds a service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ListRunGroupsCommand extends $Command<
@@ -62,6 +97,9 @@ export class ListRunGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRunGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +126,8 @@ export class ListRunGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRunGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRunGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +137,18 @@ export class ListRunGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRunGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRunGroupsCommand(input, context);
+    return se_ListRunGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRunGroupsCommandOutput> {
-    return deserializeAws_restJson1ListRunGroupsCommand(output, context);
+    return de_ListRunGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetSkillGroupRequest,
-  GetSkillGroupRequestFilterSensitiveLog,
-  GetSkillGroupResponse,
-  GetSkillGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSkillGroupCommand,
-  serializeAws_json1_1GetSkillGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSkillGroupRequest, GetSkillGroupResponse } from "../models/models_0";
+import { de_GetSkillGroupCommand, se_GetSkillGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSkillGroupCommand}.
+ */
 export interface GetSkillGroupCommandInput extends GetSkillGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSkillGroupCommand}.
+ */
 export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets skill group details by skill group ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __Met
  * import { AlexaForBusinessClient, GetSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // GetSkillGroupRequest
+ *   SkillGroupArn: "STRING_VALUE",
+ * };
  * const command = new GetSkillGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSkillGroupCommandInput - {@link GetSkillGroupCommandInput}
+ * @returns {@link GetSkillGroupCommandOutput}
  * @see {@link GetSkillGroupCommandInput} for command's `input` shape.
  * @see {@link GetSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class GetSkillGroupCommand extends $Command<
@@ -62,6 +74,9 @@ export class GetSkillGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSkillGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +103,8 @@ export class GetSkillGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSkillGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSkillGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +114,18 @@ export class GetSkillGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSkillGroupCommand(input, context);
+    return se_GetSkillGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSkillGroupCommandOutput> {
-    return deserializeAws_json1_1GetSkillGroupCommand(output, context);
+    return de_GetSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

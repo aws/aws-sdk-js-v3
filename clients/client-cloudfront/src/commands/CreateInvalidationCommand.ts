@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  CreateInvalidationRequest,
-  CreateInvalidationRequestFilterSensitiveLog,
-  CreateInvalidationResult,
-  CreateInvalidationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateInvalidationCommand,
-  serializeAws_restXmlCreateInvalidationCommand,
-} from "../protocols/Aws_restXml";
+import { CreateInvalidationRequest, CreateInvalidationResult } from "../models/models_0";
+import { de_CreateInvalidationCommand, se_CreateInvalidationCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateInvalidationCommand}.
+ */
 export interface CreateInvalidationCommandInput extends CreateInvalidationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateInvalidationCommand}.
+ */
 export interface CreateInvalidationCommandOutput extends CreateInvalidationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new invalidation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,52 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  * import { CloudFrontClient, CreateInvalidationCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateInvalidationCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateInvalidationRequest
+ *   DistributionId: "STRING_VALUE", // required
+ *   InvalidationBatch: { // InvalidationBatch
+ *     Paths: { // Paths
+ *       Quantity: Number("int"), // required
+ *       Items: [ // PathList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     CallerReference: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateInvalidationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInvalidationCommandInput - {@link CreateInvalidationCommandInput}
+ * @returns {@link CreateInvalidationCommandOutput}
  * @see {@link CreateInvalidationCommandInput} for command's `input` shape.
  * @see {@link CreateInvalidationCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link BatchTooLarge} (client fault)
+ *  <p>Invalidation batch specified is too large.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link MissingBody} (client fault)
+ *  <p>This operation requires a body. Ensure that the body is present and the
+ * 				<code>Content-Type</code> header is set.</p>
+ *
+ * @throws {@link NoSuchDistribution} (client fault)
+ *  <p>The specified distribution does not exist.</p>
+ *
+ * @throws {@link TooManyInvalidationsInProgress} (client fault)
+ *  <p>You have exceeded the maximum number of allowable InProgress invalidation batch
+ * 			requests, or invalidation objects.</p>
+ *
  *
  */
 export class CreateInvalidationCommand extends $Command<
@@ -62,6 +104,9 @@ export class CreateInvalidationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInvalidationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +135,8 @@ export class CreateInvalidationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInvalidationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInvalidationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +146,18 @@ export class CreateInvalidationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInvalidationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateInvalidationCommand(input, context);
+    return se_CreateInvalidationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInvalidationCommandOutput> {
-    return deserializeAws_restXmlCreateInvalidationCommand(output, context);
+    return de_CreateInvalidationCommand(output, context);
   }
 
   // Start section: command_body_extra

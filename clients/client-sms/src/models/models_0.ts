@@ -3,54 +3,93 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SMSServiceException as __BaseException } from "./SMSServiceException";
 
-export enum AppLaunchConfigurationStatus {
-  Configured = "CONFIGURED",
-  NotConfigured = "NOT_CONFIGURED",
-}
-
-export enum AppLaunchStatus {
-  ConfigurationInProgress = "CONFIGURATION_IN_PROGRESS",
-  ConfigurationInvalid = "CONFIGURATION_INVALID",
-  DeltaLaunchFailed = "DELTA_LAUNCH_FAILED",
-  DeltaLaunchInProgress = "DELTA_LAUNCH_IN_PROGRESS",
-  LaunchFailed = "LAUNCH_FAILED",
-  LaunchInProgress = "LAUNCH_IN_PROGRESS",
-  LaunchPending = "LAUNCH_PENDING",
-  Launched = "LAUNCHED",
-  PartiallyLaunched = "PARTIALLY_LAUNCHED",
-  ReadyForConfiguration = "READY_FOR_CONFIGURATION",
-  ReadyForLaunch = "READY_FOR_LAUNCH",
-  TerminateFailed = "TERMINATE_FAILED",
-  TerminateInProgress = "TERMINATE_IN_PROGRESS",
-  Terminated = "TERMINATED",
-  ValidationInProgress = "VALIDATION_IN_PROGRESS",
-}
-
-export enum AppReplicationConfigurationStatus {
-  Configured = "CONFIGURED",
-  NotConfigured = "NOT_CONFIGURED",
-}
-
-export enum AppReplicationStatus {
-  ConfigurationInProgress = "CONFIGURATION_IN_PROGRESS",
-  ConfigurationInvalid = "CONFIGURATION_INVALID",
-  DeltaReplicated = "DELTA_REPLICATED",
-  DeltaReplicationFailed = "DELTA_REPLICATION_FAILED",
-  DeltaReplicationInProgress = "DELTA_REPLICATION_IN_PROGRESS",
-  PartiallyReplicated = "PARTIALLY_REPLICATED",
-  ReadyForConfiguration = "READY_FOR_CONFIGURATION",
-  ReadyForReplication = "READY_FOR_REPLICATION",
-  Replicated = "REPLICATED",
-  ReplicationFailed = "REPLICATION_FAILED",
-  ReplicationInProgress = "REPLICATION_IN_PROGRESS",
-  ReplicationPending = "REPLICATION_PENDING",
-  ReplicationStopFailed = "REPLICATION_STOP_FAILED",
-  ReplicationStopped = "REPLICATION_STOPPED",
-  ReplicationStopping = "REPLICATION_STOPPING",
-  ValidationInProgress = "VALIDATION_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AppLaunchConfigurationStatus = {
+  Configured: "CONFIGURED",
+  NotConfigured: "NOT_CONFIGURED",
+} as const;
 
 /**
+ * @public
+ */
+export type AppLaunchConfigurationStatus =
+  (typeof AppLaunchConfigurationStatus)[keyof typeof AppLaunchConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppLaunchStatus = {
+  ConfigurationInProgress: "CONFIGURATION_IN_PROGRESS",
+  ConfigurationInvalid: "CONFIGURATION_INVALID",
+  DeltaLaunchFailed: "DELTA_LAUNCH_FAILED",
+  DeltaLaunchInProgress: "DELTA_LAUNCH_IN_PROGRESS",
+  LaunchFailed: "LAUNCH_FAILED",
+  LaunchInProgress: "LAUNCH_IN_PROGRESS",
+  LaunchPending: "LAUNCH_PENDING",
+  Launched: "LAUNCHED",
+  PartiallyLaunched: "PARTIALLY_LAUNCHED",
+  ReadyForConfiguration: "READY_FOR_CONFIGURATION",
+  ReadyForLaunch: "READY_FOR_LAUNCH",
+  TerminateFailed: "TERMINATE_FAILED",
+  TerminateInProgress: "TERMINATE_IN_PROGRESS",
+  Terminated: "TERMINATED",
+  ValidationInProgress: "VALIDATION_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AppLaunchStatus = (typeof AppLaunchStatus)[keyof typeof AppLaunchStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppReplicationConfigurationStatus = {
+  Configured: "CONFIGURED",
+  NotConfigured: "NOT_CONFIGURED",
+} as const;
+
+/**
+ * @public
+ */
+export type AppReplicationConfigurationStatus =
+  (typeof AppReplicationConfigurationStatus)[keyof typeof AppReplicationConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppReplicationStatus = {
+  ConfigurationInProgress: "CONFIGURATION_IN_PROGRESS",
+  ConfigurationInvalid: "CONFIGURATION_INVALID",
+  DeltaReplicated: "DELTA_REPLICATED",
+  DeltaReplicationFailed: "DELTA_REPLICATION_FAILED",
+  DeltaReplicationInProgress: "DELTA_REPLICATION_IN_PROGRESS",
+  PartiallyReplicated: "PARTIALLY_REPLICATED",
+  ReadyForConfiguration: "READY_FOR_CONFIGURATION",
+  ReadyForReplication: "READY_FOR_REPLICATION",
+  Replicated: "REPLICATED",
+  ReplicationFailed: "REPLICATION_FAILED",
+  ReplicationInProgress: "REPLICATION_IN_PROGRESS",
+  ReplicationPending: "REPLICATION_PENDING",
+  ReplicationStopFailed: "REPLICATION_STOP_FAILED",
+  ReplicationStopped: "REPLICATION_STOPPED",
+  ReplicationStopping: "REPLICATION_STOPPING",
+  ValidationInProgress: "VALIDATION_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AppReplicationStatus = (typeof AppReplicationStatus)[keyof typeof AppReplicationStatus];
+
+/**
+ * @public
  * <p>Details about the latest launch of an application.</p>
  */
 export interface LaunchDetails {
@@ -70,16 +109,26 @@ export interface LaunchDetails {
   stackId?: string;
 }
 
-export enum AppStatus {
-  Active = "ACTIVE",
-  Creating = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  Updating = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AppStatus = {
+  Active: "ACTIVE",
+  Creating: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  Deleted: "DELETED",
+  Deleting: "DELETING",
+  Updating: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type AppStatus = (typeof AppStatus)[keyof typeof AppStatus];
+
+/**
+ * @public
  * <p>Information about the application.</p>
  */
 export interface AppSummary {
@@ -179,16 +228,35 @@ export interface AppSummary {
   totalServers?: number;
 }
 
-export enum AppValidationStrategy {
-  SSM = "SSM",
-}
-
-export enum ScriptType {
-  POWERSHELL_SCRIPT = "POWERSHELL_SCRIPT",
-  SHELL_SCRIPT = "SHELL_SCRIPT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AppValidationStrategy = {
+  SSM: "SSM",
+} as const;
 
 /**
+ * @public
+ */
+export type AppValidationStrategy = (typeof AppValidationStrategy)[keyof typeof AppValidationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScriptType = {
+  POWERSHELL_SCRIPT: "POWERSHELL_SCRIPT",
+  SHELL_SCRIPT: "SHELL_SCRIPT",
+} as const;
+
+/**
+ * @public
+ */
+export type ScriptType = (typeof ScriptType)[keyof typeof ScriptType];
+
+/**
+ * @public
  * <p>Location of an Amazon S3 object.</p>
  */
 export interface S3Location {
@@ -204,6 +272,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Contains the location of a validation script.</p>
  */
 export interface Source {
@@ -214,6 +283,7 @@ export interface Source {
 }
 
 /**
+ * @public
  * <p>Contains validation parameters.</p>
  */
 export interface SSMValidationParameters {
@@ -249,6 +319,7 @@ export interface SSMValidationParameters {
 }
 
 /**
+ * @public
  * <p>Configuration for validating an application.</p>
  */
 export interface AppValidationConfiguration {
@@ -274,6 +345,7 @@ export interface AppValidationConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains the location of validation output.</p>
  */
 export interface SSMOutput {
@@ -284,6 +356,7 @@ export interface SSMOutput {
 }
 
 /**
+ * @public
  * <p>Output from validating an application.</p>
  */
 export interface AppValidationOutput {
@@ -293,17 +366,36 @@ export interface AppValidationOutput {
   ssmOutput?: SSMOutput;
 }
 
-export enum ServerType {
-  VirtualMachine = "VIRTUAL_MACHINE",
-}
-
-export enum VmManagerType {
-  hyperVManager = "HYPERV-MANAGER",
-  scvmm = "SCVMM",
-  vSphere = "VSPHERE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServerType = {
+  VirtualMachine: "VIRTUAL_MACHINE",
+} as const;
 
 /**
+ * @public
+ */
+export type ServerType = (typeof ServerType)[keyof typeof ServerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VmManagerType = {
+  hyperVManager: "HYPERV-MANAGER",
+  scvmm: "SCVMM",
+  vSphere: "VSPHERE",
+} as const;
+
+/**
+ * @public
+ */
+export type VmManagerType = (typeof VmManagerType)[keyof typeof VmManagerType];
+
+/**
+ * @public
  * <p>Represents a VM server location.</p>
  */
 export interface VmServerAddress {
@@ -319,6 +411,7 @@ export interface VmServerAddress {
 }
 
 /**
+ * @public
  * <p>Represents a VM server.</p>
  */
 export interface VmServer {
@@ -349,6 +442,7 @@ export interface VmServer {
 }
 
 /**
+ * @public
  * <p>Represents a server.</p>
  */
 export interface Server {
@@ -379,6 +473,7 @@ export interface Server {
 }
 
 /**
+ * @public
  * <p>Logical grouping of servers.</p>
  */
 export interface ServerGroup {
@@ -399,6 +494,7 @@ export interface ServerGroup {
 }
 
 /**
+ * @public
  * <p>Key/value pair that can be assigned to an application.</p>
  */
 export interface Tag {
@@ -413,6 +509,9 @@ export interface Tag {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppRequest {
   /**
    * <p>The name of the new application.</p>
@@ -446,6 +545,9 @@ export interface CreateAppRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAppResponse {
   /**
    * <p>A summary description of the application.</p>
@@ -464,6 +566,7 @@ export interface CreateAppResponse {
 }
 
 /**
+ * @public
  * <p>An internal error occurred.</p>
  */
 export class InternalError extends __BaseException {
@@ -483,6 +586,7 @@ export class InternalError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specified parameter is not valid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -502,6 +606,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A required parameter is missing.</p>
  */
 export class MissingRequiredParameterException extends __BaseException {
@@ -521,6 +626,7 @@ export class MissingRequiredParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This operation is not allowed.</p>
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -540,6 +646,7 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  */
@@ -559,11 +666,23 @@ export class UnauthorizedOperationException extends __BaseException {
   }
 }
 
-export enum LicenseType {
-  AWS = "AWS",
-  BYOL = "BYOL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LicenseType = {
+  AWS: "AWS",
+  BYOL: "BYOL",
+} as const;
 
+/**
+ * @public
+ */
+export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
+
+/**
+ * @public
+ */
 export interface CreateReplicationJobRequest {
   /**
    * <p>The ID of the server.</p>
@@ -615,26 +734,29 @@ export interface CreateReplicationJobRequest {
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>KMS key ID</p>
+   *                <p>KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>KMS key alias</p>
+   *                <p>KMS key alias</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key ID</p>
+   *                <p>ARN referring to the KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key alias</p>
+   *                <p>ARN referring to the KMS key alias</p>
    *             </li>
    *          </ul>
-   *         <p> If encrypted is <i>true</i> but a KMS key ID is not specified, the
+   *          <p> If encrypted is <i>true</i> but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used. </p>
    */
   kmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateReplicationJobResponse {
   /**
    * <p>The unique identifier of the replication job.</p>
@@ -643,6 +765,7 @@ export interface CreateReplicationJobResponse {
 }
 
 /**
+ * @public
  * <p>There are no connectors available.</p>
  */
 export class NoConnectorsAvailableException extends __BaseException {
@@ -662,6 +785,7 @@ export class NoConnectorsAvailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified replication job already exists.</p>
  */
 export class ReplicationJobAlreadyExistsException extends __BaseException {
@@ -681,6 +805,7 @@ export class ReplicationJobAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified server cannot be replicated.</p>
  */
 export class ServerCannotBeReplicatedException extends __BaseException {
@@ -700,6 +825,7 @@ export class ServerCannotBeReplicatedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service is temporarily unavailable.</p>
  */
 export class TemporarilyUnavailableException extends __BaseException {
@@ -718,6 +844,9 @@ export class TemporarilyUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppRequest {
   /**
    * <p>The ID of the application.</p>
@@ -737,8 +866,14 @@ export interface DeleteAppRequest {
   forceTerminateApp?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAppLaunchConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -746,8 +881,14 @@ export interface DeleteAppLaunchConfigurationRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppLaunchConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAppReplicationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -755,8 +896,14 @@ export interface DeleteAppReplicationConfigurationRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppReplicationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteAppValidationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -764,8 +911,14 @@ export interface DeleteAppValidationConfigurationRequest {
   appId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppValidationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteReplicationJobRequest {
   /**
    * <p>The ID of the replication job.</p>
@@ -773,9 +926,13 @@ export interface DeleteReplicationJobRequest {
   replicationJobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteReplicationJobResponse {}
 
 /**
+ * @public
  * <p>The specified replication job does not exist.</p>
  */
 export class ReplicationJobNotFoundException extends __BaseException {
@@ -794,10 +951,19 @@ export class ReplicationJobNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteServerCatalogRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteServerCatalogResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateConnectorRequest {
   /**
    * <p>The ID of the connector.</p>
@@ -805,13 +971,28 @@ export interface DisassociateConnectorRequest {
   connectorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateConnectorResponse {}
 
-export enum OutputFormat {
-  JSON = "JSON",
-  YAML = "YAML",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OutputFormat = {
+  JSON: "JSON",
+  YAML: "YAML",
+} as const;
 
+/**
+ * @public
+ */
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
+
+/**
+ * @public
+ */
 export interface GenerateChangeSetRequest {
   /**
    * <p>The ID of the application associated with the change set.</p>
@@ -824,6 +1005,9 @@ export interface GenerateChangeSetRequest {
   changesetFormat?: OutputFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateChangeSetResponse {
   /**
    * <p>The location of the Amazon S3 object.</p>
@@ -831,6 +1015,9 @@ export interface GenerateChangeSetResponse {
   s3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface GenerateTemplateRequest {
   /**
    * <p>The ID of the application associated with the CloudFormation template.</p>
@@ -843,6 +1030,9 @@ export interface GenerateTemplateRequest {
   templateFormat?: OutputFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface GenerateTemplateResponse {
   /**
    * <p>The location of the Amazon S3 object.</p>
@@ -850,6 +1040,9 @@ export interface GenerateTemplateResponse {
   s3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface GetAppRequest {
   /**
    * <p>The ID of the application.</p>
@@ -857,6 +1050,9 @@ export interface GetAppRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAppResponse {
   /**
    * <p>Information about the application.</p>
@@ -874,6 +1070,9 @@ export interface GetAppResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppLaunchConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -882,6 +1081,7 @@ export interface GetAppLaunchConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>A script that runs on first launch of an Amazon EC2 instance. Used for configuring the
  *             server during launch.</p>
  */
@@ -893,6 +1093,7 @@ export interface UserData {
 }
 
 /**
+ * @public
  * <p>Launch configuration for a server.</p>
  */
 export interface ServerLaunchConfiguration {
@@ -958,6 +1159,7 @@ export interface ServerLaunchConfiguration {
 }
 
 /**
+ * @public
  * <p>Launch configuration for a server group.</p>
  */
 export interface ServerGroupLaunchConfiguration {
@@ -978,6 +1180,9 @@ export interface ServerGroupLaunchConfiguration {
   serverLaunchConfigurations?: ServerLaunchConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppLaunchConfigurationResponse {
   /**
    * <p>The ID of the application.</p>
@@ -1001,6 +1206,9 @@ export interface GetAppLaunchConfigurationResponse {
   serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppReplicationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1009,6 +1217,7 @@ export interface GetAppReplicationConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>The replication parameters for replicating a server.</p>
  */
 export interface ServerReplicationParameters {
@@ -1045,27 +1254,28 @@ export interface ServerReplicationParameters {
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>KMS key ID</p>
+   *                <p>KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>KMS key alias</p>
+   *                <p>KMS key alias</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key ID</p>
+   *                <p>ARN referring to the KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key alias</p>
+   *                <p>ARN referring to the KMS key alias</p>
    *             </li>
    *          </ul>
-   *         <p>If encrypted is enabled but a KMS key ID is not specified, the
+   *          <p>If encrypted is enabled but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used.</p>
    */
   kmsKeyId?: string;
 }
 
 /**
+ * @public
  * <p>Replication configuration of a server.</p>
  */
 export interface ServerReplicationConfiguration {
@@ -1082,6 +1292,7 @@ export interface ServerReplicationConfiguration {
 }
 
 /**
+ * @public
  * <p>Replication configuration for a server group.</p>
  */
 export interface ServerGroupReplicationConfiguration {
@@ -1097,6 +1308,9 @@ export interface ServerGroupReplicationConfiguration {
   serverReplicationConfigurations?: ServerReplicationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppReplicationConfigurationResponse {
   /**
    * <p>The replication configurations associated with server groups in this application.</p>
@@ -1104,6 +1318,9 @@ export interface GetAppReplicationConfigurationResponse {
   serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppValidationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1111,11 +1328,21 @@ export interface GetAppValidationConfigurationRequest {
   appId: string | undefined;
 }
 
-export enum ServerValidationStrategy {
-  USERDATA = "USERDATA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServerValidationStrategy = {
+  USERDATA: "USERDATA",
+} as const;
 
 /**
+ * @public
+ */
+export type ServerValidationStrategy = (typeof ServerValidationStrategy)[keyof typeof ServerValidationStrategy];
+
+/**
+ * @public
  * <p>Contains validation parameters.</p>
  */
 export interface UserDataValidationParameters {
@@ -1131,6 +1358,7 @@ export interface UserDataValidationParameters {
 }
 
 /**
+ * @public
  * <p>Configuration for validating an instance.</p>
  */
 export interface ServerValidationConfiguration {
@@ -1161,6 +1389,7 @@ export interface ServerValidationConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration for validating an instance.</p>
  */
 export interface ServerGroupValidationConfiguration {
@@ -1175,6 +1404,9 @@ export interface ServerGroupValidationConfiguration {
   serverValidationConfigurations?: ServerValidationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppValidationConfigurationResponse {
   /**
    * <p>The configuration for application validation.</p>
@@ -1187,6 +1419,9 @@ export interface GetAppValidationConfigurationResponse {
   serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface GetAppValidationOutputRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1195,6 +1430,7 @@ export interface GetAppValidationOutputRequest {
 }
 
 /**
+ * @public
  * <p>Contains output from validating an instance.</p>
  */
 export interface ServerValidationOutput {
@@ -1204,15 +1440,25 @@ export interface ServerValidationOutput {
   server?: Server;
 }
 
-export enum ValidationStatus {
-  Failed = "FAILED",
-  InProgress = "IN_PROGRESS",
-  Pending = "PENDING",
-  ReadyForValidation = "READY_FOR_VALIDATION",
-  Succeeded = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationStatus = {
+  Failed: "FAILED",
+  InProgress: "IN_PROGRESS",
+  Pending: "PENDING",
+  ReadyForValidation: "READY_FOR_VALIDATION",
+  Succeeded: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationStatus = (typeof ValidationStatus)[keyof typeof ValidationStatus];
+
+/**
+ * @public
  * <p>Contains validation output.</p>
  */
 export interface ValidationOutput {
@@ -1252,6 +1498,9 @@ export interface ValidationOutput {
   serverValidationOutput?: ServerValidationOutput;
 }
 
+/**
+ * @public
+ */
 export interface GetAppValidationOutputResponse {
   /**
    * <p>The validation output.</p>
@@ -1259,6 +1508,9 @@ export interface GetAppValidationOutputResponse {
   validationOutputList?: ValidationOutput[];
 }
 
+/**
+ * @public
+ */
 export interface GetConnectorsRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -1273,20 +1525,39 @@ export interface GetConnectorsRequest {
   maxResults?: number;
 }
 
-export enum ConnectorCapability {
-  hyperVManager = "HYPERV-MANAGER",
-  scvmm = "SCVMM",
-  smsOptimized = "SMS_OPTIMIZED",
-  snapshotBatching = "SNAPSHOT_BATCHING",
-  vSphere = "VSPHERE",
-}
-
-export enum ConnectorStatus {
-  Healthy = "HEALTHY",
-  Unhealthy = "UNHEALTHY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorCapability = {
+  hyperVManager: "HYPERV-MANAGER",
+  scvmm: "SCVMM",
+  smsOptimized: "SMS_OPTIMIZED",
+  snapshotBatching: "SNAPSHOT_BATCHING",
+  vSphere: "VSPHERE",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectorCapability = (typeof ConnectorCapability)[keyof typeof ConnectorCapability];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorStatus = {
+  Healthy: "HEALTHY",
+  Unhealthy: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
+
+/**
+ * @public
  * <p>Represents a connector.</p>
  */
 export interface Connector {
@@ -1341,6 +1612,9 @@ export interface Connector {
   associatedOn?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectorsResponse {
   /**
    * <p>Information about the registered connectors.</p>
@@ -1354,6 +1628,9 @@ export interface GetConnectorsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationJobsRequest {
   /**
    * <p>The ID of the replication job.</p>
@@ -1374,6 +1651,7 @@ export interface GetReplicationJobsRequest {
 }
 
 /**
+ * @public
  * <p>Details of the current stage of a replication run.</p>
  */
 export interface ReplicationRunStageDetails {
@@ -1388,22 +1666,41 @@ export interface ReplicationRunStageDetails {
   stageProgress?: string;
 }
 
-export enum ReplicationRunState {
-  Active = "ACTIVE",
-  Completed = "COMPLETED",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Missed = "MISSED",
-  Pending = "PENDING",
-}
-
-export enum ReplicationRunType {
-  Automatic = "AUTOMATIC",
-  OnDemand = "ON_DEMAND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationRunState = {
+  Active: "ACTIVE",
+  Completed: "COMPLETED",
+  Deleted: "DELETED",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Missed: "MISSED",
+  Pending: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type ReplicationRunState = (typeof ReplicationRunState)[keyof typeof ReplicationRunState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationRunType = {
+  Automatic: "AUTOMATIC",
+  OnDemand: "ON_DEMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationRunType = (typeof ReplicationRunType)[keyof typeof ReplicationRunType];
+
+/**
+ * @public
  * <p>Represents a replication run.</p>
  */
 export interface ReplicationRun {
@@ -1461,38 +1758,48 @@ export interface ReplicationRun {
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>KMS key ID</p>
+   *                <p>KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>KMS key alias</p>
+   *                <p>KMS key alias</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key ID</p>
+   *                <p>ARN referring to the KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key alias</p>
+   *                <p>ARN referring to the KMS key alias</p>
    *             </li>
    *          </ul>
-   *         <p> If encrypted is <i>true</i> but a KMS key ID is not specified, the
+   *          <p> If encrypted is <i>true</i> but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used. </p>
    */
   kmsKeyId?: string;
 }
 
-export enum ReplicationJobState {
-  Active = "ACTIVE",
-  Completed = "COMPLETED",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Failing = "FAILING",
-  PausedOnFailure = "PAUSED_ON_FAILURE",
-  Pending = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationJobState = {
+  Active: "ACTIVE",
+  Completed: "COMPLETED",
+  Deleted: "DELETED",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Failing: "FAILING",
+  PausedOnFailure: "PAUSED_ON_FAILURE",
+  Pending: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type ReplicationJobState = (typeof ReplicationJobState)[keyof typeof ReplicationJobState];
+
+/**
+ * @public
  * <p>Represents a replication job.</p>
  */
 export interface ReplicationJob {
@@ -1581,21 +1888,21 @@ export interface ReplicationJob {
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>KMS key ID</p>
+   *                <p>KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>KMS key alias</p>
+   *                <p>KMS key alias</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key ID</p>
+   *                <p>ARN referring to the KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key alias</p>
+   *                <p>ARN referring to the KMS key alias</p>
    *             </li>
    *          </ul>
-   *         <p>If encrypted is enabled but a KMS key ID is not specified, the
+   *          <p>If encrypted is enabled but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used.</p>
    */
   kmsKeyId?: string;
@@ -1606,6 +1913,9 @@ export interface ReplicationJob {
   replicationRunList?: ReplicationRun[];
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationJobsResponse {
   /**
    * <p>Information about the replication jobs.</p>
@@ -1619,6 +1929,9 @@ export interface GetReplicationJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationRunsRequest {
   /**
    * <p>The ID of the replication job.</p>
@@ -1638,6 +1951,9 @@ export interface GetReplicationRunsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetReplicationRunsResponse {
   /**
    * <p>Information about the replication job.</p>
@@ -1656,6 +1972,9 @@ export interface GetReplicationRunsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetServersRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -1675,14 +1994,26 @@ export interface GetServersRequest {
   vmServerAddressList?: VmServerAddress[];
 }
 
-export enum ServerCatalogStatus {
-  Available = "AVAILABLE",
-  Deleted = "DELETED",
-  Expired = "EXPIRED",
-  Importing = "IMPORTING",
-  NotImported = "NOT_IMPORTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServerCatalogStatus = {
+  Available: "AVAILABLE",
+  Deleted: "DELETED",
+  Expired: "EXPIRED",
+  Importing: "IMPORTING",
+  NotImported: "NOT_IMPORTED",
+} as const;
 
+/**
+ * @public
+ */
+export type ServerCatalogStatus = (typeof ServerCatalogStatus)[keyof typeof ServerCatalogStatus];
+
+/**
+ * @public
+ */
 export interface GetServersResponse {
   /**
    * <p>The time when the server was last modified.</p>
@@ -1706,6 +2037,9 @@ export interface GetServersResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportAppCatalogRequest {
   /**
    * <p>The name of the service role. If you omit this parameter, we create a service-linked role
@@ -1715,12 +2049,24 @@ export interface ImportAppCatalogRequest {
   roleName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportAppCatalogResponse {}
 
+/**
+ * @public
+ */
 export interface ImportServerCatalogRequest {}
 
+/**
+ * @public
+ */
 export interface ImportServerCatalogResponse {}
 
+/**
+ * @public
+ */
 export interface LaunchAppRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1728,8 +2074,14 @@ export interface LaunchAppRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface LaunchAppResponse {}
 
+/**
+ * @public
+ */
 export interface ListAppsRequest {
   /**
    * <p>The unique application IDs.</p>
@@ -1749,6 +2101,9 @@ export interface ListAppsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAppsResponse {
   /**
    * <p>The application summaries.</p>
@@ -1763,6 +2118,7 @@ export interface ListAppsResponse {
 }
 
 /**
+ * @public
  * <p>Contains the status of validating an application.</p>
  */
 export interface NotificationContext {
@@ -1782,6 +2138,9 @@ export interface NotificationContext {
   statusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface NotifyAppValidationOutputRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1794,8 +2153,14 @@ export interface NotifyAppValidationOutputRequest {
   notificationContext?: NotificationContext;
 }
 
+/**
+ * @public
+ */
 export interface NotifyAppValidationOutputResponse {}
 
+/**
+ * @public
+ */
 export interface PutAppLaunchConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1819,8 +2184,14 @@ export interface PutAppLaunchConfigurationRequest {
   serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface PutAppLaunchConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface PutAppReplicationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1833,8 +2204,14 @@ export interface PutAppReplicationConfigurationRequest {
   serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface PutAppReplicationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface PutAppValidationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1852,8 +2229,14 @@ export interface PutAppValidationConfigurationRequest {
   serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface PutAppValidationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface StartAppReplicationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1861,8 +2244,14 @@ export interface StartAppReplicationRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartAppReplicationResponse {}
 
+/**
+ * @public
+ */
 export interface StartOnDemandAppReplicationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1875,9 +2264,13 @@ export interface StartOnDemandAppReplicationRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartOnDemandAppReplicationResponse {}
 
 /**
+ * @public
  * <p>The user has the required permissions, so the request would have succeeded,
  *             but a dry run was performed.</p>
  */
@@ -1898,6 +2291,7 @@ export class DryRunOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the number of on-demand replication runs you can request in a
  *             24-hour period.</p>
  */
@@ -1917,6 +2311,9 @@ export class ReplicationRunLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartOnDemandReplicationRunRequest {
   /**
    * <p>The ID of the replication job.</p>
@@ -1929,6 +2326,9 @@ export interface StartOnDemandReplicationRunRequest {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartOnDemandReplicationRunResponse {
   /**
    * <p>The ID of the replication run.</p>
@@ -1936,6 +2336,9 @@ export interface StartOnDemandReplicationRunResponse {
   replicationRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopAppReplicationRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1943,8 +2346,14 @@ export interface StopAppReplicationRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopAppReplicationResponse {}
 
+/**
+ * @public
+ */
 export interface TerminateAppRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1952,8 +2361,14 @@ export interface TerminateAppRequest {
   appId?: string;
 }
 
+/**
+ * @public
+ */
 export interface TerminateAppResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateAppRequest {
   /**
    * <p>The ID of the application.</p>
@@ -1986,6 +2401,9 @@ export interface UpdateAppRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateAppResponse {
   /**
    * <p>A summary description of the application.</p>
@@ -2003,6 +2421,9 @@ export interface UpdateAppResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationJobRequest {
   /**
    * <p>The ID of the replication job.</p>
@@ -2050,751 +2471,27 @@ export interface UpdateReplicationJobRequest {
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>KMS key ID</p>
+   *                <p>KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>KMS key alias</p>
+   *                <p>KMS key alias</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key ID</p>
+   *                <p>ARN referring to the KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key alias</p>
+   *                <p>ARN referring to the KMS key alias</p>
    *             </li>
    *          </ul>
-   *         <p>If encrypted is enabled but a KMS key ID is not specified, the
+   *          <p>If encrypted is enabled but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used.</p>
    */
   kmsKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateReplicationJobResponse {}
-
-/**
- * @internal
- */
-export const LaunchDetailsFilterSensitiveLog = (obj: LaunchDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppSummaryFilterSensitiveLog = (obj: AppSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceFilterSensitiveLog = (obj: Source): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SSMValidationParametersFilterSensitiveLog = (obj: SSMValidationParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppValidationConfigurationFilterSensitiveLog = (obj: AppValidationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SSMOutputFilterSensitiveLog = (obj: SSMOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppValidationOutputFilterSensitiveLog = (obj: AppValidationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VmServerAddressFilterSensitiveLog = (obj: VmServerAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VmServerFilterSensitiveLog = (obj: VmServer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerFilterSensitiveLog = (obj: Server): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerGroupFilterSensitiveLog = (obj: ServerGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppRequestFilterSensitiveLog = (obj: CreateAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppResponseFilterSensitiveLog = (obj: CreateAppResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicationJobRequestFilterSensitiveLog = (obj: CreateReplicationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicationJobResponseFilterSensitiveLog = (obj: CreateReplicationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppRequestFilterSensitiveLog = (obj: DeleteAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppResponseFilterSensitiveLog = (obj: DeleteAppResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppLaunchConfigurationRequestFilterSensitiveLog = (
-  obj: DeleteAppLaunchConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppLaunchConfigurationResponseFilterSensitiveLog = (
-  obj: DeleteAppLaunchConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppReplicationConfigurationRequestFilterSensitiveLog = (
-  obj: DeleteAppReplicationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppReplicationConfigurationResponseFilterSensitiveLog = (
-  obj: DeleteAppReplicationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppValidationConfigurationRequestFilterSensitiveLog = (
-  obj: DeleteAppValidationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppValidationConfigurationResponseFilterSensitiveLog = (
-  obj: DeleteAppValidationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationJobRequestFilterSensitiveLog = (obj: DeleteReplicationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationJobResponseFilterSensitiveLog = (obj: DeleteReplicationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServerCatalogRequestFilterSensitiveLog = (obj: DeleteServerCatalogRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServerCatalogResponseFilterSensitiveLog = (obj: DeleteServerCatalogResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateConnectorRequestFilterSensitiveLog = (obj: DisassociateConnectorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateConnectorResponseFilterSensitiveLog = (obj: DisassociateConnectorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateChangeSetRequestFilterSensitiveLog = (obj: GenerateChangeSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateChangeSetResponseFilterSensitiveLog = (obj: GenerateChangeSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateTemplateRequestFilterSensitiveLog = (obj: GenerateTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateTemplateResponseFilterSensitiveLog = (obj: GenerateTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppRequestFilterSensitiveLog = (obj: GetAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppResponseFilterSensitiveLog = (obj: GetAppResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppLaunchConfigurationRequestFilterSensitiveLog = (obj: GetAppLaunchConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserDataFilterSensitiveLog = (obj: UserData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerLaunchConfigurationFilterSensitiveLog = (obj: ServerLaunchConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerGroupLaunchConfigurationFilterSensitiveLog = (obj: ServerGroupLaunchConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppLaunchConfigurationResponseFilterSensitiveLog = (obj: GetAppLaunchConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppReplicationConfigurationRequestFilterSensitiveLog = (
-  obj: GetAppReplicationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerReplicationParametersFilterSensitiveLog = (obj: ServerReplicationParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerReplicationConfigurationFilterSensitiveLog = (obj: ServerReplicationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerGroupReplicationConfigurationFilterSensitiveLog = (
-  obj: ServerGroupReplicationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppReplicationConfigurationResponseFilterSensitiveLog = (
-  obj: GetAppReplicationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppValidationConfigurationRequestFilterSensitiveLog = (
-  obj: GetAppValidationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserDataValidationParametersFilterSensitiveLog = (obj: UserDataValidationParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerValidationConfigurationFilterSensitiveLog = (obj: ServerValidationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerGroupValidationConfigurationFilterSensitiveLog = (obj: ServerGroupValidationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppValidationConfigurationResponseFilterSensitiveLog = (
-  obj: GetAppValidationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppValidationOutputRequestFilterSensitiveLog = (obj: GetAppValidationOutputRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerValidationOutputFilterSensitiveLog = (obj: ServerValidationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationOutputFilterSensitiveLog = (obj: ValidationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppValidationOutputResponseFilterSensitiveLog = (obj: GetAppValidationOutputResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectorsRequestFilterSensitiveLog = (obj: GetConnectorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectorFilterSensitiveLog = (obj: Connector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectorsResponseFilterSensitiveLog = (obj: GetConnectorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReplicationJobsRequestFilterSensitiveLog = (obj: GetReplicationJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationRunStageDetailsFilterSensitiveLog = (obj: ReplicationRunStageDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationRunFilterSensitiveLog = (obj: ReplicationRun): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationJobFilterSensitiveLog = (obj: ReplicationJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReplicationJobsResponseFilterSensitiveLog = (obj: GetReplicationJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReplicationRunsRequestFilterSensitiveLog = (obj: GetReplicationRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReplicationRunsResponseFilterSensitiveLog = (obj: GetReplicationRunsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetServersRequestFilterSensitiveLog = (obj: GetServersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetServersResponseFilterSensitiveLog = (obj: GetServersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAppCatalogRequestFilterSensitiveLog = (obj: ImportAppCatalogRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportAppCatalogResponseFilterSensitiveLog = (obj: ImportAppCatalogResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportServerCatalogRequestFilterSensitiveLog = (obj: ImportServerCatalogRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportServerCatalogResponseFilterSensitiveLog = (obj: ImportServerCatalogResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchAppRequestFilterSensitiveLog = (obj: LaunchAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchAppResponseFilterSensitiveLog = (obj: LaunchAppResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsRequestFilterSensitiveLog = (obj: ListAppsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsResponseFilterSensitiveLog = (obj: ListAppsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationContextFilterSensitiveLog = (obj: NotificationContext): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyAppValidationOutputRequestFilterSensitiveLog = (obj: NotifyAppValidationOutputRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyAppValidationOutputResponseFilterSensitiveLog = (obj: NotifyAppValidationOutputResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAppLaunchConfigurationRequestFilterSensitiveLog = (obj: PutAppLaunchConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAppLaunchConfigurationResponseFilterSensitiveLog = (obj: PutAppLaunchConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAppReplicationConfigurationRequestFilterSensitiveLog = (
-  obj: PutAppReplicationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAppReplicationConfigurationResponseFilterSensitiveLog = (
-  obj: PutAppReplicationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAppValidationConfigurationRequestFilterSensitiveLog = (
-  obj: PutAppValidationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAppValidationConfigurationResponseFilterSensitiveLog = (
-  obj: PutAppValidationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAppReplicationRequestFilterSensitiveLog = (obj: StartAppReplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartAppReplicationResponseFilterSensitiveLog = (obj: StartAppReplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartOnDemandAppReplicationRequestFilterSensitiveLog = (obj: StartOnDemandAppReplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartOnDemandAppReplicationResponseFilterSensitiveLog = (
-  obj: StartOnDemandAppReplicationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartOnDemandReplicationRunRequestFilterSensitiveLog = (obj: StartOnDemandReplicationRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartOnDemandReplicationRunResponseFilterSensitiveLog = (
-  obj: StartOnDemandReplicationRunResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopAppReplicationRequestFilterSensitiveLog = (obj: StopAppReplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopAppReplicationResponseFilterSensitiveLog = (obj: StopAppReplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateAppRequestFilterSensitiveLog = (obj: TerminateAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateAppResponseFilterSensitiveLog = (obj: TerminateAppResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAppRequestFilterSensitiveLog = (obj: UpdateAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAppResponseFilterSensitiveLog = (obj: UpdateAppResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateReplicationJobRequestFilterSensitiveLog = (obj: UpdateReplicationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateReplicationJobResponseFilterSensitiveLog = (obj: UpdateReplicationJobResponse): any => ({
-  ...obj,
-});

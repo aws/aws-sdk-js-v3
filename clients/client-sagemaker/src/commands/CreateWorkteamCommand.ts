@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWorkteamRequest,
-  CreateWorkteamRequestFilterSensitiveLog,
-  CreateWorkteamResponse,
-  CreateWorkteamResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateWorkteamCommand,
-  serializeAws_json1_1CreateWorkteamCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateWorkteamRequest, CreateWorkteamResponse } from "../models/models_1";
+import { de_CreateWorkteamCommand, se_CreateWorkteamCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateWorkteamCommand}.
+ */
 export interface CreateWorkteamCommandInput extends CreateWorkteamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateWorkteamCommand}.
+ */
 export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new work team for labeling your data. A work team is defined by one or more
  *             Amazon Cognito user pools. You must first create the user pools before you can create a work
  *             team.</p>
@@ -39,13 +42,51 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  * import { SageMakerClient, CreateWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateWorkteamRequest
+ *   WorkteamName: "STRING_VALUE", // required
+ *   WorkforceName: "STRING_VALUE",
+ *   MemberDefinitions: [ // MemberDefinitions // required
+ *     { // MemberDefinition
+ *       CognitoMemberDefinition: { // CognitoMemberDefinition
+ *         UserPool: "STRING_VALUE", // required
+ *         UserGroup: "STRING_VALUE", // required
+ *         ClientId: "STRING_VALUE", // required
+ *       },
+ *       OidcMemberDefinition: { // OidcMemberDefinition
+ *         Groups: [ // Groups // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   Description: "STRING_VALUE", // required
+ *   NotificationConfiguration: { // NotificationConfiguration
+ *     NotificationTopicArn: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateWorkteamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkteamCommandInput - {@link CreateWorkteamCommandInput}
+ * @returns {@link CreateWorkteamCommandOutput}
  * @see {@link CreateWorkteamCommandInput} for command's `input` shape.
  * @see {@link CreateWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
  *
  */
 export class CreateWorkteamCommand extends $Command<
@@ -65,6 +106,9 @@ export class CreateWorkteamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkteamCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +137,8 @@ export class CreateWorkteamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkteamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkteamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +148,18 @@ export class CreateWorkteamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkteamCommand(input, context);
+    return se_CreateWorkteamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkteamCommandOutput> {
-    return deserializeAws_json1_1CreateWorkteamCommand(output, context);
+    return de_CreateWorkteamCommand(output, context);
   }
 
   // Start section: command_body_extra

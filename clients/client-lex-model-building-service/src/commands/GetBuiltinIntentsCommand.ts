@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBuiltinIntentsRequest,
-  GetBuiltinIntentsRequestFilterSensitiveLog,
-  GetBuiltinIntentsResponse,
-  GetBuiltinIntentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBuiltinIntentsCommand,
-  serializeAws_restJson1GetBuiltinIntentsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBuiltinIntentsRequest, GetBuiltinIntentsResponse } from "../models/models_0";
+import { de_GetBuiltinIntentsCommand, se_GetBuiltinIntentsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBuiltinIntentsCommand}.
+ */
 export interface GetBuiltinIntentsCommandInput extends GetBuiltinIntentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBuiltinIntentsCommand}.
+ */
 export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of built-in intents that meet the specified
  *       criteria.</p>
  *          <p>This operation requires permission for the
@@ -43,13 +46,33 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  * import { LexModelBuildingServiceClient, GetBuiltinIntentsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBuiltinIntentsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetBuiltinIntentsRequest
+ *   locale: "STRING_VALUE",
+ *   signatureContains: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetBuiltinIntentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBuiltinIntentsCommandInput - {@link GetBuiltinIntentsCommandInput}
+ * @returns {@link GetBuiltinIntentsCommandOutput}
  * @see {@link GetBuiltinIntentsCommandInput} for command's `input` shape.
  * @see {@link GetBuiltinIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
  *
  */
 export class GetBuiltinIntentsCommand extends $Command<
@@ -69,6 +92,9 @@ export class GetBuiltinIntentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBuiltinIntentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +123,8 @@ export class GetBuiltinIntentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBuiltinIntentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBuiltinIntentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +134,18 @@ export class GetBuiltinIntentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBuiltinIntentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBuiltinIntentsCommand(input, context);
+    return se_GetBuiltinIntentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBuiltinIntentsCommandOutput> {
-    return deserializeAws_restJson1GetBuiltinIntentsCommand(output, context);
+    return de_GetBuiltinIntentsCommand(output, context);
   }
 
   // Start section: command_body_extra

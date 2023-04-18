@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeFleetRequest,
-  DescribeFleetRequestFilterSensitiveLog,
-  DescribeFleetResponse,
-  DescribeFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFleetCommand,
-  serializeAws_restJson1DescribeFleetCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeFleetRequest, DescribeFleetResponse } from "../models/models_0";
+import { de_DescribeFleetCommand, se_DescribeFleetCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetCommand}.
+ */
 export interface DescribeFleetCommandInput extends DescribeFleetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetCommand}.
+ */
 export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Describes a fleet.</p>
@@ -41,13 +44,32 @@ export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __Met
  * import { RoboMakerClient, DescribeFleetCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeFleetCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DescribeFleetRequest
+ *   fleet: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetCommandInput - {@link DescribeFleetCommandInput}
+ * @returns {@link DescribeFleetCommandOutput}
  * @see {@link DescribeFleetCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class DescribeFleetCommand extends $Command<
@@ -67,6 +89,9 @@ export class DescribeFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +118,8 @@ export class DescribeFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +129,18 @@ export class DescribeFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFleetCommand(input, context);
+    return se_DescribeFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetCommandOutput> {
-    return deserializeAws_restJson1DescribeFleetCommand(output, context);
+    return de_DescribeFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

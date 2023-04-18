@@ -15,23 +15,32 @@ import {
 
 import {
   CancelDomainTransferToAnotherAwsAccountRequest,
-  CancelDomainTransferToAnotherAwsAccountRequestFilterSensitiveLog,
   CancelDomainTransferToAnotherAwsAccountResponse,
-  CancelDomainTransferToAnotherAwsAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand,
-  serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand,
+  de_CancelDomainTransferToAnotherAwsAccountCommand,
+  se_CancelDomainTransferToAnotherAwsAccountCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelDomainTransferToAnotherAwsAccountCommand}.
+ */
 export interface CancelDomainTransferToAnotherAwsAccountCommandInput
   extends CancelDomainTransferToAnotherAwsAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelDomainTransferToAnotherAwsAccountCommand}.
+ */
 export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
   extends CancelDomainTransferToAnotherAwsAccountResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the transfer of a domain from the current Amazon Web Services account to
  * 			another Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>. </p>
  *          <important>
@@ -46,13 +55,32 @@ export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
  * import { Route53DomainsClient, CancelDomainTransferToAnotherAwsAccountCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, CancelDomainTransferToAnotherAwsAccountCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // CancelDomainTransferToAnotherAwsAccountRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new CancelDomainTransferToAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelDomainTransferToAnotherAwsAccountCommandInput - {@link CancelDomainTransferToAnotherAwsAccountCommandInput}
+ * @returns {@link CancelDomainTransferToAnotherAwsAccountCommandOutput}
  * @see {@link CancelDomainTransferToAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link CancelDomainTransferToAnotherAwsAccountCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link OperationLimitExceeded} (client fault)
+ *  <p>The number of operations or jobs running exceeded the allowed threshold for the
+ * 			account.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
@@ -72,6 +100,9 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelDomainTransferToAnotherAwsAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +137,8 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelDomainTransferToAnotherAwsAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelDomainTransferToAnotherAwsAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +148,24 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelDomainTransferToAnotherAwsAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand(input, context);
+    return se_CancelDomainTransferToAnotherAwsAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelDomainTransferToAnotherAwsAccountCommandOutput> {
-    return deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand(output, context);
+    return de_CancelDomainTransferToAnotherAwsAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

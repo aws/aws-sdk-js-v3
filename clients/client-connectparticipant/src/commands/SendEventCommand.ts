@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import {
-  SendEventRequest,
-  SendEventRequestFilterSensitiveLog,
-  SendEventResponse,
-  SendEventResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SendEventCommand,
-  serializeAws_restJson1SendEventCommand,
-} from "../protocols/Aws_restJson1";
+import { SendEventRequest, SendEventResponse } from "../models/models_0";
+import { de_SendEventCommand, se_SendEventCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SendEventCommand}.
+ */
 export interface SendEventCommandInput extends SendEventRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendEventCommand}.
+ */
 export interface SendEventCommandOutput extends SendEventResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an event. </p>
  *          <note>
  *             <p>
@@ -47,13 +50,34 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * import { ConnectParticipantClient, SendEventCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, SendEventCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
+ * const input = { // SendEventRequest
+ *   ContentType: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   ConnectionToken: "STRING_VALUE", // required
+ * };
  * const command = new SendEventCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendEventCommandInput - {@link SendEventCommandInput}
+ * @returns {@link SendEventCommandOutput}
  * @see {@link SendEventCommandInput} for command's `input` shape.
  * @see {@link SendEventCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+ *
  *
  */
 export class SendEventCommand extends $Command<
@@ -73,6 +97,9 @@ export class SendEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +126,8 @@ export class SendEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendEventRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendEventResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +137,18 @@ export class SendEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendEventCommand(input, context);
+    return se_SendEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEventCommandOutput> {
-    return deserializeAws_restJson1SendEventCommand(output, context);
+    return de_SendEventCommand(output, context);
   }
 
   // Start section: command_body_extra

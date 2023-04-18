@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import {
-  StartApplicationRequest,
-  StartApplicationRequestFilterSensitiveLog,
-  StartApplicationResponse,
-  StartApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartApplicationCommand,
-  serializeAws_json1_1StartApplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
+import { de_StartApplicationCommand, se_StartApplicationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartApplicationCommand}.
+ */
 export interface StartApplicationCommandInput extends StartApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartApplicationCommand}.
+ */
 export interface StartApplicationCommandOutput extends StartApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the specified Kinesis Data Analytics application. After creating an application, you must exclusively call this operation to
  *       start your application.</p>
  * @example
@@ -41,13 +44,51 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * import { KinesisAnalyticsV2Client, StartApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, StartApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // StartApplicationRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   RunConfiguration: { // RunConfiguration
+ *     FlinkRunConfiguration: { // FlinkRunConfiguration
+ *       AllowNonRestoredState: true || false,
+ *     },
+ *     SqlRunConfigurations: [ // SqlRunConfigurations
+ *       { // SqlRunConfiguration
+ *         InputId: "STRING_VALUE", // required
+ *         InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
+ *           InputStartingPosition: "NOW" || "TRIM_HORIZON" || "LAST_STOPPED_POINT",
+ *         },
+ *       },
+ *     ],
+ *     ApplicationRestoreConfiguration: { // ApplicationRestoreConfiguration
+ *       ApplicationRestoreType: "SKIP_RESTORE_FROM_SNAPSHOT" || "RESTORE_FROM_LATEST_SNAPSHOT" || "RESTORE_FROM_CUSTOM_SNAPSHOT", // required
+ *       SnapshotName: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartApplicationCommandInput - {@link StartApplicationCommandInput}
+ * @returns {@link StartApplicationCommandOutput}
  * @see {@link StartApplicationCommandInput} for command's `input` shape.
  * @see {@link StartApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
+ *
+ * @throws {@link InvalidApplicationConfigurationException} (client fault)
+ *  <p>The user-provided application configuration is not valid.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter value is not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The application is not available for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
  *
  */
 export class StartApplicationCommand extends $Command<
@@ -67,6 +108,9 @@ export class StartApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +139,8 @@ export class StartApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +150,18 @@ export class StartApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartApplicationCommand(input, context);
+    return se_StartApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartApplicationCommandOutput> {
-    return deserializeAws_json1_1StartApplicationCommand(output, context);
+    return de_StartApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

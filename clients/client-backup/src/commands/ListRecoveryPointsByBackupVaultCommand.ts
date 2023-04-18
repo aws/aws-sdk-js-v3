@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { ListRecoveryPointsByBackupVaultInput, ListRecoveryPointsByBackupVaultOutput } from "../models/models_0";
 import {
-  ListRecoveryPointsByBackupVaultInput,
-  ListRecoveryPointsByBackupVaultInputFilterSensitiveLog,
-  ListRecoveryPointsByBackupVaultOutput,
-  ListRecoveryPointsByBackupVaultOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand,
-  serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand,
+  de_ListRecoveryPointsByBackupVaultCommand,
+  se_ListRecoveryPointsByBackupVaultCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRecoveryPointsByBackupVaultCommand}.
+ */
 export interface ListRecoveryPointsByBackupVaultCommandInput extends ListRecoveryPointsByBackupVaultInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListRecoveryPointsByBackupVaultCommand}.
+ */
 export interface ListRecoveryPointsByBackupVaultCommandOutput
   extends ListRecoveryPointsByBackupVaultOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about the recovery points stored in a backup vault.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,40 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * import { BackupClient, ListRecoveryPointsByBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRecoveryPointsByBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListRecoveryPointsByBackupVaultInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ByResourceArn: "STRING_VALUE",
+ *   ByResourceType: "STRING_VALUE",
+ *   ByBackupPlanId: "STRING_VALUE",
+ *   ByCreatedBefore: new Date("TIMESTAMP"),
+ *   ByCreatedAfter: new Date("TIMESTAMP"),
+ *   ByParentRecoveryPointArn: "STRING_VALUE",
+ * };
  * const command = new ListRecoveryPointsByBackupVaultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecoveryPointsByBackupVaultCommandInput - {@link ListRecoveryPointsByBackupVaultCommandInput}
+ * @returns {@link ListRecoveryPointsByBackupVaultCommandOutput}
  * @see {@link ListRecoveryPointsByBackupVaultCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsByBackupVaultCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class ListRecoveryPointsByBackupVaultCommand extends $Command<
@@ -64,6 +97,9 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecoveryPointsByBackupVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +128,8 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecoveryPointsByBackupVaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecoveryPointsByBackupVaultOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +139,24 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListRecoveryPointsByBackupVaultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand(input, context);
+    return se_ListRecoveryPointsByBackupVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> {
-    return deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand(output, context);
+    return de_ListRecoveryPointsByBackupVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  UntagProjectRequest,
-  UntagProjectRequestFilterSensitiveLog,
-  UntagProjectResult,
-  UntagProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagProjectCommand,
-  serializeAws_json1_1UntagProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { UntagProjectRequest, UntagProjectResult } from "../models/models_0";
+import { de_UntagProjectCommand, se_UntagProjectCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UntagProjectCommand}.
+ */
 export interface UntagProjectCommandInput extends UntagProjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UntagProjectCommand}.
+ */
 export interface UntagProjectCommandOutput extends UntagProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes tags from a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface UntagProjectCommandOutput extends UntagProjectResult, __Metadat
  * import { CodeStarClient, UntagProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, UntagProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // UntagProjectRequest
+ *   id: "STRING_VALUE", // required
+ *   tags: [ // TagKeys // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagProjectCommandInput - {@link UntagProjectCommandInput}
+ * @returns {@link UntagProjectCommandOutput}
  * @see {@link UntagProjectCommandInput} for command's `input` shape.
  * @see {@link UntagProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (server fault)
+ *  <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A resource limit has been exceeded.</p>
+ *
+ * @throws {@link ProjectNotFoundException} (client fault)
+ *  <p>The specified AWS CodeStar project was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
  *
  */
 export class UntagProjectCommand extends $Command<
@@ -62,6 +87,9 @@ export class UntagProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class UntagProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UntagProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class UntagProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagProjectCommand(input, context);
+    return se_UntagProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagProjectCommandOutput> {
-    return deserializeAws_json1_1UntagProjectCommand(output, context);
+    return de_UntagProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

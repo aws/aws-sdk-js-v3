@@ -13,24 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBInstanceMessage,
-  DBInstanceMessageFilterSensitiveLog,
-  DescribeDBInstancesMessage,
-  DescribeDBInstancesMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DBInstanceMessage, DescribeDBInstancesMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeDBInstancesCommand,
-  serializeAws_queryDescribeDBInstancesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBInstancesCommand, se_DescribeDBInstancesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDBInstancesCommand}.
+ */
 export interface DescribeDBInstancesCommandInput extends DescribeDBInstancesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDBInstancesCommand}.
+ */
 export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about provisioned instances, and supports pagination.</p>
- *
  *          <note>
  *             <p>This operation can also return information for Amazon RDS instances
  *     and Amazon DocDB instances.</p>
@@ -41,13 +43,33 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * import { NeptuneClient, DescribeDBInstancesCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBInstancesCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DescribeDBInstancesMessage
+ *   DBInstanceIdentifier: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBInstancesCommandInput - {@link DescribeDBInstancesCommandInput}
+ * @returns {@link DescribeDBInstancesCommandOutput}
  * @see {@link DescribeDBInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBInstancesCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
  *
  */
 export class DescribeDBInstancesCommand extends $Command<
@@ -67,6 +89,9 @@ export class DescribeDBInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +120,8 @@ export class DescribeDBInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBInstancesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBInstanceMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +131,18 @@ export class DescribeDBInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBInstancesCommand(input, context);
+    return se_DescribeDBInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBInstancesCommandOutput> {
-    return deserializeAws_queryDescribeDBInstancesCommand(output, context);
+    return de_DescribeDBInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

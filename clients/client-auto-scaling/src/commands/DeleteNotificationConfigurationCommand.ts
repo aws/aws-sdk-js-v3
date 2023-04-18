@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { DeleteNotificationConfigurationType } from "../models/models_0";
 import {
-  DeleteNotificationConfigurationType,
-  DeleteNotificationConfigurationTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteNotificationConfigurationCommand,
-  serializeAws_queryDeleteNotificationConfigurationCommand,
+  de_DeleteNotificationConfigurationCommand,
+  se_DeleteNotificationConfigurationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteNotificationConfigurationCommand}.
+ */
 export interface DeleteNotificationConfigurationCommandInput extends DeleteNotificationConfigurationType {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNotificationConfigurationCommand}.
+ */
 export interface DeleteNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified notification.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +42,36 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * import { AutoScalingClient, DeleteNotificationConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteNotificationConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DeleteNotificationConfigurationType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   TopicARN: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotificationConfigurationCommandInput - {@link DeleteNotificationConfigurationCommandInput}
+ * @returns {@link DeleteNotificationConfigurationCommandOutput}
  * @see {@link DeleteNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To delete an Auto Scaling notification
+ * ```javascript
+ * // This example deletes the specified notification from the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic"
+ * };
+ * const command = new DeleteNotificationConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-delete-notification-configuration-1
+ * ```
  *
  */
 export class DeleteNotificationConfigurationCommand extends $Command<
@@ -60,6 +91,9 @@ export class DeleteNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +122,8 @@ export class DeleteNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNotificationConfigurationTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,18 +133,24 @@ export class DeleteNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteNotificationConfigurationCommand(input, context);
+    return se_DeleteNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotificationConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteNotificationConfigurationCommand(output, context);
+    return de_DeleteNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

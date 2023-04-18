@@ -17,18 +17,25 @@ import {
   CreateBrowserSettingsRequest,
   CreateBrowserSettingsRequestFilterSensitiveLog,
   CreateBrowserSettingsResponse,
-  CreateBrowserSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBrowserSettingsCommand,
-  serializeAws_restJson1CreateBrowserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBrowserSettingsCommand, se_CreateBrowserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBrowserSettingsCommand}.
+ */
 export interface CreateBrowserSettingsCommandInput extends CreateBrowserSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBrowserSettingsCommand}.
+ */
 export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a browser settings resource that can be associated with a web portal. Once
  *          associated with a web portal, browser settings control how the browser will behave once a
  *          user starts a streaming session for the web portal. </p>
@@ -38,13 +45,51 @@ export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSetting
  * import { WorkSpacesWebClient, CreateBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // CreateBrowserSettingsRequest
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   customerManagedKey: "STRING_VALUE",
+ *   additionalEncryptionContext: { // EncryptionContextMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   browserPolicy: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateBrowserSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBrowserSettingsCommandInput - {@link CreateBrowserSettingsCommandInput}
+ * @returns {@link CreateBrowserSettingsCommandOutput}
  * @see {@link CreateBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class CreateBrowserSettingsCommand extends $Command<
@@ -64,6 +109,9 @@ export class CreateBrowserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBrowserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +141,7 @@ export class CreateBrowserSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateBrowserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBrowserSettingsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +151,18 @@ export class CreateBrowserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBrowserSettingsCommand(input, context);
+    return se_CreateBrowserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1CreateBrowserSettingsCommand(output, context);
+    return de_CreateBrowserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

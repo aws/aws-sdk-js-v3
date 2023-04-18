@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DeleteGameServerGroupInput,
-  DeleteGameServerGroupInputFilterSensitiveLog,
-  DeleteGameServerGroupOutput,
-  DeleteGameServerGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGameServerGroupCommand,
-  serializeAws_json1_1DeleteGameServerGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteGameServerGroupInput, DeleteGameServerGroupOutput } from "../models/models_0";
+import { de_DeleteGameServerGroupCommand, se_DeleteGameServerGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteGameServerGroupCommand}.
+ */
 export interface DeleteGameServerGroupCommandInput extends DeleteGameServerGroupInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteGameServerGroupCommand}.
+ */
 export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -70,13 +73,34 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  * import { GameLiftClient, DeleteGameServerGroupCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteGameServerGroupCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DeleteGameServerGroupInput
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   DeleteOption: "SAFE_DELETE" || "FORCE_DELETE" || "RETAIN",
+ * };
  * const command = new DeleteGameServerGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGameServerGroupCommandInput - {@link DeleteGameServerGroupCommandInput}
+ * @returns {@link DeleteGameServerGroupCommandOutput}
  * @see {@link DeleteGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGameServerGroupCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class DeleteGameServerGroupCommand extends $Command<
@@ -96,6 +120,9 @@ export class DeleteGameServerGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGameServerGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +151,8 @@ export class DeleteGameServerGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGameServerGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGameServerGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +162,18 @@ export class DeleteGameServerGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGameServerGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGameServerGroupCommand(input, context);
+    return se_DeleteGameServerGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGameServerGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteGameServerGroupCommand(output, context);
+    return de_DeleteGameServerGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

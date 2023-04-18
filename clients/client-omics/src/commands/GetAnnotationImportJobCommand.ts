@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAnnotationImportRequest,
-  GetAnnotationImportRequestFilterSensitiveLog,
-  GetAnnotationImportResponse,
-  GetAnnotationImportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAnnotationImportRequest, GetAnnotationImportResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetAnnotationImportJobCommand,
-  serializeAws_restJson1GetAnnotationImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAnnotationImportJobCommand, se_GetAnnotationImportJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAnnotationImportJobCommand}.
+ */
 export interface GetAnnotationImportJobCommandInput extends GetAnnotationImportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAnnotationImportJobCommand}.
+ */
 export interface GetAnnotationImportJobCommandOutput extends GetAnnotationImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an annotation import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetAnnotationImportJobCommandOutput extends GetAnnotationImport
  * import { OmicsClient, GetAnnotationImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetAnnotationImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // GetAnnotationImportRequest
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new GetAnnotationImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnnotationImportJobCommandInput - {@link GetAnnotationImportJobCommandInput}
+ * @returns {@link GetAnnotationImportJobCommandOutput}
  * @see {@link GetAnnotationImportJobCommandInput} for command's `input` shape.
  * @see {@link GetAnnotationImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetAnnotationImportJobCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetAnnotationImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnnotationImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetAnnotationImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAnnotationImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAnnotationImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class GetAnnotationImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnnotationImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAnnotationImportJobCommand(input, context);
+    return se_GetAnnotationImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnnotationImportJobCommandOutput> {
-    return deserializeAws_restJson1GetAnnotationImportJobCommand(output, context);
+    return de_GetAnnotationImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

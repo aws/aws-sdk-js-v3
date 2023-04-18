@@ -21,19 +21,26 @@ import {
 } from "../CognitoIdentityProviderClient";
 import {
   ListUsersInGroupRequest,
-  ListUsersInGroupRequestFilterSensitiveLog,
   ListUsersInGroupResponse,
   ListUsersInGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListUsersInGroupCommand,
-  serializeAws_json1_1ListUsersInGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListUsersInGroupCommand, se_ListUsersInGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListUsersInGroupCommand}.
+ */
 export interface ListUsersInGroupCommandInput extends ListUsersInGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListUsersInGroupCommand}.
+ */
 export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the users in the specified group.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -42,13 +49,40 @@ export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse,
  * import { CognitoIdentityProviderClient, ListUsersInGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListUsersInGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ListUsersInGroupRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   GroupName: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListUsersInGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUsersInGroupCommandInput - {@link ListUsersInGroupCommandInput}
+ * @returns {@link ListUsersInGroupCommandOutput}
  * @see {@link ListUsersInGroupCommandInput} for command's `input` shape.
  * @see {@link ListUsersInGroupCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class ListUsersInGroupCommand extends $Command<
@@ -68,6 +102,9 @@ export class ListUsersInGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUsersInGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,7 +134,7 @@ export class ListUsersInGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsersInGroupRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListUsersInGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -108,12 +145,18 @@ export class ListUsersInGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUsersInGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUsersInGroupCommand(input, context);
+    return se_ListUsersInGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsersInGroupCommandOutput> {
-    return deserializeAws_json1_1ListUsersInGroupCommand(output, context);
+    return de_ListUsersInGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

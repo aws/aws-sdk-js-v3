@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  SubmitFeedbackRequest,
-  SubmitFeedbackRequestFilterSensitiveLog,
-  SubmitFeedbackResponse,
-  SubmitFeedbackResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SubmitFeedbackCommand,
-  serializeAws_restJson1SubmitFeedbackCommand,
-} from "../protocols/Aws_restJson1";
+import { SubmitFeedbackRequest, SubmitFeedbackResponse } from "../models/models_0";
+import { de_SubmitFeedbackCommand, se_SubmitFeedbackCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SubmitFeedbackCommand}.
+ */
 export interface SubmitFeedbackCommandInput extends SubmitFeedbackRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SubmitFeedbackCommand}.
+ */
 export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends feedback to CodeGuru Profiler about whether the anomaly detected by the analysis is
  *             useful or not.</p>
  * @example
@@ -37,13 +40,34 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  * import { CodeGuruProfilerClient, SubmitFeedbackCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, SubmitFeedbackCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // SubmitFeedbackRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   anomalyInstanceId: "STRING_VALUE", // required
+ *   type: "STRING_VALUE", // required
+ *   comment: "STRING_VALUE",
+ * };
  * const command = new SubmitFeedbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitFeedbackCommandInput - {@link SubmitFeedbackCommandInput}
+ * @returns {@link SubmitFeedbackCommandOutput}
  * @see {@link SubmitFeedbackCommandInput} for command's `input` shape.
  * @see {@link SubmitFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class SubmitFeedbackCommand extends $Command<
@@ -63,6 +87,9 @@ export class SubmitFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class SubmitFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubmitFeedbackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +129,18 @@ export class SubmitFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubmitFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SubmitFeedbackCommand(input, context);
+    return se_SubmitFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitFeedbackCommandOutput> {
-    return deserializeAws_restJson1SubmitFeedbackCommand(output, context);
+    return de_SubmitFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

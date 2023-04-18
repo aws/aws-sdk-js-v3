@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListNamespacesRequest,
-  ListNamespacesRequestFilterSensitiveLog,
-  ListNamespacesResponse,
-  ListNamespacesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListNamespacesCommand,
-  serializeAws_json1_1ListNamespacesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListNamespacesRequest, ListNamespacesResponse } from "../models/models_0";
+import { de_ListNamespacesCommand, se_ListNamespacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNamespacesCommand}.
+ */
 export interface ListNamespacesCommandInput extends ListNamespacesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListNamespacesCommand}.
+ */
 export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists summary information about the namespaces that were created by the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,93 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * import { ServiceDiscoveryClient, ListNamespacesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListNamespacesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // ListNamespacesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // NamespaceFilters
+ *     { // NamespaceFilter
+ *       Name: "TYPE" || "NAME" || "HTTP_NAME", // required
+ *       Values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Condition: "EQ" || "IN" || "BETWEEN" || "BEGINS_WITH",
+ *     },
+ *   ],
+ * };
  * const command = new ListNamespacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNamespacesCommandInput - {@link ListNamespacesCommandInput}
+ * @returns {@link ListNamespacesCommandOutput}
  * @see {@link ListNamespacesCommandInput} for command's `input` shape.
  * @see {@link ListNamespacesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
+ *
+ *
+ * @example Example: List namespaces
+ * ```javascript
+ * // Example: List namespaces
+ * const input = {};
+ * const command = new ListNamespacesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Namespaces": [
+ *     {
+ *       "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-a3ccy2e7e3a7rile",
+ *       "CreateDate": 1585354387.357,
+ *       "Id": "ns-a3ccy2e7e3a7rile",
+ *       "Name": "local",
+ *       "Properties": {
+ *         "DnsProperties": {
+ *           "HostedZoneId": "Z06752353VBUDTC32S84S"
+ *         },
+ *         "HttpProperties": {
+ *           "HttpName": "local"
+ *         }
+ *       },
+ *       "Type": "DNS_PRIVATE"
+ *     },
+ *     {
+ *       "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-pocfyjtrsmwtvcxx",
+ *       "CreateDate": 1586468974.698,
+ *       "Description": "My second namespace",
+ *       "Id": "ns-pocfyjtrsmwtvcxx",
+ *       "Name": "My-second-namespace",
+ *       "Properties": {
+ *         "DnsProperties": {},
+ *         "HttpProperties": {
+ *           "HttpName": "My-second-namespace"
+ *         }
+ *       },
+ *       "Type": "HTTP"
+ *     },
+ *     {
+ *       "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-ylexjili4cdxy3xm",
+ *       "CreateDate": 1587055896.798,
+ *       "Id": "ns-ylexjili4cdxy3xm",
+ *       "Name": "example.com",
+ *       "Properties": {
+ *         "DnsProperties": {
+ *           "HostedZoneId": "Z09983722P0QME1B3KC8I"
+ *         },
+ *         "HttpProperties": {
+ *           "HttpName": "example.com"
+ *         }
+ *       },
+ *       "Type": "DNS_PRIVATE"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-list-namespaces-1587401553154
+ * ```
  *
  */
 export class ListNamespacesCommand extends $Command<
@@ -62,6 +145,9 @@ export class ListNamespacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNamespacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +176,8 @@ export class ListNamespacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNamespacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNamespacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +187,18 @@ export class ListNamespacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNamespacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNamespacesCommand(input, context);
+    return se_ListNamespacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamespacesCommandOutput> {
-    return deserializeAws_json1_1ListNamespacesCommand(output, context);
+    return de_ListNamespacesCommand(output, context);
   }
 
   // Start section: command_body_extra

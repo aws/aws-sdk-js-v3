@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  CreateAllowListRequest,
-  CreateAllowListRequestFilterSensitiveLog,
-  CreateAllowListResponse,
-  CreateAllowListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAllowListCommand,
-  serializeAws_restJson1CreateAllowListCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAllowListRequest, CreateAllowListResponse } from "../models/models_0";
+import { de_CreateAllowListCommand, se_CreateAllowListCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAllowListCommand}.
+ */
 export interface CreateAllowListCommandInput extends CreateAllowListRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAllowListCommand}.
+ */
 export interface CreateAllowListCommandOutput extends CreateAllowListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and defines the settings for an allow list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,52 @@ export interface CreateAllowListCommandOutput extends CreateAllowListResponse, _
  * import { Macie2Client, CreateAllowListCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, CreateAllowListCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // CreateAllowListRequest
+ *   clientToken: "STRING_VALUE", // required
+ *   criteria: { // AllowListCriteria
+ *     regex: "STRING_VALUE",
+ *     s3WordsList: { // S3WordsList
+ *       bucketName: "STRING_VALUE", // required
+ *       objectKey: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   description: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAllowListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAllowListCommandInput - {@link CreateAllowListCommandInput}
+ * @returns {@link CreateAllowListCommandOutput}
  * @see {@link CreateAllowListCommandInput} for command's `input` shape.
  * @see {@link CreateAllowListCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class CreateAllowListCommand extends $Command<
@@ -62,6 +104,9 @@ export class CreateAllowListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAllowListCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +135,8 @@ export class CreateAllowListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAllowListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAllowListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +146,18 @@ export class CreateAllowListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAllowListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAllowListCommand(input, context);
+    return se_CreateAllowListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAllowListCommandOutput> {
-    return deserializeAws_restJson1CreateAllowListCommand(output, context);
+    return de_CreateAllowListCommand(output, context);
   }
 
   // Start section: command_body_extra

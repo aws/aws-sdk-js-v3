@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DescribeTargetHealthInput,
-  DescribeTargetHealthInputFilterSensitiveLog,
-  DescribeTargetHealthOutput,
-  DescribeTargetHealthOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeTargetHealthCommand,
-  serializeAws_queryDescribeTargetHealthCommand,
-} from "../protocols/Aws_query";
+import { DescribeTargetHealthInput, DescribeTargetHealthOutput } from "../models/models_0";
+import { de_DescribeTargetHealthCommand, se_DescribeTargetHealthCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTargetHealthCommand}.
+ */
 export interface DescribeTargetHealthCommandInput extends DescribeTargetHealthInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTargetHealthCommand}.
+ */
 export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the health of the specified targets or all of your targets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,108 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * import { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DescribeTargetHealthInput
+ *   TargetGroupArn: "STRING_VALUE", // required
+ *   Targets: [ // TargetDescriptions
+ *     { // TargetDescription
+ *       Id: "STRING_VALUE", // required
+ *       Port: Number("int"),
+ *       AvailabilityZone: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DescribeTargetHealthCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTargetHealthCommandInput - {@link DescribeTargetHealthCommandInput}
+ * @returns {@link DescribeTargetHealthCommandOutput}
  * @see {@link DescribeTargetHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeTargetHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link HealthUnavailableException} (server fault)
+ *  <p>The health of the specified targets could not be retrieved due to an internal
+ *       error.</p>
+ *
+ * @throws {@link InvalidTargetException} (client fault)
+ *  <p>The specified target does not exist, is not in the same VPC as the target group, or has an
+ *       unsupported instance type.</p>
+ *
+ * @throws {@link TargetGroupNotFoundException} (client fault)
+ *  <p>The specified target group does not exist.</p>
+ *
+ *
+ * @example To describe the health of the targets for a target group
+ * ```javascript
+ * // This example describes the health of the targets for the specified target group. One target is healthy but the other is not specified in an action, so it can't receive traffic from the load balancer.
+ * const input = {
+ *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ * };
+ * const command = new DescribeTargetHealthCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TargetHealthDescriptions": [
+ *     {
+ *       "Target": {
+ *         "Id": "i-0f76fade",
+ *         "Port": 80
+ *       },
+ *       "TargetHealth": {
+ *         "Description": "Given target group is not configured to receive traffic from ELB",
+ *         "Reason": "Target.NotInUse",
+ *         "State": "unused"
+ *       }
+ *     },
+ *     {
+ *       "HealthCheckPort": "80",
+ *       "Target": {
+ *         "Id": "i-0f76fade",
+ *         "Port": 80
+ *       },
+ *       "TargetHealth": {
+ *         "State": "healthy"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-describe-target-health-1
+ * ```
+ *
+ * @example To describe the health of a target
+ * ```javascript
+ * // This example describes the health of the specified target. This target is healthy.
+ * const input = {
+ *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *   "Targets": [
+ *     {
+ *       "Id": "i-0f76fade",
+ *       "Port": 80
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeTargetHealthCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TargetHealthDescriptions": [
+ *     {
+ *       "HealthCheckPort": "80",
+ *       "Target": {
+ *         "Id": "i-0f76fade",
+ *         "Port": 80
+ *       },
+ *       "TargetHealth": {
+ *         "State": "healthy"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-describe-target-health-2
+ * ```
  *
  */
 export class DescribeTargetHealthCommand extends $Command<
@@ -66,6 +164,9 @@ export class DescribeTargetHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTargetHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +195,8 @@ export class DescribeTargetHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTargetHealthInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTargetHealthOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +206,18 @@ export class DescribeTargetHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTargetHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTargetHealthCommand(input, context);
+    return se_DescribeTargetHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTargetHealthCommandOutput> {
-    return deserializeAws_queryDescribeTargetHealthCommand(output, context);
+    return de_DescribeTargetHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

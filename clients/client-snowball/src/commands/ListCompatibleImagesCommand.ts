@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCompatibleImagesRequest,
-  ListCompatibleImagesRequestFilterSensitiveLog,
-  ListCompatibleImagesResult,
-  ListCompatibleImagesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCompatibleImagesCommand,
-  serializeAws_json1_1ListCompatibleImagesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/models_0";
+import { de_ListCompatibleImagesCommand, se_ListCompatibleImagesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCompatibleImagesCommand}.
+ */
 export interface ListCompatibleImagesCommandInput extends ListCompatibleImagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCompatibleImagesCommand}.
+ */
 export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action returns a list of the different Amazon EC2 Amazon Machine Images (AMIs)
  *       that are owned by your Amazon Web Services accountthat would be supported for use on a Snow
  *       device. Currently, supported AMIs are based on the CentOS 7 (x86_64) - with Updates HVM,
@@ -40,13 +43,29 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  * import { SnowballClient, ListCompatibleImagesCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListCompatibleImagesCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // ListCompatibleImagesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCompatibleImagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCompatibleImagesCommandInput - {@link ListCompatibleImagesCommandInput}
+ * @returns {@link ListCompatibleImagesCommandOutput}
  * @see {@link ListCompatibleImagesCommandInput} for command's `input` shape.
  * @see {@link ListCompatibleImagesCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
+ *
+ * @throws {@link Ec2RequestFailedException} (client fault)
+ *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *       action.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
+ *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
+ *       again.</p>
+ *
  *
  */
 export class ListCompatibleImagesCommand extends $Command<
@@ -66,6 +85,9 @@ export class ListCompatibleImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCompatibleImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +116,8 @@ export class ListCompatibleImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCompatibleImagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCompatibleImagesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +127,18 @@ export class ListCompatibleImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCompatibleImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCompatibleImagesCommand(input, context);
+    return se_ListCompatibleImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCompatibleImagesCommandOutput> {
-    return deserializeAws_json1_1ListCompatibleImagesCommand(output, context);
+    return de_ListCompatibleImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

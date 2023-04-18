@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { UpdateAliasRequest, UpdateAliasRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAliasCommand,
-  serializeAws_json1_1UpdateAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateAliasRequest } from "../models/models_0";
+import { de_UpdateAliasCommand, se_UpdateAliasCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAliasCommand}.
+ */
 export interface UpdateAliasCommandInput extends UpdateAliasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAliasCommand}.
+ */
 export interface UpdateAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an existing KMS alias with a different KMS key. Each alias is associated with
  *       only one KMS key at a time, although a KMS key can have multiple aliases. The alias and the
  *       KMS key must be in the same Amazon Web Services account and Region.</p>
@@ -93,13 +101,66 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  * import { KMSClient, UpdateAliasCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, UpdateAliasCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // UpdateAliasRequest
+ *   AliasName: "STRING_VALUE", // required
+ *   TargetKeyId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAliasCommandInput - {@link UpdateAliasCommandInput}
+ * @returns {@link UpdateAliasCommandOutput}
  * @see {@link UpdateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
+ *       <i>Key Management Service Developer Guide</i>.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ *
+ * @example To update an alias
+ * ```javascript
+ * // The following example updates the specified alias to refer to the specified KMS key.
+ * const input = {
+ *   "AliasName": "alias/ExampleAlias",
+ *   "TargetKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new UpdateAliasCommand(input);
+ * await client.send(command);
+ * // example id: to-update-an-alias-1481572726920
+ * ```
  *
  */
 export class UpdateAliasCommand extends $Command<
@@ -119,6 +180,9 @@ export class UpdateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +209,8 @@ export class UpdateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +220,18 @@ export class UpdateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAliasCommand(input, context);
+    return se_UpdateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAliasCommandOutput> {
-    return deserializeAws_json1_1UpdateAliasCommand(output, context);
+    return de_UpdateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

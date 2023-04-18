@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSenderIdsRequest,
-  DescribeSenderIdsRequestFilterSensitiveLog,
-  DescribeSenderIdsResult,
-  DescribeSenderIdsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSenderIdsRequest, DescribeSenderIdsResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeSenderIdsCommand,
-  serializeAws_json1_0DescribeSenderIdsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeSenderIdsCommand, se_DescribeSenderIdsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSenderIdsCommand}.
+ */
 export interface DescribeSenderIdsCommandInput extends DescribeSenderIdsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSenderIdsCommand}.
+ */
 export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified SenderIds or all SenderIds associated with your Amazon Web Services account.</p>
  *         <p>If you specify SenderIds, the output includes information for only the specified
  *             SenderIds. If you specify filters, the output includes information for only those
@@ -45,13 +48,52 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
  * import { PinpointSMSVoiceV2Client, DescribeSenderIdsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeSenderIdsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DescribeSenderIdsRequest
+ *   SenderIds: [ // SenderIdList
+ *     { // SenderIdAndCountry
+ *       SenderId: "STRING_VALUE", // required
+ *       IsoCountryCode: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Filters: [ // SenderIdFilterList
+ *     { // SenderIdFilter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeSenderIdsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSenderIdsCommandInput - {@link DescribeSenderIdsCommandInput}
+ * @returns {@link DescribeSenderIdsCommandOutput}
  * @see {@link DescribeSenderIdsCommandInput} for command's `input` shape.
  * @see {@link DescribeSenderIdsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient permissions to access the
+ *             resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might
+ *             be able to successfully issue the request again in the future.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource couldn't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An error that occurred because too many requests were sent during a certain amount of
+ *             time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A validation exception for a field.</p>
+ *
  *
  */
 export class DescribeSenderIdsCommand extends $Command<
@@ -71,6 +113,9 @@ export class DescribeSenderIdsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSenderIdsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +144,8 @@ export class DescribeSenderIdsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSenderIdsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSenderIdsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +155,18 @@ export class DescribeSenderIdsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSenderIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeSenderIdsCommand(input, context);
+    return se_DescribeSenderIdsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSenderIdsCommandOutput> {
-    return deserializeAws_json1_0DescribeSenderIdsCommand(output, context);
+    return de_DescribeSenderIdsCommand(output, context);
   }
 
   // Start section: command_body_extra

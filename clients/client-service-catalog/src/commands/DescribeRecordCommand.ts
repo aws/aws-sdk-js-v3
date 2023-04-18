@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeRecordInput,
-  DescribeRecordInputFilterSensitiveLog,
-  DescribeRecordOutput,
-  DescribeRecordOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRecordCommand,
-  serializeAws_json1_1DescribeRecordCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeRecordInput, DescribeRecordOutput } from "../models/models_0";
+import { de_DescribeRecordCommand, se_DescribeRecordCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRecordCommand}.
+ */
 export interface DescribeRecordCommandInput extends DescribeRecordInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRecordCommand}.
+ */
 export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified request operation.</p>
  *          <p>Use this operation after calling a request operation (for example, <a>ProvisionProduct</a>,
  *          <a>TerminateProvisionedProduct</a>, or <a>UpdateProvisionedProduct</a>).
@@ -44,13 +47,25 @@ export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __Met
  * import { ServiceCatalogClient, DescribeRecordCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeRecordCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeRecordInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ *   PageToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new DescribeRecordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecordCommandInput - {@link DescribeRecordCommandInput}
+ * @returns {@link DescribeRecordCommandOutput}
  * @see {@link DescribeRecordCommandInput} for command's `input` shape.
  * @see {@link DescribeRecordCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DescribeRecordCommand extends $Command<
@@ -70,6 +85,9 @@ export class DescribeRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +116,8 @@ export class DescribeRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecordInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecordOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +127,18 @@ export class DescribeRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRecordCommand(input, context);
+    return se_DescribeRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecordCommandOutput> {
-    return deserializeAws_json1_1DescribeRecordCommand(output, context);
+    return de_DescribeRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

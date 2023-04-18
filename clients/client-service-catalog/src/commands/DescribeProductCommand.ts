@@ -13,36 +13,62 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeProductInput,
-  DescribeProductInputFilterSensitiveLog,
-  DescribeProductOutput,
-  DescribeProductOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProductCommand,
-  serializeAws_json1_1DescribeProductCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeProductInput, DescribeProductOutput } from "../models/models_0";
+import { de_DescribeProductCommand, se_DescribeProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeProductCommand}.
+ */
 export interface DescribeProductCommandInput extends DescribeProductInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProductCommand}.
+ */
 export interface DescribeProductCommandOutput extends DescribeProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified product.</p>
+ *          <note>
+ *             <p>
+ *             Running this operation
+ *             with administrator access
+ *             results
+ *             in a failure.
+ *             <a>DescribeProductAsAdmin</a> should be used instead.
+ *          </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, DescribeProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeProductInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new DescribeProductCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProductCommandInput - {@link DescribeProductCommandInput}
+ * @returns {@link DescribeProductCommandOutput}
  * @see {@link DescribeProductCommandInput} for command's `input` shape.
  * @see {@link DescribeProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DescribeProductCommand extends $Command<
@@ -62,6 +88,9 @@ export class DescribeProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class DescribeProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProductInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProductOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class DescribeProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProductCommand(input, context);
+    return se_DescribeProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProductCommandOutput> {
-    return deserializeAws_json1_1DescribeProductCommand(output, context);
+    return de_DescribeProductCommand(output, context);
   }
 
   // Start section: command_body_extra

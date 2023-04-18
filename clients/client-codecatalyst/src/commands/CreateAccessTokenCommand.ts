@@ -16,19 +16,26 @@ import {
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import {
   CreateAccessTokenRequest,
-  CreateAccessTokenRequestFilterSensitiveLog,
   CreateAccessTokenResponse,
   CreateAccessTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAccessTokenCommand,
-  serializeAws_restJson1CreateAccessTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAccessTokenCommand, se_CreateAccessTokenCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAccessTokenCommand}.
+ */
 export interface CreateAccessTokenCommandInput extends CreateAccessTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAccessTokenCommand}.
+ */
 export interface CreateAccessTokenCommandOutput extends CreateAccessTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a personal access token (PAT) for the current user. A personal access token (PAT) is similar to a password.
  *       It is associated with your user account. You use PATs to access Amazon CodeCatalyst resources such as source repositories from third-party applications
  *       like Git and integrated development environments (IDEs). For more information, see
@@ -39,13 +46,40 @@ export interface CreateAccessTokenCommandOutput extends CreateAccessTokenRespons
  * import { CodeCatalystClient, CreateAccessTokenCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, CreateAccessTokenCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // CreateAccessTokenRequest
+ *   name: "STRING_VALUE", // required
+ *   expiresTime: new Date("TIMESTAMP"),
+ * };
  * const command = new CreateAccessTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessTokenCommandInput - {@link CreateAccessTokenCommandInput}
+ * @returns {@link CreateAccessTokenCommandOutput}
  * @see {@link CreateAccessTokenCommandInput} for command's `input` shape.
  * @see {@link CreateAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient access to perform this action. Verify that you are a member of a role that allows this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request was denied because the requested operation would cause a conflict with the current state of a service resource associated with the request.
+ *        Another user might have updated the resource. Reload, make sure you have the latest data, and then try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was denied because the specified resource was not found. Verify that the spelling is correct and that you have access to the resource.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request was denied because one or more resources has reached its limits for the tier the space belongs to. Either reduce
+ *       the number of resources, or change the tier if applicable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
+ *
  *
  */
 export class CreateAccessTokenCommand extends $Command<
@@ -64,6 +98,9 @@ export class CreateAccessTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +129,7 @@ export class CreateAccessTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessTokenRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateAccessTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,12 +140,18 @@ export class CreateAccessTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccessTokenCommand(input, context);
+    return se_CreateAccessTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessTokenCommandOutput> {
-    return deserializeAws_restJson1CreateAccessTokenCommand(output, context);
+    return de_CreateAccessTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

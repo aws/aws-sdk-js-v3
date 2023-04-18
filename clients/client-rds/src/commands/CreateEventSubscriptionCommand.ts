@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateEventSubscriptionMessage,
-  CreateEventSubscriptionMessageFilterSensitiveLog,
-  CreateEventSubscriptionResult,
-  CreateEventSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateEventSubscriptionCommand,
-  serializeAws_queryCreateEventSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { CreateEventSubscriptionMessage, CreateEventSubscriptionResult } from "../models/models_0";
+import { de_CreateEventSubscriptionCommand, se_CreateEventSubscriptionCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateEventSubscriptionCommand}.
+ */
 export interface CreateEventSubscriptionCommandInput extends CreateEventSubscriptionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEventSubscriptionCommand}.
+ */
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an RDS event notification subscription. This operation requires a topic Amazon
  *             Resource Name (ARN) created by either the RDS console, the SNS console, or the SNS API.
  *             To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the
@@ -59,13 +62,90 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * import { RDSClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CreateEventSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SnsTopicArn: "STRING_VALUE", // required
+ *   SourceType: "STRING_VALUE",
+ *   EventCategories: [ // EventCategoriesList
+ *     "STRING_VALUE",
+ *   ],
+ *   SourceIds: [ // SourceIdsList
+ *     "STRING_VALUE",
+ *   ],
+ *   Enabled: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
+ * @returns {@link CreateEventSubscriptionCommandOutput}
  * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
+ *  <p>You have reached the maximum number of event subscriptions.</p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>SNS has responded that there is a problem with the SNS topic specified.</p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>You do not have permission to publish to the SNS topic ARN.</p>
+ *
+ * @throws {@link SNSTopicArnNotFoundFault} (client fault)
+ *  <p>The SNS topic ARN does not exist.</p>
+ *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The requested source could not be found.</p>
+ *
+ * @throws {@link SubscriptionAlreadyExistFault} (client fault)
+ *  <p>The supplied subscription name already exists.</p>
+ *
+ * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
+ *  <p>The supplied category does not exist.</p>
+ *
+ *
+ * @example To create an event subscription
+ * ```javascript
+ * // The following example creates a subscription for backup and recovery events for DB instances in the current AWS account. Notifications are sent to an Amazon Simple Notification Service topic.
+ * const input = {
+ *   "EventCategories": [
+ *     "backup",
+ *     "recovery"
+ *   ],
+ *   "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *   "SourceType": "db-instance",
+ *   "SubscriptionName": "my-instance-events"
+ * };
+ * const command = new CreateEventSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventSubscription": {
+ *     "CustSubscriptionId": "my-instance-events",
+ *     "CustomerAwsId": "123456789012",
+ *     "Enabled": true,
+ *     "EventCategoriesList": [
+ *       "backup",
+ *       "recovery"
+ *     ],
+ *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     "SourceType": "db-instance",
+ *     "Status": "creating",
+ *     "SubscriptionCreationTime": "Tue Jul 31 23:22:01 UTC 2018"
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-an-event-subscription-1679956709288
+ * ```
  *
  */
 export class CreateEventSubscriptionCommand extends $Command<
@@ -85,6 +165,9 @@ export class CreateEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +196,8 @@ export class CreateEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEventSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEventSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +207,18 @@ export class CreateEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateEventSubscriptionCommand(input, context);
+    return se_CreateEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventSubscriptionCommandOutput> {
-    return deserializeAws_queryCreateEventSubscriptionCommand(output, context);
+    return de_CreateEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

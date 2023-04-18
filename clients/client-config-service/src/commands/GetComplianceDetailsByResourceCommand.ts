@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { GetComplianceDetailsByResourceRequest, GetComplianceDetailsByResourceResponse } from "../models/models_0";
 import {
-  GetComplianceDetailsByResourceRequest,
-  GetComplianceDetailsByResourceRequestFilterSensitiveLog,
-  GetComplianceDetailsByResourceResponse,
-  GetComplianceDetailsByResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetComplianceDetailsByResourceCommand,
-  serializeAws_json1_1GetComplianceDetailsByResourceCommand,
+  de_GetComplianceDetailsByResourceCommand,
+  se_GetComplianceDetailsByResourceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetComplianceDetailsByResourceCommand}.
+ */
 export interface GetComplianceDetailsByResourceCommandInput extends GetComplianceDetailsByResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetComplianceDetailsByResourceCommand}.
+ */
 export interface GetComplianceDetailsByResourceCommandOutput
   extends GetComplianceDetailsByResourceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the evaluation results for the specified Amazon Web Services resource.
  * 			The results indicate which Config rules were used to evaluate
  * 			the resource, when each rule was last invoked, and whether the resource
@@ -41,13 +47,29 @@ export interface GetComplianceDetailsByResourceCommandOutput
  * import { ConfigServiceClient, GetComplianceDetailsByResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetComplianceDetailsByResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetComplianceDetailsByResourceRequest
+ *   ResourceType: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE",
+ *   ComplianceTypes: [ // ComplianceTypes
+ *     "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   ResourceEvaluationId: "STRING_VALUE",
+ * };
  * const command = new GetComplianceDetailsByResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComplianceDetailsByResourceCommandInput - {@link GetComplianceDetailsByResourceCommandInput}
+ * @returns {@link GetComplianceDetailsByResourceCommandOutput}
  * @see {@link GetComplianceDetailsByResourceCommandInput} for command's `input` shape.
  * @see {@link GetComplianceDetailsByResourceCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are not valid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
  *
  */
 export class GetComplianceDetailsByResourceCommand extends $Command<
@@ -67,6 +89,9 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComplianceDetailsByResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +120,8 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComplianceDetailsByResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComplianceDetailsByResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +131,24 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetComplianceDetailsByResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceDetailsByResourceCommand(input, context);
+    return se_GetComplianceDetailsByResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetComplianceDetailsByResourceCommandOutput> {
-    return deserializeAws_json1_1GetComplianceDetailsByResourceCommand(output, context);
+    return de_GetComplianceDetailsByResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

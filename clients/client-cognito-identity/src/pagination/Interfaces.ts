@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { CognitoIdentity } from "../CognitoIdentity";
 import { CognitoIdentityClient } from "../CognitoIdentityClient";
 
+/**
+ * @public
+ */
 export interface CognitoIdentityPaginationConfiguration extends PaginationConfiguration {
-  client: CognitoIdentity | CognitoIdentityClient;
+  client: CognitoIdentityClient;
 }

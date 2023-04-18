@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DisassociateEnclaveCertificateIamRoleRequest,
-  DisassociateEnclaveCertificateIamRoleRequestFilterSensitiveLog,
   DisassociateEnclaveCertificateIamRoleResult,
-  DisassociateEnclaveCertificateIamRoleResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DisassociateEnclaveCertificateIamRoleCommand,
-  serializeAws_ec2DisassociateEnclaveCertificateIamRoleCommand,
+  de_DisassociateEnclaveCertificateIamRoleCommand,
+  se_DisassociateEnclaveCertificateIamRoleCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateEnclaveCertificateIamRoleCommand}.
+ */
 export interface DisassociateEnclaveCertificateIamRoleCommandInput
   extends DisassociateEnclaveCertificateIamRoleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateEnclaveCertificateIamRoleCommand}.
+ */
 export interface DisassociateEnclaveCertificateIamRoleCommandOutput
   extends DisassociateEnclaveCertificateIamRoleResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an IAM role from an Certificate Manager (ACM) certificate. Disassociating an IAM role
  * 			from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and
  * 			encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the
@@ -43,13 +52,21 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput
  * import { EC2Client, DisassociateEnclaveCertificateIamRoleCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateEnclaveCertificateIamRoleCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisassociateEnclaveCertificateIamRoleRequest
+ *   CertificateArn: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateEnclaveCertificateIamRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateEnclaveCertificateIamRoleCommandInput - {@link DisassociateEnclaveCertificateIamRoleCommandInput}
+ * @returns {@link DisassociateEnclaveCertificateIamRoleCommandOutput}
  * @see {@link DisassociateEnclaveCertificateIamRoleCommandInput} for command's `input` shape.
  * @see {@link DisassociateEnclaveCertificateIamRoleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DisassociateEnclaveCertificateIamRoleCommand extends $Command<
@@ -69,6 +86,9 @@ export class DisassociateEnclaveCertificateIamRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateEnclaveCertificateIamRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +117,8 @@ export class DisassociateEnclaveCertificateIamRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateEnclaveCertificateIamRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateEnclaveCertificateIamRoleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +128,24 @@ export class DisassociateEnclaveCertificateIamRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateEnclaveCertificateIamRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateEnclaveCertificateIamRoleCommand(input, context);
+    return se_DisassociateEnclaveCertificateIamRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateEnclaveCertificateIamRoleCommandOutput> {
-    return deserializeAws_ec2DisassociateEnclaveCertificateIamRoleCommand(output, context);
+    return de_DisassociateEnclaveCertificateIamRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

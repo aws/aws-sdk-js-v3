@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSubscriptionAttributesInput,
-  GetSubscriptionAttributesInputFilterSensitiveLog,
-  GetSubscriptionAttributesResponse,
-  GetSubscriptionAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetSubscriptionAttributesCommand,
-  serializeAws_queryGetSubscriptionAttributesCommand,
-} from "../protocols/Aws_query";
+import { GetSubscriptionAttributesInput, GetSubscriptionAttributesResponse } from "../models/models_0";
+import { de_GetSubscriptionAttributesCommand, se_GetSubscriptionAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSubscriptionAttributesCommand}.
+ */
 export interface GetSubscriptionAttributesCommandInput extends GetSubscriptionAttributesInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetSubscriptionAttributesCommand}.
+ */
 export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all of the properties of a subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
  * import { SNSClient, GetSubscriptionAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetSubscriptionAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // GetSubscriptionAttributesInput
+ *   SubscriptionArn: "STRING_VALUE", // required
+ * };
  * const command = new GetSubscriptionAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSubscriptionAttributesCommandInput - {@link GetSubscriptionAttributesCommandInput}
+ * @returns {@link GetSubscriptionAttributesCommandOutput}
  * @see {@link GetSubscriptionAttributesCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Indicates that the requested resource does not exist.</p>
+ *
  *
  */
 export class GetSubscriptionAttributesCommand extends $Command<
@@ -62,6 +84,9 @@ export class GetSubscriptionAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSubscriptionAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class GetSubscriptionAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSubscriptionAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSubscriptionAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +126,21 @@ export class GetSubscriptionAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSubscriptionAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSubscriptionAttributesCommand(input, context);
+    return se_GetSubscriptionAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSubscriptionAttributesCommandOutput> {
-    return deserializeAws_queryGetSubscriptionAttributesCommand(output, context);
+    return de_GetSubscriptionAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

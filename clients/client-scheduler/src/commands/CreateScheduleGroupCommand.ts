@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateScheduleGroupInput,
-  CreateScheduleGroupInputFilterSensitiveLog,
-  CreateScheduleGroupOutput,
-  CreateScheduleGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateScheduleGroupCommand,
-  serializeAws_restJson1CreateScheduleGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateScheduleGroupInput, CreateScheduleGroupOutput } from "../models/models_0";
+import { de_CreateScheduleGroupCommand, se_CreateScheduleGroupCommand } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateScheduleGroupCommand}.
+ */
 export interface CreateScheduleGroupCommandInput extends CreateScheduleGroupInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateScheduleGroupCommand}.
+ */
 export interface CreateScheduleGroupCommandOutput extends CreateScheduleGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified schedule group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface CreateScheduleGroupCommandOutput extends CreateScheduleGroupOut
  * import { SchedulerClient, CreateScheduleGroupCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, CreateScheduleGroupCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
+ * const input = { // CreateScheduleGroupInput
+ *   Name: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateScheduleGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScheduleGroupCommandInput - {@link CreateScheduleGroupCommandInput}
+ * @returns {@link CreateScheduleGroupCommandOutput}
  * @see {@link CreateScheduleGroupCommandInput} for command's `input` shape.
  * @see {@link CreateScheduleGroupCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting the resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error encountered while processing the request.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeds a service quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class CreateScheduleGroupCommand extends $Command<
@@ -62,6 +93,9 @@ export class CreateScheduleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScheduleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +124,8 @@ export class CreateScheduleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateScheduleGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateScheduleGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +135,18 @@ export class CreateScheduleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScheduleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateScheduleGroupCommand(input, context);
+    return se_CreateScheduleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduleGroupCommandOutput> {
-    return deserializeAws_restJson1CreateScheduleGroupCommand(output, context);
+    return de_CreateScheduleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

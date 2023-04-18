@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { DisassociateTrackerConsumerRequest, DisassociateTrackerConsumerResponse } from "../models/models_0";
 import {
-  DisassociateTrackerConsumerRequest,
-  DisassociateTrackerConsumerRequestFilterSensitiveLog,
-  DisassociateTrackerConsumerResponse,
-  DisassociateTrackerConsumerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateTrackerConsumerCommand,
-  serializeAws_restJson1DisassociateTrackerConsumerCommand,
+  de_DisassociateTrackerConsumerCommand,
+  se_DisassociateTrackerConsumerCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateTrackerConsumerCommand}.
+ */
 export interface DisassociateTrackerConsumerCommandInput extends DisassociateTrackerConsumerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateTrackerConsumerCommand}.
+ */
 export interface DisassociateTrackerConsumerCommandOutput
   extends DisassociateTrackerConsumerResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association between a tracker resource and a geofence collection.</p>
  *          <note>
  *             <p>Once you unlink a tracker resource from a geofence collection, the tracker
@@ -42,13 +48,36 @@ export interface DisassociateTrackerConsumerCommandOutput
  * import { LocationClient, DisassociateTrackerConsumerCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DisassociateTrackerConsumerCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // DisassociateTrackerConsumerRequest
+ *   TrackerName: "STRING_VALUE", // required
+ *   ConsumerArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateTrackerConsumerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTrackerConsumerCommandInput - {@link DisassociateTrackerConsumerCommandInput}
+ * @returns {@link DisassociateTrackerConsumerCommandOutput}
  * @see {@link DisassociateTrackerConsumerCommandInput} for command's `input` shape.
  * @see {@link DisassociateTrackerConsumerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class DisassociateTrackerConsumerCommand extends $Command<
@@ -68,6 +97,9 @@ export class DisassociateTrackerConsumerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTrackerConsumerCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +128,8 @@ export class DisassociateTrackerConsumerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTrackerConsumerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTrackerConsumerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +139,21 @@ export class DisassociateTrackerConsumerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateTrackerConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateTrackerConsumerCommand(input, context);
+    return se_DisassociateTrackerConsumerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTrackerConsumerCommandOutput> {
-    return deserializeAws_restJson1DisassociateTrackerConsumerCommand(output, context);
+    return de_DisassociateTrackerConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

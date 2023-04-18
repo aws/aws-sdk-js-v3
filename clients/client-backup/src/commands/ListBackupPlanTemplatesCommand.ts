@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListBackupPlanTemplatesInput,
-  ListBackupPlanTemplatesInputFilterSensitiveLog,
-  ListBackupPlanTemplatesOutput,
-  ListBackupPlanTemplatesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBackupPlanTemplatesCommand,
-  serializeAws_restJson1ListBackupPlanTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBackupPlanTemplatesInput, ListBackupPlanTemplatesOutput } from "../models/models_0";
+import { de_ListBackupPlanTemplatesCommand, se_ListBackupPlanTemplatesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBackupPlanTemplatesCommand}.
+ */
 export interface ListBackupPlanTemplatesCommandInput extends ListBackupPlanTemplatesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListBackupPlanTemplatesCommand}.
+ */
 export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemplatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata of your saved backup plan templates, including the template ID, name,
  *          and the creation and deletion dates.</p>
  * @example
@@ -37,13 +40,33 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
  * import { BackupClient, ListBackupPlanTemplatesCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupPlanTemplatesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListBackupPlanTemplatesInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListBackupPlanTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackupPlanTemplatesCommandInput - {@link ListBackupPlanTemplatesCommandInput}
+ * @returns {@link ListBackupPlanTemplatesCommandOutput}
  * @see {@link ListBackupPlanTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListBackupPlanTemplatesCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class ListBackupPlanTemplatesCommand extends $Command<
@@ -63,6 +86,9 @@ export class ListBackupPlanTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackupPlanTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class ListBackupPlanTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackupPlanTemplatesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBackupPlanTemplatesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class ListBackupPlanTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackupPlanTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBackupPlanTemplatesCommand(input, context);
+    return se_ListBackupPlanTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupPlanTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListBackupPlanTemplatesCommand(output, context);
+    return de_ListBackupPlanTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

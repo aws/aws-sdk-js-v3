@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutInlinePolicyToPermissionSetRequest, PutInlinePolicyToPermissionSetResponse } from "../models/models_0";
 import {
-  PutInlinePolicyToPermissionSetRequest,
-  PutInlinePolicyToPermissionSetRequestFilterSensitiveLog,
-  PutInlinePolicyToPermissionSetResponse,
-  PutInlinePolicyToPermissionSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutInlinePolicyToPermissionSetCommand,
-  serializeAws_json1_1PutInlinePolicyToPermissionSetCommand,
+  de_PutInlinePolicyToPermissionSetCommand,
+  se_PutInlinePolicyToPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutInlinePolicyToPermissionSetCommand}.
+ */
 export interface PutInlinePolicyToPermissionSetCommandInput extends PutInlinePolicyToPermissionSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutInlinePolicyToPermissionSetCommand}.
+ */
 export interface PutInlinePolicyToPermissionSetCommandOutput
   extends PutInlinePolicyToPermissionSetResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an inline policy to a permission set.</p>
  *          <note>
  *             <p>If the permission set is already referenced by one or more account assignments, you will
@@ -45,13 +51,48 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
  * import { SSOAdminClient, PutInlinePolicyToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, PutInlinePolicyToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // PutInlinePolicyToPermissionSetRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   InlinePolicy: "STRING_VALUE", // required
+ * };
  * const command = new PutInlinePolicyToPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutInlinePolicyToPermissionSetCommandInput - {@link PutInlinePolicyToPermissionSetCommandInput}
+ * @returns {@link PutInlinePolicyToPermissionSetCommandOutput}
  * @see {@link PutInlinePolicyToPermissionSetCommandInput} for command's `input` shape.
  * @see {@link PutInlinePolicyToPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally occurs
+ *       when the previous write did not have time to propagate to the host serving the current
+ *       request. A retry (with appropriate backoff logic) is the recommended response to this
+ *       exception.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with
+ *       an internal server.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a requested resource is not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Indicates that the principal has crossed the permitted number of resources that can be
+ *       created.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Indicates that the principal has crossed the throttling limits of the API
+ *       operations.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed because it contains a syntax error.</p>
+ *
  *
  */
 export class PutInlinePolicyToPermissionSetCommand extends $Command<
@@ -71,6 +112,9 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutInlinePolicyToPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +143,8 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutInlinePolicyToPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutInlinePolicyToPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +154,24 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutInlinePolicyToPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutInlinePolicyToPermissionSetCommand(input, context);
+    return se_PutInlinePolicyToPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutInlinePolicyToPermissionSetCommandOutput> {
-    return deserializeAws_json1_1PutInlinePolicyToPermissionSetCommand(output, context);
+    return de_PutInlinePolicyToPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

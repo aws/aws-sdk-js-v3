@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePipelineRequest,
-  CreatePipelineRequestFilterSensitiveLog,
-  CreatePipelineResponse,
-  CreatePipelineResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreatePipelineCommand,
-  serializeAws_json1_1CreatePipelineCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePipelineRequest, CreatePipelineResponse } from "../models/models_1";
+import { de_CreatePipelineCommand, se_CreatePipelineCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreatePipelineCommand}.
+ */
 export interface CreatePipelineCommandInput extends CreatePipelineRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePipelineCommand}.
+ */
 export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a pipeline using a JSON pipeline definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * import { SageMakerClient, CreatePipelineCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreatePipelineCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreatePipelineRequest
+ *   PipelineName: "STRING_VALUE", // required
+ *   PipelineDisplayName: "STRING_VALUE",
+ *   PipelineDefinition: "STRING_VALUE",
+ *   PipelineDefinitionS3Location: { // PipelineDefinitionS3Location
+ *     Bucket: "STRING_VALUE", // required
+ *     ObjectKey: "STRING_VALUE", // required
+ *     VersionId: "STRING_VALUE",
+ *   },
+ *   PipelineDescription: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ParallelismConfiguration: { // ParallelismConfiguration
+ *     MaxParallelExecutionSteps: Number("int"), // required
+ *   },
+ * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePipelineCommandInput - {@link CreatePipelineCommandInput}
+ * @returns {@link CreatePipelineCommandOutput}
  * @see {@link CreatePipelineCommandInput} for command's `input` shape.
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class CreatePipelineCommand extends $Command<
@@ -62,6 +97,9 @@ export class CreatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class CreatePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePipelineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class CreatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePipelineCommand(input, context);
+    return se_CreatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePipelineCommandOutput> {
-    return deserializeAws_json1_1CreatePipelineCommand(output, context);
+    return de_CreatePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

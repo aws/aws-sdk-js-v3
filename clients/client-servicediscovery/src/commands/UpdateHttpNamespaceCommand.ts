@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateHttpNamespaceRequest,
-  UpdateHttpNamespaceRequestFilterSensitiveLog,
-  UpdateHttpNamespaceResponse,
-  UpdateHttpNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateHttpNamespaceCommand,
-  serializeAws_json1_1UpdateHttpNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateHttpNamespaceRequest, UpdateHttpNamespaceResponse } from "../models/models_0";
+import { de_UpdateHttpNamespaceCommand, se_UpdateHttpNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateHttpNamespaceCommand}.
+ */
 export interface UpdateHttpNamespaceCommandInput extends UpdateHttpNamespaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateHttpNamespaceCommand}.
+ */
 export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an HTTP
  *    namespace.</p>
  * @example
@@ -37,13 +40,38 @@ export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceRes
  * import { ServiceDiscoveryClient, UpdateHttpNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UpdateHttpNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // UpdateHttpNamespaceRequest
+ *   Id: "STRING_VALUE", // required
+ *   UpdaterRequestId: "STRING_VALUE",
+ *   Namespace: { // HttpNamespaceChange
+ *     Description: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateHttpNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateHttpNamespaceCommandInput - {@link UpdateHttpNamespaceCommandInput}
+ * @returns {@link UpdateHttpNamespaceCommandOutput}
  * @see {@link UpdateHttpNamespaceCommandInput} for command's `input` shape.
  * @see {@link UpdateHttpNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
+ *
+ * @throws {@link DuplicateRequest} (client fault)
+ *  <p>The operation is already in progress.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
+ *
+ * @throws {@link NamespaceNotFound} (client fault)
+ *  <p>No namespace exists with the specified ID.</p>
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>The specified resource can't be deleted because it contains other resources. For example,
+ *    you can't delete a service that contains any instances.</p>
+ *
  *
  */
 export class UpdateHttpNamespaceCommand extends $Command<
@@ -63,6 +91,9 @@ export class UpdateHttpNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHttpNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +122,8 @@ export class UpdateHttpNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateHttpNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateHttpNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +133,18 @@ export class UpdateHttpNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHttpNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateHttpNamespaceCommand(input, context);
+    return se_UpdateHttpNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHttpNamespaceCommandOutput> {
-    return deserializeAws_json1_1UpdateHttpNamespaceCommand(output, context);
+    return de_UpdateHttpNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

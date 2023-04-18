@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListViolationEventsRequest,
-  ListViolationEventsRequestFilterSensitiveLog,
-  ListViolationEventsResponse,
-  ListViolationEventsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListViolationEventsCommand,
-  serializeAws_restJson1ListViolationEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListViolationEventsRequest, ListViolationEventsResponse } from "../models/models_2";
+import { de_ListViolationEventsCommand, se_ListViolationEventsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListViolationEventsCommand}.
+ */
 export interface ListViolationEventsCommandInput extends ListViolationEventsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListViolationEventsCommand}.
+ */
 export interface ListViolationEventsCommandOutput extends ListViolationEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Device Defender security profile violations discovered during the given time period.
  *       You can use filters to limit the results to those alerts issued for a particular security profile,
  *       behavior, or thing (device).</p>
@@ -39,13 +42,36 @@ export interface ListViolationEventsCommandOutput extends ListViolationEventsRes
  * import { IoTClient, ListViolationEventsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListViolationEventsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListViolationEventsRequest
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   thingName: "STRING_VALUE",
+ *   securityProfileName: "STRING_VALUE",
+ *   behaviorCriteriaType: "STATIC" || "STATISTICAL" || "MACHINE_LEARNING",
+ *   listSuppressedAlerts: true || false,
+ *   verificationState: "FALSE_POSITIVE" || "BENIGN_POSITIVE" || "TRUE_POSITIVE" || "UNKNOWN",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListViolationEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListViolationEventsCommandInput - {@link ListViolationEventsCommandInput}
+ * @returns {@link ListViolationEventsCommandOutput}
  * @see {@link ListViolationEventsCommandInput} for command's `input` shape.
  * @see {@link ListViolationEventsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class ListViolationEventsCommand extends $Command<
@@ -65,6 +91,9 @@ export class ListViolationEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListViolationEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +122,8 @@ export class ListViolationEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListViolationEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListViolationEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +133,18 @@ export class ListViolationEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListViolationEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListViolationEventsCommand(input, context);
+    return se_ListViolationEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListViolationEventsCommandOutput> {
-    return deserializeAws_restJson1ListViolationEventsCommand(output, context);
+    return de_ListViolationEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

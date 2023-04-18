@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  AssociateVehicleFleetRequest,
-  AssociateVehicleFleetRequestFilterSensitiveLog,
-  AssociateVehicleFleetResponse,
-  AssociateVehicleFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0AssociateVehicleFleetCommand,
-  serializeAws_json1_0AssociateVehicleFleetCommand,
-} from "../protocols/Aws_json1_0";
+import { AssociateVehicleFleetRequest, AssociateVehicleFleetResponse } from "../models/models_0";
+import { de_AssociateVehicleFleetCommand, se_AssociateVehicleFleetCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateVehicleFleetCommand}.
+ */
 export interface AssociateVehicleFleetCommandInput extends AssociateVehicleFleetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateVehicleFleetCommand}.
+ */
 export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Adds, or associates, a vehicle with a fleet. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFlee
  * import { IoTFleetWiseClient, AssociateVehicleFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, AssociateVehicleFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // AssociateVehicleFleetRequest
+ *   vehicleName: "STRING_VALUE", // required
+ *   fleetId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateVehicleFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateVehicleFleetCommandInput - {@link AssociateVehicleFleetCommandInput}
+ * @returns {@link AssociateVehicleFleetCommandOutput}
  * @see {@link AssociateVehicleFleetCommandInput} for command's `input` shape.
  * @see {@link AssociateVehicleFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class AssociateVehicleFleetCommand extends $Command<
@@ -62,6 +87,9 @@ export class AssociateVehicleFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateVehicleFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class AssociateVehicleFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateVehicleFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateVehicleFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class AssociateVehicleFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateVehicleFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0AssociateVehicleFleetCommand(input, context);
+    return se_AssociateVehicleFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateVehicleFleetCommandOutput> {
-    return deserializeAws_json1_0AssociateVehicleFleetCommand(output, context);
+    return de_AssociateVehicleFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

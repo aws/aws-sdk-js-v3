@@ -14,35 +14,56 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  GetMemberDetectorsRequest,
-  GetMemberDetectorsRequestFilterSensitiveLog,
-  GetMemberDetectorsResponse,
-  GetMemberDetectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMemberDetectorsCommand,
-  serializeAws_restJson1GetMemberDetectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMemberDetectorsRequest, GetMemberDetectorsResponse } from "../models/models_0";
+import { de_GetMemberDetectorsCommand, se_GetMemberDetectorsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMemberDetectorsCommand}.
+ */
 export interface GetMemberDetectorsCommandInput extends GetMemberDetectorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMemberDetectorsCommand}.
+ */
 export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes which data sources are enabled for the member account's detector.</p>
+ *          <p>There might be regional differences because some data sources might not be
+ *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
+ *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, GetMemberDetectorsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetMemberDetectorsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // GetMemberDetectorsRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   AccountIds: [ // AccountIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetMemberDetectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMemberDetectorsCommandInput - {@link GetMemberDetectorsCommandInput}
+ * @returns {@link GetMemberDetectorsCommandOutput}
  * @see {@link GetMemberDetectorsCommandInput} for command's `input` shape.
  * @see {@link GetMemberDetectorsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
  *
  */
 export class GetMemberDetectorsCommand extends $Command<
@@ -62,6 +83,9 @@ export class GetMemberDetectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMemberDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class GetMemberDetectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMemberDetectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMemberDetectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class GetMemberDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMemberDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMemberDetectorsCommand(input, context);
+    return se_GetMemberDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMemberDetectorsCommandOutput> {
-    return deserializeAws_restJson1GetMemberDetectorsCommand(output, context);
+    return de_GetMemberDetectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -12,11 +13,13 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -97,17 +100,13 @@ import {
   AccessDeniedException,
   AreaOfInterest,
   AreaOfInterestGeometry,
-  AssetValue,
   BandMathConfigInput,
   CloudMaskingConfigInput,
   CloudRemovalConfigInput,
   ConflictException,
   CustomIndicesInput,
-  EarthObservationJobErrorDetails,
   EoCloudCoverInput,
   EojDataSourceConfigInput,
-  ExportErrorDetails,
-  ExportErrorDetailsOutput,
   ExportS3DataInput,
   ExportVectorEnrichmentJobOutputConfig,
   Filter,
@@ -125,7 +124,6 @@ import {
   MapMatchingConfig,
   MultiPolygonGeometryInput,
   Operation,
-  OutputBand,
   OutputConfigInput,
   OutputResolutionResamplingInput,
   OutputResolutionStackInput,
@@ -149,12 +147,11 @@ import {
   TemporalStatisticsConfigInput,
   ThrottlingException,
   TimeRangeFilterInput,
+  TimeRangeFilterOutput,
   UserDefined,
   ValidationException,
   VectorEnrichmentJobConfig,
   VectorEnrichmentJobDataSourceConfigInput,
-  VectorEnrichmentJobErrorDetails,
-  VectorEnrichmentJobExportErrorDetails,
   VectorEnrichmentJobInputConfig,
   VectorEnrichmentJobS3Data,
   ViewOffNadirInput,
@@ -165,7 +162,10 @@ import {
 } from "../models/models_0";
 import { SageMakerGeospatialServiceException as __BaseException } from "../models/SageMakerGeospatialServiceException";
 
-export const serializeAws_restJson1DeleteEarthObservationJobCommand = async (
+/**
+ * serializeAws_restJson1DeleteEarthObservationJobCommand
+ */
+export const se_DeleteEarthObservationJobCommand = async (
   input: DeleteEarthObservationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -186,7 +186,10 @@ export const serializeAws_restJson1DeleteEarthObservationJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVectorEnrichmentJobCommand = async (
+/**
+ * serializeAws_restJson1DeleteVectorEnrichmentJobCommand
+ */
+export const se_DeleteVectorEnrichmentJobCommand = async (
   input: DeleteVectorEnrichmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -207,7 +210,10 @@ export const serializeAws_restJson1DeleteVectorEnrichmentJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1ExportEarthObservationJobCommand = async (
+/**
+ * serializeAws_restJson1ExportEarthObservationJobCommand
+ */
+export const se_ExportEarthObservationJobCommand = async (
   input: ExportEarthObservationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -218,14 +224,15 @@ export const serializeAws_restJson1ExportEarthObservationJobCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/export-earth-observation-job";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.ExportSourceImages != null && { ExportSourceImages: input.ExportSourceImages }),
-    ...(input.OutputConfig != null && {
-      OutputConfig: serializeAws_restJson1OutputConfigInput(input.OutputConfig, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ExecutionRoleArn: [],
+      ExportSourceImages: [],
+      OutputConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -237,7 +244,10 @@ export const serializeAws_restJson1ExportEarthObservationJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1ExportVectorEnrichmentJobCommand = async (
+/**
+ * serializeAws_restJson1ExportVectorEnrichmentJobCommand
+ */
+export const se_ExportVectorEnrichmentJobCommand = async (
   input: ExportVectorEnrichmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -248,13 +258,14 @@ export const serializeAws_restJson1ExportVectorEnrichmentJobCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/export-vector-enrichment-jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.OutputConfig != null && {
-      OutputConfig: serializeAws_restJson1ExportVectorEnrichmentJobOutputConfig(input.OutputConfig, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ExecutionRoleArn: [],
+      OutputConfig: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -266,7 +277,10 @@ export const serializeAws_restJson1ExportVectorEnrichmentJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEarthObservationJobCommand = async (
+/**
+ * serializeAws_restJson1GetEarthObservationJobCommand
+ */
+export const se_GetEarthObservationJobCommand = async (
   input: GetEarthObservationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -287,7 +301,10 @@ export const serializeAws_restJson1GetEarthObservationJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRasterDataCollectionCommand = async (
+/**
+ * serializeAws_restJson1GetRasterDataCollectionCommand
+ */
+export const se_GetRasterDataCollectionCommand = async (
   input: GetRasterDataCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -308,7 +325,10 @@ export const serializeAws_restJson1GetRasterDataCollectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetTileCommand = async (
+/**
+ * serializeAws_restJson1GetTileCommand
+ */
+export const se_GetTileCommand = async (
   input: GetTileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -330,6 +350,7 @@ export const serializeAws_restJson1GetTileCommand = async (
     TimeRangeFilter: [, input.TimeRangeFilter!],
     PropertyFilters: [, input.PropertyFilters!],
     OutputDataType: [, input.OutputDataType!],
+    ExecutionRoleArn: [, input.ExecutionRoleArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -344,7 +365,10 @@ export const serializeAws_restJson1GetTileCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetVectorEnrichmentJobCommand = async (
+/**
+ * serializeAws_restJson1GetVectorEnrichmentJobCommand
+ */
+export const se_GetVectorEnrichmentJobCommand = async (
   input: GetVectorEnrichmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -365,7 +389,10 @@ export const serializeAws_restJson1GetVectorEnrichmentJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListEarthObservationJobsCommand = async (
+/**
+ * serializeAws_restJson1ListEarthObservationJobsCommand
+ */
+export const se_ListEarthObservationJobsCommand = async (
   input: ListEarthObservationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -376,13 +403,15 @@ export const serializeAws_restJson1ListEarthObservationJobsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-earth-observation-jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-    ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      SortBy: [],
+      SortOrder: [],
+      StatusEquals: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -394,7 +423,10 @@ export const serializeAws_restJson1ListEarthObservationJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListRasterDataCollectionsCommand = async (
+/**
+ * serializeAws_restJson1ListRasterDataCollectionsCommand
+ */
+export const se_ListRasterDataCollectionsCommand = async (
   input: ListRasterDataCollectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -419,7 +451,10 @@ export const serializeAws_restJson1ListRasterDataCollectionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -439,7 +474,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVectorEnrichmentJobsCommand = async (
+/**
+ * serializeAws_restJson1ListVectorEnrichmentJobsCommand
+ */
+export const se_ListVectorEnrichmentJobsCommand = async (
   input: ListVectorEnrichmentJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -450,13 +488,15 @@ export const serializeAws_restJson1ListVectorEnrichmentJobsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-vector-enrichment-jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-    ...(input.StatusEquals != null && { StatusEquals: input.StatusEquals }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      SortBy: [],
+      SortOrder: [],
+      StatusEquals: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -468,7 +508,10 @@ export const serializeAws_restJson1ListVectorEnrichmentJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1SearchRasterDataCollectionCommand = async (
+/**
+ * serializeAws_restJson1SearchRasterDataCollectionCommand
+ */
+export const se_SearchRasterDataCollectionCommand = async (
   input: SearchRasterDataCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -479,16 +522,13 @@ export const serializeAws_restJson1SearchRasterDataCollectionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-raster-data-collection";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.RasterDataCollectionQuery != null && {
-      RasterDataCollectionQuery: serializeAws_restJson1RasterDataCollectionQueryWithBandFilterInput(
-        input.RasterDataCollectionQuery,
-        context
-      ),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      NextToken: [],
+      RasterDataCollectionQuery: (_) => se_RasterDataCollectionQueryWithBandFilterInput(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -500,7 +540,10 @@ export const serializeAws_restJson1SearchRasterDataCollectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartEarthObservationJobCommand = async (
+/**
+ * serializeAws_restJson1StartEarthObservationJobCommand
+ */
+export const se_StartEarthObservationJobCommand = async (
   input: StartEarthObservationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -511,17 +554,17 @@ export const serializeAws_restJson1StartEarthObservationJobCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/earth-observation-jobs";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.InputConfig != null && {
-      InputConfig: serializeAws_restJson1InputConfigInput(input.InputConfig, context),
-    }),
-    ...(input.JobConfig != null && { JobConfig: serializeAws_restJson1JobConfigInput(input.JobConfig, context) }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ExecutionRoleArn: [],
+      InputConfig: (_) => se_InputConfigInput(_, context),
+      JobConfig: (_) => se_JobConfigInput(_, context),
+      KmsKeyId: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -533,7 +576,10 @@ export const serializeAws_restJson1StartEarthObservationJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartVectorEnrichmentJobCommand = async (
+/**
+ * serializeAws_restJson1StartVectorEnrichmentJobCommand
+ */
+export const se_StartVectorEnrichmentJobCommand = async (
   input: StartVectorEnrichmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -544,19 +590,17 @@ export const serializeAws_restJson1StartVectorEnrichmentJobCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vector-enrichment-jobs";
   let body: any;
-  body = JSON.stringify({
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.InputConfig != null && {
-      InputConfig: serializeAws_restJson1VectorEnrichmentJobInputConfig(input.InputConfig, context),
-    }),
-    ...(input.JobConfig != null && {
-      JobConfig: serializeAws_restJson1VectorEnrichmentJobConfig(input.JobConfig, context),
-    }),
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ExecutionRoleArn: [],
+      InputConfig: (_) => _json(_),
+      JobConfig: (_) => _json(_),
+      KmsKeyId: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -568,7 +612,10 @@ export const serializeAws_restJson1StartVectorEnrichmentJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopEarthObservationJobCommand = async (
+/**
+ * serializeAws_restJson1StopEarthObservationJobCommand
+ */
+export const se_StopEarthObservationJobCommand = async (
   input: StopEarthObservationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -579,9 +626,11 @@ export const serializeAws_restJson1StopEarthObservationJobCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/earth-observation-jobs/stop";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -593,7 +642,10 @@ export const serializeAws_restJson1StopEarthObservationJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopVectorEnrichmentJobCommand = async (
+/**
+ * serializeAws_restJson1StopVectorEnrichmentJobCommand
+ */
+export const se_StopVectorEnrichmentJobCommand = async (
   input: StopVectorEnrichmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -604,9 +656,11 @@ export const serializeAws_restJson1StopVectorEnrichmentJobCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vector-enrichment-jobs/stop";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Arn != null && { Arn: input.Arn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -618,7 +672,10 @@ export const serializeAws_restJson1StopVectorEnrichmentJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -629,9 +686,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -643,7 +702,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -670,12 +732,15 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DeleteEarthObservationJobCommand = async (
+/**
+ * deserializeAws_restJson1DeleteEarthObservationJobCommand
+ */
+export const de_DeleteEarthObservationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEarthObservationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteEarthObservationJobCommandError(output, context);
+    return de_DeleteEarthObservationJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -684,7 +749,10 @@ export const deserializeAws_restJson1DeleteEarthObservationJobCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteEarthObservationJobCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteEarthObservationJobCommandError
+ */
+const de_DeleteEarthObservationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEarthObservationJobCommandOutput> => {
@@ -696,39 +764,41 @@ const deserializeAws_restJson1DeleteEarthObservationJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.sagemakergeospatial#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteVectorEnrichmentJobCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVectorEnrichmentJobCommand
+ */
+export const de_DeleteVectorEnrichmentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVectorEnrichmentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVectorEnrichmentJobCommandError(output, context);
+    return de_DeleteVectorEnrichmentJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -737,7 +807,10 @@ export const deserializeAws_restJson1DeleteVectorEnrichmentJobCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVectorEnrichmentJobCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVectorEnrichmentJobCommandError
+ */
+const de_DeleteVectorEnrichmentJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVectorEnrichmentJobCommandOutput> => {
@@ -749,66 +822,62 @@ const deserializeAws_restJson1DeleteVectorEnrichmentJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.sagemakergeospatial#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ExportEarthObservationJobCommand = async (
+/**
+ * deserializeAws_restJson1ExportEarthObservationJobCommand
+ */
+export const de_ExportEarthObservationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportEarthObservationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ExportEarthObservationJobCommandError(output, context);
+    return de_ExportEarthObservationJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.ExecutionRoleArn != null) {
-    contents.ExecutionRoleArn = __expectString(data.ExecutionRoleArn);
-  }
-  if (data.ExportSourceImages != null) {
-    contents.ExportSourceImages = __expectBoolean(data.ExportSourceImages);
-  }
-  if (data.ExportStatus != null) {
-    contents.ExportStatus = __expectString(data.ExportStatus);
-  }
-  if (data.OutputConfig != null) {
-    contents.OutputConfig = deserializeAws_restJson1OutputConfigInput(data.OutputConfig, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ExecutionRoleArn: __expectString,
+    ExportSourceImages: __expectBoolean,
+    ExportStatus: __expectString,
+    OutputConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ExportEarthObservationJobCommandError = async (
+/**
+ * deserializeAws_restJson1ExportEarthObservationJobCommandError
+ */
+const de_ExportEarthObservationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportEarthObservationJobCommandOutput> => {
@@ -820,66 +889,64 @@ const deserializeAws_restJson1ExportEarthObservationJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.sagemakergeospatial#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.sagemakergeospatial#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ExportVectorEnrichmentJobCommand = async (
+/**
+ * deserializeAws_restJson1ExportVectorEnrichmentJobCommand
+ */
+export const de_ExportVectorEnrichmentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportVectorEnrichmentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ExportVectorEnrichmentJobCommandError(output, context);
+    return de_ExportVectorEnrichmentJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.ExecutionRoleArn != null) {
-    contents.ExecutionRoleArn = __expectString(data.ExecutionRoleArn);
-  }
-  if (data.ExportStatus != null) {
-    contents.ExportStatus = __expectString(data.ExportStatus);
-  }
-  if (data.OutputConfig != null) {
-    contents.OutputConfig = deserializeAws_restJson1ExportVectorEnrichmentJobOutputConfig(data.OutputConfig, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ExecutionRoleArn: __expectString,
+    ExportStatus: __expectString,
+    OutputConfig: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ExportVectorEnrichmentJobCommandError = async (
+/**
+ * deserializeAws_restJson1ExportVectorEnrichmentJobCommandError
+ */
+const de_ExportVectorEnrichmentJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportVectorEnrichmentJobCommandOutput> => {
@@ -891,93 +958,73 @@ const deserializeAws_restJson1ExportVectorEnrichmentJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.sagemakergeospatial#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.sagemakergeospatial#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetEarthObservationJobCommand = async (
+/**
+ * deserializeAws_restJson1GetEarthObservationJobCommand
+ */
+export const de_GetEarthObservationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEarthObservationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEarthObservationJobCommandError(output, context);
+    return de_GetEarthObservationJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DurationInSeconds != null) {
-    contents.DurationInSeconds = __expectInt32(data.DurationInSeconds);
-  }
-  if (data.ErrorDetails != null) {
-    contents.ErrorDetails = deserializeAws_restJson1EarthObservationJobErrorDetails(data.ErrorDetails, context);
-  }
-  if (data.ExecutionRoleArn != null) {
-    contents.ExecutionRoleArn = __expectString(data.ExecutionRoleArn);
-  }
-  if (data.ExportErrorDetails != null) {
-    contents.ExportErrorDetails = deserializeAws_restJson1ExportErrorDetails(data.ExportErrorDetails, context);
-  }
-  if (data.ExportStatus != null) {
-    contents.ExportStatus = __expectString(data.ExportStatus);
-  }
-  if (data.InputConfig != null) {
-    contents.InputConfig = deserializeAws_restJson1InputConfigOutput(data.InputConfig, context);
-  }
-  if (data.JobConfig != null) {
-    contents.JobConfig = deserializeAws_restJson1JobConfigInput(__expectUnion(data.JobConfig), context);
-  }
-  if (data.KmsKeyId != null) {
-    contents.KmsKeyId = __expectString(data.KmsKeyId);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.OutputBands != null) {
-    contents.OutputBands = deserializeAws_restJson1EarthObservationJobOutputBands(data.OutputBands, context);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DurationInSeconds: __expectInt32,
+    ErrorDetails: _json,
+    ExecutionRoleArn: __expectString,
+    ExportErrorDetails: _json,
+    ExportStatus: __expectString,
+    InputConfig: (_) => de_InputConfigOutput(_, context),
+    JobConfig: (_) => de_JobConfigInput(__expectUnion(_), context),
+    KmsKeyId: __expectString,
+    Name: __expectString,
+    OutputBands: _json,
+    Status: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetEarthObservationJobCommandError = async (
+/**
+ * deserializeAws_restJson1GetEarthObservationJobCommandError
+ */
+const de_GetEarthObservationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEarthObservationJobCommandOutput> => {
@@ -989,69 +1036,61 @@ const deserializeAws_restJson1GetEarthObservationJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetRasterDataCollectionCommand = async (
+/**
+ * deserializeAws_restJson1GetRasterDataCollectionCommand
+ */
+export const de_GetRasterDataCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRasterDataCollectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRasterDataCollectionCommandError(output, context);
+    return de_GetRasterDataCollectionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Description != null) {
-    contents.Description = __expectString(data.Description);
-  }
-  if (data.DescriptionPageUrl != null) {
-    contents.DescriptionPageUrl = __expectString(data.DescriptionPageUrl);
-  }
-  if (data.ImageSourceBands != null) {
-    contents.ImageSourceBands = deserializeAws_restJson1ImageSourceBandList(data.ImageSourceBands, context);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.SupportedFilters != null) {
-    contents.SupportedFilters = deserializeAws_restJson1FilterList(data.SupportedFilters, context);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    Description: __expectString,
+    DescriptionPageUrl: __expectString,
+    ImageSourceBands: _json,
+    Name: __expectString,
+    SupportedFilters: (_) => de_FilterList(_, context),
+    Tags: _json,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetRasterDataCollectionCommandError = async (
+/**
+ * deserializeAws_restJson1GetRasterDataCollectionCommandError
+ */
+const de_GetRasterDataCollectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRasterDataCollectionCommandOutput> => {
@@ -1063,36 +1102,38 @@ const deserializeAws_restJson1GetRasterDataCollectionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetTileCommand = async (
+/**
+ * deserializeAws_restJson1GetTileCommand
+ */
+export const de_GetTileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetTileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetTileCommandError(output, context);
+    return de_GetTileCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1103,7 +1144,10 @@ export const deserializeAws_restJson1GetTileCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetTileCommandError = async (
+/**
+ * deserializeAws_restJson1GetTileCommandError
+ */
+const de_GetTileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTileCommandOutput> => {
@@ -1115,90 +1159,67 @@ const deserializeAws_restJson1GetTileCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetVectorEnrichmentJobCommand = async (
+/**
+ * deserializeAws_restJson1GetVectorEnrichmentJobCommand
+ */
+export const de_GetVectorEnrichmentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVectorEnrichmentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetVectorEnrichmentJobCommandError(output, context);
+    return de_GetVectorEnrichmentJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DurationInSeconds != null) {
-    contents.DurationInSeconds = __expectInt32(data.DurationInSeconds);
-  }
-  if (data.ErrorDetails != null) {
-    contents.ErrorDetails = deserializeAws_restJson1VectorEnrichmentJobErrorDetails(data.ErrorDetails, context);
-  }
-  if (data.ExecutionRoleArn != null) {
-    contents.ExecutionRoleArn = __expectString(data.ExecutionRoleArn);
-  }
-  if (data.ExportErrorDetails != null) {
-    contents.ExportErrorDetails = deserializeAws_restJson1VectorEnrichmentJobExportErrorDetails(
-      data.ExportErrorDetails,
-      context
-    );
-  }
-  if (data.ExportStatus != null) {
-    contents.ExportStatus = __expectString(data.ExportStatus);
-  }
-  if (data.InputConfig != null) {
-    contents.InputConfig = deserializeAws_restJson1VectorEnrichmentJobInputConfig(data.InputConfig, context);
-  }
-  if (data.JobConfig != null) {
-    contents.JobConfig = deserializeAws_restJson1VectorEnrichmentJobConfig(__expectUnion(data.JobConfig), context);
-  }
-  if (data.KmsKeyId != null) {
-    contents.KmsKeyId = __expectString(data.KmsKeyId);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DurationInSeconds: __expectInt32,
+    ErrorDetails: _json,
+    ExecutionRoleArn: __expectString,
+    ExportErrorDetails: _json,
+    ExportStatus: __expectString,
+    InputConfig: _json,
+    JobConfig: (_) => _json(__expectUnion(_)),
+    KmsKeyId: __expectString,
+    Name: __expectString,
+    Status: __expectString,
+    Tags: _json,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetVectorEnrichmentJobCommandError = async (
+/**
+ * deserializeAws_restJson1GetVectorEnrichmentJobCommandError
+ */
+const de_GetVectorEnrichmentJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVectorEnrichmentJobCommandOutput> => {
@@ -1210,54 +1231,55 @@ const deserializeAws_restJson1GetVectorEnrichmentJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListEarthObservationJobsCommand = async (
+/**
+ * deserializeAws_restJson1ListEarthObservationJobsCommand
+ */
+export const de_ListEarthObservationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEarthObservationJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEarthObservationJobsCommandError(output, context);
+    return de_ListEarthObservationJobsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EarthObservationJobSummaries != null) {
-    contents.EarthObservationJobSummaries = deserializeAws_restJson1EarthObservationJobList(
-      data.EarthObservationJobSummaries,
-      context
-    );
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    EarthObservationJobSummaries: (_) => de_EarthObservationJobList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListEarthObservationJobsCommandError = async (
+/**
+ * deserializeAws_restJson1ListEarthObservationJobsCommandError
+ */
+const de_ListEarthObservationJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEarthObservationJobsCommandOutput> => {
@@ -1269,54 +1291,55 @@ const deserializeAws_restJson1ListEarthObservationJobsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListRasterDataCollectionsCommand = async (
+/**
+ * deserializeAws_restJson1ListRasterDataCollectionsCommand
+ */
+export const de_ListRasterDataCollectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRasterDataCollectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListRasterDataCollectionsCommandError(output, context);
+    return de_ListRasterDataCollectionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RasterDataCollectionSummaries != null) {
-    contents.RasterDataCollectionSummaries = deserializeAws_restJson1DataCollectionsList(
-      data.RasterDataCollectionSummaries,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    RasterDataCollectionSummaries: (_) => de_DataCollectionsList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListRasterDataCollectionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListRasterDataCollectionsCommandError
+ */
+const de_ListRasterDataCollectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRasterDataCollectionsCommandOutput> => {
@@ -1328,48 +1351,54 @@ const deserializeAws_restJson1ListRasterDataCollectionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1381,54 +1410,55 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListVectorEnrichmentJobsCommand = async (
+/**
+ * deserializeAws_restJson1ListVectorEnrichmentJobsCommand
+ */
+export const de_ListVectorEnrichmentJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVectorEnrichmentJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVectorEnrichmentJobsCommandError(output, context);
+    return de_ListVectorEnrichmentJobsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.VectorEnrichmentJobSummaries != null) {
-    contents.VectorEnrichmentJobSummaries = deserializeAws_restJson1VectorEnrichmentJobList(
-      data.VectorEnrichmentJobSummaries,
-      context
-    );
-  }
+  const doc = take(data, {
+    NextToken: __expectString,
+    VectorEnrichmentJobSummaries: (_) => de_VectorEnrichmentJobList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListVectorEnrichmentJobsCommandError = async (
+/**
+ * deserializeAws_restJson1ListVectorEnrichmentJobsCommandError
+ */
+const de_ListVectorEnrichmentJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVectorEnrichmentJobsCommandOutput> => {
@@ -1440,54 +1470,56 @@ const deserializeAws_restJson1ListVectorEnrichmentJobsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1SearchRasterDataCollectionCommand = async (
+/**
+ * deserializeAws_restJson1SearchRasterDataCollectionCommand
+ */
+export const de_SearchRasterDataCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchRasterDataCollectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SearchRasterDataCollectionCommandError(output, context);
+    return de_SearchRasterDataCollectionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ApproximateResultCount != null) {
-    contents.ApproximateResultCount = __expectInt32(data.ApproximateResultCount);
-  }
-  if (data.Items != null) {
-    contents.Items = deserializeAws_restJson1ItemSourceList(data.Items, context);
-  }
-  if (data.NextToken != null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
+  const doc = take(data, {
+    ApproximateResultCount: __expectInt32,
+    Items: (_) => de_ItemSourceList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1SearchRasterDataCollectionCommandError = async (
+/**
+ * deserializeAws_restJson1SearchRasterDataCollectionCommandError
+ */
+const de_SearchRasterDataCollectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchRasterDataCollectionCommandOutput> => {
@@ -1499,75 +1531,63 @@ const deserializeAws_restJson1SearchRasterDataCollectionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StartEarthObservationJobCommand = async (
+/**
+ * deserializeAws_restJson1StartEarthObservationJobCommand
+ */
+export const de_StartEarthObservationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartEarthObservationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartEarthObservationJobCommandError(output, context);
+    return de_StartEarthObservationJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DurationInSeconds != null) {
-    contents.DurationInSeconds = __expectInt32(data.DurationInSeconds);
-  }
-  if (data.ExecutionRoleArn != null) {
-    contents.ExecutionRoleArn = __expectString(data.ExecutionRoleArn);
-  }
-  if (data.InputConfig != null) {
-    contents.InputConfig = deserializeAws_restJson1InputConfigOutput(data.InputConfig, context);
-  }
-  if (data.JobConfig != null) {
-    contents.JobConfig = deserializeAws_restJson1JobConfigInput(__expectUnion(data.JobConfig), context);
-  }
-  if (data.KmsKeyId != null) {
-    contents.KmsKeyId = __expectString(data.KmsKeyId);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DurationInSeconds: __expectInt32,
+    ExecutionRoleArn: __expectString,
+    InputConfig: (_) => de_InputConfigOutput(_, context),
+    JobConfig: (_) => de_JobConfigInput(__expectUnion(_), context),
+    KmsKeyId: __expectString,
+    Name: __expectString,
+    Status: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1StartEarthObservationJobCommandError = async (
+/**
+ * deserializeAws_restJson1StartEarthObservationJobCommandError
+ */
+const de_StartEarthObservationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartEarthObservationJobCommandOutput> => {
@@ -1579,84 +1599,70 @@ const deserializeAws_restJson1StartEarthObservationJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.sagemakergeospatial#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.sagemakergeospatial#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StartVectorEnrichmentJobCommand = async (
+/**
+ * deserializeAws_restJson1StartVectorEnrichmentJobCommand
+ */
+export const de_StartVectorEnrichmentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartVectorEnrichmentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartVectorEnrichmentJobCommandError(output, context);
+    return de_StartVectorEnrichmentJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn != null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DurationInSeconds != null) {
-    contents.DurationInSeconds = __expectInt32(data.DurationInSeconds);
-  }
-  if (data.ExecutionRoleArn != null) {
-    contents.ExecutionRoleArn = __expectString(data.ExecutionRoleArn);
-  }
-  if (data.InputConfig != null) {
-    contents.InputConfig = deserializeAws_restJson1VectorEnrichmentJobInputConfig(data.InputConfig, context);
-  }
-  if (data.JobConfig != null) {
-    contents.JobConfig = deserializeAws_restJson1VectorEnrichmentJobConfig(__expectUnion(data.JobConfig), context);
-  }
-  if (data.KmsKeyId != null) {
-    contents.KmsKeyId = __expectString(data.KmsKeyId);
-  }
-  if (data.Name != null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.Status != null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
-  if (data.Type != null) {
-    contents.Type = __expectString(data.Type);
-  }
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DurationInSeconds: __expectInt32,
+    ExecutionRoleArn: __expectString,
+    InputConfig: _json,
+    JobConfig: (_) => _json(__expectUnion(_)),
+    KmsKeyId: __expectString,
+    Name: __expectString,
+    Status: __expectString,
+    Tags: _json,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1StartVectorEnrichmentJobCommandError = async (
+/**
+ * deserializeAws_restJson1StartVectorEnrichmentJobCommandError
+ */
+const de_StartVectorEnrichmentJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartVectorEnrichmentJobCommandOutput> => {
@@ -1668,42 +1674,44 @@ const deserializeAws_restJson1StartVectorEnrichmentJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.sagemakergeospatial#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.sagemakergeospatial#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StopEarthObservationJobCommand = async (
+/**
+ * deserializeAws_restJson1StopEarthObservationJobCommand
+ */
+export const de_StopEarthObservationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopEarthObservationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopEarthObservationJobCommandError(output, context);
+    return de_StopEarthObservationJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1712,7 +1720,10 @@ export const deserializeAws_restJson1StopEarthObservationJobCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StopEarthObservationJobCommandError = async (
+/**
+ * deserializeAws_restJson1StopEarthObservationJobCommandError
+ */
+const de_StopEarthObservationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopEarthObservationJobCommandOutput> => {
@@ -1724,39 +1735,41 @@ const deserializeAws_restJson1StopEarthObservationJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.sagemakergeospatial#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StopVectorEnrichmentJobCommand = async (
+/**
+ * deserializeAws_restJson1StopVectorEnrichmentJobCommand
+ */
+export const de_StopVectorEnrichmentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopVectorEnrichmentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopVectorEnrichmentJobCommandError(output, context);
+    return de_StopVectorEnrichmentJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1765,7 +1778,10 @@ export const deserializeAws_restJson1StopVectorEnrichmentJobCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StopVectorEnrichmentJobCommandError = async (
+/**
+ * deserializeAws_restJson1StopVectorEnrichmentJobCommandError
+ */
+const de_StopVectorEnrichmentJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopVectorEnrichmentJobCommandOutput> => {
@@ -1777,39 +1793,41 @@ const deserializeAws_restJson1StopVectorEnrichmentJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.sagemakergeospatial#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1818,7 +1836,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1830,36 +1851,38 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1868,7 +1891,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1880,40 +1906,43 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.sagemakergeospatial#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.sagemakergeospatial#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sagemakergeospatial#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.sagemakergeospatial#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sagemakergeospatial#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1921,18 +1950,17 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1940,18 +1968,20 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1959,18 +1989,20 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1978,18 +2010,20 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1997,18 +2031,17 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2016,18 +2049,17 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.ResourceId != null) {
-    contents.ResourceId = __expectString(data.ResourceId);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -2035,264 +2067,178 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AreaOfInterest = (input: AreaOfInterest, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AreaOfInterest
+ */
+const se_AreaOfInterest = (input: AreaOfInterest, context: __SerdeContext): any => {
   return AreaOfInterest.visit(input, {
-    AreaOfInterestGeometry: (value) => ({
-      AreaOfInterestGeometry: serializeAws_restJson1AreaOfInterestGeometry(value, context),
-    }),
+    AreaOfInterestGeometry: (value) => ({ AreaOfInterestGeometry: se_AreaOfInterestGeometry(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1AreaOfInterestGeometry = (input: AreaOfInterestGeometry, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AreaOfInterestGeometry
+ */
+const se_AreaOfInterestGeometry = (input: AreaOfInterestGeometry, context: __SerdeContext): any => {
   return AreaOfInterestGeometry.visit(input, {
-    MultiPolygonGeometry: (value) => ({
-      MultiPolygonGeometry: serializeAws_restJson1MultiPolygonGeometryInput(value, context),
-    }),
-    PolygonGeometry: (value) => ({ PolygonGeometry: serializeAws_restJson1PolygonGeometryInput(value, context) }),
+    MultiPolygonGeometry: (value) => ({ MultiPolygonGeometry: se_MultiPolygonGeometryInput(value, context) }),
+    PolygonGeometry: (value) => ({ PolygonGeometry: se_PolygonGeometryInput(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1BandMathConfigInput = (input: BandMathConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomIndices != null && {
-      CustomIndices: serializeAws_restJson1CustomIndicesInput(input.CustomIndices, context),
-    }),
-    ...(input.PredefinedIndices != null && {
-      PredefinedIndices: serializeAws_restJson1StringListInput(input.PredefinedIndices, context),
-    }),
-  };
-};
+// se_BandMathConfigInput omitted.
 
-const serializeAws_restJson1CloudMaskingConfigInput = (
-  input: CloudMaskingConfigInput,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_CloudMaskingConfigInput omitted.
 
-const serializeAws_restJson1CloudRemovalConfigInput = (
-  input: CloudRemovalConfigInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AlgorithmName != null && { AlgorithmName: input.AlgorithmName }),
-    ...(input.InterpolationValue != null && { InterpolationValue: input.InterpolationValue }),
-    ...(input.TargetBands != null && {
-      TargetBands: serializeAws_restJson1StringListInput(input.TargetBands, context),
-    }),
-  };
-};
+// se_CloudRemovalConfigInput omitted.
 
-const serializeAws_restJson1CustomIndicesInput = (input: CustomIndicesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Operations != null && {
-      Operations: serializeAws_restJson1OperationsListInput(input.Operations, context),
-    }),
-  };
-};
+// se_CustomIndicesInput omitted.
 
-const serializeAws_restJson1EoCloudCoverInput = (input: EoCloudCoverInput, context: __SerdeContext): any => {
-  return {
-    ...(input.LowerBound != null && { LowerBound: __serializeFloat(input.LowerBound) }),
-    ...(input.UpperBound != null && { UpperBound: __serializeFloat(input.UpperBound) }),
-  };
-};
-
-const serializeAws_restJson1EojDataSourceConfigInput = (
-  input: EojDataSourceConfigInput,
-  context: __SerdeContext
-): any => {
-  return EojDataSourceConfigInput.visit(input, {
-    S3Data: (value) => ({ S3Data: serializeAws_restJson1S3DataInput(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+/**
+ * serializeAws_restJson1EoCloudCoverInput
+ */
+const se_EoCloudCoverInput = (input: EoCloudCoverInput, context: __SerdeContext): any => {
+  return take(input, {
+    LowerBound: __serializeFloat,
+    UpperBound: __serializeFloat,
   });
 };
 
-const serializeAws_restJson1ExportS3DataInput = (input: ExportS3DataInput, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
+// se_EojDataSourceConfigInput omitted.
+
+// se_ExportS3DataInput omitted.
+
+// se_ExportVectorEnrichmentJobOutputConfig omitted.
+
+// se_GeoMosaicConfigInput omitted.
+
+/**
+ * serializeAws_restJson1InputConfigInput
+ */
+const se_InputConfigInput = (input: InputConfigInput, context: __SerdeContext): any => {
+  return take(input, {
+    DataSourceConfig: _json,
+    PreviousEarthObservationJobArn: [],
+    RasterDataCollectionQuery: (_) => se_RasterDataCollectionQueryInput(_, context),
+  });
 };
 
-const serializeAws_restJson1ExportVectorEnrichmentJobOutputConfig = (
-  input: ExportVectorEnrichmentJobOutputConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.S3Data != null && { S3Data: serializeAws_restJson1VectorEnrichmentJobS3Data(input.S3Data, context) }),
-  };
-};
-
-const serializeAws_restJson1GeoMosaicConfigInput = (input: GeoMosaicConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AlgorithmName != null && { AlgorithmName: input.AlgorithmName }),
-    ...(input.TargetBands != null && {
-      TargetBands: serializeAws_restJson1StringListInput(input.TargetBands, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1InputConfigInput = (input: InputConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.DataSourceConfig != null && {
-      DataSourceConfig: serializeAws_restJson1EojDataSourceConfigInput(input.DataSourceConfig, context),
-    }),
-    ...(input.PreviousEarthObservationJobArn != null && {
-      PreviousEarthObservationJobArn: input.PreviousEarthObservationJobArn,
-    }),
-    ...(input.RasterDataCollectionQuery != null && {
-      RasterDataCollectionQuery: serializeAws_restJson1RasterDataCollectionQueryInput(
-        input.RasterDataCollectionQuery,
-        context
-      ),
-    }),
-  };
-};
-
-const serializeAws_restJson1JobConfigInput = (input: JobConfigInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1JobConfigInput
+ */
+const se_JobConfigInput = (input: JobConfigInput, context: __SerdeContext): any => {
   return JobConfigInput.visit(input, {
-    BandMathConfig: (value) => ({ BandMathConfig: serializeAws_restJson1BandMathConfigInput(value, context) }),
-    CloudMaskingConfig: (value) => ({
-      CloudMaskingConfig: serializeAws_restJson1CloudMaskingConfigInput(value, context),
-    }),
-    CloudRemovalConfig: (value) => ({
-      CloudRemovalConfig: serializeAws_restJson1CloudRemovalConfigInput(value, context),
-    }),
-    GeoMosaicConfig: (value) => ({ GeoMosaicConfig: serializeAws_restJson1GeoMosaicConfigInput(value, context) }),
-    LandCoverSegmentationConfig: (value) => ({
-      LandCoverSegmentationConfig: serializeAws_restJson1LandCoverSegmentationConfigInput(value, context),
-    }),
-    ResamplingConfig: (value) => ({ ResamplingConfig: serializeAws_restJson1ResamplingConfigInput(value, context) }),
-    StackConfig: (value) => ({ StackConfig: serializeAws_restJson1StackConfigInput(value, context) }),
-    TemporalStatisticsConfig: (value) => ({
-      TemporalStatisticsConfig: serializeAws_restJson1TemporalStatisticsConfigInput(value, context),
-    }),
-    ZonalStatisticsConfig: (value) => ({
-      ZonalStatisticsConfig: serializeAws_restJson1ZonalStatisticsConfigInput(value, context),
-    }),
+    BandMathConfig: (value) => ({ BandMathConfig: _json(value) }),
+    CloudMaskingConfig: (value) => ({ CloudMaskingConfig: _json(value) }),
+    CloudRemovalConfig: (value) => ({ CloudRemovalConfig: _json(value) }),
+    GeoMosaicConfig: (value) => ({ GeoMosaicConfig: _json(value) }),
+    LandCoverSegmentationConfig: (value) => ({ LandCoverSegmentationConfig: _json(value) }),
+    ResamplingConfig: (value) => ({ ResamplingConfig: se_ResamplingConfigInput(value, context) }),
+    StackConfig: (value) => ({ StackConfig: se_StackConfigInput(value, context) }),
+    TemporalStatisticsConfig: (value) => ({ TemporalStatisticsConfig: _json(value) }),
+    ZonalStatisticsConfig: (value) => ({ ZonalStatisticsConfig: _json(value) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1LandCoverSegmentationConfigInput = (
-  input: LandCoverSegmentationConfigInput,
-  context: __SerdeContext
-): any => {
-  return {};
+// se_LandCoverSegmentationConfigInput omitted.
+
+/**
+ * serializeAws_restJson1LandsatCloudCoverLandInput
+ */
+const se_LandsatCloudCoverLandInput = (input: LandsatCloudCoverLandInput, context: __SerdeContext): any => {
+  return take(input, {
+    LowerBound: __serializeFloat,
+    UpperBound: __serializeFloat,
+  });
 };
 
-const serializeAws_restJson1LandsatCloudCoverLandInput = (
-  input: LandsatCloudCoverLandInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.LowerBound != null && { LowerBound: __serializeFloat(input.LowerBound) }),
-    ...(input.UpperBound != null && { UpperBound: __serializeFloat(input.UpperBound) }),
-  };
-};
-
-const serializeAws_restJson1LinearRing = (input: number[][], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LinearRing
+ */
+const se_LinearRing = (input: number[][], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Position(entry, context);
+      return se_Position(entry, context);
     });
 };
 
-const serializeAws_restJson1LinearRings = (input: number[][][], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LinearRings
+ */
+const se_LinearRings = (input: number[][][], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1LinearRing(entry, context);
+      return se_LinearRing(entry, context);
     });
 };
 
-const serializeAws_restJson1LinearRingsList = (input: number[][][][], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LinearRingsList
+ */
+const se_LinearRingsList = (input: number[][][][], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1LinearRings(entry, context);
+      return se_LinearRings(entry, context);
     });
 };
 
-const serializeAws_restJson1MapMatchingConfig = (input: MapMatchingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.IdAttributeName != null && { IdAttributeName: input.IdAttributeName }),
-    ...(input.TimestampAttributeName != null && { TimestampAttributeName: input.TimestampAttributeName }),
-    ...(input.XAttributeName != null && { XAttributeName: input.XAttributeName }),
-    ...(input.YAttributeName != null && { YAttributeName: input.YAttributeName }),
-  };
+// se_MapMatchingConfig omitted.
+
+/**
+ * serializeAws_restJson1MultiPolygonGeometryInput
+ */
+const se_MultiPolygonGeometryInput = (input: MultiPolygonGeometryInput, context: __SerdeContext): any => {
+  return take(input, {
+    Coordinates: (_) => se_LinearRingsList(_, context),
+  });
 };
 
-const serializeAws_restJson1MultiPolygonGeometryInput = (
-  input: MultiPolygonGeometryInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Coordinates != null && {
-      Coordinates: serializeAws_restJson1LinearRingsList(input.Coordinates, context),
-    }),
-  };
+// se_Operation omitted.
+
+// se_OperationsListInput omitted.
+
+// se_OutputConfigInput omitted.
+
+/**
+ * serializeAws_restJson1OutputResolutionResamplingInput
+ */
+const se_OutputResolutionResamplingInput = (input: OutputResolutionResamplingInput, context: __SerdeContext): any => {
+  return take(input, {
+    UserDefined: (_) => se_UserDefined(_, context),
+  });
 };
 
-const serializeAws_restJson1Operation = (input: Operation, context: __SerdeContext): any => {
-  return {
-    ...(input.Equation != null && { Equation: input.Equation }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.OutputType != null && { OutputType: input.OutputType }),
-  };
+/**
+ * serializeAws_restJson1OutputResolutionStackInput
+ */
+const se_OutputResolutionStackInput = (input: OutputResolutionStackInput, context: __SerdeContext): any => {
+  return take(input, {
+    Predefined: [],
+    UserDefined: (_) => se_UserDefined(_, context),
+  });
 };
 
-const serializeAws_restJson1OperationsListInput = (input: Operation[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Operation(entry, context);
-    });
+// se_PlatformInput omitted.
+
+/**
+ * serializeAws_restJson1PolygonGeometryInput
+ */
+const se_PolygonGeometryInput = (input: PolygonGeometryInput, context: __SerdeContext): any => {
+  return take(input, {
+    Coordinates: (_) => se_LinearRings(_, context),
+  });
 };
 
-const serializeAws_restJson1OutputConfigInput = (input: OutputConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Data != null && { S3Data: serializeAws_restJson1ExportS3DataInput(input.S3Data, context) }),
-  };
-};
-
-const serializeAws_restJson1OutputResolutionResamplingInput = (
-  input: OutputResolutionResamplingInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.UserDefined != null && { UserDefined: serializeAws_restJson1UserDefined(input.UserDefined, context) }),
-  };
-};
-
-const serializeAws_restJson1OutputResolutionStackInput = (
-  input: OutputResolutionStackInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Predefined != null && { Predefined: input.Predefined }),
-    ...(input.UserDefined != null && { UserDefined: serializeAws_restJson1UserDefined(input.UserDefined, context) }),
-  };
-};
-
-const serializeAws_restJson1PlatformInput = (input: PlatformInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ComparisonOperator != null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_restJson1PolygonGeometryInput = (input: PolygonGeometryInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Coordinates != null && { Coordinates: serializeAws_restJson1LinearRings(input.Coordinates, context) }),
-  };
-};
-
-const serializeAws_restJson1Position = (input: number[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Position
+ */
+const se_Position = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2300,1152 +2246,753 @@ const serializeAws_restJson1Position = (input: number[], context: __SerdeContext
     });
 };
 
-const serializeAws_restJson1Property = (input: Property, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Property
+ */
+const se_Property = (input: Property, context: __SerdeContext): any => {
   return Property.visit(input, {
-    EoCloudCover: (value) => ({ EoCloudCover: serializeAws_restJson1EoCloudCoverInput(value, context) }),
-    LandsatCloudCoverLand: (value) => ({
-      LandsatCloudCoverLand: serializeAws_restJson1LandsatCloudCoverLandInput(value, context),
-    }),
-    Platform: (value) => ({ Platform: serializeAws_restJson1PlatformInput(value, context) }),
-    ViewOffNadir: (value) => ({ ViewOffNadir: serializeAws_restJson1ViewOffNadirInput(value, context) }),
-    ViewSunAzimuth: (value) => ({ ViewSunAzimuth: serializeAws_restJson1ViewSunAzimuthInput(value, context) }),
-    ViewSunElevation: (value) => ({ ViewSunElevation: serializeAws_restJson1ViewSunElevationInput(value, context) }),
+    EoCloudCover: (value) => ({ EoCloudCover: se_EoCloudCoverInput(value, context) }),
+    LandsatCloudCoverLand: (value) => ({ LandsatCloudCoverLand: se_LandsatCloudCoverLandInput(value, context) }),
+    Platform: (value) => ({ Platform: _json(value) }),
+    ViewOffNadir: (value) => ({ ViewOffNadir: se_ViewOffNadirInput(value, context) }),
+    ViewSunAzimuth: (value) => ({ ViewSunAzimuth: se_ViewSunAzimuthInput(value, context) }),
+    ViewSunElevation: (value) => ({ ViewSunElevation: se_ViewSunElevationInput(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1PropertyFilter = (input: PropertyFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.Property != null && { Property: serializeAws_restJson1Property(input.Property, context) }),
-  };
+/**
+ * serializeAws_restJson1PropertyFilter
+ */
+const se_PropertyFilter = (input: PropertyFilter, context: __SerdeContext): any => {
+  return take(input, {
+    Property: (_) => se_Property(_, context),
+  });
 };
 
-const serializeAws_restJson1PropertyFilters = (input: PropertyFilters, context: __SerdeContext): any => {
-  return {
-    ...(input.LogicalOperator != null && { LogicalOperator: input.LogicalOperator }),
-    ...(input.Properties != null && {
-      Properties: serializeAws_restJson1PropertyFiltersList(input.Properties, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1PropertyFilters
+ */
+const se_PropertyFilters = (input: PropertyFilters, context: __SerdeContext): any => {
+  return take(input, {
+    LogicalOperator: [],
+    Properties: (_) => se_PropertyFiltersList(_, context),
+  });
 };
 
-const serializeAws_restJson1PropertyFiltersList = (input: PropertyFilter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PropertyFiltersList
+ */
+const se_PropertyFiltersList = (input: PropertyFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1PropertyFilter(entry, context);
+      return se_PropertyFilter(entry, context);
     });
 };
 
-const serializeAws_restJson1RasterDataCollectionQueryInput = (
-  input: RasterDataCollectionQueryInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AreaOfInterest != null && {
-      AreaOfInterest: serializeAws_restJson1AreaOfInterest(input.AreaOfInterest, context),
-    }),
-    ...(input.PropertyFilters != null && {
-      PropertyFilters: serializeAws_restJson1PropertyFilters(input.PropertyFilters, context),
-    }),
-    ...(input.RasterDataCollectionArn != null && { RasterDataCollectionArn: input.RasterDataCollectionArn }),
-    ...(input.TimeRangeFilter != null && {
-      TimeRangeFilter: serializeAws_restJson1TimeRangeFilterInput(input.TimeRangeFilter, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1RasterDataCollectionQueryInput
+ */
+const se_RasterDataCollectionQueryInput = (input: RasterDataCollectionQueryInput, context: __SerdeContext): any => {
+  return take(input, {
+    AreaOfInterest: (_) => se_AreaOfInterest(_, context),
+    PropertyFilters: (_) => se_PropertyFilters(_, context),
+    RasterDataCollectionArn: [],
+    TimeRangeFilter: (_) => se_TimeRangeFilterInput(_, context),
+  });
 };
 
-const serializeAws_restJson1RasterDataCollectionQueryWithBandFilterInput = (
+/**
+ * serializeAws_restJson1RasterDataCollectionQueryWithBandFilterInput
+ */
+const se_RasterDataCollectionQueryWithBandFilterInput = (
   input: RasterDataCollectionQueryWithBandFilterInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AreaOfInterest != null && {
-      AreaOfInterest: serializeAws_restJson1AreaOfInterest(input.AreaOfInterest, context),
-    }),
-    ...(input.BandFilter != null && { BandFilter: serializeAws_restJson1StringListInput(input.BandFilter, context) }),
-    ...(input.PropertyFilters != null && {
-      PropertyFilters: serializeAws_restJson1PropertyFilters(input.PropertyFilters, context),
-    }),
-    ...(input.TimeRangeFilter != null && {
-      TimeRangeFilter: serializeAws_restJson1TimeRangeFilterInput(input.TimeRangeFilter, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1ResamplingConfigInput = (input: ResamplingConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AlgorithmName != null && { AlgorithmName: input.AlgorithmName }),
-    ...(input.OutputResolution != null && {
-      OutputResolution: serializeAws_restJson1OutputResolutionResamplingInput(input.OutputResolution, context),
-    }),
-    ...(input.TargetBands != null && {
-      TargetBands: serializeAws_restJson1StringListInput(input.TargetBands, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1ReverseGeocodingConfig = (input: ReverseGeocodingConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.XAttributeName != null && { XAttributeName: input.XAttributeName }),
-    ...(input.YAttributeName != null && { YAttributeName: input.YAttributeName }),
-  };
-};
-
-const serializeAws_restJson1S3DataInput = (input: S3DataInput, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.MetadataProvider != null && { MetadataProvider: input.MetadataProvider }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
-
-const serializeAws_restJson1StackConfigInput = (input: StackConfigInput, context: __SerdeContext): any => {
-  return {
-    ...(input.OutputResolution != null && {
-      OutputResolution: serializeAws_restJson1OutputResolutionStackInput(input.OutputResolution, context),
-    }),
-    ...(input.TargetBands != null && {
-      TargetBands: serializeAws_restJson1StringListInput(input.TargetBands, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1StringListInput = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-const serializeAws_restJson1TemporalStatisticsConfigInput = (
-  input: TemporalStatisticsConfigInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.GroupBy != null && { GroupBy: input.GroupBy }),
-    ...(input.Statistics != null && {
-      Statistics: serializeAws_restJson1TemporalStatisticsListInput(input.Statistics, context),
-    }),
-    ...(input.TargetBands != null && {
-      TargetBands: serializeAws_restJson1StringListInput(input.TargetBands, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1TemporalStatisticsListInput = (
-  input: (TemporalStatistics | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1TimeRangeFilterInput = (input: TimeRangeFilterInput, context: __SerdeContext): any => {
-  return {
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
-};
-
-const serializeAws_restJson1UserDefined = (input: UserDefined, context: __SerdeContext): any => {
-  return {
-    ...(input.Unit != null && { Unit: input.Unit }),
-    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
-  };
-};
-
-const serializeAws_restJson1VectorEnrichmentJobConfig = (
-  input: VectorEnrichmentJobConfig,
-  context: __SerdeContext
-): any => {
-  return VectorEnrichmentJobConfig.visit(input, {
-    MapMatchingConfig: (value) => ({ MapMatchingConfig: serializeAws_restJson1MapMatchingConfig(value, context) }),
-    ReverseGeocodingConfig: (value) => ({
-      ReverseGeocodingConfig: serializeAws_restJson1ReverseGeocodingConfig(value, context),
-    }),
-    _: (name, value) => ({ name: value } as any),
+  return take(input, {
+    AreaOfInterest: (_) => se_AreaOfInterest(_, context),
+    BandFilter: _json,
+    PropertyFilters: (_) => se_PropertyFilters(_, context),
+    TimeRangeFilter: (_) => se_TimeRangeFilterInput(_, context),
   });
 };
 
-const serializeAws_restJson1VectorEnrichmentJobDataSourceConfigInput = (
-  input: VectorEnrichmentJobDataSourceConfigInput,
-  context: __SerdeContext
-): any => {
-  return VectorEnrichmentJobDataSourceConfigInput.visit(input, {
-    S3Data: (value) => ({ S3Data: serializeAws_restJson1VectorEnrichmentJobS3Data(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+/**
+ * serializeAws_restJson1ResamplingConfigInput
+ */
+const se_ResamplingConfigInput = (input: ResamplingConfigInput, context: __SerdeContext): any => {
+  return take(input, {
+    AlgorithmName: [],
+    OutputResolution: (_) => se_OutputResolutionResamplingInput(_, context),
+    TargetBands: _json,
   });
 };
 
-const serializeAws_restJson1VectorEnrichmentJobInputConfig = (
-  input: VectorEnrichmentJobInputConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DataSourceConfig != null && {
-      DataSourceConfig: serializeAws_restJson1VectorEnrichmentJobDataSourceConfigInput(input.DataSourceConfig, context),
-    }),
-    ...(input.DocumentType != null && { DocumentType: input.DocumentType }),
-  };
+// se_ReverseGeocodingConfig omitted.
+
+// se_S3DataInput omitted.
+
+/**
+ * serializeAws_restJson1StackConfigInput
+ */
+const se_StackConfigInput = (input: StackConfigInput, context: __SerdeContext): any => {
+  return take(input, {
+    OutputResolution: (_) => se_OutputResolutionStackInput(_, context),
+    TargetBands: _json,
+  });
 };
 
-const serializeAws_restJson1VectorEnrichmentJobS3Data = (
-  input: VectorEnrichmentJobS3Data,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
+// se_StringListInput omitted.
+
+// se_Tags omitted.
+
+// se_TemporalStatisticsConfigInput omitted.
+
+// se_TemporalStatisticsListInput omitted.
+
+/**
+ * serializeAws_restJson1TimeRangeFilterInput
+ */
+const se_TimeRangeFilterInput = (input: TimeRangeFilterInput, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_restJson1ViewOffNadirInput = (input: ViewOffNadirInput, context: __SerdeContext): any => {
-  return {
-    ...(input.LowerBound != null && { LowerBound: __serializeFloat(input.LowerBound) }),
-    ...(input.UpperBound != null && { UpperBound: __serializeFloat(input.UpperBound) }),
-  };
+/**
+ * serializeAws_restJson1UserDefined
+ */
+const se_UserDefined = (input: UserDefined, context: __SerdeContext): any => {
+  return take(input, {
+    Unit: [],
+    Value: __serializeFloat,
+  });
 };
 
-const serializeAws_restJson1ViewSunAzimuthInput = (input: ViewSunAzimuthInput, context: __SerdeContext): any => {
-  return {
-    ...(input.LowerBound != null && { LowerBound: __serializeFloat(input.LowerBound) }),
-    ...(input.UpperBound != null && { UpperBound: __serializeFloat(input.UpperBound) }),
-  };
+// se_VectorEnrichmentJobConfig omitted.
+
+// se_VectorEnrichmentJobDataSourceConfigInput omitted.
+
+// se_VectorEnrichmentJobInputConfig omitted.
+
+// se_VectorEnrichmentJobS3Data omitted.
+
+/**
+ * serializeAws_restJson1ViewOffNadirInput
+ */
+const se_ViewOffNadirInput = (input: ViewOffNadirInput, context: __SerdeContext): any => {
+  return take(input, {
+    LowerBound: __serializeFloat,
+    UpperBound: __serializeFloat,
+  });
 };
 
-const serializeAws_restJson1ViewSunElevationInput = (input: ViewSunElevationInput, context: __SerdeContext): any => {
-  return {
-    ...(input.LowerBound != null && { LowerBound: __serializeFloat(input.LowerBound) }),
-    ...(input.UpperBound != null && { UpperBound: __serializeFloat(input.UpperBound) }),
-  };
+/**
+ * serializeAws_restJson1ViewSunAzimuthInput
+ */
+const se_ViewSunAzimuthInput = (input: ViewSunAzimuthInput, context: __SerdeContext): any => {
+  return take(input, {
+    LowerBound: __serializeFloat,
+    UpperBound: __serializeFloat,
+  });
 };
 
-const serializeAws_restJson1ZonalStatisticsConfigInput = (
-  input: ZonalStatisticsConfigInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Statistics != null && {
-      Statistics: serializeAws_restJson1ZonalStatisticsListInput(input.Statistics, context),
-    }),
-    ...(input.TargetBands != null && {
-      TargetBands: serializeAws_restJson1StringListInput(input.TargetBands, context),
-    }),
-    ...(input.ZoneS3Path != null && { ZoneS3Path: input.ZoneS3Path }),
-  };
+/**
+ * serializeAws_restJson1ViewSunElevationInput
+ */
+const se_ViewSunElevationInput = (input: ViewSunElevationInput, context: __SerdeContext): any => {
+  return take(input, {
+    LowerBound: __serializeFloat,
+    UpperBound: __serializeFloat,
+  });
 };
 
-const serializeAws_restJson1ZonalStatisticsListInput = (
-  input: (ZonalStatistics | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ZonalStatisticsConfigInput omitted.
 
-const deserializeAws_restJson1AreaOfInterest = (output: any, context: __SerdeContext): AreaOfInterest => {
+// se_ZonalStatisticsListInput omitted.
+
+/**
+ * deserializeAws_restJson1AreaOfInterest
+ */
+const de_AreaOfInterest = (output: any, context: __SerdeContext): AreaOfInterest => {
   if (output.AreaOfInterestGeometry != null) {
     return {
-      AreaOfInterestGeometry: deserializeAws_restJson1AreaOfInterestGeometry(
-        __expectUnion(output.AreaOfInterestGeometry),
-        context
-      ),
+      AreaOfInterestGeometry: de_AreaOfInterestGeometry(__expectUnion(output.AreaOfInterestGeometry), context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1AreaOfInterestGeometry = (
-  output: any,
-  context: __SerdeContext
-): AreaOfInterestGeometry => {
+/**
+ * deserializeAws_restJson1AreaOfInterestGeometry
+ */
+const de_AreaOfInterestGeometry = (output: any, context: __SerdeContext): AreaOfInterestGeometry => {
   if (output.MultiPolygonGeometry != null) {
     return {
-      MultiPolygonGeometry: deserializeAws_restJson1MultiPolygonGeometryInput(output.MultiPolygonGeometry, context),
+      MultiPolygonGeometry: de_MultiPolygonGeometryInput(output.MultiPolygonGeometry, context),
     };
   }
   if (output.PolygonGeometry != null) {
     return {
-      PolygonGeometry: deserializeAws_restJson1PolygonGeometryInput(output.PolygonGeometry, context),
+      PolygonGeometry: de_PolygonGeometryInput(output.PolygonGeometry, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1AssetsMap = (output: any, context: __SerdeContext): Record<string, AssetValue> => {
-  return Object.entries(output).reduce((acc: Record<string, AssetValue>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_restJson1AssetValue(value, context);
-    return acc;
-  }, {});
-};
+// de_AssetsMap omitted.
 
-const deserializeAws_restJson1AssetValue = (output: any, context: __SerdeContext): AssetValue => {
-  return {
-    Href: __expectString(output.Href),
-  } as any;
-};
+// de_AssetValue omitted.
 
-const deserializeAws_restJson1BandMathConfigInput = (output: any, context: __SerdeContext): BandMathConfigInput => {
-  return {
-    CustomIndices:
-      output.CustomIndices != null
-        ? deserializeAws_restJson1CustomIndicesInput(output.CustomIndices, context)
-        : undefined,
-    PredefinedIndices:
-      output.PredefinedIndices != null
-        ? deserializeAws_restJson1StringListInput(output.PredefinedIndices, context)
-        : undefined,
-  } as any;
-};
+// de_BandMathConfigInput omitted.
 
-const deserializeAws_restJson1CloudMaskingConfigInput = (
-  output: any,
-  context: __SerdeContext
-): CloudMaskingConfigInput => {
-  return {} as any;
-};
+// de_CloudMaskingConfigInput omitted.
 
-const deserializeAws_restJson1CloudRemovalConfigInput = (
-  output: any,
-  context: __SerdeContext
-): CloudRemovalConfigInput => {
-  return {
-    AlgorithmName: __expectString(output.AlgorithmName),
-    InterpolationValue: __expectString(output.InterpolationValue),
-    TargetBands:
-      output.TargetBands != null ? deserializeAws_restJson1StringListInput(output.TargetBands, context) : undefined,
-  } as any;
-};
+// de_CloudRemovalConfigInput omitted.
 
-const deserializeAws_restJson1CustomIndicesInput = (output: any, context: __SerdeContext): CustomIndicesInput => {
-  return {
-    Operations:
-      output.Operations != null ? deserializeAws_restJson1OperationsListInput(output.Operations, context) : undefined,
-  } as any;
-};
+// de_CustomIndicesInput omitted.
 
-const deserializeAws_restJson1DataCollectionsList = (
-  output: any,
-  context: __SerdeContext
-): RasterDataCollectionMetadata[] => {
+/**
+ * deserializeAws_restJson1DataCollectionsList
+ */
+const de_DataCollectionsList = (output: any, context: __SerdeContext): RasterDataCollectionMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RasterDataCollectionMetadata(entry, context);
+      return de_RasterDataCollectionMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EarthObservationJobErrorDetails = (
-  output: any,
-  context: __SerdeContext
-): EarthObservationJobErrorDetails => {
-  return {
-    Message: __expectString(output.Message),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_EarthObservationJobErrorDetails omitted.
 
-const deserializeAws_restJson1EarthObservationJobList = (
-  output: any,
-  context: __SerdeContext
-): ListEarthObservationJobOutputConfig[] => {
+/**
+ * deserializeAws_restJson1EarthObservationJobList
+ */
+const de_EarthObservationJobList = (output: any, context: __SerdeContext): ListEarthObservationJobOutputConfig[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ListEarthObservationJobOutputConfig(entry, context);
+      return de_ListEarthObservationJobOutputConfig(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EarthObservationJobOutputBands = (output: any, context: __SerdeContext): OutputBand[] => {
+// de_EarthObservationJobOutputBands omitted.
+
+/**
+ * deserializeAws_restJson1EoCloudCoverInput
+ */
+const de_EoCloudCoverInput = (output: any, context: __SerdeContext): EoCloudCoverInput => {
+  return take(output, {
+    LowerBound: __limitedParseFloat32,
+    UpperBound: __limitedParseFloat32,
+  }) as any;
+};
+
+// de_EojDataSourceConfigInput omitted.
+
+// de_ExportErrorDetails omitted.
+
+// de_ExportErrorDetailsOutput omitted.
+
+// de_ExportS3DataInput omitted.
+
+// de_ExportVectorEnrichmentJobOutputConfig omitted.
+
+/**
+ * deserializeAws_restJson1Filter
+ */
+const de_Filter = (output: any, context: __SerdeContext): Filter => {
+  return take(output, {
+    Maximum: __limitedParseFloat32,
+    Minimum: __limitedParseFloat32,
+    Name: __expectString,
+    Type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FilterList
+ */
+const de_FilterList = (output: any, context: __SerdeContext): Filter[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1OutputBand(entry, context);
+      return de_Filter(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EoCloudCoverInput = (output: any, context: __SerdeContext): EoCloudCoverInput => {
-  return {
-    LowerBound: __limitedParseFloat32(output.LowerBound),
-    UpperBound: __limitedParseFloat32(output.UpperBound),
-  } as any;
+/**
+ * deserializeAws_restJson1Geometry
+ */
+const de_Geometry = (output: any, context: __SerdeContext): Geometry => {
+  return take(output, {
+    Coordinates: (_: any) => de_LinearRings(_, context),
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1EojDataSourceConfigInput = (
-  output: any,
-  context: __SerdeContext
-): EojDataSourceConfigInput => {
-  if (output.S3Data != null) {
-    return {
-      S3Data: deserializeAws_restJson1S3DataInput(output.S3Data, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
+// de_GeoMosaicConfigInput omitted.
+
+// de_ImageSourceBandList omitted.
+
+/**
+ * deserializeAws_restJson1InputConfigOutput
+ */
+const de_InputConfigOutput = (output: any, context: __SerdeContext): InputConfigOutput => {
+  return take(output, {
+    DataSourceConfig: (_: any) => _json(__expectUnion(_)),
+    PreviousEarthObservationJobArn: __expectString,
+    RasterDataCollectionQuery: (_: any) => de_RasterDataCollectionQueryOutput(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1ExportErrorDetails = (output: any, context: __SerdeContext): ExportErrorDetails => {
-  return {
-    ExportResults:
-      output.ExportResults != null
-        ? deserializeAws_restJson1ExportErrorDetailsOutput(output.ExportResults, context)
-        : undefined,
-    ExportSourceImages:
-      output.ExportSourceImages != null
-        ? deserializeAws_restJson1ExportErrorDetailsOutput(output.ExportSourceImages, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1ItemSource
+ */
+const de_ItemSource = (output: any, context: __SerdeContext): ItemSource => {
+  return take(output, {
+    Assets: _json,
+    DateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Geometry: (_: any) => de_Geometry(_, context),
+    Id: __expectString,
+    Properties: (_: any) => de_Properties(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1ExportErrorDetailsOutput = (
-  output: any,
-  context: __SerdeContext
-): ExportErrorDetailsOutput => {
-  return {
-    Message: __expectString(output.Message),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1ExportS3DataInput = (output: any, context: __SerdeContext): ExportS3DataInput => {
-  return {
-    KmsKeyId: __expectString(output.KmsKeyId),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
-
-const deserializeAws_restJson1ExportVectorEnrichmentJobOutputConfig = (
-  output: any,
-  context: __SerdeContext
-): ExportVectorEnrichmentJobOutputConfig => {
-  return {
-    S3Data:
-      output.S3Data != null ? deserializeAws_restJson1VectorEnrichmentJobS3Data(output.S3Data, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Filter = (output: any, context: __SerdeContext): Filter => {
-  return {
-    Maximum: __limitedParseFloat32(output.Maximum),
-    Minimum: __limitedParseFloat32(output.Minimum),
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1FilterList = (output: any, context: __SerdeContext): Filter[] => {
+/**
+ * deserializeAws_restJson1ItemSourceList
+ */
+const de_ItemSourceList = (output: any, context: __SerdeContext): ItemSource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Filter(entry, context);
+      return de_ItemSource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Geometry = (output: any, context: __SerdeContext): Geometry => {
-  return {
-    Coordinates:
-      output.Coordinates != null ? deserializeAws_restJson1LinearRings(output.Coordinates, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1GeoMosaicConfigInput = (output: any, context: __SerdeContext): GeoMosaicConfigInput => {
-  return {
-    AlgorithmName: __expectString(output.AlgorithmName),
-    TargetBands:
-      output.TargetBands != null ? deserializeAws_restJson1StringListInput(output.TargetBands, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ImageSourceBandList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1InputConfigOutput = (output: any, context: __SerdeContext): InputConfigOutput => {
-  return {
-    DataSourceConfig:
-      output.DataSourceConfig != null
-        ? deserializeAws_restJson1EojDataSourceConfigInput(__expectUnion(output.DataSourceConfig), context)
-        : undefined,
-    PreviousEarthObservationJobArn: __expectString(output.PreviousEarthObservationJobArn),
-    RasterDataCollectionQuery:
-      output.RasterDataCollectionQuery != null
-        ? deserializeAws_restJson1RasterDataCollectionQueryOutput(output.RasterDataCollectionQuery, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ItemSource = (output: any, context: __SerdeContext): ItemSource => {
-  return {
-    Assets: output.Assets != null ? deserializeAws_restJson1AssetsMap(output.Assets, context) : undefined,
-    DateTime:
-      output.DateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateTime))) : undefined,
-    Geometry: output.Geometry != null ? deserializeAws_restJson1Geometry(output.Geometry, context) : undefined,
-    Id: __expectString(output.Id),
-    Properties: output.Properties != null ? deserializeAws_restJson1Properties(output.Properties, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ItemSourceList = (output: any, context: __SerdeContext): ItemSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ItemSource(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1JobConfigInput = (output: any, context: __SerdeContext): JobConfigInput => {
+/**
+ * deserializeAws_restJson1JobConfigInput
+ */
+const de_JobConfigInput = (output: any, context: __SerdeContext): JobConfigInput => {
   if (output.BandMathConfig != null) {
     return {
-      BandMathConfig: deserializeAws_restJson1BandMathConfigInput(output.BandMathConfig, context),
+      BandMathConfig: _json(output.BandMathConfig),
     };
   }
   if (output.CloudMaskingConfig != null) {
     return {
-      CloudMaskingConfig: deserializeAws_restJson1CloudMaskingConfigInput(output.CloudMaskingConfig, context),
+      CloudMaskingConfig: _json(output.CloudMaskingConfig),
     };
   }
   if (output.CloudRemovalConfig != null) {
     return {
-      CloudRemovalConfig: deserializeAws_restJson1CloudRemovalConfigInput(output.CloudRemovalConfig, context),
+      CloudRemovalConfig: _json(output.CloudRemovalConfig),
     };
   }
   if (output.GeoMosaicConfig != null) {
     return {
-      GeoMosaicConfig: deserializeAws_restJson1GeoMosaicConfigInput(output.GeoMosaicConfig, context),
+      GeoMosaicConfig: _json(output.GeoMosaicConfig),
     };
   }
   if (output.LandCoverSegmentationConfig != null) {
     return {
-      LandCoverSegmentationConfig: deserializeAws_restJson1LandCoverSegmentationConfigInput(
-        output.LandCoverSegmentationConfig,
-        context
-      ),
+      LandCoverSegmentationConfig: _json(output.LandCoverSegmentationConfig),
     };
   }
   if (output.ResamplingConfig != null) {
     return {
-      ResamplingConfig: deserializeAws_restJson1ResamplingConfigInput(output.ResamplingConfig, context),
+      ResamplingConfig: de_ResamplingConfigInput(output.ResamplingConfig, context),
     };
   }
   if (output.StackConfig != null) {
     return {
-      StackConfig: deserializeAws_restJson1StackConfigInput(output.StackConfig, context),
+      StackConfig: de_StackConfigInput(output.StackConfig, context),
     };
   }
   if (output.TemporalStatisticsConfig != null) {
     return {
-      TemporalStatisticsConfig: deserializeAws_restJson1TemporalStatisticsConfigInput(
-        output.TemporalStatisticsConfig,
-        context
-      ),
+      TemporalStatisticsConfig: _json(output.TemporalStatisticsConfig),
     };
   }
   if (output.ZonalStatisticsConfig != null) {
     return {
-      ZonalStatisticsConfig: deserializeAws_restJson1ZonalStatisticsConfigInput(output.ZonalStatisticsConfig, context),
+      ZonalStatisticsConfig: _json(output.ZonalStatisticsConfig),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1LandCoverSegmentationConfigInput = (
-  output: any,
-  context: __SerdeContext
-): LandCoverSegmentationConfigInput => {
-  return {} as any;
+// de_LandCoverSegmentationConfigInput omitted.
+
+/**
+ * deserializeAws_restJson1LandsatCloudCoverLandInput
+ */
+const de_LandsatCloudCoverLandInput = (output: any, context: __SerdeContext): LandsatCloudCoverLandInput => {
+  return take(output, {
+    LowerBound: __limitedParseFloat32,
+    UpperBound: __limitedParseFloat32,
+  }) as any;
 };
 
-const deserializeAws_restJson1LandsatCloudCoverLandInput = (
-  output: any,
-  context: __SerdeContext
-): LandsatCloudCoverLandInput => {
-  return {
-    LowerBound: __limitedParseFloat32(output.LowerBound),
-    UpperBound: __limitedParseFloat32(output.UpperBound),
-  } as any;
-};
-
-const deserializeAws_restJson1LinearRing = (output: any, context: __SerdeContext): number[][] => {
+/**
+ * deserializeAws_restJson1LinearRing
+ */
+const de_LinearRing = (output: any, context: __SerdeContext): number[][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Position(entry, context);
+      return de_Position(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1LinearRings = (output: any, context: __SerdeContext): number[][][] => {
+/**
+ * deserializeAws_restJson1LinearRings
+ */
+const de_LinearRings = (output: any, context: __SerdeContext): number[][][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1LinearRing(entry, context);
+      return de_LinearRing(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1LinearRingsList = (output: any, context: __SerdeContext): number[][][][] => {
+/**
+ * deserializeAws_restJson1LinearRingsList
+ */
+const de_LinearRingsList = (output: any, context: __SerdeContext): number[][][][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1LinearRings(entry, context);
+      return de_LinearRings(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListEarthObservationJobOutputConfig = (
+/**
+ * deserializeAws_restJson1ListEarthObservationJobOutputConfig
+ */
+const de_ListEarthObservationJobOutputConfig = (
   output: any,
   context: __SerdeContext
 ): ListEarthObservationJobOutputConfig => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DurationInSeconds: __expectInt32(output.DurationInSeconds),
-    Name: __expectString(output.Name),
-    OperationType: __expectString(output.OperationType),
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_restJson1Tags(output.Tags, context) : undefined,
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DurationInSeconds: __expectInt32,
+    Name: __expectString,
+    OperationType: __expectString,
+    Status: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1ListVectorEnrichmentJobOutputConfig = (
+/**
+ * deserializeAws_restJson1ListVectorEnrichmentJobOutputConfig
+ */
+const de_ListVectorEnrichmentJobOutputConfig = (
   output: any,
   context: __SerdeContext
 ): ListVectorEnrichmentJobOutputConfig => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DurationInSeconds: __expectInt32(output.DurationInSeconds),
-    Name: __expectString(output.Name),
-    Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_restJson1Tags(output.Tags, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DurationInSeconds: __expectInt32,
+    Name: __expectString,
+    Status: __expectString,
+    Tags: _json,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1MapMatchingConfig = (output: any, context: __SerdeContext): MapMatchingConfig => {
-  return {
-    IdAttributeName: __expectString(output.IdAttributeName),
-    TimestampAttributeName: __expectString(output.TimestampAttributeName),
-    XAttributeName: __expectString(output.XAttributeName),
-    YAttributeName: __expectString(output.YAttributeName),
-  } as any;
+// de_MapMatchingConfig omitted.
+
+/**
+ * deserializeAws_restJson1MultiPolygonGeometryInput
+ */
+const de_MultiPolygonGeometryInput = (output: any, context: __SerdeContext): MultiPolygonGeometryInput => {
+  return take(output, {
+    Coordinates: (_: any) => de_LinearRingsList(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1MultiPolygonGeometryInput = (
-  output: any,
-  context: __SerdeContext
-): MultiPolygonGeometryInput => {
-  return {
-    Coordinates:
-      output.Coordinates != null ? deserializeAws_restJson1LinearRingsList(output.Coordinates, context) : undefined,
-  } as any;
+// de_Operation omitted.
+
+// de_OperationsListInput omitted.
+
+// de_OutputBand omitted.
+
+// de_OutputConfigInput omitted.
+
+/**
+ * deserializeAws_restJson1OutputResolutionResamplingInput
+ */
+const de_OutputResolutionResamplingInput = (output: any, context: __SerdeContext): OutputResolutionResamplingInput => {
+  return take(output, {
+    UserDefined: (_: any) => de_UserDefined(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1Operation = (output: any, context: __SerdeContext): Operation => {
-  return {
-    Equation: __expectString(output.Equation),
-    Name: __expectString(output.Name),
-    OutputType: __expectString(output.OutputType),
-  } as any;
+/**
+ * deserializeAws_restJson1OutputResolutionStackInput
+ */
+const de_OutputResolutionStackInput = (output: any, context: __SerdeContext): OutputResolutionStackInput => {
+  return take(output, {
+    Predefined: __expectString,
+    UserDefined: (_: any) => de_UserDefined(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1OperationsListInput = (output: any, context: __SerdeContext): Operation[] => {
+// de_PlatformInput omitted.
+
+/**
+ * deserializeAws_restJson1PolygonGeometryInput
+ */
+const de_PolygonGeometryInput = (output: any, context: __SerdeContext): PolygonGeometryInput => {
+  return take(output, {
+    Coordinates: (_: any) => de_LinearRings(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Position
+ */
+const de_Position = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Operation(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1OutputBand = (output: any, context: __SerdeContext): OutputBand => {
-  return {
-    BandName: __expectString(output.BandName),
-    OutputDataType: __expectString(output.OutputDataType),
-  } as any;
-};
-
-const deserializeAws_restJson1OutputConfigInput = (output: any, context: __SerdeContext): OutputConfigInput => {
-  return {
-    S3Data: output.S3Data != null ? deserializeAws_restJson1ExportS3DataInput(output.S3Data, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1OutputResolutionResamplingInput = (
-  output: any,
-  context: __SerdeContext
-): OutputResolutionResamplingInput => {
-  return {
-    UserDefined:
-      output.UserDefined != null ? deserializeAws_restJson1UserDefined(output.UserDefined, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1OutputResolutionStackInput = (
-  output: any,
-  context: __SerdeContext
-): OutputResolutionStackInput => {
-  return {
-    Predefined: __expectString(output.Predefined),
-    UserDefined:
-      output.UserDefined != null ? deserializeAws_restJson1UserDefined(output.UserDefined, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1PlatformInput = (output: any, context: __SerdeContext): PlatformInput => {
-  return {
-    ComparisonOperator: __expectString(output.ComparisonOperator),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_restJson1PolygonGeometryInput = (output: any, context: __SerdeContext): PolygonGeometryInput => {
-  return {
-    Coordinates:
-      output.Coordinates != null ? deserializeAws_restJson1LinearRings(output.Coordinates, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Position = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __limitedParseDouble(entry) as any;
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Properties = (output: any, context: __SerdeContext): Properties => {
-  return {
-    EoCloudCover: __limitedParseFloat32(output.EoCloudCover),
-    LandsatCloudCoverLand: __limitedParseFloat32(output.LandsatCloudCoverLand),
-    Platform: __expectString(output.Platform),
-    ViewOffNadir: __limitedParseFloat32(output.ViewOffNadir),
-    ViewSunAzimuth: __limitedParseFloat32(output.ViewSunAzimuth),
-    ViewSunElevation: __limitedParseFloat32(output.ViewSunElevation),
-  } as any;
+/**
+ * deserializeAws_restJson1Properties
+ */
+const de_Properties = (output: any, context: __SerdeContext): Properties => {
+  return take(output, {
+    EoCloudCover: __limitedParseFloat32,
+    LandsatCloudCoverLand: __limitedParseFloat32,
+    Platform: __expectString,
+    ViewOffNadir: __limitedParseFloat32,
+    ViewSunAzimuth: __limitedParseFloat32,
+    ViewSunElevation: __limitedParseFloat32,
+  }) as any;
 };
 
-const deserializeAws_restJson1Property = (output: any, context: __SerdeContext): Property => {
+/**
+ * deserializeAws_restJson1Property
+ */
+const de_Property = (output: any, context: __SerdeContext): Property => {
   if (output.EoCloudCover != null) {
     return {
-      EoCloudCover: deserializeAws_restJson1EoCloudCoverInput(output.EoCloudCover, context),
+      EoCloudCover: de_EoCloudCoverInput(output.EoCloudCover, context),
     };
   }
   if (output.LandsatCloudCoverLand != null) {
     return {
-      LandsatCloudCoverLand: deserializeAws_restJson1LandsatCloudCoverLandInput(output.LandsatCloudCoverLand, context),
+      LandsatCloudCoverLand: de_LandsatCloudCoverLandInput(output.LandsatCloudCoverLand, context),
     };
   }
   if (output.Platform != null) {
     return {
-      Platform: deserializeAws_restJson1PlatformInput(output.Platform, context),
+      Platform: _json(output.Platform),
     };
   }
   if (output.ViewOffNadir != null) {
     return {
-      ViewOffNadir: deserializeAws_restJson1ViewOffNadirInput(output.ViewOffNadir, context),
+      ViewOffNadir: de_ViewOffNadirInput(output.ViewOffNadir, context),
     };
   }
   if (output.ViewSunAzimuth != null) {
     return {
-      ViewSunAzimuth: deserializeAws_restJson1ViewSunAzimuthInput(output.ViewSunAzimuth, context),
+      ViewSunAzimuth: de_ViewSunAzimuthInput(output.ViewSunAzimuth, context),
     };
   }
   if (output.ViewSunElevation != null) {
     return {
-      ViewSunElevation: deserializeAws_restJson1ViewSunElevationInput(output.ViewSunElevation, context),
+      ViewSunElevation: de_ViewSunElevationInput(output.ViewSunElevation, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1PropertyFilter = (output: any, context: __SerdeContext): PropertyFilter => {
-  return {
-    Property:
-      output.Property != null ? deserializeAws_restJson1Property(__expectUnion(output.Property), context) : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1PropertyFilter
+ */
+const de_PropertyFilter = (output: any, context: __SerdeContext): PropertyFilter => {
+  return take(output, {
+    Property: (_: any) => de_Property(__expectUnion(_), context),
+  }) as any;
 };
 
-const deserializeAws_restJson1PropertyFilters = (output: any, context: __SerdeContext): PropertyFilters => {
-  return {
-    LogicalOperator: __expectString(output.LogicalOperator),
-    Properties:
-      output.Properties != null ? deserializeAws_restJson1PropertyFiltersList(output.Properties, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1PropertyFilters
+ */
+const de_PropertyFilters = (output: any, context: __SerdeContext): PropertyFilters => {
+  return take(output, {
+    LogicalOperator: __expectString,
+    Properties: (_: any) => de_PropertyFiltersList(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1PropertyFiltersList = (output: any, context: __SerdeContext): PropertyFilter[] => {
+/**
+ * deserializeAws_restJson1PropertyFiltersList
+ */
+const de_PropertyFiltersList = (output: any, context: __SerdeContext): PropertyFilter[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PropertyFilter(entry, context);
+      return de_PropertyFilter(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1RasterDataCollectionMetadata = (
-  output: any,
-  context: __SerdeContext
-): RasterDataCollectionMetadata => {
-  return {
-    Arn: __expectString(output.Arn),
-    Description: __expectString(output.Description),
-    DescriptionPageUrl: __expectString(output.DescriptionPageUrl),
-    Name: __expectString(output.Name),
-    SupportedFilters:
-      output.SupportedFilters != null
-        ? deserializeAws_restJson1FilterList(output.SupportedFilters, context)
-        : undefined,
-    Tags: output.Tags != null ? deserializeAws_restJson1Tags(output.Tags, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+/**
+ * deserializeAws_restJson1RasterDataCollectionMetadata
+ */
+const de_RasterDataCollectionMetadata = (output: any, context: __SerdeContext): RasterDataCollectionMetadata => {
+  return take(output, {
+    Arn: __expectString,
+    Description: __expectString,
+    DescriptionPageUrl: __expectString,
+    Name: __expectString,
+    SupportedFilters: (_: any) => de_FilterList(_, context),
+    Tags: _json,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1RasterDataCollectionQueryOutput = (
-  output: any,
-  context: __SerdeContext
-): RasterDataCollectionQueryOutput => {
-  return {
-    AreaOfInterest:
-      output.AreaOfInterest != null
-        ? deserializeAws_restJson1AreaOfInterest(__expectUnion(output.AreaOfInterest), context)
-        : undefined,
-    PropertyFilters:
-      output.PropertyFilters != null
-        ? deserializeAws_restJson1PropertyFilters(output.PropertyFilters, context)
-        : undefined,
-    RasterDataCollectionArn: __expectString(output.RasterDataCollectionArn),
-    RasterDataCollectionName: __expectString(output.RasterDataCollectionName),
-    TimeRangeFilter:
-      output.TimeRangeFilter != null
-        ? deserializeAws_restJson1TimeRangeFilterInput(output.TimeRangeFilter, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1RasterDataCollectionQueryOutput
+ */
+const de_RasterDataCollectionQueryOutput = (output: any, context: __SerdeContext): RasterDataCollectionQueryOutput => {
+  return take(output, {
+    AreaOfInterest: (_: any) => de_AreaOfInterest(__expectUnion(_), context),
+    PropertyFilters: (_: any) => de_PropertyFilters(_, context),
+    RasterDataCollectionArn: __expectString,
+    RasterDataCollectionName: __expectString,
+    TimeRangeFilter: (_: any) => de_TimeRangeFilterOutput(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1ResamplingConfigInput = (output: any, context: __SerdeContext): ResamplingConfigInput => {
-  return {
-    AlgorithmName: __expectString(output.AlgorithmName),
-    OutputResolution:
-      output.OutputResolution != null
-        ? deserializeAws_restJson1OutputResolutionResamplingInput(output.OutputResolution, context)
-        : undefined,
-    TargetBands:
-      output.TargetBands != null ? deserializeAws_restJson1StringListInput(output.TargetBands, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1ResamplingConfigInput
+ */
+const de_ResamplingConfigInput = (output: any, context: __SerdeContext): ResamplingConfigInput => {
+  return take(output, {
+    AlgorithmName: __expectString,
+    OutputResolution: (_: any) => de_OutputResolutionResamplingInput(_, context),
+    TargetBands: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1ReverseGeocodingConfig = (
-  output: any,
-  context: __SerdeContext
-): ReverseGeocodingConfig => {
-  return {
-    XAttributeName: __expectString(output.XAttributeName),
-    YAttributeName: __expectString(output.YAttributeName),
-  } as any;
+// de_ReverseGeocodingConfig omitted.
+
+// de_S3DataInput omitted.
+
+/**
+ * deserializeAws_restJson1StackConfigInput
+ */
+const de_StackConfigInput = (output: any, context: __SerdeContext): StackConfigInput => {
+  return take(output, {
+    OutputResolution: (_: any) => de_OutputResolutionStackInput(_, context),
+    TargetBands: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1S3DataInput = (output: any, context: __SerdeContext): S3DataInput => {
-  return {
-    KmsKeyId: __expectString(output.KmsKeyId),
-    MetadataProvider: __expectString(output.MetadataProvider),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
+// de_StringListInput omitted.
+
+// de_Tags omitted.
+
+// de_TemporalStatisticsConfigInput omitted.
+
+// de_TemporalStatisticsListInput omitted.
+
+/**
+ * deserializeAws_restJson1TimeRangeFilterOutput
+ */
+const de_TimeRangeFilterOutput = (output: any, context: __SerdeContext): TimeRangeFilterOutput => {
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    StartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
-const deserializeAws_restJson1StackConfigInput = (output: any, context: __SerdeContext): StackConfigInput => {
-  return {
-    OutputResolution:
-      output.OutputResolution != null
-        ? deserializeAws_restJson1OutputResolutionStackInput(output.OutputResolution, context)
-        : undefined,
-    TargetBands:
-      output.TargetBands != null ? deserializeAws_restJson1StringListInput(output.TargetBands, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1UserDefined
+ */
+const de_UserDefined = (output: any, context: __SerdeContext): UserDefined => {
+  return take(output, {
+    Unit: __expectString,
+    Value: __limitedParseFloat32,
+  }) as any;
 };
 
-const deserializeAws_restJson1StringListInput = (output: any, context: __SerdeContext): string[] => {
+// de_VectorEnrichmentJobConfig omitted.
+
+// de_VectorEnrichmentJobDataSourceConfigInput omitted.
+
+// de_VectorEnrichmentJobErrorDetails omitted.
+
+// de_VectorEnrichmentJobExportErrorDetails omitted.
+
+// de_VectorEnrichmentJobInputConfig omitted.
+
+/**
+ * deserializeAws_restJson1VectorEnrichmentJobList
+ */
+const de_VectorEnrichmentJobList = (output: any, context: __SerdeContext): ListVectorEnrichmentJobOutputConfig[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_ListVectorEnrichmentJobOutputConfig(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
+// de_VectorEnrichmentJobS3Data omitted.
+
+/**
+ * deserializeAws_restJson1ViewOffNadirInput
+ */
+const de_ViewOffNadirInput = (output: any, context: __SerdeContext): ViewOffNadirInput => {
+  return take(output, {
+    LowerBound: __limitedParseFloat32,
+    UpperBound: __limitedParseFloat32,
+  }) as any;
 };
 
-const deserializeAws_restJson1TemporalStatisticsConfigInput = (
-  output: any,
-  context: __SerdeContext
-): TemporalStatisticsConfigInput => {
-  return {
-    GroupBy: __expectString(output.GroupBy),
-    Statistics:
-      output.Statistics != null
-        ? deserializeAws_restJson1TemporalStatisticsListInput(output.Statistics, context)
-        : undefined,
-    TargetBands:
-      output.TargetBands != null ? deserializeAws_restJson1StringListInput(output.TargetBands, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1ViewSunAzimuthInput
+ */
+const de_ViewSunAzimuthInput = (output: any, context: __SerdeContext): ViewSunAzimuthInput => {
+  return take(output, {
+    LowerBound: __limitedParseFloat32,
+    UpperBound: __limitedParseFloat32,
+  }) as any;
 };
 
-const deserializeAws_restJson1TemporalStatisticsListInput = (
-  output: any,
-  context: __SerdeContext
-): (TemporalStatistics | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
+/**
+ * deserializeAws_restJson1ViewSunElevationInput
+ */
+const de_ViewSunElevationInput = (output: any, context: __SerdeContext): ViewSunElevationInput => {
+  return take(output, {
+    LowerBound: __limitedParseFloat32,
+    UpperBound: __limitedParseFloat32,
+  }) as any;
 };
 
-const deserializeAws_restJson1TimeRangeFilterInput = (output: any, context: __SerdeContext): TimeRangeFilterInput => {
-  return {
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
-    StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
-  } as any;
-};
+// de_ZonalStatisticsConfigInput omitted.
 
-const deserializeAws_restJson1UserDefined = (output: any, context: __SerdeContext): UserDefined => {
-  return {
-    Unit: __expectString(output.Unit),
-    Value: __limitedParseFloat32(output.Value),
-  } as any;
-};
-
-const deserializeAws_restJson1VectorEnrichmentJobConfig = (
-  output: any,
-  context: __SerdeContext
-): VectorEnrichmentJobConfig => {
-  if (output.MapMatchingConfig != null) {
-    return {
-      MapMatchingConfig: deserializeAws_restJson1MapMatchingConfig(output.MapMatchingConfig, context),
-    };
-  }
-  if (output.ReverseGeocodingConfig != null) {
-    return {
-      ReverseGeocodingConfig: deserializeAws_restJson1ReverseGeocodingConfig(output.ReverseGeocodingConfig, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1VectorEnrichmentJobDataSourceConfigInput = (
-  output: any,
-  context: __SerdeContext
-): VectorEnrichmentJobDataSourceConfigInput => {
-  if (output.S3Data != null) {
-    return {
-      S3Data: deserializeAws_restJson1VectorEnrichmentJobS3Data(output.S3Data, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1VectorEnrichmentJobErrorDetails = (
-  output: any,
-  context: __SerdeContext
-): VectorEnrichmentJobErrorDetails => {
-  return {
-    ErrorMessage: __expectString(output.ErrorMessage),
-    ErrorType: __expectString(output.ErrorType),
-  } as any;
-};
-
-const deserializeAws_restJson1VectorEnrichmentJobExportErrorDetails = (
-  output: any,
-  context: __SerdeContext
-): VectorEnrichmentJobExportErrorDetails => {
-  return {
-    Message: __expectString(output.Message),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1VectorEnrichmentJobInputConfig = (
-  output: any,
-  context: __SerdeContext
-): VectorEnrichmentJobInputConfig => {
-  return {
-    DataSourceConfig:
-      output.DataSourceConfig != null
-        ? deserializeAws_restJson1VectorEnrichmentJobDataSourceConfigInput(
-            __expectUnion(output.DataSourceConfig),
-            context
-          )
-        : undefined,
-    DocumentType: __expectString(output.DocumentType),
-  } as any;
-};
-
-const deserializeAws_restJson1VectorEnrichmentJobList = (
-  output: any,
-  context: __SerdeContext
-): ListVectorEnrichmentJobOutputConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ListVectorEnrichmentJobOutputConfig(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1VectorEnrichmentJobS3Data = (
-  output: any,
-  context: __SerdeContext
-): VectorEnrichmentJobS3Data => {
-  return {
-    KmsKeyId: __expectString(output.KmsKeyId),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
-};
-
-const deserializeAws_restJson1ViewOffNadirInput = (output: any, context: __SerdeContext): ViewOffNadirInput => {
-  return {
-    LowerBound: __limitedParseFloat32(output.LowerBound),
-    UpperBound: __limitedParseFloat32(output.UpperBound),
-  } as any;
-};
-
-const deserializeAws_restJson1ViewSunAzimuthInput = (output: any, context: __SerdeContext): ViewSunAzimuthInput => {
-  return {
-    LowerBound: __limitedParseFloat32(output.LowerBound),
-    UpperBound: __limitedParseFloat32(output.UpperBound),
-  } as any;
-};
-
-const deserializeAws_restJson1ViewSunElevationInput = (output: any, context: __SerdeContext): ViewSunElevationInput => {
-  return {
-    LowerBound: __limitedParseFloat32(output.LowerBound),
-    UpperBound: __limitedParseFloat32(output.UpperBound),
-  } as any;
-};
-
-const deserializeAws_restJson1ZonalStatisticsConfigInput = (
-  output: any,
-  context: __SerdeContext
-): ZonalStatisticsConfigInput => {
-  return {
-    Statistics:
-      output.Statistics != null
-        ? deserializeAws_restJson1ZonalStatisticsListInput(output.Statistics, context)
-        : undefined,
-    TargetBands:
-      output.TargetBands != null ? deserializeAws_restJson1StringListInput(output.TargetBands, context) : undefined,
-    ZoneS3Path: __expectString(output.ZoneS3Path),
-  } as any;
-};
-
-const deserializeAws_restJson1ZonalStatisticsListInput = (
-  output: any,
-  context: __SerdeContext
-): (ZonalStatistics | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ZonalStatisticsListInput omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

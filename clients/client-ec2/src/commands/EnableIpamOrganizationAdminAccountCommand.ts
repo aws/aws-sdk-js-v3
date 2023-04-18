@@ -16,21 +16,30 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   EnableIpamOrganizationAdminAccountRequest,
-  EnableIpamOrganizationAdminAccountRequestFilterSensitiveLog,
   EnableIpamOrganizationAdminAccountResult,
-  EnableIpamOrganizationAdminAccountResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2EnableIpamOrganizationAdminAccountCommand,
-  serializeAws_ec2EnableIpamOrganizationAdminAccountCommand,
+  de_EnableIpamOrganizationAdminAccountCommand,
+  se_EnableIpamOrganizationAdminAccountCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableIpamOrganizationAdminAccountCommand}.
+ */
 export interface EnableIpamOrganizationAdminAccountCommandInput extends EnableIpamOrganizationAdminAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableIpamOrganizationAdminAccountCommand}.
+ */
 export interface EnableIpamOrganizationAdminAccountCommandOutput
   extends EnableIpamOrganizationAdminAccountResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
@@ -39,13 +48,20 @@ export interface EnableIpamOrganizationAdminAccountCommandOutput
  * import { EC2Client, EnableIpamOrganizationAdminAccountCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableIpamOrganizationAdminAccountCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableIpamOrganizationAdminAccountRequest
+ *   DryRun: true || false,
+ *   DelegatedAdminAccountId: "STRING_VALUE", // required
+ * };
  * const command = new EnableIpamOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableIpamOrganizationAdminAccountCommandInput - {@link EnableIpamOrganizationAdminAccountCommandInput}
+ * @returns {@link EnableIpamOrganizationAdminAccountCommandOutput}
  * @see {@link EnableIpamOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link EnableIpamOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class EnableIpamOrganizationAdminAccountCommand extends $Command<
@@ -65,6 +81,9 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableIpamOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +112,8 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableIpamOrganizationAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableIpamOrganizationAdminAccountResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +123,24 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableIpamOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableIpamOrganizationAdminAccountCommand(input, context);
+    return se_EnableIpamOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableIpamOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_ec2EnableIpamOrganizationAdminAccountCommand(output, context);
+    return de_EnableIpamOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

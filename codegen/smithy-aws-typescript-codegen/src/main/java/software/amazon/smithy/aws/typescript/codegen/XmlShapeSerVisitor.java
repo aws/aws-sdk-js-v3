@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Supplier;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.Model;
@@ -236,17 +237,20 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Grab the target shape so we can use a member serializer on it.
             Shape target = context.getModel().expectShape(memberShape.getTarget());
             XmlMemberSerVisitor inputVisitor = getMemberVisitor(inputLocation.get());
-
             // Collected members must be handled with flattening and renaming.
             if (serializationReturnsArray(target)) {
                 serializeNamedMemberFromArray(context, locationName, memberShape, target, inputVisitor);
             } else {
                 // Handle @timestampFormat on members not just the targeted shape.
                 String valueProvider;
-                if (memberShape.hasTrait(TimestampFormatTrait.class)) {
+                if (memberShape.hasTrait(TimestampFormatTrait.class) || target.hasTrait(TimestampFormatTrait.class)) {
+                    Optional<TimestampFormatTrait> timestampFormat = memberShape.getTrait(TimestampFormatTrait.class);
+                    if (timestampFormat.isEmpty()) {
+                        timestampFormat = target.getTrait(TimestampFormatTrait.class);
+                    }
                     valueProvider = inputVisitor.getAsXmlText(target,
                             AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                                    TIMESTAMP_FORMAT, inputLocation.get()) + ".toString()");
+                                    timestampFormat.get().getFormat(), inputLocation.get()) + ".toString()");
                 } else {
                     valueProvider = target.accept(inputVisitor);
                 }

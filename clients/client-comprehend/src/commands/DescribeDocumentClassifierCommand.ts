@@ -16,19 +16,26 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   DescribeDocumentClassifierRequest,
-  DescribeDocumentClassifierRequestFilterSensitiveLog,
   DescribeDocumentClassifierResponse,
   DescribeDocumentClassifierResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDocumentClassifierCommand,
-  serializeAws_json1_1DescribeDocumentClassifierCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDocumentClassifierCommand, se_DescribeDocumentClassifierCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDocumentClassifierCommand}.
+ */
 export interface DescribeDocumentClassifierCommandInput extends DescribeDocumentClassifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDocumentClassifierCommand}.
+ */
 export interface DescribeDocumentClassifierCommandOutput extends DescribeDocumentClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a document classifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,31 @@ export interface DescribeDocumentClassifierCommandOutput extends DescribeDocumen
  * import { ComprehendClient, DescribeDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeDocumentClassifierRequest
+ *   DocumentClassifierArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDocumentClassifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDocumentClassifierCommandInput - {@link DescribeDocumentClassifierCommandInput}
+ * @returns {@link DescribeDocumentClassifierCommandOutput}
  * @see {@link DescribeDocumentClassifierCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentClassifierCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class DescribeDocumentClassifierCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeDocumentClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDocumentClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +118,7 @@ export class DescribeDocumentClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDocumentClassifierRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeDocumentClassifierResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +129,21 @@ export class DescribeDocumentClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDocumentClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDocumentClassifierCommand(input, context);
+    return se_DescribeDocumentClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDocumentClassifierCommandOutput> {
-    return deserializeAws_json1_1DescribeDocumentClassifierCommand(output, context);
+    return de_DescribeDocumentClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

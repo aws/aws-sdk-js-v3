@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteProfileRequest,
-  DeleteProfileRequestFilterSensitiveLog,
-  DeleteProfileResponse,
-  DeleteProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProfileCommand,
-  serializeAws_json1_1DeleteProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProfileRequest, DeleteProfileResponse } from "../models/models_0";
+import { de_DeleteProfileCommand, se_DeleteProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteProfileCommand}.
+ */
 export interface DeleteProfileCommandInput extends DeleteProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProfileCommand}.
+ */
 export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a room profile by the profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
  * import { AlexaForBusinessClient, DeleteProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteProfileRequest
+ *   ProfileArn: "STRING_VALUE",
+ * };
  * const command = new DeleteProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProfileCommandInput - {@link DeleteProfileCommandInput}
+ * @returns {@link DeleteProfileCommandOutput}
  * @see {@link DeleteProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class DeleteProfileCommand extends $Command<
@@ -62,6 +77,9 @@ export class DeleteProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class DeleteProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class DeleteProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProfileCommand(input, context);
+    return se_DeleteProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfileCommandOutput> {
-    return deserializeAws_json1_1DeleteProfileCommand(output, context);
+    return de_DeleteProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

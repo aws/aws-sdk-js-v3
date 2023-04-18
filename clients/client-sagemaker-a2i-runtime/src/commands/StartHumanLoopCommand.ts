@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartHumanLoopRequest,
-  StartHumanLoopRequestFilterSensitiveLog,
-  StartHumanLoopResponse,
-  StartHumanLoopResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartHumanLoopCommand,
-  serializeAws_restJson1StartHumanLoopCommand,
-} from "../protocols/Aws_restJson1";
+import { StartHumanLoopRequest, StartHumanLoopResponse } from "../models/models_0";
+import { de_StartHumanLoopCommand, se_StartHumanLoopCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartHumanLoopCommand}.
+ */
 export interface StartHumanLoopCommandInput extends StartHumanLoopRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartHumanLoopCommand}.
+ */
 export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a human loop, provided that at least one activation condition is met.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,53 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  * import { SageMakerA2IRuntimeClient, StartHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
  * // const { SageMakerA2IRuntimeClient, StartHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
  * const client = new SageMakerA2IRuntimeClient(config);
+ * const input = { // StartHumanLoopRequest
+ *   HumanLoopName: "STRING_VALUE", // required
+ *   FlowDefinitionArn: "STRING_VALUE", // required
+ *   HumanLoopInput: { // HumanLoopInput
+ *     InputContent: "STRING_VALUE", // required
+ *   },
+ *   DataAttributes: { // HumanLoopDataAttributes
+ *     ContentClassifiers: [ // ContentClassifiers // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new StartHumanLoopCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartHumanLoopCommandInput - {@link StartHumanLoopCommandInput}
+ * @returns {@link StartHumanLoopCommandOutput}
  * @see {@link StartHumanLoopCommandInput} for command's `input` shape.
  * @see {@link StartHumanLoopCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has the same name as another active human loop but has different input data. You cannot start two
+ *     human loops with the same name and different input data.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We couldn't process your request because of an issue with the server. Try again
+ *       later.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
+ *       maximum number of service resources or operations for your AWS account. For a list of
+ *       Amazon A2I service quotes, see <a href="https://docs.aws.amazon.com/general/latest/gr/a2i.html">Amazon Augmented AI Service Quotes</a>. Delete some resources or request an increase in your
+ *       service quota. You can request a quota increase using Service Quotas or the AWS Support
+ *       Center. To request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Quotas</a> in the
+ *         <i>AWS General Reference</i>.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded
+ *       the
+ *       maximum number of requests.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The
+ *       request isn't valid. Check the syntax and try again.</p>
+ *
  *
  */
 export class StartHumanLoopCommand extends $Command<
@@ -66,6 +109,9 @@ export class StartHumanLoopCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartHumanLoopCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +140,8 @@ export class StartHumanLoopCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartHumanLoopRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartHumanLoopResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +151,18 @@ export class StartHumanLoopCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartHumanLoopCommand(input, context);
+    return se_StartHumanLoopCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartHumanLoopCommandOutput> {
-    return deserializeAws_restJson1StartHumanLoopCommand(output, context);
+    return de_StartHumanLoopCommand(output, context);
   }
 
   // Start section: command_body_extra

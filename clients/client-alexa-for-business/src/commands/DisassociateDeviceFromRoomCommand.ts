@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DisassociateDeviceFromRoomRequest,
-  DisassociateDeviceFromRoomRequestFilterSensitiveLog,
-  DisassociateDeviceFromRoomResponse,
-  DisassociateDeviceFromRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateDeviceFromRoomCommand,
-  serializeAws_json1_1DisassociateDeviceFromRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateDeviceFromRoomRequest, DisassociateDeviceFromRoomResponse } from "../models/models_0";
+import { de_DisassociateDeviceFromRoomCommand, se_DisassociateDeviceFromRoomCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateDeviceFromRoomCommand}.
+ */
 export interface DisassociateDeviceFromRoomCommandInput extends DisassociateDeviceFromRoomRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateDeviceFromRoomCommand}.
+ */
 export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDeviceFromRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a device from its current room. The device continues to be connected to
  *          the Wi-Fi network and is still registered to the account. The device settings and skills
  *          are removed from the room.</p>
@@ -38,13 +41,25 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
  * import { AlexaForBusinessClient, DisassociateDeviceFromRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DisassociateDeviceFromRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DisassociateDeviceFromRoomRequest
+ *   DeviceArn: "STRING_VALUE",
+ * };
  * const command = new DisassociateDeviceFromRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDeviceFromRoomCommandInput - {@link DisassociateDeviceFromRoomCommandInput}
+ * @returns {@link DisassociateDeviceFromRoomCommandOutput}
  * @see {@link DisassociateDeviceFromRoomCommandInput} for command's `input` shape.
  * @see {@link DisassociateDeviceFromRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link DeviceNotRegisteredException} (client fault)
+ *  <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
+ *
  *
  */
 export class DisassociateDeviceFromRoomCommand extends $Command<
@@ -64,6 +79,9 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDeviceFromRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDeviceFromRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDeviceFromRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +121,21 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateDeviceFromRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateDeviceFromRoomCommand(input, context);
+    return se_DisassociateDeviceFromRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateDeviceFromRoomCommandOutput> {
-    return deserializeAws_json1_1DisassociateDeviceFromRoomCommand(output, context);
+    return de_DisassociateDeviceFromRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

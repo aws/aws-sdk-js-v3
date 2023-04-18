@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  DeleteHsmRequest,
-  DeleteHsmRequestFilterSensitiveLog,
-  DeleteHsmResponse,
-  DeleteHsmResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1DeleteHsmCommand, serializeAws_json1_1DeleteHsmCommand } from "../protocols/Aws_json1_1";
+import { DeleteHsmRequest, DeleteHsmResponse } from "../models/models_0";
+import { de_DeleteHsmCommand, se_DeleteHsmCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteHsmCommand}.
+ */
 export interface DeleteHsmCommandInput extends DeleteHsmRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteHsmCommand}.
+ */
 export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -44,13 +50,28 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * import { CloudHSMClient, DeleteHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DeleteHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // DeleteHsmRequest
+ *   HsmArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHsmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHsmCommandInput - {@link DeleteHsmCommandInput}
+ * @returns {@link DeleteHsmCommandOutput}
  * @see {@link DeleteHsmCommandInput} for command's `input` shape.
  * @see {@link DeleteHsmCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
+ *
+ * @throws {@link CloudHsmInternalException} (server fault)
+ *  <p>Indicates that an internal error occurred.</p>
+ *
+ * @throws {@link CloudHsmServiceException} (client fault)
+ *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that one or more of the request parameters are not valid.</p>
+ *
  *
  */
 export class DeleteHsmCommand extends $Command<
@@ -70,6 +91,9 @@ export class DeleteHsmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHsmCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +120,8 @@ export class DeleteHsmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHsmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHsmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +131,18 @@ export class DeleteHsmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHsmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteHsmCommand(input, context);
+    return se_DeleteHsmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHsmCommandOutput> {
-    return deserializeAws_json1_1DeleteHsmCommand(output, context);
+    return de_DeleteHsmCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DescribeFileSystemAliasesRequest,
-  DescribeFileSystemAliasesRequestFilterSensitiveLog,
-  DescribeFileSystemAliasesResponse,
-  DescribeFileSystemAliasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFileSystemAliasesCommand,
-  serializeAws_json1_1DescribeFileSystemAliasesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFileSystemAliasesRequest, DescribeFileSystemAliasesResponse } from "../models/models_0";
+import { de_DescribeFileSystemAliasesCommand, se_DescribeFileSystemAliasesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFileSystemAliasesCommand}.
+ */
 export interface DescribeFileSystemAliasesCommandInput extends DescribeFileSystemAliasesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFileSystemAliasesCommand}.
+ */
 export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSystemAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the DNS aliases that are associated with the specified Amazon FSx for Windows File Server file system. A history of
  *             all DNS aliases that have been associated with and disassociated from the file system is available in the list of <a>AdministrativeAction</a>
  *         provided in the <a>DescribeFileSystems</a> operation response.</p>
@@ -38,13 +41,31 @@ export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSyst
  * import { FSxClient, DescribeFileSystemAliasesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeFileSystemAliasesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DescribeFileSystemAliasesRequest
+ *   ClientRequestToken: "STRING_VALUE",
+ *   FileSystemId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFileSystemAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileSystemAliasesCommandInput - {@link DescribeFileSystemAliasesCommandInput}
+ * @returns {@link DescribeFileSystemAliasesCommandOutput}
  * @see {@link DescribeFileSystemAliasesCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemAliasesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
  *
  */
 export class DescribeFileSystemAliasesCommand extends $Command<
@@ -64,6 +85,9 @@ export class DescribeFileSystemAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileSystemAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class DescribeFileSystemAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFileSystemAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFileSystemAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +127,21 @@ export class DescribeFileSystemAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFileSystemAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFileSystemAliasesCommand(input, context);
+    return se_DescribeFileSystemAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFileSystemAliasesCommandOutput> {
-    return deserializeAws_json1_1DescribeFileSystemAliasesCommand(output, context);
+    return de_DescribeFileSystemAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

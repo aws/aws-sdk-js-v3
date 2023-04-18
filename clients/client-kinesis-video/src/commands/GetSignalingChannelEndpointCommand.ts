@@ -14,21 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
+import { GetSignalingChannelEndpointInput, GetSignalingChannelEndpointOutput } from "../models/models_0";
 import {
-  GetSignalingChannelEndpointInput,
-  GetSignalingChannelEndpointInputFilterSensitiveLog,
-  GetSignalingChannelEndpointOutput,
-  GetSignalingChannelEndpointOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSignalingChannelEndpointCommand,
-  serializeAws_restJson1GetSignalingChannelEndpointCommand,
+  de_GetSignalingChannelEndpointCommand,
+  se_GetSignalingChannelEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSignalingChannelEndpointCommand}.
+ */
 export interface GetSignalingChannelEndpointCommandInput extends GetSignalingChannelEndpointInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetSignalingChannelEndpointCommand}.
+ */
 export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingChannelEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides an endpoint for the specified signaling channel to send and receive messages.
  *             This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter,
  *             which consists of the <code>Protocols</code> and <code>Role</code> properties.</p>
@@ -49,13 +55,58 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  * import { KinesisVideoClient, GetSignalingChannelEndpointCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, GetSignalingChannelEndpointCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // GetSignalingChannelEndpointInput
+ *   ChannelARN: "STRING_VALUE", // required
+ *   SingleMasterChannelEndpointConfiguration: { // SingleMasterChannelEndpointConfiguration
+ *     Protocols: [ // ListOfProtocols
+ *       "WSS" || "HTTPS" || "WEBRTC",
+ *     ],
+ *     Role: "MASTER" || "VIEWER",
+ *   },
+ * };
  * const command = new GetSignalingChannelEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSignalingChannelEndpointCommandInput - {@link GetSignalingChannelEndpointCommandInput}
+ * @returns {@link GetSignalingChannelEndpointCommandOutput}
  * @see {@link GetSignalingChannelEndpointCommandInput} for command's `input` shape.
  * @see {@link GetSignalingChannelEndpointCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
+ *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
+ *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
+ *             or <code>ChannelARN</code> is not in Active status, try one of the following : </p>
+ *          <ol>
+ *             <li>
+ *                <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource.
+ *             </p>
+ *             </li>
+ *          </ol>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
  *
  */
 export class GetSignalingChannelEndpointCommand extends $Command<
@@ -75,6 +126,9 @@ export class GetSignalingChannelEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSignalingChannelEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +157,8 @@ export class GetSignalingChannelEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSignalingChannelEndpointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSignalingChannelEndpointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +168,21 @@ export class GetSignalingChannelEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSignalingChannelEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSignalingChannelEndpointCommand(input, context);
+    return se_GetSignalingChannelEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSignalingChannelEndpointCommandOutput> {
-    return deserializeAws_restJson1GetSignalingChannelEndpointCommand(output, context);
+    return de_GetSignalingChannelEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

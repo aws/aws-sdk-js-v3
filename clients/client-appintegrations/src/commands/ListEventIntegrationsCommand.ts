@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import {
-  ListEventIntegrationsRequest,
-  ListEventIntegrationsRequestFilterSensitiveLog,
-  ListEventIntegrationsResponse,
-  ListEventIntegrationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEventIntegrationsCommand,
-  serializeAws_restJson1ListEventIntegrationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEventIntegrationsRequest, ListEventIntegrationsResponse } from "../models/models_0";
+import { de_ListEventIntegrationsCommand, se_ListEventIntegrationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEventIntegrationsCommand}.
+ */
 export interface ListEventIntegrationsCommandInput extends ListEventIntegrationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEventIntegrationsCommand}.
+ */
 export interface ListEventIntegrationsCommandOutput extends ListEventIntegrationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of event integrations in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface ListEventIntegrationsCommandOutput extends ListEventIntegration
  * import { AppIntegrationsClient, ListEventIntegrationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, ListEventIntegrationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // ListEventIntegrationsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEventIntegrationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventIntegrationsCommandInput - {@link ListEventIntegrationsCommandInput}
+ * @returns {@link ListEventIntegrationsCommandOutput}
  * @see {@link ListEventIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListEventIntegrationsCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class ListEventIntegrationsCommand extends $Command<
@@ -62,6 +84,9 @@ export class ListEventIntegrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventIntegrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class ListEventIntegrationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventIntegrationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventIntegrationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class ListEventIntegrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEventIntegrationsCommand(input, context);
+    return se_ListEventIntegrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventIntegrationsCommandOutput> {
-    return deserializeAws_restJson1ListEventIntegrationsCommand(output, context);
+    return de_ListEventIntegrationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteInboundConnectionRequest,
-  DeleteInboundConnectionRequestFilterSensitiveLog,
-  DeleteInboundConnectionResponse,
-  DeleteInboundConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteInboundConnectionRequest, DeleteInboundConnectionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DeleteInboundConnectionCommand,
-  serializeAws_restJson1DeleteInboundConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteInboundConnectionCommand, se_DeleteInboundConnectionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteInboundConnectionCommand}.
+ */
 export interface DeleteInboundConnectionCommandInput extends DeleteInboundConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteInboundConnectionCommand}.
+ */
 export interface DeleteInboundConnectionCommandOutput extends DeleteInboundConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the destination Amazon OpenSearch Service domain owner to delete an existing inbound
  *    cross-cluster search connection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -38,13 +41,25 @@ export interface DeleteInboundConnectionCommandOutput extends DeleteInboundConne
  * import { OpenSearchClient, DeleteInboundConnectionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DeleteInboundConnectionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DeleteInboundConnectionRequest
+ *   ConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInboundConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInboundConnectionCommandInput - {@link DeleteInboundConnectionCommandInput}
+ * @returns {@link DeleteInboundConnectionCommandOutput}
  * @see {@link DeleteInboundConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteInboundConnectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *
  *
  */
 export class DeleteInboundConnectionCommand extends $Command<
@@ -64,6 +79,9 @@ export class DeleteInboundConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInboundConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class DeleteInboundConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInboundConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInboundConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +121,18 @@ export class DeleteInboundConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInboundConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInboundConnectionCommand(input, context);
+    return se_DeleteInboundConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInboundConnectionCommandOutput> {
-    return deserializeAws_restJson1DeleteInboundConnectionCommand(output, context);
+    return de_DeleteInboundConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

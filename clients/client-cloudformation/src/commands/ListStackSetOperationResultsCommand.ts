@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ListStackSetOperationResultsInput,
-  ListStackSetOperationResultsInputFilterSensitiveLog,
-  ListStackSetOperationResultsOutput,
-  ListStackSetOperationResultsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListStackSetOperationResultsCommand,
-  serializeAws_queryListStackSetOperationResultsCommand,
-} from "../protocols/Aws_query";
+import { ListStackSetOperationResultsInput, ListStackSetOperationResultsOutput } from "../models/models_0";
+import { de_ListStackSetOperationResultsCommand, se_ListStackSetOperationResultsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListStackSetOperationResultsCommand}.
+ */
 export interface ListStackSetOperationResultsCommandInput extends ListStackSetOperationResultsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListStackSetOperationResultsCommand}.
+ */
 export interface ListStackSetOperationResultsCommandOutput
   extends ListStackSetOperationResultsOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about the results of a stack set operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,35 @@ export interface ListStackSetOperationResultsCommandOutput
  * import { CloudFormationClient, ListStackSetOperationResultsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackSetOperationResultsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ListStackSetOperationResultsInput
+ *   StackSetName: "STRING_VALUE", // required
+ *   OperationId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   Filters: [ // OperationResultFilters
+ *     { // OperationResultFilter
+ *       Name: "OPERATION_RESULT_STATUS",
+ *       Values: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ListStackSetOperationResultsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStackSetOperationResultsCommandInput - {@link ListStackSetOperationResultsCommandInput}
+ * @returns {@link ListStackSetOperationResultsCommandOutput}
  * @see {@link ListStackSetOperationResultsCommandInput} for command's `input` shape.
  * @see {@link ListStackSetOperationResultsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link OperationNotFoundException} (client fault)
+ *  <p>The specified ID refers to an operation that doesn't exist.</p>
+ *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
  *
  */
 export class ListStackSetOperationResultsCommand extends $Command<
@@ -64,6 +89,9 @@ export class ListStackSetOperationResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStackSetOperationResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +120,8 @@ export class ListStackSetOperationResultsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStackSetOperationResultsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStackSetOperationResultsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +131,21 @@ export class ListStackSetOperationResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStackSetOperationResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListStackSetOperationResultsCommand(input, context);
+    return se_ListStackSetOperationResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStackSetOperationResultsCommandOutput> {
-    return deserializeAws_queryListStackSetOperationResultsCommand(output, context);
+    return de_ListStackSetOperationResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

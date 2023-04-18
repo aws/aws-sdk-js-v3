@@ -18,18 +18,81 @@ import {
   UpdateSipMediaApplicationCallRequest,
   UpdateSipMediaApplicationCallRequestFilterSensitiveLog,
   UpdateSipMediaApplicationCallResponse,
-  UpdateSipMediaApplicationCallResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateSipMediaApplicationCallCommand,
-  serializeAws_restJson1UpdateSipMediaApplicationCallCommand,
+  de_UpdateSipMediaApplicationCallCommand,
+  se_UpdateSipMediaApplicationCallCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSipMediaApplicationCallCommand}.
+ */
 export interface UpdateSipMediaApplicationCallCommandInput extends UpdateSipMediaApplicationCallRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSipMediaApplicationCallCommand}.
+ */
 export interface UpdateSipMediaApplicationCallCommandOutput
   extends UpdateSipMediaApplicationCallResponse,
     __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Invokes the AWS Lambda function associated with the SIP media application and
+ *          transaction ID in an update request. The Lambda function can then return a new set
+ *          of actions.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, UpdateSipMediaApplicationCallCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, UpdateSipMediaApplicationCallCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // UpdateSipMediaApplicationCallRequest
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   TransactionId: "STRING_VALUE", // required
+ *   Arguments: { // SMAUpdateCallArgumentsMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ * const command = new UpdateSipMediaApplicationCallCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param UpdateSipMediaApplicationCallCommandInput - {@link UpdateSipMediaApplicationCallCommandInput}
+ * @returns {@link UpdateSipMediaApplicationCallCommandOutput}
+ * @see {@link UpdateSipMediaApplicationCallCommandInput} for command's `input` shape.
+ * @see {@link UpdateSipMediaApplicationCallCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class UpdateSipMediaApplicationCallCommand extends $Command<
   UpdateSipMediaApplicationCallCommandInput,
   UpdateSipMediaApplicationCallCommandOutput,
@@ -47,6 +110,9 @@ export class UpdateSipMediaApplicationCallCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSipMediaApplicationCallCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,7 +142,7 @@ export class UpdateSipMediaApplicationCallCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateSipMediaApplicationCallRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSipMediaApplicationCallResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,15 +152,21 @@ export class UpdateSipMediaApplicationCallCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSipMediaApplicationCallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSipMediaApplicationCallCommand(input, context);
+    return se_UpdateSipMediaApplicationCallCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSipMediaApplicationCallCommandOutput> {
-    return deserializeAws_restJson1UpdateSipMediaApplicationCallCommand(output, context);
+    return de_UpdateSipMediaApplicationCallCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { AssociateContactWithAddressBookRequest, AssociateContactWithAddressBookResponse } from "../models/models_0";
 import {
-  AssociateContactWithAddressBookRequest,
-  AssociateContactWithAddressBookRequestFilterSensitiveLog,
-  AssociateContactWithAddressBookResponse,
-  AssociateContactWithAddressBookResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateContactWithAddressBookCommand,
-  serializeAws_json1_1AssociateContactWithAddressBookCommand,
+  de_AssociateContactWithAddressBookCommand,
+  se_AssociateContactWithAddressBookCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateContactWithAddressBookCommand}.
+ */
 export interface AssociateContactWithAddressBookCommandInput extends AssociateContactWithAddressBookRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateContactWithAddressBookCommand}.
+ */
 export interface AssociateContactWithAddressBookCommandOutput
   extends AssociateContactWithAddressBookResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a contact with a given address book.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,23 @@ export interface AssociateContactWithAddressBookCommandOutput
  * import { AlexaForBusinessClient, AssociateContactWithAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateContactWithAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // AssociateContactWithAddressBookRequest
+ *   ContactArn: "STRING_VALUE", // required
+ *   AddressBookArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateContactWithAddressBookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateContactWithAddressBookCommandInput - {@link AssociateContactWithAddressBookCommandInput}
+ * @returns {@link AssociateContactWithAddressBookCommandOutput}
  * @see {@link AssociateContactWithAddressBookCommandInput} for command's `input` shape.
  * @see {@link AssociateContactWithAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
  *
  */
 export class AssociateContactWithAddressBookCommand extends $Command<
@@ -64,6 +80,9 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateContactWithAddressBookCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +111,8 @@ export class AssociateContactWithAddressBookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateContactWithAddressBookRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateContactWithAddressBookResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +122,24 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateContactWithAddressBookCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateContactWithAddressBookCommand(input, context);
+    return se_AssociateContactWithAddressBookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateContactWithAddressBookCommandOutput> {
-    return deserializeAws_json1_1AssociateContactWithAddressBookCommand(output, context);
+    return de_AssociateContactWithAddressBookCommand(output, context);
   }
 
   // Start section: command_body_extra

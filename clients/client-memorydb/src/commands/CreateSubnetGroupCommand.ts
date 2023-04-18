@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  CreateSubnetGroupRequest,
-  CreateSubnetGroupRequestFilterSensitiveLog,
-  CreateSubnetGroupResponse,
-  CreateSubnetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSubnetGroupCommand,
-  serializeAws_json1_1CreateSubnetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSubnetGroupRequest, CreateSubnetGroupResponse } from "../models/models_0";
+import { de_CreateSubnetGroupCommand, se_CreateSubnetGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSubnetGroupCommand}.
+ */
 export interface CreateSubnetGroupCommandInput extends CreateSubnetGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSubnetGroupCommand}.
+ */
 export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a subnet group. A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment.
  *
  *          When you create a cluster in an Amazon VPC, you must specify a subnet group. MemoryDB uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes.
@@ -39,13 +42,50 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * import { MemoryDBClient, CreateSubnetGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CreateSubnetGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // CreateSubnetGroupRequest
+ *   SubnetGroupName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   SubnetIds: [ // SubnetIdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubnetGroupCommandInput - {@link CreateSubnetGroupCommandInput}
+ * @returns {@link CreateSubnetGroupCommandOutput}
  * @see {@link CreateSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupAlreadyExistsFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetNotAllowedFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class CreateSubnetGroupCommand extends $Command<
@@ -65,6 +105,9 @@ export class CreateSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +136,8 @@ export class CreateSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSubnetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSubnetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +147,18 @@ export class CreateSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSubnetGroupCommand(input, context);
+    return se_CreateSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1CreateSubnetGroupCommand(output, context);
+    return de_CreateSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

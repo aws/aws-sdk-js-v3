@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ManagedBlockchainServiceException as __BaseException } from "./ManagedBlockchainServiceException";
 
 /**
+ * @public
  * <p>You don't have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,23 +25,37 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum AccessorStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETED = "DELETED",
-  PENDING_DELETION = "PENDING_DELETION",
-}
-
-export enum AccessorType {
-  BILLING_TOKEN = "BILLING_TOKEN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessorStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETED: "DELETED",
+  PENDING_DELETION: "PENDING_DELETION",
+} as const;
 
 /**
- * <important>
- *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
- *         subject to change. We recommend that you use this feature only with
- *         test scenarios, and not in production environments.</p>
- *          </important>
- *          <p>The properties of the Accessor.</p>
+ * @public
+ */
+export type AccessorStatus = (typeof AccessorStatus)[keyof typeof AccessorStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccessorType = {
+  BILLING_TOKEN: "BILLING_TOKEN",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessorType = (typeof AccessorType)[keyof typeof AccessorType];
+
+/**
+ * @public
+ * <p>The properties of the Accessor.</p>
  */
 export interface Accessor {
   /**
@@ -51,7 +66,7 @@ export interface Accessor {
   /**
    * <p>The type of the accessor.</p>
    *          <note>
-   *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
+   *             <p>Currently, accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
    *          </note>
    */
   Type?: AccessorType | string;
@@ -79,15 +94,17 @@ export interface Accessor {
    *             Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The tags assigned to the Accessor.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
- * <important>
- *             <p>The token based access feature is in preview release for Ethereum on Amazon Managed Blockchain and is
- *         subject to change. We recommend that you use this feature only with
- *         test scenarios, and not in production environments.</p>
- *          </important>
- *          <p>A summary of accessor properties.</p>
+ * @public
+ * <p>A summary of accessor properties.</p>
  */
 export interface AccessorSummary {
   /**
@@ -121,12 +138,22 @@ export interface AccessorSummary {
   Arn?: string;
 }
 
-export enum ThresholdComparator {
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ThresholdComparator = {
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+} as const;
 
 /**
+ * @public
+ */
+export type ThresholdComparator = (typeof ThresholdComparator)[keyof typeof ThresholdComparator];
+
+/**
+ * @public
  * <p>A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of <code>YES</code> votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  */
@@ -147,6 +174,9 @@ export interface ApprovalThresholdPolicy {
   ThresholdComparator?: ThresholdComparator | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessorInput {
   /**
    * <p>This is a unique, case-sensitive identifier that you provide to ensure the idempotency of
@@ -160,12 +190,24 @@ export interface CreateAccessorInput {
   /**
    * <p>The type of accessor.</p>
    *          <note>
-   *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
+   *             <p>Currently, accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
    *          </note>
    */
   AccessorType: AccessorType | string | undefined;
+
+  /**
+   * <p>Tags to assign to the Accessor.</p>
+   *          <p> Each tag consists of a key and an optional value. You can specify
+   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
+   *           allowed per resource.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAccessorOutput {
   /**
    * <p>The unique identifier of the accessor.</p>
@@ -181,6 +223,7 @@ export interface CreateAccessorOutput {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception or failure.</p>
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -200,6 +243,7 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -221,6 +265,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource request is issued for a resource that already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -242,6 +287,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number of resources of that type already exist. Ensure the resources requested
  *          are within the boundaries of the service edition and your account limits.</p>
  */
@@ -264,6 +310,7 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request or operation couldn't be performed because a service is
  *          throttling requests. The most common source of throttling errors is
  *          creating resources that exceed your service limit for this resource type.
@@ -286,7 +333,35 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.</p>
+ * @public
+ * <p></p>
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p></p>
+   */
+  ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
+}
+
+/**
+ * @public
+ * <p>Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network that is using the Hyperledger Fabric framework.</p>
  */
 export interface MemberFabricConfiguration {
   /**
@@ -295,12 +370,13 @@ export interface MemberFabricConfiguration {
   AdminUsername: string | undefined;
 
   /**
-   * <p>The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least eight characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward slash(\), @, or a space.</p>
+   * <p>The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least 8 characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward slash(\), @, or a space.</p>
    */
   AdminPassword: string | undefined;
 }
 
 /**
+ * @public
  * <p>Configuration properties relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
  */
 export interface MemberFrameworkConfiguration {
@@ -311,6 +387,7 @@ export interface MemberFrameworkConfiguration {
 }
 
 /**
+ * @public
  * <p>A configuration for logging events.</p>
  */
 export interface LogConfiguration {
@@ -321,6 +398,7 @@ export interface LogConfiguration {
 }
 
 /**
+ * @public
  * <p>A collection of log configurations.</p>
  */
 export interface LogConfigurations {
@@ -331,6 +409,7 @@ export interface LogConfigurations {
 }
 
 /**
+ * @public
  * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
  */
 export interface MemberFabricLogPublishingConfiguration {
@@ -341,6 +420,7 @@ export interface MemberFabricLogPublishingConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network.</p>
  */
 export interface MemberLogPublishingConfiguration {
@@ -351,6 +431,7 @@ export interface MemberLogPublishingConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration properties of the member.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  */
@@ -376,8 +457,9 @@ export interface MemberConfiguration {
   LogPublishingConfiguration?: MemberLogPublishingConfiguration;
 
   /**
-   * <p>Tags assigned to the member. Tags consist of a key and optional value. For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * <p>Tags assigned to the member. Tags consist of a key and optional value. </p>
    *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
 
@@ -401,6 +483,9 @@ export interface MemberConfiguration {
   KmsKeyArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMemberInput {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.</p>
@@ -423,6 +508,9 @@ export interface CreateMemberInput {
   MemberConfiguration: MemberConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMemberOutput {
   /**
    * <p>The unique identifier of the member.</p>
@@ -431,6 +519,7 @@ export interface CreateMemberOutput {
 }
 
 /**
+ * @public
  * <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -457,6 +546,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource exists but isn't in a status that can complete the operation.</p>
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -478,42 +568,35 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p></p>
+ * @public
+ * @enum
  */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p></p>
-   */
-  ResourceName?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
-
-export enum Framework {
-  ETHEREUM = "ETHEREUM",
-  HYPERLEDGER_FABRIC = "HYPERLEDGER_FABRIC",
-}
-
-export enum Edition {
-  STANDARD = "STANDARD",
-  STARTER = "STARTER",
-}
+export const Framework = {
+  ETHEREUM: "ETHEREUM",
+  HYPERLEDGER_FABRIC: "HYPERLEDGER_FABRIC",
+} as const;
 
 /**
+ * @public
+ */
+export type Framework = (typeof Framework)[keyof typeof Framework];
+
+/**
+ * @public
+ * @enum
+ */
+export const Edition = {
+  STANDARD: "STANDARD",
+  STARTER: "STARTER",
+} as const;
+
+/**
+ * @public
+ */
+export type Edition = (typeof Edition)[keyof typeof Edition];
+
+/**
+ * @public
  * <p>Hyperledger Fabric configuration properties for the network.</p>
  */
 export interface NetworkFabricConfiguration {
@@ -524,6 +607,7 @@ export interface NetworkFabricConfiguration {
 }
 
 /**
+ * @public
  * <p>
  *          Configuration properties relevant to the network for the blockchain framework that the network uses.
  *       </p>
@@ -538,6 +622,7 @@ export interface NetworkFrameworkConfiguration {
 }
 
 /**
+ * @public
  * <p>
  *          The voting rules for the network to decide if a proposal is accepted
  *       </p>
@@ -550,6 +635,9 @@ export interface VotingPolicy {
   ApprovalThresholdPolicy?: ApprovalThresholdPolicy;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkInput {
   /**
    * <p>This is a unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -600,13 +688,18 @@ export interface CreateNetworkInput {
   MemberConfiguration: MemberConfiguration | undefined;
 
   /**
-   * <p>Tags to assign to the network. Each tag consists of a key and optional value.</p>
-   *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+   * <p>Tags to assign to the network.</p>
+   *          <p> Each tag consists of a key and an optional value. You can specify
+   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
+   *           allowed per resource.</p>
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkOutput {
   /**
    * <p>The unique identifier for the network.</p>
@@ -620,6 +713,7 @@ export interface CreateNetworkOutput {
 }
 
 /**
+ * @public
  * <p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.</p>
  */
 export interface NodeFabricLogPublishingConfiguration {
@@ -635,6 +729,7 @@ export interface NodeFabricLogPublishingConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>
  */
 export interface NodeLogPublishingConfiguration {
@@ -644,12 +739,22 @@ export interface NodeLogPublishingConfiguration {
   Fabric?: NodeFabricLogPublishingConfiguration;
 }
 
-export enum StateDBType {
-  CouchDB = "CouchDB",
-  LevelDB = "LevelDB",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StateDBType = {
+  CouchDB: "CouchDB",
+  LevelDB: "LevelDB",
+} as const;
 
 /**
+ * @public
+ */
+export type StateDBType = (typeof StateDBType)[keyof typeof StateDBType];
+
+/**
+ * @public
  * <p>Configuration properties of a node.</p>
  */
 export interface NodeConfiguration {
@@ -676,6 +781,9 @@ export interface NodeConfiguration {
   StateDB?: StateDBType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateNodeInput {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.</p>
@@ -701,11 +809,6 @@ export interface CreateNodeInput {
    *                   <code>n-ethereum-rinkeby</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-ropsten</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   NetworkId: string | undefined;
@@ -722,13 +825,18 @@ export interface CreateNodeInput {
   NodeConfiguration: NodeConfiguration | undefined;
 
   /**
-   * <p>Tags to assign to the node. Each tag consists of a key and optional value.</p>
-   *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+   * <p>Tags to assign to the node.</p>
+   *          <p> Each tag consists of a key and an optional value. You can specify
+   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
+   *           allowed per resource.</p>
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateNodeOutput {
   /**
    * <p>The unique identifier of the node.</p>
@@ -737,6 +845,7 @@ export interface CreateNodeOutput {
 }
 
 /**
+ * @public
  * <p>An action to invite a specific Amazon Web Services account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  */
@@ -748,6 +857,7 @@ export interface InviteAction {
 }
 
 /**
+ * @public
  * <p>An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is <code>APPROVED</code>. The member and all associated resources are deleted from the network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  */
@@ -759,6 +869,7 @@ export interface RemoveAction {
 }
 
 /**
+ * @public
  * <p>
  *          The actions to carry out if a proposal is <code>APPROVED</code>.
  *       </p>
@@ -780,6 +891,9 @@ export interface ProposalActions {
   Removals?: RemoveAction[];
 }
 
+/**
+ * @public
+ */
 export interface CreateProposalInput {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.</p>
@@ -810,13 +924,18 @@ export interface CreateProposalInput {
   Description?: string;
 
   /**
-   * <p>Tags to assign to the proposal. Each tag consists of a key and optional value.</p>
-   *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource. If the proposal is for a network invitation, the invitation inherits the tags added to the proposal.</p>
+   * <p>Tags to assign to the proposal.</p>
+   *          <p> Each tag consists of a key and an optional value. You can specify
+   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
+   *           allowed per resource.</p>
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateProposalOutput {
   /**
    * <p>The unique identifier of the proposal.</p>
@@ -824,6 +943,9 @@ export interface CreateProposalOutput {
   ProposalId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessorInput {
   /**
    * <p>The unique identifier of the accessor.</p>
@@ -831,8 +953,14 @@ export interface DeleteAccessorInput {
   AccessorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccessorOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteMemberInput {
   /**
    * <p>The unique identifier of the network from which the member is removed.</p>
@@ -845,8 +973,14 @@ export interface DeleteMemberInput {
   MemberId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMemberOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteNodeInput {
   /**
    * <p>The unique identifier of the network that the node is on.</p>
@@ -867,11 +1001,6 @@ export interface DeleteNodeInput {
    *                   <code>n-ethereum-rinkeby</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-ropsten</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   NetworkId: string | undefined;
@@ -888,8 +1017,14 @@ export interface DeleteNodeInput {
   NodeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNodeOutput {}
 
+/**
+ * @public
+ */
 export interface GetAccessorInput {
   /**
    * <p>The unique identifier of the accessor.</p>
@@ -897,6 +1032,9 @@ export interface GetAccessorInput {
   AccessorId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAccessorOutput {
   /**
    * <p>The properties of the accessor.</p>
@@ -904,6 +1042,9 @@ export interface GetAccessorOutput {
   Accessor?: Accessor;
 }
 
+/**
+ * @public
+ */
 export interface GetMemberInput {
   /**
    * <p>The unique identifier of the network to which the member belongs.</p>
@@ -917,6 +1058,7 @@ export interface GetMemberInput {
 }
 
 /**
+ * @public
  * <p>Attributes of Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.</p>
  */
 export interface MemberFabricAttributes {
@@ -932,6 +1074,7 @@ export interface MemberFabricAttributes {
 }
 
 /**
+ * @public
  * <p>Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
  */
 export interface MemberFrameworkAttributes {
@@ -941,17 +1084,27 @@ export interface MemberFrameworkAttributes {
   Fabric?: MemberFabricAttributes;
 }
 
-export enum MemberStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_KEY = "INACCESSIBLE_ENCRYPTION_KEY",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MemberStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_KEY: "INACCESSIBLE_ENCRYPTION_KEY",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
+
+/**
+ * @public
  * <p>Member configuration properties.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  */
@@ -1030,7 +1183,8 @@ export interface Member {
   CreationDate?: Date;
 
   /**
-   * <p>Tags assigned to the member. Tags consist of a key and optional value. For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * <p>Tags assigned to the member. Tags consist of a key and optional value.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
 
@@ -1046,6 +1200,9 @@ export interface Member {
   KmsKeyArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMemberOutput {
   /**
    * <p>The properties of a member.</p>
@@ -1053,6 +1210,9 @@ export interface GetMemberOutput {
   Member?: Member;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkInput {
   /**
    * <p>The unique identifier of the network to get information about.</p>
@@ -1061,6 +1221,7 @@ export interface GetNetworkInput {
 }
 
 /**
+ * @public
  * <p>Attributes of Ethereum for a network. </p>
  */
 export interface NetworkEthereumAttributes {
@@ -1079,16 +1240,13 @@ export interface NetworkEthereumAttributes {
    *                <p>rinkeby = <code>4</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>ropsten = <code>3</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   ChainId?: string;
 }
 
 /**
+ * @public
  * <p>Attributes of Hyperledger Fabric for a network.</p>
  */
 export interface NetworkFabricAttributes {
@@ -1104,6 +1262,7 @@ export interface NetworkFabricAttributes {
 }
 
 /**
+ * @public
  * <p>Attributes relevant to the network for the blockchain framework that the network uses.</p>
  */
 export interface NetworkFrameworkAttributes {
@@ -1118,15 +1277,25 @@ export interface NetworkFrameworkAttributes {
   Ethereum?: NetworkEthereumAttributes;
 }
 
-export enum NetworkStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkStatus = (typeof NetworkStatus)[keyof typeof NetworkStatus];
+
+/**
+ * @public
  * <p>Network configuration properties.</p>
  */
 export interface Network {
@@ -1166,7 +1335,7 @@ export interface Network {
   VpcEndpointServiceName?: string;
 
   /**
-   * <p>The voting rules for the network to decide if a proposal is accepted.</p>
+   * <p>The voting rules that the network uses to decide if a proposal is accepted.</p>
    */
   VotingPolicy?: VotingPolicy;
 
@@ -1192,6 +1361,9 @@ export interface Network {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkOutput {
   /**
    * <p>An object containing network configuration parameters.</p>
@@ -1199,6 +1371,9 @@ export interface GetNetworkOutput {
   Network?: Network;
 }
 
+/**
+ * @public
+ */
 export interface GetNodeInput {
   /**
    * <p>The unique identifier of the network that the node is on.</p>
@@ -1218,6 +1393,7 @@ export interface GetNodeInput {
 }
 
 /**
+ * @public
  * <p>Attributes of an Ethereum node.</p>
  */
 export interface NodeEthereumAttributes {
@@ -1233,6 +1409,7 @@ export interface NodeEthereumAttributes {
 }
 
 /**
+ * @public
  * <p>Attributes of Hyperledger Fabric for a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>
  */
 export interface NodeFabricAttributes {
@@ -1248,6 +1425,7 @@ export interface NodeFabricAttributes {
 }
 
 /**
+ * @public
  * <p>Attributes relevant to a node on a Managed Blockchain network for the blockchain framework that the network uses.</p>
  */
 export interface NodeFrameworkAttributes {
@@ -1262,19 +1440,29 @@ export interface NodeFrameworkAttributes {
   Ethereum?: NodeEthereumAttributes;
 }
 
-export enum NodeStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INACCESSIBLE_ENCRYPTION_KEY = "INACCESSIBLE_ENCRYPTION_KEY",
-  UNHEALTHY = "UNHEALTHY",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACCESSIBLE_ENCRYPTION_KEY: "INACCESSIBLE_ENCRYPTION_KEY",
+  UNHEALTHY: "UNHEALTHY",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type NodeStatus = (typeof NodeStatus)[keyof typeof NodeStatus];
+
+/**
+ * @public
  * <p>Configuration properties of a node.</p>
  */
 export interface Node {
@@ -1388,6 +1576,9 @@ export interface Node {
   KmsKeyArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNodeOutput {
   /**
    * <p>Properties of the node configuration.</p>
@@ -1395,6 +1586,9 @@ export interface GetNodeOutput {
   Node?: Node;
 }
 
+/**
+ * @public
+ */
 export interface GetProposalInput {
   /**
    * <p>The unique identifier of the network for which the proposal is made.</p>
@@ -1407,15 +1601,25 @@ export interface GetProposalInput {
   ProposalId: string | undefined;
 }
 
-export enum ProposalStatus {
-  ACTION_FAILED = "ACTION_FAILED",
-  APPROVED = "APPROVED",
-  EXPIRED = "EXPIRED",
-  IN_PROGRESS = "IN_PROGRESS",
-  REJECTED = "REJECTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProposalStatus = {
+  ACTION_FAILED: "ACTION_FAILED",
+  APPROVED: "APPROVED",
+  EXPIRED: "EXPIRED",
+  IN_PROGRESS: "IN_PROGRESS",
+  REJECTED: "REJECTED",
+} as const;
 
 /**
+ * @public
+ */
+export type ProposalStatus = (typeof ProposalStatus)[keyof typeof ProposalStatus];
+
+/**
+ * @public
  * <p>Properties of a proposal on a Managed Blockchain network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  */
@@ -1524,6 +1728,9 @@ export interface Proposal {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetProposalOutput {
   /**
    * <p>Information about a proposal.</p>
@@ -1532,6 +1739,7 @@ export interface GetProposalOutput {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class IllegalActionException extends __BaseException {
@@ -1553,6 +1761,7 @@ export class IllegalActionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A summary of network configuration properties.</p>
  */
 export interface NetworkSummary {
@@ -1597,15 +1806,25 @@ export interface NetworkSummary {
   Arn?: string;
 }
 
-export enum InvitationStatus {
-  ACCEPTED = "ACCEPTED",
-  ACCEPTING = "ACCEPTING",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InvitationStatus = {
+  ACCEPTED: "ACCEPTED",
+  ACCEPTING: "ACCEPTING",
+  EXPIRED: "EXPIRED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+} as const;
 
 /**
+ * @public
+ */
+export type InvitationStatus = (typeof InvitationStatus)[keyof typeof InvitationStatus];
+
+/**
+ * @public
  * <p>An invitation to an Amazon Web Services account to create a member and join the network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  */
@@ -1663,6 +1882,9 @@ export interface Invitation {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessorsInput {
   /**
    * <p> The maximum number of accessors to list.</p>
@@ -1675,6 +1897,9 @@ export interface ListAccessorsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccessorsOutput {
   /**
    * <p>An array of AccessorSummary objects that contain configuration properties for
@@ -1688,6 +1913,9 @@ export interface ListAccessorsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInvitationsInput {
   /**
    * <p>The maximum number of invitations to return.</p>
@@ -1700,6 +1928,9 @@ export interface ListInvitationsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInvitationsOutput {
   /**
    * <p>The invitations for the network.</p>
@@ -1712,6 +1943,9 @@ export interface ListInvitationsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersInput {
   /**
    * <p>The unique identifier of the network for which to list members.</p>
@@ -1747,6 +1981,7 @@ export interface ListMembersInput {
 }
 
 /**
+ * @public
  * <p>A summary of configuration properties for a member.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  */
@@ -1820,6 +2055,9 @@ export interface MemberSummary {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersOutput {
   /**
    * <p>An array of <code>MemberSummary</code> objects. Each object contains details about a network member.</p>
@@ -1832,6 +2070,9 @@ export interface ListMembersOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNetworksInput {
   /**
    * <p>The name of the network.</p>
@@ -1860,6 +2101,9 @@ export interface ListNetworksInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNetworksOutput {
   /**
    * <p>An array of <code>NetworkSummary</code> objects that contain configuration properties for each network.</p>
@@ -1872,6 +2116,9 @@ export interface ListNetworksOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodesInput {
   /**
    * <p>The unique identifier of the network for which to list nodes.</p>
@@ -1901,6 +2148,7 @@ export interface ListNodesInput {
 }
 
 /**
+ * @public
  * <p>A summary of configuration properties for a node.</p>
  */
 export interface NodeSummary {
@@ -1935,6 +2183,9 @@ export interface NodeSummary {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodesOutput {
   /**
    * <p>An array of <code>NodeSummary</code> objects that contain configuration properties for each node.</p>
@@ -1947,6 +2198,9 @@ export interface ListNodesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProposalsInput {
   /**
    * <p>
@@ -1971,6 +2225,7 @@ export interface ListProposalsInput {
 }
 
 /**
+ * @public
  * <p>Properties of a proposal.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  */
@@ -2050,6 +2305,9 @@ export interface ProposalSummary {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProposalsOutput {
   /**
    * <p>The summary of each proposal made on the network.</p>
@@ -2062,6 +2320,9 @@ export interface ListProposalsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProposalVotesInput {
   /**
    * <p>
@@ -2092,12 +2353,22 @@ export interface ListProposalVotesInput {
   NextToken?: string;
 }
 
-export enum VoteValue {
-  NO = "NO",
-  YES = "YES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VoteValue = {
+  NO: "NO",
+  YES: "YES",
+} as const;
 
 /**
+ * @public
+ */
+export type VoteValue = (typeof VoteValue)[keyof typeof VoteValue];
+
+/**
+ * @public
  * <p>
  *          Properties of an individual vote that a member cast for a proposal.
  *       </p>
@@ -2126,6 +2397,9 @@ export interface VoteSummary {
   MemberId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProposalVotesOutput {
   /**
    * <p>
@@ -2142,6 +2416,9 @@ export interface ListProposalVotesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -2149,6 +2426,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags assigned to the resource.</p>
@@ -2156,6 +2436,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RejectInvitationInput {
   /**
    * <p>The unique identifier of the invitation to reject.</p>
@@ -2163,8 +2446,14 @@ export interface RejectInvitationInput {
   InvitationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RejectInvitationOutput {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -2177,8 +2466,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -2191,8 +2486,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateMemberInput {
   /**
    * <p>The unique identifier of the Managed Blockchain network to which the member belongs.</p>
@@ -2210,8 +2511,14 @@ export interface UpdateMemberInput {
   LogPublishingConfiguration?: MemberLogPublishingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMemberOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateNodeInput {
   /**
    * <p>The unique identifier of the network that the node is on.</p>
@@ -2235,8 +2542,14 @@ export interface UpdateNodeInput {
   LogPublishingConfiguration?: NodeLogPublishingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNodeOutput {}
 
+/**
+ * @public
+ */
 export interface VoteOnProposalInput {
   /**
    * <p>
@@ -2266,42 +2579,10 @@ export interface VoteOnProposalInput {
   Vote: VoteValue | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface VoteOnProposalOutput {}
-
-/**
- * @internal
- */
-export const AccessorFilterSensitiveLog = (obj: Accessor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessorSummaryFilterSensitiveLog = (obj: AccessorSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApprovalThresholdPolicyFilterSensitiveLog = (obj: ApprovalThresholdPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccessorInputFilterSensitiveLog = (obj: CreateAccessorInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccessorOutputFilterSensitiveLog = (obj: CreateAccessorOutput): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -2317,36 +2598,6 @@ export const MemberFabricConfigurationFilterSensitiveLog = (obj: MemberFabricCon
 export const MemberFrameworkConfigurationFilterSensitiveLog = (obj: MemberFrameworkConfiguration): any => ({
   ...obj,
   ...(obj.Fabric && { Fabric: MemberFabricConfigurationFilterSensitiveLog(obj.Fabric) }),
-});
-
-/**
- * @internal
- */
-export const LogConfigurationFilterSensitiveLog = (obj: LogConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogConfigurationsFilterSensitiveLog = (obj: LogConfigurations): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberFabricLogPublishingConfigurationFilterSensitiveLog = (
-  obj: MemberFabricLogPublishingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberLogPublishingConfigurationFilterSensitiveLog = (obj: MemberLogPublishingConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -2372,550 +2623,9 @@ export const CreateMemberInputFilterSensitiveLog = (obj: CreateMemberInput): any
 /**
  * @internal
  */
-export const CreateMemberOutputFilterSensitiveLog = (obj: CreateMemberOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkFabricConfigurationFilterSensitiveLog = (obj: NetworkFabricConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkFrameworkConfigurationFilterSensitiveLog = (obj: NetworkFrameworkConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VotingPolicyFilterSensitiveLog = (obj: VotingPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateNetworkInputFilterSensitiveLog = (obj: CreateNetworkInput): any => ({
   ...obj,
   ...(obj.MemberConfiguration && {
     MemberConfiguration: MemberConfigurationFilterSensitiveLog(obj.MemberConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const CreateNetworkOutputFilterSensitiveLog = (obj: CreateNetworkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeFabricLogPublishingConfigurationFilterSensitiveLog = (
-  obj: NodeFabricLogPublishingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeLogPublishingConfigurationFilterSensitiveLog = (obj: NodeLogPublishingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeConfigurationFilterSensitiveLog = (obj: NodeConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNodeInputFilterSensitiveLog = (obj: CreateNodeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNodeOutputFilterSensitiveLog = (obj: CreateNodeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InviteActionFilterSensitiveLog = (obj: InviteAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveActionFilterSensitiveLog = (obj: RemoveAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProposalActionsFilterSensitiveLog = (obj: ProposalActions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProposalInputFilterSensitiveLog = (obj: CreateProposalInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProposalOutputFilterSensitiveLog = (obj: CreateProposalOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccessorInputFilterSensitiveLog = (obj: DeleteAccessorInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccessorOutputFilterSensitiveLog = (obj: DeleteAccessorOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMemberInputFilterSensitiveLog = (obj: DeleteMemberInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMemberOutputFilterSensitiveLog = (obj: DeleteMemberOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNodeInputFilterSensitiveLog = (obj: DeleteNodeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNodeOutputFilterSensitiveLog = (obj: DeleteNodeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccessorInputFilterSensitiveLog = (obj: GetAccessorInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccessorOutputFilterSensitiveLog = (obj: GetAccessorOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMemberInputFilterSensitiveLog = (obj: GetMemberInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberFabricAttributesFilterSensitiveLog = (obj: MemberFabricAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberFrameworkAttributesFilterSensitiveLog = (obj: MemberFrameworkAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberFilterSensitiveLog = (obj: Member): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMemberOutputFilterSensitiveLog = (obj: GetMemberOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkInputFilterSensitiveLog = (obj: GetNetworkInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkEthereumAttributesFilterSensitiveLog = (obj: NetworkEthereumAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkFabricAttributesFilterSensitiveLog = (obj: NetworkFabricAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkFrameworkAttributesFilterSensitiveLog = (obj: NetworkFrameworkAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkFilterSensitiveLog = (obj: Network): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkOutputFilterSensitiveLog = (obj: GetNetworkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNodeInputFilterSensitiveLog = (obj: GetNodeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeEthereumAttributesFilterSensitiveLog = (obj: NodeEthereumAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeFabricAttributesFilterSensitiveLog = (obj: NodeFabricAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeFrameworkAttributesFilterSensitiveLog = (obj: NodeFrameworkAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeFilterSensitiveLog = (obj: Node): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNodeOutputFilterSensitiveLog = (obj: GetNodeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProposalInputFilterSensitiveLog = (obj: GetProposalInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProposalFilterSensitiveLog = (obj: Proposal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProposalOutputFilterSensitiveLog = (obj: GetProposalOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkSummaryFilterSensitiveLog = (obj: NetworkSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InvitationFilterSensitiveLog = (obj: Invitation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccessorsInputFilterSensitiveLog = (obj: ListAccessorsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccessorsOutputFilterSensitiveLog = (obj: ListAccessorsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInvitationsInputFilterSensitiveLog = (obj: ListInvitationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInvitationsOutputFilterSensitiveLog = (obj: ListInvitationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersInputFilterSensitiveLog = (obj: ListMembersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberSummaryFilterSensitiveLog = (obj: MemberSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersOutputFilterSensitiveLog = (obj: ListMembersOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworksInputFilterSensitiveLog = (obj: ListNetworksInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworksOutputFilterSensitiveLog = (obj: ListNetworksOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNodesInputFilterSensitiveLog = (obj: ListNodesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeSummaryFilterSensitiveLog = (obj: NodeSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNodesOutputFilterSensitiveLog = (obj: ListNodesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProposalsInputFilterSensitiveLog = (obj: ListProposalsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProposalSummaryFilterSensitiveLog = (obj: ProposalSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProposalsOutputFilterSensitiveLog = (obj: ListProposalsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProposalVotesInputFilterSensitiveLog = (obj: ListProposalVotesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoteSummaryFilterSensitiveLog = (obj: VoteSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProposalVotesOutputFilterSensitiveLog = (obj: ListProposalVotesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectInvitationInputFilterSensitiveLog = (obj: RejectInvitationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectInvitationOutputFilterSensitiveLog = (obj: RejectInvitationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMemberInputFilterSensitiveLog = (obj: UpdateMemberInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMemberOutputFilterSensitiveLog = (obj: UpdateMemberOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNodeInputFilterSensitiveLog = (obj: UpdateNodeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNodeOutputFilterSensitiveLog = (obj: UpdateNodeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoteOnProposalInputFilterSensitiveLog = (obj: VoteOnProposalInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoteOnProposalOutputFilterSensitiveLog = (obj: VoteOnProposalOutput): any => ({
-  ...obj,
 });

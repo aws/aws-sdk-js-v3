@@ -16,19 +16,26 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeSpotFleetRequestsRequest,
-  DescribeSpotFleetRequestsRequestFilterSensitiveLog,
   DescribeSpotFleetRequestsResponse,
   DescribeSpotFleetRequestsResponseFilterSensitiveLog,
 } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSpotFleetRequestsCommand,
-  serializeAws_ec2DescribeSpotFleetRequestsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeSpotFleetRequestsCommand, se_DescribeSpotFleetRequestsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSpotFleetRequestsCommand}.
+ */
 export interface DescribeSpotFleetRequestsCommandInput extends DescribeSpotFleetRequestsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSpotFleetRequestsCommand}.
+ */
 export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFleetRequestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your Spot Fleet requests.</p>
  *          <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances
  *             are terminated.</p>
@@ -38,13 +45,82 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * import { EC2Client, DescribeSpotFleetRequestsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSpotFleetRequestsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSpotFleetRequestsRequest
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SpotFleetRequestIds: [ // SpotFleetRequestIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeSpotFleetRequestsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpotFleetRequestsCommandInput - {@link DescribeSpotFleetRequestsCommandInput}
+ * @returns {@link DescribeSpotFleetRequestsCommandOutput}
  * @see {@link DescribeSpotFleetRequestsCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotFleetRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe a Spot fleet request
+ * ```javascript
+ * // This example describes the specified Spot fleet request.
+ * const input = {
+ *   "SpotFleetRequestIds": [
+ *     "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ *   ]
+ * };
+ * const command = new DescribeSpotFleetRequestsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SpotFleetRequestConfigs": [
+ *     {
+ *       "SpotFleetRequestConfig": {
+ *         "IamFleetRole": "arn:aws:iam::123456789012:role/my-spot-fleet-role",
+ *         "LaunchSpecifications": [
+ *           {
+ *             "EbsOptimized": false,
+ *             "ImageId": "ami-1a2b3c4d",
+ *             "InstanceType": "cc2.8xlarge",
+ *             "NetworkInterfaces": [
+ *               {
+ *                 "AssociatePublicIpAddress": true,
+ *                 "DeleteOnTermination": false,
+ *                 "DeviceIndex": 0,
+ *                 "SecondaryPrivateIpAddressCount": 0,
+ *                 "SubnetId": "subnet-a61dafcf"
+ *               }
+ *             ]
+ *           },
+ *           {
+ *             "EbsOptimized": false,
+ *             "ImageId": "ami-1a2b3c4d",
+ *             "InstanceType": "r3.8xlarge",
+ *             "NetworkInterfaces": [
+ *               {
+ *                 "AssociatePublicIpAddress": true,
+ *                 "DeleteOnTermination": false,
+ *                 "DeviceIndex": 0,
+ *                 "SecondaryPrivateIpAddressCount": 0,
+ *                 "SubnetId": "subnet-a61dafcf"
+ *               }
+ *             ]
+ *           }
+ *         ],
+ *         "SpotPrice": "0.05",
+ *         "TargetCapacity": 20
+ *       },
+ *       "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
+ *       "SpotFleetRequestState": "active"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-spot-fleet-requests-1
+ * ```
  *
  */
 export class DescribeSpotFleetRequestsCommand extends $Command<
@@ -64,6 +140,9 @@ export class DescribeSpotFleetRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpotFleetRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +171,7 @@ export class DescribeSpotFleetRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpotFleetRequestsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeSpotFleetRequestsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,15 +182,21 @@ export class DescribeSpotFleetRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpotFleetRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSpotFleetRequestsCommand(input, context);
+    return se_DescribeSpotFleetRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSpotFleetRequestsCommandOutput> {
-    return deserializeAws_ec2DescribeSpotFleetRequestsCommand(output, context);
+    return de_DescribeSpotFleetRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

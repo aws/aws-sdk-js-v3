@@ -20,6 +20,12 @@ export interface SharedConfigInit {
    * `~/.aws/config` otherwise.
    */
   configFilepath?: string;
+
+  /**
+   * Configuration files are normally cached after the first time they are loaded. When this
+   * property is set, the provider will always reload any configuration files loaded before.
+   */
+  ignoreCache?: boolean;
 }
 
 const swallowError = () => ({});
@@ -28,8 +34,17 @@ export const loadSharedConfigFiles = async (init: SharedConfigInit = {}): Promis
   const { filepath = getCredentialsFilepath(), configFilepath = getConfigFilepath() } = init;
 
   const parsedFiles = await Promise.all([
-    slurpFile(configFilepath).then(parseIni).then(getProfileData).catch(swallowError),
-    slurpFile(filepath).then(parseIni).catch(swallowError),
+    slurpFile(configFilepath, {
+      ignoreCache: init.ignoreCache,
+    })
+      .then(parseIni)
+      .then(getProfileData)
+      .catch(swallowError),
+    slurpFile(filepath, {
+      ignoreCache: init.ignoreCache,
+    })
+      .then(parseIni)
+      .catch(swallowError),
   ]);
 
   return {

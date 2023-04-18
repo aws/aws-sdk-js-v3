@@ -17,18 +17,25 @@ import {
   UpdateWorkforceRequest,
   UpdateWorkforceRequestFilterSensitiveLog,
   UpdateWorkforceResponse,
-  UpdateWorkforceResponseFilterSensitiveLog,
 } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateWorkforceCommand,
-  serializeAws_json1_1UpdateWorkforceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateWorkforceCommand, se_UpdateWorkforceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateWorkforceCommand}.
+ */
 export interface UpdateWorkforceCommandInput extends UpdateWorkforceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateWorkforceCommand}.
+ */
 export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to update your workforce. You can use this operation to
  *         require that workers use specific IP addresses to work on tasks
  *         and to update your OpenID Connect (OIDC) Identity Provider (IdP) workforce configuration.</p>
@@ -39,7 +46,7 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  *             range of IP addresses, workers who attempt to access tasks using any IP address outside
  *             the specified range are denied and get a <code>Not Found</code> error message on
  *             the worker portal.</p>
- *          <p>To restrict access to all the workers in public internet, add the <code>SourceIpConfig</code> CIDR value as "0.0.0.0/0".</p>
+ *          <p>To restrict access to all the workers in public internet, add the <code>SourceIpConfig</code> CIDR value as "10.0.0.0/16".</p>
  *          <important>
  *             <p>Amazon SageMaker does not support Source Ip restriction for worker portals in VPC.</p>
  *          </important>
@@ -61,13 +68,47 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  * import { SageMakerClient, UpdateWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateWorkforceRequest
+ *   WorkforceName: "STRING_VALUE", // required
+ *   SourceIpConfig: { // SourceIpConfig
+ *     Cidrs: [ // Cidrs // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   OidcConfig: { // OidcConfig
+ *     ClientId: "STRING_VALUE", // required
+ *     ClientSecret: "STRING_VALUE", // required
+ *     Issuer: "STRING_VALUE", // required
+ *     AuthorizationEndpoint: "STRING_VALUE", // required
+ *     TokenEndpoint: "STRING_VALUE", // required
+ *     UserInfoEndpoint: "STRING_VALUE", // required
+ *     LogoutEndpoint: "STRING_VALUE", // required
+ *     JwksUri: "STRING_VALUE", // required
+ *   },
+ *   WorkforceVpcConfig: { // WorkforceVpcConfigRequest
+ *     VpcId: "STRING_VALUE",
+ *     SecurityGroupIds: [ // WorkforceSecurityGroupIds
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // WorkforceSubnets
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateWorkforceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkforceCommandInput - {@link UpdateWorkforceCommandInput}
+ * @returns {@link UpdateWorkforceCommandOutput}
  * @see {@link UpdateWorkforceCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
  *
  */
 export class UpdateWorkforceCommand extends $Command<
@@ -87,6 +128,9 @@ export class UpdateWorkforceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkforceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +160,7 @@ export class UpdateWorkforceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateWorkforceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkforceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +170,18 @@ export class UpdateWorkforceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkforceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWorkforceCommand(input, context);
+    return se_UpdateWorkforceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkforceCommandOutput> {
-    return deserializeAws_json1_1UpdateWorkforceCommand(output, context);
+    return de_UpdateWorkforceCommand(output, context);
   }
 
   // Start section: command_body_extra

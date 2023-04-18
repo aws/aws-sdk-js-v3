@@ -1,4 +1,6 @@
 /**
+ * @internal
+ *
  * A set of instructions for multiple keys.
  * The aim is to provide a concise yet readable way to map and filter values
  * onto a target object.
@@ -45,6 +47,17 @@
 export type ObjectMappingInstructions = Record<string, ObjectMappingInstruction>;
 
 /**
+ * @internal
+ *
+ * A variant of the object mapping instruction for the `take` function.
+ * In this case, the source value is provided to the value function, turning it
+ * from a supplier into a mapper.
+ */
+export type SourceMappingInstructions = Record<string, ValueMapper | SourceMappingInstruction>;
+
+/**
+ * @internal
+ *
  * An instruction set for assigning a value to a target object.
  */
 export type ObjectMappingInstruction =
@@ -55,15 +68,35 @@ export type ObjectMappingInstruction =
   | UnfilteredValue;
 
 /**
+ * @internal
+ *
  * non-array
  */
 export type UnfilteredValue = any;
+/**
+ * @internal
+ */
 export type LazyValueInstruction = [FilterStatus, ValueSupplier];
+/**
+ * @internal
+ */
 export type ConditionalLazyValueInstruction = [FilterStatusSupplier, ValueSupplier];
+/**
+ * @internal
+ */
 export type SimpleValueInstruction = [FilterStatus, Value];
+/**
+ * @internal
+ */
 export type ConditionalValueInstruction = [ValueFilteringFunction, Value];
+/**
+ * @internal
+ */
+export type SourceMappingInstruction = [ValueFilteringFunction?, ValueMapper?, string?];
 
 /**
+ * @internal
+ *
  * Filter is considered passed if
  * 1. It is a boolean true.
  * 2. It is not undefined and is itself truthy.
@@ -72,26 +105,43 @@ export type ConditionalValueInstruction = [ValueFilteringFunction, Value];
 export type FilterStatus = boolean | unknown | void;
 
 /**
+ * @internal
+ *
  * Supplies the filter check but not against any value as input.
  */
 export type FilterStatusSupplier = () => boolean;
 
 /**
+ * @internal
+ *
  * Filter check with the given value.
  */
 export type ValueFilteringFunction = (value: any) => boolean;
 
 /**
+ * @internal
+ *
  * Supplies the value for lazy evaluation.
  */
 export type ValueSupplier = () => any;
 
 /**
+ * @internal
+ *
+ * A function that maps the source value to the target value.
+ * Defaults to pass-through with nullish check.
+ */
+export type ValueMapper = (value: any) => any;
+
+/**
+ * @internal
+ *
  * A non-function value.
  */
 export type Value = any;
 
 /**
+ * @internal
  * Internal/Private, for codegen use only.
  *
  * Transfer a set of keys from [instructions] to [target].
@@ -101,16 +151,23 @@ export type Value = any;
  * The target assigned value will be supplied by the instructions as an evaluable function or non-function value.
  *
  * @see ObjectMappingInstructions for an example.
- * @private
- * @internal
  */
 export function map(
   target: any,
   filter: (value: any) => boolean,
   instructions: Record<string, ValueSupplier | Value>
 ): typeof target;
-export function map(instructions: Record<string, ObjectMappingInstruction>): any;
-export function map(target: any, instructions: Record<string, ObjectMappingInstruction>): typeof target;
+/**
+ * @internal
+ */
+export function map(instructions: ObjectMappingInstructions): any;
+/**
+ * @internal
+ */
+export function map(target: any, instructions: ObjectMappingInstructions): typeof target;
+/**
+ * @internal
+ */
 export function map(arg0: any, arg1?: any, arg2?: any): any {
   let target: any;
   let filter: (value?: any) => boolean;
@@ -135,39 +192,15 @@ export function map(arg0: any, arg1?: any, arg2?: any): any {
       target[key] = instructions[key]; // unchecked value.
       continue;
     }
-
-    // eslint-disable-next-line prefer-const
-    let [filter, value]: [((_?: any) => boolean) | unknown, any] = instructions[key];
-
-    if (typeof value === "function") {
-      let _value: any;
-      const defaultFilterPassed = filter === undefined && (_value = value()) != null;
-      const customFilterPassed =
-        (typeof filter === "function" && !!filter(void 0)) || (typeof filter !== "function" && !!filter);
-
-      if (defaultFilterPassed) {
-        target[key] = _value;
-      } else if (customFilterPassed) {
-        target[key] = value();
-      }
-    } else {
-      const defaultFilterPassed = filter === undefined && value != null;
-      const customFilterPassed =
-        (typeof filter === "function" && !!filter(value)) || (typeof filter !== "function" && !!filter);
-
-      if (defaultFilterPassed || customFilterPassed) {
-        target[key] = value;
-      }
-    }
+    applyInstruction(target, null, instructions, key);
   }
   return target;
 }
 
 /**
- * Convert a regular object { k: v } to { k: [, v] } mapping instruction set with default
+ * Convert a regular object `{ k: v }` to `{ k: [, v] }` mapping instruction set with default
  * filter.
  *
- * @private
  * @internal
  */
 export const convertMap = (target: any): Record<string, any> => {
@@ -179,13 +212,26 @@ export const convertMap = (target: any): Record<string, any> => {
 };
 
 /**
+ * @param source - original object with data.
+ * @param instructions - how to map the data.
+ * @returns new object mapped from the source object.
+ * @internal
+ */
+export const take = (source: any, instructions: SourceMappingInstructions): any => {
+  const out = {};
+  for (const key in instructions) {
+    applyInstruction(out, source, instructions, key);
+  }
+  return out;
+};
+
+/**
  * Private, for codegen use only.
  *
  * @param target - target object.
  * @param filter - uniform filter function to apply to all values
  * @param instructions - map of keys and values/suppliers (will be evaluated)
  *
- * @private
  * @internal
  */
 const mapWithFilter = (
@@ -217,3 +263,61 @@ const mapWithFilter = (
     )
   );
 };
+
+/**
+ * @internal
+ *
+ * Applies a single instruction at the given key from source to target.
+ */
+const applyInstruction = (
+  target: any,
+  source: null | any,
+  instructions: ObjectMappingInstructions | Record<string, SourceMappingInstruction>,
+  targetKey: string
+): void => {
+  if (source !== null) {
+    let instruction = instructions[targetKey];
+    if (typeof instruction === "function") {
+      instruction = [, instruction];
+    }
+    const [filter = nonNullish, valueFn = pass, sourceKey = targetKey] = instruction;
+    if ((typeof filter === "function" && filter(source[sourceKey])) || (typeof filter !== "function" && !!filter)) {
+      target[targetKey] = valueFn(source[sourceKey]);
+    }
+    return;
+  }
+
+  // eslint-disable-next-line prefer-const
+  let [filter, value]: [((_?: any) => boolean) | unknown, any] = instructions[targetKey];
+
+  if (typeof value === "function") {
+    let _value: any;
+    const defaultFilterPassed = filter === undefined && (_value = value()) != null;
+    const customFilterPassed =
+      (typeof filter === "function" && !!filter(void 0)) || (typeof filter !== "function" && !!filter);
+
+    if (defaultFilterPassed) {
+      target[targetKey] = _value;
+    } else if (customFilterPassed) {
+      target[targetKey] = value();
+    }
+  } else {
+    const defaultFilterPassed = filter === undefined && value != null;
+    const customFilterPassed =
+      (typeof filter === "function" && !!filter(value)) || (typeof filter !== "function" && !!filter);
+
+    if (defaultFilterPassed || customFilterPassed) {
+      target[targetKey] = value;
+    }
+  }
+};
+
+/**
+ * internal
+ */
+const nonNullish = (_: any) => _ != null;
+
+/**
+ * internal
+ */
+const pass = (_: any) => _;

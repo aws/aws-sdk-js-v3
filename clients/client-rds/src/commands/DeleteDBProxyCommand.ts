@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDBProxyRequest,
-  DeleteDBProxyRequestFilterSensitiveLog,
-  DeleteDBProxyResponse,
-  DeleteDBProxyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBProxyCommand,
-  serializeAws_queryDeleteDBProxyCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBProxyRequest, DeleteDBProxyResponse } from "../models/models_0";
+import { de_DeleteDBProxyCommand, se_DeleteDBProxyCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDBProxyCommand}.
+ */
 export interface DeleteDBProxyCommandInput extends DeleteDBProxyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDBProxyCommand}.
+ */
 export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing DB proxy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  * import { RDSClient, DeleteDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteDBProxyRequest
+ *   DBProxyName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBProxyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBProxyCommandInput - {@link DeleteDBProxyCommandInput}
+ * @returns {@link DeleteDBProxyCommandOutput}
  * @see {@link DeleteDBProxyCommandInput} for command's `input` shape.
  * @see {@link DeleteDBProxyCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBProxyNotFoundFault} (client fault)
+ *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * @throws {@link InvalidDBProxyStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the proxy is in this state.</p>
+ *
  *
  */
 export class DeleteDBProxyCommand extends $Command<
@@ -62,6 +77,9 @@ export class DeleteDBProxyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBProxyCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class DeleteDBProxyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBProxyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBProxyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class DeleteDBProxyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBProxyCommand(input, context);
+    return se_DeleteDBProxyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBProxyCommandOutput> {
-    return deserializeAws_queryDeleteDBProxyCommand(output, context);
+    return de_DeleteDBProxyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DescribeVpcPeeringConnectionsInput, DescribeVpcPeeringConnectionsOutput } from "../models/models_0";
 import {
-  DescribeVpcPeeringConnectionsInput,
-  DescribeVpcPeeringConnectionsInputFilterSensitiveLog,
-  DescribeVpcPeeringConnectionsOutput,
-  DescribeVpcPeeringConnectionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeVpcPeeringConnectionsCommand,
-  serializeAws_json1_1DescribeVpcPeeringConnectionsCommand,
+  de_DescribeVpcPeeringConnectionsCommand,
+  se_DescribeVpcPeeringConnectionsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVpcPeeringConnectionsCommand}.
+ */
 export interface DescribeVpcPeeringConnectionsCommandInput extends DescribeVpcPeeringConnectionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVpcPeeringConnectionsCommand}.
+ */
 export interface DescribeVpcPeeringConnectionsCommandOutput
   extends DescribeVpcPeeringConnectionsOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information on VPC peering connections. Use this operation to get peering
  *             information for all fleets or for one specific fleet ID. </p>
  *         <p>To retrieve connection information, call this operation from the Amazon Web Services account that is
@@ -50,13 +56,33 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  * import { GameLiftClient, DescribeVpcPeeringConnectionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeVpcPeeringConnectionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeVpcPeeringConnectionsInput
+ *   FleetId: "STRING_VALUE",
+ * };
  * const command = new DescribeVpcPeeringConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcPeeringConnectionsCommandInput - {@link DescribeVpcPeeringConnectionsCommandInput}
+ * @returns {@link DescribeVpcPeeringConnectionsCommandOutput}
  * @see {@link DescribeVpcPeeringConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcPeeringConnectionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class DescribeVpcPeeringConnectionsCommand extends $Command<
@@ -76,6 +102,9 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcPeeringConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +133,8 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcPeeringConnectionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcPeeringConnectionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,15 +144,21 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcPeeringConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVpcPeeringConnectionsCommand(input, context);
+    return se_DescribeVpcPeeringConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcPeeringConnectionsCommandOutput> {
-    return deserializeAws_json1_1DescribeVpcPeeringConnectionsCommand(output, context);
+    return de_DescribeVpcPeeringConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

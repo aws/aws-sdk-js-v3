@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  StopBuildBatchInput,
-  StopBuildBatchInputFilterSensitiveLog,
-  StopBuildBatchOutput,
-  StopBuildBatchOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopBuildBatchCommand,
-  serializeAws_json1_1StopBuildBatchCommand,
-} from "../protocols/Aws_json1_1";
+import { StopBuildBatchInput, StopBuildBatchOutput } from "../models/models_0";
+import { de_StopBuildBatchCommand, se_StopBuildBatchCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopBuildBatchCommand}.
+ */
 export interface StopBuildBatchCommandInput extends StopBuildBatchInput {}
+/**
+ * @public
+ *
+ * The output of {@link StopBuildBatchCommand}.
+ */
 export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running batch build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * import { CodeBuildClient, StopBuildBatchCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, StopBuildBatchCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // StopBuildBatchInput
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new StopBuildBatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopBuildBatchCommandInput - {@link StopBuildBatchCommandInput}
+ * @returns {@link StopBuildBatchCommandOutput}
  * @see {@link StopBuildBatchCommandInput} for command's `input` shape.
  * @see {@link StopBuildBatchCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
  *
  */
 export class StopBuildBatchCommand extends $Command<
@@ -62,6 +77,9 @@ export class StopBuildBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopBuildBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class StopBuildBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBuildBatchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopBuildBatchOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class StopBuildBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopBuildBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopBuildBatchCommand(input, context);
+    return se_StopBuildBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBuildBatchCommandOutput> {
-    return deserializeAws_json1_1StopBuildBatchCommand(output, context);
+    return de_StopBuildBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

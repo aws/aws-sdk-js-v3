@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListUserProfilesRequest,
-  ListUserProfilesRequestFilterSensitiveLog,
-  ListUserProfilesResponse,
-  ListUserProfilesResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListUserProfilesCommand,
-  serializeAws_json1_1ListUserProfilesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListUserProfilesRequest, ListUserProfilesResponse } from "../models/models_3";
+import { de_ListUserProfilesCommand, se_ListUserProfilesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListUserProfilesCommand}.
+ */
 export interface ListUserProfilesCommandInput extends ListUserProfilesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListUserProfilesCommand}.
+ */
 export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists user profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,24 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
  * import { SageMakerClient, ListUserProfilesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListUserProfilesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListUserProfilesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortOrder: "Ascending" || "Descending",
+ *   SortBy: "CreationTime" || "LastModifiedTime",
+ *   DomainIdEquals: "STRING_VALUE",
+ *   UserProfileNameContains: "STRING_VALUE",
+ * };
  * const command = new ListUserProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserProfilesCommandInput - {@link ListUserProfilesCommandInput}
+ * @returns {@link ListUserProfilesCommandOutput}
  * @see {@link ListUserProfilesCommandInput} for command's `input` shape.
  * @see {@link ListUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListUserProfilesCommand extends $Command<
@@ -62,6 +76,9 @@ export class ListUserProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +107,8 @@ export class ListUserProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUserProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUserProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +118,18 @@ export class ListUserProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUserProfilesCommand(input, context);
+    return se_ListUserProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserProfilesCommandOutput> {
-    return deserializeAws_json1_1ListUserProfilesCommand(output, context);
+    return de_ListUserProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

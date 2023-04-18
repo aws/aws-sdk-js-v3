@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateContactRequest,
-  CreateContactRequestFilterSensitiveLog,
-  CreateContactResponse,
-  CreateContactResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateContactCommand,
-  serializeAws_restJson1CreateContactCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateContactRequest, CreateContactResponse } from "../models/models_0";
+import { de_CreateContactCommand, se_CreateContactCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateContactCommand}.
+ */
 export interface CreateContactCommandInput extends CreateContactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateContactCommand}.
+ */
 export interface CreateContactCommandOutput extends CreateContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a contact, which is an end-user who is receiving the email, and adds them to a
  *             contact list.</p>
  * @example
@@ -37,13 +40,40 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * import { SESv2Client, CreateContactCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateContactCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // CreateContactRequest
+ *   ContactListName: "STRING_VALUE", // required
+ *   EmailAddress: "STRING_VALUE", // required
+ *   TopicPreferences: [ // TopicPreferenceList
+ *     { // TopicPreference
+ *       TopicName: "STRING_VALUE", // required
+ *       SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ *     },
+ *   ],
+ *   UnsubscribeAll: true || false,
+ *   AttributesData: "STRING_VALUE",
+ * };
  * const command = new CreateContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContactCommandInput - {@link CreateContactCommandInput}
+ * @returns {@link CreateContactCommandOutput}
  * @see {@link CreateContactCommandInput} for command's `input` shape.
  * @see {@link CreateContactCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource specified in your request already exists.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class CreateContactCommand extends $Command<
@@ -63,6 +93,9 @@ export class CreateContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +122,8 @@ export class CreateContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +133,18 @@ export class CreateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateContactCommand(input, context);
+    return se_CreateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContactCommandOutput> {
-    return deserializeAws_restJson1CreateContactCommand(output, context);
+    return de_CreateContactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  GetSnapshotLimitsRequest,
-  GetSnapshotLimitsRequestFilterSensitiveLog,
-  GetSnapshotLimitsResult,
-  GetSnapshotLimitsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSnapshotLimitsCommand,
-  serializeAws_json1_1GetSnapshotLimitsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSnapshotLimitsRequest, GetSnapshotLimitsResult } from "../models/models_0";
+import { de_GetSnapshotLimitsCommand, se_GetSnapshotLimitsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSnapshotLimitsCommand}.
+ */
 export interface GetSnapshotLimitsCommandInput extends GetSnapshotLimitsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSnapshotLimitsCommand}.
+ */
 export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains the manual snapshot limits for a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * import { DirectoryServiceClient, GetSnapshotLimitsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, GetSnapshotLimitsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // GetSnapshotLimitsRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ * };
  * const command = new GetSnapshotLimitsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSnapshotLimitsCommandInput - {@link GetSnapshotLimitsCommandInput}
+ * @returns {@link GetSnapshotLimitsCommandOutput}
  * @see {@link GetSnapshotLimitsCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotLimitsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
  *
  */
 export class GetSnapshotLimitsCommand extends $Command<
@@ -62,6 +80,9 @@ export class GetSnapshotLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSnapshotLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class GetSnapshotLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSnapshotLimitsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSnapshotLimitsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class GetSnapshotLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSnapshotLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSnapshotLimitsCommand(input, context);
+    return se_GetSnapshotLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnapshotLimitsCommandOutput> {
-    return deserializeAws_json1_1GetSnapshotLimitsCommand(output, context);
+    return de_GetSnapshotLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

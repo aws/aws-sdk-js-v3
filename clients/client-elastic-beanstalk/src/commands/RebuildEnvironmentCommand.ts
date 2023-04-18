@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { RebuildEnvironmentMessage, RebuildEnvironmentMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryRebuildEnvironmentCommand,
-  serializeAws_queryRebuildEnvironmentCommand,
-} from "../protocols/Aws_query";
+import { RebuildEnvironmentMessage } from "../models/models_0";
+import { de_RebuildEnvironmentCommand, se_RebuildEnvironmentCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RebuildEnvironmentCommand}.
+ */
 export interface RebuildEnvironmentCommandInput extends RebuildEnvironmentMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RebuildEnvironmentCommand}.
+ */
 export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes and recreates all of the AWS resources (for example: the Auto Scaling group,
  *       load balancer, etc.) for a specified environment and forces a restart.</p>
  * @example
@@ -32,13 +40,35 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, RebuildEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, RebuildEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // RebuildEnvironmentMessage
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ * };
  * const command = new RebuildEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebuildEnvironmentCommandInput - {@link RebuildEnvironmentCommandInput}
+ * @returns {@link RebuildEnvironmentCommandOutput}
  * @see {@link RebuildEnvironmentCommandInput} for command's `input` shape.
  * @see {@link RebuildEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ *
+ * @example To rebuild an environment
+ * ```javascript
+ * // The following operation terminates and recreates the resources in an environment named my-env:
+ * const input = {
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new RebuildEnvironmentCommand(input);
+ * await client.send(command);
+ * // example id: to-rebuild-an-environment-1456277600918
+ * ```
  *
  */
 export class RebuildEnvironmentCommand extends $Command<
@@ -58,6 +88,9 @@ export class RebuildEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebuildEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +119,8 @@ export class RebuildEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebuildEnvironmentMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +130,18 @@ export class RebuildEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebuildEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebuildEnvironmentCommand(input, context);
+    return se_RebuildEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebuildEnvironmentCommandOutput> {
-    return deserializeAws_queryRebuildEnvironmentCommand(output, context);
+    return de_RebuildEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

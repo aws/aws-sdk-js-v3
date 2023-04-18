@@ -16,21 +16,30 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import {
   UpdateApprovalRuleTemplateDescriptionInput,
-  UpdateApprovalRuleTemplateDescriptionInputFilterSensitiveLog,
   UpdateApprovalRuleTemplateDescriptionOutput,
-  UpdateApprovalRuleTemplateDescriptionOutputFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand,
-  serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand,
+  de_UpdateApprovalRuleTemplateDescriptionCommand,
+  se_UpdateApprovalRuleTemplateDescriptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateApprovalRuleTemplateDescriptionCommand}.
+ */
 export interface UpdateApprovalRuleTemplateDescriptionCommandInput extends UpdateApprovalRuleTemplateDescriptionInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateApprovalRuleTemplateDescriptionCommand}.
+ */
 export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
   extends UpdateApprovalRuleTemplateDescriptionOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description for a specified approval rule template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,39 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
  * import { CodeCommitClient, UpdateApprovalRuleTemplateDescriptionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateApprovalRuleTemplateDescriptionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // UpdateApprovalRuleTemplateDescriptionInput
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ *   approvalRuleTemplateDescription: "STRING_VALUE", // required
+ * };
  * const command = new UpdateApprovalRuleTemplateDescriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApprovalRuleTemplateDescriptionCommandInput - {@link UpdateApprovalRuleTemplateDescriptionCommandInput}
+ * @returns {@link UpdateApprovalRuleTemplateDescriptionCommandOutput}
  * @see {@link UpdateApprovalRuleTemplateDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateApprovalRuleTemplateDescriptionCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link ApprovalRuleTemplateDoesNotExistException} (client fault)
+ *  <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the AWS Region where the template
+ *         was created, and then try again.</p>
+ *
+ * @throws {@link ApprovalRuleTemplateNameRequiredException} (client fault)
+ *  <p>An approval rule template name is required, but was not specified.</p>
+ *
+ * @throws {@link InvalidApprovalRuleTemplateDescriptionException} (client fault)
+ *  <p>The description for the approval rule template is not valid because it exceeds the
+ *             maximum characters allowed for a description. For more information about limits in AWS
+ *             CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User
+ *             Guide</a>.</p>
+ *
+ * @throws {@link InvalidApprovalRuleTemplateNameException} (client fault)
+ *  <p>The name of the approval rule template is not valid. Template names must be between 1
+ *             and 100 valid characters in length. For more information about limits in AWS CodeCommit,
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
+ *                 CodeCommit User Guide</a>.</p>
+ *
  *
  */
 export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
@@ -64,6 +99,9 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApprovalRuleTemplateDescriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +130,8 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApprovalRuleTemplateDescriptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApprovalRuleTemplateDescriptionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +141,24 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApprovalRuleTemplateDescriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand(input, context);
+    return se_UpdateApprovalRuleTemplateDescriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> {
-    return deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand(output, context);
+    return de_UpdateApprovalRuleTemplateDescriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

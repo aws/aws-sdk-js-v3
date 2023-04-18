@@ -16,21 +16,30 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
   UpdateGatewayCapabilityConfigurationRequest,
-  UpdateGatewayCapabilityConfigurationRequestFilterSensitiveLog,
   UpdateGatewayCapabilityConfigurationResponse,
-  UpdateGatewayCapabilityConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand,
-  serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand,
+  de_UpdateGatewayCapabilityConfigurationCommand,
+  se_UpdateGatewayCapabilityConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateGatewayCapabilityConfigurationCommand}.
+ */
 export interface UpdateGatewayCapabilityConfigurationCommandInput extends UpdateGatewayCapabilityConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateGatewayCapabilityConfigurationCommand}.
+ */
 export interface UpdateGatewayCapabilityConfigurationCommandOutput
   extends UpdateGatewayCapabilityConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a gateway capability configuration or defines a new capability configuration.
  *       Each gateway capability defines data sources for a gateway. A capability configuration
  *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
@@ -42,13 +51,47 @@ export interface UpdateGatewayCapabilityConfigurationCommandOutput
  * import { IoTSiteWiseClient, UpdateGatewayCapabilityConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateGatewayCapabilityConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // UpdateGatewayCapabilityConfigurationRequest
+ *   gatewayId: "STRING_VALUE", // required
+ *   capabilityNamespace: "STRING_VALUE", // required
+ *   capabilityConfiguration: "STRING_VALUE", // required
+ * };
  * const command = new UpdateGatewayCapabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayCapabilityConfigurationCommandInput - {@link UpdateGatewayCapabilityConfigurationCommandInput}
+ * @returns {@link UpdateGatewayCapabilityConfigurationCommandOutput}
  * @see {@link UpdateGatewayCapabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayCapabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link ConflictingOperationException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
+ *       than one operation on the same resource at the same time.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You've reached the limit for a resource. For example, this can occur if you're trying to
+ *       associate more than the allowed number of child assets or attempting to create more than the
+ *       allowed number of properties for an asset model.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
  *
  */
 export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
@@ -68,6 +111,9 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayCapabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +142,8 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewayCapabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewayCapabilityConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +153,24 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateGatewayCapabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand(input, context);
+    return se_UpdateGatewayCapabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateGatewayCapabilityConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand(output, context);
+    return de_UpdateGatewayCapabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

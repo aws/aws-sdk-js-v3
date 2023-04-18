@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ActivityTypeDetail,
-  ActivityTypeDetailFilterSensitiveLog,
-  DescribeActivityTypeInput,
-  DescribeActivityTypeInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeActivityTypeCommand,
-  serializeAws_json1_0DescribeActivityTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { ActivityTypeDetail, DescribeActivityTypeInput } from "../models/models_0";
+import { de_DescribeActivityTypeCommand, se_DescribeActivityTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeActivityTypeCommand}.
+ */
 export interface DescribeActivityTypeCommandInput extends DescribeActivityTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeActivityTypeCommand}.
+ */
 export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified activity type. This includes configuration
  *       settings provided when the type was registered and other general information about the
  *       type.</p>
@@ -74,13 +77,29 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  * import { SWFClient, DescribeActivityTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DescribeActivityTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // DescribeActivityTypeInput
+ *   domain: "STRING_VALUE", // required
+ *   activityType: { // ActivityType
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DescribeActivityTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeActivityTypeCommandInput - {@link DescribeActivityTypeCommandInput}
+ * @returns {@link DescribeActivityTypeCommandOutput}
  * @see {@link DescribeActivityTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
  *
  */
 export class DescribeActivityTypeCommand extends $Command<
@@ -100,6 +119,9 @@ export class DescribeActivityTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActivityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +150,8 @@ export class DescribeActivityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeActivityTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivityTypeDetailFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +161,18 @@ export class DescribeActivityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeActivityTypeCommand(input, context);
+    return se_DescribeActivityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActivityTypeCommandOutput> {
-    return deserializeAws_json1_0DescribeActivityTypeCommand(output, context);
+    return de_DescribeActivityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

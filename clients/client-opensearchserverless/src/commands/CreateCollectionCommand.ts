@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCollectionRequest,
-  CreateCollectionRequestFilterSensitiveLog,
-  CreateCollectionResponse,
-  CreateCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCollectionRequest, CreateCollectionResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0CreateCollectionCommand,
-  serializeAws_json1_0CreateCollectionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateCollectionCommand, se_CreateCollectionCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCollectionCommand}.
+ */
 export interface CreateCollectionCommandInput extends CreateCollectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCollectionCommand}.
+ */
 export interface CreateCollectionCommandOutput extends CreateCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new OpenSearch Serverless collection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
  * @example
@@ -41,13 +44,46 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * import { OpenSearchServerlessClient, CreateCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // CreateCollectionRequest
+ *   name: "STRING_VALUE", // required
+ *   type: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   tags: [ // Tags
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCollectionCommandInput - {@link CreateCollectionCommandInput}
+ * @returns {@link CreateCollectionCommandOutput}
  * @see {@link CreateCollectionCommandInput} for command's `input` shape.
  * @see {@link CreateCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
+ *             the ACTIVE or FAILED state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link OcuLimitExceededException} (client fault)
+ *  OCU Limit Exceeded for service limits
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Thrown when the HTTP request contains invalid input or is missing required
+ *             input.</p>
+ *
  *
  */
 export class CreateCollectionCommand extends $Command<
@@ -67,6 +103,9 @@ export class CreateCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +134,8 @@ export class CreateCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +145,18 @@ export class CreateCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateCollectionCommand(input, context);
+    return se_CreateCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCollectionCommandOutput> {
-    return deserializeAws_json1_0CreateCollectionCommand(output, context);
+    return de_CreateCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

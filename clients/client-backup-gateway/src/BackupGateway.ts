@@ -121,6 +121,7 @@ import {
 } from "./commands/UpdateHypervisorCommand";
 
 /**
+ * @public
  * <fullname>Backup gateway</fullname>
  *          <p>Backup gateway connects Backup to your hypervisor, so you can
  *       create, store, and restore backups of your virtual machines (VMs) anywhere, whether
@@ -133,6 +134,7 @@ import {
  */
 export class BackupGateway extends BackupGatewayClient {
   /**
+   * @public
    * <p>Associates a backup gateway with your server. After you complete the association process,
    *       you can back up and restore your VMs through the gateway.</p>
    */
@@ -166,6 +168,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Creates a backup gateway. After you create a gateway, you can associate it with a server
    *       using the <code>AssociateGatewayToServer</code> operation.</p>
    */
@@ -199,6 +202,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Deletes a backup gateway.</p>
    */
   public deleteGateway(
@@ -231,6 +235,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Deletes a hypervisor.</p>
    */
   public deleteHypervisor(
@@ -263,6 +268,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a backup gateway from the specified server. After the disassociation process
    *       finishes, the gateway can no longer access the virtual machines on the server.</p>
    */
@@ -296,6 +302,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the bandwidth rate limit schedule for a specified gateway.
    *       By default, gateways do not have bandwidth rate limit schedules, which means
    *       no bandwidth rate limiting is in effect. Use this to get a gateway's
@@ -331,6 +338,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>By providing the ARN (Amazon Resource Name), this
    *       API returns the gateway.</p>
    */
@@ -358,6 +366,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>This action requests information about the specified hypervisor to which the gateway will connect.
    *       A hypervisor is hardware, software, or firmware that creates and manages virtual machines,
    *       and allocates resources to them.</p>
@@ -392,6 +401,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>This action retrieves the property mappings for the specified hypervisor.
    *       A hypervisor property mapping displays the relationship of entity properties
    *       available from the on-premises hypervisor to the properties available in Amazon Web Services.</p>
@@ -426,6 +436,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>By providing the ARN (Amazon Resource Name), this API returns the virtual machine.</p>
    */
   public getVirtualMachine(
@@ -458,6 +469,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Connect to a hypervisor by importing its configuration.</p>
    */
   public importHypervisorConfiguration(
@@ -490,6 +502,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Lists backup gateways owned by an Amazon Web Services account in an Amazon Web Services Region. The returned list is ordered by gateway Amazon Resource Name (ARN).</p>
    */
   public listGateways(
@@ -519,6 +532,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Lists your hypervisors.</p>
    */
   public listHypervisors(
@@ -551,6 +565,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags applied to the resource identified by its Amazon Resource Name
    *       (ARN).</p>
    */
@@ -584,6 +599,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Lists your virtual machines.</p>
    */
   public listVirtualMachines(
@@ -616,6 +632,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>This action sets the bandwidth rate limit schedule for a specified gateway.
    *       By default, gateways do not have a bandwidth rate limit schedule, which means
    *       no bandwidth rate limiting is in effect. Use this to initiate a
@@ -651,6 +668,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>This action sets the property mappings for the specified hypervisor.
    *       A hypervisor property mapping displays the relationship of entity properties
    *       available from the on-premises hypervisor to the properties available in Amazon Web Services.</p>
@@ -685,6 +703,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Set the maintenance start time for a gateway.</p>
    */
   public putMaintenanceStartTime(
@@ -717,6 +736,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>This action sends a request to sync metadata across the specified virtual machines.</p>
    */
   public startVirtualMachinesMetadataSync(
@@ -749,6 +769,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Tag the resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -775,6 +796,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Tests your hypervisor configuration to validate that backup gateway can connect with the
    *       hypervisor and its resources.</p>
    */
@@ -808,6 +830,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from the resource.</p>
    */
   public untagResource(
@@ -840,6 +863,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Updates a gateway's name. Specify which gateway to update using the Amazon Resource Name
    *       (ARN) of the gateway in your request.</p>
    */
@@ -873,6 +897,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Updates the gateway virtual machine (VM) software.
    *       The request immediately triggers the software update.</p>
    *          <note>
@@ -911,6 +936,7 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * @public
    * <p>Updates a hypervisor metadata, including its host, username, and password. Specify which
    *       hypervisor to update using the Amazon Resource Name (ARN) of the hypervisor in your
    *       request.</p>

@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteModelPackageInput, DeleteModelPackageInputFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteModelPackageCommand,
-  serializeAws_json1_1DeleteModelPackageCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteModelPackageInput } from "../models/models_1";
+import { de_DeleteModelPackageCommand, se_DeleteModelPackageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteModelPackageCommand}.
+ */
 export interface DeleteModelPackageCommandInput extends DeleteModelPackageInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteModelPackageCommand}.
+ */
 export interface DeleteModelPackageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a model package.</p>
  *          <p>A model package is used to create SageMaker models or list on Amazon Web Services Marketplace. Buyers can
  *             subscribe to model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p>
@@ -33,13 +41,23 @@ export interface DeleteModelPackageCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteModelPackageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteModelPackageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteModelPackageInput
+ *   ModelPackageName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteModelPackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelPackageCommandInput - {@link DeleteModelPackageCommandInput}
+ * @returns {@link DeleteModelPackageCommandOutput}
  * @see {@link DeleteModelPackageCommandInput} for command's `input` shape.
  * @see {@link DeleteModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
  *
  */
 export class DeleteModelPackageCommand extends $Command<
@@ -59,6 +77,9 @@ export class DeleteModelPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +108,8 @@ export class DeleteModelPackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelPackageInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +119,18 @@ export class DeleteModelPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelPackageCommand(input, context);
+    return se_DeleteModelPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelPackageCommandOutput> {
-    return deserializeAws_json1_1DeleteModelPackageCommand(output, context);
+    return de_DeleteModelPackageCommand(output, context);
   }
 
   // Start section: command_body_extra

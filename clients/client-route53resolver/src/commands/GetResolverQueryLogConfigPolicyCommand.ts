@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetResolverQueryLogConfigPolicyRequest, GetResolverQueryLogConfigPolicyResponse } from "../models/models_0";
 import {
-  GetResolverQueryLogConfigPolicyRequest,
-  GetResolverQueryLogConfigPolicyRequestFilterSensitiveLog,
-  GetResolverQueryLogConfigPolicyResponse,
-  GetResolverQueryLogConfigPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommand,
-  serializeAws_json1_1GetResolverQueryLogConfigPolicyCommand,
+  de_GetResolverQueryLogConfigPolicyCommand,
+  se_GetResolverQueryLogConfigPolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetResolverQueryLogConfigPolicyCommand}.
+ */
 export interface GetResolverQueryLogConfigPolicyCommandInput extends GetResolverQueryLogConfigPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetResolverQueryLogConfigPolicyCommand}.
+ */
 export interface GetResolverQueryLogConfigPolicyCommandOutput
   extends GetResolverQueryLogConfigPolicyResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a query logging policy. A query logging policy specifies the Resolver query logging
  * 			operations and resources that you want to allow another Amazon Web Services account to be able to use.</p>
  * @example
@@ -39,13 +45,34 @@ export interface GetResolverQueryLogConfigPolicyCommandOutput
  * import { Route53ResolverClient, GetResolverQueryLogConfigPolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetResolverQueryLogConfigPolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // GetResolverQueryLogConfigPolicyRequest
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new GetResolverQueryLogConfigPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverQueryLogConfigPolicyCommandInput - {@link GetResolverQueryLogConfigPolicyCommandInput}
+ * @returns {@link GetResolverQueryLogConfigPolicyCommandOutput}
  * @see {@link GetResolverQueryLogConfigPolicyCommandInput} for command's `input` shape.
  * @see {@link GetResolverQueryLogConfigPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
  *
  */
 export class GetResolverQueryLogConfigPolicyCommand extends $Command<
@@ -65,6 +92,9 @@ export class GetResolverQueryLogConfigPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverQueryLogConfigPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +123,8 @@ export class GetResolverQueryLogConfigPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResolverQueryLogConfigPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResolverQueryLogConfigPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +134,24 @@ export class GetResolverQueryLogConfigPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetResolverQueryLogConfigPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResolverQueryLogConfigPolicyCommand(input, context);
+    return se_GetResolverQueryLogConfigPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResolverQueryLogConfigPolicyCommandOutput> {
-    return deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommand(output, context);
+    return de_GetResolverQueryLogConfigPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

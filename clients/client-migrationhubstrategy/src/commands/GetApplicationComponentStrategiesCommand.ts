@@ -20,21 +20,30 @@ import {
 } from "../MigrationHubStrategyClient";
 import {
   GetApplicationComponentStrategiesRequest,
-  GetApplicationComponentStrategiesRequestFilterSensitiveLog,
   GetApplicationComponentStrategiesResponse,
-  GetApplicationComponentStrategiesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetApplicationComponentStrategiesCommand,
-  serializeAws_restJson1GetApplicationComponentStrategiesCommand,
+  de_GetApplicationComponentStrategiesCommand,
+  se_GetApplicationComponentStrategiesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetApplicationComponentStrategiesCommand}.
+ */
 export interface GetApplicationComponentStrategiesCommandInput extends GetApplicationComponentStrategiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetApplicationComponentStrategiesCommand}.
+ */
 export interface GetApplicationComponentStrategiesCommandOutput
   extends GetApplicationComponentStrategiesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a list of all the recommended strategies and tools for an application component
  *       running on a server. </p>
  * @example
@@ -43,13 +52,28 @@ export interface GetApplicationComponentStrategiesCommandOutput
  * import { MigrationHubStrategyClient, GetApplicationComponentStrategiesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetApplicationComponentStrategiesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // GetApplicationComponentStrategiesRequest
+ *   applicationComponentId: "STRING_VALUE", // required
+ * };
  * const command = new GetApplicationComponentStrategiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApplicationComponentStrategiesCommandInput - {@link GetApplicationComponentStrategiesCommandInput}
+ * @returns {@link GetApplicationComponentStrategiesCommandOutput}
  * @see {@link GetApplicationComponentStrategiesCommandInput} for command's `input` shape.
  * @see {@link GetApplicationComponentStrategiesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ID in the request is not found. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
  *
  */
 export class GetApplicationComponentStrategiesCommand extends $Command<
@@ -69,6 +93,9 @@ export class GetApplicationComponentStrategiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApplicationComponentStrategiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +124,8 @@ export class GetApplicationComponentStrategiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApplicationComponentStrategiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApplicationComponentStrategiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,18 +135,24 @@ export class GetApplicationComponentStrategiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetApplicationComponentStrategiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationComponentStrategiesCommand(input, context);
+    return se_GetApplicationComponentStrategiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApplicationComponentStrategiesCommandOutput> {
-    return deserializeAws_restJson1GetApplicationComponentStrategiesCommand(output, context);
+    return de_GetApplicationComponentStrategiesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribeAccountLimitsInput,
-  DescribeAccountLimitsInputFilterSensitiveLog,
-  DescribeAccountLimitsOutput,
-  DescribeAccountLimitsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAccountLimitsCommand,
-  serializeAws_queryDescribeAccountLimitsCommand,
-} from "../protocols/Aws_query";
+import { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/models_0";
+import { de_DescribeAccountLimitsCommand, se_DescribeAccountLimitsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAccountLimitsCommand}.
+ */
 export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimitsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAccountLimitsCommand}.
+ */
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves your account's CloudFormation limits, such as the maximum number of stacks
  *          that you can create in your account. For more information about account limits, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation Quotas</a> in the
  *          <i>CloudFormation User Guide</i>.</p>
@@ -38,13 +41,19 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * import { CloudFormationClient, DescribeAccountLimitsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeAccountLimitsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeAccountLimitsInput
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
+ * @returns {@link DescribeAccountLimitsCommandOutput}
  * @see {@link DescribeAccountLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
  *
  */
 export class DescribeAccountLimitsCommand extends $Command<
@@ -64,6 +73,9 @@ export class DescribeAccountLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +104,8 @@ export class DescribeAccountLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountLimitsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountLimitsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +115,18 @@ export class DescribeAccountLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAccountLimitsCommand(input, context);
+    return se_DescribeAccountLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountLimitsCommandOutput> {
-    return deserializeAws_queryDescribeAccountLimitsCommand(output, context);
+    return de_DescribeAccountLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

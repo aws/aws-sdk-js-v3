@@ -13,31 +13,35 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportLensInput,
-  ImportLensInputFilterSensitiveLog,
-  ImportLensOutput,
-  ImportLensOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportLensCommand,
-  serializeAws_restJson1ImportLensCommand,
-} from "../protocols/Aws_restJson1";
+import { ImportLensInput, ImportLensOutput } from "../models/models_0";
+import { de_ImportLensCommand, se_ImportLensCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportLensCommand}.
+ */
 export interface ImportLensCommandInput extends ImportLensInput {}
+/**
+ * @public
+ *
+ * The output of {@link ImportLensCommand}.
+ */
 export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBearer {}
 
 /**
- * <p>Import a new lens.</p>
- *         <p>The lens cannot be applied to workloads or shared with other Amazon Web Services accounts
- *             until it's published with <a>CreateLensVersion</a>
- *          </p>
- *         <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a>
+ * @public
+ * <p>Import a new custom lens or update an existing custom lens.</p>
+ *          <p>To update an existing custom lens, specify its ARN as the  <code>LensAlias</code>. If
+ *             no ARN is specified, a new custom lens is created.</p>
+ *          <p>The new or updated lens will have a status of <code>DRAFT</code>. The lens cannot be
+ *             applied to workloads or shared with other Amazon Web Services accounts until it's
+ *             published with <a>CreateLensVersion</a>.</p>
+ *          <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a>
  *             in the <i>Well-Architected Tool User Guide</i>.</p>
- *         <p>A custom lens cannot exceed 500 KB in size.</p>
- *
- *         <note>
+ *          <p>A custom lens cannot exceed 500 KB in size.</p>
+ *          <note>
  *             <p>
  *                <b>Disclaimer</b>
  *             </p>
@@ -54,13 +58,45 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
  * import { WellArchitectedClient, ImportLensCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ImportLensCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ImportLensInput
+ *   LensAlias: "STRING_VALUE",
+ *   JSONString: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ImportLensCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportLensCommandInput - {@link ImportLensCommandInput}
+ * @returns {@link ImportLensCommandOutput}
  * @see {@link ImportLensCommandInput} for command's `input` shape.
  * @see {@link ImportLensCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The user has reached their resource quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
  *
  */
 export class ImportLensCommand extends $Command<
@@ -80,6 +116,9 @@ export class ImportLensCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportLensCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +145,8 @@ export class ImportLensCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportLensInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportLensOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +156,18 @@ export class ImportLensCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportLensCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportLensCommand(input, context);
+    return se_ImportLensCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportLensCommandOutput> {
-    return deserializeAws_restJson1ImportLensCommand(output, context);
+    return de_ImportLensCommand(output, context);
   }
 
   // Start section: command_body_extra

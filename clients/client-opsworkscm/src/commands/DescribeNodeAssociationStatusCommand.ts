@@ -15,22 +15,32 @@ import {
 
 import {
   DescribeNodeAssociationStatusRequest,
-  DescribeNodeAssociationStatusRequestFilterSensitiveLog,
   DescribeNodeAssociationStatusResponse,
   DescribeNodeAssociationStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
-  deserializeAws_json1_1DescribeNodeAssociationStatusCommand,
-  serializeAws_json1_1DescribeNodeAssociationStatusCommand,
+  de_DescribeNodeAssociationStatusCommand,
+  se_DescribeNodeAssociationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeNodeAssociationStatusCommand}.
+ */
 export interface DescribeNodeAssociationStatusCommandInput extends DescribeNodeAssociationStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNodeAssociationStatusCommand}.
+ */
 export interface DescribeNodeAssociationStatusCommandOutput
   extends DescribeNodeAssociationStatusResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns the current status of an existing association or disassociation request.
  *     </p>
@@ -44,13 +54,28 @@ export interface DescribeNodeAssociationStatusCommandOutput
  * import { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // DescribeNodeAssociationStatusRequest
+ *   NodeAssociationStatusToken: "STRING_VALUE", // required
+ *   ServerName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeNodeAssociationStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNodeAssociationStatusCommandInput - {@link DescribeNodeAssociationStatusCommandInput}
+ * @returns {@link DescribeNodeAssociationStatusCommandOutput}
  * @see {@link DescribeNodeAssociationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeAssociationStatusCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the provided request parameters are not valid.
+ *     </p>
+ *
  *
  */
 export class DescribeNodeAssociationStatusCommand extends $Command<
@@ -70,6 +95,9 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNodeAssociationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,7 +126,7 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNodeAssociationStatusRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeNodeAssociationStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -109,15 +137,21 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNodeAssociationStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNodeAssociationStatusCommand(input, context);
+    return se_DescribeNodeAssociationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNodeAssociationStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeNodeAssociationStatusCommand(output, context);
+    return de_DescribeNodeAssociationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

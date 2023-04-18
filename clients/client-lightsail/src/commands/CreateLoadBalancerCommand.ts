@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateLoadBalancerRequest,
-  CreateLoadBalancerRequestFilterSensitiveLog,
-  CreateLoadBalancerResult,
-  CreateLoadBalancerResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLoadBalancerCommand,
-  serializeAws_json1_1CreateLoadBalancerCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLoadBalancerRequest, CreateLoadBalancerResult } from "../models/models_0";
+import { de_CreateLoadBalancerCommand, se_CreateLoadBalancerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLoadBalancerCommand}.
+ */
 export interface CreateLoadBalancerCommandInput extends CreateLoadBalancerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLoadBalancerCommand}.
+ */
 export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Lightsail load balancer. To learn more about deciding whether to load balance
  *       your application, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing">Configure your Lightsail instances for load balancing</a>. You can create up to 5
  *       load balancers per AWS Region in your account.</p>
@@ -43,13 +46,64 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResul
  * import { LightsailClient, CreateLoadBalancerCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateLoadBalancerCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateLoadBalancerRequest
+ *   loadBalancerName: "STRING_VALUE", // required
+ *   instancePort: Number("int"), // required
+ *   healthCheckPath: "STRING_VALUE",
+ *   certificateName: "STRING_VALUE",
+ *   certificateDomainName: "STRING_VALUE",
+ *   certificateAlternativeNames: [ // DomainNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ipAddressType: "dualstack" || "ipv4",
+ *   tlsPolicyName: "STRING_VALUE",
+ * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoadBalancerCommandInput - {@link CreateLoadBalancerCommandInput}
+ * @returns {@link CreateLoadBalancerCommandOutput}
  * @see {@link CreateLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class CreateLoadBalancerCommand extends $Command<
@@ -69,6 +123,9 @@ export class CreateLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +154,8 @@ export class CreateLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLoadBalancerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLoadBalancerResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +165,18 @@ export class CreateLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLoadBalancerCommand(input, context);
+    return se_CreateLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerCommandOutput> {
-    return deserializeAws_json1_1CreateLoadBalancerCommand(output, context);
+    return de_CreateLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

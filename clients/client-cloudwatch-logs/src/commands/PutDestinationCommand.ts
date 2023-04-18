@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  PutDestinationRequest,
-  PutDestinationRequestFilterSensitiveLog,
-  PutDestinationResponse,
-  PutDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutDestinationCommand,
-  serializeAws_json1_1PutDestinationCommand,
-} from "../protocols/Aws_json1_1";
+import { PutDestinationRequest, PutDestinationResponse } from "../models/models_0";
+import { de_PutDestinationCommand, se_PutDestinationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutDestinationCommand}.
+ */
 export interface PutDestinationCommandInput extends PutDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutDestinationCommand}.
+ */
 export interface PutDestinationCommandOutput extends PutDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p>
  *          <p>A destination encapsulates a physical resource (such as an Amazon Kinesis stream). With
  *       a destination, you can subscribe to a real-time stream of log events for a different account,
@@ -45,13 +48,33 @@ export interface PutDestinationCommandOutput extends PutDestinationResponse, __M
  * import { CloudWatchLogsClient, PutDestinationCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutDestinationCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // PutDestinationRequest
+ *   destinationName: "STRING_VALUE", // required
+ *   targetArn: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDestinationCommandInput - {@link PutDestinationCommandInput}
+ * @returns {@link PutDestinationCommandOutput}
  * @see {@link PutDestinationCommandInput} for command's `input` shape.
  * @see {@link PutDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link OperationAbortedException} (client fault)
+ *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class PutDestinationCommand extends $Command<
@@ -71,6 +94,9 @@ export class PutDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +125,8 @@ export class PutDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +136,18 @@ export class PutDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutDestinationCommand(input, context);
+    return se_PutDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDestinationCommandOutput> {
-    return deserializeAws_json1_1PutDestinationCommand(output, context);
+    return de_PutDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  RunStatementRequest,
-  RunStatementRequestFilterSensitiveLog,
-  RunStatementResponse,
-  RunStatementResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1RunStatementCommand,
-  serializeAws_json1_1RunStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { RunStatementRequest, RunStatementResponse } from "../models/models_2";
+import { de_RunStatementCommand, se_RunStatementCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RunStatementCommand}.
+ */
 export interface RunStatementCommandInput extends RunStatementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RunStatementCommand}.
+ */
 export interface RunStatementCommandOutput extends RunStatementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Executes the statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface RunStatementCommandOutput extends RunStatementResponse, __Metad
  * import { GlueClient, RunStatementCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, RunStatementCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // RunStatementRequest
+ *   SessionId: "STRING_VALUE", // required
+ *   Code: "STRING_VALUE", // required
+ *   RequestOrigin: "STRING_VALUE",
+ * };
  * const command = new RunStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RunStatementCommandInput - {@link RunStatementCommandInput}
+ * @returns {@link RunStatementCommandOutput}
  * @see {@link RunStatementCommandInput} for command's `input` shape.
  * @see {@link RunStatementCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link IllegalSessionStateException} (client fault)
+ *  <p>The session is in an invalid state to perform a requested operation.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A value could not be validated.</p>
+ *
  *
  */
 export class RunStatementCommand extends $Command<
@@ -62,6 +97,9 @@ export class RunStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RunStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +126,8 @@ export class RunStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RunStatementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RunStatementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +137,18 @@ export class RunStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RunStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RunStatementCommand(input, context);
+    return se_RunStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunStatementCommandOutput> {
-    return deserializeAws_json1_1RunStatementCommand(output, context);
+    return de_RunStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,24 +16,33 @@ import {
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import {
   DescribeDBClusterSnapshotAttributesMessage,
-  DescribeDBClusterSnapshotAttributesMessageFilterSensitiveLog,
   DescribeDBClusterSnapshotAttributesResult,
-  DescribeDBClusterSnapshotAttributesResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand,
-  serializeAws_queryDescribeDBClusterSnapshotAttributesCommand,
+  de_DescribeDBClusterSnapshotAttributesCommand,
+  se_DescribeDBClusterSnapshotAttributesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDBClusterSnapshotAttributesCommand}.
+ */
 export interface DescribeDBClusterSnapshotAttributesCommandInput extends DescribeDBClusterSnapshotAttributesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDBClusterSnapshotAttributesCommand}.
+ */
 export interface DescribeDBClusterSnapshotAttributesCommandOutput
   extends DescribeDBClusterSnapshotAttributesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of cluster snapshot attribute names and values for a manual DB
  *             cluster snapshot.</p>
- *         <p>When you share snapshots with other Amazon Web Services accounts,
+ *          <p>When you share snapshots with other Amazon Web Services accounts,
  *                 <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are authorized to copy or restore the manual cluster snapshot. If <code>all</code> is included in the list of values for the <code>restore</code> attribute, then the manual cluster snapshot is public and can be copied or restored by all Amazon Web Services accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +50,23 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * import { DocDBClient, DescribeDBClusterSnapshotAttributesCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBClusterSnapshotAttributesCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DescribeDBClusterSnapshotAttributesMessage
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDBClusterSnapshotAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClusterSnapshotAttributesCommandInput - {@link DescribeDBClusterSnapshotAttributesCommandInput}
+ * @returns {@link DescribeDBClusterSnapshotAttributesCommandOutput}
  * @see {@link DescribeDBClusterSnapshotAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterSnapshotAttributesCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+ *
  *
  */
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
@@ -67,6 +86,9 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterSnapshotAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +117,8 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterSnapshotAttributesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBClusterSnapshotAttributesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +128,24 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDBClusterSnapshotAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterSnapshotAttributesCommand(input, context);
+    return se_DescribeDBClusterSnapshotAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand(output, context);
+    return de_DescribeDBClusterSnapshotAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -150,6 +150,7 @@ import {
 import { SecurityLakeClient } from "./SecurityLakeClient";
 
 /**
+ * @public
  * <note>
  *             <p>Amazon Security Lake is in preview release. Your use of the Security Lake preview is subject to
  *             Section 2 of the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service
@@ -184,6 +185,7 @@ import { SecurityLakeClient } from "./SecurityLakeClient";
  */
 export class SecurityLake extends SecurityLakeClient {
   /**
+   * @public
    * <p>Adds a natively supported Amazon Web Service as an Amazon Security Lake source. Enables
    *          source types for member accounts in required Amazon Web Services Regions, based on the
    *          parameters you specify. You can choose any source type in any Region for either accounts
@@ -230,6 +232,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Adds a third-party custom source in Amazon Security Lake, from the Amazon Web Services Region
    *          where you want to create a custom source. Security Lake can collect logs and events from
    *          third-party custom sources. After creating the appropriate IAM role to
@@ -267,6 +270,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Initializes an Amazon Security Lake instance with the provided (or default) configuration. You
    *          can enable Security Lake in Amazon Web Services Regions with customized settings before enabling
    *          log collection in Regions. You can either use the <code>enableAll</code> parameter to
@@ -314,6 +318,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Automatically enables Amazon Security Lake for new member accounts in your organization.
    *          Security Lake is not automatically enabled for any existing member accounts in your
    *          organization.</p>
@@ -348,6 +353,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Designates the Amazon Security Lake delegated administrator account for the organization. This
    *          API can only be called by the organization management account. The organization management
    *          account cannot be the delegated administrator account.</p>
@@ -382,6 +388,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Creates the specified notification subscription in Amazon Security Lake for the organization
    *          you specify.</p>
    */
@@ -415,6 +422,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Creates a subscription permission for accounts that are already enabled in
    *          Amazon Security Lake. You can create a subscriber with access to data in the current Amazon Web Services Region.</p>
    */
@@ -448,8 +456,10 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Notifies the subscriber when new data is written to the data lake for the sources that
-   *          the subscriber consumes in Security Lake.</p>
+   *          the subscriber consumes in Security Lake. You can create only one subscriber notification per
+   *          subscriber.</p>
    */
   public createSubscriptionNotificationConfiguration(
     args: CreateSubscriptionNotificationConfigurationCommandInput,
@@ -483,6 +493,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Removes a natively supported Amazon Web Service as an Amazon Security Lake source. When
    *          you remove the source, Security Lake stops collecting data from that source, and subscribers
    *          can no longer consume new data from the source. Subscribers can still consume data that
@@ -529,6 +540,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Removes a custom log source from Amazon Security Lake.</p>
    */
   public deleteCustomLogSource(
@@ -561,6 +573,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>When you delete Amazon Security Lake from your account, Security Lake is disabled in all Amazon Web Services Regions. Also, this API automatically takes steps to remove the account from
    *          Security Lake . </p>
    *          <p>This operation disables security data collection from sources, deletes data stored, and
@@ -600,15 +613,13 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Automatically deletes Amazon Security Lake to stop collecting security data. When you delete
-   *          Amazon Security Lake from your account, Security Lake is disabled in all Regions. Also, this API
-   *          automatically takes steps to remove the account from Security Lake . </p>
-   *          <p>This operation disables security data collection from sources, deletes data stored, and
-   *          stops making data accessible to subscribers. Security Lake also deletes all the existing
-   *          settings and resources that it stores or maintains for your Amazon Web Services account in
-   *          the current Region, including security log and event data. The <code>DeleteDatalake</code>
-   *          operation does not delete the Amazon S3 bucket, which is owned by your Amazon Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/disable-security-lake.html">Amazon Security Lake User
-   *             Guide</a>.</p>
+   * @public
+   * <p>
+   *             <code>DeleteDatalakeAutoEnable</code> removes automatic enablement of configuration
+   *          settings for new member accounts (but keeps settings for the delegated administrator) from
+   *          Amazon Security Lake.  You must run this API using credentials of the delegated administrator.
+   *          When you run this API, new member accounts that are added after the organization enables
+   *          Security Lake won't contribute to the data lake.</p>
    */
   public deleteDatalakeAutoEnable(
     args: DeleteDatalakeAutoEnableCommandInput,
@@ -640,6 +651,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Deletes the Amazon Security Lake delegated administrator account for the organization. This API
    *          can only be called by the organization management account. The organization management
    *          account cannot be the delegated administrator account.</p>
@@ -674,6 +686,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
    *          you specify.</p>
    */
@@ -707,6 +720,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Deletes the subscription permission for accounts that are already enabled in
    *          Amazon Security Lake. You can delete a subscriber and remove access to data in the current Amazon Web Services
    *          Region.</p>
@@ -741,6 +755,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
    *          you specify.</p>
    */
@@ -776,6 +791,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the Amazon Security Lake configuration object for the specified Amazon Web Services account ID. You can use the <code>GetDatalake</code> API to know whether
    *          Security Lake is enabled for the current Region. This API does not take input parameters. </p>
    */
@@ -803,6 +819,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the configuration that will be automatically set up for accounts added to the
    *          organization after the organization has onboarded to Amazon Security Lake. This API does not take
    *          input parameters.</p>
@@ -837,6 +854,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the expiration period and time-to-live (TTL) for which the exception message
    *          will remain. Exceptions are stored by default, for 2 weeks from when a record was created
    *          in Amazon Security Lake. This API does not take input parameters.</p>
@@ -871,6 +889,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the details of exception notifications for the account in Amazon Security Lake.</p>
    */
   public getDatalakeExceptionsSubscription(
@@ -903,6 +922,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a snapshot of the current Region, including whether Amazon Security Lake is enabled
    *          for those accounts and which sources Security Lake is collecting data from. </p>
    */
@@ -936,6 +956,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the subscription information for the specified subscription ID. You can get
    *          information about a specific subscriber.</p>
    */
@@ -969,6 +990,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Lists the Amazon Security Lake exceptions that you can use to find the source of problems and
    *          fix them.</p>
    */
@@ -1002,6 +1024,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the log sources in the current Amazon Web Services Region. </p>
    */
   public listLogSources(
@@ -1034,6 +1057,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>List all subscribers for the specific Amazon Security Lake account ID. You can retrieve a list
    *          of subscriptions associated with a specific organization or Amazon Web Services account.</p>
    */
@@ -1067,6 +1091,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Specifies where to store your security data and for how long. You can add a rollup
    *          Region to consolidate data from multiple Amazon Web Services Regions. </p>
    */
@@ -1100,6 +1125,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Update the expiration period for the exception message to your preferred time, and
    *          control the time-to-live (TTL) for the exception message to remain. Exceptions are stored
    *          by default for 2 weeks from when a record was created in Amazon Security Lake. </p>
@@ -1134,6 +1160,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified notification subscription in Amazon Security Lake for the organization
    *          you specify.</p>
    */
@@ -1167,6 +1194,7 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
+   * @public
    * <p>Updates an existing subscription for the given Amazon Security Lake account ID. You can update
    *          a subscriber by changing the sources that the subscriber consumes data from. </p>
    */
@@ -1200,8 +1228,9 @@ export class SecurityLake extends SecurityLakeClient {
   }
 
   /**
-   * <p>Creates a new subscription notification or adds the existing subscription notification
-   *          setting for the specified subscription ID.</p>
+   * @public
+   * <p>Updates an existing notification method for the subscription (SQS or HTTPs endpoint) or
+   *          switches the notification subscription endpoint for a subscriber.</p>
    */
   public updateSubscriptionNotificationConfiguration(
     args: UpdateSubscriptionNotificationConfigurationCommandInput,

@@ -14,39 +14,60 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetSAMLProviderRequest,
-  GetSAMLProviderRequestFilterSensitiveLog,
-  GetSAMLProviderResponse,
-  GetSAMLProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetSAMLProviderCommand,
-  serializeAws_queryGetSAMLProviderCommand,
-} from "../protocols/Aws_query";
+import { GetSAMLProviderRequest, GetSAMLProviderResponse } from "../models/models_0";
+import { de_GetSAMLProviderCommand, se_GetSAMLProviderCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSAMLProviderCommand}.
+ */
 export interface GetSAMLProviderCommandInput extends GetSAMLProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSAMLProviderCommand}.
+ */
 export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the SAML provider metadocument that was uploaded when the IAM SAML provider
  *             resource object was created or updated.</p>
- *         <note>
+ *          <note>
  *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, GetSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetSAMLProviderRequest
+ *   SAMLProviderArn: "STRING_VALUE", // required
+ * };
  * const command = new GetSAMLProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSAMLProviderCommandInput - {@link GetSAMLProviderCommandInput}
+ * @returns {@link GetSAMLProviderCommandOutput}
  * @see {@link GetSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link GetSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class GetSAMLProviderCommand extends $Command<
@@ -66,6 +87,9 @@ export class GetSAMLProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSAMLProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +118,8 @@ export class GetSAMLProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSAMLProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSAMLProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +129,18 @@ export class GetSAMLProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSAMLProviderCommand(input, context);
+    return se_GetSAMLProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSAMLProviderCommandOutput> {
-    return deserializeAws_queryGetSAMLProviderCommand(output, context);
+    return de_GetSAMLProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,24 +14,31 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutBucketOwnershipControlsRequest,
-  PutBucketOwnershipControlsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketOwnershipControlsCommand,
-  serializeAws_restXmlPutBucketOwnershipControlsCommand,
-} from "../protocols/Aws_restXml";
+import { PutBucketOwnershipControlsRequest } from "../models/models_0";
+import { de_PutBucketOwnershipControlsCommand, se_PutBucketOwnershipControlsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutBucketOwnershipControlsCommand}.
+ */
 export interface PutBucketOwnershipControlsCommandInput extends PutBucketOwnershipControlsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutBucketOwnershipControlsCommand}.
+ */
 export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or modifies <code>OwnershipControls</code> for an Amazon S3 bucket. To use this
  *          operation, you must have the <code>s3:PutBucketOwnershipControls</code> permission. For
- *          more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html">Specifying permissions in a policy</a>. </p>
- *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/about-object-ownership.html">Using object ownership</a>. </p>
+ *          more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html">Specifying permissions in a
+ *             policy</a>. </p>
+ *          <p>For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/about-object-ownership.html">Using object
+ *             ownership</a>. </p>
  *          <p>The following operations are related to <code>PutBucketOwnershipControls</code>:</p>
  *          <ul>
  *             <li>
@@ -51,13 +58,28 @@ export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBeare
  * import { S3Client, PutBucketOwnershipControlsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketOwnershipControlsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketOwnershipControlsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   OwnershipControls: { // OwnershipControls
+ *     Rules: [ // OwnershipControlsRules // required
+ *       { // OwnershipControlsRule
+ *         ObjectOwnership: "BucketOwnerPreferred" || "ObjectWriter" || "BucketOwnerEnforced", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketOwnershipControlsCommandInput - {@link PutBucketOwnershipControlsCommandInput}
+ * @returns {@link PutBucketOwnershipControlsCommandOutput}
  * @see {@link PutBucketOwnershipControlsCommandInput} for command's `input` shape.
  * @see {@link PutBucketOwnershipControlsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
  *
  */
 export class PutBucketOwnershipControlsCommand extends $Command<
@@ -83,6 +105,9 @@ export class PutBucketOwnershipControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketOwnershipControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +139,8 @@ export class PutBucketOwnershipControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketOwnershipControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +150,21 @@ export class PutBucketOwnershipControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketOwnershipControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketOwnershipControlsCommand(input, context);
+    return se_PutBucketOwnershipControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketOwnershipControlsCommandOutput> {
-    return deserializeAws_restXmlPutBucketOwnershipControlsCommand(output, context);
+    return de_PutBucketOwnershipControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

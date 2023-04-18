@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  CreateSkillGroupRequest,
-  CreateSkillGroupRequestFilterSensitiveLog,
-  CreateSkillGroupResponse,
-  CreateSkillGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSkillGroupCommand,
-  serializeAws_json1_1CreateSkillGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSkillGroupRequest, CreateSkillGroupResponse } from "../models/models_0";
+import { de_CreateSkillGroupCommand, se_CreateSkillGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSkillGroupCommand}.
+ */
 export interface CreateSkillGroupCommandInput extends CreateSkillGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSkillGroupCommand}.
+ */
 export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a skill group with a specified name and description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  * import { AlexaForBusinessClient, CreateSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // CreateSkillGroupRequest
+ *   SkillGroupName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSkillGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSkillGroupCommandInput - {@link CreateSkillGroupCommandInput}
+ * @returns {@link CreateSkillGroupCommandOutput}
  * @see {@link CreateSkillGroupCommandInput} for command's `input` shape.
  * @see {@link CreateSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource being created already exists.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
  *
  */
 export class CreateSkillGroupCommand extends $Command<
@@ -62,6 +88,9 @@ export class CreateSkillGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSkillGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class CreateSkillGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSkillGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSkillGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class CreateSkillGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSkillGroupCommand(input, context);
+    return se_CreateSkillGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSkillGroupCommandOutput> {
-    return deserializeAws_json1_1CreateSkillGroupCommand(output, context);
+    return de_CreateSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

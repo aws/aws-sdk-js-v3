@@ -13,46 +13,118 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DBClusterParameterGroupsMessage, DescribeDBClusterParameterGroupsMessage } from "../models/models_0";
 import {
-  DBClusterParameterGroupsMessage,
-  DBClusterParameterGroupsMessageFilterSensitiveLog,
-  DescribeDBClusterParameterGroupsMessage,
-  DescribeDBClusterParameterGroupsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBClusterParameterGroupsCommand,
-  serializeAws_queryDescribeDBClusterParameterGroupsCommand,
+  de_DescribeDBClusterParameterGroupsCommand,
+  se_DescribeDBClusterParameterGroupsCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDBClusterParameterGroupsCommand}.
+ */
 export interface DescribeDBClusterParameterGroupsCommandInput extends DescribeDBClusterParameterGroupsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDBClusterParameterGroupsCommand}.
+ */
 export interface DescribeDBClusterParameterGroupsCommandOutput
   extends DBClusterParameterGroupsMessage,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
  *             <code>DBClusterParameterGroupName</code> parameter is specified,
  *             the list will contain only the description of the specified DB cluster parameter group.</p>
  *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <p>For more information on Multi-AZ DB clusters, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
- *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+ *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
+ *                 cluster deployments</a> in the <i>Amazon RDS User
+ *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, DescribeDBClusterParameterGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBClusterParameterGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBClusterParameterGroupsMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClusterParameterGroupsCommandInput - {@link DescribeDBClusterParameterGroupsCommandInput}
+ * @returns {@link DescribeDBClusterParameterGroupsCommandOutput}
  * @see {@link DescribeDBClusterParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an
+ *         existing DB parameter group.</p>
+ *
+ *
+ * @example To describe DB cluster parameter groups
+ * ```javascript
+ * // The following example retrieves details for your DB cluster parameter groups.
+ * const input = {};
+ * const command = new DescribeDBClusterParameterGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterParameterGroups": [
+ *     {
+ *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora-mysql5.7",
+ *       "DBClusterParameterGroupName": "default.aurora-mysql5.7",
+ *       "DBParameterGroupFamily": "aurora-mysql5.7",
+ *       "Description": "Default cluster parameter group for aurora-mysql5.7"
+ *     },
+ *     {
+ *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora-postgresql9.6",
+ *       "DBClusterParameterGroupName": "default.aurora-postgresql9.6",
+ *       "DBParameterGroupFamily": "aurora-postgresql9.6",
+ *       "Description": "Default cluster parameter group for aurora-postgresql9.6"
+ *     },
+ *     {
+ *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora5.6",
+ *       "DBClusterParameterGroupName": "default.aurora5.6",
+ *       "DBParameterGroupFamily": "aurora5.6",
+ *       "Description": "Default cluster parameter group for aurora5.6"
+ *     },
+ *     {
+ *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterpg",
+ *       "DBClusterParameterGroupName": "mydbclusterpg",
+ *       "DBParameterGroupFamily": "aurora-mysql5.7",
+ *       "Description": "My DB cluster parameter group"
+ *     },
+ *     {
+ *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterpgcopy",
+ *       "DBClusterParameterGroupName": "mydbclusterpgcopy",
+ *       "DBParameterGroupFamily": "aurora-mysql5.7",
+ *       "Description": "Copy of mydbclusterpg parameter group"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-db-cluster-parameter-groups-1680213090883
+ * ```
  *
  */
 export class DescribeDBClusterParameterGroupsCommand extends $Command<
@@ -72,6 +144,9 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +175,8 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterParameterGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +186,24 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDBClusterParameterGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterParameterGroupsCommand(input, context);
+    return se_DescribeDBClusterParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterParameterGroupsCommand(output, context);
+    return de_DescribeDBClusterParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

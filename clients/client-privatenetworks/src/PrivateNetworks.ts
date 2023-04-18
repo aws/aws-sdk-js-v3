@@ -90,6 +90,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PingCommand, PingCommandInput, PingCommandOutput } from "./commands/PingCommand";
+import {
+  StartNetworkResourceUpdateCommand,
+  StartNetworkResourceUpdateCommandInput,
+  StartNetworkResourceUpdateCommandOutput,
+} from "./commands/StartNetworkResourceUpdateCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -109,6 +114,7 @@ import {
 import { PrivateNetworksClient } from "./PrivateNetworksClient";
 
 /**
+ * @public
  * <p>Amazon Web Services Private 5G is a managed service that makes it easy to deploy, operate, and scale
  *             your own private mobile network at your on-premises location. Private 5G provides the
  *             pre-configured hardware and software for mobile networks, helps automate setup, and
@@ -116,6 +122,7 @@ import { PrivateNetworksClient } from "./PrivateNetworksClient";
  */
 export class PrivateNetworks extends PrivateNetworksClient {
   /**
+   * @public
    * <p>Acknowledges that the specified network order was received.</p>
    */
   public acknowledgeOrderReceipt(
@@ -148,6 +155,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Activates the specified device identifier.</p>
    */
   public activateDeviceIdentifier(
@@ -180,6 +188,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Activates the specified network site.</p>
    */
   public activateNetworkSite(
@@ -212,9 +221,10 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Configures the specified network resource.
    *         </p>
-   *         <p>
+   *          <p>
    *             Use this action to specify the geographic
    *             position of the hardware. You must provide Certified Professional Installer (CPI)
    *             credentials in the request so that we can obtain spectrum grants. For more information,
@@ -251,6 +261,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Creates a network.</p>
    */
   public createNetwork(
@@ -283,6 +294,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Creates a network site.</p>
    */
   public createNetworkSite(
@@ -315,6 +327,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Deactivates the specified device identifier.</p>
    */
   public deactivateDeviceIdentifier(
@@ -347,6 +360,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified network. You must delete network sites before you delete the
    *             network. For more information, see
    *             <a href="https://docs.aws.amazon.com/private-networks/latest/APIReference/API_DeleteNetworkSite.html">DeleteNetworkSite</a> in the
@@ -382,6 +396,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified network site. Return the hardware after you delete the network
    *             site. You are responsible for minimum charges. For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/hardware-maintenance.html">Hardware
    *                 returns</a> in the <i>Amazon Web Services Private 5G User
@@ -417,6 +432,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Gets the specified device identifier.</p>
    */
   public getDeviceIdentifier(
@@ -449,6 +465,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Gets the specified network.</p>
    */
   public getNetwork(args: GetNetworkCommandInput, options?: __HttpHandlerOptions): Promise<GetNetworkCommandOutput>;
@@ -475,6 +492,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Gets the specified network resource.</p>
    */
   public getNetworkResource(
@@ -507,6 +525,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Gets the specified network site.</p>
    */
   public getNetworkSite(
@@ -539,6 +558,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Gets the specified order.</p>
    */
   public getOrder(args: GetOrderCommandInput, options?: __HttpHandlerOptions): Promise<GetOrderCommandOutput>;
@@ -565,11 +585,11 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Lists device identifiers. Add filters to your request to return a more
    *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of an order,
    *             the status of device identifiers, or the ARN of the traffic group.</p>
-   *
-   *         <p>If you specify multiple filters, filters are joined with an OR, and the request
+   *          <p>If you specify multiple filters, filters are joined with an OR, and the request
    * returns results that match all of the specified filters.</p>
    */
   public listDeviceIdentifiers(
@@ -602,10 +622,11 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Lists network resources.  Add filters to your request to return a more
    *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of an order or
    *             the status of network resources.</p>
-   *         <p>If you specify multiple filters, filters are joined with an OR, and the request
+   *          <p>If you specify multiple filters, filters are joined with an OR, and the request
    * returns results that match all of the specified filters.</p>
    */
   public listNetworkResources(
@@ -638,6 +659,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Lists networks. Add filters to your request to return a more
    *             specific list of results. Use filters to match the status of the network.</p>
    */
@@ -668,6 +690,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Lists network sites. Add filters to your request to return a more
    *             specific list of results. Use filters to match the status of the network site.</p>
    */
@@ -701,10 +724,11 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Lists orders.  Add filters to your request to return a more
    *             specific list of results. Use filters to match the Amazon Resource Name (ARN) of the network site or
    *             the status of the order.</p>
-   *         <p>If you specify multiple filters, filters are joined with an OR, and the request
+   *          <p>If you specify multiple filters, filters are joined with an OR, and the request
    * returns results that match all of the specified filters.</p>
    */
   public listOrders(args: ListOrdersCommandInput, options?: __HttpHandlerOptions): Promise<ListOrdersCommandOutput>;
@@ -731,6 +755,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -763,6 +788,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Checks the health of the service.</p>
    */
   public ping(args: PingCommandInput, options?: __HttpHandlerOptions): Promise<PingCommandOutput>;
@@ -789,6 +815,45 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
+   * <p>Starts an update of the specified network resource.</p>
+   *          <p>After you submit a request to replace or return a network resource, the status
+   *            of the network resource is <code>CREATING_SHIPPING_LABEL</code>. The shipping label
+   *             is available when the status of the network resource is <code>PENDING_RETURN</code>.
+   *             After the network resource is successfully returned, its status is <code>DELETED</code>.
+   *             For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit">Return a radio unit</a>.</p>
+   */
+  public startNetworkResourceUpdate(
+    args: StartNetworkResourceUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNetworkResourceUpdateCommandOutput>;
+  public startNetworkResourceUpdate(
+    args: StartNetworkResourceUpdateCommandInput,
+    cb: (err: any, data?: StartNetworkResourceUpdateCommandOutput) => void
+  ): void;
+  public startNetworkResourceUpdate(
+    args: StartNetworkResourceUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNetworkResourceUpdateCommandOutput) => void
+  ): void;
+  public startNetworkResourceUpdate(
+    args: StartNetworkResourceUpdateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartNetworkResourceUpdateCommandOutput) => void),
+    cb?: (err: any, data?: StartNetworkResourceUpdateCommandOutput) => void
+  ): Promise<StartNetworkResourceUpdateCommandOutput> | void {
+    const command = new StartNetworkResourceUpdateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>
    *             Adds tags to the specified resource.
    *         </p>
@@ -817,6 +882,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from the specified resource.</p>
    */
   public untagResource(
@@ -849,6 +915,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified network site.</p>
    */
   public updateNetworkSite(
@@ -881,6 +948,7 @@ export class PrivateNetworks extends PrivateNetworksClient {
   }
 
   /**
+   * @public
    * <p>Updates the specified network site plan.</p>
    */
   public updateNetworkSitePlan(

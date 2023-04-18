@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  DescribeCopyJobInput,
-  DescribeCopyJobInputFilterSensitiveLog,
-  DescribeCopyJobOutput,
-  DescribeCopyJobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCopyJobCommand,
-  serializeAws_restJson1DescribeCopyJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeCopyJobInput, DescribeCopyJobOutput } from "../models/models_0";
+import { de_DescribeCopyJobCommand, se_DescribeCopyJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCopyJobCommand}.
+ */
 export interface DescribeCopyJobCommandInput extends DescribeCopyJobInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCopyJobCommand}.
+ */
 export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata associated with creating a copy of a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __M
  * import { BackupClient, DescribeCopyJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeCopyJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DescribeCopyJobInput
+ *   CopyJobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCopyJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCopyJobCommandInput - {@link DescribeCopyJobCommandInput}
+ * @returns {@link DescribeCopyJobCommandOutput}
  * @see {@link DescribeCopyJobCommandInput} for command's `input` shape.
  * @see {@link DescribeCopyJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class DescribeCopyJobCommand extends $Command<
@@ -62,6 +84,9 @@ export class DescribeCopyJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCopyJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class DescribeCopyJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCopyJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCopyJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class DescribeCopyJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCopyJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCopyJobCommand(input, context);
+    return se_DescribeCopyJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCopyJobCommandOutput> {
-    return deserializeAws_restJson1DescribeCopyJobCommand(output, context);
+    return de_DescribeCopyJobCommand(output, context);
   }
 
   // Start section: command_body_extra

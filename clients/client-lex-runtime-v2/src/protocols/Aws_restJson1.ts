@@ -1,15 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -71,7 +72,10 @@ import {
   Value,
 } from "../models/models_0";
 
-export const serializeAws_restJson1DeleteSessionCommand = async (
+/**
+ * serializeAws_restJson1DeleteSessionCommand
+ */
+export const se_DeleteSessionCommand = async (
   input: DeleteSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -96,7 +100,10 @@ export const serializeAws_restJson1DeleteSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSessionCommand = async (
+/**
+ * serializeAws_restJson1GetSessionCommand
+ */
+export const se_GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -121,7 +128,10 @@ export const serializeAws_restJson1GetSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutSessionCommand = async (
+/**
+ * serializeAws_restJson1PutSessionCommand
+ */
+export const se_PutSessionCommand = async (
   input: PutSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -138,15 +148,13 @@ export const serializeAws_restJson1PutSessionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.messages != null && { messages: serializeAws_restJson1Messages(input.messages, context) }),
-    ...(input.requestAttributes != null && {
-      requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
-    }),
-    ...(input.sessionState != null && {
-      sessionState: serializeAws_restJson1SessionState(input.sessionState, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      messages: (_) => _json(_),
+      requestAttributes: (_) => _json(_),
+      sessionState: (_) => se_SessionState(_, context),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -158,7 +166,10 @@ export const serializeAws_restJson1PutSessionCommand = async (
   });
 };
 
-export const serializeAws_restJson1RecognizeTextCommand = async (
+/**
+ * serializeAws_restJson1RecognizeTextCommand
+ */
+export const se_RecognizeTextCommand = async (
   input: RecognizeTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -174,15 +185,13 @@ export const serializeAws_restJson1RecognizeTextCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.requestAttributes != null && {
-      requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
-    }),
-    ...(input.sessionState != null && {
-      sessionState: serializeAws_restJson1SessionState(input.sessionState, context),
-    }),
-    ...(input.text != null && { text: input.text }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      requestAttributes: (_) => _json(_),
+      sessionState: (_) => se_SessionState(_, context),
+      text: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -194,7 +203,10 @@ export const serializeAws_restJson1RecognizeTextCommand = async (
   });
 };
 
-export const serializeAws_restJson1RecognizeUtteranceCommand = async (
+/**
+ * serializeAws_restJson1RecognizeUtteranceCommand
+ */
+export const se_RecognizeUtteranceCommand = async (
   input: RecognizeUtteranceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -228,7 +240,10 @@ export const serializeAws_restJson1RecognizeUtteranceCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartConversationCommand = async (
+/**
+ * serializeAws_restJson1StartConversationCommand
+ */
+export const se_StartConversationCommand = async (
   input: StartConversationCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
@@ -245,7 +260,7 @@ export const serializeAws_restJson1StartConversationCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   if (input.requestEventStream !== undefined) {
-    body = serializeAws_restJson1StartConversationRequestEventStream(input.requestEventStream, context);
+    body = se_StartConversationRequestEventStream(input.requestEventStream, context);
   }
   return new __HttpRequest({
     protocol,
@@ -258,33 +273,34 @@ export const serializeAws_restJson1StartConversationCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DeleteSessionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSessionCommand
+ */
+export const de_DeleteSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSessionCommandError(output, context);
+    return de_DeleteSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botAliasId != null) {
-    contents.botAliasId = __expectString(data.botAliasId);
-  }
-  if (data.botId != null) {
-    contents.botId = __expectString(data.botId);
-  }
-  if (data.localeId != null) {
-    contents.localeId = __expectString(data.localeId);
-  }
-  if (data.sessionId != null) {
-    contents.sessionId = __expectString(data.sessionId);
-  }
+  const doc = take(data, {
+    botAliasId: __expectString,
+    botId: __expectString,
+    localeId: __expectString,
+    sessionId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSessionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSessionCommandError
+ */
+const de_DeleteSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSessionCommandOutput> => {
@@ -296,60 +312,60 @@ const deserializeAws_restJson1DeleteSessionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lexruntimev2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexruntimev2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexruntimev2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexruntimev2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexruntimev2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexruntimev2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetSessionCommand = async (
+/**
+ * deserializeAws_restJson1GetSessionCommand
+ */
+export const de_GetSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSessionCommandError(output, context);
+    return de_GetSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.interpretations != null) {
-    contents.interpretations = deserializeAws_restJson1Interpretations(data.interpretations, context);
-  }
-  if (data.messages != null) {
-    contents.messages = deserializeAws_restJson1Messages(data.messages, context);
-  }
-  if (data.sessionId != null) {
-    contents.sessionId = __expectString(data.sessionId);
-  }
-  if (data.sessionState != null) {
-    contents.sessionState = deserializeAws_restJson1SessionState(data.sessionState, context);
-  }
+  const doc = take(data, {
+    interpretations: (_) => de_Interpretations(_, context),
+    messages: _json,
+    sessionId: __expectString,
+    sessionState: (_) => de_SessionState(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetSessionCommandError = async (
+/**
+ * deserializeAws_restJson1GetSessionCommandError
+ */
+const de_GetSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
@@ -361,36 +377,38 @@ const deserializeAws_restJson1GetSessionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lexruntimev2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexruntimev2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexruntimev2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexruntimev2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexruntimev2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PutSessionCommand = async (
+/**
+ * deserializeAws_restJson1PutSessionCommand
+ */
+export const de_PutSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<PutSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutSessionCommandError(output, context);
+    return de_PutSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -406,7 +424,10 @@ export const deserializeAws_restJson1PutSessionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutSessionCommandError = async (
+/**
+ * deserializeAws_restJson1PutSessionCommandError
+ */
+const de_PutSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSessionCommandOutput> => {
@@ -418,69 +439,68 @@ const deserializeAws_restJson1PutSessionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lexruntimev2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadGatewayException":
     case "com.amazonaws.lexruntimev2#BadGatewayException":
-      throw await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context);
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexruntimev2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DependencyFailedException":
     case "com.amazonaws.lexruntimev2#DependencyFailedException":
-      throw await deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context);
+      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexruntimev2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexruntimev2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexruntimev2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexruntimev2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RecognizeTextCommand = async (
+/**
+ * deserializeAws_restJson1RecognizeTextCommand
+ */
+export const de_RecognizeTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RecognizeTextCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RecognizeTextCommandError(output, context);
+    return de_RecognizeTextCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.interpretations != null) {
-    contents.interpretations = deserializeAws_restJson1Interpretations(data.interpretations, context);
-  }
-  if (data.messages != null) {
-    contents.messages = deserializeAws_restJson1Messages(data.messages, context);
-  }
-  if (data.requestAttributes != null) {
-    contents.requestAttributes = deserializeAws_restJson1StringMap(data.requestAttributes, context);
-  }
-  if (data.sessionId != null) {
-    contents.sessionId = __expectString(data.sessionId);
-  }
-  if (data.sessionState != null) {
-    contents.sessionState = deserializeAws_restJson1SessionState(data.sessionState, context);
-  }
+  const doc = take(data, {
+    interpretations: (_) => de_Interpretations(_, context),
+    messages: _json,
+    recognizedBotMember: _json,
+    requestAttributes: _json,
+    sessionId: __expectString,
+    sessionState: (_) => de_SessionState(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1RecognizeTextCommandError = async (
+/**
+ * deserializeAws_restJson1RecognizeTextCommandError
+ */
+const de_RecognizeTextCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RecognizeTextCommandOutput> => {
@@ -492,45 +512,47 @@ const deserializeAws_restJson1RecognizeTextCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lexruntimev2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadGatewayException":
     case "com.amazonaws.lexruntimev2#BadGatewayException":
-      throw await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context);
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexruntimev2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DependencyFailedException":
     case "com.amazonaws.lexruntimev2#DependencyFailedException":
-      throw await deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context);
+      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexruntimev2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexruntimev2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexruntimev2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexruntimev2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RecognizeUtteranceCommand = async (
+/**
+ * deserializeAws_restJson1RecognizeUtteranceCommand
+ */
+export const de_RecognizeUtteranceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<RecognizeUtteranceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RecognizeUtteranceCommandError(output, context);
+    return de_RecognizeUtteranceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -542,6 +564,7 @@ export const deserializeAws_restJson1RecognizeUtteranceCommand = async (
     requestAttributes: [, output.headers["x-amz-lex-request-attributes"]],
     sessionId: [, output.headers["x-amz-lex-session-id"]],
     inputTranscript: [, output.headers["x-amz-lex-input-transcript"]],
+    recognizedBotMember: [, output.headers["x-amz-lex-recognized-bot-member"]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -549,7 +572,10 @@ export const deserializeAws_restJson1RecognizeUtteranceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RecognizeUtteranceCommandError = async (
+/**
+ * deserializeAws_restJson1RecognizeUtteranceCommandError
+ */
+const de_RecognizeUtteranceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RecognizeUtteranceCommandOutput> => {
@@ -561,55 +587,60 @@ const deserializeAws_restJson1RecognizeUtteranceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lexruntimev2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadGatewayException":
     case "com.amazonaws.lexruntimev2#BadGatewayException":
-      throw await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context);
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexruntimev2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "DependencyFailedException":
     case "com.amazonaws.lexruntimev2#DependencyFailedException":
-      throw await deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context);
+      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexruntimev2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.lexruntimev2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexruntimev2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexruntimev2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1StartConversationCommand = async (
+/**
+ * deserializeAws_restJson1StartConversationCommand
+ */
+export const de_StartConversationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<StartConversationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartConversationCommandError(output, context);
+    return de_StartConversationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: any = output.body;
-  contents.responseEventStream = deserializeAws_restJson1StartConversationResponseEventStream(data, context);
+  contents.responseEventStream = de_StartConversationResponseEventStream(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1StartConversationCommandError = async (
+/**
+ * deserializeAws_restJson1StartConversationCommandError
+ */
+const de_StartConversationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartConversationCommandOutput> => {
@@ -621,37 +652,40 @@ const deserializeAws_restJson1StartConversationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lexruntimev2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexruntimev2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lexruntimev2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.lexruntimev2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -659,15 +693,16 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BadGatewayExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadGatewayException> => {
+/**
+ * deserializeAws_restJson1BadGatewayExceptionRes
+ */
+const de_BadGatewayExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadGatewayException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadGatewayException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -675,15 +710,16 @@ const deserializeAws_restJson1BadGatewayExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -691,15 +727,19 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DependencyFailedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DependencyFailedExceptionRes
+ */
+const de_DependencyFailedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DependencyFailedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DependencyFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -707,15 +747,19 @@ const deserializeAws_restJson1DependencyFailedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -723,15 +767,19 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -739,15 +787,16 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -755,15 +804,16 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -771,105 +821,102 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1StartConversationRequestEventStream = (
+/**
+ * serializeAws_restJson1StartConversationRequestEventStream
+ */
+const se_StartConversationRequestEventStream = (
   input: any,
   context: __SerdeContext & __EventStreamSerdeContext
 ): any => {
   const eventMarshallingVisitor = (event: any): __Message =>
     StartConversationRequestEventStream.visit(event, {
-      ConfigurationEvent: (value) => serializeAws_restJson1ConfigurationEvent_event(value, context),
-      AudioInputEvent: (value) => serializeAws_restJson1AudioInputEvent_event(value, context),
-      DTMFInputEvent: (value) => serializeAws_restJson1DTMFInputEvent_event(value, context),
-      TextInputEvent: (value) => serializeAws_restJson1TextInputEvent_event(value, context),
-      PlaybackCompletionEvent: (value) => serializeAws_restJson1PlaybackCompletionEvent_event(value, context),
-      DisconnectionEvent: (value) => serializeAws_restJson1DisconnectionEvent_event(value, context),
+      ConfigurationEvent: (value) => se_ConfigurationEvent_event(value, context),
+      AudioInputEvent: (value) => se_AudioInputEvent_event(value, context),
+      DTMFInputEvent: (value) => se_DTMFInputEvent_event(value, context),
+      TextInputEvent: (value) => se_TextInputEvent_event(value, context),
+      PlaybackCompletionEvent: (value) => se_PlaybackCompletionEvent_event(value, context),
+      DisconnectionEvent: (value) => se_DisconnectionEvent_event(value, context),
       _: (value) => value as any,
     });
   return context.eventStreamMarshaller.serialize(input, eventMarshallingVisitor);
 };
-const serializeAws_restJson1AudioInputEvent_event = (input: AudioInputEvent, context: __SerdeContext): __Message => {
+const se_AudioInputEvent_event = (input: AudioInputEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
     ":event-type": { type: "string", value: "AudioInputEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
   let body = new Uint8Array();
-  body = serializeAws_restJson1AudioInputEvent(input, context);
+  body = se_AudioInputEvent(input, context);
   body = context.utf8Decoder(JSON.stringify(body));
   return { headers, body };
 };
-const serializeAws_restJson1ConfigurationEvent_event = (
-  input: ConfigurationEvent,
-  context: __SerdeContext
-): __Message => {
+const se_ConfigurationEvent_event = (input: ConfigurationEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
     ":event-type": { type: "string", value: "ConfigurationEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
   let body = new Uint8Array();
-  body = serializeAws_restJson1ConfigurationEvent(input, context);
+  body = se_ConfigurationEvent(input, context);
   body = context.utf8Decoder(JSON.stringify(body));
   return { headers, body };
 };
-const serializeAws_restJson1DisconnectionEvent_event = (
-  input: DisconnectionEvent,
-  context: __SerdeContext
-): __Message => {
+const se_DisconnectionEvent_event = (input: DisconnectionEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
     ":event-type": { type: "string", value: "DisconnectionEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
   let body = new Uint8Array();
-  body = serializeAws_restJson1DisconnectionEvent(input, context);
+  body = _json(input);
   body = context.utf8Decoder(JSON.stringify(body));
   return { headers, body };
 };
-const serializeAws_restJson1DTMFInputEvent_event = (input: DTMFInputEvent, context: __SerdeContext): __Message => {
+const se_DTMFInputEvent_event = (input: DTMFInputEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
     ":event-type": { type: "string", value: "DTMFInputEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
   let body = new Uint8Array();
-  body = serializeAws_restJson1DTMFInputEvent(input, context);
+  body = _json(input);
   body = context.utf8Decoder(JSON.stringify(body));
   return { headers, body };
 };
-const serializeAws_restJson1PlaybackCompletionEvent_event = (
-  input: PlaybackCompletionEvent,
-  context: __SerdeContext
-): __Message => {
+const se_PlaybackCompletionEvent_event = (input: PlaybackCompletionEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
     ":event-type": { type: "string", value: "PlaybackCompletionEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
   let body = new Uint8Array();
-  body = serializeAws_restJson1PlaybackCompletionEvent(input, context);
+  body = _json(input);
   body = context.utf8Decoder(JSON.stringify(body));
   return { headers, body };
 };
-const serializeAws_restJson1TextInputEvent_event = (input: TextInputEvent, context: __SerdeContext): __Message => {
+const se_TextInputEvent_event = (input: TextInputEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
     ":event-type": { type: "string", value: "TextInputEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
   let body = new Uint8Array();
-  body = serializeAws_restJson1TextInputEvent(input, context);
+  body = _json(input);
   body = context.utf8Decoder(JSON.stringify(body));
   return { headers, body };
 };
-const deserializeAws_restJson1StartConversationResponseEventStream = (
+/**
+ * deserializeAws_restJson1StartConversationResponseEventStream
+ */
+const de_StartConversationResponseEventStream = (
   output: any,
   context: __SerdeContext & __EventStreamSerdeContext
 ): AsyncIterable<StartConversationResponseEventStream> => {
   return context.eventStreamMarshaller.deserialize(output, async (event) => {
     if (event["PlaybackInterruptionEvent"] != null) {
       return {
-        PlaybackInterruptionEvent: await deserializeAws_restJson1PlaybackInterruptionEvent_event(
+        PlaybackInterruptionEvent: await de_PlaybackInterruptionEvent_event(
           event["PlaybackInterruptionEvent"],
           context
         ),
@@ -877,43 +924,37 @@ const deserializeAws_restJson1StartConversationResponseEventStream = (
     }
     if (event["TranscriptEvent"] != null) {
       return {
-        TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(event["TranscriptEvent"], context),
+        TranscriptEvent: await de_TranscriptEvent_event(event["TranscriptEvent"], context),
       };
     }
     if (event["IntentResultEvent"] != null) {
       return {
-        IntentResultEvent: await deserializeAws_restJson1IntentResultEvent_event(event["IntentResultEvent"], context),
+        IntentResultEvent: await de_IntentResultEvent_event(event["IntentResultEvent"], context),
       };
     }
     if (event["TextResponseEvent"] != null) {
       return {
-        TextResponseEvent: await deserializeAws_restJson1TextResponseEvent_event(event["TextResponseEvent"], context),
+        TextResponseEvent: await de_TextResponseEvent_event(event["TextResponseEvent"], context),
       };
     }
     if (event["AudioResponseEvent"] != null) {
       return {
-        AudioResponseEvent: await deserializeAws_restJson1AudioResponseEvent_event(
-          event["AudioResponseEvent"],
-          context
-        ),
+        AudioResponseEvent: await de_AudioResponseEvent_event(event["AudioResponseEvent"], context),
       };
     }
     if (event["HeartbeatEvent"] != null) {
       return {
-        HeartbeatEvent: await deserializeAws_restJson1HeartbeatEvent_event(event["HeartbeatEvent"], context),
+        HeartbeatEvent: await de_HeartbeatEvent_event(event["HeartbeatEvent"], context),
       };
     }
     if (event["AccessDeniedException"] != null) {
       return {
-        AccessDeniedException: await deserializeAws_restJson1AccessDeniedException_event(
-          event["AccessDeniedException"],
-          context
-        ),
+        AccessDeniedException: await de_AccessDeniedException_event(event["AccessDeniedException"], context),
       };
     }
     if (event["ResourceNotFoundException"] != null) {
       return {
-        ResourceNotFoundException: await deserializeAws_restJson1ResourceNotFoundException_event(
+        ResourceNotFoundException: await de_ResourceNotFoundException_event(
           event["ResourceNotFoundException"],
           context
         ),
@@ -921,36 +962,27 @@ const deserializeAws_restJson1StartConversationResponseEventStream = (
     }
     if (event["ValidationException"] != null) {
       return {
-        ValidationException: await deserializeAws_restJson1ValidationException_event(
-          event["ValidationException"],
-          context
-        ),
+        ValidationException: await de_ValidationException_event(event["ValidationException"], context),
       };
     }
     if (event["ThrottlingException"] != null) {
       return {
-        ThrottlingException: await deserializeAws_restJson1ThrottlingException_event(
-          event["ThrottlingException"],
-          context
-        ),
+        ThrottlingException: await de_ThrottlingException_event(event["ThrottlingException"], context),
       };
     }
     if (event["InternalServerException"] != null) {
       return {
-        InternalServerException: await deserializeAws_restJson1InternalServerException_event(
-          event["InternalServerException"],
-          context
-        ),
+        InternalServerException: await de_InternalServerException_event(event["InternalServerException"], context),
       };
     }
     if (event["ConflictException"] != null) {
       return {
-        ConflictException: await deserializeAws_restJson1ConflictException_event(event["ConflictException"], context),
+        ConflictException: await de_ConflictException_event(event["ConflictException"], context),
       };
     }
     if (event["DependencyFailedException"] != null) {
       return {
-        DependencyFailedException: await deserializeAws_restJson1DependencyFailedException_event(
+        DependencyFailedException: await de_DependencyFailedException_event(
           event["DependencyFailedException"],
           context
         ),
@@ -958,55 +990,40 @@ const deserializeAws_restJson1StartConversationResponseEventStream = (
     }
     if (event["BadGatewayException"] != null) {
       return {
-        BadGatewayException: await deserializeAws_restJson1BadGatewayException_event(
-          event["BadGatewayException"],
-          context
-        ),
+        BadGatewayException: await de_BadGatewayException_event(event["BadGatewayException"], context),
       };
     }
     return { $unknown: output };
   });
 };
-const deserializeAws_restJson1AccessDeniedException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<AccessDeniedException> => {
+const de_AccessDeniedException_event = async (output: any, context: __SerdeContext): Promise<AccessDeniedException> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
   };
-  return deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+  return de_AccessDeniedExceptionRes(parsedOutput, context);
 };
-const deserializeAws_restJson1AudioResponseEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<AudioResponseEvent> => {
+const de_AudioResponseEvent_event = async (output: any, context: __SerdeContext): Promise<AudioResponseEvent> => {
   const contents: AudioResponseEvent = {} as any;
   const data: any = await parseBody(output.body, context);
-  Object.assign(contents, deserializeAws_restJson1AudioResponseEvent(data, context));
+  Object.assign(contents, de_AudioResponseEvent(data, context));
   return contents;
 };
-const deserializeAws_restJson1BadGatewayException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<BadGatewayException> => {
+const de_BadGatewayException_event = async (output: any, context: __SerdeContext): Promise<BadGatewayException> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
   };
-  return deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context);
+  return de_BadGatewayExceptionRes(parsedOutput, context);
 };
-const deserializeAws_restJson1ConflictException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+const de_ConflictException_event = async (output: any, context: __SerdeContext): Promise<ConflictException> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
   };
-  return deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+  return de_ConflictExceptionRes(parsedOutput, context);
 };
-const deserializeAws_restJson1DependencyFailedException_event = async (
+const de_DependencyFailedException_event = async (
   output: any,
   context: __SerdeContext
 ): Promise<DependencyFailedException> => {
@@ -1014,27 +1031,21 @@ const deserializeAws_restJson1DependencyFailedException_event = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  return deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context);
+  return de_DependencyFailedExceptionRes(parsedOutput, context);
 };
-const deserializeAws_restJson1HeartbeatEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<HeartbeatEvent> => {
+const de_HeartbeatEvent_event = async (output: any, context: __SerdeContext): Promise<HeartbeatEvent> => {
   const contents: HeartbeatEvent = {} as any;
   const data: any = await parseBody(output.body, context);
-  Object.assign(contents, deserializeAws_restJson1HeartbeatEvent(data, context));
+  Object.assign(contents, _json(data));
   return contents;
 };
-const deserializeAws_restJson1IntentResultEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<IntentResultEvent> => {
+const de_IntentResultEvent_event = async (output: any, context: __SerdeContext): Promise<IntentResultEvent> => {
   const contents: IntentResultEvent = {} as any;
   const data: any = await parseBody(output.body, context);
-  Object.assign(contents, deserializeAws_restJson1IntentResultEvent(data, context));
+  Object.assign(contents, de_IntentResultEvent(data, context));
   return contents;
 };
-const deserializeAws_restJson1InternalServerException_event = async (
+const de_InternalServerException_event = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -1042,18 +1053,18 @@ const deserializeAws_restJson1InternalServerException_event = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  return deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+  return de_InternalServerExceptionRes(parsedOutput, context);
 };
-const deserializeAws_restJson1PlaybackInterruptionEvent_event = async (
+const de_PlaybackInterruptionEvent_event = async (
   output: any,
   context: __SerdeContext
 ): Promise<PlaybackInterruptionEvent> => {
   const contents: PlaybackInterruptionEvent = {} as any;
   const data: any = await parseBody(output.body, context);
-  Object.assign(contents, deserializeAws_restJson1PlaybackInterruptionEvent(data, context));
+  Object.assign(contents, _json(data));
   return contents;
 };
-const deserializeAws_restJson1ResourceNotFoundException_event = async (
+const de_ResourceNotFoundException_event = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -1061,272 +1072,172 @@ const deserializeAws_restJson1ResourceNotFoundException_event = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  return deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+  return de_ResourceNotFoundExceptionRes(parsedOutput, context);
 };
-const deserializeAws_restJson1TextResponseEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<TextResponseEvent> => {
+const de_TextResponseEvent_event = async (output: any, context: __SerdeContext): Promise<TextResponseEvent> => {
   const contents: TextResponseEvent = {} as any;
   const data: any = await parseBody(output.body, context);
-  Object.assign(contents, deserializeAws_restJson1TextResponseEvent(data, context));
+  Object.assign(contents, _json(data));
   return contents;
 };
-const deserializeAws_restJson1ThrottlingException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+const de_ThrottlingException_event = async (output: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
   };
-  return deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+  return de_ThrottlingExceptionRes(parsedOutput, context);
 };
-const deserializeAws_restJson1TranscriptEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<TranscriptEvent> => {
+const de_TranscriptEvent_event = async (output: any, context: __SerdeContext): Promise<TranscriptEvent> => {
   const contents: TranscriptEvent = {} as any;
   const data: any = await parseBody(output.body, context);
-  Object.assign(contents, deserializeAws_restJson1TranscriptEvent(data, context));
+  Object.assign(contents, _json(data));
   return contents;
 };
-const deserializeAws_restJson1ValidationException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+const de_ValidationException_event = async (output: any, context: __SerdeContext): Promise<ValidationException> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
   };
-  return deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+  return de_ValidationExceptionRes(parsedOutput, context);
 };
-const serializeAws_restJson1ActiveContext = (input: ActiveContext, context: __SerdeContext): any => {
-  return {
-    ...(input.contextAttributes != null && {
-      contextAttributes: serializeAws_restJson1ActiveContextParametersMap(input.contextAttributes, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.timeToLive != null && {
-      timeToLive: serializeAws_restJson1ActiveContextTimeToLive(input.timeToLive, context),
-    }),
-  };
+// se_ActiveContext omitted.
+
+// se_ActiveContextParametersMap omitted.
+
+// se_ActiveContextsList omitted.
+
+// se_ActiveContextTimeToLive omitted.
+
+/**
+ * serializeAws_restJson1AudioInputEvent
+ */
+const se_AudioInputEvent = (input: AudioInputEvent, context: __SerdeContext): any => {
+  return take(input, {
+    audioChunk: context.base64Encoder,
+    clientTimestampMillis: [],
+    contentType: [],
+    eventId: [],
+  });
 };
 
-const serializeAws_restJson1ActiveContextParametersMap = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+// se_Button omitted.
+
+// se_ButtonsList omitted.
+
+/**
+ * serializeAws_restJson1ConfigurationEvent
+ */
+const se_ConfigurationEvent = (input: ConfigurationEvent, context: __SerdeContext): any => {
+  return take(input, {
+    clientTimestampMillis: [],
+    disablePlayback: [],
+    eventId: [],
+    requestAttributes: _json,
+    responseContentType: [],
+    sessionState: (_) => se_SessionState(_, context),
+    welcomeMessages: _json,
+  });
 };
 
-const serializeAws_restJson1ActiveContextsList = (input: ActiveContext[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1ActiveContext(entry, context);
-    });
+/**
+ * serializeAws_restJson1DialogAction
+ */
+const se_DialogAction = (input: DialogAction, context: __SerdeContext): any => {
+  return take(input, {
+    slotElicitationStyle: [],
+    slotToElicit: [],
+    subSlotToElicit: (_) => se_ElicitSubSlot(_, context),
+    type: [],
+  });
 };
 
-const serializeAws_restJson1ActiveContextTimeToLive = (
-  input: ActiveContextTimeToLive,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.timeToLiveInSeconds != null && { timeToLiveInSeconds: input.timeToLiveInSeconds }),
-    ...(input.turnsToLive != null && { turnsToLive: input.turnsToLive }),
-  };
+// se_DisconnectionEvent omitted.
+
+// se_DTMFInputEvent omitted.
+
+/**
+ * serializeAws_restJson1ElicitSubSlot
+ */
+const se_ElicitSubSlot = (input: ElicitSubSlot, context: __SerdeContext): any => {
+  return take(input, {
+    name: [],
+    subSlotToElicit: (_) => se_ElicitSubSlot(_, context),
+  });
 };
 
-const serializeAws_restJson1AudioInputEvent = (input: AudioInputEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.audioChunk != null && { audioChunk: context.base64Encoder(input.audioChunk) }),
-    ...(input.clientTimestampMillis != null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.contentType != null && { contentType: input.contentType }),
-    ...(input.eventId != null && { eventId: input.eventId }),
-  };
+// se_ImageResponseCard omitted.
+
+/**
+ * serializeAws_restJson1Intent
+ */
+const se_Intent = (input: Intent, context: __SerdeContext): any => {
+  return take(input, {
+    confirmationState: [],
+    name: [],
+    slots: (_) => se_Slots(_, context),
+    state: [],
+  });
 };
 
-const serializeAws_restJson1Button = (input: Button, context: __SerdeContext): any => {
-  return {
-    ...(input.text != null && { text: input.text }),
-    ...(input.value != null && { value: input.value }),
-  };
+// se_Message omitted.
+
+// se_Messages omitted.
+
+// se_PlaybackCompletionEvent omitted.
+
+/**
+ * serializeAws_restJson1RuntimeHintDetails
+ */
+const se_RuntimeHintDetails = (input: RuntimeHintDetails, context: __SerdeContext): any => {
+  return take(input, {
+    runtimeHintValues: _json,
+    subSlotHints: (_) => se_SlotHintsSlotMap(_, context),
+  });
 };
 
-const serializeAws_restJson1ButtonsList = (input: Button[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Button(entry, context);
-    });
+/**
+ * serializeAws_restJson1RuntimeHints
+ */
+const se_RuntimeHints = (input: RuntimeHints, context: __SerdeContext): any => {
+  return take(input, {
+    slotHints: (_) => se_SlotHintsIntentMap(_, context),
+  });
 };
 
-const serializeAws_restJson1ConfigurationEvent = (input: ConfigurationEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.clientTimestampMillis != null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.disablePlayback != null && { disablePlayback: input.disablePlayback }),
-    ...(input.eventId != null && { eventId: input.eventId }),
-    ...(input.requestAttributes != null && {
-      requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
-    }),
-    ...(input.responseContentType != null && { responseContentType: input.responseContentType }),
-    ...(input.sessionState != null && {
-      sessionState: serializeAws_restJson1SessionState(input.sessionState, context),
-    }),
-    ...(input.welcomeMessages != null && {
-      welcomeMessages: serializeAws_restJson1Messages(input.welcomeMessages, context),
-    }),
-  };
+// se_RuntimeHintValue omitted.
+
+// se_RuntimeHintValuesList omitted.
+
+/**
+ * serializeAws_restJson1SessionState
+ */
+const se_SessionState = (input: SessionState, context: __SerdeContext): any => {
+  return take(input, {
+    activeContexts: _json,
+    dialogAction: (_) => se_DialogAction(_, context),
+    intent: (_) => se_Intent(_, context),
+    originatingRequestId: [],
+    runtimeHints: (_) => se_RuntimeHints(_, context),
+    sessionAttributes: _json,
+  });
 };
 
-const serializeAws_restJson1DialogAction = (input: DialogAction, context: __SerdeContext): any => {
-  return {
-    ...(input.slotElicitationStyle != null && { slotElicitationStyle: input.slotElicitationStyle }),
-    ...(input.slotToElicit != null && { slotToElicit: input.slotToElicit }),
-    ...(input.subSlotToElicit != null && {
-      subSlotToElicit: serializeAws_restJson1ElicitSubSlot(input.subSlotToElicit, context),
-    }),
-    ...(input.type != null && { type: input.type }),
-  };
+/**
+ * serializeAws_restJson1Slot
+ */
+const se_Slot = (input: Slot, context: __SerdeContext): any => {
+  return take(input, {
+    shape: [],
+    subSlots: (_) => se_Slots(_, context),
+    value: _json,
+    values: (_) => se_Values(_, context),
+  });
 };
 
-const serializeAws_restJson1DisconnectionEvent = (input: DisconnectionEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.clientTimestampMillis != null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.eventId != null && { eventId: input.eventId }),
-  };
-};
-
-const serializeAws_restJson1DTMFInputEvent = (input: DTMFInputEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.clientTimestampMillis != null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.eventId != null && { eventId: input.eventId }),
-    ...(input.inputCharacter != null && { inputCharacter: input.inputCharacter }),
-  };
-};
-
-const serializeAws_restJson1ElicitSubSlot = (input: ElicitSubSlot, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.subSlotToElicit != null && {
-      subSlotToElicit: serializeAws_restJson1ElicitSubSlot(input.subSlotToElicit, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1ImageResponseCard = (input: ImageResponseCard, context: __SerdeContext): any => {
-  return {
-    ...(input.buttons != null && { buttons: serializeAws_restJson1ButtonsList(input.buttons, context) }),
-    ...(input.imageUrl != null && { imageUrl: input.imageUrl }),
-    ...(input.subtitle != null && { subtitle: input.subtitle }),
-    ...(input.title != null && { title: input.title }),
-  };
-};
-
-const serializeAws_restJson1Intent = (input: Intent, context: __SerdeContext): any => {
-  return {
-    ...(input.confirmationState != null && { confirmationState: input.confirmationState }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.slots != null && { slots: serializeAws_restJson1Slots(input.slots, context) }),
-    ...(input.state != null && { state: input.state }),
-  };
-};
-
-const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
-  return {
-    ...(input.content != null && { content: input.content }),
-    ...(input.contentType != null && { contentType: input.contentType }),
-    ...(input.imageResponseCard != null && {
-      imageResponseCard: serializeAws_restJson1ImageResponseCard(input.imageResponseCard, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1Messages = (input: Message[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Message(entry, context);
-    });
-};
-
-const serializeAws_restJson1PlaybackCompletionEvent = (
-  input: PlaybackCompletionEvent,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.clientTimestampMillis != null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.eventId != null && { eventId: input.eventId }),
-  };
-};
-
-const serializeAws_restJson1RuntimeHintDetails = (input: RuntimeHintDetails, context: __SerdeContext): any => {
-  return {
-    ...(input.runtimeHintValues != null && {
-      runtimeHintValues: serializeAws_restJson1RuntimeHintValuesList(input.runtimeHintValues, context),
-    }),
-    ...(input.subSlotHints != null && {
-      subSlotHints: serializeAws_restJson1SlotHintsSlotMap(input.subSlotHints, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1RuntimeHints = (input: RuntimeHints, context: __SerdeContext): any => {
-  return {
-    ...(input.slotHints != null && { slotHints: serializeAws_restJson1SlotHintsIntentMap(input.slotHints, context) }),
-  };
-};
-
-const serializeAws_restJson1RuntimeHintValue = (input: RuntimeHintValue, context: __SerdeContext): any => {
-  return {
-    ...(input.phrase != null && { phrase: input.phrase }),
-  };
-};
-
-const serializeAws_restJson1RuntimeHintValuesList = (input: RuntimeHintValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1RuntimeHintValue(entry, context);
-    });
-};
-
-const serializeAws_restJson1SessionState = (input: SessionState, context: __SerdeContext): any => {
-  return {
-    ...(input.activeContexts != null && {
-      activeContexts: serializeAws_restJson1ActiveContextsList(input.activeContexts, context),
-    }),
-    ...(input.dialogAction != null && {
-      dialogAction: serializeAws_restJson1DialogAction(input.dialogAction, context),
-    }),
-    ...(input.intent != null && { intent: serializeAws_restJson1Intent(input.intent, context) }),
-    ...(input.originatingRequestId != null && { originatingRequestId: input.originatingRequestId }),
-    ...(input.runtimeHints != null && {
-      runtimeHints: serializeAws_restJson1RuntimeHints(input.runtimeHints, context),
-    }),
-    ...(input.sessionAttributes != null && {
-      sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1Slot = (input: Slot, context: __SerdeContext): any => {
-  return {
-    ...(input.shape != null && { shape: input.shape }),
-    ...(input.subSlots != null && { subSlots: serializeAws_restJson1Slots(input.subSlots, context) }),
-    ...(input.value != null && { value: serializeAws_restJson1Value(input.value, context) }),
-    ...(input.values != null && { values: serializeAws_restJson1Values(input.values, context) }),
-  };
-};
-
-const serializeAws_restJson1SlotHintsIntentMap = (
+/**
+ * serializeAws_restJson1SlotHintsIntentMap
+ */
+const se_SlotHintsIntentMap = (
   input: Record<string, Record<string, RuntimeHintDetails>>,
   context: __SerdeContext
 ): any => {
@@ -1334,366 +1245,247 @@ const serializeAws_restJson1SlotHintsIntentMap = (
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1SlotHintsSlotMap(value, context);
+    acc[key] = se_SlotHintsSlotMap(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1SlotHintsSlotMap = (
-  input: Record<string, RuntimeHintDetails>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1SlotHintsSlotMap
+ */
+const se_SlotHintsSlotMap = (input: Record<string, RuntimeHintDetails>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1RuntimeHintDetails(value, context);
+    acc[key] = se_RuntimeHintDetails(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1Slots = (input: Record<string, Slot>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Slots
+ */
+const se_Slots = (input: Record<string, Slot>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1Slot(value, context);
+    acc[key] = se_Slot(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
+// se_StringList omitted.
+
+// se_StringMap omitted.
+
+// se_TextInputEvent omitted.
+
+// se_Value omitted.
+
+/**
+ * serializeAws_restJson1Values
+ */
+const se_Values = (input: Slot[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return entry;
+      return se_Slot(entry, context);
     });
 };
 
-const serializeAws_restJson1StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+// de_ActiveContext omitted.
+
+// de_ActiveContextParametersMap omitted.
+
+// de_ActiveContextsList omitted.
+
+// de_ActiveContextTimeToLive omitted.
+
+/**
+ * deserializeAws_restJson1AudioResponseEvent
+ */
+const de_AudioResponseEvent = (output: any, context: __SerdeContext): AudioResponseEvent => {
+  return take(output, {
+    audioChunk: context.base64Decoder,
+    contentType: __expectString,
+    eventId: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1TextInputEvent = (input: TextInputEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.clientTimestampMillis != null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.eventId != null && { eventId: input.eventId }),
-    ...(input.text != null && { text: input.text }),
-  };
+// de_Button omitted.
+
+// de_ButtonsList omitted.
+
+/**
+ * deserializeAws_restJson1ConfidenceScore
+ */
+const de_ConfidenceScore = (output: any, context: __SerdeContext): ConfidenceScore => {
+  return take(output, {
+    score: __limitedParseDouble,
+  }) as any;
 };
 
-const serializeAws_restJson1Value = (input: Value, context: __SerdeContext): any => {
-  return {
-    ...(input.interpretedValue != null && { interpretedValue: input.interpretedValue }),
-    ...(input.originalValue != null && { originalValue: input.originalValue }),
-    ...(input.resolvedValues != null && {
-      resolvedValues: serializeAws_restJson1StringList(input.resolvedValues, context),
-    }),
-  };
+/**
+ * deserializeAws_restJson1DialogAction
+ */
+const de_DialogAction = (output: any, context: __SerdeContext): DialogAction => {
+  return take(output, {
+    slotElicitationStyle: __expectString,
+    slotToElicit: __expectString,
+    subSlotToElicit: (_: any) => de_ElicitSubSlot(_, context),
+    type: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1Values = (input: Slot[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Slot(entry, context);
-    });
+/**
+ * deserializeAws_restJson1ElicitSubSlot
+ */
+const de_ElicitSubSlot = (output: any, context: __SerdeContext): ElicitSubSlot => {
+  return take(output, {
+    name: __expectString,
+    subSlotToElicit: (_: any) => de_ElicitSubSlot(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1ActiveContext = (output: any, context: __SerdeContext): ActiveContext => {
-  return {
-    contextAttributes:
-      output.contextAttributes != null
-        ? deserializeAws_restJson1ActiveContextParametersMap(output.contextAttributes, context)
-        : undefined,
-    name: __expectString(output.name),
-    timeToLive:
-      output.timeToLive != null
-        ? deserializeAws_restJson1ActiveContextTimeToLive(output.timeToLive, context)
-        : undefined,
-  } as any;
+// de_HeartbeatEvent omitted.
+
+// de_ImageResponseCard omitted.
+
+/**
+ * deserializeAws_restJson1Intent
+ */
+const de_Intent = (output: any, context: __SerdeContext): Intent => {
+  return take(output, {
+    confirmationState: __expectString,
+    name: __expectString,
+    slots: (_: any) => de_Slots(_, context),
+    state: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1ActiveContextParametersMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
+/**
+ * deserializeAws_restJson1IntentResultEvent
+ */
+const de_IntentResultEvent = (output: any, context: __SerdeContext): IntentResultEvent => {
+  return take(output, {
+    eventId: __expectString,
+    inputMode: __expectString,
+    interpretations: (_: any) => de_Interpretations(_, context),
+    recognizedBotMember: _json,
+    requestAttributes: _json,
+    sessionId: __expectString,
+    sessionState: (_: any) => de_SessionState(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1ActiveContextsList = (output: any, context: __SerdeContext): ActiveContext[] => {
+/**
+ * deserializeAws_restJson1Interpretation
+ */
+const de_Interpretation = (output: any, context: __SerdeContext): Interpretation => {
+  return take(output, {
+    intent: (_: any) => de_Intent(_, context),
+    nluConfidence: (_: any) => de_ConfidenceScore(_, context),
+    sentimentResponse: (_: any) => de_SentimentResponse(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Interpretations
+ */
+const de_Interpretations = (output: any, context: __SerdeContext): Interpretation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ActiveContext(entry, context);
+      return de_Interpretation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ActiveContextTimeToLive = (
-  output: any,
-  context: __SerdeContext
-): ActiveContextTimeToLive => {
-  return {
-    timeToLiveInSeconds: __expectInt32(output.timeToLiveInSeconds),
-    turnsToLive: __expectInt32(output.turnsToLive),
-  } as any;
+// de_Message omitted.
+
+// de_Messages omitted.
+
+// de_PlaybackInterruptionEvent omitted.
+
+// de_RecognizedBotMember omitted.
+
+/**
+ * deserializeAws_restJson1RuntimeHintDetails
+ */
+const de_RuntimeHintDetails = (output: any, context: __SerdeContext): RuntimeHintDetails => {
+  return take(output, {
+    runtimeHintValues: _json,
+    subSlotHints: (_: any) => de_SlotHintsSlotMap(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1AudioResponseEvent = (output: any, context: __SerdeContext): AudioResponseEvent => {
-  return {
-    audioChunk: output.audioChunk != null ? context.base64Decoder(output.audioChunk) : undefined,
-    contentType: __expectString(output.contentType),
-    eventId: __expectString(output.eventId),
-  } as any;
+/**
+ * deserializeAws_restJson1RuntimeHints
+ */
+const de_RuntimeHints = (output: any, context: __SerdeContext): RuntimeHints => {
+  return take(output, {
+    slotHints: (_: any) => de_SlotHintsIntentMap(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1Button = (output: any, context: __SerdeContext): Button => {
-  return {
-    text: __expectString(output.text),
-    value: __expectString(output.value),
-  } as any;
+// de_RuntimeHintValue omitted.
+
+// de_RuntimeHintValuesList omitted.
+
+/**
+ * deserializeAws_restJson1SentimentResponse
+ */
+const de_SentimentResponse = (output: any, context: __SerdeContext): SentimentResponse => {
+  return take(output, {
+    sentiment: __expectString,
+    sentimentScore: (_: any) => de_SentimentScore(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1ButtonsList = (output: any, context: __SerdeContext): Button[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Button(entry, context);
-    });
-  return retVal;
+/**
+ * deserializeAws_restJson1SentimentScore
+ */
+const de_SentimentScore = (output: any, context: __SerdeContext): SentimentScore => {
+  return take(output, {
+    mixed: __limitedParseDouble,
+    negative: __limitedParseDouble,
+    neutral: __limitedParseDouble,
+    positive: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_restJson1ConfidenceScore = (output: any, context: __SerdeContext): ConfidenceScore => {
-  return {
-    score: __limitedParseDouble(output.score),
-  } as any;
+/**
+ * deserializeAws_restJson1SessionState
+ */
+const de_SessionState = (output: any, context: __SerdeContext): SessionState => {
+  return take(output, {
+    activeContexts: _json,
+    dialogAction: (_: any) => de_DialogAction(_, context),
+    intent: (_: any) => de_Intent(_, context),
+    originatingRequestId: __expectString,
+    runtimeHints: (_: any) => de_RuntimeHints(_, context),
+    sessionAttributes: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeContext): DialogAction => {
-  return {
-    slotElicitationStyle: __expectString(output.slotElicitationStyle),
-    slotToElicit: __expectString(output.slotToElicit),
-    subSlotToElicit:
-      output.subSlotToElicit != null
-        ? deserializeAws_restJson1ElicitSubSlot(output.subSlotToElicit, context)
-        : undefined,
-    type: __expectString(output.type),
-  } as any;
+/**
+ * deserializeAws_restJson1Slot
+ */
+const de_Slot = (output: any, context: __SerdeContext): Slot => {
+  return take(output, {
+    shape: __expectString,
+    subSlots: (_: any) => de_Slots(_, context),
+    value: _json,
+    values: (_: any) => de_Values(_, context),
+  }) as any;
 };
 
-const deserializeAws_restJson1ElicitSubSlot = (output: any, context: __SerdeContext): ElicitSubSlot => {
-  return {
-    name: __expectString(output.name),
-    subSlotToElicit:
-      output.subSlotToElicit != null
-        ? deserializeAws_restJson1ElicitSubSlot(output.subSlotToElicit, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1HeartbeatEvent = (output: any, context: __SerdeContext): HeartbeatEvent => {
-  return {
-    eventId: __expectString(output.eventId),
-  } as any;
-};
-
-const deserializeAws_restJson1ImageResponseCard = (output: any, context: __SerdeContext): ImageResponseCard => {
-  return {
-    buttons: output.buttons != null ? deserializeAws_restJson1ButtonsList(output.buttons, context) : undefined,
-    imageUrl: __expectString(output.imageUrl),
-    subtitle: __expectString(output.subtitle),
-    title: __expectString(output.title),
-  } as any;
-};
-
-const deserializeAws_restJson1Intent = (output: any, context: __SerdeContext): Intent => {
-  return {
-    confirmationState: __expectString(output.confirmationState),
-    name: __expectString(output.name),
-    slots: output.slots != null ? deserializeAws_restJson1Slots(output.slots, context) : undefined,
-    state: __expectString(output.state),
-  } as any;
-};
-
-const deserializeAws_restJson1IntentResultEvent = (output: any, context: __SerdeContext): IntentResultEvent => {
-  return {
-    eventId: __expectString(output.eventId),
-    inputMode: __expectString(output.inputMode),
-    interpretations:
-      output.interpretations != null
-        ? deserializeAws_restJson1Interpretations(output.interpretations, context)
-        : undefined,
-    requestAttributes:
-      output.requestAttributes != null
-        ? deserializeAws_restJson1StringMap(output.requestAttributes, context)
-        : undefined,
-    sessionId: __expectString(output.sessionId),
-    sessionState:
-      output.sessionState != null ? deserializeAws_restJson1SessionState(output.sessionState, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Interpretation = (output: any, context: __SerdeContext): Interpretation => {
-  return {
-    intent: output.intent != null ? deserializeAws_restJson1Intent(output.intent, context) : undefined,
-    nluConfidence:
-      output.nluConfidence != null ? deserializeAws_restJson1ConfidenceScore(output.nluConfidence, context) : undefined,
-    sentimentResponse:
-      output.sentimentResponse != null
-        ? deserializeAws_restJson1SentimentResponse(output.sentimentResponse, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Interpretations = (output: any, context: __SerdeContext): Interpretation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Interpretation(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1Message = (output: any, context: __SerdeContext): Message => {
-  return {
-    content: __expectString(output.content),
-    contentType: __expectString(output.contentType),
-    imageResponseCard:
-      output.imageResponseCard != null
-        ? deserializeAws_restJson1ImageResponseCard(output.imageResponseCard, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Messages = (output: any, context: __SerdeContext): Message[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Message(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1PlaybackInterruptionEvent = (
-  output: any,
-  context: __SerdeContext
-): PlaybackInterruptionEvent => {
-  return {
-    causedByEventId: __expectString(output.causedByEventId),
-    eventId: __expectString(output.eventId),
-    eventReason: __expectString(output.eventReason),
-  } as any;
-};
-
-const deserializeAws_restJson1RuntimeHintDetails = (output: any, context: __SerdeContext): RuntimeHintDetails => {
-  return {
-    runtimeHintValues:
-      output.runtimeHintValues != null
-        ? deserializeAws_restJson1RuntimeHintValuesList(output.runtimeHintValues, context)
-        : undefined,
-    subSlotHints:
-      output.subSlotHints != null ? deserializeAws_restJson1SlotHintsSlotMap(output.subSlotHints, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1RuntimeHints = (output: any, context: __SerdeContext): RuntimeHints => {
-  return {
-    slotHints:
-      output.slotHints != null ? deserializeAws_restJson1SlotHintsIntentMap(output.slotHints, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1RuntimeHintValue = (output: any, context: __SerdeContext): RuntimeHintValue => {
-  return {
-    phrase: __expectString(output.phrase),
-  } as any;
-};
-
-const deserializeAws_restJson1RuntimeHintValuesList = (output: any, context: __SerdeContext): RuntimeHintValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RuntimeHintValue(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1SentimentResponse = (output: any, context: __SerdeContext): SentimentResponse => {
-  return {
-    sentiment: __expectString(output.sentiment),
-    sentimentScore:
-      output.sentimentScore != null
-        ? deserializeAws_restJson1SentimentScore(output.sentimentScore, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SentimentScore = (output: any, context: __SerdeContext): SentimentScore => {
-  return {
-    mixed: __limitedParseDouble(output.mixed),
-    negative: __limitedParseDouble(output.negative),
-    neutral: __limitedParseDouble(output.neutral),
-    positive: __limitedParseDouble(output.positive),
-  } as any;
-};
-
-const deserializeAws_restJson1SessionState = (output: any, context: __SerdeContext): SessionState => {
-  return {
-    activeContexts:
-      output.activeContexts != null
-        ? deserializeAws_restJson1ActiveContextsList(output.activeContexts, context)
-        : undefined,
-    dialogAction:
-      output.dialogAction != null ? deserializeAws_restJson1DialogAction(output.dialogAction, context) : undefined,
-    intent: output.intent != null ? deserializeAws_restJson1Intent(output.intent, context) : undefined,
-    originatingRequestId: __expectString(output.originatingRequestId),
-    runtimeHints:
-      output.runtimeHints != null ? deserializeAws_restJson1RuntimeHints(output.runtimeHints, context) : undefined,
-    sessionAttributes:
-      output.sessionAttributes != null
-        ? deserializeAws_restJson1StringMap(output.sessionAttributes, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slot => {
-  return {
-    shape: __expectString(output.shape),
-    subSlots: output.subSlots != null ? deserializeAws_restJson1Slots(output.subSlots, context) : undefined,
-    value: output.value != null ? deserializeAws_restJson1Value(output.value, context) : undefined,
-    values: output.values != null ? deserializeAws_restJson1Values(output.values, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SlotHintsIntentMap = (
+/**
+ * deserializeAws_restJson1SlotHintsIntentMap
+ */
+const de_SlotHintsIntentMap = (
   output: any,
   context: __SerdeContext
 ): Record<string, Record<string, RuntimeHintDetails>> => {
@@ -1702,89 +1494,57 @@ const deserializeAws_restJson1SlotHintsIntentMap = (
       if (value === null) {
         return acc;
       }
-      acc[key] = deserializeAws_restJson1SlotHintsSlotMap(value, context);
+      acc[key] = de_SlotHintsSlotMap(value, context);
       return acc;
     },
     {}
   );
 };
 
-const deserializeAws_restJson1SlotHintsSlotMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, RuntimeHintDetails> => {
+/**
+ * deserializeAws_restJson1SlotHintsSlotMap
+ */
+const de_SlotHintsSlotMap = (output: any, context: __SerdeContext): Record<string, RuntimeHintDetails> => {
   return Object.entries(output).reduce((acc: Record<string, RuntimeHintDetails>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1RuntimeHintDetails(value, context);
+    acc[key] = de_RuntimeHintDetails(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1Slots = (output: any, context: __SerdeContext): Record<string, Slot> => {
+/**
+ * deserializeAws_restJson1Slots
+ */
+const de_Slots = (output: any, context: __SerdeContext): Record<string, Slot> => {
   return Object.entries(output).reduce((acc: Record<string, Slot>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1Slot(value, context);
+    acc[key] = de_Slot(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
+// de_StringList omitted.
+
+// de_StringMap omitted.
+
+// de_TextResponseEvent omitted.
+
+// de_TranscriptEvent omitted.
+
+// de_Value omitted.
+
+/**
+ * deserializeAws_restJson1Values
+ */
+const de_Values = (output: any, context: __SerdeContext): Slot[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1TextResponseEvent = (output: any, context: __SerdeContext): TextResponseEvent => {
-  return {
-    eventId: __expectString(output.eventId),
-    messages: output.messages != null ? deserializeAws_restJson1Messages(output.messages, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TranscriptEvent = (output: any, context: __SerdeContext): TranscriptEvent => {
-  return {
-    eventId: __expectString(output.eventId),
-    transcript: __expectString(output.transcript),
-  } as any;
-};
-
-const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Value => {
-  return {
-    interpretedValue: __expectString(output.interpretedValue),
-    originalValue: __expectString(output.originalValue),
-    resolvedValues:
-      output.resolvedValues != null ? deserializeAws_restJson1StringList(output.resolvedValues, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Values = (output: any, context: __SerdeContext): Slot[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Slot(entry, context);
+      return de_Slot(entry, context);
     });
   return retVal;
 };

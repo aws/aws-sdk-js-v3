@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListRealtimeLogConfigsRequest,
-  ListRealtimeLogConfigsRequestFilterSensitiveLog,
-  ListRealtimeLogConfigsResult,
-  ListRealtimeLogConfigsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListRealtimeLogConfigsCommand,
-  serializeAws_restXmlListRealtimeLogConfigsCommand,
-} from "../protocols/Aws_restXml";
+import { ListRealtimeLogConfigsRequest, ListRealtimeLogConfigsResult } from "../models/models_1";
+import { de_ListRealtimeLogConfigsCommand, se_ListRealtimeLogConfigsCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRealtimeLogConfigsCommand}.
+ */
 export interface ListRealtimeLogConfigsCommandInput extends ListRealtimeLogConfigsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRealtimeLogConfigsCommand}.
+ */
 export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConfigsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of real-time log configurations.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -41,13 +44,29 @@ export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConf
  * import { CloudFrontClient, ListRealtimeLogConfigsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListRealtimeLogConfigsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListRealtimeLogConfigsRequest
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListRealtimeLogConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRealtimeLogConfigsCommandInput - {@link ListRealtimeLogConfigsCommandInput}
+ * @returns {@link ListRealtimeLogConfigsCommandOutput}
  * @see {@link ListRealtimeLogConfigsCommandInput} for command's `input` shape.
  * @see {@link ListRealtimeLogConfigsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchRealtimeLogConfig} (client fault)
+ *  <p>The real-time log configuration does not exist.</p>
+ *
  *
  */
 export class ListRealtimeLogConfigsCommand extends $Command<
@@ -67,6 +86,9 @@ export class ListRealtimeLogConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRealtimeLogConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +117,8 @@ export class ListRealtimeLogConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRealtimeLogConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRealtimeLogConfigsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +128,18 @@ export class ListRealtimeLogConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRealtimeLogConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListRealtimeLogConfigsCommand(input, context);
+    return se_ListRealtimeLogConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRealtimeLogConfigsCommandOutput> {
-    return deserializeAws_restXmlListRealtimeLogConfigsCommand(output, context);
+    return de_ListRealtimeLogConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

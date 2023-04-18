@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  UpdateStageRequest,
-  UpdateStageRequestFilterSensitiveLog,
-  UpdateStageResult,
-  UpdateStageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateStageCommand,
-  serializeAws_restJson1UpdateStageCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateStageRequest, UpdateStageResult } from "../models/models_0";
+import { de_UpdateStageCommand, se_UpdateStageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateStageCommand}.
+ */
 export interface UpdateStageCommandInput extends UpdateStageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateStageCommand}.
+ */
 export interface UpdateStageCommandOutput extends UpdateStageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the metadata of a stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface UpdateStageCommandOutput extends UpdateStageResult, __MetadataB
  * import { GameSparksClient, UpdateStageCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, UpdateStageCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // UpdateStageRequest
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ *   Role: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateStageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStageCommandInput - {@link UpdateStageCommandInput}
+ * @returns {@link UpdateStageCommandOutput}
  * @see {@link UpdateStageCommandInput} for command's `input` shape.
  * @see {@link UpdateStageCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class UpdateStageCommand extends $Command<
@@ -62,6 +89,9 @@ export class UpdateStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +118,8 @@ export class UpdateStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +129,18 @@ export class UpdateStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateStageCommand(input, context);
+    return se_UpdateStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStageCommandOutput> {
-    return deserializeAws_restJson1UpdateStageCommand(output, context);
+    return de_UpdateStageCommand(output, context);
   }
 
   // Start section: command_body_extra

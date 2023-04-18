@@ -20,15 +20,23 @@ import {
   CreateNetworkSiteResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1CreateNetworkSiteCommand,
-  serializeAws_restJson1CreateNetworkSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateNetworkSiteCommand, se_CreateNetworkSiteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateNetworkSiteCommand}.
+ */
 export interface CreateNetworkSiteCommandInput extends CreateNetworkSiteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateNetworkSiteCommand}.
+ */
 export interface CreateNetworkSiteCommandOutput extends CreateNetworkSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +44,56 @@ export interface CreateNetworkSiteCommandOutput extends CreateNetworkSiteRespons
  * import { PrivateNetworksClient, CreateNetworkSiteCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, CreateNetworkSiteCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // CreateNetworkSiteRequest
+ *   networkSiteName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   networkArn: "STRING_VALUE", // required
+ *   pendingPlan: { // SitePlan
+ *     resourceDefinitions: [ // NetworkResourceDefinitions
+ *       { // NetworkResourceDefinition
+ *         type: "STRING_VALUE", // required
+ *         options: [ // Options
+ *           { // NameValuePair
+ *             name: "STRING_VALUE", // required
+ *             value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         count: Number("int"), // required
+ *       },
+ *     ],
+ *     options: [
+ *       {
+ *         name: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   availabilityZone: "STRING_VALUE",
+ *   availabilityZoneId: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateNetworkSiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkSiteCommandInput - {@link CreateNetworkSiteCommandInput}
+ * @returns {@link CreateNetworkSiteCommandOutput}
  * @see {@link CreateNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
  *
  */
 export class CreateNetworkSiteCommand extends $Command<
@@ -62,6 +113,9 @@ export class CreateNetworkSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,12 +155,18 @@ export class CreateNetworkSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNetworkSiteCommand(input, context);
+    return se_CreateNetworkSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkSiteCommandOutput> {
-    return deserializeAws_restJson1CreateNetworkSiteCommand(output, context);
+    return de_CreateNetworkSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

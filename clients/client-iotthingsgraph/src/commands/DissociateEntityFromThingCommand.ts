@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  DissociateEntityFromThingRequest,
-  DissociateEntityFromThingRequestFilterSensitiveLog,
-  DissociateEntityFromThingResponse,
-  DissociateEntityFromThingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DissociateEntityFromThingCommand,
-  serializeAws_json1_1DissociateEntityFromThingCommand,
-} from "../protocols/Aws_json1_1";
+import { DissociateEntityFromThingRequest, DissociateEntityFromThingResponse } from "../models/models_0";
+import { de_DissociateEntityFromThingCommand, se_DissociateEntityFromThingCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DissociateEntityFromThingCommand}.
+ */
 export interface DissociateEntityFromThingCommandInput extends DissociateEntityFromThingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DissociateEntityFromThingCommand}.
+ */
 export interface DissociateEntityFromThingCommandOutput extends DissociateEntityFromThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only
@@ -39,13 +42,32 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  * import { IoTThingsGraphClient, DissociateEntityFromThingCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DissociateEntityFromThingCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // DissociateEntityFromThingRequest
+ *   thingName: "STRING_VALUE", // required
+ *   entityType: "STRING_VALUE", // required
+ * };
  * const command = new DissociateEntityFromThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DissociateEntityFromThingCommandInput - {@link DissociateEntityFromThingCommandInput}
+ * @returns {@link DissociateEntityFromThingCommandOutput}
  * @see {@link DissociateEntityFromThingCommandInput} for command's `input` shape.
  * @see {@link DissociateEntityFromThingCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class DissociateEntityFromThingCommand extends $Command<
@@ -65,6 +87,9 @@ export class DissociateEntityFromThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DissociateEntityFromThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +118,8 @@ export class DissociateEntityFromThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DissociateEntityFromThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DissociateEntityFromThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +129,21 @@ export class DissociateEntityFromThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DissociateEntityFromThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DissociateEntityFromThingCommand(input, context);
+    return se_DissociateEntityFromThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DissociateEntityFromThingCommandOutput> {
-    return deserializeAws_json1_1DissociateEntityFromThingCommand(output, context);
+    return de_DissociateEntityFromThingCommand(output, context);
   }
 
   // Start section: command_body_extra

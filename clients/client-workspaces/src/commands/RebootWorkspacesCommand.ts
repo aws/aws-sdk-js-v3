@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RebootWorkspacesRequest,
-  RebootWorkspacesRequestFilterSensitiveLog,
-  RebootWorkspacesResult,
-  RebootWorkspacesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RebootWorkspacesCommand,
-  serializeAws_json1_1RebootWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { RebootWorkspacesRequest, RebootWorkspacesResult } from "../models/models_0";
+import { de_RebootWorkspacesCommand, se_RebootWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RebootWorkspacesCommand}.
+ */
 export interface RebootWorkspacesCommandInput extends RebootWorkspacesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RebootWorkspacesCommand}.
+ */
 export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reboots the specified WorkSpaces.</p>
  *          <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code> or
  *             <code>UNHEALTHY</code>.</p>
@@ -39,13 +42,26 @@ export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, _
  * import { WorkSpacesClient, RebootWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RebootWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // RebootWorkspacesRequest
+ *   RebootWorkspaceRequests: [ // RebootWorkspaceRequests // required
+ *     { // RebootRequest
+ *       WorkspaceId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new RebootWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootWorkspacesCommandInput - {@link RebootWorkspacesCommandInput}
+ * @returns {@link RebootWorkspacesCommandOutput}
  * @see {@link RebootWorkspacesCommandInput} for command's `input` shape.
  * @see {@link RebootWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
  *
  */
 export class RebootWorkspacesCommand extends $Command<
@@ -65,6 +81,9 @@ export class RebootWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +112,8 @@ export class RebootWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootWorkspacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootWorkspacesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +123,18 @@ export class RebootWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RebootWorkspacesCommand(input, context);
+    return se_RebootWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootWorkspacesCommandOutput> {
-    return deserializeAws_json1_1RebootWorkspacesCommand(output, context);
+    return de_RebootWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

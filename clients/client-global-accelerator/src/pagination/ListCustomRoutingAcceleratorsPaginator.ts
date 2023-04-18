@@ -6,12 +6,11 @@ import {
   ListCustomRoutingAcceleratorsCommandInput,
   ListCustomRoutingAcceleratorsCommandOutput,
 } from "../commands/ListCustomRoutingAcceleratorsCommand";
-import { GlobalAccelerator } from "../GlobalAccelerator";
 import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
 import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlobalAcceleratorClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListCustomRoutingAcceleratorsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GlobalAccelerator,
-  input: ListCustomRoutingAcceleratorsCommandInput,
-  ...args: any
-): Promise<ListCustomRoutingAcceleratorsCommandOutput> => {
-  // @ts-ignore
-  return await client.listCustomRoutingAccelerators(input, ...args);
-};
 export async function* paginateListCustomRoutingAccelerators(
   config: GlobalAcceleratorPaginationConfiguration,
   input: ListCustomRoutingAcceleratorsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListCustomRoutingAccelerators(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GlobalAccelerator) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlobalAcceleratorClient) {
+    if (config.client instanceof GlobalAcceleratorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GlobalAccelerator | GlobalAcceleratorClient");

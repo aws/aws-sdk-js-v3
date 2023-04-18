@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  ListProposalsInput,
-  ListProposalsInputFilterSensitiveLog,
-  ListProposalsOutput,
-  ListProposalsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProposalsCommand,
-  serializeAws_restJson1ListProposalsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProposalsInput, ListProposalsOutput } from "../models/models_0";
+import { de_ListProposalsCommand, se_ListProposalsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListProposalsCommand}.
+ */
 export interface ListProposalsCommandInput extends ListProposalsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListProposalsCommand}.
+ */
 export interface ListProposalsCommandOutput extends ListProposalsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of proposals for the network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -41,13 +44,39 @@ export interface ListProposalsCommandOutput extends ListProposalsOutput, __Metad
  * import { ManagedBlockchainClient, ListProposalsCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListProposalsCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // ListProposalsInput
+ *   NetworkId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListProposalsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProposalsCommandInput - {@link ListProposalsCommandInput}
+ * @returns {@link ListProposalsCommandOutput}
  * @see {@link ListProposalsCommandInput} for command's `input` shape.
  * @see {@link ListProposalsCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request or operation couldn't be performed because a service is
+ *          throttling requests. The most common source of throttling errors is
+ *          creating resources that exceed your service limit for this resource type.
+ *          Request a limit increase or delete unused resources if possible.</p>
+ *
  *
  */
 export class ListProposalsCommand extends $Command<
@@ -67,6 +96,9 @@ export class ListProposalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProposalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +125,8 @@ export class ListProposalsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProposalsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProposalsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +136,18 @@ export class ListProposalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProposalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProposalsCommand(input, context);
+    return se_ListProposalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProposalsCommandOutput> {
-    return deserializeAws_restJson1ListProposalsCommand(output, context);
+    return de_ListProposalsCommand(output, context);
   }
 
   // Start section: command_body_extra

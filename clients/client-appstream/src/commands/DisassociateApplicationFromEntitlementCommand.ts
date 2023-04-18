@@ -16,22 +16,31 @@ import {
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import {
   DisassociateApplicationFromEntitlementRequest,
-  DisassociateApplicationFromEntitlementRequestFilterSensitiveLog,
   DisassociateApplicationFromEntitlementResult,
-  DisassociateApplicationFromEntitlementResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateApplicationFromEntitlementCommand,
-  serializeAws_json1_1DisassociateApplicationFromEntitlementCommand,
+  de_DisassociateApplicationFromEntitlementCommand,
+  se_DisassociateApplicationFromEntitlementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateApplicationFromEntitlementCommand}.
+ */
 export interface DisassociateApplicationFromEntitlementCommandInput
   extends DisassociateApplicationFromEntitlementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateApplicationFromEntitlementCommand}.
+ */
 export interface DisassociateApplicationFromEntitlementCommandOutput
   extends DisassociateApplicationFromEntitlementResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified application from the specified entitlement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,30 @@ export interface DisassociateApplicationFromEntitlementCommandOutput
  * import { AppStreamClient, DisassociateApplicationFromEntitlementCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DisassociateApplicationFromEntitlementCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DisassociateApplicationFromEntitlementRequest
+ *   StackName: "STRING_VALUE", // required
+ *   EntitlementName: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateApplicationFromEntitlementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateApplicationFromEntitlementCommandInput - {@link DisassociateApplicationFromEntitlementCommandInput}
+ * @returns {@link DisassociateApplicationFromEntitlementCommandOutput}
  * @see {@link DisassociateApplicationFromEntitlementCommandInput} for command's `input` shape.
  * @see {@link DisassociateApplicationFromEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link EntitlementNotFoundException} (client fault)
+ *  <p>The entitlement can't be found.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DisassociateApplicationFromEntitlementCommand extends $Command<
@@ -65,6 +91,9 @@ export class DisassociateApplicationFromEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateApplicationFromEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +122,8 @@ export class DisassociateApplicationFromEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateApplicationFromEntitlementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateApplicationFromEntitlementResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +133,24 @@ export class DisassociateApplicationFromEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateApplicationFromEntitlementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateApplicationFromEntitlementCommand(input, context);
+    return se_DisassociateApplicationFromEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateApplicationFromEntitlementCommandOutput> {
-    return deserializeAws_json1_1DisassociateApplicationFromEntitlementCommand(output, context);
+    return de_DisassociateApplicationFromEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

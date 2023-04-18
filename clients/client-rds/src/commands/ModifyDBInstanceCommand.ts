@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBInstanceMessage,
-  ModifyDBInstanceMessageFilterSensitiveLog,
-  ModifyDBInstanceResult,
-  ModifyDBInstanceResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBInstanceCommand,
-  serializeAws_queryModifyDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_1";
+import { de_ModifyDBInstanceCommand, se_ModifyDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyDBInstanceCommand}.
+ */
 export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyDBInstanceCommand}.
+ */
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies settings for a DB instance.
  *           You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
  *             To learn what modifications you can make to your DB instance,
@@ -40,13 +43,209 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * import { RDSClient, ModifyDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   AllocatedStorage: Number("int"),
+ *   DBInstanceClass: "STRING_VALUE",
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   DBSecurityGroups: [ // DBSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   ApplyImmediately: true || false,
+ *   MasterUserPassword: "STRING_VALUE",
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   BackupRetentionPeriod: Number("int"),
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AllowMajorVersionUpgrade: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   LicenseModel: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   OptionGroupName: "STRING_VALUE",
+ *   NewDBInstanceIdentifier: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
+ *   TdeCredentialArn: "STRING_VALUE",
+ *   TdeCredentialPassword: "STRING_VALUE",
+ *   CACertificateIdentifier: "STRING_VALUE",
+ *   Domain: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   MonitoringInterval: Number("int"),
+ *   DBPortNumber: Number("int"),
+ *   PubliclyAccessible: true || false,
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   PromotionTier: Number("int"),
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   CloudwatchLogsExportConfiguration: { // CloudwatchLogsExportConfiguration
+ *     EnableLogTypes: [ // LogTypeList
+ *       "STRING_VALUE",
+ *     ],
+ *     DisableLogTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ProcessorFeatures: [ // ProcessorFeatureList
+ *     { // ProcessorFeature
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UseDefaultProcessorFeatures: true || false,
+ *   DeletionProtection: true || false,
+ *   MaxAllocatedStorage: Number("int"),
+ *   CertificateRotationRestart: true || false,
+ *   ReplicaMode: "open-read-only" || "mounted",
+ *   EnableCustomerOwnedIp: true || false,
+ *   AwsBackupRecoveryPointArn: "STRING_VALUE",
+ *   AutomationMode: "full" || "all-paused",
+ *   ResumeFullAutomationModeMinutes: Number("int"),
+ *   NetworkType: "STRING_VALUE",
+ *   StorageThroughput: Number("int"),
+ *   ManageMasterUserPassword: true || false,
+ *   RotateMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBInstanceCommandInput - {@link ModifyDBInstanceCommandInput}
+ * @returns {@link ModifyDBInstanceCommandOutput}
  * @see {@link ModifyDBInstanceCommandInput} for command's `input` shape.
  * @see {@link ModifyDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationNotFoundFault} (client fault)
+ *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized
+ *             for the specified DB security group.</p>
+ *          <p>Or, RDS might not be authorized to perform necessary actions using IAM on your
+ *             behalf.</p>
+ *
+ * @throws {@link BackupPolicyNotFoundFault} (client fault)
+ *
+ * @throws {@link CertificateNotFoundFault} (client fault)
+ *  <p>
+ *             <code>CertificateIdentifier</code> doesn't refer to an
+ *         existing certificate.</p>
+ *
+ * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
+ *  <p>The user already has a DB instance with the given identifier.</p>
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an
+ *         existing DB parameter group.</p>
+ *
+ * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *
+ * @throws {@link DBUpgradeDependencyFailureFault} (client fault)
+ *  <p>The DB upgrade failed because a resource the DB depends on can't be
+ *             modified.</p>
+ *
+ * @throws {@link DomainNotFoundFault} (client fault)
+ *  <p>
+ *             <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+ *
+ * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
+ *  <p>The specified DB instance class isn't available in the specified Availability
+ *             Zone.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
+ *  <p>The state of the DB security group doesn't allow deletion.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The DB subnet group doesn't cover all Availability Zones after it's
+ *             created because of users' change.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * @throws {@link NetworkTypeNotSupported} (client fault)
+ *  <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+ *
+ * @throws {@link OptionGroupNotFoundFault} (client fault)
+ *  <p>The specified option group could not be found.</p>
+ *
+ * @throws {@link ProvisionedIopsNotAvailableInAZFault} (client fault)
+ *  <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+ *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed amount of storage
+ *             available across all DB instances.</p>
+ *
+ * @throws {@link StorageTypeNotSupportedFault} (client fault)
+ *  <p>Storage of the <code>StorageType</code> specified can't be associated
+ *             with the DB instance.</p>
+ *
+ *
+ * @example To modify parameters in a DB cluster parameter group
+ * ```javascript
+ * // The following example associates an option group and a parameter group with a compatible Microsoft SQL Server DB instance. The ApplyImmediately parameter causes the option and parameter groups to be associated immediately, instead of waiting until the next maintenance window.
+ * const input = {
+ *   "ApplyImmediately": true,
+ *   "DBInstanceIdentifier": "database-2",
+ *   "DBParameterGroupName": "test-sqlserver-se-2017",
+ *   "OptionGroupName": "test-se-2017"
+ * };
+ * const command = new ModifyDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {
+ *     "AssociatedRoles": [],
+ *     "AutoMinorVersionUpgrade": false,
+ *     "AvailabilityZone": "us-west-2d",
+ *     "CharacterSetName": "SQL_Latin1_General_CP1_CI_AS",
+ *     "DBInstanceClass": "db.r4.large",
+ *     "DBInstanceIdentifier": "database-2",
+ *     "DBInstanceStatus": "available",
+ *     "DBParameterGroups": [
+ *       {
+ *         "DBParameterGroupName": "test-sqlserver-se-2017",
+ *         "ParameterApplyStatus": "applying"
+ *       }
+ *     ],
+ *     "DeletionProtection": false,
+ *     "Engine": "sqlserver-se",
+ *     "EngineVersion": "14.00.3281.6.v1",
+ *     "LicenseModel": "license-included",
+ *     "MaxAllocatedStorage": 1000,
+ *     "MultiAZ": true,
+ *     "OptionGroupMemberships": [
+ *       {
+ *         "OptionGroupName": "test-se-2017",
+ *         "Status": "pending-apply"
+ *       }
+ *     ],
+ *     "PubliclyAccessible": true,
+ *     "ReadReplicaDBInstanceIdentifiers": [],
+ *     "SecondaryAvailabilityZone": "us-west-2c",
+ *     "StorageType": "gp2"
+ *   }
+ * }
+ * *\/
+ * // example id: to-modify-parameters-in-a-db-cluster-parameter-group-1680377584537
+ * ```
  *
  */
 export class ModifyDBInstanceCommand extends $Command<
@@ -66,6 +265,9 @@ export class ModifyDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +296,8 @@ export class ModifyDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +307,18 @@ export class ModifyDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBInstanceCommand(input, context);
+    return se_ModifyDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBInstanceCommandOutput> {
-    return deserializeAws_queryModifyDBInstanceCommand(output, context);
+    return de_ModifyDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

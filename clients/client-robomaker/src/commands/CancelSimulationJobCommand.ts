@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelSimulationJobRequest,
-  CancelSimulationJobRequestFilterSensitiveLog,
-  CancelSimulationJobResponse,
-  CancelSimulationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelSimulationJobCommand,
-  serializeAws_restJson1CancelSimulationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelSimulationJobRequest, CancelSimulationJobResponse } from "../models/models_0";
+import { de_CancelSimulationJobCommand, se_CancelSimulationJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelSimulationJobCommand}.
+ */
 export interface CancelSimulationJobCommandInput extends CancelSimulationJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelSimulationJobCommand}.
+ */
 export interface CancelSimulationJobCommandOutput extends CancelSimulationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified simulation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface CancelSimulationJobCommandOutput extends CancelSimulationJobRes
  * import { RoboMakerClient, CancelSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CancelSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // CancelSimulationJobRequest
+ *   job: "STRING_VALUE", // required
+ * };
  * const command = new CancelSimulationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelSimulationJobCommandInput - {@link CancelSimulationJobCommandInput}
+ * @returns {@link CancelSimulationJobCommandOutput}
  * @see {@link CancelSimulationJobCommandInput} for command's `input` shape.
  * @see {@link CancelSimulationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class CancelSimulationJobCommand extends $Command<
@@ -62,6 +84,9 @@ export class CancelSimulationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelSimulationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class CancelSimulationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelSimulationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelSimulationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class CancelSimulationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelSimulationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelSimulationJobCommand(input, context);
+    return se_CancelSimulationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelSimulationJobCommandOutput> {
-    return deserializeAws_restJson1CancelSimulationJobCommand(output, context);
+    return de_CancelSimulationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

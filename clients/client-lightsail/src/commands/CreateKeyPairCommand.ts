@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateKeyPairRequest,
-  CreateKeyPairRequestFilterSensitiveLog,
-  CreateKeyPairResult,
-  CreateKeyPairResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateKeyPairCommand,
-  serializeAws_json1_1CreateKeyPairCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateKeyPairRequest, CreateKeyPairResult } from "../models/models_0";
+import { de_CreateKeyPairCommand, se_CreateKeyPairCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateKeyPairCommand}.
+ */
 export interface CreateKeyPairCommandInput extends CreateKeyPairRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateKeyPairCommand}.
+ */
 export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom SSH key pair that you can use with an Amazon Lightsail
  *       instance.</p>
  *          <note>
@@ -44,13 +47,55 @@ export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __Metad
  * import { LightsailClient, CreateKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateKeyPairRequest
+ *   keyPairName: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateKeyPairCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKeyPairCommandInput - {@link CreateKeyPairCommandInput}
+ * @returns {@link CreateKeyPairCommandOutput}
  * @see {@link CreateKeyPairCommandInput} for command's `input` shape.
  * @see {@link CreateKeyPairCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class CreateKeyPairCommand extends $Command<
@@ -70,6 +115,9 @@ export class CreateKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +144,8 @@ export class CreateKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKeyPairRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateKeyPairResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +155,18 @@ export class CreateKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateKeyPairCommand(input, context);
+    return se_CreateKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyPairCommandOutput> {
-    return deserializeAws_json1_1CreateKeyPairCommand(output, context);
+    return de_CreateKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TerminateProvisionedProductInput,
-  TerminateProvisionedProductInputFilterSensitiveLog,
-  TerminateProvisionedProductOutput,
-  TerminateProvisionedProductOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1TerminateProvisionedProductCommand,
-  serializeAws_json1_1TerminateProvisionedProductCommand,
-} from "../protocols/Aws_json1_1";
+import { TerminateProvisionedProductInput, TerminateProvisionedProductOutput } from "../models/models_0";
+import { de_TerminateProvisionedProductCommand, se_TerminateProvisionedProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link TerminateProvisionedProductCommand}.
+ */
 export interface TerminateProvisionedProductCommandInput extends TerminateProvisionedProductInput {}
+/**
+ * @public
+ *
+ * The output of {@link TerminateProvisionedProductCommand}.
+ */
 export interface TerminateProvisionedProductCommandOutput extends TerminateProvisionedProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates the specified provisioned product.</p>
  *          <p>This operation does not delete any records associated with the provisioned product.</p>
  *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
@@ -38,13 +41,27 @@ export interface TerminateProvisionedProductCommandOutput extends TerminateProvi
  * import { ServiceCatalogClient, TerminateProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, TerminateProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // TerminateProvisionedProductInput
+ *   ProvisionedProductName: "STRING_VALUE",
+ *   ProvisionedProductId: "STRING_VALUE",
+ *   TerminateToken: "STRING_VALUE", // required
+ *   IgnoreErrors: true || false,
+ *   AcceptLanguage: "STRING_VALUE",
+ *   RetainPhysicalResources: true || false,
+ * };
  * const command = new TerminateProvisionedProductCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateProvisionedProductCommandInput - {@link TerminateProvisionedProductCommandInput}
+ * @returns {@link TerminateProvisionedProductCommandOutput}
  * @see {@link TerminateProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link TerminateProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class TerminateProvisionedProductCommand extends $Command<
@@ -64,6 +81,9 @@ export class TerminateProvisionedProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateProvisionedProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +112,8 @@ export class TerminateProvisionedProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateProvisionedProductInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TerminateProvisionedProductOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +123,21 @@ export class TerminateProvisionedProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateProvisionedProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateProvisionedProductCommand(input, context);
+    return se_TerminateProvisionedProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateProvisionedProductCommandOutput> {
-    return deserializeAws_json1_1TerminateProvisionedProductCommand(output, context);
+    return de_TerminateProvisionedProductCommand(output, context);
   }
 
   // Start section: command_body_extra

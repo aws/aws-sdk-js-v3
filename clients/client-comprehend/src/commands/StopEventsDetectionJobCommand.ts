@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  StopEventsDetectionJobRequest,
-  StopEventsDetectionJobRequestFilterSensitiveLog,
-  StopEventsDetectionJobResponse,
-  StopEventsDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopEventsDetectionJobCommand,
-  serializeAws_json1_1StopEventsDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopEventsDetectionJobRequest, StopEventsDetectionJobResponse } from "../models/models_0";
+import { de_StopEventsDetectionJobCommand, se_StopEventsDetectionJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopEventsDetectionJobCommand}.
+ */
 export interface StopEventsDetectionJobCommandInput extends StopEventsDetectionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopEventsDetectionJobCommand}.
+ */
 export interface StopEventsDetectionJobCommandOutput extends StopEventsDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an events detection job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
  * import { ComprehendClient, StopEventsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopEventsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // StopEventsDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopEventsDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopEventsDetectionJobCommandInput - {@link StopEventsDetectionJobCommandInput}
+ * @returns {@link StopEventsDetectionJobCommandOutput}
  * @see {@link StopEventsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopEventsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The specified job was not found. Check the job ID and try again.</p>
+ *
  *
  */
 export class StopEventsDetectionJobCommand extends $Command<
@@ -62,6 +80,9 @@ export class StopEventsDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopEventsDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class StopEventsDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopEventsDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopEventsDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class StopEventsDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopEventsDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopEventsDetectionJobCommand(input, context);
+    return se_StopEventsDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEventsDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopEventsDetectionJobCommand(output, context);
+    return de_StopEventsDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

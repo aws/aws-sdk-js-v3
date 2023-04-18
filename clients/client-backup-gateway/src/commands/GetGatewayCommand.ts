@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  GetGatewayInput,
-  GetGatewayInputFilterSensitiveLog,
-  GetGatewayOutput,
-  GetGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetGatewayCommand,
-  serializeAws_json1_0GetGatewayCommand,
-} from "../protocols/Aws_json1_0";
+import { GetGatewayInput, GetGatewayOutput } from "../models/models_0";
+import { de_GetGatewayCommand, se_GetGatewayCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link GetGatewayCommand}.
+ */
 export interface GetGatewayCommandInput extends GetGatewayInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetGatewayCommand}.
+ */
 export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>By providing the ARN (Amazon Resource Name), this
  *       API returns the gateway.</p>
  * @example
@@ -37,13 +40,32 @@ export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBea
  * import { BackupGatewayClient, GetGatewayCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, GetGatewayCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // GetGatewayInput
+ *   GatewayArn: "STRING_VALUE", // required
+ * };
  * const command = new GetGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGatewayCommandInput - {@link GetGatewayCommandInput}
+ * @returns {@link GetGatewayCommandOutput}
  * @see {@link GetGatewayCommandInput} for command's `input` shape.
  * @see {@link GetGatewayCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action wasn't found.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>TPS has been limited to protect against intentional or unintentional
+ *     high request volumes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
  *
  */
 export class GetGatewayCommand extends $Command<
@@ -63,6 +85,9 @@ export class GetGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +114,8 @@ export class GetGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +125,18 @@ export class GetGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetGatewayCommand(input, context);
+    return se_GetGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGatewayCommandOutput> {
-    return deserializeAws_json1_0GetGatewayCommand(output, context);
+    return de_GetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

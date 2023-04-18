@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  ListMultipartUploadsInput,
-  ListMultipartUploadsInputFilterSensitiveLog,
-  ListMultipartUploadsOutput,
-  ListMultipartUploadsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMultipartUploadsCommand,
-  serializeAws_restJson1ListMultipartUploadsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMultipartUploadsInput, ListMultipartUploadsOutput } from "../models/models_0";
+import { de_ListMultipartUploadsCommand, se_ListMultipartUploadsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMultipartUploadsCommand}.
+ */
 export interface ListMultipartUploadsCommandInput extends ListMultipartUploadsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListMultipartUploadsCommand}.
+ */
 export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists in-progress multipart uploads for the specified vault. An
  *          in-progress multipart upload is a multipart upload that has been initiated by an <a>InitiateMultipartUpload</a> request, but has not yet been completed or aborted.
  *          The list returned in the List Multipart Upload response has no guaranteed order. </p>
@@ -61,13 +64,75 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * import { GlacierClient, ListMultipartUploadsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListMultipartUploadsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // ListMultipartUploadsInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   limit: Number("int"),
+ *   marker: "STRING_VALUE",
+ * };
  * const command = new ListMultipartUploadsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMultipartUploadsCommandInput - {@link ListMultipartUploadsCommandInput}
+ * @returns {@link ListMultipartUploadsCommandOutput}
  * @see {@link ListMultipartUploadsCommandInput} for command's `input` shape.
  * @see {@link ListMultipartUploadsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
+ *          exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ *
+ * @example To list all the in-progress multipart uploads for a vault
+ * ```javascript
+ * // The example lists all the in-progress multipart uploads for the vault named examplevault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "examplevault"
+ * };
+ * const command = new ListMultipartUploadsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "null",
+ *   "UploadsList": [
+ *     {
+ *       "ArchiveDescription": "archive 1",
+ *       "CreationDate": "2012-03-19T23:20:59.130Z",
+ *       "MultipartUploadId": "xsQdFIRsfJr20CW2AbZBKpRZAFTZSJIMtL2hYf8mvp8dM0m4RUzlaqoEye6g3h3ecqB_zqwB7zLDMeSWhwo65re4C4Ev",
+ *       "PartSizeInBytes": 4194304,
+ *       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+ *     },
+ *     {
+ *       "ArchiveDescription": "archive 2",
+ *       "CreationDate": "2012-04-01T15:00:00.000Z",
+ *       "MultipartUploadId": "nPyGOnyFcx67qqX7E-0tSGiRi88hHMOwOxR-_jNyM6RjVMFfV29lFqZ3rNsSaWBugg6OP92pRtufeHdQH7ClIpSF6uJc",
+ *       "PartSizeInBytes": 4194304,
+ *       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+ *     },
+ *     {
+ *       "ArchiveDescription": "archive 3",
+ *       "CreationDate": "2012-03-20T17:03:43.221Z",
+ *       "MultipartUploadId": "qt-RBst_7yO8gVIonIBsAxr2t-db0pE4s8MNeGjKjGdNpuU-cdSAcqG62guwV9r5jh5mLyFPzFEitTpNE7iQfHiu1XoV",
+ *       "PartSizeInBytes": 4194304,
+ *       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-all-the-in-progress-multipart-uploads-for-a-vault-1481935250590
+ * ```
  *
  */
 export class ListMultipartUploadsCommand extends $Command<
@@ -87,6 +152,9 @@ export class ListMultipartUploadsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMultipartUploadsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +183,8 @@ export class ListMultipartUploadsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMultipartUploadsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMultipartUploadsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +194,18 @@ export class ListMultipartUploadsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMultipartUploadsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMultipartUploadsCommand(input, context);
+    return se_ListMultipartUploadsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMultipartUploadsCommandOutput> {
-    return deserializeAws_restJson1ListMultipartUploadsCommand(output, context);
+    return de_ListMultipartUploadsCommand(output, context);
   }
 
   // Start section: command_body_extra

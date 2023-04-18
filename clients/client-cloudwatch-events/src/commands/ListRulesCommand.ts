@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  ListRulesRequest,
-  ListRulesRequestFilterSensitiveLog,
-  ListRulesResponse,
-  ListRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ListRulesCommand, serializeAws_json1_1ListRulesCommand } from "../protocols/Aws_json1_1";
+import { ListRulesRequest, ListRulesResponse } from "../models/models_0";
+import { de_ListRulesCommand, se_ListRulesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRulesCommand}.
+ */
 export interface ListRulesCommandInput extends ListRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRulesCommand}.
+ */
 export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your Amazon EventBridge rules. You can either list all the rules or you can provide
  *       a prefix to match to the rule names.</p>
  *
@@ -37,13 +43,28 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * import { CloudWatchEventsClient, ListRulesCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListRulesCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // ListRulesRequest
+ *   NamePrefix: "STRING_VALUE",
+ *   EventBusName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRulesCommandInput - {@link ListRulesCommandInput}
+ * @returns {@link ListRulesCommandOutput}
  * @see {@link ListRulesCommandInput} for command's `input` shape.
  * @see {@link ListRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class ListRulesCommand extends $Command<
@@ -63,6 +84,9 @@ export class ListRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +113,8 @@ export class ListRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +124,18 @@ export class ListRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRulesCommand(input, context);
+    return se_ListRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesCommandOutput> {
-    return deserializeAws_json1_1ListRulesCommand(output, context);
+    return de_ListRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

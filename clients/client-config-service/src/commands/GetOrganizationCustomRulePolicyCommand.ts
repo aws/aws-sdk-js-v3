@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { GetOrganizationCustomRulePolicyRequest, GetOrganizationCustomRulePolicyResponse } from "../models/models_0";
 import {
-  GetOrganizationCustomRulePolicyRequest,
-  GetOrganizationCustomRulePolicyRequestFilterSensitiveLog,
-  GetOrganizationCustomRulePolicyResponse,
-  GetOrganizationCustomRulePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOrganizationCustomRulePolicyCommand,
-  serializeAws_json1_1GetOrganizationCustomRulePolicyCommand,
+  de_GetOrganizationCustomRulePolicyCommand,
+  se_GetOrganizationCustomRulePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOrganizationCustomRulePolicyCommand}.
+ */
 export interface GetOrganizationCustomRulePolicyCommandInput extends GetOrganizationCustomRulePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetOrganizationCustomRulePolicyCommand}.
+ */
 export interface GetOrganizationCustomRulePolicyCommandOutput
   extends GetOrganizationCustomRulePolicyResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the policy definition containing the logic for your organization Config Custom Policy rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,43 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
  * import { ConfigServiceClient, GetOrganizationCustomRulePolicyCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetOrganizationCustomRulePolicyCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetOrganizationCustomRulePolicyRequest
+ *   OrganizationConfigRuleName: "STRING_VALUE", // required
+ * };
  * const command = new GetOrganizationCustomRulePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOrganizationCustomRulePolicyCommandInput - {@link GetOrganizationCustomRulePolicyCommandInput}
+ * @returns {@link GetOrganizationCustomRulePolicyCommandOutput}
  * @see {@link GetOrganizationCustomRulePolicyCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationCustomRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link NoSuchOrganizationConfigRuleException} (client fault)
+ *  <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *
+ * @throws {@link OrganizationAccessDeniedException} (client fault)
+ *  <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
+ *          <ul>
+ *             <li>
+ *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
+ *             </li>
+ *             <li>
+ *                <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed.
+ * 				Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p>
+ *             </li>
+ *             <li>
+ *                <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization.
+ * 				Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p>
+ *             </li>
+ *             <li>
+ *                <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API.
+ * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+ *
  *
  */
 export class GetOrganizationCustomRulePolicyCommand extends $Command<
@@ -64,6 +100,9 @@ export class GetOrganizationCustomRulePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOrganizationCustomRulePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +131,8 @@ export class GetOrganizationCustomRulePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOrganizationCustomRulePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOrganizationCustomRulePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +142,24 @@ export class GetOrganizationCustomRulePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetOrganizationCustomRulePolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOrganizationCustomRulePolicyCommand(input, context);
+    return se_GetOrganizationCustomRulePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOrganizationCustomRulePolicyCommandOutput> {
-    return deserializeAws_json1_1GetOrganizationCustomRulePolicyCommand(output, context);
+    return de_GetOrganizationCustomRulePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

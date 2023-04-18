@@ -16,43 +16,82 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeAggregateComplianceByConfigRulesRequest,
-  DescribeAggregateComplianceByConfigRulesRequestFilterSensitiveLog,
   DescribeAggregateComplianceByConfigRulesResponse,
-  DescribeAggregateComplianceByConfigRulesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand,
-  serializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand,
+  de_DescribeAggregateComplianceByConfigRulesCommand,
+  se_DescribeAggregateComplianceByConfigRulesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAggregateComplianceByConfigRulesCommand}.
+ */
 export interface DescribeAggregateComplianceByConfigRulesCommandInput
   extends DescribeAggregateComplianceByConfigRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAggregateComplianceByConfigRulesCommand}.
+ */
 export interface DescribeAggregateComplianceByConfigRulesCommandOutput
   extends DescribeAggregateComplianceByConfigRulesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of compliant and noncompliant rules with the
  * 			number of resources for compliant and noncompliant rules. Does not display rules that do not have compliance results.
  * 			</p>
- * 		       <note>
- * 			         <p>The results can return an empty result page, but if you
+ *          <note>
+ *             <p>The results can return an empty result page, but if you
  * 				have a <code>nextToken</code>, the results are displayed on the next
  * 				page.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConfigServiceClient, DescribeAggregateComplianceByConfigRulesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeAggregateComplianceByConfigRulesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeAggregateComplianceByConfigRulesRequest
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   Filters: { // ConfigRuleComplianceFilters
+ *     ConfigRuleName: "STRING_VALUE",
+ *     ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ *     AccountId: "STRING_VALUE",
+ *     AwsRegion: "STRING_VALUE",
+ *   },
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAggregateComplianceByConfigRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAggregateComplianceByConfigRulesCommandInput - {@link DescribeAggregateComplianceByConfigRulesCommandInput}
+ * @returns {@link DescribeAggregateComplianceByConfigRulesCommandOutput}
  * @see {@link DescribeAggregateComplianceByConfigRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregateComplianceByConfigRulesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidLimitException} (client fault)
+ *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is not valid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
+ *  <p>You have specified a configuration aggregator that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *
  *
  */
 export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
@@ -72,6 +111,9 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAggregateComplianceByConfigRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +148,8 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAggregateComplianceByConfigRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAggregateComplianceByConfigRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +159,24 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAggregateComplianceByConfigRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand(input, context);
+    return se_DescribeAggregateComplianceByConfigRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput> {
-    return deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand(output, context);
+    return de_DescribeAggregateComplianceByConfigRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

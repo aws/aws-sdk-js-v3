@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { Rbin } from "../Rbin";
 import { RbinClient } from "../RbinClient";
 
+/**
+ * @public
+ */
 export interface RbinPaginationConfiguration extends PaginationConfiguration {
-  client: Rbin | RbinClient;
+  client: RbinClient;
 }

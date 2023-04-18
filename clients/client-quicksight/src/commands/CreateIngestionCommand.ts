@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateIngestionRequest,
-  CreateIngestionRequestFilterSensitiveLog,
-  CreateIngestionResponse,
-  CreateIngestionResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateIngestionCommand,
-  serializeAws_restJson1CreateIngestionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateIngestionRequest, CreateIngestionResponse } from "../models/models_2";
+import { de_CreateIngestionCommand, se_CreateIngestionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateIngestionCommand}.
+ */
 export interface CreateIngestionCommandInput extends CreateIngestionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateIngestionCommand}.
+ */
 export interface CreateIngestionCommandOutput extends CreateIngestionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and starts a new SPICE ingestion for a dataset. You can manually refresh datasets in
  * 			an Enterprise edition account 32 times in a 24-hour period. You can manually refresh
  * 			datasets in a Standard edition account 8 times in a 24-hour period. Each 24-hour period
@@ -42,13 +45,46 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * import { QuickSightClient, CreateIngestionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateIngestionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // CreateIngestionRequest
+ *   DataSetId: "STRING_VALUE", // required
+ *   IngestionId: "STRING_VALUE", // required
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   IngestionType: "INCREMENTAL_REFRESH" || "FULL_REFRESH",
+ * };
  * const command = new CreateIngestionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIngestionCommandInput - {@link CreateIngestionCommandInput}
+ * @returns {@link CreateIngestionCommandOutput}
  * @see {@link CreateIngestionCommandInput} for command's `input` shape.
  * @see {@link CreateIngestionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to this item. The provided credentials couldn't be
+ * 			validated. You might not be authorized to carry out the request. Make sure that your
+ * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit is exceeded.</p>
+ *
+ * @throws {@link ResourceExistsException} (client fault)
+ *  <p>The resource specified already exists. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
  *
  */
 export class CreateIngestionCommand extends $Command<
@@ -68,6 +104,9 @@ export class CreateIngestionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIngestionCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +135,8 @@ export class CreateIngestionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIngestionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIngestionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +146,18 @@ export class CreateIngestionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIngestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIngestionCommand(input, context);
+    return se_CreateIngestionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIngestionCommandOutput> {
-    return deserializeAws_restJson1CreateIngestionCommand(output, context);
+    return de_CreateIngestionCommand(output, context);
   }
 
   // Start section: command_body_extra

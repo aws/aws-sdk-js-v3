@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFeatureGroupsRequest,
-  ListFeatureGroupsRequestFilterSensitiveLog,
-  ListFeatureGroupsResponse,
-  ListFeatureGroupsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListFeatureGroupsCommand,
-  serializeAws_json1_1ListFeatureGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListFeatureGroupsRequest, ListFeatureGroupsResponse } from "../models/models_3";
+import { de_ListFeatureGroupsCommand, se_ListFeatureGroupsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFeatureGroupsCommand}.
+ */
 export interface ListFeatureGroupsCommandInput extends ListFeatureGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFeatureGroupsCommand}.
+ */
 export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List <code>FeatureGroup</code>s based on given filter and order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * import { SageMakerClient, ListFeatureGroupsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListFeatureGroupsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListFeatureGroupsRequest
+ *   NameContains: "STRING_VALUE",
+ *   FeatureGroupStatusEquals: "Creating" || "Created" || "CreateFailed" || "Deleting" || "DeleteFailed",
+ *   OfflineStoreStatusEquals: "Active" || "Blocked" || "Disabled",
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   SortOrder: "Ascending" || "Descending",
+ *   SortBy: "Name" || "FeatureGroupStatus" || "OfflineStoreStatus" || "CreationTime",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFeatureGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFeatureGroupsCommandInput - {@link ListFeatureGroupsCommandInput}
+ * @returns {@link ListFeatureGroupsCommandOutput}
  * @see {@link ListFeatureGroupsCommandInput} for command's `input` shape.
  * @see {@link ListFeatureGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListFeatureGroupsCommand extends $Command<
@@ -62,6 +79,9 @@ export class ListFeatureGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFeatureGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class ListFeatureGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFeatureGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFeatureGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class ListFeatureGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFeatureGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFeatureGroupsCommand(input, context);
+    return se_ListFeatureGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFeatureGroupsCommandOutput> {
-    return deserializeAws_json1_1ListFeatureGroupsCommand(output, context);
+    return de_ListFeatureGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

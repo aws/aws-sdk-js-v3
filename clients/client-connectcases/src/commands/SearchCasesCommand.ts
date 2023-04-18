@@ -14,36 +14,143 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  SearchCasesRequest,
-  SearchCasesRequestFilterSensitiveLog,
-  SearchCasesResponse,
-  SearchCasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchCasesCommand,
-  serializeAws_restJson1SearchCasesCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchCasesRequest, SearchCasesResponse } from "../models/models_0";
+import { de_SearchCasesCommand, se_SearchCasesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchCasesCommand}.
+ */
 export interface SearchCasesCommandInput extends SearchCasesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchCasesCommand}.
+ */
 export interface SearchCasesCommandOutput extends SearchCasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for cases within their associated Cases domain. Search results are returned
  *       as a paginated list of abridged case documents.</p>
+ *          <note>
+ *             <p>For <code>customer_id</code> you must provide the full customer profile ARN in this
+ *         format: <code> arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
+ *           name/profiles/profile ID</code>. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectCasesClient, SearchCasesCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, SearchCasesCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // SearchCasesRequest
+ *   domainId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   searchTerm: "STRING_VALUE",
+ *   filter: { // CaseFilter Union: only one key present
+ *     field: { // FieldFilter Union: only one key present
+ *       equalTo: { // FieldValue
+ *         id: "STRING_VALUE", // required
+ *         value: { // FieldValueUnion Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       contains: {
+ *         id: "STRING_VALUE", // required
+ *         value: {//  Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       greaterThan: {
+ *         id: "STRING_VALUE", // required
+ *         value: {//  Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       greaterThanOrEqualTo: {
+ *         id: "STRING_VALUE", // required
+ *         value: {//  Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       lessThan: {
+ *         id: "STRING_VALUE", // required
+ *         value: {//  Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       lessThanOrEqualTo: "<FieldValue>",
+ *     },
+ *     not: {//  Union: only one key present
+ *       field: {//  Union: only one key present
+ *         equalTo: "<FieldValue>",
+ *         contains: "<FieldValue>",
+ *         greaterThan: "<FieldValue>",
+ *         greaterThanOrEqualTo: "<FieldValue>",
+ *         lessThan: "<FieldValue>",
+ *         lessThanOrEqualTo: "<FieldValue>",
+ *       },
+ *       not: "<CaseFilter>",
+ *       andAll: [ // CaseFilterList
+ *         "<CaseFilter>",
+ *       ],
+ *     },
+ *     andAll: [
+ *       "<CaseFilter>",
+ *     ],
+ *   },
+ *   sorts: [ // SortList
+ *     { // Sort
+ *       fieldId: "STRING_VALUE", // required
+ *       sortOrder: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   fields: [ // FieldIdentifierList
+ *     { // FieldIdentifier
+ *       id: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SearchCasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchCasesCommandInput - {@link SearchCasesCommandInput}
+ * @returns {@link SearchCasesCommandOutput}
  * @see {@link SearchCasesCommandInput} for command's `input` shape.
  * @see {@link SearchCasesCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We couldn't process your request because of an issue with the server. Try again
+ *       later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We couldn't find the requested resource. Check that your resources exists and were created
+ *       in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. Check the syntax and try again.</p>
+ *
  *
  */
 export class SearchCasesCommand extends $Command<
@@ -63,6 +170,9 @@ export class SearchCasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchCasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +199,8 @@ export class SearchCasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchCasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchCasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +210,18 @@ export class SearchCasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchCasesCommand(input, context);
+    return se_SearchCasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCasesCommandOutput> {
-    return deserializeAws_restJson1SearchCasesCommand(output, context);
+    return de_SearchCasesCommand(output, context);
   }
 
   // Start section: command_body_extra

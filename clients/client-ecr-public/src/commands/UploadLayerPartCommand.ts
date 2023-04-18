@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  UploadLayerPartRequest,
-  UploadLayerPartRequestFilterSensitiveLog,
-  UploadLayerPartResponse,
-  UploadLayerPartResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UploadLayerPartCommand,
-  serializeAws_json1_1UploadLayerPartCommand,
-} from "../protocols/Aws_json1_1";
+import { UploadLayerPartRequest, UploadLayerPartResponse } from "../models/models_0";
+import { de_UploadLayerPartCommand, se_UploadLayerPartCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UploadLayerPartCommand}.
+ */
 export interface UploadLayerPartCommandInput extends UploadLayerPartRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UploadLayerPartCommand}.
+ */
 export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads an image layer part to Amazon ECR.</p>
  *          <p>When an image is pushed, each new image layer is uploaded in parts. The maximum size of
  *          each image layer part can be 20971520 bytes (about 20MB). The UploadLayerPart API is called
@@ -42,13 +45,54 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * import { ECRPUBLICClient, UploadLayerPartCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, UploadLayerPartCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // UploadLayerPartRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   uploadId: "STRING_VALUE", // required
+ *   partFirstByte: Number("long"), // required
+ *   partLastByte: Number("long"), // required
+ *   layerPartBlob: "BLOB_VALUE", // required
+ * };
  * const command = new UploadLayerPartCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadLayerPartCommandInput - {@link UploadLayerPartCommandInput}
+ * @returns {@link UploadLayerPartCommandOutput}
  * @see {@link UploadLayerPartCommandInput} for command's `input` shape.
  * @see {@link UploadLayerPartCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
+ *
+ * @throws {@link InvalidLayerPartException} (client fault)
+ *  <p>The layer part size isn't valid, or the first byte specified isn't consecutive to the
+ *          last byte of a previous layer part upload.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *          request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The operation didn't succeed because it would have exceeded a service limit for your
+ *          account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR Service Quotas</a> in the
+ *          Amazon Elastic Container Registry User Guide.</p>
+ *
+ * @throws {@link RegistryNotFoundException} (client fault)
+ *  <p>The registry doesn't exist.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository can't be found. Check the spelling of the specified repository
+ *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedCommandException} (client fault)
+ *  <p>The action isn't supported in this Region.</p>
+ *
+ * @throws {@link UploadNotFoundException} (client fault)
+ *  <p>The upload can't be found, or the specified upload ID isn't valid for this
+ *          repository.</p>
+ *
  *
  */
 export class UploadLayerPartCommand extends $Command<
@@ -68,6 +112,9 @@ export class UploadLayerPartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadLayerPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +143,8 @@ export class UploadLayerPartCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadLayerPartRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadLayerPartResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +154,18 @@ export class UploadLayerPartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadLayerPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UploadLayerPartCommand(input, context);
+    return se_UploadLayerPartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadLayerPartCommandOutput> {
-    return deserializeAws_json1_1UploadLayerPartCommand(output, context);
+    return de_UploadLayerPartCommand(output, context);
   }
 
   // Start section: command_body_extra

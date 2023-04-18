@@ -6,12 +6,11 @@ import {
   ListReferencesCommandInput,
   ListReferencesCommandOutput,
 } from "../commands/ListReferencesCommand";
-import { Omics } from "../Omics";
 import { OmicsClient } from "../OmicsClient";
 import { OmicsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OmicsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListReferencesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Omics,
-  input: ListReferencesCommandInput,
-  ...args: any
-): Promise<ListReferencesCommandOutput> => {
-  // @ts-ignore
-  return await client.listReferences(input, ...args);
-};
 export async function* paginateListReferences(
   config: OmicsPaginationConfiguration,
   input: ListReferencesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListReferences(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Omics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OmicsClient) {
+    if (config.client instanceof OmicsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Omics | OmicsClient");

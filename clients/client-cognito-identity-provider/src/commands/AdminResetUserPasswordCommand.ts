@@ -23,17 +23,24 @@ import {
   AdminResetUserPasswordRequest,
   AdminResetUserPasswordRequestFilterSensitiveLog,
   AdminResetUserPasswordResponse,
-  AdminResetUserPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminResetUserPasswordCommand,
-  serializeAws_json1_1AdminResetUserPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminResetUserPasswordCommand, se_AdminResetUserPasswordCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AdminResetUserPasswordCommand}.
+ */
 export interface AdminResetUserPasswordCommandInput extends AdminResetUserPasswordRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AdminResetUserPasswordCommand}.
+ */
 export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the specified user's password in a user pool as an administrator. Works on any
  *             user.</p>
  *         <p>When a developer calls this API, the current password is invalidated, so it must be
@@ -70,13 +77,73 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  * import { CognitoIdentityProviderClient, AdminResetUserPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminResetUserPasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminResetUserPasswordRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new AdminResetUserPasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminResetUserPasswordCommandInput - {@link AdminResetUserPasswordCommandInput}
+ * @returns {@link AdminResetUserPasswordCommandOutput}
  * @see {@link AdminResetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link AdminResetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidEmailRoleAccessPolicyException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
+ *             status code: 400.</p>
+ *
+ * @throws {@link InvalidLambdaResponseException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link InvalidSmsRoleAccessPolicyException} (client fault)
+ *  <p>This exception is returned when the role provided for SMS configuration doesn't have
+ *             permission to publish using Amazon SNS.</p>
+ *
+ * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
+ *  <p>This exception is thrown when the trust relationship is not valid for the role
+ *             provided for SMS configuration. This can happen if you don't trust
+ *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *             not match what is provided in the SMS configuration for the user pool.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
+ *             resource.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UnexpectedLambdaException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
+ *             Lambda.</p>
+ *
+ * @throws {@link UserLambdaValidationException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
+ *             with the Lambda service.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
  *
  */
 export class AdminResetUserPasswordCommand extends $Command<
@@ -96,6 +163,9 @@ export class AdminResetUserPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminResetUserPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,7 +196,7 @@ export class AdminResetUserPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminResetUserPasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminResetUserPasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +206,18 @@ export class AdminResetUserPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminResetUserPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminResetUserPasswordCommand(input, context);
+    return se_AdminResetUserPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminResetUserPasswordCommandOutput> {
-    return deserializeAws_json1_1AdminResetUserPasswordCommand(output, context);
+    return de_AdminResetUserPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

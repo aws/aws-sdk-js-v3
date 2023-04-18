@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ListExportsInput,
-  ListExportsInputFilterSensitiveLog,
-  ListExportsOutput,
-  ListExportsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryListExportsCommand, serializeAws_queryListExportsCommand } from "../protocols/Aws_query";
+import { ListExportsInput, ListExportsOutput } from "../models/models_0";
+import { de_ListExportsCommand, se_ListExportsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListExportsCommand}.
+ */
 export interface ListExportsCommandInput extends ListExportsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListExportsCommand}.
+ */
 export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all exported output values in the account and Region in which you call this
  *          action. Use this action to see the exported output values that you can import into other
  *          stacks. To import values, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">
@@ -39,13 +45,19 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * import { CloudFormationClient, ListExportsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListExportsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ListExportsInput
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListExportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExportsCommandInput - {@link ListExportsCommandInput}
+ * @returns {@link ListExportsCommandOutput}
  * @see {@link ListExportsCommandInput} for command's `input` shape.
  * @see {@link ListExportsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
  *
  */
 export class ListExportsCommand extends $Command<
@@ -65,6 +77,9 @@ export class ListExportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +106,8 @@ export class ListExportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExportsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExportsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +117,18 @@ export class ListExportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListExportsCommand(input, context);
+    return se_ListExportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExportsCommandOutput> {
-    return deserializeAws_queryListExportsCommand(output, context);
+    return de_ListExportsCommand(output, context);
   }
 
   // Start section: command_body_extra

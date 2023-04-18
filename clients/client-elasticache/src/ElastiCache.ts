@@ -317,6 +317,7 @@ import {
 import { ElastiCacheClient } from "./ElastiCacheClient";
 
 /**
+ * @public
  * <fullname>Amazon ElastiCache</fullname>
  *          <p>Amazon ElastiCache is a web service that makes it easier to set up, operate,
  *             and scale a distributed cache in the cloud.</p>
@@ -330,6 +331,7 @@ import { ElastiCacheClient } from "./ElastiCacheClient";
  */
 export class ElastiCache extends ElastiCacheClient {
   /**
+   * @public
    * <p>A  tag is a key-value pair where the key and value are case-sensitive.
    *             You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group.
    *           For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
@@ -373,6 +375,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Allows network ingress to a cache
    *             security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2
    *             security groups are used as the authorization mechanism.</p>
@@ -411,6 +414,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Apply the service update. For more information on service updates and applying them, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/applying-updates.html">Applying Service Updates</a>.</p>
    */
   public batchApplyUpdateAction(
@@ -443,6 +447,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Stop the service update. For more information on service updates and stopping them, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/stopping-self-service-updates.html">Stopping Service Updates</a>.</p>
    */
   public batchStopUpdateAction(
@@ -475,6 +480,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Complete the migration of data.</p>
    */
   public completeMigration(
@@ -507,6 +513,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Makes a copy of an existing snapshot.</p>
    *          <note>
    *             <p>This operation is valid for Redis only.</p>
@@ -626,6 +633,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Creates a cluster. All nodes in the
    *             cluster run the same protocol-compliant cache engine software, either Memcached
    *             or Redis.</p>
@@ -661,6 +669,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Creates a new Amazon ElastiCache cache parameter group. An ElastiCache
    *             cache parameter group is a collection of parameters and their values that are applied to all of the nodes
    *             in any cluster or replication group using the CacheParameterGroup.</p>
@@ -708,6 +717,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Creates a new cache security group. Use a
    *             cache security group to control access to one or more clusters.</p>
    *          <p>Cache security groups are only used when you are creating a cluster outside of an Amazon
@@ -745,6 +755,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Creates a new cache subnet group.</p>
    *          <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
    */
@@ -778,6 +789,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Global Datastore for Redis offers fully managed, fast,
    *             reliable and secure cross-region replication.
    *             Using Global Datastore for Redis, you can create cross-region
@@ -824,6 +836,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group.</p>
    *          <p>This API can be used to create a standalone regional replication group or a secondary replication group associated with a Global datastore.</p>
    *          <p>A Redis (cluster mode disabled) replication group is a collection of clusters,
@@ -880,6 +893,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Creates a copy of an entire cluster or replication group at a
    *             specific moment in time.</p>
    *          <note>
@@ -916,6 +930,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>For Redis engine version 6.0 onwards: Creates a Redis user. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
@@ -942,6 +957,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>For Redis engine version 6.0 onwards: Creates a Redis user group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
    *          </p>
    */
@@ -975,6 +991,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Decreases the number of node groups in a Global datastore</p>
    */
   public decreaseNodeGroupsInGlobalReplicationGroup(
@@ -1009,6 +1026,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Dynamically decreases the number of replicas in a Redis (cluster mode disabled) replication group or the number of
    *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
    *             is performed with no cluster down time.</p>
@@ -1043,6 +1061,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Deletes a previously provisioned cluster.
    *                 <code>DeleteCacheCluster</code> deletes all associated cache nodes, node endpoints and the
    *             cluster itself. When you receive a successful response from this operation,
@@ -1103,6 +1122,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified cache parameter
    *             group. You cannot delete a cache parameter group if it is associated with any cache
    *             clusters. You cannot delete the default cache parameter groups in your account.</p>
@@ -1137,6 +1157,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Deletes a cache security group.</p>
    *          <note>
    *             <p>You cannot delete a cache security group if it is associated with any clusters.</p>
@@ -1172,6 +1193,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Deletes a cache subnet group.</p>
    *          <note>
    *             <p>You cannot delete a default cache subnet group or one that is associated with any clusters.</p>
@@ -1207,6 +1229,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Deleting a Global datastore is a two-step process: </p>
    *          <ul>
    *             <li>
@@ -1252,6 +1275,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing replication group.
    *             By default, this operation deletes the entire replication group, including the primary/primaries and all of the read replicas.
    *             If the replication group has only one primary,
@@ -1292,6 +1316,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing snapshot. When you receive a
    *             successful response from this operation, ElastiCache immediately begins deleting the snapshot;
    *             you cannot cancel or revert this operation.</p>
@@ -1329,6 +1354,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>For Redis engine version 6.0 onwards: Deletes a user. The user will be removed from all user groups and in turn removed from all replication groups. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
    */
   public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
@@ -1355,6 +1381,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>For Redis engine version 6.0 onwards: Deletes a user group. The user group must first be disassociated from the replication group before it can be deleted. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
    */
   public deleteUserGroup(
@@ -1387,6 +1414,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns information about all provisioned
    *             clusters if no cluster identifier is specified, or about a specific cache
    *             cluster if a cluster identifier is supplied.</p>
@@ -1434,6 +1462,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the available cache
    *             engines and their versions.</p>
    */
@@ -1467,6 +1496,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of cache parameter group
    *             descriptions. If a cache parameter group name is specified, the list contains only
    *             the descriptions for that group.</p>
@@ -1501,6 +1531,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns the detailed parameter list for a
    *             particular cache parameter group.</p>
    */
@@ -1534,6 +1565,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of cache security group
    *             descriptions. If a cache security group name is specified, the list contains only
    *             the description of that group. This applicable only when you have ElastiCache in Classic setup
@@ -1569,6 +1601,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of cache subnet group
    *             descriptions. If a subnet group name is specified, the list  contains only the
    *             description of that group. This is applicable only when you have ElastiCache in VPC setup. All ElastiCache clusters now launch in VPC by default.
@@ -1604,6 +1637,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns the default engine and
    *             system parameter information for the specified cache engine.</p>
    */
@@ -1637,6 +1671,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns events related to clusters, cache
    *             security groups, and cache parameter groups. You can obtain events specific to a
    *             particular cluster, cache security group, or cache parameter group by providing
@@ -1674,6 +1709,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a particular global replication group. If no identifier is specified, returns information about all Global datastores. </p>
    */
   public describeGlobalReplicationGroups(
@@ -1706,6 +1742,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a particular
    *             replication group. If no identifier is specified, <code>DescribeReplicationGroups</code>
    *             returns information about all replication groups.</p>
@@ -1743,6 +1780,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns information about reserved cache
    *             nodes for this account, or about a specified reserved cache node.</p>
    */
@@ -1776,6 +1814,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Lists available reserved cache
    *             node offerings.</p>
    */
@@ -1809,6 +1848,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns details of the service updates</p>
    */
   public describeServiceUpdates(
@@ -1841,6 +1881,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns information about cluster or replication group snapshots.
    *             By default, <code>DescribeSnapshots</code> lists all of your snapshots; it can optionally
    *             describe a single snapshot, or just the snapshots associated with a particular cache
@@ -1879,6 +1920,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns details of the update actions </p>
    */
   public describeUpdateActions(
@@ -1911,6 +1953,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of user groups.</p>
    */
   public describeUserGroups(
@@ -1943,6 +1986,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of users.</p>
    */
   public describeUsers(
@@ -1975,6 +2019,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Remove a secondary cluster from the Global datastore using the Global datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that Amazon region.</p>
    */
   public disassociateGlobalReplicationGroup(
@@ -2007,6 +2052,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Used to failover the primary region to a secondary region. The secondary region will become primary, and all other clusters will become secondary.</p>
    */
   public failoverGlobalReplicationGroup(
@@ -2039,6 +2085,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Increase the number of node groups in the Global datastore</p>
    */
   public increaseNodeGroupsInGlobalReplicationGroup(
@@ -2073,6 +2120,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Dynamically increases the number of replicas in a Redis (cluster mode disabled) replication group or the number of
    *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
    *             is performed with no cluster down time.</p>
@@ -2107,6 +2155,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Lists all available node types that you
    *             can scale your Redis cluster's or replication group's current node type.</p>
    *          <p>When you use the <code>ModifyCacheCluster</code> or <code>ModifyReplicationGroup</code> operations to
@@ -2143,6 +2192,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags currently on a  named resource.</p>
    *          <p>    A  tag is a key-value pair where the key and value are case-sensitive.
    *             You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group.
@@ -2180,6 +2230,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Modifies the settings for a cluster. You
    *             can use this operation to change one or more cluster configuration parameters by
    *             specifying the parameters and the new values.</p>
@@ -2214,6 +2265,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Modifies the parameters of a cache
    *             parameter group. You can modify up to 20 parameters in a single request by submitting a
    *             list parameter name and value pairs.</p>
@@ -2248,6 +2300,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Modifies an existing cache subnet group.</p>
    */
   public modifyCacheSubnetGroup(
@@ -2280,6 +2333,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Modifies the settings for a Global datastore.</p>
    */
   public modifyGlobalReplicationGroup(
@@ -2312,6 +2366,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Modifies the settings for a replication group.</p>
    *          <ul>
    *             <li>
@@ -2359,6 +2414,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Modifies a replication group's shards (node groups) by allowing you to
    *             add shards, remove shards, or rebalance the keyspaces among existing shards.</p>
    */
@@ -2394,6 +2450,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Changes user password(s) and/or access string.</p>
    */
   public modifyUser(args: ModifyUserCommandInput, options?: __HttpHandlerOptions): Promise<ModifyUserCommandOutput>;
@@ -2420,6 +2477,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Changes the list of users that belong to the user group.</p>
    */
   public modifyUserGroup(
@@ -2452,6 +2510,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Allows you to purchase a reserved
    *             cache node offering. Reserved nodes are not eligible for cancellation and are non-refundable. For more information,
    *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Redis or
@@ -2487,6 +2546,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Redistribute slots to ensure uniform distribution across existing shards in the cluster.</p>
    */
   public rebalanceSlotsInGlobalReplicationGroup(
@@ -2521,6 +2581,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Reboots some, or all, of the cache nodes
    *             within a provisioned cluster. This operation applies any modified cache parameter
    *             groups to the cluster. The reboot operation takes place as soon as possible, and
@@ -2563,6 +2624,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Removes the tags identified by the <code>TagKeys</code>
    *             list from the named resource. A  tag is a key-value pair where the key and value are case-sensitive.
    *             You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group.
@@ -2598,6 +2660,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Modifies the parameters of a cache
    *             parameter group to the engine or system default value. You can reset specific parameters
    *             by submitting a list of parameter names. To reset the entire cache parameter group,
@@ -2633,6 +2696,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Revokes ingress from a cache security group.
    *             Use this operation to disallow access from an Amazon EC2 security group
    *             that had been previously authorized.</p>
@@ -2667,6 +2731,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Start the migration of data.</p>
    */
   public startMigration(
@@ -2699,6 +2764,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * @public
    * <p>Represents the input of a <code>TestFailover</code> operation which test automatic failover on
    *             a specified node group (called shard in the console) in a replication group (called cluster in the console).</p>
    *          <p>This API is designed for testing the behavior of your application in case of ElastiCache failover. It is not designed to be an operational tool

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyGlobalClusterMessage,
-  ModifyGlobalClusterMessageFilterSensitiveLog,
-  ModifyGlobalClusterResult,
-  ModifyGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyGlobalClusterCommand,
-  serializeAws_queryModifyGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { ModifyGlobalClusterMessage, ModifyGlobalClusterResult } from "../models/models_1";
+import { de_ModifyGlobalClusterCommand, se_ModifyGlobalClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyGlobalClusterCommand}.
+ */
 export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyGlobalClusterCommand}.
+ */
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify a setting for an Amazon Aurora global cluster. You can change one or more database configuration
  *         parameters by specifying these parameters and the new values in the request. For more information on
  *         Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
@@ -42,13 +45,62 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * import { RDSClient, ModifyGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyGlobalClusterMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   NewGlobalClusterIdentifier: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AllowMajorVersionUpgrade: true || false,
+ * };
  * const command = new ModifyGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyGlobalClusterCommandInput - {@link ModifyGlobalClusterCommandInput}
+ * @returns {@link ModifyGlobalClusterCommandOutput}
  * @see {@link ModifyGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link GlobalClusterNotFoundFault} (client fault)
+ *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link InvalidGlobalClusterStateFault} (client fault)
+ *  <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+ *
+ *
+ * @example To modify a global database cluster
+ * ```javascript
+ * // The following example enables deletion protection for an Aurora MySQL-based global database cluster.
+ * const input = {
+ *   "DeletionProtection": true,
+ *   "GlobalClusterIdentifier": "myglobalcluster"
+ * };
+ * const command = new ModifyGlobalClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GlobalCluster": {
+ *     "DeletionProtection": true,
+ *     "Engine": "aurora-mysql",
+ *     "EngineVersion": "5.7.mysql_aurora.2.07.2",
+ *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     "GlobalClusterIdentifier": "myglobalcluster",
+ *     "GlobalClusterMembers": [],
+ *     "GlobalClusterResourceId": "cluster-f0e523bfe07aabb",
+ *     "Status": "available",
+ *     "StorageEncrypted": false
+ *   }
+ * }
+ * *\/
+ * // example id: to-modify-a-global-database-cluster-1680385137511
+ * ```
  *
  */
 export class ModifyGlobalClusterCommand extends $Command<
@@ -68,6 +120,9 @@ export class ModifyGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +151,8 @@ export class ModifyGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +162,18 @@ export class ModifyGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyGlobalClusterCommand(input, context);
+    return se_ModifyGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyGlobalClusterCommandOutput> {
-    return deserializeAws_queryModifyGlobalClusterCommand(output, context);
+    return de_ModifyGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  DecryptRequest,
-  DecryptRequestFilterSensitiveLog,
-  DecryptResponse,
-  DecryptResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1DecryptCommand, serializeAws_json1_1DecryptCommand } from "../protocols/Aws_json1_1";
+import { DecryptRequest, DecryptResponse, DecryptResponseFilterSensitiveLog } from "../models/models_0";
+import { de_DecryptCommand, se_DecryptCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DecryptCommand}.
+ */
 export interface DecryptCommandInput extends DecryptRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DecryptCommand}.
+ */
 export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Decrypts ciphertext that was encrypted by a KMS key using any of the following
  *       operations:</p>
  *          <ul>
@@ -73,8 +79,8 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *       the <code>Decrypt</code> operation fails. This practice ensures that you use the KMS key that
  *       you intend.</p>
  *          <p>Whenever possible, use key policies to give users permission to call the
- *         <code>Decrypt</code> operation on a particular KMS key, instead of using IAM policies.
- *       Otherwise, you might create an IAM user policy that gives the user <code>Decrypt</code>
+ *         <code>Decrypt</code> operation on a particular KMS key, instead of using &IAM; policies.
+ *       Otherwise, you might create an &IAM; policy that gives the user <code>Decrypt</code>
  *       permission on all KMS keys. This user could decrypt ciphertext that was encrypted by KMS keys
  *       in other accounts if the key policy for the cross-account KMS key permits it. If you must use
  *       an IAM policy for <code>Decrypt</code> permissions, limit the user to particular KMS keys or
@@ -84,9 +90,9 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
- *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter. </p>
- *
+ *             <b>Cross-account use</b>: Yes. If you use the <code>KeyId</code>
+ *       parameter to identify a KMS key in a different Amazon Web Services account, specify the key ARN or the alias
+ *       ARN of the KMS key.</p>
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Decrypt</a> (key policy)</p>
  *          <p>
@@ -120,13 +126,120 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * import { KMSClient, DecryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DecryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // DecryptRequest
+ *   CiphertextBlob: "BLOB_VALUE", // required
+ *   EncryptionContext: { // EncryptionContextType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ *   KeyId: "STRING_VALUE",
+ *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ * };
  * const command = new DecryptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DecryptCommandInput - {@link DecryptCommandInput}
+ * @returns {@link DecryptCommandOutput}
  * @see {@link DecryptCommandInput} for command's `input` shape.
  * @see {@link DecryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link DisabledException} (client fault)
+ *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link IncorrectKeyException} (client fault)
+ *  <p>The request was rejected because the specified KMS key cannot decrypt the data. The
+ *         <code>KeyId</code> in a <a>Decrypt</a> request and the <code>SourceKeyId</code>
+ *       in a <a>ReEncrypt</a> request must identify the same KMS key that was used to
+ *       encrypt the ciphertext.</p>
+ *
+ * @throws {@link InvalidCiphertextException} (client fault)
+ *  <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request
+ *       was rejected because the specified ciphertext, or additional authenticated data incorporated
+ *       into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise
+ *       invalid.</p>
+ *          <p>From the <a>ImportKeyMaterial</a> operation, the request was rejected because
+ *       KMS could not decrypt the encrypted (wrapped) key material. </p>
+ *
+ * @throws {@link InvalidGrantTokenException} (client fault)
+ *  <p>The request was rejected because the specified grant token is not valid.</p>
+ *
+ * @throws {@link InvalidKeyUsageException} (client fault)
+ *  <p>The request was rejected for one of the following reasons: </p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API
+ *           operation.</p>
+ *             </li>
+ *             <li>
+ *                <p>The encryption algorithm or signing algorithm specified for the operation is
+ *           incompatible with the type of key material in the KMS key <code>(KeySpec</code>).</p>
+ *             </li>
+ *          </ul>
+ *          <p>For encrypting, decrypting, re-encrypting, and generating data keys, the
+ *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
+ *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
+ *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
+ *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
+ *         <a>DescribeKey</a> operation.</p>
+ *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
+ *         <a>DescribeKey</a> operation.</p>
+ *
+ * @throws {@link KeyUnavailableException} (server fault)
+ *  <p>The request was rejected because the specified KMS key was not available. You can retry
+ *       the request.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ *
+ * @example To decrypt data
+ * ```javascript
+ * // The following example decrypts data that was encrypted with a KMS key.
+ * const input = {
+ *   "CiphertextBlob": "<binary data>",
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new DecryptCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "Plaintext": "<binary data>"
+ * }
+ * *\/
+ * // example id: to-decrypt-data-1478281622886
+ * ```
  *
  */
 export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommandOutput, KMSClientResolvedConfig> {
@@ -142,6 +255,9 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecryptCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,7 +284,7 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DecryptRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DecryptResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -179,12 +295,18 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DecryptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DecryptCommand(input, context);
+    return se_DecryptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DecryptCommandOutput> {
-    return deserializeAws_json1_1DecryptCommand(output, context);
+    return de_DecryptCommand(output, context);
   }
 
   // Start section: command_body_extra

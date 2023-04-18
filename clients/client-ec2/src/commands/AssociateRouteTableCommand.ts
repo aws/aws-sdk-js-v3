@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateRouteTableRequest,
-  AssociateRouteTableRequestFilterSensitiveLog,
-  AssociateRouteTableResult,
-  AssociateRouteTableResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateRouteTableCommand,
-  serializeAws_ec2AssociateRouteTableCommand,
-} from "../protocols/Aws_ec2";
+import { AssociateRouteTableRequest, AssociateRouteTableResult } from "../models/models_0";
+import { de_AssociateRouteTableCommand, se_AssociateRouteTableCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link AssociateRouteTableCommand}.
+ */
 export interface AssociateRouteTableCommandInput extends AssociateRouteTableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateRouteTableCommand}.
+ */
 export interface AssociateRouteTableCommandOutput extends AssociateRouteTableResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a subnet in your VPC or an internet gateway or virtual private gateway
  *             attached to your VPC with a route table in your VPC. This association causes traffic
  *             from the subnet or gateway to be routed according to the routes in the route table. The
@@ -42,13 +45,39 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * import { EC2Client, AssociateRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssociateRouteTableRequest
+ *   DryRun: true || false,
+ *   RouteTableId: "STRING_VALUE", // required
+ *   SubnetId: "STRING_VALUE",
+ *   GatewayId: "STRING_VALUE",
+ * };
  * const command = new AssociateRouteTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateRouteTableCommandInput - {@link AssociateRouteTableCommandInput}
+ * @returns {@link AssociateRouteTableCommandOutput}
  * @see {@link AssociateRouteTableCommandInput} for command's `input` shape.
  * @see {@link AssociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To associate a route table with a subnet
+ * ```javascript
+ * // This example associates the specified route table with the specified subnet.
+ * const input = {
+ *   "RouteTableId": "rtb-22574640",
+ *   "SubnetId": "subnet-9d4a7b6"
+ * };
+ * const command = new AssociateRouteTableCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AssociationId": "rtbassoc-781d0d1a"
+ * }
+ * *\/
+ * // example id: ec2-associate-route-table-1
+ * ```
  *
  */
 export class AssociateRouteTableCommand extends $Command<
@@ -68,6 +97,9 @@ export class AssociateRouteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateRouteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +128,8 @@ export class AssociateRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateRouteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateRouteTableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +139,18 @@ export class AssociateRouteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateRouteTableCommand(input, context);
+    return se_AssociateRouteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRouteTableCommandOutput> {
-    return deserializeAws_ec2AssociateRouteTableCommand(output, context);
+    return de_AssociateRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

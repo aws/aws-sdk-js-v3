@@ -13,41 +13,41 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketPolicyOutput,
-  GetBucketPolicyOutputFilterSensitiveLog,
-  GetBucketPolicyRequest,
-  GetBucketPolicyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketPolicyCommand,
-  serializeAws_restXmlGetBucketPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketPolicyOutput, GetBucketPolicyRequest } from "../models/models_0";
+import { de_GetBucketPolicyCommand, se_GetBucketPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBucketPolicyCommand}.
+ */
 export interface GetBucketPolicyCommandInput extends GetBucketPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBucketPolicyCommand}.
+ */
 export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the policy of a specified bucket. If you are using an identity other than the
  *          root user of the Amazon Web Services account that owns the bucket, the calling identity must have the
  *             <code>GetBucketPolicy</code> permissions on the specified bucket and belong to the
  *          bucket owner's account in order to use this operation.</p>
- *
  *          <p>If you don't have <code>GetBucketPolicy</code> permissions, Amazon S3 returns a <code>403
  *             Access Denied</code> error. If you have the correct permissions, but you're not using an
  *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
  *             Allowed</code> error.</p>
- *
  *          <important>
  *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
  *             always use this operation, even if the policy explicitly denies the root user the
  *             ability to perform this action.</p>
  *          </important>
- *
+ *          <p>To use this API against an access point, provide the alias of the access point in place of the bucket name.</p>
  *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
  *             Policies</a>.</p>
- *
  *          <p>The following action is related to <code>GetBucketPolicy</code>:</p>
  *          <ul>
  *             <li>
@@ -62,13 +62,36 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __M
  * import { S3Client, GetBucketPolicyCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketPolicyCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketPolicyRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketPolicyCommandInput - {@link GetBucketPolicyCommandInput}
+ * @returns {@link GetBucketPolicyCommandOutput}
  * @see {@link GetBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link GetBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ *
+ * @example To get bucket policy
+ * ```javascript
+ * // The following example returns bucket policy associated with a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new GetBucketPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Policy": "{\"Version\":\"2008-10-17\",\"Id\":\"LogPolicy\",\"Statement\":[{\"Sid\":\"Enables the log delivery group to publish logs to your bucket \",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"111122223333\"},\"Action\":[\"s3:GetBucketAcl\",\"s3:GetObjectAcl\",\"s3:PutObject\"],\"Resource\":[\"arn:aws:s3:::policytest1/*\",\"arn:aws:s3:::policytest1\"]}]}"
+ * }
+ * *\/
+ * // example id: to-get-bucket-policy-1481595098424
+ * ```
  *
  */
 export class GetBucketPolicyCommand extends $Command<
@@ -94,6 +117,9 @@ export class GetBucketPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +148,8 @@ export class GetBucketPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +159,18 @@ export class GetBucketPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketPolicyCommand(input, context);
+    return se_GetBucketPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketPolicyCommandOutput> {
-    return deserializeAws_restXmlGetBucketPolicyCommand(output, context);
+    return de_GetBucketPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

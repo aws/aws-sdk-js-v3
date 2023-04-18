@@ -6,12 +6,11 @@ import {
   ListLoggingConfigurationsCommandInput,
   ListLoggingConfigurationsCommandOutput,
 } from "../commands/ListLoggingConfigurationsCommand";
-import { Ivschat } from "../Ivschat";
 import { IvschatClient } from "../IvschatClient";
 import { IvschatPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IvschatClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListLoggingConfigurationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Ivschat,
-  input: ListLoggingConfigurationsCommandInput,
-  ...args: any
-): Promise<ListLoggingConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listLoggingConfigurations(input, ...args);
-};
 export async function* paginateListLoggingConfigurations(
   config: IvschatPaginationConfiguration,
   input: ListLoggingConfigurationsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListLoggingConfigurations(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Ivschat) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IvschatClient) {
+    if (config.client instanceof IvschatClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Ivschat | IvschatClient");

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetApnsChannelRequest,
-  GetApnsChannelRequestFilterSensitiveLog,
-  GetApnsChannelResponse,
-  GetApnsChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetApnsChannelRequest, GetApnsChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetApnsChannelCommand,
-  serializeAws_restJson1GetApnsChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetApnsChannelCommand, se_GetApnsChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetApnsChannelCommand}.
+ */
 export interface GetApnsChannelCommandInput extends GetApnsChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetApnsChannelCommand}.
+ */
 export interface GetApnsChannelCommandOutput extends GetApnsChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the APNs channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface GetApnsChannelCommandOutput extends GetApnsChannelResponse, __M
  * import { PinpointClient, GetApnsChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetApnsChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetApnsChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetApnsChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApnsChannelCommandInput - {@link GetApnsChannelCommandInput}
+ * @returns {@link GetApnsChannelCommandOutput}
  * @see {@link GetApnsChannelCommandInput} for command's `input` shape.
  * @see {@link GetApnsChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class GetApnsChannelCommand extends $Command<
@@ -62,6 +92,9 @@ export class GetApnsChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApnsChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class GetApnsChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApnsChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApnsChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class GetApnsChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApnsChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApnsChannelCommand(input, context);
+    return se_GetApnsChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApnsChannelCommandOutput> {
-    return deserializeAws_restJson1GetApnsChannelCommand(output, context);
+    return de_GetApnsChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

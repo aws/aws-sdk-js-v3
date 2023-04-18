@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDBSubnetGroupMessage,
-  CreateDBSubnetGroupMessageFilterSensitiveLog,
-  CreateDBSubnetGroupResult,
-  CreateDBSubnetGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBSubnetGroupCommand,
-  serializeAws_queryCreateDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/models_0";
+import { de_CreateDBSubnetGroupCommand, se_CreateDBSubnetGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDBSubnetGroupCommand}.
+ */
 export interface CreateDBSubnetGroupCommandInput extends CreateDBSubnetGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDBSubnetGroupCommand}.
+ */
 export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,98 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * import { RDSClient, CreateDBSubnetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBSubnetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CreateDBSubnetGroupMessage
+ *   DBSubnetGroupName: "STRING_VALUE", // required
+ *   DBSubnetGroupDescription: "STRING_VALUE", // required
+ *   SubnetIds: [ // SubnetIdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBSubnetGroupCommandInput - {@link CreateDBSubnetGroupCommandInput}
+ * @returns {@link CreateDBSubnetGroupCommandOutput}
  * @see {@link CreateDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBSubnetGroupAlreadyExistsFault} (client fault)
+ *  <p>
+ *             <code>DBSubnetGroupName</code> is already used by an existing DB subnet group.</p>
+ *
+ * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
+ *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+ *
+ * @throws {@link DBSubnetGroupQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of DB subnet
+ *             groups.</p>
+ *
+ * @throws {@link DBSubnetQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of subnets in a
+ *             DB subnet groups.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+ *
+ *
+ * @example To create a DB subnet group
+ * ```javascript
+ * // The following example creates a DB subnet group called mysubnetgroup using existing subnets.
+ * const input = {
+ *   "DBSubnetGroupDescription": "test DB subnet group",
+ *   "DBSubnetGroupName": "mysubnetgroup",
+ *   "SubnetIds": [
+ *     "subnet-0a1dc4e1a6f123456",
+ *     "subnet-070dd7ecb3aaaaaaa",
+ *     "subnet-00f5b198bc0abcdef"
+ *   ]
+ * };
+ * const command = new CreateDBSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSubnetGroup": {
+ *     "DBSubnetGroupArn": "arn:aws:rds:us-west-2:0123456789012:subgrp:mysubnetgroup",
+ *     "DBSubnetGroupDescription": "test DB subnet group",
+ *     "DBSubnetGroupName": "mysubnetgroup",
+ *     "SubnetGroupStatus": "Complete",
+ *     "Subnets": [
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-west-2b"
+ *         },
+ *         "SubnetIdentifier": "subnet-070dd7ecb3aaaaaaa",
+ *         "SubnetStatus": "Active"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-west-2d"
+ *         },
+ *         "SubnetIdentifier": "subnet-00f5b198bc0abcdef",
+ *         "SubnetStatus": "Active"
+ *       },
+ *       {
+ *         "SubnetAvailabilityZone": {
+ *           "Name": "us-west-2b"
+ *         },
+ *         "SubnetIdentifier": "subnet-0a1dc4e1a6f123456",
+ *         "SubnetStatus": "Active"
+ *       }
+ *     ],
+ *     "VpcId": "vpc-0f08e7610a1b2c3d4"
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-db-subnet-group-1679942682822
+ * ```
  *
  */
 export class CreateDBSubnetGroupCommand extends $Command<
@@ -62,6 +150,9 @@ export class CreateDBSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +181,8 @@ export class CreateDBSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBSubnetGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +192,18 @@ export class CreateDBSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBSubnetGroupCommand(input, context);
+    return se_CreateDBSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryCreateDBSubnetGroupCommand(output, context);
+    return de_CreateDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

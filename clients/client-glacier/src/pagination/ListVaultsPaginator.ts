@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListVaultsCommand, ListVaultsCommandInput, ListVaultsCommandOutput } from "../commands/ListVaultsCommand";
-import { Glacier } from "../Glacier";
 import { GlacierClient } from "../GlacierClient";
 import { GlacierPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlacierClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListVaultsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Glacier,
-  input: ListVaultsCommandInput,
-  ...args: any
-): Promise<ListVaultsCommandOutput> => {
-  // @ts-ignore
-  return await client.listVaults(input, ...args);
-};
 export async function* paginateListVaults(
   config: GlacierPaginationConfiguration,
   input: ListVaultsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListVaults(
   while (hasNext) {
     input.marker = token;
     input["limit"] = config.pageSize;
-    if (config.client instanceof Glacier) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlacierClient) {
+    if (config.client instanceof GlacierClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Glacier | GlacierClient");

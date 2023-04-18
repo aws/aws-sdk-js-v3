@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DescribeFleetLocationAttributesInput, DescribeFleetLocationAttributesOutput } from "../models/models_0";
 import {
-  DescribeFleetLocationAttributesInput,
-  DescribeFleetLocationAttributesInputFilterSensitiveLog,
-  DescribeFleetLocationAttributesOutput,
-  DescribeFleetLocationAttributesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetLocationAttributesCommand,
-  serializeAws_json1_1DescribeFleetLocationAttributesCommand,
+  de_DescribeFleetLocationAttributesCommand,
+  se_DescribeFleetLocationAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetLocationAttributesCommand}.
+ */
 export interface DescribeFleetLocationAttributesCommandInput extends DescribeFleetLocationAttributesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetLocationAttributesCommand}.
+ */
 export interface DescribeFleetLocationAttributesCommandOutput
   extends DescribeFleetLocationAttributesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information on a fleet's remote locations, including life-cycle status and
  *             any suspended fleet activity. </p>
  *         <p>This operation can be used in the following ways: </p>
@@ -63,13 +69,41 @@ export interface DescribeFleetLocationAttributesCommandOutput
  * import { GameLiftClient, DescribeFleetLocationAttributesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetLocationAttributesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeFleetLocationAttributesInput
+ *   FleetId: "STRING_VALUE", // required
+ *   Locations: [ // LocationList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetLocationAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetLocationAttributesCommandInput - {@link DescribeFleetLocationAttributesCommandInput}
+ * @returns {@link DescribeFleetLocationAttributesCommandOutput}
  * @see {@link DescribeFleetLocationAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetLocationAttributesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class DescribeFleetLocationAttributesCommand extends $Command<
@@ -89,6 +123,9 @@ export class DescribeFleetLocationAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetLocationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +154,8 @@ export class DescribeFleetLocationAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetLocationAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetLocationAttributesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +165,24 @@ export class DescribeFleetLocationAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFleetLocationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetLocationAttributesCommand(input, context);
+    return se_DescribeFleetLocationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetLocationAttributesCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetLocationAttributesCommand(output, context);
+    return de_DescribeFleetLocationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

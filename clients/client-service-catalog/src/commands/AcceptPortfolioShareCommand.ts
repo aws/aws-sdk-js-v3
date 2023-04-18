@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AcceptPortfolioShareInput,
-  AcceptPortfolioShareInputFilterSensitiveLog,
-  AcceptPortfolioShareOutput,
-  AcceptPortfolioShareOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AcceptPortfolioShareCommand,
-  serializeAws_json1_1AcceptPortfolioShareCommand,
-} from "../protocols/Aws_json1_1";
+import { AcceptPortfolioShareInput, AcceptPortfolioShareOutput } from "../models/models_0";
+import { de_AcceptPortfolioShareCommand, se_AcceptPortfolioShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AcceptPortfolioShareCommand}.
+ */
 export interface AcceptPortfolioShareCommandInput extends AcceptPortfolioShareInput {}
+/**
+ * @public
+ *
+ * The output of {@link AcceptPortfolioShareCommand}.
+ */
 export interface AcceptPortfolioShareCommandOutput extends AcceptPortfolioShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts an offer to share the specified portfolio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface AcceptPortfolioShareCommandOutput extends AcceptPortfolioShareO
  * import { ServiceCatalogClient, AcceptPortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, AcceptPortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // AcceptPortfolioShareInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   PortfolioShareType: "IMPORTED" || "AWS_SERVICECATALOG" || "AWS_ORGANIZATIONS",
+ * };
  * const command = new AcceptPortfolioShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptPortfolioShareCommandInput - {@link AcceptPortfolioShareCommandInput}
+ * @returns {@link AcceptPortfolioShareCommandOutput}
  * @see {@link AcceptPortfolioShareCommandInput} for command's `input` shape.
  * @see {@link AcceptPortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
+ *          resource use or increase your service limits and retry the operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class AcceptPortfolioShareCommand extends $Command<
@@ -62,6 +83,9 @@ export class AcceptPortfolioShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptPortfolioShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class AcceptPortfolioShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptPortfolioShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptPortfolioShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class AcceptPortfolioShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptPortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptPortfolioShareCommand(input, context);
+    return se_AcceptPortfolioShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptPortfolioShareCommandOutput> {
-    return deserializeAws_json1_1AcceptPortfolioShareCommand(output, context);
+    return de_AcceptPortfolioShareCommand(output, context);
   }
 
   // Start section: command_body_extra

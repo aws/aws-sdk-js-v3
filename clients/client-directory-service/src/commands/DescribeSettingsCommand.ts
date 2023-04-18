@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DescribeSettingsRequest,
-  DescribeSettingsRequestFilterSensitiveLog,
-  DescribeSettingsResult,
-  DescribeSettingsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSettingsCommand,
-  serializeAws_json1_1DescribeSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSettingsRequest, DescribeSettingsResult } from "../models/models_0";
+import { de_DescribeSettingsCommand, se_DescribeSettingsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSettingsCommand}.
+ */
 export interface DescribeSettingsCommandInput extends DescribeSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSettingsCommand}.
+ */
 export interface DescribeSettingsCommandOutput extends DescribeSettingsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the configurable settings for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface DescribeSettingsCommandOutput extends DescribeSettingsResult, _
  * import { DirectoryServiceClient, DescribeSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DescribeSettingsRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   Status: "Requested" || "Updating" || "Updated" || "Failed" || "Default",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSettingsCommandInput - {@link DescribeSettingsCommandInput}
+ * @returns {@link DescribeSettingsCommandOutput}
  * @see {@link DescribeSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryDoesNotExistException} (client fault)
+ *  <p>The specified directory does not exist in the system.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
  *
  */
 export class DescribeSettingsCommand extends $Command<
@@ -62,6 +91,9 @@ export class DescribeSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class DescribeSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSettingsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class DescribeSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSettingsCommand(input, context);
+    return se_DescribeSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeSettingsCommand(output, context);
+    return de_DescribeSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

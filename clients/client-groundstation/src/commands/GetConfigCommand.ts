@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  GetConfigRequest,
-  GetConfigRequestFilterSensitiveLog,
-  GetConfigResponse,
-  GetConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConfigCommand,
-  serializeAws_restJson1GetConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { GetConfigRequest, GetConfigResponse } from "../models/models_0";
+import { de_GetConfigCommand, se_GetConfigCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetConfigCommand}.
+ */
 export interface GetConfigCommandInput extends GetConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetConfigCommand}.
+ */
 export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns <code>Config</code> information.</p>
  *          <p>Only one <code>Config</code> response can be returned.</p>
  * @example
@@ -37,13 +40,29 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * import { GroundStationClient, GetConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, GetConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // GetConfigRequest
+ *   configId: "STRING_VALUE", // required
+ *   configType: "STRING_VALUE", // required
+ * };
  * const command = new GetConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigCommandInput - {@link GetConfigCommandInput}
+ * @returns {@link GetConfigCommandOutput}
  * @see {@link GetConfigCommandInput} for command's `input` shape.
  * @see {@link GetConfigCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
+ *
+ * @throws {@link DependencyException} (server fault)
+ *  <p>Dependency encountered an error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource was not found.</p>
+ *
  *
  */
 export class GetConfigCommand extends $Command<
@@ -63,6 +82,9 @@ export class GetConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +111,8 @@ export class GetConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +122,18 @@ export class GetConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConfigCommand(input, context);
+    return se_GetConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigCommandOutput> {
-    return deserializeAws_restJson1GetConfigCommand(output, context);
+    return de_GetConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

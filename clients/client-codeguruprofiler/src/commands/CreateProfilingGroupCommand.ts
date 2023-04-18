@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  CreateProfilingGroupRequest,
-  CreateProfilingGroupRequestFilterSensitiveLog,
-  CreateProfilingGroupResponse,
-  CreateProfilingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProfilingGroupCommand,
-  serializeAws_restJson1CreateProfilingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateProfilingGroupRequest, CreateProfilingGroupResponse } from "../models/models_0";
+import { de_CreateProfilingGroupCommand, se_CreateProfilingGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateProfilingGroupCommand}.
+ */
 export interface CreateProfilingGroupCommandInput extends CreateProfilingGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateProfilingGroupCommand}.
+ */
 export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupR
  * import { CodeGuruProfilerClient, CreateProfilingGroupCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, CreateProfilingGroupCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // CreateProfilingGroupRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   computePlatform: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE", // required
+ *   agentOrchestrationConfig: { // AgentOrchestrationConfig
+ *     profilingEnabled: true || false, // required
+ *   },
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateProfilingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProfilingGroupCommandInput - {@link CreateProfilingGroupCommandInput}
+ * @returns {@link CreateProfilingGroupCommandOutput}
  * @see {@link CreateProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateProfilingGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state
+ *         of a service resource associated with the request. Resolve the conflict
+ *         before retrying this request.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded your service quota. To perform the requested action,
+ *         remove some of the relevant resources, or use <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a> to request a
+ *         service quota increase.
+ *       </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class CreateProfilingGroupCommand extends $Command<
@@ -62,6 +100,9 @@ export class CreateProfilingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProfilingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +131,8 @@ export class CreateProfilingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProfilingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProfilingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +142,18 @@ export class CreateProfilingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProfilingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProfilingGroupCommand(input, context);
+    return se_CreateProfilingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProfilingGroupCommandOutput> {
-    return deserializeAws_restJson1CreateProfilingGroupCommand(output, context);
+    return de_CreateProfilingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

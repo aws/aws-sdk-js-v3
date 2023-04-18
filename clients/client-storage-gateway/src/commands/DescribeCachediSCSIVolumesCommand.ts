@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeCachediSCSIVolumesInput,
-  DescribeCachediSCSIVolumesInputFilterSensitiveLog,
-  DescribeCachediSCSIVolumesOutput,
-  DescribeCachediSCSIVolumesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCachediSCSIVolumesCommand,
-  serializeAws_json1_1DescribeCachediSCSIVolumesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeCachediSCSIVolumesInput, DescribeCachediSCSIVolumesOutput } from "../models/models_0";
+import { de_DescribeCachediSCSIVolumesCommand, se_DescribeCachediSCSIVolumesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCachediSCSIVolumesCommand}.
+ */
 export interface DescribeCachediSCSIVolumesCommandInput extends DescribeCachediSCSIVolumesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCachediSCSIVolumesCommand}.
+ */
 export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachediSCSIVolumesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of the gateway volumes specified in the request. This operation is
  *          only supported in the cached volume gateway types.</p>
  *
@@ -41,13 +44,62 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  * import { StorageGatewayClient, DescribeCachediSCSIVolumesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeCachediSCSIVolumesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeCachediSCSIVolumesInput
+ *   VolumeARNs: [ // VolumeARNs // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeCachediSCSIVolumesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCachediSCSIVolumesCommandInput - {@link DescribeCachediSCSIVolumesCommandInput}
+ * @returns {@link DescribeCachediSCSIVolumesCommandOutput}
  * @see {@link DescribeCachediSCSIVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeCachediSCSIVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To describe gateway cached iSCSI volumes
+ * ```javascript
+ * // Returns a description of the gateway cached iSCSI volumes specified in the request.
+ * const input = {
+ *   "VolumeARNs": [
+ *     "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ *   ]
+ * };
+ * const command = new DescribeCachediSCSIVolumesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CachediSCSIVolumes": [
+ *     {
+ *       "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+ *       "VolumeId": "vol-1122AABB",
+ *       "VolumeSizeInBytes": 1099511627776,
+ *       "VolumeStatus": "AVAILABLE",
+ *       "VolumeType": "CACHED iSCSI",
+ *       "VolumeiSCSIAttributes": {
+ *         "ChapEnabled": true,
+ *         "LunNumber": 1,
+ *         "NetworkInterfaceId": "10.243.43.207",
+ *         "NetworkInterfacePort": 3260,
+ *         "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-gateway-cached-iscsi-volumes-1471458094649
+ * ```
  *
  */
 export class DescribeCachediSCSIVolumesCommand extends $Command<
@@ -67,6 +119,9 @@ export class DescribeCachediSCSIVolumesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCachediSCSIVolumesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +150,8 @@ export class DescribeCachediSCSIVolumesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCachediSCSIVolumesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCachediSCSIVolumesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +161,21 @@ export class DescribeCachediSCSIVolumesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCachediSCSIVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCachediSCSIVolumesCommand(input, context);
+    return se_DescribeCachediSCSIVolumesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCachediSCSIVolumesCommandOutput> {
-    return deserializeAws_json1_1DescribeCachediSCSIVolumesCommand(output, context);
+    return de_DescribeCachediSCSIVolumesCommand(output, context);
   }
 
   // Start section: command_body_extra

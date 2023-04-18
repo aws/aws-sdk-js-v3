@@ -14,28 +14,31 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListSSHPublicKeysRequest,
-  ListSSHPublicKeysRequestFilterSensitiveLog,
-  ListSSHPublicKeysResponse,
-  ListSSHPublicKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListSSHPublicKeysCommand,
-  serializeAws_queryListSSHPublicKeysCommand,
-} from "../protocols/Aws_query";
+import { ListSSHPublicKeysRequest, ListSSHPublicKeysResponse } from "../models/models_0";
+import { de_ListSSHPublicKeysCommand, se_ListSSHPublicKeysCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSSHPublicKeysCommand}.
+ */
 export interface ListSSHPublicKeysCommandInput extends ListSSHPublicKeysRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSSHPublicKeysCommand}.
+ */
 export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the SSH public keys associated with the specified IAM
  *             user. If none exists, the operation returns an empty list.</p>
- *         <p>The SSH public keys returned by this operation are used only for authenticating the
+ *          <p>The SSH public keys returned by this operation are used only for authenticating the
  *             IAM user to an CodeCommit repository. For more information about using SSH keys to
  *             authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for
  *                 SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
- *         <p>Although each user is limited to a small number of keys, you can still paginate the
+ *          <p>Although each user is limited to a small number of keys, you can still paginate the
  *             results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,13 +46,25 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  * import { IAMClient, ListSSHPublicKeysCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListSSHPublicKeysCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListSSHPublicKeysRequest
+ *   UserName: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListSSHPublicKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSSHPublicKeysCommandInput - {@link ListSSHPublicKeysCommandInput}
+ * @returns {@link ListSSHPublicKeysCommandOutput}
  * @see {@link ListSSHPublicKeysCommandInput} for command's `input` shape.
  * @see {@link ListSSHPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
  *
  */
 export class ListSSHPublicKeysCommand extends $Command<
@@ -69,6 +84,9 @@ export class ListSSHPublicKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSSHPublicKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +115,8 @@ export class ListSSHPublicKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSSHPublicKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSSHPublicKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +126,18 @@ export class ListSSHPublicKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSSHPublicKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListSSHPublicKeysCommand(input, context);
+    return se_ListSSHPublicKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSSHPublicKeysCommandOutput> {
-    return deserializeAws_queryListSSHPublicKeysCommand(output, context);
+    return de_ListSSHPublicKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  DeleteFlowRequest,
-  DeleteFlowRequestFilterSensitiveLog,
-  DeleteFlowResponse,
-  DeleteFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFlowCommand,
-  serializeAws_restJson1DeleteFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFlowRequest, DeleteFlowResponse } from "../models/models_0";
+import { de_DeleteFlowCommand, se_DeleteFlowCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteFlowCommand}.
+ */
 export interface DeleteFlowCommandInput extends DeleteFlowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteFlowCommand}.
+ */
 export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Enables your application to delete an existing flow. Before deleting the flow, Amazon AppFlow validates the request by checking the flow configuration and status. You can
  *       delete flows one at a time. </p>
  * @example
@@ -37,13 +40,32 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * import { AppflowClient, DeleteFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DeleteFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = { // DeleteFlowRequest
+ *   flowName: "STRING_VALUE", // required
+ *   forceDelete: true || false,
+ * };
  * const command = new DeleteFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFlowCommandInput - {@link DeleteFlowCommandInput}
+ * @returns {@link DeleteFlowCommandOutput}
  * @see {@link DeleteFlowCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> There was a conflict when processing the request (for example, a flow with the given name
+ *       already exists within the account. Check for conflicting resource names and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *       later. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource specified in the request (such as the source or destination connector
+ *       profile) is not found. </p>
+ *
  *
  */
 export class DeleteFlowCommand extends $Command<
@@ -63,6 +85,9 @@ export class DeleteFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +114,8 @@ export class DeleteFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +125,18 @@ export class DeleteFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFlowCommand(input, context);
+    return se_DeleteFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowCommandOutput> {
-    return deserializeAws_restJson1DeleteFlowCommand(output, context);
+    return de_DeleteFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

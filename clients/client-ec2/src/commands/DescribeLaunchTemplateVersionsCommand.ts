@@ -16,21 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeLaunchTemplateVersionsRequest,
-  DescribeLaunchTemplateVersionsRequestFilterSensitiveLog,
   DescribeLaunchTemplateVersionsResult,
   DescribeLaunchTemplateVersionsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeLaunchTemplateVersionsCommand,
-  serializeAws_ec2DescribeLaunchTemplateVersionsCommand,
+  de_DescribeLaunchTemplateVersionsCommand,
+  se_DescribeLaunchTemplateVersionsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLaunchTemplateVersionsCommand}.
+ */
 export interface DescribeLaunchTemplateVersionsCommandInput extends DescribeLaunchTemplateVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLaunchTemplateVersionsCommand}.
+ */
 export interface DescribeLaunchTemplateVersionsCommandOutput
   extends DescribeLaunchTemplateVersionsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more versions of a specified launch template. You can describe all
  *             versions, individual versions, or a range of versions. You can also describe all the
  *             latest versions or all the default versions of all the launch templates in your
@@ -41,13 +51,101 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * import { EC2Client, DescribeLaunchTemplateVersionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeLaunchTemplateVersionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeLaunchTemplateVersionsRequest
+ *   DryRun: true || false,
+ *   LaunchTemplateId: "STRING_VALUE",
+ *   LaunchTemplateName: "STRING_VALUE",
+ *   Versions: [ // VersionStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   MinVersion: "STRING_VALUE",
+ *   MaxVersion: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ResolveAlias: true || false,
+ * };
  * const command = new DescribeLaunchTemplateVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLaunchTemplateVersionsCommandInput - {@link DescribeLaunchTemplateVersionsCommandInput}
+ * @returns {@link DescribeLaunchTemplateVersionsCommandOutput}
  * @see {@link DescribeLaunchTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeLaunchTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe the versions for a launch template
+ * ```javascript
+ * // This example describes the versions for the specified launch template.
+ * const input = {
+ *   "LaunchTemplateId": "068f72b72934aff71"
+ * };
+ * const command = new DescribeLaunchTemplateVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "LaunchTemplateVersions": [
+ *     {
+ *       "CreateTime": "2017-11-20T13:12:32.000Z",
+ *       "CreatedBy": "arn:aws:iam::123456789102:root",
+ *       "DefaultVersion": false,
+ *       "LaunchTemplateData": {
+ *         "ImageId": "ami-6057e21a",
+ *         "InstanceType": "t2.medium",
+ *         "KeyName": "kp-us-east",
+ *         "NetworkInterfaces": [
+ *           {
+ *             "DeviceIndex": 0,
+ *             "Groups": [
+ *               "sg-7c227019"
+ *             ],
+ *             "SubnetId": "subnet-1a2b3c4d"
+ *           }
+ *         ]
+ *       },
+ *       "LaunchTemplateId": "lt-068f72b72934aff71",
+ *       "LaunchTemplateName": "Webservers",
+ *       "VersionNumber": 2
+ *     },
+ *     {
+ *       "CreateTime": "2017-11-20T12:52:33.000Z",
+ *       "CreatedBy": "arn:aws:iam::123456789102:root",
+ *       "DefaultVersion": true,
+ *       "LaunchTemplateData": {
+ *         "ImageId": "ami-aabbcc11",
+ *         "InstanceType": "t2.medium",
+ *         "KeyName": "kp-us-east",
+ *         "NetworkInterfaces": [
+ *           {
+ *             "AssociatePublicIpAddress": true,
+ *             "DeleteOnTermination": false,
+ *             "DeviceIndex": 0,
+ *             "Groups": [
+ *               "sg-7c227019"
+ *             ],
+ *             "SubnetId": "subnet-7b16de0c"
+ *           }
+ *         ],
+ *         "UserData": ""
+ *       },
+ *       "LaunchTemplateId": "lt-068f72b72934aff71",
+ *       "LaunchTemplateName": "Webservers",
+ *       "VersionNumber": 1
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-versions-for-a-launch-template-1529344425048
+ * ```
  *
  */
 export class DescribeLaunchTemplateVersionsCommand extends $Command<
@@ -67,6 +165,9 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLaunchTemplateVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +196,7 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLaunchTemplateVersionsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeLaunchTemplateVersionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -106,18 +207,24 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLaunchTemplateVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLaunchTemplateVersionsCommand(input, context);
+    return se_DescribeLaunchTemplateVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLaunchTemplateVersionsCommandOutput> {
-    return deserializeAws_ec2DescribeLaunchTemplateVersionsCommand(output, context);
+    return de_DescribeLaunchTemplateVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateClassifierRequest,
-  CreateClassifierRequestFilterSensitiveLog,
-  CreateClassifierResponse,
-  CreateClassifierResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateClassifierCommand,
-  serializeAws_json1_1CreateClassifierCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateClassifierRequest, CreateClassifierResponse } from "../models/models_0";
+import { de_CreateClassifierCommand, se_CreateClassifierCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateClassifierCommand}.
+ */
 export interface CreateClassifierCommandInput extends CreateClassifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateClassifierCommand}.
+ */
 export interface CreateClassifierCommandOutput extends CreateClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an
  *         <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>,
  *       depending on which field of the request is present.</p>
@@ -38,13 +41,57 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  * import { GlueClient, CreateClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateClassifierRequest
+ *   GrokClassifier: { // CreateGrokClassifierRequest
+ *     Classification: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     GrokPattern: "STRING_VALUE", // required
+ *     CustomPatterns: "STRING_VALUE",
+ *   },
+ *   XMLClassifier: { // CreateXMLClassifierRequest
+ *     Classification: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     RowTag: "STRING_VALUE",
+ *   },
+ *   JsonClassifier: { // CreateJsonClassifierRequest
+ *     Name: "STRING_VALUE", // required
+ *     JsonPath: "STRING_VALUE", // required
+ *   },
+ *   CsvClassifier: { // CreateCsvClassifierRequest
+ *     Name: "STRING_VALUE", // required
+ *     Delimiter: "STRING_VALUE",
+ *     QuoteSymbol: "STRING_VALUE",
+ *     ContainsHeader: "UNKNOWN" || "PRESENT" || "ABSENT",
+ *     Header: [ // CsvHeader
+ *       "STRING_VALUE",
+ *     ],
+ *     DisableValueTrimming: true || false,
+ *     AllowSingleColumn: true || false,
+ *     CustomDatatypeConfigured: true || false,
+ *     CustomDatatypes: [ // CustomDatatypes
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new CreateClassifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClassifierCommandInput - {@link CreateClassifierCommandInput}
+ * @returns {@link CreateClassifierCommandOutput}
  * @see {@link CreateClassifierCommandInput} for command's `input` shape.
  * @see {@link CreateClassifierCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>A resource to be created or added already exists.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class CreateClassifierCommand extends $Command<
@@ -64,6 +111,9 @@ export class CreateClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +142,8 @@ export class CreateClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClassifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClassifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +153,18 @@ export class CreateClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateClassifierCommand(input, context);
+    return se_CreateClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClassifierCommandOutput> {
-    return deserializeAws_json1_1CreateClassifierCommand(output, context);
+    return de_CreateClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

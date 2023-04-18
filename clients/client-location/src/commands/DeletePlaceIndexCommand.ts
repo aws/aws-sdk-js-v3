@@ -14,22 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DeletePlaceIndexRequest,
-  DeletePlaceIndexRequestFilterSensitiveLog,
-  DeletePlaceIndexResponse,
-  DeletePlaceIndexResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePlaceIndexCommand,
-  serializeAws_restJson1DeletePlaceIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { DeletePlaceIndexRequest, DeletePlaceIndexResponse } from "../models/models_0";
+import { de_DeletePlaceIndexCommand, se_DeletePlaceIndexCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeletePlaceIndexCommand}.
+ */
 export interface DeletePlaceIndexCommandInput extends DeletePlaceIndexRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePlaceIndexCommand}.
+ */
 export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a place index resource from your AWS account.</p>
+ * @public
+ * <p>Deletes a place index resource from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently.</p>
  *          </note>
@@ -39,13 +42,35 @@ export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse,
  * import { LocationClient, DeletePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeletePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // DeletePlaceIndexRequest
+ *   IndexName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePlaceIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePlaceIndexCommandInput - {@link DeletePlaceIndexCommandInput}
+ * @returns {@link DeletePlaceIndexCommandOutput}
  * @see {@link DeletePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link DeletePlaceIndexCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class DeletePlaceIndexCommand extends $Command<
@@ -65,6 +90,9 @@ export class DeletePlaceIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePlaceIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +121,8 @@ export class DeletePlaceIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePlaceIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePlaceIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +132,18 @@ export class DeletePlaceIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePlaceIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePlaceIndexCommand(input, context);
+    return se_DeletePlaceIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePlaceIndexCommandOutput> {
-    return deserializeAws_restJson1DeletePlaceIndexCommand(output, context);
+    return de_DeletePlaceIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

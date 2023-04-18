@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateStreamProcessorRequest,
-  UpdateStreamProcessorRequestFilterSensitiveLog,
-  UpdateStreamProcessorResponse,
-  UpdateStreamProcessorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateStreamProcessorCommand,
-  serializeAws_json1_1UpdateStreamProcessorCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateStreamProcessorRequest, UpdateStreamProcessorResponse } from "../models/models_1";
+import { de_UpdateStreamProcessorCommand, se_UpdateStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateStreamProcessorCommand}.
+ */
 export interface UpdateStreamProcessorCommandInput extends UpdateStreamProcessorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateStreamProcessorCommand}.
+ */
 export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcessorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Allows you to update a stream processor. You can change some settings and regions of interest and delete certain parameters.
  *         </p>
@@ -38,13 +41,72 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  * import { RekognitionClient, UpdateStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, UpdateStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // UpdateStreamProcessorRequest
+ *   Name: "STRING_VALUE", // required
+ *   SettingsForUpdate: { // StreamProcessorSettingsForUpdate
+ *     ConnectedHomeForUpdate: { // ConnectedHomeSettingsForUpdate
+ *       Labels: [ // ConnectedHomeLabels
+ *         "STRING_VALUE",
+ *       ],
+ *       MinConfidence: Number("float"),
+ *     },
+ *   },
+ *   RegionsOfInterestForUpdate: [ // RegionsOfInterest
+ *     { // RegionOfInterest
+ *       BoundingBox: { // BoundingBox
+ *         Width: Number("float"),
+ *         Height: Number("float"),
+ *         Left: Number("float"),
+ *         Top: Number("float"),
+ *       },
+ *       Polygon: [ // Polygon
+ *         { // Point
+ *           X: Number("float"),
+ *           Y: Number("float"),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   DataSharingPreferenceForUpdate: { // StreamProcessorDataSharingPreference
+ *     OptIn: true || false, // required
+ *   },
+ *   ParametersToDelete: [ // StreamProcessorParametersToDelete
+ *     "ConnectedHomeMinConfidence" || "RegionsOfInterest",
+ *   ],
+ * };
  * const command = new UpdateStreamProcessorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStreamProcessorCommandInput - {@link UpdateStreamProcessorCommandInput}
+ * @returns {@link UpdateStreamProcessorCommandOutput}
  * @see {@link UpdateStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is already being used.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class UpdateStreamProcessorCommand extends $Command<
@@ -64,6 +126,9 @@ export class UpdateStreamProcessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStreamProcessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +157,8 @@ export class UpdateStreamProcessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStreamProcessorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStreamProcessorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +168,18 @@ export class UpdateStreamProcessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStreamProcessorCommand(input, context);
+    return se_UpdateStreamProcessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1UpdateStreamProcessorCommand(output, context);
+    return de_UpdateStreamProcessorCommand(output, context);
   }
 
   // Start section: command_body_extra

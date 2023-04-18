@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteTableVersionRequest,
-  DeleteTableVersionRequestFilterSensitiveLog,
-  DeleteTableVersionResponse,
-  DeleteTableVersionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteTableVersionCommand,
-  serializeAws_json1_1DeleteTableVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTableVersionRequest, DeleteTableVersionResponse } from "../models/models_1";
+import { de_DeleteTableVersionCommand, se_DeleteTableVersionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTableVersionCommand}.
+ */
 export interface DeleteTableVersionCommandInput extends DeleteTableVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTableVersionCommand}.
+ */
 export interface DeleteTableVersionCommandOutput extends DeleteTableVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified version of a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface DeleteTableVersionCommandOutput extends DeleteTableVersionRespo
  * import { GlueClient, DeleteTableVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteTableVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteTableVersionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTableVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTableVersionCommandInput - {@link DeleteTableVersionCommandInput}
+ * @returns {@link DeleteTableVersionCommandOutput}
  * @see {@link DeleteTableVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteTableVersionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class DeleteTableVersionCommand extends $Command<
@@ -62,6 +86,9 @@ export class DeleteTableVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTableVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class DeleteTableVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTableVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTableVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class DeleteTableVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTableVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTableVersionCommand(input, context);
+    return se_DeleteTableVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTableVersionCommandOutput> {
-    return deserializeAws_json1_1DeleteTableVersionCommand(output, context);
+    return de_DeleteTableVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListContextsRequest,
-  ListContextsRequestFilterSensitiveLog,
-  ListContextsResponse,
-  ListContextsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListContextsCommand,
-  serializeAws_json1_1ListContextsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListContextsRequest, ListContextsResponse } from "../models/models_3";
+import { de_ListContextsCommand, se_ListContextsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListContextsCommand}.
+ */
 export interface ListContextsCommandInput extends ListContextsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListContextsCommand}.
+ */
 export interface ListContextsCommandOutput extends ListContextsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the contexts in your account and their properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
  * import { SageMakerClient, ListContextsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListContextsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListContextsRequest
+ *   SourceUri: "STRING_VALUE",
+ *   ContextType: "STRING_VALUE",
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListContextsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContextsCommandInput - {@link ListContextsCommandInput}
+ * @returns {@link ListContextsCommandOutput}
  * @see {@link ListContextsCommandInput} for command's `input` shape.
  * @see {@link ListContextsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ListContextsCommand extends $Command<
@@ -62,6 +81,9 @@ export class ListContextsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContextsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +110,8 @@ export class ListContextsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContextsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContextsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +121,18 @@ export class ListContextsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContextsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListContextsCommand(input, context);
+    return se_ListContextsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContextsCommandOutput> {
-    return deserializeAws_json1_1ListContextsCommand(output, context);
+    return de_ListContextsCommand(output, context);
   }
 
   // Start section: command_body_extra

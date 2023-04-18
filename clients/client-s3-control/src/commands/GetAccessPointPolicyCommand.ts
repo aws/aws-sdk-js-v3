@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccessPointPolicyRequest,
-  GetAccessPointPolicyRequestFilterSensitiveLog,
-  GetAccessPointPolicyResult,
-  GetAccessPointPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetAccessPointPolicyCommand,
-  serializeAws_restXmlGetAccessPointPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { GetAccessPointPolicyRequest, GetAccessPointPolicyResult } from "../models/models_0";
+import { de_GetAccessPointPolicyCommand, se_GetAccessPointPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccessPointPolicyCommand}.
+ */
 export interface GetAccessPointPolicyCommandInput extends GetAccessPointPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccessPointPolicyCommand}.
+ */
 export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the access point policy associated with the specified access point.</p>
  *          <p>The following actions are related to <code>GetAccessPointPolicy</code>:</p>
  *          <ul>
@@ -50,13 +53,20 @@ export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyR
  * import { S3ControlClient, GetAccessPointPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetAccessPointPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetAccessPointPolicyRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessPointPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointPolicyCommandInput - {@link GetAccessPointPolicyCommandInput}
+ * @returns {@link GetAccessPointPolicyCommandOutput}
  * @see {@link GetAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class GetAccessPointPolicyCommand extends $Command<
@@ -80,6 +90,9 @@ export class GetAccessPointPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +122,8 @@ export class GetAccessPointPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessPointPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessPointPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +133,18 @@ export class GetAccessPointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessPointPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetAccessPointPolicyCommand(input, context);
+    return se_GetAccessPointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessPointPolicyCommandOutput> {
-    return deserializeAws_restXmlGetAccessPointPolicyCommand(output, context);
+    return de_GetAccessPointPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

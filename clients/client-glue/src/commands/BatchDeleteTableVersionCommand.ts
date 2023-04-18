@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchDeleteTableVersionRequest,
-  BatchDeleteTableVersionRequestFilterSensitiveLog,
-  BatchDeleteTableVersionResponse,
-  BatchDeleteTableVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteTableVersionCommand,
-  serializeAws_json1_1BatchDeleteTableVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchDeleteTableVersionRequest, BatchDeleteTableVersionResponse } from "../models/models_0";
+import { de_BatchDeleteTableVersionCommand, se_BatchDeleteTableVersionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDeleteTableVersionCommand}.
+ */
 export interface BatchDeleteTableVersionCommandInput extends BatchDeleteTableVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDeleteTableVersionCommand}.
+ */
 export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified batch of versions of a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVe
  * import { GlueClient, BatchDeleteTableVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchDeleteTableVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchDeleteTableVersionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   VersionIds: [ // BatchDeleteTableVersionList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDeleteTableVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteTableVersionCommandInput - {@link BatchDeleteTableVersionCommandInput}
+ * @returns {@link BatchDeleteTableVersionCommandOutput}
  * @see {@link BatchDeleteTableVersionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteTableVersionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class BatchDeleteTableVersionCommand extends $Command<
@@ -62,6 +88,9 @@ export class BatchDeleteTableVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteTableVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class BatchDeleteTableVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteTableVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteTableVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class BatchDeleteTableVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteTableVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteTableVersionCommand(input, context);
+    return se_BatchDeleteTableVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteTableVersionCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteTableVersionCommand(output, context);
+    return de_BatchDeleteTableVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

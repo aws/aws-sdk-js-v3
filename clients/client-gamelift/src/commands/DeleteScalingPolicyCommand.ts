@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteScalingPolicyInput, DeleteScalingPolicyInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteScalingPolicyCommand,
-  serializeAws_json1_1DeleteScalingPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteScalingPolicyInput } from "../models/models_0";
+import { de_DeleteScalingPolicyCommand, se_DeleteScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteScalingPolicyCommand}.
+ */
 export interface DeleteScalingPolicyCommandInput extends DeleteScalingPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteScalingPolicyCommand}.
+ */
 export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a fleet scaling policy. Once deleted, the policy is no longer in force and
  *             GameLift removes all record of it. To delete a scaling policy, specify both the scaling
  *             policy name and the fleet ID it is associated with.</p>
@@ -35,13 +43,34 @@ export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
  * import { GameLiftClient, DeleteScalingPolicyCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteScalingPolicyCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DeleteScalingPolicyInput
+ *   Name: "STRING_VALUE", // required
+ *   FleetId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScalingPolicyCommandInput - {@link DeleteScalingPolicyCommandInput}
+ * @returns {@link DeleteScalingPolicyCommandOutput}
  * @see {@link DeleteScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class DeleteScalingPolicyCommand extends $Command<
@@ -61,6 +90,9 @@ export class DeleteScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +121,8 @@ export class DeleteScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScalingPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +132,18 @@ export class DeleteScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteScalingPolicyCommand(input, context);
+    return se_DeleteScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteScalingPolicyCommand(output, context);
+    return de_DeleteScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

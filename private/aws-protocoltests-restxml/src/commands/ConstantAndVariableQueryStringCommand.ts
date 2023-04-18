@@ -12,20 +12,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ConstantAndVariableQueryStringInput } from "../models/models_0";
 import {
-  ConstantAndVariableQueryStringInput,
-  ConstantAndVariableQueryStringInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlConstantAndVariableQueryStringCommand,
-  serializeAws_restXmlConstantAndVariableQueryStringCommand,
+  de_ConstantAndVariableQueryStringCommand,
+  se_ConstantAndVariableQueryStringCommand,
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ConstantAndVariableQueryStringCommand}.
+ */
 export interface ConstantAndVariableQueryStringCommandInput extends ConstantAndVariableQueryStringInput {}
+/**
+ * @public
+ *
+ * The output of {@link ConstantAndVariableQueryStringCommand}.
+ */
 export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * This example uses fixed query string params and variable query string params.
  * The fixed query string parameters and variable parameters must both be
  * serialized (implementations may need to merge them together).
@@ -35,13 +43,20 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  * import { RestXmlProtocolClient, ConstantAndVariableQueryStringCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, ConstantAndVariableQueryStringCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = { // ConstantAndVariableQueryStringInput
+ *   baz: "STRING_VALUE",
+ *   maybeSet: "STRING_VALUE",
+ * };
  * const command = new ConstantAndVariableQueryStringCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConstantAndVariableQueryStringCommandInput - {@link ConstantAndVariableQueryStringCommandInput}
+ * @returns {@link ConstantAndVariableQueryStringCommandOutput}
  * @see {@link ConstantAndVariableQueryStringCommandInput} for command's `input` shape.
  * @see {@link ConstantAndVariableQueryStringCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
+ *
  *
  */
 export class ConstantAndVariableQueryStringCommand extends $Command<
@@ -52,6 +67,9 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConstantAndVariableQueryStringCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,8 +95,8 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConstantAndVariableQueryStringInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,18 +106,24 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ConstantAndVariableQueryStringCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlConstantAndVariableQueryStringCommand(input, context);
+    return se_ConstantAndVariableQueryStringCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConstantAndVariableQueryStringCommandOutput> {
-    return deserializeAws_restXmlConstantAndVariableQueryStringCommand(output, context);
+    return de_ConstantAndVariableQueryStringCommand(output, context);
   }
 
   // Start section: command_body_extra

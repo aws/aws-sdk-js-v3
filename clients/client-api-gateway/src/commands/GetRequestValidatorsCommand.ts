@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetRequestValidatorsRequest,
-  GetRequestValidatorsRequestFilterSensitiveLog,
-  RequestValidators,
-  RequestValidatorsFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRequestValidatorsCommand,
-  serializeAws_restJson1GetRequestValidatorsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRequestValidatorsRequest, RequestValidators } from "../models/models_0";
+import { de_GetRequestValidatorsCommand, se_GetRequestValidatorsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRequestValidatorsCommand}.
+ */
 export interface GetRequestValidatorsCommandInput extends GetRequestValidatorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRequestValidatorsCommand}.
+ */
 export interface GetRequestValidatorsCommandOutput extends RequestValidators, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the RequestValidators collection of a given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface GetRequestValidatorsCommandOutput extends RequestValidators, __
  * import { APIGatewayClient, GetRequestValidatorsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetRequestValidatorsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetRequestValidatorsRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   position: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new GetRequestValidatorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRequestValidatorsCommandInput - {@link GetRequestValidatorsCommandInput}
+ * @returns {@link GetRequestValidatorsCommandOutput}
  * @see {@link GetRequestValidatorsCommandInput} for command's `input` shape.
  * @see {@link GetRequestValidatorsCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class GetRequestValidatorsCommand extends $Command<
@@ -62,6 +85,9 @@ export class GetRequestValidatorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRequestValidatorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class GetRequestValidatorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRequestValidatorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RequestValidatorsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class GetRequestValidatorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRequestValidatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRequestValidatorsCommand(input, context);
+    return se_GetRequestValidatorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRequestValidatorsCommandOutput> {
-    return deserializeAws_restJson1GetRequestValidatorsCommand(output, context);
+    return de_GetRequestValidatorsCommand(output, context);
   }
 
   // Start section: command_body_extra

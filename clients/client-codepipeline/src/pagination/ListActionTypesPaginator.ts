@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodePipeline } from "../CodePipeline";
 import { CodePipelineClient } from "../CodePipelineClient";
 import {
   ListActionTypesCommand,
@@ -11,7 +10,7 @@ import {
 import { CodePipelinePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodePipelineClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListActionTypesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CodePipeline,
-  input: ListActionTypesCommandInput,
-  ...args: any
-): Promise<ListActionTypesCommandOutput> => {
-  // @ts-ignore
-  return await client.listActionTypes(input, ...args);
-};
 export async function* paginateListActionTypes(
   config: CodePipelinePaginationConfiguration,
   input: ListActionTypesCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListActionTypes(
   let page: ListActionTypesCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof CodePipeline) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodePipelineClient) {
+    if (config.client instanceof CodePipelineClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodePipeline | CodePipelineClient");

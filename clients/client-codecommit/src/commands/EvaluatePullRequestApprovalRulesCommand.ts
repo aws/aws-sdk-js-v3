@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { EvaluatePullRequestApprovalRulesInput, EvaluatePullRequestApprovalRulesOutput } from "../models/models_0";
 import {
-  EvaluatePullRequestApprovalRulesInput,
-  EvaluatePullRequestApprovalRulesInputFilterSensitiveLog,
-  EvaluatePullRequestApprovalRulesOutput,
-  EvaluatePullRequestApprovalRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommand,
-  serializeAws_json1_1EvaluatePullRequestApprovalRulesCommand,
+  de_EvaluatePullRequestApprovalRulesCommand,
+  se_EvaluatePullRequestApprovalRulesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link EvaluatePullRequestApprovalRulesCommand}.
+ */
 export interface EvaluatePullRequestApprovalRulesCommandInput extends EvaluatePullRequestApprovalRulesInput {}
+/**
+ * @public
+ *
+ * The output of {@link EvaluatePullRequestApprovalRulesCommand}.
+ */
 export interface EvaluatePullRequestApprovalRulesCommandOutput
   extends EvaluatePullRequestApprovalRulesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Evaluates whether a pull request has met all the conditions specified in its associated approval rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,53 @@ export interface EvaluatePullRequestApprovalRulesCommandOutput
  * import { CodeCommitClient, EvaluatePullRequestApprovalRulesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, EvaluatePullRequestApprovalRulesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // EvaluatePullRequestApprovalRulesInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE", // required
+ * };
  * const command = new EvaluatePullRequestApprovalRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EvaluatePullRequestApprovalRulesCommandInput - {@link EvaluatePullRequestApprovalRulesCommandInput}
+ * @returns {@link EvaluatePullRequestApprovalRulesCommandOutput}
  * @see {@link EvaluatePullRequestApprovalRulesCommandInput} for command's `input` shape.
  * @see {@link EvaluatePullRequestApprovalRulesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidPullRequestIdException} (client fault)
+ *  <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+ *
+ * @throws {@link InvalidRevisionIdException} (client fault)
+ *  <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
+ *
+ * @throws {@link PullRequestDoesNotExistException} (client fault)
+ *  <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+ *
+ * @throws {@link PullRequestIdRequiredException} (client fault)
+ *  <p>A pull request ID is required, but none was provided.</p>
+ *
+ * @throws {@link RevisionIdRequiredException} (client fault)
+ *  <p>A revision ID is required, but was not provided.</p>
+ *
+ * @throws {@link RevisionNotCurrentException} (client fault)
+ *  <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
+ *
  *
  */
 export class EvaluatePullRequestApprovalRulesCommand extends $Command<
@@ -64,6 +110,9 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EvaluatePullRequestApprovalRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +141,8 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluatePullRequestApprovalRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EvaluatePullRequestApprovalRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +152,24 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EvaluatePullRequestApprovalRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1EvaluatePullRequestApprovalRulesCommand(input, context);
+    return se_EvaluatePullRequestApprovalRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EvaluatePullRequestApprovalRulesCommandOutput> {
-    return deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommand(output, context);
+    return de_EvaluatePullRequestApprovalRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

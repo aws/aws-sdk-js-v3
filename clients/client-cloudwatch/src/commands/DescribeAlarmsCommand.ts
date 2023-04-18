@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  DescribeAlarmsInput,
-  DescribeAlarmsInputFilterSensitiveLog,
-  DescribeAlarmsOutput,
-  DescribeAlarmsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAlarmsCommand,
-  serializeAws_queryDescribeAlarmsCommand,
-} from "../protocols/Aws_query";
+import { DescribeAlarmsInput, DescribeAlarmsOutput } from "../models/models_0";
+import { de_DescribeAlarmsCommand, se_DescribeAlarmsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAlarmsCommand}.
+ */
 export interface DescribeAlarmsCommandInput extends DescribeAlarmsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAlarmsCommand}.
+ */
 export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm
  * 			name, the alarm state, or a prefix for any action.</p>
  *          <p>To use this operation and return information about composite alarms, you must be signed on with
@@ -40,13 +43,34 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * import { CloudWatchClient, DescribeAlarmsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DescribeAlarmsInput
+ *   AlarmNames: [ // AlarmNames
+ *     "STRING_VALUE",
+ *   ],
+ *   AlarmNamePrefix: "STRING_VALUE",
+ *   AlarmTypes: [ // AlarmTypes
+ *     "CompositeAlarm" || "MetricAlarm",
+ *   ],
+ *   ChildrenOfAlarmName: "STRING_VALUE",
+ *   ParentsOfAlarmName: "STRING_VALUE",
+ *   StateValue: "OK" || "ALARM" || "INSUFFICIENT_DATA",
+ *   ActionPrefix: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAlarmsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAlarmsCommandInput - {@link DescribeAlarmsCommandInput}
+ * @returns {@link DescribeAlarmsCommandOutput}
  * @see {@link DescribeAlarmsCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The next token specified is invalid.</p>
+ *
  *
  */
 export class DescribeAlarmsCommand extends $Command<
@@ -66,6 +90,9 @@ export class DescribeAlarmsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAlarmsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +121,8 @@ export class DescribeAlarmsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAlarmsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAlarmsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +132,18 @@ export class DescribeAlarmsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAlarmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAlarmsCommand(input, context);
+    return se_DescribeAlarmsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmsCommandOutput> {
-    return deserializeAws_queryDescribeAlarmsCommand(output, context);
+    return de_DescribeAlarmsCommand(output, context);
   }
 
   // Start section: command_body_extra

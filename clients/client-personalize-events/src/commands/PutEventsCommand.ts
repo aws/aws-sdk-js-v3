@@ -19,15 +19,23 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeEventsClient";
-import {
-  deserializeAws_restJson1PutEventsCommand,
-  serializeAws_restJson1PutEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutEventsCommand, se_PutEventsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutEventsCommand}.
+ */
 export interface PutEventsCommandInput extends PutEventsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutEventsCommand}.
+ */
 export interface PutEventsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Records user interaction event data. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
  * @example
@@ -36,13 +44,41 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * import { PersonalizeEventsClient, PutEventsCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
  * // const { PersonalizeEventsClient, PutEventsCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
  * const client = new PersonalizeEventsClient(config);
+ * const input = { // PutEventsRequest
+ *   trackingId: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE",
+ *   sessionId: "STRING_VALUE", // required
+ *   eventList: [ // EventList // required
+ *     { // Event
+ *       eventId: "STRING_VALUE",
+ *       eventType: "STRING_VALUE", // required
+ *       eventValue: Number("float"),
+ *       itemId: "STRING_VALUE",
+ *       properties: "STRING_VALUE",
+ *       sentAt: new Date("TIMESTAMP"), // required
+ *       recommendationId: "STRING_VALUE",
+ *       impression: [ // Impression
+ *         "STRING_VALUE",
+ *       ],
+ *       metricAttribution: { // MetricAttribution
+ *         eventAttributionSource: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEventsCommandInput - {@link PutEventsCommandInput}
+ * @returns {@link PutEventsCommandOutput}
  * @see {@link PutEventsCommandInput} for command's `input` shape.
  * @see {@link PutEventsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
  *
  */
 export class PutEventsCommand extends $Command<
@@ -62,6 +98,9 @@ export class PutEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +128,7 @@ export class PutEventsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +138,18 @@ export class PutEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEventsCommand(input, context);
+    return se_PutEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventsCommandOutput> {
-    return deserializeAws_restJson1PutEventsCommand(output, context);
+    return de_PutEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

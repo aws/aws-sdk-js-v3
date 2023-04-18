@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetPartitionIndexesRequest,
-  GetPartitionIndexesRequestFilterSensitiveLog,
-  GetPartitionIndexesResponse,
-  GetPartitionIndexesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetPartitionIndexesCommand,
-  serializeAws_json1_1GetPartitionIndexesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetPartitionIndexesRequest, GetPartitionIndexesResponse } from "../models/models_1";
+import { de_GetPartitionIndexesCommand, se_GetPartitionIndexesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPartitionIndexesCommand}.
+ */
 export interface GetPartitionIndexesCommandInput extends GetPartitionIndexesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPartitionIndexesCommand}.
+ */
 export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the partition indexes associated with a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesRes
  * import { GlueClient, GetPartitionIndexesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetPartitionIndexesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetPartitionIndexesRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetPartitionIndexesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPartitionIndexesCommandInput - {@link GetPartitionIndexesCommandInput}
+ * @returns {@link GetPartitionIndexesCommandOutput}
  * @see {@link GetPartitionIndexesCommandInput} for command's `input` shape.
  * @see {@link GetPartitionIndexesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetPartitionIndexesCommand extends $Command<
@@ -62,6 +89,9 @@ export class GetPartitionIndexesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPartitionIndexesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class GetPartitionIndexesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPartitionIndexesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPartitionIndexesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class GetPartitionIndexesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPartitionIndexesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPartitionIndexesCommand(input, context);
+    return se_GetPartitionIndexesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPartitionIndexesCommandOutput> {
-    return deserializeAws_json1_1GetPartitionIndexesCommand(output, context);
+    return de_GetPartitionIndexesCommand(output, context);
   }
 
   // Start section: command_body_extra

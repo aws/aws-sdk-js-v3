@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateWorkflowRequest,
-  UpdateWorkflowRequestFilterSensitiveLog,
-  UpdateWorkflowResponse,
-  UpdateWorkflowResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateWorkflowCommand,
-  serializeAws_json1_1UpdateWorkflowCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateWorkflowRequest, UpdateWorkflowResponse } from "../models/models_2";
+import { de_UpdateWorkflowCommand, se_UpdateWorkflowCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateWorkflowCommand}.
+ */
 export interface UpdateWorkflowCommandInput extends UpdateWorkflowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateWorkflowCommand}.
+ */
 export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __M
  * import { GlueClient, UpdateWorkflowCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateWorkflowCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateWorkflowRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DefaultRunProperties: { // WorkflowRunProperties
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   MaxConcurrentRuns: Number("int"),
+ * };
  * const command = new UpdateWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkflowCommandInput - {@link UpdateWorkflowCommandInput}
+ * @returns {@link UpdateWorkflowCommandOutput}
  * @see {@link UpdateWorkflowCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class UpdateWorkflowCommand extends $Command<
@@ -62,6 +91,9 @@ export class UpdateWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class UpdateWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class UpdateWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWorkflowCommand(input, context);
+    return se_UpdateWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkflowCommandOutput> {
-    return deserializeAws_json1_1UpdateWorkflowCommand(output, context);
+    return de_UpdateWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

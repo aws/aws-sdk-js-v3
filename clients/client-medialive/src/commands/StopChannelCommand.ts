@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  StopChannelRequest,
-  StopChannelRequestFilterSensitiveLog,
-  StopChannelResponse,
-  StopChannelResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1StopChannelCommand,
-  serializeAws_restJson1StopChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { StopChannelRequest, StopChannelResponse } from "../models/models_2";
+import { de_StopChannelCommand, se_StopChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopChannelCommand}.
+ */
 export interface StopChannelCommandInput extends StopChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopChannelCommand}.
+ */
 export interface StopChannelCommandOutput extends StopChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Stops a running channel
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * import { MediaLiveClient, StopChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StopChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // StopChannelRequest
+ *   ChannelId: "STRING_VALUE", // required
+ * };
  * const command = new StopChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopChannelCommandInput - {@link StopChannelCommandInput}
+ * @returns {@link StopChannelCommandOutput}
  * @see {@link StopChannelCommandInput} for command's `input` shape.
  * @see {@link StopChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Placeholder documentation for ConflictException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class StopChannelCommand extends $Command<
@@ -62,6 +95,9 @@ export class StopChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +124,8 @@ export class StopChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +135,18 @@ export class StopChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopChannelCommand(input, context);
+    return se_StopChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopChannelCommandOutput> {
-    return deserializeAws_restJson1StopChannelCommand(output, context);
+    return de_StopChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateSourceControlFromJobRequest,
-  UpdateSourceControlFromJobRequestFilterSensitiveLog,
-  UpdateSourceControlFromJobResponse,
-  UpdateSourceControlFromJobResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateSourceControlFromJobCommand,
-  serializeAws_json1_1UpdateSourceControlFromJobCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSourceControlFromJobRequest, UpdateSourceControlFromJobResponse } from "../models/models_2";
+import { de_UpdateSourceControlFromJobCommand, se_UpdateSourceControlFromJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateSourceControlFromJobCommand}.
+ */
 export interface UpdateSourceControlFromJobCommandInput extends UpdateSourceControlFromJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSourceControlFromJobCommand}.
+ */
 export interface UpdateSourceControlFromJobCommandOutput extends UpdateSourceControlFromJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Synchronizes a job to the source control repository. This operation takes the job artifacts from the Glue internal stores and makes a commit to the remote repository that is configured on the job.</p>
  *          <p>This API supports optional parameters which take in the repository information.</p>
  * @example
@@ -37,13 +40,48 @@ export interface UpdateSourceControlFromJobCommandOutput extends UpdateSourceCon
  * import { GlueClient, UpdateSourceControlFromJobCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateSourceControlFromJobCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateSourceControlFromJobRequest
+ *   JobName: "STRING_VALUE",
+ *   Provider: "GITHUB" || "AWS_CODE_COMMIT",
+ *   RepositoryName: "STRING_VALUE",
+ *   RepositoryOwner: "STRING_VALUE",
+ *   BranchName: "STRING_VALUE",
+ *   Folder: "STRING_VALUE",
+ *   CommitId: "STRING_VALUE",
+ *   AuthStrategy: "PERSONAL_ACCESS_TOKEN" || "AWS_SECRETS_MANAGER",
+ *   AuthToken: "STRING_VALUE",
+ * };
  * const command = new UpdateSourceControlFromJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSourceControlFromJobCommandInput - {@link UpdateSourceControlFromJobCommandInput}
+ * @returns {@link UpdateSourceControlFromJobCommandOutput}
  * @see {@link UpdateSourceControlFromJobCommandInput} for command's `input` shape.
  * @see {@link UpdateSourceControlFromJobCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>A resource to be created or added already exists.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A value could not be validated.</p>
+ *
  *
  */
 export class UpdateSourceControlFromJobCommand extends $Command<
@@ -63,6 +101,9 @@ export class UpdateSourceControlFromJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSourceControlFromJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +132,8 @@ export class UpdateSourceControlFromJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSourceControlFromJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSourceControlFromJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +143,21 @@ export class UpdateSourceControlFromJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSourceControlFromJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSourceControlFromJobCommand(input, context);
+    return se_UpdateSourceControlFromJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSourceControlFromJobCommandOutput> {
-    return deserializeAws_json1_1UpdateSourceControlFromJobCommand(output, context);
+    return de_UpdateSourceControlFromJobCommand(output, context);
   }
 
   // Start section: command_body_extra

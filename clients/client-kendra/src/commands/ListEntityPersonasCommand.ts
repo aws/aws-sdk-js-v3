@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  ListEntityPersonasRequest,
-  ListEntityPersonasRequestFilterSensitiveLog,
-  ListEntityPersonasResponse,
-  ListEntityPersonasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEntityPersonasCommand,
-  serializeAws_json1_1ListEntityPersonasCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEntityPersonasRequest, ListEntityPersonasResponse } from "../models/models_0";
+import { de_ListEntityPersonasCommand, se_ListEntityPersonasCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEntityPersonasCommand}.
+ */
 export interface ListEntityPersonasCommandInput extends ListEntityPersonasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEntityPersonasCommand}.
+ */
 export interface ListEntityPersonasCommandOutput extends ListEntityPersonasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists specific permissions of users and groups with access to your
  *             Amazon Kendra experience.</p>
  * @example
@@ -37,13 +40,42 @@ export interface ListEntityPersonasCommandOutput extends ListEntityPersonasRespo
  * import { KendraClient, ListEntityPersonasCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListEntityPersonasCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // ListEntityPersonasRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEntityPersonasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntityPersonasCommandInput - {@link ListEntityPersonasCommandInput}
+ * @returns {@link ListEntityPersonasCommandOutput}
  * @see {@link ListEntityPersonasCommandInput} for command's `input` shape.
  * @see {@link ListEntityPersonasCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action. Please ensure you have the
+ *             required permission policies and user accounts and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
+ *             resource and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Please reduce the number of requests
+ *             and try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
+ *             Please provide the correct input and try again.</p>
+ *
  *
  */
 export class ListEntityPersonasCommand extends $Command<
@@ -63,6 +95,9 @@ export class ListEntityPersonasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntityPersonasCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +126,8 @@ export class ListEntityPersonasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntityPersonasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEntityPersonasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +137,18 @@ export class ListEntityPersonasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntityPersonasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntityPersonasCommand(input, context);
+    return se_ListEntityPersonasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntityPersonasCommandOutput> {
-    return deserializeAws_json1_1ListEntityPersonasCommand(output, context);
+    return de_ListEntityPersonasCommand(output, context);
   }
 
   // Start section: command_body_extra

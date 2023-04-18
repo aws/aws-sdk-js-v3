@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  ListTokensRequest,
-  ListTokensRequestFilterSensitiveLog,
-  ListTokensResponse,
-  ListTokensResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTokensCommand,
-  serializeAws_json1_1ListTokensCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTokensRequest, ListTokensResponse } from "../models/models_0";
+import { de_ListTokensCommand, se_ListTokensCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTokensCommand}.
+ */
 export interface ListTokensCommandInput extends ListTokensRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTokensCommand}.
+ */
 export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your tokens.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,47 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
  * import { LicenseManagerClient, ListTokensCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListTokensCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListTokensRequest
+ *   TokenIds: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTokensCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTokensCommandInput - {@link ListTokensCommandInput}
+ * @returns {@link ListTokensCommandOutput}
  * @see {@link ListTokensCommandInput} for command's `input` shape.
  * @see {@link ListTokensCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
  *
  */
 export class ListTokensCommand extends $Command<
@@ -62,6 +99,9 @@ export class ListTokensCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTokensCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +128,8 @@ export class ListTokensCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTokensRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTokensResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +139,18 @@ export class ListTokensCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTokensCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTokensCommand(input, context);
+    return se_ListTokensCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTokensCommandOutput> {
-    return deserializeAws_json1_1ListTokensCommand(output, context);
+    return de_ListTokensCommand(output, context);
   }
 
   // Start section: command_body_extra

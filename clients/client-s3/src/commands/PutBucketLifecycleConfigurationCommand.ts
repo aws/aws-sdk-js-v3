@@ -14,26 +14,33 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutBucketLifecycleConfigurationRequest } from "../models/models_0";
 import {
-  PutBucketLifecycleConfigurationRequest,
-  PutBucketLifecycleConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketLifecycleConfigurationCommand,
-  serializeAws_restXmlPutBucketLifecycleConfigurationCommand,
+  de_PutBucketLifecycleConfigurationCommand,
+  se_PutBucketLifecycleConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutBucketLifecycleConfigurationCommand}.
+ */
 export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLifecycleConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutBucketLifecycleConfigurationCommand}.
+ */
 export interface PutBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
- *          configuration. Keep in mind that this will overwrite an existing lifecycle configuration, so if
- *          you want to retain any configuration details, they must be included in the new lifecycle
- *          configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing your storage
- *             lifecycle</a>.</p>
- *
+ *          configuration. Keep in mind that this will overwrite an existing lifecycle configuration,
+ *          so if you want to retain any configuration details, they must be included in the new
+ *          lifecycle configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
+ *             your storage lifecycle</a>.</p>
  *          <note>
  *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an
  *             object key name prefix, one or more object tags, or a combination of both. Accordingly,
@@ -41,9 +48,6 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *             filtering based only on an object key name prefix, which is supported for backward
  *             compatibility. For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.</p>
  *          </note>
- *
- *
- *
  *          <p>
  *             <b>Rules</b>
  *          </p>
@@ -51,7 +55,6 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *          configuration is specified as XML consisting of one or more rules. An Amazon S3 Lifecycle
  *          configuration can have up to 1,000 rules. This limit is not adjustable. Each rule consists
  *          of the following:</p>
- *
  *          <ul>
  *             <li>
  *                <p>Filter identifying a subset of objects to which the rule applies. The filter can
@@ -69,27 +72,20 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *                versions.</p>
  *             </li>
  *          </ul>
- *
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object
- *             Lifecycle Management</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html">Lifecycle Configuration Elements</a>.</p>
- *
- *
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle Management</a>
+ *          and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html">Lifecycle Configuration Elements</a>.</p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
- *
- *
  *          <p>By default, all Amazon S3 resources are private, including buckets, objects, and related
  *          subresources (for example, lifecycle configuration and website configuration). Only the
  *          resource owner (that is, the Amazon Web Services account that created it) can access the resource. The
  *          resource owner can optionally grant access permissions to others by writing an access
  *          policy. For this operation, a user must get the <code>s3:PutLifecycleConfiguration</code>
  *          permission.</p>
- *
  *          <p>You can also explicitly deny permissions. Explicit deny also supersedes any other
  *          permissions. If you want to block users or accounts from removing or deleting objects from
  *          your bucket, you must deny them permissions for the following actions:</p>
- *
  *          <ul>
  *             <li>
  *                <p>
@@ -107,11 +103,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *                </p>
  *             </li>
  *          </ul>
- *
- *
- *          <p>For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a>.</p>
- *
+ *          <p>For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to
+ *             Your Amazon S3 Resources</a>.</p>
  *          <p>The following are related to <code>PutBucketLifecycleConfiguration</code>:</p>
  *          <ul>
  *             <li>
@@ -137,13 +130,107 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * import { S3Client, PutBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketLifecycleConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   LifecycleConfiguration: { // BucketLifecycleConfiguration
+ *     Rules: [ // LifecycleRules // required
+ *       { // LifecycleRule
+ *         Expiration: { // LifecycleExpiration
+ *           Date: new Date("TIMESTAMP"),
+ *           Days: Number("int"),
+ *           ExpiredObjectDeleteMarker: true || false,
+ *         },
+ *         ID: "STRING_VALUE",
+ *         Prefix: "STRING_VALUE",
+ *         Filter: { // LifecycleRuleFilter Union: only one key present
+ *           Prefix: "STRING_VALUE",
+ *           Tag: { // Tag
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *           ObjectSizeGreaterThan: Number("long"),
+ *           ObjectSizeLessThan: Number("long"),
+ *           And: { // LifecycleRuleAndOperator
+ *             Prefix: "STRING_VALUE",
+ *             Tags: [ // TagSet
+ *               {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             ObjectSizeGreaterThan: Number("long"),
+ *             ObjectSizeLessThan: Number("long"),
+ *           },
+ *         },
+ *         Status: "Enabled" || "Disabled", // required
+ *         Transitions: [ // TransitionList
+ *           { // Transition
+ *             Date: new Date("TIMESTAMP"),
+ *             Days: Number("int"),
+ *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ *           },
+ *         ],
+ *         NoncurrentVersionTransitions: [ // NoncurrentVersionTransitionList
+ *           { // NoncurrentVersionTransition
+ *             NoncurrentDays: Number("int"),
+ *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ *             NewerNoncurrentVersions: Number("int"),
+ *           },
+ *         ],
+ *         NoncurrentVersionExpiration: { // NoncurrentVersionExpiration
+ *           NoncurrentDays: Number("int"),
+ *           NewerNoncurrentVersions: Number("int"),
+ *         },
+ *         AbortIncompleteMultipartUpload: { // AbortIncompleteMultipartUpload
+ *           DaysAfterInitiation: Number("int"),
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketLifecycleConfigurationCommandInput - {@link PutBucketLifecycleConfigurationCommandInput}
+ * @returns {@link PutBucketLifecycleConfigurationCommandOutput}
  * @see {@link PutBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ *
+ * @example Put bucket lifecycle
+ * ```javascript
+ * // The following example replaces existing lifecycle configuration, if any, on the specified bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "LifecycleConfiguration": {
+ *     "Rules": [
+ *       {
+ *         "Expiration": {
+ *           "Days": 3650
+ *         },
+ *         "Filter": {
+ *           "Prefix": "documents/"
+ *         },
+ *         "ID": "TestOnly",
+ *         "Status": "Enabled",
+ *         "Transitions": [
+ *           {
+ *             "Days": 365,
+ *             "StorageClass": "GLACIER"
+ *           }
+ *         ]
+ *       }
+ *     ]
+ *   }
+ * };
+ * const command = new PutBucketLifecycleConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: put-bucket-lifecycle-1482264533092
+ * ```
  *
  */
 export class PutBucketLifecycleConfigurationCommand extends $Command<
@@ -169,6 +256,9 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -204,8 +294,8 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketLifecycleConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -215,18 +305,24 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketLifecycleConfigurationCommand(input, context);
+    return se_PutBucketLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketLifecycleConfigurationCommand(output, context);
+    return de_PutBucketLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

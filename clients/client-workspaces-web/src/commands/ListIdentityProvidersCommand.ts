@@ -15,20 +15,27 @@ import {
 
 import {
   ListIdentityProvidersRequest,
-  ListIdentityProvidersRequestFilterSensitiveLog,
   ListIdentityProvidersResponse,
   ListIdentityProvidersResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIdentityProvidersCommand,
-  serializeAws_restJson1ListIdentityProvidersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListIdentityProvidersCommand, se_ListIdentityProvidersCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListIdentityProvidersCommand}.
+ */
 export interface ListIdentityProvidersCommandInput extends ListIdentityProvidersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListIdentityProvidersCommand}.
+ */
 export interface ListIdentityProvidersCommandOutput extends ListIdentityProvidersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of identity providers for a specific web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,33 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * import { WorkSpacesWebClient, ListIdentityProvidersCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListIdentityProvidersCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // ListIdentityProvidersRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   portalArn: "STRING_VALUE", // required
+ * };
  * const command = new ListIdentityProvidersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIdentityProvidersCommandInput - {@link ListIdentityProvidersCommandInput}
+ * @returns {@link ListIdentityProvidersCommandOutput}
  * @see {@link ListIdentityProvidersCommandInput} for command's `input` shape.
  * @see {@link ListIdentityProvidersCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class ListIdentityProvidersCommand extends $Command<
@@ -62,6 +89,9 @@ export class ListIdentityProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentityProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +120,7 @@ export class ListIdentityProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIdentityProvidersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListIdentityProvidersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +131,18 @@ export class ListIdentityProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIdentityProvidersCommand(input, context);
+    return se_ListIdentityProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentityProvidersCommandOutput> {
-    return deserializeAws_restJson1ListIdentityProvidersCommand(output, context);
+    return de_ListIdentityProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

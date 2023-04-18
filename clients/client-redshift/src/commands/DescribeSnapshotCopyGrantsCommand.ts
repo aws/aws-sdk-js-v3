@@ -13,25 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSnapshotCopyGrantsMessage,
-  DescribeSnapshotCopyGrantsMessageFilterSensitiveLog,
-  SnapshotCopyGrantMessage,
-  SnapshotCopyGrantMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeSnapshotCopyGrantsCommand,
-  serializeAws_queryDescribeSnapshotCopyGrantsCommand,
-} from "../protocols/Aws_query";
+import { DescribeSnapshotCopyGrantsMessage, SnapshotCopyGrantMessage } from "../models/models_1";
+import { de_DescribeSnapshotCopyGrantsCommand, se_DescribeSnapshotCopyGrantsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSnapshotCopyGrantsCommand}.
+ */
 export interface DescribeSnapshotCopyGrantsCommandInput extends DescribeSnapshotCopyGrantsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSnapshotCopyGrantsCommand}.
+ */
 export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGrantMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of snapshot copy grants owned by the Amazon Web Services account in the destination
  *             region.</p>
- *         <p>
+ *          <p>
  * For more information about managing snapshot copy grants, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
@@ -42,13 +45,34 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  * import { RedshiftClient, DescribeSnapshotCopyGrantsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeSnapshotCopyGrantsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeSnapshotCopyGrantsMessage
+ *   SnapshotCopyGrantName: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   TagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [ // TagValueList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeSnapshotCopyGrantsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotCopyGrantsCommandInput - {@link DescribeSnapshotCopyGrantsCommandInput}
+ * @returns {@link DescribeSnapshotCopyGrantsCommandOutput}
  * @see {@link DescribeSnapshotCopyGrantsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotCopyGrantsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link SnapshotCopyGrantNotFoundFault} (client fault)
+ *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
+ *             correctly and that the grant exists in the destination region.</p>
+ *
  *
  */
 export class DescribeSnapshotCopyGrantsCommand extends $Command<
@@ -68,6 +92,9 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotCopyGrantsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +123,8 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotCopyGrantsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: SnapshotCopyGrantMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +134,21 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotCopyGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeSnapshotCopyGrantsCommand(input, context);
+    return se_DescribeSnapshotCopyGrantsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSnapshotCopyGrantsCommandOutput> {
-    return deserializeAws_queryDescribeSnapshotCopyGrantsCommand(output, context);
+    return de_DescribeSnapshotCopyGrantsCommand(output, context);
   }
 
   // Start section: command_body_extra

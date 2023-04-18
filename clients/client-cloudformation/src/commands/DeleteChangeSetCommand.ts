@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DeleteChangeSetInput,
-  DeleteChangeSetInputFilterSensitiveLog,
-  DeleteChangeSetOutput,
-  DeleteChangeSetOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteChangeSetCommand,
-  serializeAws_queryDeleteChangeSetCommand,
-} from "../protocols/Aws_query";
+import { DeleteChangeSetInput, DeleteChangeSetOutput } from "../models/models_0";
+import { de_DeleteChangeSetCommand, se_DeleteChangeSetCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteChangeSetCommand}.
+ */
 export interface DeleteChangeSetCommandInput extends DeleteChangeSetInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteChangeSetCommand}.
+ */
 export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified change set. Deleting change sets ensures that no one executes the
  *          wrong change set.</p>
  *          <p>If the call successfully completes, CloudFormation successfully deleted the change
@@ -43,13 +46,25 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  * import { CloudFormationClient, DeleteChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeleteChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DeleteChangeSetInput
+ *   ChangeSetName: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE",
+ * };
  * const command = new DeleteChangeSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChangeSetCommandInput - {@link DeleteChangeSetCommandInput}
+ * @returns {@link DeleteChangeSetCommandOutput}
  * @see {@link DeleteChangeSetCommandInput} for command's `input` shape.
  * @see {@link DeleteChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link InvalidChangeSetStatusException} (client fault)
+ *  <p>The specified change set can't be used to update the stack. For example, the change set
+ *          status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be
+ *             <code>UPDATE_IN_PROGRESS</code>.</p>
+ *
  *
  */
 export class DeleteChangeSetCommand extends $Command<
@@ -69,6 +84,9 @@ export class DeleteChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +115,8 @@ export class DeleteChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChangeSetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteChangeSetOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +126,18 @@ export class DeleteChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteChangeSetCommand(input, context);
+    return se_DeleteChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChangeSetCommandOutput> {
-    return deserializeAws_queryDeleteChangeSetCommand(output, context);
+    return de_DeleteChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

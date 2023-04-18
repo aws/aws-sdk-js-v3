@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListJournalS3ExportsForLedgerRequest, ListJournalS3ExportsForLedgerResponse } from "../models/models_0";
 import {
-  ListJournalS3ExportsForLedgerRequest,
-  ListJournalS3ExportsForLedgerRequestFilterSensitiveLog,
-  ListJournalS3ExportsForLedgerResponse,
-  ListJournalS3ExportsForLedgerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListJournalS3ExportsForLedgerCommand,
-  serializeAws_restJson1ListJournalS3ExportsForLedgerCommand,
+  de_ListJournalS3ExportsForLedgerCommand,
+  se_ListJournalS3ExportsForLedgerCommand,
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListJournalS3ExportsForLedgerCommand}.
+ */
 export interface ListJournalS3ExportsForLedgerCommandInput extends ListJournalS3ExportsForLedgerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListJournalS3ExportsForLedgerCommand}.
+ */
 export interface ListJournalS3ExportsForLedgerCommandOutput
   extends ListJournalS3ExportsForLedgerResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of journal export job descriptions for a specified ledger.</p>
  *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
  *          you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code>
@@ -43,13 +49,21 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
  * import { QLDBClient, ListJournalS3ExportsForLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ListJournalS3ExportsForLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // ListJournalS3ExportsForLedgerRequest
+ *   Name: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListJournalS3ExportsForLedgerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJournalS3ExportsForLedgerCommandInput - {@link ListJournalS3ExportsForLedgerCommandInput}
+ * @returns {@link ListJournalS3ExportsForLedgerCommandOutput}
  * @see {@link ListJournalS3ExportsForLedgerCommandInput} for command's `input` shape.
  * @see {@link ListJournalS3ExportsForLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
  *
  */
 export class ListJournalS3ExportsForLedgerCommand extends $Command<
@@ -69,6 +83,9 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJournalS3ExportsForLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +114,8 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJournalS3ExportsForLedgerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJournalS3ExportsForLedgerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +125,21 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJournalS3ExportsForLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJournalS3ExportsForLedgerCommand(input, context);
+    return se_ListJournalS3ExportsForLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
-    return deserializeAws_restJson1ListJournalS3ExportsForLedgerCommand(output, context);
+    return de_ListJournalS3ExportsForLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

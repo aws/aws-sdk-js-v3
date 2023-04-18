@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartWorkspacesRequest,
-  StartWorkspacesRequestFilterSensitiveLog,
-  StartWorkspacesResult,
-  StartWorkspacesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartWorkspacesCommand,
-  serializeAws_json1_1StartWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { StartWorkspacesRequest, StartWorkspacesResult } from "../models/models_0";
+import { de_StartWorkspacesCommand, se_StartWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartWorkspacesCommand}.
+ */
 export interface StartWorkspacesCommandInput extends StartWorkspacesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartWorkspacesCommand}.
+ */
 export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the specified WorkSpaces.</p>
  *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
  *          state of <code>STOPPED</code>.</p>
@@ -38,13 +41,23 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * import { WorkSpacesClient, StartWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, StartWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // StartWorkspacesRequest
+ *   StartWorkspaceRequests: [ // StartWorkspaceRequests // required
+ *     { // StartRequest
+ *       WorkspaceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new StartWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartWorkspacesCommandInput - {@link StartWorkspacesCommandInput}
+ * @returns {@link StartWorkspacesCommandOutput}
  * @see {@link StartWorkspacesCommandInput} for command's `input` shape.
  * @see {@link StartWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
  *
  */
 export class StartWorkspacesCommand extends $Command<
@@ -64,6 +77,9 @@ export class StartWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +108,8 @@ export class StartWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartWorkspacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartWorkspacesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +119,18 @@ export class StartWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartWorkspacesCommand(input, context);
+    return se_StartWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartWorkspacesCommandOutput> {
-    return deserializeAws_json1_1StartWorkspacesCommand(output, context);
+    return de_StartWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

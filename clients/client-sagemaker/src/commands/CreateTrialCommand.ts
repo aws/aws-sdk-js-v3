@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTrialRequest,
-  CreateTrialRequestFilterSensitiveLog,
-  CreateTrialResponse,
-  CreateTrialResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateTrialCommand,
-  serializeAws_json1_1CreateTrialCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTrialRequest, CreateTrialResponse } from "../models/models_1";
+import { de_CreateTrialCommand, se_CreateTrialCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateTrialCommand}.
+ */
 export interface CreateTrialCommandInput extends CreateTrialRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTrialCommand}.
+ */
 export interface CreateTrialCommandOutput extends CreateTrialResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an SageMaker <i>trial</i>. A trial is a set of steps called
  *         <i>trial components</i> that produce a machine learning model. A trial is part
  *       of a single SageMaker <i>experiment</i>.</p>
@@ -46,13 +49,40 @@ export interface CreateTrialCommandOutput extends CreateTrialResponse, __Metadat
  * import { SageMakerClient, CreateTrialCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateTrialCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateTrialRequest
+ *   TrialName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   ExperimentName: "STRING_VALUE", // required
+ *   MetadataProperties: { // MetadataProperties
+ *     CommitId: "STRING_VALUE",
+ *     Repository: "STRING_VALUE",
+ *     GeneratedBy: "STRING_VALUE",
+ *     ProjectId: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateTrialCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrialCommandInput - {@link CreateTrialCommandInput}
+ * @returns {@link CreateTrialCommandOutput}
  * @see {@link CreateTrialCommandInput} for command's `input` shape.
  * @see {@link CreateTrialCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class CreateTrialCommand extends $Command<
@@ -72,6 +102,9 @@ export class CreateTrialCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrialCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +131,8 @@ export class CreateTrialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrialRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrialResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +142,18 @@ export class CreateTrialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTrialCommand(input, context);
+    return se_CreateTrialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrialCommandOutput> {
-    return deserializeAws_json1_1CreateTrialCommand(output, context);
+    return de_CreateTrialCommand(output, context);
   }
 
   // Start section: command_body_extra

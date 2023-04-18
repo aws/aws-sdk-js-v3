@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  CreateFunctionDefinitionRequest,
-  CreateFunctionDefinitionRequestFilterSensitiveLog,
-  CreateFunctionDefinitionResponse,
-  CreateFunctionDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFunctionDefinitionCommand,
-  serializeAws_restJson1CreateFunctionDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateFunctionDefinitionRequest, CreateFunctionDefinitionResponse } from "../models/models_0";
+import { de_CreateFunctionDefinitionCommand, se_CreateFunctionDefinitionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateFunctionDefinitionCommand}.
+ */
 export interface CreateFunctionDefinitionCommandInput extends CreateFunctionDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateFunctionDefinitionCommand}.
+ */
 export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ''CreateFunctionDefinitionVersion'' later.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,71 @@ export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDef
  * import { GreengrassClient, CreateFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // CreateFunctionDefinitionRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   InitialVersion: { // FunctionDefinitionVersion
+ *     DefaultConfig: { // FunctionDefaultConfig
+ *       Execution: { // FunctionDefaultExecutionConfig
+ *         IsolationMode: "GreengrassContainer" || "NoContainer",
+ *         RunAs: { // FunctionRunAsConfig
+ *           Gid: Number("int"),
+ *           Uid: Number("int"),
+ *         },
+ *       },
+ *     },
+ *     Functions: [ // __listOfFunction
+ *       { // Function
+ *         FunctionArn: "STRING_VALUE",
+ *         FunctionConfiguration: { // FunctionConfiguration
+ *           EncodingType: "binary" || "json",
+ *           Environment: { // FunctionConfigurationEnvironment
+ *             AccessSysfs: true || false,
+ *             Execution: { // FunctionExecutionConfig
+ *               IsolationMode: "GreengrassContainer" || "NoContainer",
+ *               RunAs: {
+ *                 Gid: Number("int"),
+ *                 Uid: Number("int"),
+ *               },
+ *             },
+ *             ResourceAccessPolicies: [ // __listOfResourceAccessPolicy
+ *               { // ResourceAccessPolicy
+ *                 Permission: "ro" || "rw",
+ *                 ResourceId: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             Variables: { // __mapOf__string
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *           ExecArgs: "STRING_VALUE",
+ *           Executable: "STRING_VALUE",
+ *           MemorySize: Number("int"),
+ *           Pinned: true || false,
+ *           Timeout: Number("int"),
+ *           FunctionRuntimeOverride: "STRING_VALUE",
+ *         },
+ *         Id: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   Name: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFunctionDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFunctionDefinitionCommandInput - {@link CreateFunctionDefinitionCommandInput}
+ * @returns {@link CreateFunctionDefinitionCommandOutput}
  * @see {@link CreateFunctionDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
  *
  */
 export class CreateFunctionDefinitionCommand extends $Command<
@@ -62,6 +123,9 @@ export class CreateFunctionDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFunctionDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +154,8 @@ export class CreateFunctionDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFunctionDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFunctionDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +165,18 @@ export class CreateFunctionDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFunctionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFunctionDefinitionCommand(input, context);
+    return se_CreateFunctionDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionDefinitionCommandOutput> {
-    return deserializeAws_restJson1CreateFunctionDefinitionCommand(output, context);
+    return de_CreateFunctionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetContentModerationRequest,
-  GetContentModerationRequestFilterSensitiveLog,
-  GetContentModerationResponse,
-  GetContentModerationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContentModerationCommand,
-  serializeAws_json1_1GetContentModerationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetContentModerationRequest, GetContentModerationResponse } from "../models/models_0";
+import { de_GetContentModerationCommand, se_GetContentModerationCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetContentModerationCommand}.
+ */
 export interface GetContentModerationCommandInput extends GetContentModerationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetContentModerationCommand}.
+ */
 export interface GetContentModerationCommandOutput extends GetContentModerationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the inappropriate, unwanted, or offensive content analysis results for a Amazon Rekognition Video analysis started by
  *        <a>StartContentModeration</a>. For a list of moderation labels in Amazon Rekognition, see
  *        <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using the image and video moderation APIs</a>.</p>
@@ -62,13 +65,45 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  * import { RekognitionClient, GetContentModerationCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetContentModerationCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // GetContentModerationRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "NAME" || "TIMESTAMP",
+ * };
  * const command = new GetContentModerationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContentModerationCommandInput - {@link GetContentModerationCommandInput}
+ * @returns {@link GetContentModerationCommandOutput}
  * @see {@link GetContentModerationCommandInput} for command's `input` shape.
  * @see {@link GetContentModerationCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Pagination token in the request is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class GetContentModerationCommand extends $Command<
@@ -88,6 +123,9 @@ export class GetContentModerationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContentModerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +154,8 @@ export class GetContentModerationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContentModerationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContentModerationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +165,18 @@ export class GetContentModerationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContentModerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContentModerationCommand(input, context);
+    return se_GetContentModerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContentModerationCommandOutput> {
-    return deserializeAws_json1_1GetContentModerationCommand(output, context);
+    return de_GetContentModerationCommand(output, context);
   }
 
   // Start section: command_body_extra

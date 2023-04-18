@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  CreateBatchPredictionJobRequest,
-  CreateBatchPredictionJobRequestFilterSensitiveLog,
-  CreateBatchPredictionJobResult,
-  CreateBatchPredictionJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBatchPredictionJobCommand,
-  serializeAws_json1_1CreateBatchPredictionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateBatchPredictionJobRequest, CreateBatchPredictionJobResult } from "../models/models_0";
+import { de_CreateBatchPredictionJobCommand, se_CreateBatchPredictionJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateBatchPredictionJobCommand}.
+ */
 export interface CreateBatchPredictionJobCommandInput extends CreateBatchPredictionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBatchPredictionJobCommand}.
+ */
 export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredictionJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a batch prediction job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredic
  * import { FraudDetectorClient, CreateBatchPredictionJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateBatchPredictionJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // CreateBatchPredictionJobRequest
+ *   jobId: "STRING_VALUE", // required
+ *   inputPath: "STRING_VALUE", // required
+ *   outputPath: "STRING_VALUE", // required
+ *   eventTypeName: "STRING_VALUE", // required
+ *   detectorName: "STRING_VALUE", // required
+ *   detectorVersion: "STRING_VALUE",
+ *   iamRoleArn: "STRING_VALUE", // required
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBatchPredictionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBatchPredictionJobCommandInput - {@link CreateBatchPredictionJobCommandInput}
+ * @returns {@link CreateBatchPredictionJobCommandOutput}
  * @see {@link CreateBatchPredictionJobCommandInput} for command's `input` shape.
  * @see {@link CreateBatchPredictionJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class CreateBatchPredictionJobCommand extends $Command<
@@ -62,6 +98,9 @@ export class CreateBatchPredictionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBatchPredictionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class CreateBatchPredictionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBatchPredictionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBatchPredictionJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +140,18 @@ export class CreateBatchPredictionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBatchPredictionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBatchPredictionJobCommand(input, context);
+    return se_CreateBatchPredictionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchPredictionJobCommandOutput> {
-    return deserializeAws_json1_1CreateBatchPredictionJobCommand(output, context);
+    return de_CreateBatchPredictionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

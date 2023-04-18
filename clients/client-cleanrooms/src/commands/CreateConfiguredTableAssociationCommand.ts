@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import { CreateConfiguredTableAssociationInput, CreateConfiguredTableAssociationOutput } from "../models/models_0";
 import {
-  CreateConfiguredTableAssociationInput,
-  CreateConfiguredTableAssociationInputFilterSensitiveLog,
-  CreateConfiguredTableAssociationOutput,
-  CreateConfiguredTableAssociationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateConfiguredTableAssociationCommand,
-  serializeAws_restJson1CreateConfiguredTableAssociationCommand,
+  de_CreateConfiguredTableAssociationCommand,
+  se_CreateConfiguredTableAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateConfiguredTableAssociationCommand}.
+ */
 export interface CreateConfiguredTableAssociationCommandInput extends CreateConfiguredTableAssociationInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateConfiguredTableAssociationCommand}.
+ */
 export interface CreateConfiguredTableAssociationCommandOutput
   extends CreateConfiguredTableAssociationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a configured table association. A configured table association links a
  *          configured table with a collaboration.</p>
  * @example
@@ -39,13 +45,47 @@ export interface CreateConfiguredTableAssociationCommandOutput
  * import { CleanRoomsClient, CreateConfiguredTableAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreateConfiguredTableAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // CreateConfiguredTableAssociationInput
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   membershipIdentifier: "STRING_VALUE", // required
+ *   configuredTableIdentifier: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateConfiguredTableAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfiguredTableAssociationCommandInput - {@link CreateConfiguredTableAssociationCommandInput}
+ * @returns {@link CreateConfiguredTableAssociationCommandOutput}
  * @see {@link CreateConfiguredTableAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateConfiguredTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Caller does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error during processing of request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource which does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Request denied because service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the specified constraints.</p>
+ *
  *
  */
 export class CreateConfiguredTableAssociationCommand extends $Command<
@@ -65,6 +105,9 @@ export class CreateConfiguredTableAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfiguredTableAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +136,8 @@ export class CreateConfiguredTableAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfiguredTableAssociationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfiguredTableAssociationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +147,24 @@ export class CreateConfiguredTableAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateConfiguredTableAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConfiguredTableAssociationCommand(input, context);
+    return se_CreateConfiguredTableAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfiguredTableAssociationCommandOutput> {
-    return deserializeAws_restJson1CreateConfiguredTableAssociationCommand(output, context);
+    return de_CreateConfiguredTableAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

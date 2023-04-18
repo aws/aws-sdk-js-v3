@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CancelStatementRequest,
-  CancelStatementRequestFilterSensitiveLog,
-  CancelStatementResponse,
-  CancelStatementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelStatementCommand,
-  serializeAws_json1_1CancelStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelStatementRequest, CancelStatementResponse } from "../models/models_0";
+import { de_CancelStatementCommand, se_CancelStatementCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelStatementCommand}.
+ */
 export interface CancelStatementCommandInput extends CancelStatementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelStatementCommand}.
+ */
 export interface CancelStatementCommandOutput extends CancelStatementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * import { GlueClient, CancelStatementCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CancelStatementCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CancelStatementRequest
+ *   SessionId: "STRING_VALUE", // required
+ *   Id: Number("int"), // required
+ *   RequestOrigin: "STRING_VALUE",
+ * };
  * const command = new CancelStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelStatementCommandInput - {@link CancelStatementCommandInput}
+ * @returns {@link CancelStatementCommandOutput}
  * @see {@link CancelStatementCommandInput} for command's `input` shape.
  * @see {@link CancelStatementCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link IllegalSessionStateException} (client fault)
+ *  <p>The session is in an invalid state to perform a requested operation.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class CancelStatementCommand extends $Command<
@@ -62,6 +91,9 @@ export class CancelStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class CancelStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelStatementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelStatementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class CancelStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelStatementCommand(input, context);
+    return se_CancelStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelStatementCommandOutput> {
-    return deserializeAws_json1_1CancelStatementCommand(output, context);
+    return de_CancelStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

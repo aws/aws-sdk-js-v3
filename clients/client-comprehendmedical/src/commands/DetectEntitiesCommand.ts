@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  DetectEntitiesRequest,
-  DetectEntitiesRequestFilterSensitiveLog,
-  DetectEntitiesResponse,
-  DetectEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectEntitiesCommand,
-  serializeAws_json1_1DetectEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { DetectEntitiesRequest, DetectEntitiesResponse } from "../models/models_0";
+import { de_DetectEntitiesCommand, se_DetectEntitiesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DetectEntitiesCommand}.
+ */
 export interface DetectEntitiesCommandInput extends DetectEntitiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DetectEntitiesCommand}.
+ */
 export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>The <code>DetectEntities</code> operation is deprecated. You should use the <a>DetectEntitiesV2</a> operation instead.</p>
@@ -45,13 +48,43 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * import { ComprehendMedicalClient, DetectEntitiesCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DetectEntitiesCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // DetectEntitiesRequest
+ *   Text: "STRING_VALUE", // required
+ * };
  * const command = new DetectEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectEntitiesCommandInput - {@link DetectEntitiesCommandInput}
+ * @returns {@link DetectEntitiesCommandOutput}
  * @see {@link DetectEntitiesCommandInput} for command's `input` shape.
  * @see {@link DetectEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal server error occurred. Retry your request. </p>
+ *
+ * @throws {@link InvalidEncodingException} (client fault)
+ *  <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your
+ *       request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p> The request that you made is invalid. Check your request to determine why it's invalid
+ *       and then retry the request.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p> The Comprehend Medical; service is temporarily unavailable. Please wait and then retry your request.
+ *     </p>
+ *
+ * @throws {@link TextSizeLimitExceededException} (client fault)
+ *  <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
+ *       use a smaller document and then retry your request. </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again. Contact customer support for more information about a service
+ *       limit increase. </p>
+ *
  *
  */
 export class DetectEntitiesCommand extends $Command<
@@ -71,6 +104,9 @@ export class DetectEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +135,8 @@ export class DetectEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +146,18 @@ export class DetectEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectEntitiesCommand(input, context);
+    return se_DetectEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectEntitiesCommandOutput> {
-    return deserializeAws_json1_1DetectEntitiesCommand(output, context);
+    return de_DetectEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

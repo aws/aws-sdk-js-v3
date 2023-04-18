@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyTrafficMirrorFilterRuleRequest,
-  ModifyTrafficMirrorFilterRuleRequestFilterSensitiveLog,
-  ModifyTrafficMirrorFilterRuleResult,
-  ModifyTrafficMirrorFilterRuleResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommand,
-  serializeAws_ec2ModifyTrafficMirrorFilterRuleCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyTrafficMirrorFilterRuleRequest, ModifyTrafficMirrorFilterRuleResult } from "../models/models_6";
+import { de_ModifyTrafficMirrorFilterRuleCommand, se_ModifyTrafficMirrorFilterRuleCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyTrafficMirrorFilterRuleCommand}.
+ */
 export interface ModifyTrafficMirrorFilterRuleCommandInput extends ModifyTrafficMirrorFilterRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyTrafficMirrorFilterRuleCommand}.
+ */
 export interface ModifyTrafficMirrorFilterRuleCommandOutput
   extends ModifyTrafficMirrorFilterRuleResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified Traffic Mirror rule.</p>
  *          <p>
  *             <code>DestinationCidrBlock</code> and <code>SourceCidrBlock</code> must both be an IPv4
@@ -41,13 +44,38 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  * import { EC2Client, ModifyTrafficMirrorFilterRuleCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTrafficMirrorFilterRuleCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyTrafficMirrorFilterRuleRequest
+ *   TrafficMirrorFilterRuleId: "STRING_VALUE", // required
+ *   TrafficDirection: "ingress" || "egress",
+ *   RuleNumber: Number("int"),
+ *   RuleAction: "accept" || "reject",
+ *   DestinationPortRange: { // TrafficMirrorPortRangeRequest
+ *     FromPort: Number("int"),
+ *     ToPort: Number("int"),
+ *   },
+ *   SourcePortRange: {
+ *     FromPort: Number("int"),
+ *     ToPort: Number("int"),
+ *   },
+ *   Protocol: Number("int"),
+ *   DestinationCidrBlock: "STRING_VALUE",
+ *   SourceCidrBlock: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RemoveFields: [ // TrafficMirrorFilterRuleFieldList
+ *     "destination-port-range" || "source-port-range" || "protocol" || "description",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyTrafficMirrorFilterRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTrafficMirrorFilterRuleCommandInput - {@link ModifyTrafficMirrorFilterRuleCommandInput}
+ * @returns {@link ModifyTrafficMirrorFilterRuleCommandOutput}
  * @see {@link ModifyTrafficMirrorFilterRuleCommandInput} for command's `input` shape.
  * @see {@link ModifyTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
@@ -67,6 +95,9 @@ export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTrafficMirrorFilterRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +126,8 @@ export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyTrafficMirrorFilterRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyTrafficMirrorFilterRuleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +137,21 @@ export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyTrafficMirrorFilterRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyTrafficMirrorFilterRuleCommand(input, context);
+    return se_ModifyTrafficMirrorFilterRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTrafficMirrorFilterRuleCommandOutput> {
-    return deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommand(output, context);
+    return de_ModifyTrafficMirrorFilterRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

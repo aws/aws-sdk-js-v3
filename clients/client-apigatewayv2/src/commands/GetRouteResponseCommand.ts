@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetRouteResponseRequest,
-  GetRouteResponseRequestFilterSensitiveLog,
-  GetRouteResponseResponse,
-  GetRouteResponseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRouteResponseCommand,
-  serializeAws_restJson1GetRouteResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRouteResponseRequest, GetRouteResponseResponse } from "../models/models_0";
+import { de_GetRouteResponseCommand, se_GetRouteResponseCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRouteResponseCommand}.
+ */
 export interface GetRouteResponseCommandInput extends GetRouteResponseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRouteResponseCommand}.
+ */
 export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a RouteResponse.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse,
  * import { ApiGatewayV2Client, GetRouteResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetRouteResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetRouteResponseRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   RouteId: "STRING_VALUE", // required
+ *   RouteResponseId: "STRING_VALUE", // required
+ * };
  * const command = new GetRouteResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRouteResponseCommandInput - {@link GetRouteResponseCommandInput}
+ * @returns {@link GetRouteResponseCommandOutput}
  * @see {@link GetRouteResponseCommandInput} for command's `input` shape.
  * @see {@link GetRouteResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class GetRouteResponseCommand extends $Command<
@@ -62,6 +79,9 @@ export class GetRouteResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRouteResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class GetRouteResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRouteResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRouteResponseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class GetRouteResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRouteResponseCommand(input, context);
+    return se_GetRouteResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRouteResponseCommandOutput> {
-    return deserializeAws_restJson1GetRouteResponseCommand(output, context);
+    return de_GetRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

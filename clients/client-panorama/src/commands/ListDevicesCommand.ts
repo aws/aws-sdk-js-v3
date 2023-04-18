@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDevicesRequest,
-  ListDevicesRequestFilterSensitiveLog,
-  ListDevicesResponse,
-  ListDevicesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDevicesRequest, ListDevicesResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1ListDevicesCommand,
-  serializeAws_restJson1ListDevicesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDevicesCommand, se_ListDevicesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDevicesCommand}.
+ */
 export interface ListDevicesCommandInput extends ListDevicesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDevicesCommand}.
+ */
 export interface ListDevicesCommandOutput extends ListDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * import { PanoramaClient, ListDevicesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListDevicesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // ListDevicesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortBy: "STRING_VALUE",
+ *   SortOrder: "STRING_VALUE",
+ *   NameFilter: "STRING_VALUE",
+ *   DeviceAggregatedStatusFilter: "STRING_VALUE",
+ * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
+ * @returns {@link ListDevicesCommandOutput}
  * @see {@link ListDevicesCommandInput} for command's `input` shape.
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The requestor does not have permission to access the target action or resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The target resource is in use.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request contains an invalid parameter value.</p>
+ *
  *
  */
 export class ListDevicesCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class ListDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDevicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class ListDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDevicesCommand(input, context);
+    return se_ListDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicesCommandOutput> {
-    return deserializeAws_restJson1ListDevicesCommand(output, context);
+    return de_ListDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { DataBrewServiceException as __BaseException } from "./DataBrewServiceException";
 
 /**
+ * @public
  * <p>Access to the specified resource was denied.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Configuration of statistics that are allowed to be run on columns that
  *             contain detected entities. When undefined, no statistics will be computed
  *             on columns that contain detected entities.</p>
@@ -36,11 +38,23 @@ export interface AllowedStatistics {
   Statistics: string[] | undefined;
 }
 
-export enum AnalyticsMode {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsMode = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+} as const;
 
+/**
+ * @public
+ */
+export type AnalyticsMode = (typeof AnalyticsMode)[keyof typeof AnalyticsMode];
+
+/**
+ * @public
+ */
 export interface BatchDeleteRecipeVersionRequest {
   /**
    * <p>The name of the recipe whose versions are to be deleted.</p>
@@ -56,6 +70,7 @@ export interface BatchDeleteRecipeVersionRequest {
 }
 
 /**
+ * @public
  * <p>Represents any errors encountered when attempting to delete multiple recipe
  *             versions.</p>
  */
@@ -76,6 +91,9 @@ export interface RecipeVersionErrorDetail {
   RecipeVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteRecipeVersionResponse {
   /**
    * <p>The name of the recipe that was modified.</p>
@@ -89,6 +107,7 @@ export interface BatchDeleteRecipeVersionResponse {
 }
 
 /**
+ * @public
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -110,6 +129,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more resources can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -131,6 +151,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input parameters for this request failed validation.</p>
  */
 export class ValidationException extends __BaseException {
@@ -151,15 +172,25 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum InputFormat {
-  CSV = "CSV",
-  EXCEL = "EXCEL",
-  JSON = "JSON",
-  ORC = "ORC",
-  PARQUET = "PARQUET",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InputFormat = {
+  CSV: "CSV",
+  EXCEL: "EXCEL",
+  JSON: "JSON",
+  ORC: "ORC",
+  PARQUET: "PARQUET",
+} as const;
 
 /**
+ * @public
+ */
+export type InputFormat = (typeof InputFormat)[keyof typeof InputFormat];
+
+/**
+ * @public
  * <p>Represents a set of options that define how DataBrew will read a
  *             comma-separated value (CSV) file when creating a dataset from that file.</p>
  */
@@ -177,6 +208,7 @@ export interface CsvOptions {
 }
 
 /**
+ * @public
  * <p>Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when
  *             creating a dataset from that file.</p>
  */
@@ -200,6 +232,7 @@ export interface ExcelOptions {
 }
 
 /**
+ * @public
  * <p>Represents the JSON-specific options that define how input is to be interpreted by Glue DataBrew.</p>
  */
 export interface JsonOptions {
@@ -211,6 +244,7 @@ export interface JsonOptions {
 }
 
 /**
+ * @public
  * <p>Represents a set of options that define the structure of either comma-separated value (CSV),
  *             Excel, or JSON input.</p>
  */
@@ -232,6 +266,7 @@ export interface FormatOptions {
 }
 
 /**
+ * @public
  * <p>Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read
  *             input data, or write output from a job.</p>
  */
@@ -253,6 +288,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Connection information for dataset input files stored in a database.</p>
  */
 export interface DatabaseInputDefinition {
@@ -281,6 +317,7 @@ export interface DatabaseInputDefinition {
 }
 
 /**
+ * @public
  * <p>Represents how metadata stored in the Glue Data Catalog is defined in a DataBrew
  *             dataset. </p>
  */
@@ -309,6 +346,7 @@ export interface DataCatalogInputDefinition {
 }
 
 /**
+ * @public
  * <p>Contains additional resource information needed for specific datasets.</p>
  */
 export interface Metadata {
@@ -320,6 +358,7 @@ export interface Metadata {
 }
 
 /**
+ * @public
  * <p>Represents information on how DataBrew can find data, in either the Glue Data Catalog or
  *             Amazon S3.</p>
  */
@@ -345,16 +384,35 @@ export interface Input {
   Metadata?: Metadata;
 }
 
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
-
-export enum OrderedBy {
-  LAST_MODIFIED_DATE = "LAST_MODIFIED_DATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Order = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type Order = (typeof Order)[keyof typeof Order];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrderedBy = {
+  LAST_MODIFIED_DATE: "LAST_MODIFIED_DATE",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderedBy = (typeof OrderedBy)[keyof typeof OrderedBy];
+
+/**
+ * @public
  * <p>Represents a limit imposed on number of Amazon S3 files that should be selected for a
  *             dataset from a connected Amazon S3 path.</p>
  */
@@ -379,6 +437,7 @@ export interface FilesLimit {
 }
 
 /**
+ * @public
  * <p>Represents a structure for defining parameter conditions. Supported conditions are described
  *             here: <a href="https://docs.aws.amazon.com/databrew/latest/dg/datasets.multiple-files.html#conditions.for.dynamic.datasets">Supported
  *                 conditions for dynamic datasets</a> in the
@@ -399,6 +458,7 @@ export interface FilterExpression {
 }
 
 /**
+ * @public
  * <p>Represents additional options for correct interpretation of datetime parameters used in
  *             the Amazon S3 path of a dataset.</p>
  */
@@ -423,13 +483,23 @@ export interface DatetimeOptions {
   LocaleCode?: string;
 }
 
-export enum ParameterType {
-  Datetime = "Datetime",
-  Number = "Number",
-  String = "String",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ParameterType = {
+  Datetime: "Datetime",
+  Number: "Number",
+  String: "String",
+} as const;
 
 /**
+ * @public
+ */
+export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
+
+/**
+ * @public
  * <p>Represents a dataset parameter that defines type and conditions for a parameter in the
  *                 Amazon S3 path of the dataset.</p>
  */
@@ -462,6 +532,7 @@ export interface DatasetParameter {
 }
 
 /**
+ * @public
  * <p>Represents a set of options that define how DataBrew selects files for a given Amazon S3
  *             path in a dataset.</p>
  */
@@ -483,6 +554,9 @@ export interface PathOptions {
   Parameters?: Record<string, DatasetParameter>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetRequest {
   /**
    * <p>The name of the dataset to be created. Valid characters are alphanumeric (A-Z, a-z,
@@ -518,6 +592,9 @@ export interface CreateDatasetRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetResponse {
   /**
    * <p>The name of the dataset that you created.</p>
@@ -526,6 +603,7 @@ export interface CreateDatasetResponse {
 }
 
 /**
+ * @public
  * <p>A service quota is exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -547,6 +625,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Selector of a column from a dataset for profile job configuration.
  *             One selector includes either a column name or a regular expression.</p>
  */
@@ -563,6 +642,7 @@ export interface ColumnSelector {
 }
 
 /**
+ * @public
  * <p>Override of a particular evaluation for a profile job. </p>
  */
 export interface StatisticOverride {
@@ -578,6 +658,7 @@ export interface StatisticOverride {
 }
 
 /**
+ * @public
  * <p>Configuration of evaluations for a profile job. This configuration can be used to select
  *             evaluations and override the parameters of selected evaluations.
  *         </p>
@@ -596,6 +677,7 @@ export interface StatisticsConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select
  *             evaluations and override parameters of evaluations for particular columns.
  *         </p>
@@ -617,13 +699,14 @@ export interface ColumnStatisticsConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration of entity detection for a profile job. When undefined, entity
  *             detection is disabled.</p>
  */
 export interface EntityDetectorConfiguration {
   /**
    * <p>Entity types to detect. Can be any of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>USA_SSN</p>
    *             </li>
@@ -682,7 +765,7 @@ export interface EntityDetectorConfiguration {
    *                <p>DATE</p>
    *             </li>
    *          </ul>
-   *         <p>The Entity type group USA_ALL is also supported, and includes all of the
+   *          <p>The Entity type group USA_ALL is also supported, and includes all of the
    *             above entity types except PERSON_NAME and DATE.</p>
    */
   EntityTypes: string[] | undefined;
@@ -696,6 +779,7 @@ export interface EntityDetectorConfiguration {
 }
 
 /**
+ * @public
  * <p>Configuration for profile jobs. Configuration can be used to select columns, do evaluations, and override default
  *             parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all
  *             supported columns.
@@ -732,17 +816,36 @@ export interface ProfileConfiguration {
   EntityDetectorConfiguration?: EntityDetectorConfiguration;
 }
 
-export enum EncryptionMode {
-  SSEKMS = "SSE-KMS",
-  SSES3 = "SSE-S3",
-}
-
-export enum SampleMode {
-  CUSTOM_ROWS = "CUSTOM_ROWS",
-  FULL_DATASET = "FULL_DATASET",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionMode = {
+  SSEKMS: "SSE-KMS",
+  SSES3: "SSE-S3",
+} as const;
 
 /**
+ * @public
+ */
+export type EncryptionMode = (typeof EncryptionMode)[keyof typeof EncryptionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SampleMode = {
+  CUSTOM_ROWS: "CUSTOM_ROWS",
+  FULL_DATASET: "FULL_DATASET",
+} as const;
+
+/**
+ * @public
+ */
+export type SampleMode = (typeof SampleMode)[keyof typeof SampleMode];
+
+/**
+ * @public
  * <p>A sample configuration for profile jobs only, which determines the number of rows on which the
  *             profile job is run. If a <code>JobSample</code> value isn't provided, the
  *             default is used. The default value is CUSTOM_ROWS for the mode parameter and
@@ -752,12 +855,12 @@ export interface JobSample {
   /**
    * <p>A value that determines whether the profile job is run on the entire dataset or a
    *             specified number of rows. This value must be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>FULL_DATASET - The profile job is run on the entire dataset.</p>
+   *                <p>FULL_DATASET - The profile job is run on the entire dataset.</p>
    *             </li>
    *             <li>
-   *                 <p>CUSTOM_ROWS - The profile job is run on the number of rows specified in the
+   *                <p>CUSTOM_ROWS - The profile job is run on the number of rows specified in the
    *                     <code>Size</code> parameter.</p>
    *             </li>
    *          </ul>
@@ -768,21 +871,40 @@ export interface JobSample {
    * <p>The <code>Size</code> parameter is only required when the mode is CUSTOM_ROWS. The
    *             profile job is run on the specified number of rows. The maximum value for size is
    *             Long.MAX_VALUE.</p>
-   *         <p>Long.MAX_VALUE = 9223372036854775807</p>
+   *          <p>Long.MAX_VALUE = 9223372036854775807</p>
    */
   Size?: number;
 }
 
-export enum LogSubscription {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
-
-export enum ValidationMode {
-  CHECK_ALL = "CHECK_ALL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LogSubscription = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type LogSubscription = (typeof LogSubscription)[keyof typeof LogSubscription];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationMode = {
+  CHECK_ALL: "CHECK_ALL",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationMode = (typeof ValidationMode)[keyof typeof ValidationMode];
+
+/**
+ * @public
  * <p>Configuration for data quality validation. Used to select the Rulesets and Validation Mode
  *             to be used in the profile job. When ValidationConfiguration is null, the profile
  *             job will run without data quality validation.</p>
@@ -802,6 +924,9 @@ export interface ValidationConfiguration {
   ValidationMode?: ValidationMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProfileJobRequest {
   /**
    * <p>The name of the dataset that this job is to act upon.</p>
@@ -816,14 +941,14 @@ export interface CreateProfileJobRequest {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - <code>SSE-KMS</code> - Server-side encryption with
    *                     KMS-managed keys.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
    *             </li>
    *          </ul>
@@ -896,6 +1021,9 @@ export interface CreateProfileJobRequest {
   JobSample?: JobSample;
 }
 
+/**
+ * @public
+ */
 export interface CreateProfileJobResponse {
   /**
    * <p>The name of the job that was created.</p>
@@ -903,13 +1031,23 @@ export interface CreateProfileJobResponse {
   Name: string | undefined;
 }
 
-export enum SampleType {
-  FIRST_N = "FIRST_N",
-  LAST_N = "LAST_N",
-  RANDOM = "RANDOM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SampleType = {
+  FIRST_N: "FIRST_N",
+  LAST_N: "LAST_N",
+  RANDOM: "RANDOM",
+} as const;
 
 /**
+ * @public
+ */
+export type SampleType = (typeof SampleType)[keyof typeof SampleType];
+
+/**
+ * @public
  * <p>Represents the sample size and sampling type for DataBrew to use for interactive data
  *             analysis.</p>
  */
@@ -925,6 +1063,9 @@ export interface Sample {
   Type: SampleType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectRequest {
   /**
    * <p>The name of an existing dataset to associate this project with.</p>
@@ -960,6 +1101,9 @@ export interface CreateProjectRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateProjectResponse {
   /**
    * <p>The name of the project that you created.</p>
@@ -968,6 +1112,7 @@ export interface CreateProjectResponse {
 }
 
 /**
+ * @public
  * <p>An internal service failure occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -989,6 +1134,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a transformation and associated parameters that are used to apply a change
  *             to a DataBrew dataset. For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/recipe-actions-reference.html">Recipe
  *                 actions reference</a>.</p>
@@ -1006,10 +1152,11 @@ export interface RecipeAction {
 }
 
 /**
+ * @public
  * <p>Represents an individual condition that evaluates to true or false.</p>
- *         <p>Conditions are used with recipe actions. The action is only performed for column values where the
+ *          <p>Conditions are used with recipe actions. The action is only performed for column values where the
  *             condition evaluates to true.</p>
- *         <p>If a recipe requires more than one condition, then the recipe must specify multiple
+ *          <p>If a recipe requires more than one condition, then the recipe must specify multiple
  *             <code>ConditionExpression</code> elements. Each condition is applied to the rows in a dataset first, before
  *             the recipe action is performed.</p>
  */
@@ -1033,6 +1180,7 @@ export interface ConditionExpression {
 }
 
 /**
+ * @public
  * <p>Represents a single step from a DataBrew recipe to be performed.</p>
  */
 export interface RecipeStep {
@@ -1043,14 +1191,17 @@ export interface RecipeStep {
 
   /**
    * <p>One or more conditions that must be met for the recipe step to succeed.</p>
-   *         <note>
+   *          <note>
    *             <p>All of the conditions in the array must be met. In other words, all of the
    *                 conditions must be combined using a logical AND operation.</p>
-   *         </note>
+   *          </note>
    */
   ConditionExpressions?: ConditionExpression[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRecipeRequest {
   /**
    * <p>A description for the recipe.</p>
@@ -1075,6 +1226,9 @@ export interface CreateRecipeRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRecipeResponse {
   /**
    * <p>The name of the recipe that you created.</p>
@@ -1083,6 +1237,7 @@ export interface CreateRecipeResponse {
 }
 
 /**
+ * @public
  * <p>Represents options that specify how and where DataBrew writes the database
  *             output generated by recipe jobs.</p>
  */
@@ -1099,11 +1254,21 @@ export interface DatabaseTableOutputOptions {
   TableName: string | undefined;
 }
 
-export enum DatabaseOutputMode {
-  NEW_TABLE = "NEW_TABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DatabaseOutputMode = {
+  NEW_TABLE: "NEW_TABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type DatabaseOutputMode = (typeof DatabaseOutputMode)[keyof typeof DatabaseOutputMode];
+
+/**
+ * @public
  * <p>Represents a JDBC database output object which defines the output destination for
  *             a DataBrew recipe job to write into.</p>
  */
@@ -1127,6 +1292,7 @@ export interface DatabaseOutput {
 }
 
 /**
+ * @public
  * <p>Represents options that specify how and where DataBrew writes the Amazon S3 output
  *             generated by recipe jobs.</p>
  */
@@ -1139,6 +1305,7 @@ export interface S3TableOutputOptions {
 }
 
 /**
+ * @public
  * <p>Represents options that specify how and where in the Glue Data Catalog DataBrew
  *             writes the output generated by recipe jobs.</p>
  */
@@ -1178,30 +1345,49 @@ export interface DataCatalogOutput {
   Overwrite?: boolean;
 }
 
-export enum CompressionFormat {
-  BROTLI = "BROTLI",
-  BZIP2 = "BZIP2",
-  DEFLATE = "DEFLATE",
-  GZIP = "GZIP",
-  LZ4 = "LZ4",
-  LZO = "LZO",
-  SNAPPY = "SNAPPY",
-  ZLIB = "ZLIB",
-  ZSTD = "ZSTD",
-}
-
-export enum OutputFormat {
-  AVRO = "AVRO",
-  CSV = "CSV",
-  GLUEPARQUET = "GLUEPARQUET",
-  JSON = "JSON",
-  ORC = "ORC",
-  PARQUET = "PARQUET",
-  TABLEAUHYPER = "TABLEAUHYPER",
-  XML = "XML",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CompressionFormat = {
+  BROTLI: "BROTLI",
+  BZIP2: "BZIP2",
+  DEFLATE: "DEFLATE",
+  GZIP: "GZIP",
+  LZ4: "LZ4",
+  LZO: "LZO",
+  SNAPPY: "SNAPPY",
+  ZLIB: "ZLIB",
+  ZSTD: "ZSTD",
+} as const;
 
 /**
+ * @public
+ */
+export type CompressionFormat = (typeof CompressionFormat)[keyof typeof CompressionFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const OutputFormat = {
+  AVRO: "AVRO",
+  CSV: "CSV",
+  GLUEPARQUET: "GLUEPARQUET",
+  JSON: "JSON",
+  ORC: "ORC",
+  PARQUET: "PARQUET",
+  TABLEAUHYPER: "TABLEAUHYPER",
+  XML: "XML",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
+
+/**
+ * @public
  * <p>Represents a set of options that define how DataBrew will write a
  *             comma-separated value (CSV) file.</p>
  */
@@ -1213,6 +1399,7 @@ export interface CsvOutputOptions {
 }
 
 /**
+ * @public
  * <p>Represents a set of options that define the structure of comma-separated (CSV) job output.</p>
  */
 export interface OutputFormatOptions {
@@ -1224,6 +1411,7 @@ export interface OutputFormatOptions {
 }
 
 /**
+ * @public
  * <p>Represents options that specify how and where in Amazon S3 DataBrew writes the output generated by
  *             recipe jobs or profile jobs.</p>
  */
@@ -1267,6 +1455,7 @@ export interface Output {
 }
 
 /**
+ * @public
  * <p>Represents the name and version of a DataBrew recipe.</p>
  */
 export interface RecipeReference {
@@ -1281,6 +1470,9 @@ export interface RecipeReference {
   RecipeVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRecipeJobRequest {
   /**
    * <p>The name of the dataset that this job processes.</p>
@@ -1295,13 +1487,13 @@ export interface CreateRecipeJobRequest {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
    *             </li>
    *          </ul>
@@ -1376,6 +1568,9 @@ export interface CreateRecipeJobRequest {
   Timeout?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateRecipeJobResponse {
   /**
    * <p>The name of the job that you created.</p>
@@ -1383,19 +1578,38 @@ export interface CreateRecipeJobResponse {
   Name: string | undefined;
 }
 
-export enum ThresholdType {
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL",
-}
-
-export enum ThresholdUnit {
-  COUNT = "COUNT",
-  PERCENTAGE = "PERCENTAGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ThresholdType = {
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type ThresholdType = (typeof ThresholdType)[keyof typeof ThresholdType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThresholdUnit = {
+  COUNT: "COUNT",
+  PERCENTAGE: "PERCENTAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type ThresholdUnit = (typeof ThresholdUnit)[keyof typeof ThresholdUnit];
+
+/**
+ * @public
  * <p>The threshold used with a non-aggregate check expression. The non-aggregate check expression
  *             will be applied to each row in a specific column. Then the threshold will be used to determine
  *             whether the validation succeeds.</p>
@@ -1420,6 +1634,7 @@ export interface Threshold {
 }
 
 /**
+ * @public
  * <p>Represents a single data quality requirement that should be validated in the
  *             scope of this dataset.</p>
  */
@@ -1447,7 +1662,7 @@ export interface Rule {
    *             column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors
    *             has been defined, then there should be no column reference in the left side of a
    *             condition, for example, <code>is_between :val1 and :val2</code>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/profile.data-quality-available-checks.html">Available checks</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/profile.data-quality-available-checks.html">Available checks</a>
    *          </p>
    */
   CheckExpression: string | undefined;
@@ -1475,6 +1690,9 @@ export interface Rule {
   ColumnSelectors?: ColumnSelector[];
 }
 
+/**
+ * @public
+ */
 export interface CreateRulesetRequest {
   /**
    * <p>The name of the ruleset to be created. Valid characters are alphanumeric
@@ -1505,6 +1723,9 @@ export interface CreateRulesetRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRulesetResponse {
   /**
    * <p>The unique name of the created ruleset.</p>
@@ -1512,6 +1733,9 @@ export interface CreateRulesetResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduleRequest {
   /**
    * <p>The name or names of one or more jobs to be run.</p>
@@ -1538,6 +1762,9 @@ export interface CreateScheduleRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduleResponse {
   /**
    * <p>The name of the schedule that was created.</p>
@@ -1545,6 +1772,9 @@ export interface CreateScheduleResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetRequest {
   /**
    * <p>The name of the dataset to be deleted.</p>
@@ -1552,6 +1782,9 @@ export interface DeleteDatasetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetResponse {
   /**
    * <p>The name of the dataset that you deleted.</p>
@@ -1559,6 +1792,9 @@ export interface DeleteDatasetResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobRequest {
   /**
    * <p>The name of the job to be deleted.</p>
@@ -1566,6 +1802,9 @@ export interface DeleteJobRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobResponse {
   /**
    * <p>The name of the job that you deleted.</p>
@@ -1573,6 +1812,9 @@ export interface DeleteJobResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectRequest {
   /**
    * <p>The name of the project to be deleted.</p>
@@ -1580,6 +1822,9 @@ export interface DeleteProjectRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProjectResponse {
   /**
    * <p>The name of the project that you deleted.</p>
@@ -1587,6 +1832,9 @@ export interface DeleteProjectResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRecipeVersionRequest {
   /**
    * <p>The name of the recipe.</p>
@@ -1601,6 +1849,9 @@ export interface DeleteRecipeVersionRequest {
   RecipeVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRecipeVersionResponse {
   /**
    * <p>The name of the recipe that was deleted.</p>
@@ -1613,6 +1864,9 @@ export interface DeleteRecipeVersionResponse {
   RecipeVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRulesetRequest {
   /**
    * <p>The name of the ruleset to be deleted.</p>
@@ -1620,6 +1874,9 @@ export interface DeleteRulesetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRulesetResponse {
   /**
    * <p>The name of the deleted ruleset.</p>
@@ -1627,6 +1884,9 @@ export interface DeleteRulesetResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduleRequest {
   /**
    * <p>The name of the schedule to be deleted.</p>
@@ -1634,6 +1894,9 @@ export interface DeleteScheduleRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduleResponse {
   /**
    * <p>The name of the schedule that was deleted.</p>
@@ -1641,6 +1904,9 @@ export interface DeleteScheduleResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetRequest {
   /**
    * <p>The name of the dataset to be described.</p>
@@ -1648,12 +1914,24 @@ export interface DescribeDatasetRequest {
   Name: string | undefined;
 }
 
-export enum Source {
-  DATABASE = "DATABASE",
-  DATACATALOG = "DATA-CATALOG",
-  S3 = "S3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Source = {
+  DATABASE: "DATABASE",
+  DATACATALOG: "DATA-CATALOG",
+  S3: "S3",
+} as const;
 
+/**
+ * @public
+ */
+export type Source = (typeof Source)[keyof typeof Source];
+
+/**
+ * @public
+ */
 export interface DescribeDatasetResponse {
   /**
    * <p>The identifier (user name) of the user who created the dataset.</p>
@@ -1721,6 +1999,9 @@ export interface DescribeDatasetResponse {
   ResourceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobRequest {
   /**
    * <p>The name of the job to be described.</p>
@@ -1728,11 +2009,23 @@ export interface DescribeJobRequest {
   Name: string | undefined;
 }
 
-export enum JobType {
-  PROFILE = "PROFILE",
-  RECIPE = "RECIPE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobType = {
+  PROFILE: "PROFILE",
+  RECIPE: "RECIPE",
+} as const;
 
+/**
+ * @public
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
+ */
 export interface DescribeJobResponse {
   /**
    * <p>The date and time that the job was created.</p>
@@ -1757,13 +2050,13 @@ export interface DescribeJobResponse {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon
    *                     S3.</p>
    *             </li>
@@ -1778,14 +2071,14 @@ export interface DescribeJobResponse {
 
   /**
    * <p>The job type, which must be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PROFILE</code> - The job analyzes the dataset to determine its size,
    *                     data types, data distribution, and more.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RECIPE</code> - The job applies one or more transformations to a
    *                     dataset.</p>
    *             </li>
@@ -1886,6 +2179,9 @@ export interface DescribeJobResponse {
   JobSample?: JobSample;
 }
 
+/**
+ * @public
+ */
 export interface DescribeJobRunRequest {
   /**
    * <p>The name of the job being processed during this run.</p>
@@ -1898,16 +2194,28 @@ export interface DescribeJobRunRequest {
   RunId: string | undefined;
 }
 
-export enum JobRunState {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobRunState = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMEOUT: "TIMEOUT",
+} as const;
 
+/**
+ * @public
+ */
+export type JobRunState = (typeof JobRunState)[keyof typeof JobRunState];
+
+/**
+ * @public
+ */
 export interface DescribeJobRunResponse {
   /**
    * <p>The number of times that DataBrew has attempted to run the job.</p>
@@ -2012,6 +2320,9 @@ export interface DescribeJobRunResponse {
   JobSample?: JobSample;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectRequest {
   /**
    * <p>The name of the project to be described.</p>
@@ -2019,19 +2330,31 @@ export interface DescribeProjectRequest {
   Name: string | undefined;
 }
 
-export enum SessionStatus {
-  ASSIGNED = "ASSIGNED",
-  FAILED = "FAILED",
-  INITIALIZING = "INITIALIZING",
-  PROVISIONING = "PROVISIONING",
-  READY = "READY",
-  RECYCLING = "RECYCLING",
-  ROTATING = "ROTATING",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SessionStatus = {
+  ASSIGNED: "ASSIGNED",
+  FAILED: "FAILED",
+  INITIALIZING: "INITIALIZING",
+  PROVISIONING: "PROVISIONING",
+  READY: "READY",
+  RECYCLING: "RECYCLING",
+  ROTATING: "ROTATING",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
+
+/**
+ * @public
+ */
 export interface DescribeProjectResponse {
   /**
    * <p>The date and time that the project was created.</p>
@@ -2092,17 +2415,17 @@ export interface DescribeProjectResponse {
 
   /**
    * <p>Describes the current state of the session:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PROVISIONING</code> - allocating resources for the session.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>INITIALIZING</code> - getting the session ready for first use.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ASSIGNED</code> - the session is ready for use.</p>
    *             </li>
    *          </ul>
@@ -2120,6 +2443,9 @@ export interface DescribeProjectResponse {
   OpenDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecipeRequest {
   /**
    * <p>The name of the recipe to be described.</p>
@@ -2133,6 +2459,9 @@ export interface DescribeRecipeRequest {
   RecipeVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecipeResponse {
   /**
    * <p>The identifier (user name) of the user who created the recipe.</p>
@@ -2201,6 +2530,9 @@ export interface DescribeRecipeResponse {
   RecipeVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRulesetRequest {
   /**
    * <p>The name of the ruleset to be described.</p>
@@ -2208,6 +2540,9 @@ export interface DescribeRulesetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRulesetResponse {
   /**
    * <p>The name of the ruleset.</p>
@@ -2262,6 +2597,9 @@ export interface DescribeRulesetResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScheduleRequest {
   /**
    * <p>The name of the schedule to be described.</p>
@@ -2269,6 +2607,9 @@ export interface DescribeScheduleRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScheduleResponse {
   /**
    * <p>The date and time that the schedule was created.</p>
@@ -2318,6 +2659,9 @@ export interface DescribeScheduleResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsRequest {
   /**
    * <p>The maximum number of results to return in this request. </p>
@@ -2331,6 +2675,7 @@ export interface ListDatasetsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a dataset that can be processed by DataBrew.</p>
  */
 export interface Dataset {
@@ -2402,6 +2747,9 @@ export interface Dataset {
   ResourceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsResponse {
   /**
    * <p>A list of datasets that are defined.</p>
@@ -2415,6 +2763,9 @@ export interface ListDatasetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobRunsRequest {
   /**
    * <p>The name of the job.</p>
@@ -2433,6 +2784,7 @@ export interface ListJobRunsRequest {
 }
 
 /**
+ * @public
  * <p>Represents one run of a DataBrew job.</p>
  */
 export interface JobRun {
@@ -2533,6 +2885,9 @@ export interface JobRun {
   ValidationConfigurations?: ValidationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListJobRunsResponse {
   /**
    * <p>A list of job runs that have occurred for the specified job.</p>
@@ -2546,6 +2901,9 @@ export interface ListJobRunsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListJobsRequest {
   /**
    * <p>The name of a dataset. Using this parameter indicates to return only those jobs that
@@ -2573,6 +2931,7 @@ export interface ListJobsRequest {
 }
 
 /**
+ * @public
  * <p>Represents all of the attributes of a DataBrew job.</p>
  */
 export interface Job {
@@ -2606,13 +2965,13 @@ export interface Job {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
    *             </li>
    *          </ul>
@@ -2626,14 +2985,14 @@ export interface Job {
 
   /**
    * <p>The job type of the job, which must be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PROFILE</code> - A job to analyze a dataset, to determine its size, data
    *                     types, data distribution, and more.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RECIPE</code> - A job to apply one or more transformations to a
    *                     dataset.</p>
    *             </li>
@@ -2728,6 +3087,9 @@ export interface Job {
   ValidationConfigurations?: ValidationConfiguration[];
 }
 
+/**
+ * @public
+ */
 export interface ListJobsResponse {
   /**
    * <p>A list of jobs that are defined.</p>
@@ -2741,6 +3103,9 @@ export interface ListJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsRequest {
   /**
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
@@ -2754,6 +3119,7 @@ export interface ListProjectsRequest {
 }
 
 /**
+ * @public
  * <p>Represents all of the attributes of a DataBrew project.</p>
  */
 export interface Project {
@@ -2830,6 +3196,9 @@ export interface Project {
   OpenDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListProjectsResponse {
   /**
    * <p>A list of projects that are defined .</p>
@@ -2843,6 +3212,9 @@ export interface ListProjectsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecipesRequest {
   /**
    * <p>The maximum number of results to return in this request. </p>
@@ -2859,13 +3231,14 @@ export interface ListRecipesRequest {
    *                 <code>LATEST_PUBLISHED</code>. If <code>RecipeVersion</code> is omitted,
    *                 <code>ListRecipes</code> returns all of the <code>LATEST_PUBLISHED</code> recipe
    *             versions.</p>
-   *         <p>Valid values: <code>LATEST_WORKING</code> | <code>LATEST_PUBLISHED</code>
+   *          <p>Valid values: <code>LATEST_WORKING</code> | <code>LATEST_PUBLISHED</code>
    *          </p>
    */
   RecipeVersion?: string;
 }
 
 /**
+ * @public
  * <p>Represents one or more actions to be performed on a DataBrew dataset.</p>
  */
 export interface Recipe {
@@ -2931,20 +3304,20 @@ export interface Recipe {
 
   /**
    * <p>The identifier for the version for the recipe. Must be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Numeric version (<code>X.Y</code>) - <code>X</code> and <code>Y</code> stand
+   *                <p>Numeric version (<code>X.Y</code>) - <code>X</code> and <code>Y</code> stand
    *                     for major and minor version numbers. The maximum length of each is 6 digits, and
    *                     neither can be negative values. Both <code>X</code> and <code>Y</code> are
    *                     required, and "0.0" isn't a valid version.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LATEST_WORKING</code> - the most recent valid version being developed in
    *                     a DataBrew project.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LATEST_PUBLISHED</code> - the most recent published version.</p>
    *             </li>
    *          </ul>
@@ -2952,6 +3325,9 @@ export interface Recipe {
   RecipeVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecipesResponse {
   /**
    * <p>A list of recipes that are defined.</p>
@@ -2965,6 +3341,9 @@ export interface ListRecipesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecipeVersionsRequest {
   /**
    * <p>The maximum number of results to return in this request. </p>
@@ -2982,6 +3361,9 @@ export interface ListRecipeVersionsRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRecipeVersionsResponse {
   /**
    * <p>A token that you can use in a subsequent call to retrieve the next set of
@@ -2995,6 +3377,9 @@ export interface ListRecipeVersionsResponse {
   Recipes: Recipe[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesetsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of a resource (dataset). Using this parameter
@@ -3016,6 +3401,7 @@ export interface ListRulesetsRequest {
 }
 
 /**
+ * @public
  * <p>Contains metadata about the ruleset.</p>
  */
 export interface RulesetItem {
@@ -3076,6 +3462,9 @@ export interface RulesetItem {
   TargetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListRulesetsResponse {
   /**
    * <p>A list of RulesetItem. RulesetItem contains meta data of a ruleset.</p>
@@ -3089,6 +3478,9 @@ export interface ListRulesetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchedulesRequest {
   /**
    * <p>The name of the job that these schedules apply to.</p>
@@ -3107,6 +3499,7 @@ export interface ListSchedulesRequest {
 }
 
 /**
+ * @public
  * <p>Represents one or more dates and times when a job is to run.</p>
  */
 export interface Schedule {
@@ -3163,6 +3556,9 @@ export interface Schedule {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSchedulesResponse {
   /**
    * <p>A list of schedules that are defined.</p>
@@ -3176,6 +3572,9 @@ export interface ListSchedulesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the DataBrew resource.
@@ -3184,6 +3583,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags associated with the DataBrew resource.</p>
@@ -3191,6 +3593,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PublishRecipeRequest {
   /**
    * <p>A description of the recipe to be published, for this version of the recipe.</p>
@@ -3203,6 +3608,9 @@ export interface PublishRecipeRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PublishRecipeResponse {
   /**
    * <p>The name of the recipe that you published.</p>
@@ -3211,6 +3619,7 @@ export interface PublishRecipeResponse {
 }
 
 /**
+ * @public
  * <p>Represents the data being transformed during an action.</p>
  */
 export interface ViewFrame {
@@ -3248,6 +3657,9 @@ export interface ViewFrame {
   Analytics?: AnalyticsMode | string;
 }
 
+/**
+ * @public
+ */
 export interface SendProjectSessionActionRequest {
   /**
    * <p>If true, the result of the recipe step will be returned, but not applied.</p>
@@ -3283,6 +3695,9 @@ export interface SendProjectSessionActionRequest {
   ViewFrame?: ViewFrame;
 }
 
+/**
+ * @public
+ */
 export interface SendProjectSessionActionResponse {
   /**
    * <p>A message indicating the result of performing the action.</p>
@@ -3300,6 +3715,9 @@ export interface SendProjectSessionActionResponse {
   ActionId?: number;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunRequest {
   /**
    * <p>The name of the job to be run.</p>
@@ -3307,6 +3725,9 @@ export interface StartJobRunRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartJobRunResponse {
   /**
    * <p>A system-generated identifier for this particular job run.</p>
@@ -3314,6 +3735,9 @@ export interface StartJobRunResponse {
   RunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartProjectSessionRequest {
   /**
    * <p>The name of the project to act upon.</p>
@@ -3327,6 +3751,9 @@ export interface StartProjectSessionRequest {
   AssumeControl?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartProjectSessionResponse {
   /**
    * <p>The name of the project to be acted upon.</p>
@@ -3339,6 +3766,9 @@ export interface StartProjectSessionResponse {
   ClientSessionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopJobRunRequest {
   /**
    * <p>The name of the job to be stopped.</p>
@@ -3351,6 +3781,9 @@ export interface StopJobRunRequest {
   RunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopJobRunResponse {
   /**
    * <p>The ID of the job run that you stopped.</p>
@@ -3358,6 +3791,9 @@ export interface StopJobRunResponse {
   RunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The DataBrew resource to which tags should be added. The value for this parameter is
@@ -3372,8 +3808,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>A DataBrew resource from which you want to remove a tag or tags. The value for this
@@ -3387,8 +3829,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatasetRequest {
   /**
    * <p>The name of the dataset to be updated.</p>
@@ -3418,6 +3866,9 @@ export interface UpdateDatasetRequest {
   PathOptions?: PathOptions;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatasetResponse {
   /**
    * <p>The name of the dataset that you updated.</p>
@@ -3425,6 +3876,9 @@ export interface UpdateDatasetResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProfileJobRequest {
   /**
    * <p>Configuration for profile jobs. Used to select columns, do evaluations,
@@ -3441,13 +3895,13 @@ export interface UpdateProfileJobRequest {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon
    *                     S3.</p>
    *             </li>
@@ -3509,6 +3963,9 @@ export interface UpdateProfileJobRequest {
   JobSample?: JobSample;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProfileJobResponse {
   /**
    * <p>The name of the job that was updated.</p>
@@ -3516,6 +3973,9 @@ export interface UpdateProfileJobResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectRequest {
   /**
    * <p>Represents the sample size and sampling type for DataBrew to use for interactive data
@@ -3534,6 +3994,9 @@ export interface UpdateProjectRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectResponse {
   /**
    * <p>The date and time that the project was last modified.</p>
@@ -3546,6 +4009,9 @@ export interface UpdateProjectResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRecipeRequest {
   /**
    * <p>A description of the recipe.</p>
@@ -3564,6 +4030,9 @@ export interface UpdateRecipeRequest {
   Steps?: RecipeStep[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateRecipeResponse {
   /**
    * <p>The name of the recipe that was updated.</p>
@@ -3571,6 +4040,9 @@ export interface UpdateRecipeResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRecipeJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of an encryption key that is used to protect the
@@ -3580,13 +4052,13 @@ export interface UpdateRecipeJobRequest {
 
   /**
    * <p>The encryption mode for the job, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
    *             </li>
    *          </ul>
@@ -3644,6 +4116,9 @@ export interface UpdateRecipeJobRequest {
   Timeout?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRecipeJobResponse {
   /**
    * <p>The name of the job that you updated.</p>
@@ -3651,6 +4126,9 @@ export interface UpdateRecipeJobResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRulesetRequest {
   /**
    * <p>The name of the ruleset to be updated.</p>
@@ -3669,6 +4147,9 @@ export interface UpdateRulesetRequest {
   Rules: Rule[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRulesetResponse {
   /**
    * <p>The name of the updated ruleset.</p>
@@ -3676,6 +4157,9 @@ export interface UpdateRulesetResponse {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScheduleRequest {
   /**
    * <p>The name or names of one or more jobs to be run for this schedule.</p>
@@ -3696,768 +4180,15 @@ export interface UpdateScheduleRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateScheduleResponse {
   /**
    * <p>The name of the schedule that was updated.</p>
    */
   Name: string | undefined;
 }
-
-/**
- * @internal
- */
-export const AllowedStatisticsFilterSensitiveLog = (obj: AllowedStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteRecipeVersionRequestFilterSensitiveLog = (obj: BatchDeleteRecipeVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecipeVersionErrorDetailFilterSensitiveLog = (obj: RecipeVersionErrorDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteRecipeVersionResponseFilterSensitiveLog = (obj: BatchDeleteRecipeVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CsvOptionsFilterSensitiveLog = (obj: CsvOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExcelOptionsFilterSensitiveLog = (obj: ExcelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JsonOptionsFilterSensitiveLog = (obj: JsonOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FormatOptionsFilterSensitiveLog = (obj: FormatOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseInputDefinitionFilterSensitiveLog = (obj: DatabaseInputDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataCatalogInputDefinitionFilterSensitiveLog = (obj: DataCatalogInputDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetadataFilterSensitiveLog = (obj: Metadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputFilterSensitiveLog = (obj: Input): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilesLimitFilterSensitiveLog = (obj: FilesLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterExpressionFilterSensitiveLog = (obj: FilterExpression): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatetimeOptionsFilterSensitiveLog = (obj: DatetimeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetParameterFilterSensitiveLog = (obj: DatasetParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PathOptionsFilterSensitiveLog = (obj: PathOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatasetResponseFilterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnSelectorFilterSensitiveLog = (obj: ColumnSelector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatisticOverrideFilterSensitiveLog = (obj: StatisticOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatisticsConfigurationFilterSensitiveLog = (obj: StatisticsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnStatisticsConfigurationFilterSensitiveLog = (obj: ColumnStatisticsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EntityDetectorConfigurationFilterSensitiveLog = (obj: EntityDetectorConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProfileConfigurationFilterSensitiveLog = (obj: ProfileConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobSampleFilterSensitiveLog = (obj: JobSample): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationConfigurationFilterSensitiveLog = (obj: ValidationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProfileJobRequestFilterSensitiveLog = (obj: CreateProfileJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProfileJobResponseFilterSensitiveLog = (obj: CreateProfileJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SampleFilterSensitiveLog = (obj: Sample): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProjectResponseFilterSensitiveLog = (obj: CreateProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecipeActionFilterSensitiveLog = (obj: RecipeAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionExpressionFilterSensitiveLog = (obj: ConditionExpression): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecipeStepFilterSensitiveLog = (obj: RecipeStep): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRecipeRequestFilterSensitiveLog = (obj: CreateRecipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRecipeResponseFilterSensitiveLog = (obj: CreateRecipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseTableOutputOptionsFilterSensitiveLog = (obj: DatabaseTableOutputOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseOutputFilterSensitiveLog = (obj: DatabaseOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3TableOutputOptionsFilterSensitiveLog = (obj: S3TableOutputOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataCatalogOutputFilterSensitiveLog = (obj: DataCatalogOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CsvOutputOptionsFilterSensitiveLog = (obj: CsvOutputOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputFormatOptionsFilterSensitiveLog = (obj: OutputFormatOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputFilterSensitiveLog = (obj: Output): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecipeReferenceFilterSensitiveLog = (obj: RecipeReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRecipeJobRequestFilterSensitiveLog = (obj: CreateRecipeJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRecipeJobResponseFilterSensitiveLog = (obj: CreateRecipeJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThresholdFilterSensitiveLog = (obj: Threshold): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleFilterSensitiveLog = (obj: Rule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRulesetRequestFilterSensitiveLog = (obj: CreateRulesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRulesetResponseFilterSensitiveLog = (obj: CreateRulesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScheduleRequestFilterSensitiveLog = (obj: CreateScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScheduleResponseFilterSensitiveLog = (obj: CreateScheduleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetResponseFilterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobRequestFilterSensitiveLog = (obj: DeleteJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobResponseFilterSensitiveLog = (obj: DeleteJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProjectResponseFilterSensitiveLog = (obj: DeleteProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRecipeVersionRequestFilterSensitiveLog = (obj: DeleteRecipeVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRecipeVersionResponseFilterSensitiveLog = (obj: DeleteRecipeVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRulesetRequestFilterSensitiveLog = (obj: DeleteRulesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRulesetResponseFilterSensitiveLog = (obj: DeleteRulesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScheduleRequestFilterSensitiveLog = (obj: DeleteScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScheduleResponseFilterSensitiveLog = (obj: DeleteScheduleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetRequestFilterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetResponseFilterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobRequestFilterSensitiveLog = (obj: DescribeJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobResponseFilterSensitiveLog = (obj: DescribeJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobRunRequestFilterSensitiveLog = (obj: DescribeJobRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeJobRunResponseFilterSensitiveLog = (obj: DescribeJobRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProjectRequestFilterSensitiveLog = (obj: DescribeProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProjectResponseFilterSensitiveLog = (obj: DescribeProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecipeRequestFilterSensitiveLog = (obj: DescribeRecipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecipeResponseFilterSensitiveLog = (obj: DescribeRecipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRulesetRequestFilterSensitiveLog = (obj: DescribeRulesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRulesetResponseFilterSensitiveLog = (obj: DescribeRulesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduleRequestFilterSensitiveLog = (obj: DescribeScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduleResponseFilterSensitiveLog = (obj: DescribeScheduleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetsRequestFilterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetFilterSensitiveLog = (obj: Dataset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetsResponseFilterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobRunsRequestFilterSensitiveLog = (obj: ListJobRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobRunFilterSensitiveLog = (obj: JobRun): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobRunsResponseFilterSensitiveLog = (obj: ListJobRunsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobFilterSensitiveLog = (obj: Job): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsResponseFilterSensitiveLog = (obj: ListJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsRequestFilterSensitiveLog = (obj: ListProjectsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectFilterSensitiveLog = (obj: Project): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsResponseFilterSensitiveLog = (obj: ListProjectsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecipesRequestFilterSensitiveLog = (obj: ListRecipesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecipeFilterSensitiveLog = (obj: Recipe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecipesResponseFilterSensitiveLog = (obj: ListRecipesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecipeVersionsRequestFilterSensitiveLog = (obj: ListRecipeVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecipeVersionsResponseFilterSensitiveLog = (obj: ListRecipeVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRulesetsRequestFilterSensitiveLog = (obj: ListRulesetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RulesetItemFilterSensitiveLog = (obj: RulesetItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRulesetsResponseFilterSensitiveLog = (obj: ListRulesetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchedulesRequestFilterSensitiveLog = (obj: ListSchedulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleFilterSensitiveLog = (obj: Schedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchedulesResponseFilterSensitiveLog = (obj: ListSchedulesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishRecipeRequestFilterSensitiveLog = (obj: PublishRecipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishRecipeResponseFilterSensitiveLog = (obj: PublishRecipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ViewFrameFilterSensitiveLog = (obj: ViewFrame): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -4470,175 +4201,7 @@ export const SendProjectSessionActionRequestFilterSensitiveLog = (obj: SendProje
 /**
  * @internal
  */
-export const SendProjectSessionActionResponseFilterSensitiveLog = (obj: SendProjectSessionActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartJobRunRequestFilterSensitiveLog = (obj: StartJobRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartJobRunResponseFilterSensitiveLog = (obj: StartJobRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartProjectSessionRequestFilterSensitiveLog = (obj: StartProjectSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartProjectSessionResponseFilterSensitiveLog = (obj: StartProjectSessionResponse): any => ({
   ...obj,
   ...(obj.ClientSessionId && { ClientSessionId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StopJobRunRequestFilterSensitiveLog = (obj: StopJobRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopJobRunResponseFilterSensitiveLog = (obj: StopJobRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatasetRequestFilterSensitiveLog = (obj: UpdateDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatasetResponseFilterSensitiveLog = (obj: UpdateDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProfileJobRequestFilterSensitiveLog = (obj: UpdateProfileJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProfileJobResponseFilterSensitiveLog = (obj: UpdateProfileJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProjectRequestFilterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProjectResponseFilterSensitiveLog = (obj: UpdateProjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRecipeRequestFilterSensitiveLog = (obj: UpdateRecipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRecipeResponseFilterSensitiveLog = (obj: UpdateRecipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRecipeJobRequestFilterSensitiveLog = (obj: UpdateRecipeJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRecipeJobResponseFilterSensitiveLog = (obj: UpdateRecipeJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRulesetRequestFilterSensitiveLog = (obj: UpdateRulesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRulesetResponseFilterSensitiveLog = (obj: UpdateRulesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateScheduleRequestFilterSensitiveLog = (obj: UpdateScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateScheduleResponseFilterSensitiveLog = (obj: UpdateScheduleResponse): any => ({
-  ...obj,
 });

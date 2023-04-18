@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ModifyWorkspaceCreationPropertiesRequest, ModifyWorkspaceCreationPropertiesResult } from "../models/models_0";
 import {
-  ModifyWorkspaceCreationPropertiesRequest,
-  ModifyWorkspaceCreationPropertiesRequestFilterSensitiveLog,
-  ModifyWorkspaceCreationPropertiesResult,
-  ModifyWorkspaceCreationPropertiesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand,
-  serializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand,
+  de_ModifyWorkspaceCreationPropertiesCommand,
+  se_ModifyWorkspaceCreationPropertiesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyWorkspaceCreationPropertiesCommand}.
+ */
 export interface ModifyWorkspaceCreationPropertiesCommandInput extends ModifyWorkspaceCreationPropertiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyWorkspaceCreationPropertiesCommand}.
+ */
 export interface ModifyWorkspaceCreationPropertiesCommandOutput
   extends ModifyWorkspaceCreationPropertiesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify the default properties used to create WorkSpaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,39 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  * import { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // ModifyWorkspaceCreationPropertiesRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   WorkspaceCreationProperties: { // WorkspaceCreationProperties
+ *     EnableWorkDocs: true || false,
+ *     EnableInternetAccess: true || false,
+ *     DefaultOu: "STRING_VALUE",
+ *     CustomSecurityGroupId: "STRING_VALUE",
+ *     UserEnabledAsLocalAdministrator: true || false,
+ *     EnableMaintenanceMode: true || false,
+ *   },
+ * };
  * const command = new ModifyWorkspaceCreationPropertiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyWorkspaceCreationPropertiesCommandInput - {@link ModifyWorkspaceCreationPropertiesCommandInput}
+ * @returns {@link ModifyWorkspaceCreationPropertiesCommandOutput}
  * @see {@link ModifyWorkspaceCreationPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspaceCreationPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
@@ -64,6 +96,9 @@ export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyWorkspaceCreationPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +127,8 @@ export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyWorkspaceCreationPropertiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyWorkspaceCreationPropertiesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +138,24 @@ export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyWorkspaceCreationPropertiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand(input, context);
+    return se_ModifyWorkspaceCreationPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyWorkspaceCreationPropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand(output, context);
+    return de_ModifyWorkspaceCreationPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

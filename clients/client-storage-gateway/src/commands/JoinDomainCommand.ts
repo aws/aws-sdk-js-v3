@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  JoinDomainInput,
-  JoinDomainInputFilterSensitiveLog,
-  JoinDomainOutput,
-  JoinDomainOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1JoinDomainCommand,
-  serializeAws_json1_1JoinDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { JoinDomainInput, JoinDomainInputFilterSensitiveLog, JoinDomainOutput } from "../models/models_0";
+import { de_JoinDomainCommand, se_JoinDomainCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link JoinDomainCommand}.
+ */
 export interface JoinDomainCommandInput extends JoinDomainInput {}
+/**
+ * @public
+ *
+ * The output of {@link JoinDomainCommand}.
+ */
 export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a file gateway to an Active Directory domain. This operation is only supported for
  *          file gateways that support the SMB file protocol.</p>
  * @example
@@ -37,13 +40,35 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * import { StorageGatewayClient, JoinDomainCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, JoinDomainCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // JoinDomainInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ *   OrganizationalUnit: "STRING_VALUE",
+ *   DomainControllers: [ // Hosts
+ *     "STRING_VALUE",
+ *   ],
+ *   TimeoutInSeconds: Number("int"),
+ *   UserName: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ * };
  * const command = new JoinDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param JoinDomainCommandInput - {@link JoinDomainCommandInput}
+ * @returns {@link JoinDomainCommandOutput}
  * @see {@link JoinDomainCommandInput} for command's `input` shape.
  * @see {@link JoinDomainCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
  *
  */
 export class JoinDomainCommand extends $Command<
@@ -63,6 +88,9 @@ export class JoinDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: JoinDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +118,7 @@ export class JoinDomainCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: JoinDomainInputFilterSensitiveLog,
-      outputFilterSensitiveLog: JoinDomainOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +128,18 @@ export class JoinDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JoinDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1JoinDomainCommand(input, context);
+    return se_JoinDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JoinDomainCommandOutput> {
-    return deserializeAws_json1_1JoinDomainCommand(output, context);
+    return de_JoinDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

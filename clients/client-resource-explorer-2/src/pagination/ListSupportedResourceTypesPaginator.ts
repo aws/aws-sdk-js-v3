@@ -6,12 +6,11 @@ import {
   ListSupportedResourceTypesCommandInput,
   ListSupportedResourceTypesCommandOutput,
 } from "../commands/ListSupportedResourceTypesCommand";
-import { ResourceExplorer2 } from "../ResourceExplorer2";
 import { ResourceExplorer2Client } from "../ResourceExplorer2Client";
 import { ResourceExplorer2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResourceExplorer2Client,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSupportedResourceTypesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ResourceExplorer2,
-  input: ListSupportedResourceTypesCommandInput,
-  ...args: any
-): Promise<ListSupportedResourceTypesCommandOutput> => {
-  // @ts-ignore
-  return await client.listSupportedResourceTypes(input, ...args);
-};
 export async function* paginateListSupportedResourceTypes(
   config: ResourceExplorer2PaginationConfiguration,
   input: ListSupportedResourceTypesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListSupportedResourceTypes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ResourceExplorer2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResourceExplorer2Client) {
+    if (config.client instanceof ResourceExplorer2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ResourceExplorer2 | ResourceExplorer2Client");

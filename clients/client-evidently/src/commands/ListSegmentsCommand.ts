@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  ListSegmentsRequest,
-  ListSegmentsRequestFilterSensitiveLog,
-  ListSegmentsResponse,
-  ListSegmentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSegmentsCommand,
-  serializeAws_restJson1ListSegmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSegmentsRequest, ListSegmentsResponse } from "../models/models_0";
+import { de_ListSegmentsCommand, se_ListSegmentsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSegmentsCommand}.
+ */
 export interface ListSegmentsCommandInput extends ListSegmentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSegmentsCommand}.
+ */
 export interface ListSegmentsCommandOutput extends ListSegmentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of audience segments that you have created in your account in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface ListSegmentsCommandOutput extends ListSegmentsResponse, __Metad
  * import { EvidentlyClient, ListSegmentsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, ListSegmentsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // ListSegmentsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSegmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSegmentsCommandInput - {@link ListSegmentsCommandInput}
+ * @returns {@link ListSegmentsCommandOutput}
  * @see {@link ListSegmentsCommandInput} for command's `input` shape.
  * @see {@link ListSegmentsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class ListSegmentsCommand extends $Command<
@@ -62,6 +81,9 @@ export class ListSegmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSegmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +110,8 @@ export class ListSegmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSegmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSegmentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +121,18 @@ export class ListSegmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSegmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSegmentsCommand(input, context);
+    return se_ListSegmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSegmentsCommandOutput> {
-    return deserializeAws_restJson1ListSegmentsCommand(output, context);
+    return de_ListSegmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  DeleteDestinationRequest,
-  DeleteDestinationRequestFilterSensitiveLog,
-  DeleteDestinationResponse,
-  DeleteDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDestinationCommand,
-  serializeAws_restJson1DeleteDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDestinationRequest, DeleteDestinationResponse } from "../models/models_0";
+import { de_DeleteDestinationCommand, se_DeleteDestinationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDestinationCommand}.
+ */
 export interface DeleteDestinationCommandInput extends DeleteDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDestinationCommand}.
+ */
 export interface DeleteDestinationCommandOutput extends DeleteDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to delete a destination
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  * import { IoTRoboRunnerClient, DeleteDestinationCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, DeleteDestinationCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // DeleteDestinationRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDestinationCommandInput - {@link DeleteDestinationCommandInput}
+ * @returns {@link DeleteDestinationCommandOutput}
  * @see {@link DeleteDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *   User does not have sufficient access to perform this action.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Exception thrown if a resource in a create request already exists.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Exception thrown if something goes wrong within the service.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Exception thrown if a resource referenced in the request doesn't exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Exception thrown if the api has been called too quickly be the client.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  Exception thrown if an invalid parameter is provided to an API.
+ *
  *
  */
 export class DeleteDestinationCommand extends $Command<
@@ -62,6 +89,9 @@ export class DeleteDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class DeleteDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class DeleteDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDestinationCommand(input, context);
+    return se_DeleteDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDestinationCommandOutput> {
-    return deserializeAws_restJson1DeleteDestinationCommand(output, context);
+    return de_DeleteDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

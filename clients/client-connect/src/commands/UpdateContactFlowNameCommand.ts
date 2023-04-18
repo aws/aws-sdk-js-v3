@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactFlowNameRequest, UpdateContactFlowNameRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateContactFlowNameCommand,
-  serializeAws_restJson1UpdateContactFlowNameCommand,
-} from "../protocols/Aws_restJson1";
-
-export interface UpdateContactFlowNameCommandInput extends UpdateContactFlowNameRequest {}
-export interface UpdateContactFlowNameCommandOutput extends __MetadataBearer {}
+import { UpdateContactFlowNameRequest, UpdateContactFlowNameResponse } from "../models/models_1";
+import { de_UpdateContactFlowNameCommand, se_UpdateContactFlowNameCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
+ * The input for {@link UpdateContactFlowNameCommand}.
+ */
+export interface UpdateContactFlowNameCommandInput extends UpdateContactFlowNameRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateContactFlowNameCommand}.
+ */
+export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNameResponse, __MetadataBearer {}
+
+/**
+ * @public
  * <p>The name of the flow.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
@@ -33,13 +41,40 @@ export interface UpdateContactFlowNameCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateContactFlowNameCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactFlowNameCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateContactFlowNameRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactFlowId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateContactFlowNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactFlowNameCommandInput - {@link UpdateContactFlowNameCommandInput}
+ * @returns {@link UpdateContactFlowNameCommandOutput}
  * @see {@link UpdateContactFlowNameCommandInput} for command's `input` shape.
  * @see {@link UpdateContactFlowNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link DuplicateResourceException} (client fault)
+ *  <p>A resource with the specified name already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class UpdateContactFlowNameCommand extends $Command<
@@ -59,6 +94,9 @@ export class UpdateContactFlowNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactFlowNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +125,8 @@ export class UpdateContactFlowNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContactFlowNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +136,18 @@ export class UpdateContactFlowNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactFlowNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateContactFlowNameCommand(input, context);
+    return se_UpdateContactFlowNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactFlowNameCommandOutput> {
-    return deserializeAws_restJson1UpdateContactFlowNameCommand(output, context);
+    return de_UpdateContactFlowNameCommand(output, context);
   }
 
   // Start section: command_body_extra

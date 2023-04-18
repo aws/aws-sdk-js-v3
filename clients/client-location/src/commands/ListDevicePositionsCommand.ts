@@ -16,19 +16,26 @@ import {
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import {
   ListDevicePositionsRequest,
-  ListDevicePositionsRequestFilterSensitiveLog,
   ListDevicePositionsResponse,
   ListDevicePositionsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDevicePositionsCommand,
-  serializeAws_restJson1ListDevicePositionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDevicePositionsCommand, se_ListDevicePositionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDevicePositionsCommand}.
+ */
 export interface ListDevicePositionsCommandInput extends ListDevicePositionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDevicePositionsCommand}.
+ */
 export interface ListDevicePositionsCommandOutput extends ListDevicePositionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A batch request to retrieve all device positions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,34 @@ export interface ListDevicePositionsCommandOutput extends ListDevicePositionsRes
  * import { LocationClient, ListDevicePositionsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListDevicePositionsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // ListDevicePositionsRequest
+ *   TrackerName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDevicePositionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevicePositionsCommandInput - {@link ListDevicePositionsCommandInput}
+ * @returns {@link ListDevicePositionsCommandOutput}
  * @see {@link ListDevicePositionsCommandInput} for command's `input` shape.
  * @see {@link ListDevicePositionsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class ListDevicePositionsCommand extends $Command<
@@ -62,6 +90,9 @@ export class ListDevicePositionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevicePositionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +121,7 @@ export class ListDevicePositionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevicePositionsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListDevicePositionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +132,18 @@ export class ListDevicePositionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevicePositionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDevicePositionsCommand(input, context);
+    return se_ListDevicePositionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicePositionsCommandOutput> {
-    return deserializeAws_restJson1ListDevicePositionsCommand(output, context);
+    return de_ListDevicePositionsCommand(output, context);
   }
 
   // Start section: command_body_extra

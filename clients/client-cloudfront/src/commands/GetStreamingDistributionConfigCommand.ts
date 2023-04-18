@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { GetStreamingDistributionConfigRequest, GetStreamingDistributionConfigResult } from "../models/models_1";
 import {
-  GetStreamingDistributionConfigRequest,
-  GetStreamingDistributionConfigRequestFilterSensitiveLog,
-  GetStreamingDistributionConfigResult,
-  GetStreamingDistributionConfigResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetStreamingDistributionConfigCommand,
-  serializeAws_restXmlGetStreamingDistributionConfigCommand,
+  de_GetStreamingDistributionConfigCommand,
+  se_GetStreamingDistributionConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link GetStreamingDistributionConfigCommand}.
+ */
 export interface GetStreamingDistributionConfigCommandInput extends GetStreamingDistributionConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetStreamingDistributionConfigCommand}.
+ */
 export interface GetStreamingDistributionConfigCommandOutput
   extends GetStreamingDistributionConfigResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the configuration information about a streaming distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,25 @@ export interface GetStreamingDistributionConfigCommandOutput
  * import { CloudFrontClient, GetStreamingDistributionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetStreamingDistributionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetStreamingDistributionConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetStreamingDistributionConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamingDistributionConfigCommandInput - {@link GetStreamingDistributionConfigCommandInput}
+ * @returns {@link GetStreamingDistributionConfigCommandOutput}
  * @see {@link GetStreamingDistributionConfigCommandInput} for command's `input` shape.
  * @see {@link GetStreamingDistributionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchStreamingDistribution} (client fault)
+ *  <p>The specified streaming distribution does not exist.</p>
+ *
  *
  */
 export class GetStreamingDistributionConfigCommand extends $Command<
@@ -64,6 +82,9 @@ export class GetStreamingDistributionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamingDistributionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class GetStreamingDistributionConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStreamingDistributionConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStreamingDistributionConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +124,24 @@ export class GetStreamingDistributionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetStreamingDistributionConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetStreamingDistributionConfigCommand(input, context);
+    return se_GetStreamingDistributionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetStreamingDistributionConfigCommandOutput> {
-    return deserializeAws_restXmlGetStreamingDistributionConfigCommand(output, context);
+    return de_GetStreamingDistributionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

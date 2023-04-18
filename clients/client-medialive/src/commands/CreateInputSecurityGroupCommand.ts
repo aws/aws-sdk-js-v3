@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  CreateInputSecurityGroupRequest,
-  CreateInputSecurityGroupRequestFilterSensitiveLog,
-  CreateInputSecurityGroupResponse,
-  CreateInputSecurityGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateInputSecurityGroupCommand,
-  serializeAws_restJson1CreateInputSecurityGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateInputSecurityGroupRequest, CreateInputSecurityGroupResponse } from "../models/models_1";
+import { de_CreateInputSecurityGroupCommand, se_CreateInputSecurityGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateInputSecurityGroupCommand}.
+ */
 export interface CreateInputSecurityGroupCommandInput extends CreateInputSecurityGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateInputSecurityGroupCommand}.
+ */
 export interface CreateInputSecurityGroupCommandOutput extends CreateInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a Input Security Group
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface CreateInputSecurityGroupCommandOutput extends CreateInputSecuri
  * import { MediaLiveClient, CreateInputSecurityGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateInputSecurityGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // CreateInputSecurityGroupRequest
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   WhitelistRules: [ // __listOfInputWhitelistRuleCidr
+ *     { // InputWhitelistRuleCidr
+ *       Cidr: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateInputSecurityGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInputSecurityGroupCommandInput - {@link CreateInputSecurityGroupCommandInput}
+ * @returns {@link CreateInputSecurityGroupCommandOutput}
  * @see {@link CreateInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateInputSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class CreateInputSecurityGroupCommand extends $Command<
@@ -62,6 +96,9 @@ export class CreateInputSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInputSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +127,8 @@ export class CreateInputSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInputSecurityGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInputSecurityGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +138,18 @@ export class CreateInputSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInputSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateInputSecurityGroupCommand(input, context);
+    return se_CreateInputSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInputSecurityGroupCommandOutput> {
-    return deserializeAws_restJson1CreateInputSecurityGroupCommand(output, context);
+    return de_CreateInputSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

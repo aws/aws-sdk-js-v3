@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeClientPropertiesRequest,
-  DescribeClientPropertiesRequestFilterSensitiveLog,
-  DescribeClientPropertiesResult,
-  DescribeClientPropertiesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeClientPropertiesCommand,
-  serializeAws_json1_1DescribeClientPropertiesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeClientPropertiesRequest, DescribeClientPropertiesResult } from "../models/models_0";
+import { de_DescribeClientPropertiesCommand, se_DescribeClientPropertiesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeClientPropertiesCommand}.
+ */
 export interface DescribeClientPropertiesCommandInput extends DescribeClientPropertiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeClientPropertiesCommand}.
+ */
 export interface DescribeClientPropertiesCommandOutput extends DescribeClientPropertiesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more specified Amazon WorkSpaces clients.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  * import { WorkSpacesClient, DescribeClientPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeClientPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeClientPropertiesRequest
+ *   ResourceIds: [ // ResourceIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeClientPropertiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientPropertiesCommandInput - {@link DescribeClientPropertiesCommandInput}
+ * @returns {@link DescribeClientPropertiesCommandOutput}
  * @see {@link DescribeClientPropertiesCommandInput} for command's `input` shape.
  * @see {@link DescribeClientPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class DescribeClientPropertiesCommand extends $Command<
@@ -62,6 +82,9 @@ export class DescribeClientPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DescribeClientPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClientPropertiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClientPropertiesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class DescribeClientPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClientPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeClientPropertiesCommand(input, context);
+    return se_DescribeClientPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClientPropertiesCommandOutput> {
-    return deserializeAws_json1_1DescribeClientPropertiesCommand(output, context);
+    return de_DescribeClientPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

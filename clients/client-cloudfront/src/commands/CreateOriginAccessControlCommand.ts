@@ -14,27 +14,30 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  CreateOriginAccessControlRequest,
-  CreateOriginAccessControlRequestFilterSensitiveLog,
-  CreateOriginAccessControlResult,
-  CreateOriginAccessControlResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateOriginAccessControlCommand,
-  serializeAws_restXmlCreateOriginAccessControlCommand,
-} from "../protocols/Aws_restXml";
+import { CreateOriginAccessControlRequest, CreateOriginAccessControlResult } from "../models/models_0";
+import { de_CreateOriginAccessControlCommand, se_CreateOriginAccessControlCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateOriginAccessControlCommand}.
+ */
 export interface CreateOriginAccessControlCommandInput extends CreateOriginAccessControlRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateOriginAccessControlCommand}.
+ */
 export interface CreateOriginAccessControlCommandOutput extends CreateOriginAccessControlResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new origin access control in CloudFront. After you create an origin access
  * 			control, you can add it to an origin in a CloudFront distribution so that CloudFront sends
  * 			authenticated (signed) requests to the origin.</p>
- *          <p>For an Amazon S3 origin, this makes it possible to block public access to the Amazon S3 bucket
- * 			so that viewers (users) can access the content in the bucket only through CloudFront.</p>
- *          <p>For more information about using a CloudFront origin access control, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Restricting access to an Amazon S3 origin</a> in the
+ *          <p>This makes it possible to block public access to the origin, allowing viewers (users) to
+ * 			access the origin's content only through CloudFront.</p>
+ *          <p>For more information about using a CloudFront origin access control, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html">Restricting access to an Amazon Web Services origin</a> in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +45,37 @@ export interface CreateOriginAccessControlCommandOutput extends CreateOriginAcce
  * import { CloudFrontClient, CreateOriginAccessControlCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateOriginAccessControlCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateOriginAccessControlRequest
+ *   OriginAccessControlConfig: { // OriginAccessControlConfig
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     SigningProtocol: "sigv4", // required
+ *     SigningBehavior: "never" || "always" || "no-override", // required
+ *     OriginAccessControlOriginType: "s3" || "mediastore", // required
+ *   },
+ * };
  * const command = new CreateOriginAccessControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOriginAccessControlCommandInput - {@link CreateOriginAccessControlCommandInput}
+ * @returns {@link CreateOriginAccessControlCommandOutput}
  * @see {@link CreateOriginAccessControlCommandInput} for command's `input` shape.
  * @see {@link CreateOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link OriginAccessControlAlreadyExists} (client fault)
+ *  <p>An origin access control with the specified parameters already exists.</p>
+ *
+ * @throws {@link TooManyOriginAccessControls} (client fault)
+ *  <p>The number of origin access controls in your Amazon Web Services account exceeds the maximum
+ * 			allowed.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
  *
  */
 export class CreateOriginAccessControlCommand extends $Command<
@@ -68,6 +95,9 @@ export class CreateOriginAccessControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOriginAccessControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +126,8 @@ export class CreateOriginAccessControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOriginAccessControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOriginAccessControlResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +137,21 @@ export class CreateOriginAccessControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOriginAccessControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateOriginAccessControlCommand(input, context);
+    return se_CreateOriginAccessControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateOriginAccessControlCommandOutput> {
-    return deserializeAws_restXmlCreateOriginAccessControlCommand(output, context);
+    return de_CreateOriginAccessControlCommand(output, context);
   }
 
   // Start section: command_body_extra

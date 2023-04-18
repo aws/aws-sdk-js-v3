@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DescribeGameSessionPlacementInput, DescribeGameSessionPlacementOutput } from "../models/models_0";
 import {
-  DescribeGameSessionPlacementInput,
-  DescribeGameSessionPlacementInputFilterSensitiveLog,
-  DescribeGameSessionPlacementOutput,
-  DescribeGameSessionPlacementOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGameSessionPlacementCommand,
-  serializeAws_json1_1DescribeGameSessionPlacementCommand,
+  de_DescribeGameSessionPlacementCommand,
+  se_DescribeGameSessionPlacementCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeGameSessionPlacementCommand}.
+ */
 export interface DescribeGameSessionPlacementCommandInput extends DescribeGameSessionPlacementInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeGameSessionPlacementCommand}.
+ */
 export interface DescribeGameSessionPlacementCommandOutput
   extends DescribeGameSessionPlacementOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information, including current status, about a game session placement
  *             request. </p>
  *         <p>To get game session placement details, specify the placement ID.</p>
@@ -45,13 +51,33 @@ export interface DescribeGameSessionPlacementCommandOutput
  * import { GameLiftClient, DescribeGameSessionPlacementCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameSessionPlacementCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeGameSessionPlacementInput
+ *   PlacementId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGameSessionPlacementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGameSessionPlacementCommandInput - {@link DescribeGameSessionPlacementCommandInput}
+ * @returns {@link DescribeGameSessionPlacementCommandOutput}
  * @see {@link DescribeGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionPlacementCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class DescribeGameSessionPlacementCommand extends $Command<
@@ -71,6 +97,9 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGameSessionPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +128,8 @@ export class DescribeGameSessionPlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGameSessionPlacementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGameSessionPlacementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +139,21 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGameSessionPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameSessionPlacementCommand(input, context);
+    return se_DescribeGameSessionPlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGameSessionPlacementCommandOutput> {
-    return deserializeAws_json1_1DescribeGameSessionPlacementCommand(output, context);
+    return de_DescribeGameSessionPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

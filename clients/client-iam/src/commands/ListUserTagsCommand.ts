@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListUserTagsRequest,
-  ListUserTagsRequestFilterSensitiveLog,
-  ListUserTagsResponse,
-  ListUserTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryListUserTagsCommand, serializeAws_queryListUserTagsCommand } from "../protocols/Aws_query";
+import { ListUserTagsRequest, ListUserTagsResponse } from "../models/models_0";
+import { de_ListUserTagsCommand, se_ListUserTagsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListUserTagsCommand}.
+ */
 export interface ListUserTagsCommandInput extends ListUserTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListUserTagsCommand}.
+ */
 export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified IAM user. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
  * @example
@@ -34,13 +40,55 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  * import { IAMClient, ListUserTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListUserTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListUserTagsRequest
+ *   UserName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListUserTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUserTagsCommandInput - {@link ListUserTagsCommandInput}
+ * @returns {@link ListUserTagsCommandOutput}
  * @see {@link ListUserTagsCommandInput} for command's `input` shape.
  * @see {@link ListUserTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
+ * @example To list the tags attached to an IAM user
+ * ```javascript
+ * // The following example shows how to list the tags attached to a user.
+ * const input = {
+ *   "UserName": "anika"
+ * };
+ * const command = new ListUserTagsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "IsTruncated": false,
+ *   "Tags": [
+ *     {
+ *       "Key": "Dept",
+ *       "Value": "12345"
+ *     },
+ *     {
+ *       "Key": "Team",
+ *       "Value": "Accounting"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-the-tags-attached-to-an-iam-user-1506719473186
+ * ```
  *
  */
 export class ListUserTagsCommand extends $Command<
@@ -60,6 +108,9 @@ export class ListUserTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +137,8 @@ export class ListUserTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUserTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUserTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +148,18 @@ export class ListUserTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListUserTagsCommand(input, context);
+    return se_ListUserTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserTagsCommandOutput> {
-    return deserializeAws_queryListUserTagsCommand(output, context);
+    return de_ListUserTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

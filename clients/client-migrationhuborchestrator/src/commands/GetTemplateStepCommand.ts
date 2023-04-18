@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  GetTemplateStepRequest,
-  GetTemplateStepRequestFilterSensitiveLog,
-  GetTemplateStepResponse,
-  GetTemplateStepResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTemplateStepCommand,
-  serializeAws_restJson1GetTemplateStepCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTemplateStepRequest, GetTemplateStepResponse } from "../models/models_0";
+import { de_GetTemplateStepCommand, se_GetTemplateStepCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTemplateStepCommand}.
+ */
 export interface GetTemplateStepCommandInput extends GetTemplateStepRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTemplateStepCommand}.
+ */
 export interface GetTemplateStepCommandOutput extends GetTemplateStepResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a specific step in a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,36 @@ export interface GetTemplateStepCommandOutput extends GetTemplateStepResponse, _
  * import { MigrationHubOrchestratorClient, GetTemplateStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, GetTemplateStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // GetTemplateStepRequest
+ *   id: "STRING_VALUE", // required
+ *   templateId: "STRING_VALUE", // required
+ *   stepGroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetTemplateStepCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateStepCommandInput - {@link GetTemplateStepCommandInput}
+ * @returns {@link GetTemplateStepCommandOutput}
  * @see {@link GetTemplateStepCommandInput} for command's `input` shape.
  * @see {@link GetTemplateStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetTemplateStepCommand extends $Command<
@@ -66,6 +92,9 @@ export class GetTemplateStepCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateStepCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +123,8 @@ export class GetTemplateStepCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateStepRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateStepResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +134,18 @@ export class GetTemplateStepCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTemplateStepCommand(input, context);
+    return se_GetTemplateStepCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateStepCommandOutput> {
-    return deserializeAws_restJson1GetTemplateStepCommand(output, context);
+    return de_GetTemplateStepCommand(output, context);
   }
 
   // Start section: command_body_extra

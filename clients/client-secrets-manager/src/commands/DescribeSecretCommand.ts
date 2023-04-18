@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSecretRequest,
-  DescribeSecretRequestFilterSensitiveLog,
-  DescribeSecretResponse,
-  DescribeSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSecretCommand,
-  serializeAws_json1_1DescribeSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSecretRequest, DescribeSecretResponse } from "../models/models_0";
+import { de_DescribeSecretCommand, se_DescribeSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSecretCommand}.
+ */
 export interface DescribeSecretCommandInput extends DescribeSecretRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSecretCommand}.
+ */
 export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of a secret. It does not include the encrypted secret value. Secrets Manager
  *       only returns fields that have a value in the response. </p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
@@ -44,13 +47,76 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * import { SecretsManagerClient, DescribeSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, DescribeSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // DescribeSecretRequest
+ *   SecretId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecretCommandInput - {@link DescribeSecretCommandInput}
+ * @returns {@link DescribeSecretCommandOutput}
  * @see {@link DescribeSecretCommandInput} for command's `input` shape.
  * @see {@link DescribeSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The parameter name or value is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ *
+ * @example To retrieve the details of a secret
+ * ```javascript
+ * // The following example shows how to get the details about a secret.
+ * const input = {
+ *   "SecretId": "MyTestDatabaseSecret"
+ * };
+ * const command = new DescribeSecretCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   "Description": "My test database secret",
+ *   "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/EXAMPLE1-90ab-cdef-fedc-ba987KMSKEY1",
+ *   "LastAccessedDate": "1523923200",
+ *   "LastChangedDate": 1523477145.729,
+ *   "LastRotatedDate": 1525747253.72,
+ *   "Name": "MyTestDatabaseSecret",
+ *   "NextRotationDate": "1665165599",
+ *   "RotationEnabled": true,
+ *   "RotationLambdaARN": "arn:aws:lambda:us-west-2:123456789012:function:MyTestRotationLambda",
+ *   "RotationRules": {
+ *     "AutomaticallyAfterDays": 14,
+ *     "Duration": "2h",
+ *     "ScheduleExpression": "cron(0 16 1,15 * ? *)"
+ *   },
+ *   "Tags": [
+ *     {
+ *       "Key": "SecondTag",
+ *       "Value": "AnotherValue"
+ *     },
+ *     {
+ *       "Key": "FirstTag",
+ *       "Value": "SomeValue"
+ *     }
+ *   ],
+ *   "VersionIdsToStages": {
+ *     "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE": [
+ *       "AWSPREVIOUS"
+ *     ],
+ *     "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE": [
+ *       "AWSCURRENT"
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-retrieve-the-details-of-a-secret-1524000138629
+ * ```
  *
  */
 export class DescribeSecretCommand extends $Command<
@@ -70,6 +136,9 @@ export class DescribeSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +167,8 @@ export class DescribeSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSecretResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +178,18 @@ export class DescribeSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSecretCommand(input, context);
+    return se_DescribeSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecretCommandOutput> {
-    return deserializeAws_json1_1DescribeSecretCommand(output, context);
+    return de_DescribeSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

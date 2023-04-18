@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DeleteBGPPeerRequest,
-  DeleteBGPPeerRequestFilterSensitiveLog,
-  DeleteBGPPeerResponse,
-  DeleteBGPPeerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBGPPeerCommand,
-  serializeAws_json1_1DeleteBGPPeerCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteBGPPeerRequest, DeleteBGPPeerResponse } from "../models/models_0";
+import { de_DeleteBGPPeerCommand, se_DeleteBGPPeerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteBGPPeerCommand}.
+ */
 export interface DeleteBGPPeerCommandInput extends DeleteBGPPeerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBGPPeerCommand}.
+ */
 export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.</p>
  *          <p>You cannot delete the last BGP peer from a virtual interface.</p>
  * @example
@@ -37,13 +40,28 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
  * import { DirectConnectClient, DeleteBGPPeerCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteBGPPeerCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DeleteBGPPeerRequest
+ *   virtualInterfaceId: "STRING_VALUE",
+ *   asn: Number("int"),
+ *   customerAddress: "STRING_VALUE",
+ *   bgpPeerId: "STRING_VALUE",
+ * };
  * const command = new DeleteBGPPeerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBGPPeerCommandInput - {@link DeleteBGPPeerCommandInput}
+ * @returns {@link DeleteBGPPeerCommandOutput}
  * @see {@link DeleteBGPPeerCommandInput} for command's `input` shape.
  * @see {@link DeleteBGPPeerCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DeleteBGPPeerCommand extends $Command<
@@ -63,6 +81,9 @@ export class DeleteBGPPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBGPPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +110,8 @@ export class DeleteBGPPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBGPPeerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBGPPeerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +121,18 @@ export class DeleteBGPPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBGPPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBGPPeerCommand(input, context);
+    return se_DeleteBGPPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBGPPeerCommandOutput> {
-    return deserializeAws_json1_1DeleteBGPPeerCommand(output, context);
+    return de_DeleteBGPPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

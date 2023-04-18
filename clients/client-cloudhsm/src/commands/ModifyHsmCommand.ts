@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  ModifyHsmRequest,
-  ModifyHsmRequestFilterSensitiveLog,
-  ModifyHsmResponse,
-  ModifyHsmResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ModifyHsmCommand, serializeAws_json1_1ModifyHsmCommand } from "../protocols/Aws_json1_1";
+import { ModifyHsmRequest, ModifyHsmResponse } from "../models/models_0";
+import { de_ModifyHsmCommand, se_ModifyHsmCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyHsmCommand}.
+ */
 export interface ModifyHsmCommandInput extends ModifyHsmRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyHsmCommand}.
+ */
 export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -49,13 +55,33 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  * import { CloudHSMClient, ModifyHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ModifyHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // ModifyHsmRequest
+ *   HsmArn: "STRING_VALUE", // required
+ *   SubnetId: "STRING_VALUE",
+ *   EniIp: "STRING_VALUE",
+ *   IamRoleArn: "STRING_VALUE",
+ *   ExternalId: "STRING_VALUE",
+ *   SyslogIp: "STRING_VALUE",
+ * };
  * const command = new ModifyHsmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyHsmCommandInput - {@link ModifyHsmCommandInput}
+ * @returns {@link ModifyHsmCommandOutput}
  * @see {@link ModifyHsmCommandInput} for command's `input` shape.
  * @see {@link ModifyHsmCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
+ *
+ * @throws {@link CloudHsmInternalException} (server fault)
+ *  <p>Indicates that an internal error occurred.</p>
+ *
+ * @throws {@link CloudHsmServiceException} (client fault)
+ *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that one or more of the request parameters are not valid.</p>
+ *
  *
  */
 export class ModifyHsmCommand extends $Command<
@@ -75,6 +101,9 @@ export class ModifyHsmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyHsmCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +130,8 @@ export class ModifyHsmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyHsmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyHsmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +141,18 @@ export class ModifyHsmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyHsmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyHsmCommand(input, context);
+    return se_ModifyHsmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyHsmCommandOutput> {
-    return deserializeAws_json1_1ModifyHsmCommand(output, context);
+    return de_ModifyHsmCommand(output, context);
   }
 
   // Start section: command_body_extra

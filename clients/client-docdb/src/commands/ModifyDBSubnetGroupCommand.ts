@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  ModifyDBSubnetGroupMessage,
-  ModifyDBSubnetGroupMessageFilterSensitiveLog,
-  ModifyDBSubnetGroupResult,
-  ModifyDBSubnetGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyDBSubnetGroupCommand,
-  serializeAws_queryModifyDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult } from "../models/models_0";
+import { de_ModifyDBSubnetGroupCommand, se_ModifyDBSubnetGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyDBSubnetGroupCommand}.
+ */
 export interface ModifyDBSubnetGroupCommandInput extends ModifyDBSubnetGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyDBSubnetGroupCommand}.
+ */
 export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing subnet group. subnet groups must contain at least one subnet in at least two Availability Zones in the Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * import { DocDBClient, ModifyDBSubnetGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyDBSubnetGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // ModifyDBSubnetGroupMessage
+ *   DBSubnetGroupName: "STRING_VALUE", // required
+ *   DBSubnetGroupDescription: "STRING_VALUE",
+ *   SubnetIds: [ // SubnetIdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyDBSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBSubnetGroupCommandInput - {@link ModifyDBSubnetGroupCommandInput}
+ * @returns {@link ModifyDBSubnetGroupCommandOutput}
  * @see {@link ModifyDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
+ *  <p>Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+ *
+ * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+ *
+ * @throws {@link DBSubnetQuotaExceededFault} (client fault)
+ *  <p>The request would cause you to exceed the allowed number of subnets in a subnet group.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is not valid, or multiple subnets were requested that are not all
+ *             in a common virtual private cloud (VPC).</p>
+ *
+ * @throws {@link SubnetAlreadyInUse} (client fault)
+ *  <p>The subnet is already in use in the Availability Zone.</p>
+ *
  *
  */
 export class ModifyDBSubnetGroupCommand extends $Command<
@@ -62,6 +92,9 @@ export class ModifyDBSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class ModifyDBSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBSubnetGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class ModifyDBSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBSubnetGroupCommand(input, context);
+    return se_ModifyDBSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryModifyDBSubnetGroupCommand(output, context);
+    return de_ModifyDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

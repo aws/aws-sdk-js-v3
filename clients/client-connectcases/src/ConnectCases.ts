@@ -33,6 +33,11 @@ import {
   CreateTemplateCommandInput,
   CreateTemplateCommandOutput,
 } from "./commands/CreateTemplateCommand";
+import {
+  DeleteDomainCommand,
+  DeleteDomainCommandInput,
+  DeleteDomainCommandOutput,
+} from "./commands/DeleteDomainCommand";
 import { GetCaseCommand, GetCaseCommandInput, GetCaseCommandOutput } from "./commands/GetCaseCommand";
 import {
   GetCaseEventConfigurationCommand,
@@ -97,15 +102,16 @@ import {
 import { ConnectCasesClient } from "./ConnectCasesClient";
 
 /**
- * <p>Welcome to the Amazon Connect Cases API Reference. This guide provides information about the
- *       Amazon Connect Cases API, which you can use to create, update, get, and list Cases domains,
- *       fields, field options, layouts, templates, cases, related items, and tags.</p>
- *
- *          <p>For more information about Amazon Connect Cases, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Amazon Connect Cases</a> in the
- *           <i>Amazon Connect Administrator Guide</i>. </p>
+ * @public
+ * <p>With Amazon Connect Cases, your agents can track and manage customer issues that require
+ *       multiple interactions, follow-up tasks, and teams in your contact center. A case represents a
+ *       customer issue. It records the issue, the steps and interactions taken to resolve the issue,
+ *       and the outcome. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Amazon Connect Cases</a> in the
+ *           <i>Amazon Connect Administrator Guide</i>.</p>
  */
 export class ConnectCases extends ConnectCasesClient {
   /**
+   * @public
    * <p>Returns the description for the list of fields in the request parameters. </p>
    */
   public batchGetField(
@@ -138,6 +144,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates and updates a set of field options for a single select field in a Cases
    *       domain.</p>
    */
@@ -171,11 +178,27 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
    *       as an array id/value pairs with a declared data types.</p>
    *          <note>
-   *             <p>
-   *                <code>customer_id</code> is a required field when creating a case.</p>
+   *             <p>The following fields are required when creating a case:</p>
+   *
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>customer_id</code> - You must provide the full customer profile ARN in this
+   *             format: <code>arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles
+   *               domain name/profiles/profile ID</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>title</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *
    *          </note>
    */
   public createCase(args: CreateCaseCommandInput, options?: __HttpHandlerOptions): Promise<CreateCaseCommandOutput>;
@@ -202,13 +225,16 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a domain, which is a container for all case data, such as cases, fields, templates
    *       and layouts. Each Amazon Connect instance can be associated with only one Cases
    *       domain.</p>
    *          <important>
    *             <p>This will not associate your connect instance to Cases domain. Instead, use the
    *           Amazon Connect
-   *         <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a> API.</p>
+   *         <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a> API. You need specific IAM
+   *         permissions to successfully associate the Cases domain. For more information, see
+   *           <a href="https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam">Onboard to Cases</a>.</p>
    *          </important>
    */
   public createDomain(
@@ -238,6 +264,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a field in the Cases domain. This field is used to define the case object
    *       model (that is, defines what data can be captured on cases) in a Cases domain. </p>
    */
@@ -265,6 +292,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a layout in the Cases domain. Layouts define the following configuration in
    *       the top section and More Info tab of the Cases user interface:</p>
    *          <ul>
@@ -307,6 +335,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a related item (comments, tasks, and contacts) and associates it with a
    *       case.</p>
    *          <note>
@@ -347,6 +376,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Creates a template in the Cases domain. This template is used to define the case object
    *       model (that is, to define what data can be captured on cases) in a Cases domain. A template
    *       must have a unique name within a domain, and it must reference existing field IDs and layout
@@ -384,6 +414,37 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
+   * <p>Deletes a domain.</p>
+   */
+  public deleteDomain(
+    args: DeleteDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainCommandOutput>;
+  public deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
+  public deleteDomain(
+    args: DeleteDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
+  public deleteDomain(
+    args: DeleteDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): Promise<DeleteDomainCommandOutput> | void {
+    const command = new DeleteDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Returns information about a specific case if it exists. </p>
    */
   public getCase(args: GetCaseCommandInput, options?: __HttpHandlerOptions): Promise<GetCaseCommandOutput>;
@@ -410,6 +471,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Returns the case event publishing configuration.</p>
    */
   public getCaseEventConfiguration(
@@ -442,6 +504,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Returns information about a specific domain if it exists. </p>
    */
   public getDomain(args: GetDomainCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainCommandOutput>;
@@ -468,6 +531,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Returns the details for the requested layout.</p>
    */
   public getLayout(args: GetLayoutCommandInput, options?: __HttpHandlerOptions): Promise<GetLayoutCommandOutput>;
@@ -494,6 +558,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Returns the details for the requested template. </p>
    */
   public getTemplate(args: GetTemplateCommandInput, options?: __HttpHandlerOptions): Promise<GetTemplateCommandOutput>;
@@ -520,6 +585,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists cases for a given contact.</p>
    */
   public listCasesForContact(
@@ -552,6 +618,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists all cases domains in the Amazon Web Services account. Each list item is a condensed
    *       summary object of the domain.</p>
    */
@@ -579,6 +646,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the field options for a field identifier in the domain. </p>
    */
   public listFieldOptions(
@@ -611,6 +679,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists all fields in a Cases domain.</p>
    */
   public listFields(args: ListFieldsCommandInput, options?: __HttpHandlerOptions): Promise<ListFieldsCommandOutput>;
@@ -637,6 +706,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists all layouts in the given cases domain. Each list item is a condensed summary object
    *       of the layout.</p>
    */
@@ -664,6 +734,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists tags for a resource.</p>
    */
   public listTagsForResource(
@@ -696,6 +767,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Lists all of the templates in a Cases domain. Each list item is a condensed summary
    *       object of the template. </p>
    */
@@ -729,6 +801,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>API for adding case event publishing configuration</p>
    */
   public putCaseEventConfiguration(
@@ -761,8 +834,14 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Searches for cases within their associated Cases domain. Search results are returned
    *       as a paginated list of abridged case documents.</p>
+   *          <note>
+   *             <p>For <code>customer_id</code> you must provide the full customer profile ARN in this
+   *         format: <code> arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
+   *           name/profiles/profile ID</code>. </p>
+   *          </note>
    */
   public searchCases(args: SearchCasesCommandInput, options?: __HttpHandlerOptions): Promise<SearchCasesCommandOutput>;
   public searchCases(args: SearchCasesCommandInput, cb: (err: any, data?: SearchCasesCommandOutput) => void): void;
@@ -788,6 +867,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Searches for related items that are associated with a case.</p>
    *          <note>
    *             <p>If no filters are provided, this returns all related items associated with a
@@ -824,6 +904,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -850,6 +931,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Untags a resource.</p>
    */
   public untagResource(
@@ -882,6 +964,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Updates the values of fields on a case. Fields to be updated are received as an array of
    *       id/value pairs identical to the <code>CreateCase</code> input .</p>
    *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
@@ -911,6 +994,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Updates the properties of an existing field. </p>
    */
   public updateField(args: UpdateFieldCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFieldCommandOutput>;
@@ -937,6 +1021,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Updates the attributes of an existing layout.</p>
    *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
    *       HTTP body.</p>
@@ -974,6 +1059,7 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
+   * @public
    * <p>Updates the attributes of an existing template. The template attributes that can be
    *       modified include <code>name</code>, <code>description</code>,
    *       <code>layoutConfiguration</code>, <code>requiredFields</code>, and <code>status</code>. At

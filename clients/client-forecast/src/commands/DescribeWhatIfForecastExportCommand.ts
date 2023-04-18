@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { DescribeWhatIfForecastExportRequest, DescribeWhatIfForecastExportResponse } from "../models/models_0";
 import {
-  DescribeWhatIfForecastExportRequest,
-  DescribeWhatIfForecastExportRequestFilterSensitiveLog,
-  DescribeWhatIfForecastExportResponse,
-  DescribeWhatIfForecastExportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWhatIfForecastExportCommand,
-  serializeAws_json1_1DescribeWhatIfForecastExportCommand,
+  de_DescribeWhatIfForecastExportCommand,
+  se_DescribeWhatIfForecastExportCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeWhatIfForecastExportCommand}.
+ */
 export interface DescribeWhatIfForecastExportCommandInput extends DescribeWhatIfForecastExportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeWhatIfForecastExportCommand}.
+ */
 export interface DescribeWhatIfForecastExportCommandOutput
   extends DescribeWhatIfForecastExportResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the what-if forecast export created using the <a>CreateWhatIfForecastExport</a> operation.</p>
  *          <p>In addition to listing the properties provided in the <code>CreateWhatIfForecastExport</code> request, this operation lists the following properties:</p>
  *          <ul>
@@ -60,13 +66,27 @@ export interface DescribeWhatIfForecastExportCommandOutput
  * import { ForecastClient, DescribeWhatIfForecastExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeWhatIfForecastExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DescribeWhatIfForecastExportRequest
+ *   WhatIfForecastExportArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWhatIfForecastExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWhatIfForecastExportCommandInput - {@link DescribeWhatIfForecastExportCommandInput}
+ * @returns {@link DescribeWhatIfForecastExportCommandOutput}
  * @see {@link DescribeWhatIfForecastExportCommandInput} for command's `input` shape.
  * @see {@link DescribeWhatIfForecastExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
  *
  */
 export class DescribeWhatIfForecastExportCommand extends $Command<
@@ -86,6 +106,9 @@ export class DescribeWhatIfForecastExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWhatIfForecastExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +137,8 @@ export class DescribeWhatIfForecastExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWhatIfForecastExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWhatIfForecastExportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +148,21 @@ export class DescribeWhatIfForecastExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWhatIfForecastExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWhatIfForecastExportCommand(input, context);
+    return se_DescribeWhatIfForecastExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWhatIfForecastExportCommandOutput> {
-    return deserializeAws_json1_1DescribeWhatIfForecastExportCommand(output, context);
+    return de_DescribeWhatIfForecastExportCommand(output, context);
   }
 
   // Start section: command_body_extra

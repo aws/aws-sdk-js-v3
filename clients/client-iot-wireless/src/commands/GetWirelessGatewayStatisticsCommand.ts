@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { GetWirelessGatewayStatisticsRequest, GetWirelessGatewayStatisticsResponse } from "../models/models_0";
 import {
-  GetWirelessGatewayStatisticsRequest,
-  GetWirelessGatewayStatisticsRequestFilterSensitiveLog,
-  GetWirelessGatewayStatisticsResponse,
-  GetWirelessGatewayStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWirelessGatewayStatisticsCommand,
-  serializeAws_restJson1GetWirelessGatewayStatisticsCommand,
+  de_GetWirelessGatewayStatisticsCommand,
+  se_GetWirelessGatewayStatisticsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetWirelessGatewayStatisticsCommand}.
+ */
 export interface GetWirelessGatewayStatisticsCommandInput extends GetWirelessGatewayStatisticsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetWirelessGatewayStatisticsCommand}.
+ */
 export interface GetWirelessGatewayStatisticsCommandOutput
   extends GetWirelessGatewayStatisticsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets operating information about a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,34 @@ export interface GetWirelessGatewayStatisticsCommandOutput
  * import { IoTWirelessClient, GetWirelessGatewayStatisticsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessGatewayStatisticsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetWirelessGatewayStatisticsRequest
+ *   WirelessGatewayId: "STRING_VALUE", // required
+ * };
  * const command = new GetWirelessGatewayStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWirelessGatewayStatisticsCommandInput - {@link GetWirelessGatewayStatisticsCommandInput}
+ * @returns {@link GetWirelessGatewayStatisticsCommandOutput}
  * @see {@link GetWirelessGatewayStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayStatisticsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class GetWirelessGatewayStatisticsCommand extends $Command<
@@ -64,6 +91,9 @@ export class GetWirelessGatewayStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWirelessGatewayStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class GetWirelessGatewayStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWirelessGatewayStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWirelessGatewayStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +133,21 @@ export class GetWirelessGatewayStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWirelessGatewayStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWirelessGatewayStatisticsCommand(input, context);
+    return se_GetWirelessGatewayStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetWirelessGatewayStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetWirelessGatewayStatisticsCommand(output, context);
+    return de_GetWirelessGatewayStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

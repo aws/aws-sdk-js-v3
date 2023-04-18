@@ -15,22 +15,31 @@ import {
 
 import {
   CreateAdditionalAssignmentsForHITRequest,
-  CreateAdditionalAssignmentsForHITRequestFilterSensitiveLog,
   CreateAdditionalAssignmentsForHITResponse,
-  CreateAdditionalAssignmentsForHITResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
-  deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommand,
-  serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand,
+  de_CreateAdditionalAssignmentsForHITCommand,
+  se_CreateAdditionalAssignmentsForHITCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAdditionalAssignmentsForHITCommand}.
+ */
 export interface CreateAdditionalAssignmentsForHITCommandInput extends CreateAdditionalAssignmentsForHITRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAdditionalAssignmentsForHITCommand}.
+ */
 export interface CreateAdditionalAssignmentsForHITCommandOutput
   extends CreateAdditionalAssignmentsForHITResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>CreateAdditionalAssignmentsForHIT</code>
@@ -60,13 +69,27 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  * import { MTurkClient, CreateAdditionalAssignmentsForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateAdditionalAssignmentsForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // CreateAdditionalAssignmentsForHITRequest
+ *   HITId: "STRING_VALUE", // required
+ *   NumberOfAdditionalAssignments: Number("int"), // required
+ *   UniqueRequestToken: "STRING_VALUE",
+ * };
  * const command = new CreateAdditionalAssignmentsForHITCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAdditionalAssignmentsForHITCommandInput - {@link CreateAdditionalAssignmentsForHITCommandInput}
+ * @returns {@link CreateAdditionalAssignmentsForHITCommandOutput}
  * @see {@link CreateAdditionalAssignmentsForHITCommandInput} for command's `input` shape.
  * @see {@link CreateAdditionalAssignmentsForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class CreateAdditionalAssignmentsForHITCommand extends $Command<
@@ -86,6 +109,9 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAdditionalAssignmentsForHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +140,8 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAdditionalAssignmentsForHITRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAdditionalAssignmentsForHITResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +151,24 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateAdditionalAssignmentsForHITCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand(input, context);
+    return se_CreateAdditionalAssignmentsForHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAdditionalAssignmentsForHITCommandOutput> {
-    return deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommand(output, context);
+    return de_CreateAdditionalAssignmentsForHITCommand(output, context);
   }
 
   // Start section: command_body_extra

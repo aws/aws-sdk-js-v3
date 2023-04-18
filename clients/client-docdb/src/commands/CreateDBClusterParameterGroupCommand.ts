@@ -14,27 +14,33 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult } from "../models/models_0";
 import {
-  CreateDBClusterParameterGroupMessage,
-  CreateDBClusterParameterGroupMessageFilterSensitiveLog,
-  CreateDBClusterParameterGroupResult,
-  CreateDBClusterParameterGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBClusterParameterGroupCommand,
-  serializeAws_queryCreateDBClusterParameterGroupCommand,
+  de_CreateDBClusterParameterGroupCommand,
+  se_CreateDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDBClusterParameterGroupCommand}.
+ */
 export interface CreateDBClusterParameterGroupCommandInput extends CreateDBClusterParameterGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDBClusterParameterGroupCommand}.
+ */
 export interface CreateDBClusterParameterGroupCommandOutput
   extends CreateDBClusterParameterGroupResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cluster parameter group.</p>
- *         <p>Parameters in a cluster parameter group apply to all of the
+ *          <p>Parameters in a cluster parameter group apply to all of the
  *             instances in a cluster.</p>
- *         <p>A cluster parameter group is initially created with the default
+ *          <p>A cluster parameter group is initially created with the default
  *             parameters for the database engine used by instances in the cluster.
  *             In Amazon DocumentDB, you cannot make modifications directly to the
  *             <code>default.docdb3.6</code> cluster parameter group. If your
@@ -56,13 +62,33 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * import { DocDBClient, CreateDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // CreateDBClusterParameterGroupMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   DBParameterGroupFamily: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBClusterParameterGroupCommandInput - {@link CreateDBClusterParameterGroupCommandInput}
+ * @returns {@link CreateDBClusterParameterGroupCommandOutput}
  * @see {@link CreateDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
+ *  <p>A parameter group with the same name already exists.</p>
+ *
+ * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
+ *  <p>This request would cause you to exceed the allowed number of parameter groups.</p>
+ *
  *
  */
 export class CreateDBClusterParameterGroupCommand extends $Command<
@@ -82,6 +108,9 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +139,8 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBClusterParameterGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +150,21 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterParameterGroupCommand(input, context);
+    return se_CreateDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateDBClusterParameterGroupCommand(output, context);
+    return de_CreateDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

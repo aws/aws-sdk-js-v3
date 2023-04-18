@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDocumentsRequest,
-  ListDocumentsRequestFilterSensitiveLog,
-  ListDocumentsResult,
-  ListDocumentsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListDocumentsCommand,
-  serializeAws_json1_1ListDocumentsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDocumentsRequest, ListDocumentsResult } from "../models/models_1";
+import { de_ListDocumentsCommand, se_ListDocumentsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDocumentsCommand}.
+ */
 export interface ListDocumentsCommandInput extends ListDocumentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDocumentsCommand}.
+ */
 export interface ListDocumentsCommandOutput extends ListDocumentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all Systems Manager (SSM) documents in the current Amazon Web Services account and Amazon Web Services Region. You can
  *    limit the results of this request by using a filter.</p>
  * @example
@@ -37,13 +40,43 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResult, __Metad
  * import { SSMClient, ListDocumentsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListDocumentsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListDocumentsRequest
+ *   DocumentFilterList: [ // DocumentFilterList
+ *     { // DocumentFilter
+ *       key: "Name" || "Owner" || "PlatformTypes" || "DocumentType", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Filters: [ // DocumentKeyValuesFilterList
+ *     { // DocumentKeyValuesFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // DocumentKeyValuesFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDocumentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDocumentsCommandInput - {@link ListDocumentsCommandInput}
+ * @returns {@link ListDocumentsCommandOutput}
  * @see {@link ListDocumentsCommandInput} for command's `input` shape.
  * @see {@link ListDocumentsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilterKey} (client fault)
+ *  <p>The specified key isn't valid.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
  *
  */
 export class ListDocumentsCommand extends $Command<
@@ -63,6 +96,9 @@ export class ListDocumentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDocumentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +125,8 @@ export class ListDocumentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDocumentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDocumentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +136,18 @@ export class ListDocumentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentsCommand(input, context);
+    return se_ListDocumentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDocumentsCommandOutput> {
-    return deserializeAws_json1_1ListDocumentsCommand(output, context);
+    return de_ListDocumentsCommand(output, context);
   }
 
   // Start section: command_body_extra

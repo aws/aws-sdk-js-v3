@@ -4,13 +4,18 @@ import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 /**
+ * @internal
+ * 
  * Resolve the `credential_source` entry from the profile, and return the
  * credential providers respectively. No memoization is needed for the
  * credential source providers because memoization should be added outside the
  * fromIni() provider. The source credential needs to be refreshed every time
  * fromIni() is called.
  */
-export const resolveCredentialSource = (credentialSource: string, profileName: string): AwsCredentialIdentityProvider => {
+export const resolveCredentialSource = (
+  credentialSource: string,
+  profileName: string
+): AwsCredentialIdentityProvider => {
   const sourceProvidersMap: Record<string, () => AwsCredentialIdentityProvider> = {
     EcsContainer: fromContainerMetadata,
     Ec2InstanceMetadata: fromInstanceMetadata,

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  ListReportGroupsInput,
-  ListReportGroupsInputFilterSensitiveLog,
-  ListReportGroupsOutput,
-  ListReportGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListReportGroupsCommand,
-  serializeAws_json1_1ListReportGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListReportGroupsInput, ListReportGroupsOutput } from "../models/models_0";
+import { de_ListReportGroupsCommand, se_ListReportGroupsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListReportGroupsCommand}.
+ */
 export interface ListReportGroupsCommandInput extends ListReportGroupsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListReportGroupsCommand}.
+ */
 export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Gets a list ARNs for the report groups in the current Amazon Web Services account.
  *     </p>
@@ -38,13 +41,25 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
  * import { CodeBuildClient, ListReportGroupsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListReportGroupsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // ListReportGroupsInput
+ *   sortOrder: "STRING_VALUE",
+ *   sortBy: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListReportGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReportGroupsCommandInput - {@link ListReportGroupsCommandInput}
+ * @returns {@link ListReportGroupsCommandOutput}
  * @see {@link ListReportGroupsCommandInput} for command's `input` shape.
  * @see {@link ListReportGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
  *
  */
 export class ListReportGroupsCommand extends $Command<
@@ -64,6 +79,9 @@ export class ListReportGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReportGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class ListReportGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReportGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReportGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +121,18 @@ export class ListReportGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReportGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReportGroupsCommand(input, context);
+    return se_ListReportGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReportGroupsCommandOutput> {
-    return deserializeAws_json1_1ListReportGroupsCommand(output, context);
+    return de_ListReportGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

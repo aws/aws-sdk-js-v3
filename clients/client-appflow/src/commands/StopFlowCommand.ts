@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  StopFlowRequest,
-  StopFlowRequestFilterSensitiveLog,
-  StopFlowResponse,
-  StopFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopFlowCommand,
-  serializeAws_restJson1StopFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { StopFlowRequest, StopFlowResponse } from "../models/models_0";
+import { de_StopFlowCommand, se_StopFlowCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopFlowCommand}.
+ */
 export interface StopFlowCommandInput extends StopFlowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopFlowCommand}.
+ */
 export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deactivates the existing flow. For on-demand flows, this operation returns an
  *         <code>unsupportedOperationException</code> error message. For schedule and event-triggered
  *       flows, this operation deactivates the flow. </p>
@@ -38,13 +41,34 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * import { AppflowClient, StopFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, StopFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = { // StopFlowRequest
+ *   flowName: "STRING_VALUE", // required
+ * };
  * const command = new StopFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopFlowCommandInput - {@link StopFlowCommandInput}
+ * @returns {@link StopFlowCommandOutput}
  * @see {@link StopFlowCommandInput} for command's `input` shape.
  * @see {@link StopFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> There was a conflict when processing the request (for example, a flow with the given name
+ *       already exists within the account. Check for conflicting resource names and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *       later. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource specified in the request (such as the source or destination connector
+ *       profile) is not found. </p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p> The requested operation is not supported for the current flow. </p>
+ *
  *
  */
 export class StopFlowCommand extends $Command<
@@ -64,6 +88,9 @@ export class StopFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class StopFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class StopFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopFlowCommand(input, context);
+    return se_StopFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFlowCommandOutput> {
-    return deserializeAws_restJson1StopFlowCommand(output, context);
+    return de_StopFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

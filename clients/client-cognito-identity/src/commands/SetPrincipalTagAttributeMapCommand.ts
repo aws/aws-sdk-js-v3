@@ -15,23 +15,26 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  SetPrincipalTagAttributeMapInput,
-  SetPrincipalTagAttributeMapInputFilterSensitiveLog,
-  SetPrincipalTagAttributeMapResponse,
-  SetPrincipalTagAttributeMapResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SetPrincipalTagAttributeMapCommand,
-  serializeAws_json1_1SetPrincipalTagAttributeMapCommand,
-} from "../protocols/Aws_json1_1";
+import { SetPrincipalTagAttributeMapInput, SetPrincipalTagAttributeMapResponse } from "../models/models_0";
+import { de_SetPrincipalTagAttributeMapCommand, se_SetPrincipalTagAttributeMapCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SetPrincipalTagAttributeMapCommand}.
+ */
 export interface SetPrincipalTagAttributeMapCommandInput extends SetPrincipalTagAttributeMapInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetPrincipalTagAttributeMapCommand}.
+ */
 export interface SetPrincipalTagAttributeMapCommandOutput
   extends SetPrincipalTagAttributeMapResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can use this operation to use default (username and clientID) attribute or custom attribute mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +42,40 @@ export interface SetPrincipalTagAttributeMapCommandOutput
  * import { CognitoIdentityClient, SetPrincipalTagAttributeMapCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, SetPrincipalTagAttributeMapCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // SetPrincipalTagAttributeMapInput
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityProviderName: "STRING_VALUE", // required
+ *   UseDefaults: true || false,
+ *   PrincipalTags: { // PrincipalTags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SetPrincipalTagAttributeMapCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetPrincipalTagAttributeMapCommandInput - {@link SetPrincipalTagAttributeMapCommandInput}
+ * @returns {@link SetPrincipalTagAttributeMapCommandOutput}
  * @see {@link SetPrincipalTagAttributeMapCommandInput} for command's `input` shape.
  * @see {@link SetPrincipalTagAttributeMapCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when the requested resource (for example, a dataset or record) does not
+ *          exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Thrown when a request is throttled.</p>
+ *
  *
  */
 export class SetPrincipalTagAttributeMapCommand extends $Command<
@@ -65,6 +95,9 @@ export class SetPrincipalTagAttributeMapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetPrincipalTagAttributeMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +127,8 @@ export class SetPrincipalTagAttributeMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetPrincipalTagAttributeMapInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetPrincipalTagAttributeMapResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +138,21 @@ export class SetPrincipalTagAttributeMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetPrincipalTagAttributeMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetPrincipalTagAttributeMapCommand(input, context);
+    return se_SetPrincipalTagAttributeMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetPrincipalTagAttributeMapCommandOutput> {
-    return deserializeAws_json1_1SetPrincipalTagAttributeMapCommand(output, context);
+    return de_SetPrincipalTagAttributeMapCommand(output, context);
   }
 
   // Start section: command_body_extra

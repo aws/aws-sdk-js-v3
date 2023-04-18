@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  ListSourceCredentialsInput,
-  ListSourceCredentialsInputFilterSensitiveLog,
-  ListSourceCredentialsOutput,
-  ListSourceCredentialsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSourceCredentialsCommand,
-  serializeAws_json1_1ListSourceCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSourceCredentialsInput, ListSourceCredentialsOutput } from "../models/models_0";
+import { de_ListSourceCredentialsCommand, se_ListSourceCredentialsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSourceCredentialsCommand}.
+ */
 export interface ListSourceCredentialsCommandInput extends ListSourceCredentialsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListSourceCredentialsCommand}.
+ */
 export interface ListSourceCredentialsCommandOutput extends ListSourceCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of <code>SourceCredentialsInfo</code> objects. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface ListSourceCredentialsCommandOutput extends ListSourceCredential
  * import { CodeBuildClient, ListSourceCredentialsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListSourceCredentialsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {};
  * const command = new ListSourceCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSourceCredentialsCommandInput - {@link ListSourceCredentialsCommandInput}
+ * @returns {@link ListSourceCredentialsCommandOutput}
  * @see {@link ListSourceCredentialsCommandInput} for command's `input` shape.
  * @see {@link ListSourceCredentialsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
  *
  */
 export class ListSourceCredentialsCommand extends $Command<
@@ -62,6 +72,9 @@ export class ListSourceCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSourceCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class ListSourceCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSourceCredentialsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSourceCredentialsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class ListSourceCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSourceCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSourceCredentialsCommand(input, context);
+    return se_ListSourceCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSourceCredentialsCommandOutput> {
-    return deserializeAws_json1_1ListSourceCredentialsCommand(output, context);
+    return de_ListSourceCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

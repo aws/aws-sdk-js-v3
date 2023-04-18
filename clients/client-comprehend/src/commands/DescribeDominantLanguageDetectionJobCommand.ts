@@ -16,21 +16,30 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   DescribeDominantLanguageDetectionJobRequest,
-  DescribeDominantLanguageDetectionJobRequestFilterSensitiveLog,
   DescribeDominantLanguageDetectionJobResponse,
-  DescribeDominantLanguageDetectionJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand,
-  serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand,
+  de_DescribeDominantLanguageDetectionJobCommand,
+  se_DescribeDominantLanguageDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDominantLanguageDetectionJobCommand}.
+ */
 export interface DescribeDominantLanguageDetectionJobCommandInput extends DescribeDominantLanguageDetectionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDominantLanguageDetectionJobCommand}.
+ */
 export interface DescribeDominantLanguageDetectionJobCommandOutput
   extends DescribeDominantLanguageDetectionJobResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a dominant language detection job. Use this operation
  *       to get the status of a detection job.</p>
  * @example
@@ -39,13 +48,31 @@ export interface DescribeDominantLanguageDetectionJobCommandOutput
  * import { ComprehendClient, DescribeDominantLanguageDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeDominantLanguageDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeDominantLanguageDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDominantLanguageDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDominantLanguageDetectionJobCommandInput - {@link DescribeDominantLanguageDetectionJobCommandInput}
+ * @returns {@link DescribeDominantLanguageDetectionJobCommandOutput}
  * @see {@link DescribeDominantLanguageDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDominantLanguageDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The specified job was not found. Check the job ID and try again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class DescribeDominantLanguageDetectionJobCommand extends $Command<
@@ -65,6 +92,9 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDominantLanguageDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +123,8 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDominantLanguageDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDominantLanguageDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +134,24 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDominantLanguageDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand(input, context);
+    return se_DescribeDominantLanguageDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDominantLanguageDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand(output, context);
+    return de_DescribeDominantLanguageDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

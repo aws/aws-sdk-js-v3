@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteUsageLimitMessage, DeleteUsageLimitMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteUsageLimitCommand,
-  serializeAws_queryDeleteUsageLimitCommand,
-} from "../protocols/Aws_query";
+import { DeleteUsageLimitMessage } from "../models/models_0";
+import { de_DeleteUsageLimitCommand, se_DeleteUsageLimitCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteUsageLimitCommand}.
+ */
 export interface DeleteUsageLimitCommandInput extends DeleteUsageLimitMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteUsageLimitCommand}.
+ */
 export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a usage limit from a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,25 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * import { RedshiftClient, DeleteUsageLimitCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteUsageLimitCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteUsageLimitMessage
+ *   UsageLimitId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUsageLimitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUsageLimitCommandInput - {@link DeleteUsageLimitCommandInput}
+ * @returns {@link DeleteUsageLimitCommandOutput}
  * @see {@link DeleteUsageLimitCommandInput} for command's `input` shape.
  * @see {@link DeleteUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ * @throws {@link UsageLimitNotFoundFault} (client fault)
+ *  <p>The usage limit identifier can't be found.</p>
+ *
  *
  */
 export class DeleteUsageLimitCommand extends $Command<
@@ -57,6 +77,9 @@ export class DeleteUsageLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUsageLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +108,8 @@ export class DeleteUsageLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUsageLimitMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +119,18 @@ export class DeleteUsageLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteUsageLimitCommand(input, context);
+    return se_DeleteUsageLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUsageLimitCommandOutput> {
-    return deserializeAws_queryDeleteUsageLimitCommand(output, context);
+    return de_DeleteUsageLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

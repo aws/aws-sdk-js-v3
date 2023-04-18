@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { GetServersCommand, GetServersCommandInput, GetServersCommandOutput } from "../commands/GetServersCommand";
-import { SMS } from "../SMS";
 import { SMSClient } from "../SMSClient";
 import { SMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SMSClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetServersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SMS,
-  input: GetServersCommandInput,
-  ...args: any
-): Promise<GetServersCommandOutput> => {
-  // @ts-ignore
-  return await client.getServers(input, ...args);
-};
 export async function* paginateGetServers(
   config: SMSPaginationConfiguration,
   input: GetServersCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateGetServers(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof SMS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SMSClient) {
+    if (config.client instanceof SMSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SMS | SMSClient");

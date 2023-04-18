@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  GetApiAssociationRequest,
-  GetApiAssociationRequestFilterSensitiveLog,
-  GetApiAssociationResponse,
-  GetApiAssociationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApiAssociationCommand,
-  serializeAws_restJson1GetApiAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetApiAssociationRequest, GetApiAssociationResponse } from "../models/models_0";
+import { de_GetApiAssociationCommand, se_GetApiAssociationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetApiAssociationCommand}.
+ */
 export interface GetApiAssociationCommandInput extends GetApiAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetApiAssociationCommand}.
+ */
 export interface GetApiAssociationCommandOutput extends GetApiAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an <code>ApiAssociation</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface GetApiAssociationCommandOutput extends GetApiAssociationRespons
  * import { AppSyncClient, GetApiAssociationCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetApiAssociationCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // GetApiAssociationRequest
+ *   domainName: "STRING_VALUE", // required
+ * };
  * const command = new GetApiAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApiAssociationCommandInput - {@link GetApiAssociationCommandInput}
+ * @returns {@link GetApiAssociationCommandOutput}
  * @see {@link GetApiAssociationCommandInput} for command's `input` shape.
  * @see {@link GetApiAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access to perform this operation on this resource.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
  *
  */
 export class GetApiAssociationCommand extends $Command<
@@ -62,6 +84,9 @@ export class GetApiAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApiAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class GetApiAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApiAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApiAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class GetApiAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApiAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApiAssociationCommand(input, context);
+    return se_GetApiAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApiAssociationCommandOutput> {
-    return deserializeAws_restJson1GetApiAssociationCommand(output, context);
+    return de_GetApiAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

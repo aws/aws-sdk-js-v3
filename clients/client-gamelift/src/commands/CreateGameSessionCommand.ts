@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateGameSessionInput,
-  CreateGameSessionInputFilterSensitiveLog,
-  CreateGameSessionOutput,
-  CreateGameSessionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateGameSessionCommand,
-  serializeAws_json1_1CreateGameSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateGameSessionInput, CreateGameSessionOutput } from "../models/models_0";
+import { de_CreateGameSessionCommand, se_CreateGameSessionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateGameSessionCommand}.
+ */
 export interface CreateGameSessionCommandInput extends CreateGameSessionInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGameSessionCommand}.
+ */
 export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a multiplayer game session for players in a specific fleet location. This
  *             operation prompts an available server process to start a game session and retrieves
  *             connection information for the new game session. As an alternative, consider using the
@@ -76,13 +79,80 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * import { GameLiftClient, CreateGameSessionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateGameSessionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreateGameSessionInput
+ *   FleetId: "STRING_VALUE",
+ *   AliasId: "STRING_VALUE",
+ *   MaximumPlayerSessionCount: Number("int"), // required
+ *   Name: "STRING_VALUE",
+ *   GameProperties: [ // GamePropertyList
+ *     { // GameProperty
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   CreatorId: "STRING_VALUE",
+ *   GameSessionId: "STRING_VALUE",
+ *   IdempotencyToken: "STRING_VALUE",
+ *   GameSessionData: "STRING_VALUE",
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new CreateGameSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGameSessionCommandInput - {@link CreateGameSessionCommandInput}
+ * @returns {@link CreateGameSessionCommandOutput}
  * @see {@link CreateGameSessionCommandInput} for command's `input` shape.
  * @see {@link CreateGameSessionCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *             resource associated with the request. Resolve the conflict before retrying this
+ *             request.</p>
+ *         <p></p>
+ *
+ * @throws {@link FleetCapacityExceededException} (client fault)
+ *  <p>The specified fleet has no available instances to fulfill a
+ *                 <code>CreateGameSession</code> request. Clients can retry such requests immediately
+ *             or after a waiting period.</p>
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>A game session with this custom ID string already exists in this fleet. Resolve this
+ *             conflict before retrying this request.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidFleetStatusException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a resource
+ *             associated with the request and/or the fleet. Resolve the conflict before
+ *             retrying.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested operation would cause the resource to exceed the allowed service limit.
+ *             Resolve the issue before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link TerminalRoutingStrategyException} (client fault)
+ *  <p>The service is unable to resolve the routing for a particular alias because it has a
+ *             terminal <code>RoutingStrategy</code> associated with it. The message returned in this
+ *             exception is the message defined in the routing strategy itself. Such requests should
+ *             only be retried if the routing strategy for the specified alias is modified. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class CreateGameSessionCommand extends $Command<
@@ -102,6 +172,9 @@ export class CreateGameSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGameSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +203,8 @@ export class CreateGameSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGameSessionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGameSessionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +214,18 @@ export class CreateGameSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGameSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGameSessionCommand(input, context);
+    return se_CreateGameSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGameSessionCommandOutput> {
-    return deserializeAws_json1_1CreateGameSessionCommand(output, context);
+    return de_CreateGameSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

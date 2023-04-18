@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListAuditTasksRequest,
-  ListAuditTasksRequestFilterSensitiveLog,
-  ListAuditTasksResponse,
-  ListAuditTasksResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListAuditTasksCommand,
-  serializeAws_restJson1ListAuditTasksCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAuditTasksRequest, ListAuditTasksResponse } from "../models/models_1";
+import { de_ListAuditTasksCommand, se_ListAuditTasksCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAuditTasksCommand}.
+ */
 export interface ListAuditTasksCommandInput extends ListAuditTasksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAuditTasksCommand}.
+ */
 export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Device Defender audits that have been performed during a given
  *           time period.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditTasks</a> action.</p>
@@ -38,13 +41,33 @@ export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __M
  * import { IoTClient, ListAuditTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListAuditTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListAuditTasksRequest
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   taskType: "ON_DEMAND_AUDIT_TASK" || "SCHEDULED_AUDIT_TASK",
+ *   taskStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAuditTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAuditTasksCommandInput - {@link ListAuditTasksCommandInput}
+ * @returns {@link ListAuditTasksCommandOutput}
  * @see {@link ListAuditTasksCommandInput} for command's `input` shape.
  * @see {@link ListAuditTasksCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class ListAuditTasksCommand extends $Command<
@@ -64,6 +87,9 @@ export class ListAuditTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAuditTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class ListAuditTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAuditTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAuditTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class ListAuditTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAuditTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAuditTasksCommand(input, context);
+    return se_ListAuditTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAuditTasksCommandOutput> {
-    return deserializeAws_restJson1ListAuditTasksCommand(output, context);
+    return de_ListAuditTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

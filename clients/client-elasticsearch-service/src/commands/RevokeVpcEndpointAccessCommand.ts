@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  RevokeVpcEndpointAccessRequest,
-  RevokeVpcEndpointAccessRequestFilterSensitiveLog,
-  RevokeVpcEndpointAccessResponse,
-  RevokeVpcEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RevokeVpcEndpointAccessCommand,
-  serializeAws_restJson1RevokeVpcEndpointAccessCommand,
-} from "../protocols/Aws_restJson1";
+import { RevokeVpcEndpointAccessRequest, RevokeVpcEndpointAccessResponse } from "../models/models_0";
+import { de_RevokeVpcEndpointAccessCommand, se_RevokeVpcEndpointAccessCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link RevokeVpcEndpointAccessCommand}.
+ */
 export interface RevokeVpcEndpointAccessCommandInput extends RevokeVpcEndpointAccessRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RevokeVpcEndpointAccessCommand}.
+ */
 export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface
  *    VPC endpoint.</p>
  * @example
@@ -41,13 +44,35 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  * import { ElasticsearchServiceClient, RevokeVpcEndpointAccessCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, RevokeVpcEndpointAccessCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // RevokeVpcEndpointAccessRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   Account: "STRING_VALUE", // required
+ * };
  * const command = new RevokeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeVpcEndpointAccessCommandInput - {@link RevokeVpcEndpointAccessCommandInput}
+ * @returns {@link RevokeVpcEndpointAccessCommandOutput}
  * @see {@link RevokeVpcEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeVpcEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
  *
  */
 export class RevokeVpcEndpointAccessCommand extends $Command<
@@ -67,6 +92,9 @@ export class RevokeVpcEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeVpcEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +123,8 @@ export class RevokeVpcEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeVpcEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeVpcEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +134,18 @@ export class RevokeVpcEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeVpcEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RevokeVpcEndpointAccessCommand(input, context);
+    return se_RevokeVpcEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeVpcEndpointAccessCommandOutput> {
-    return deserializeAws_restJson1RevokeVpcEndpointAccessCommand(output, context);
+    return de_RevokeVpcEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

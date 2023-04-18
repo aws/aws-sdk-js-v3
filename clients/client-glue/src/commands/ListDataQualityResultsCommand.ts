@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListDataQualityResultsRequest,
-  ListDataQualityResultsRequestFilterSensitiveLog,
-  ListDataQualityResultsResponse,
-  ListDataQualityResultsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListDataQualityResultsCommand,
-  serializeAws_json1_1ListDataQualityResultsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDataQualityResultsRequest, ListDataQualityResultsResponse } from "../models/models_2";
+import { de_ListDataQualityResultsCommand, se_ListDataQualityResultsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDataQualityResultsCommand}.
+ */
 export interface ListDataQualityResultsCommandInput extends ListDataQualityResultsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDataQualityResultsCommand}.
+ */
 export interface ListDataQualityResultsCommandOutput extends ListDataQualityResultsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all data quality execution results for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,46 @@ export interface ListDataQualityResultsCommandOutput extends ListDataQualityResu
  * import { GlueClient, ListDataQualityResultsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDataQualityResultsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListDataQualityResultsRequest
+ *   Filter: { // DataQualityResultFilterCriteria
+ *     DataSource: { // DataSource
+ *       GlueTable: { // GlueTable
+ *         DatabaseName: "STRING_VALUE", // required
+ *         TableName: "STRING_VALUE", // required
+ *         CatalogId: "STRING_VALUE",
+ *         ConnectionName: "STRING_VALUE",
+ *         AdditionalOptions: { // GlueTableAdditionalOptions
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     JobName: "STRING_VALUE",
+ *     JobRunId: "STRING_VALUE",
+ *     StartedAfter: new Date("TIMESTAMP"),
+ *     StartedBefore: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDataQualityResultsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataQualityResultsCommandInput - {@link ListDataQualityResultsCommandInput}
+ * @returns {@link ListDataQualityResultsCommandOutput}
  * @see {@link ListDataQualityResultsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityResultsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class ListDataQualityResultsCommand extends $Command<
@@ -62,6 +98,9 @@ export class ListDataQualityResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataQualityResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +129,8 @@ export class ListDataQualityResultsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataQualityResultsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataQualityResultsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +140,18 @@ export class ListDataQualityResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataQualityResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDataQualityResultsCommand(input, context);
+    return se_ListDataQualityResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataQualityResultsCommandOutput> {
-    return deserializeAws_json1_1ListDataQualityResultsCommand(output, context);
+    return de_ListDataQualityResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

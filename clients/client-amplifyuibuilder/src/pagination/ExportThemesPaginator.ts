@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { AmplifyUIBuilder } from "../AmplifyUIBuilder";
 import { AmplifyUIBuilderClient } from "../AmplifyUIBuilderClient";
 import {
   ExportThemesCommand,
@@ -11,7 +10,7 @@ import {
 import { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AmplifyUIBuilderClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ExportThemesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AmplifyUIBuilder,
-  input: ExportThemesCommandInput,
-  ...args: any
-): Promise<ExportThemesCommandOutput> => {
-  // @ts-ignore
-  return await client.exportThemes(input, ...args);
-};
 export async function* paginateExportThemes(
   config: AmplifyUIBuilderPaginationConfiguration,
   input: ExportThemesCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateExportThemes(
   let page: ExportThemesCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof AmplifyUIBuilder) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AmplifyUIBuilderClient) {
+    if (config.client instanceof AmplifyUIBuilderClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AmplifyUIBuilder | AmplifyUIBuilderClient");

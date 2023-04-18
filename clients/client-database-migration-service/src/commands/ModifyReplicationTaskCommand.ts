@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  ModifyReplicationTaskMessage,
-  ModifyReplicationTaskMessageFilterSensitiveLog,
-  ModifyReplicationTaskResponse,
-  ModifyReplicationTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyReplicationTaskCommand,
-  serializeAws_json1_1ModifyReplicationTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifyReplicationTaskMessage, ModifyReplicationTaskResponse } from "../models/models_0";
+import { de_ModifyReplicationTaskCommand, se_ModifyReplicationTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyReplicationTaskCommand}.
+ */
 export interface ModifyReplicationTaskCommandInput extends ModifyReplicationTaskMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyReplicationTaskCommand}.
+ */
 export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified replication task.</p>
  *          <p>You can't modify the task endpoints. The task must be stopped before you can modify it. </p>
  *          <p>For more information about DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks</a> in the
@@ -43,13 +46,39 @@ export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTas
  * import { DatabaseMigrationServiceClient, ModifyReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ModifyReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // ModifyReplicationTaskMessage
+ *   ReplicationTaskArn: "STRING_VALUE", // required
+ *   ReplicationTaskIdentifier: "STRING_VALUE",
+ *   MigrationType: "full-load" || "cdc" || "full-load-and-cdc",
+ *   TableMappings: "STRING_VALUE",
+ *   ReplicationTaskSettings: "STRING_VALUE",
+ *   CdcStartTime: new Date("TIMESTAMP"),
+ *   CdcStartPosition: "STRING_VALUE",
+ *   CdcStopPosition: "STRING_VALUE",
+ *   TaskData: "STRING_VALUE",
+ * };
  * const command = new ModifyReplicationTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyReplicationTaskCommandInput - {@link ModifyReplicationTaskCommandInput}
+ * @returns {@link ModifyReplicationTaskCommandOutput}
  * @see {@link ModifyReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>DMS cannot access the KMS key.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsFault} (client fault)
+ *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class ModifyReplicationTaskCommand extends $Command<
@@ -69,6 +98,9 @@ export class ModifyReplicationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyReplicationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +129,8 @@ export class ModifyReplicationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyReplicationTaskMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyReplicationTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +140,18 @@ export class ModifyReplicationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyReplicationTaskCommand(input, context);
+    return se_ModifyReplicationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReplicationTaskCommandOutput> {
-    return deserializeAws_json1_1ModifyReplicationTaskCommand(output, context);
+    return de_ModifyReplicationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

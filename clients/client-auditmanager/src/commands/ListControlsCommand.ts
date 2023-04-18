@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  ListControlsRequest,
-  ListControlsRequestFilterSensitiveLog,
-  ListControlsResponse,
-  ListControlsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListControlsCommand,
-  serializeAws_restJson1ListControlsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListControlsRequest, ListControlsResponse } from "../models/models_0";
+import { de_ListControlsCommand, se_ListControlsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListControlsCommand}.
+ */
 export interface ListControlsCommandInput extends ListControlsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListControlsCommand}.
+ */
 export interface ListControlsCommandOutput extends ListControlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of controls from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * import { AuditManagerClient, ListControlsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListControlsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // ListControlsRequest
+ *   controlType: "Standard" || "Custom", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListControlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListControlsCommandInput - {@link ListControlsCommandInput}
+ * @returns {@link ListControlsCommandOutput}
  * @see {@link ListControlsCommandInput} for command's `input` shape.
  * @see {@link ListControlsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
  *
  */
 export class ListControlsCommand extends $Command<
@@ -62,6 +84,9 @@ export class ListControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +113,8 @@ export class ListControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListControlsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +124,18 @@ export class ListControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListControlsCommand(input, context);
+    return se_ListControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListControlsCommandOutput> {
-    return deserializeAws_restJson1ListControlsCommand(output, context);
+    return de_ListControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

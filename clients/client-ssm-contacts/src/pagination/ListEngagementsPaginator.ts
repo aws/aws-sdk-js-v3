@@ -6,12 +6,11 @@ import {
   ListEngagementsCommandInput,
   ListEngagementsCommandOutput,
 } from "../commands/ListEngagementsCommand";
-import { SSMContacts } from "../SSMContacts";
 import { SSMContactsClient } from "../SSMContactsClient";
 import { SSMContactsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSMContactsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEngagementsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SSMContacts,
-  input: ListEngagementsCommandInput,
-  ...args: any
-): Promise<ListEngagementsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEngagements(input, ...args);
-};
 export async function* paginateListEngagements(
   config: SSMContactsPaginationConfiguration,
   input: ListEngagementsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListEngagements(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSMContacts) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMContactsClient) {
+    if (config.client instanceof SSMContactsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSMContacts | SSMContactsClient");

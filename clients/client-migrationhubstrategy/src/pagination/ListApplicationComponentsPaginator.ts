@@ -6,12 +6,11 @@ import {
   ListApplicationComponentsCommandInput,
   ListApplicationComponentsCommandOutput,
 } from "../commands/ListApplicationComponentsCommand";
-import { MigrationHubStrategy } from "../MigrationHubStrategy";
 import { MigrationHubStrategyClient } from "../MigrationHubStrategyClient";
 import { MigrationHubStrategyPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MigrationHubStrategyClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListApplicationComponentsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MigrationHubStrategy,
-  input: ListApplicationComponentsCommandInput,
-  ...args: any
-): Promise<ListApplicationComponentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listApplicationComponents(input, ...args);
-};
 export async function* paginateListApplicationComponents(
   config: MigrationHubStrategyPaginationConfiguration,
   input: ListApplicationComponentsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListApplicationComponents(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof MigrationHubStrategy) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MigrationHubStrategyClient) {
+    if (config.client instanceof MigrationHubStrategyClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MigrationHubStrategy | MigrationHubStrategyClient");

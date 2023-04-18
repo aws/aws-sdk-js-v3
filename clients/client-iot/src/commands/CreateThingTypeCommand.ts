@@ -14,36 +14,75 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateThingTypeRequest,
-  CreateThingTypeRequestFilterSensitiveLog,
-  CreateThingTypeResponse,
-  CreateThingTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateThingTypeCommand,
-  serializeAws_restJson1CreateThingTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateThingTypeRequest, CreateThingTypeResponse } from "../models/models_0";
+import { de_CreateThingTypeCommand, se_CreateThingTypeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateThingTypeCommand}.
+ */
 export interface CreateThingTypeCommandInput extends CreateThingTypeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateThingTypeCommand}.
+ */
 export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new thing type.</p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingType</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingType</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, CreateThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateThingTypeRequest
+ *   thingTypeName: "STRING_VALUE", // required
+ *   thingTypeProperties: { // ThingTypeProperties
+ *     thingTypeDescription: "STRING_VALUE",
+ *     searchableAttributes: [ // SearchableAttributes
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateThingTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThingTypeCommandInput - {@link CreateThingTypeCommandInput}
+ * @returns {@link CreateThingTypeCommandOutput}
  * @see {@link CreateThingTypeCommandInput} for command's `input` shape.
  * @see {@link CreateThingTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource already exists.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class CreateThingTypeCommand extends $Command<
@@ -63,6 +102,9 @@ export class CreateThingTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThingTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +133,8 @@ export class CreateThingTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateThingTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateThingTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +144,18 @@ export class CreateThingTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThingTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateThingTypeCommand(input, context);
+    return se_CreateThingTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThingTypeCommandOutput> {
-    return deserializeAws_restJson1CreateThingTypeCommand(output, context);
+    return de_CreateThingTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput,
 } from "../commands/DescribeLoadBalancersCommand";
-import { ElasticLoadBalancing } from "../ElasticLoadBalancing";
 import { ElasticLoadBalancingClient } from "../ElasticLoadBalancingClient";
 import { ElasticLoadBalancingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticLoadBalancingClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeLoadBalancersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ElasticLoadBalancing,
-  input: DescribeLoadBalancersCommandInput,
-  ...args: any
-): Promise<DescribeLoadBalancersCommandOutput> => {
-  // @ts-ignore
-  return await client.describeLoadBalancers(input, ...args);
-};
 export async function* paginateDescribeLoadBalancers(
   config: ElasticLoadBalancingPaginationConfiguration,
   input: DescribeLoadBalancersCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateDescribeLoadBalancers(
   let page: DescribeLoadBalancersCommandOutput;
   while (hasNext) {
     input.Marker = token;
-    if (config.client instanceof ElasticLoadBalancing) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElasticLoadBalancingClient) {
+    if (config.client instanceof ElasticLoadBalancingClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElasticLoadBalancing | ElasticLoadBalancingClient");

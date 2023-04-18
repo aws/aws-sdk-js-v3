@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StartBlueprintRunRequest,
-  StartBlueprintRunRequestFilterSensitiveLog,
-  StartBlueprintRunResponse,
-  StartBlueprintRunResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1StartBlueprintRunCommand,
-  serializeAws_json1_1StartBlueprintRunCommand,
-} from "../protocols/Aws_json1_1";
+import { StartBlueprintRunRequest, StartBlueprintRunResponse } from "../models/models_2";
+import { de_StartBlueprintRunCommand, se_StartBlueprintRunCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartBlueprintRunCommand}.
+ */
 export interface StartBlueprintRunCommandInput extends StartBlueprintRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartBlueprintRunCommand}.
+ */
 export interface StartBlueprintRunCommandOutput extends StartBlueprintRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a new run of the specified blueprint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface StartBlueprintRunCommandOutput extends StartBlueprintRunRespons
  * import { GlueClient, StartBlueprintRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartBlueprintRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StartBlueprintRunRequest
+ *   BlueprintName: "STRING_VALUE", // required
+ *   Parameters: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE", // required
+ * };
  * const command = new StartBlueprintRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBlueprintRunCommandInput - {@link StartBlueprintRunCommandInput}
+ * @returns {@link StartBlueprintRunCommandOutput}
  * @see {@link StartBlueprintRunCommandInput} for command's `input` shape.
  * @see {@link StartBlueprintRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link IllegalBlueprintStateException} (client fault)
+ *  <p>The blueprint is in an invalid state to perform a requested operation.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
  *
  */
 export class StartBlueprintRunCommand extends $Command<
@@ -62,6 +91,9 @@ export class StartBlueprintRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBlueprintRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class StartBlueprintRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartBlueprintRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartBlueprintRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class StartBlueprintRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartBlueprintRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartBlueprintRunCommand(input, context);
+    return se_StartBlueprintRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBlueprintRunCommandOutput> {
-    return deserializeAws_json1_1StartBlueprintRunCommand(output, context);
+    return de_StartBlueprintRunCommand(output, context);
   }
 
   // Start section: command_body_extra

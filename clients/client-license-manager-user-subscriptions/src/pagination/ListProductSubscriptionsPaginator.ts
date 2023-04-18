@@ -6,12 +6,11 @@ import {
   ListProductSubscriptionsCommandInput,
   ListProductSubscriptionsCommandOutput,
 } from "../commands/ListProductSubscriptionsCommand";
-import { LicenseManagerUserSubscriptions } from "../LicenseManagerUserSubscriptions";
 import { LicenseManagerUserSubscriptionsClient } from "../LicenseManagerUserSubscriptionsClient";
 import { LicenseManagerUserSubscriptionsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LicenseManagerUserSubscriptionsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListProductSubscriptionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LicenseManagerUserSubscriptions,
-  input: ListProductSubscriptionsCommandInput,
-  ...args: any
-): Promise<ListProductSubscriptionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listProductSubscriptions(input, ...args);
-};
 export async function* paginateListProductSubscriptions(
   config: LicenseManagerUserSubscriptionsPaginationConfiguration,
   input: ListProductSubscriptionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListProductSubscriptions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LicenseManagerUserSubscriptions) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LicenseManagerUserSubscriptionsClient) {
+    if (config.client instanceof LicenseManagerUserSubscriptionsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error(

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  DeleteMessageRequest,
-  DeleteMessageRequestFilterSensitiveLog,
-  DeleteMessageResponse,
-  DeleteMessageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMessageCommand,
-  serializeAws_restJson1DeleteMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMessageRequest, DeleteMessageResponse } from "../models/models_0";
+import { de_DeleteMessageCommand, se_DeleteMessageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteMessageCommand}.
+ */
 export interface DeleteMessageCommandInput extends DeleteMessageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMessageCommand}.
+ */
 export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an event to a specific room which directs clients to delete a specific message;
  *          that is, unrender it from view and delete it from the client’s chat history. This event’s
  *             <code>EventName</code> is <code>aws:DELETE_MESSAGE</code>. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html">
@@ -39,13 +42,36 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
  * import { IvschatClient, DeleteMessageCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, DeleteMessageCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = { // DeleteMessageRequest
+ *   roomIdentifier: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   reason: "STRING_VALUE",
+ * };
  * const command = new DeleteMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMessageCommandInput - {@link DeleteMessageCommandInput}
+ * @returns {@link DeleteMessageCommandOutput}
  * @see {@link DeleteMessageCommandInput} for command's `input` shape.
  * @see {@link DeleteMessageCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link PendingVerification} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
  *
  */
 export class DeleteMessageCommand extends $Command<
@@ -65,6 +91,9 @@ export class DeleteMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +120,8 @@ export class DeleteMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMessageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +131,18 @@ export class DeleteMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMessageCommand(input, context);
+    return se_DeleteMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMessageCommandOutput> {
-    return deserializeAws_restJson1DeleteMessageCommand(output, context);
+    return de_DeleteMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

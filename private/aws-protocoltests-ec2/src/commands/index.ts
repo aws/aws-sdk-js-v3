@@ -1,7 +1,9 @@
 // smithy-typescript generated code
+export * from "./DatetimeOffsetsCommand";
 export * from "./EmptyInputAndEmptyOutputCommand";
 export * from "./EndpointOperationCommand";
 export * from "./EndpointWithHostLabelOperationCommand";
+export * from "./FractionalSecondsCommand";
 export * from "./GreetingWithErrorsCommand";
 export * from "./HostWithPathOperationCommand";
 export * from "./IgnoresWrappingXmlNameCommand";
@@ -17,6 +19,7 @@ export * from "./XmlBlobsCommand";
 export * from "./XmlEmptyBlobsCommand";
 export * from "./XmlEmptyListsCommand";
 export * from "./XmlEnumsCommand";
+export * from "./XmlIntEnumsCommand";
 export * from "./XmlListsCommand";
 export * from "./XmlNamespacesCommand";
 export * from "./XmlTimestampsCommand";

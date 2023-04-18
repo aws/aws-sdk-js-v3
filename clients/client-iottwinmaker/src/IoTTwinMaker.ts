@@ -142,14 +142,18 @@ import {
 import { IoTTwinMakerClient } from "./IoTTwinMakerClient";
 
 /**
- * <p>IoT TwinMaker is a service that enables you to build operational digital twins of
- *          physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors,
- *          cameras, and enterprise applications so you can create data visualizations to monitor your
- *          physical factory, building, or industrial plant. You can use this real-world data to
- *          monitor operations and diagnose and repair errors.</p>
+ * @public
+ * <p>IoT TwinMaker is a service with which you
+ *          can
+ *          build operational digital twins of physical systems. IoT TwinMaker overlays measurements
+ *          and analysis from real-world sensors, cameras, and enterprise applications so you can
+ *          create data visualizations to monitor your physical factory, building, or industrial plant.
+ *          You can use this real-world data to monitor operations and diagnose and repair
+ *          errors.</p>
  */
 export class IoTTwinMaker extends IoTTwinMakerClient {
   /**
+   * @public
    * <p>Sets values for multiple time series properties.</p>
    */
   public batchPutPropertyValues(
@@ -182,6 +186,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates a component type.</p>
    */
   public createComponentType(
@@ -214,6 +219,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates an entity.</p>
    */
   public createEntity(
@@ -243,6 +249,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates a scene.</p>
    */
   public createScene(args: CreateSceneCommandInput, options?: __HttpHandlerOptions): Promise<CreateSceneCommandOutput>;
@@ -269,6 +276,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>This action creates a SyncJob.</p>
    */
   public createSyncJob(
@@ -301,6 +309,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Creates a workplace.</p>
    */
   public createWorkspace(
@@ -333,6 +342,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a component type.</p>
    */
   public deleteComponentType(
@@ -365,6 +375,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Deletes an entity.</p>
    */
   public deleteEntity(
@@ -394,6 +405,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a scene.</p>
    */
   public deleteScene(args: DeleteSceneCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSceneCommandOutput>;
@@ -420,6 +432,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Delete the SyncJob.</p>
    */
   public deleteSyncJob(
@@ -452,6 +465,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Deletes a workspace.</p>
    */
   public deleteWorkspace(
@@ -484,7 +498,9 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
-   * <p>Run queries to access information from your knowledge graph of entities within individual workspaces.</p>
+   * @public
+   * <p>Run queries to access information from your knowledge graph of entities within
+   *          individual workspaces.</p>
    */
   public executeQuery(
     args: ExecuteQueryCommandInput,
@@ -513,6 +529,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a component type.</p>
    */
   public getComponentType(
@@ -545,6 +562,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an entity.</p>
    */
   public getEntity(args: GetEntityCommandInput, options?: __HttpHandlerOptions): Promise<GetEntityCommandOutput>;
@@ -571,6 +589,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Gets the pricing plan.</p>
    */
   public getPricingPlan(
@@ -603,8 +622,10 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Gets the property values for a component, component type, entity, or workspace.</p>
-   *          <p>You must specify a value for either <code>componentName</code>, <code>componentTypeId</code>, <code>entityId</code>, or <code>workspaceId</code>.</p>
+   *          <p>You must specify a value for either <code>componentName</code>,
+   *             <code>componentTypeId</code>, <code>entityId</code>, or <code>workspaceId</code>.</p>
    */
   public getPropertyValue(
     args: GetPropertyValueCommandInput,
@@ -636,9 +657,12 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
-   * <p>Retrieves information about the history of a time series property value for a component, component type, entity, or workspace.</p>
-   *          <p>You must specify a value for <code>workspaceId</code>. For entity-specific queries, specify values for <code>componentName</code> and
-   *         <code>entityId</code>. For cross-entity quries, specify a value for <code>componentTypeId</code>.</p>
+   * @public
+   * <p>Retrieves information about the history of a time series property value for a component,
+   *          component type, entity, or workspace.</p>
+   *          <p>You must specify a value for <code>workspaceId</code>. For entity-specific queries,
+   *          specify values for <code>componentName</code> and <code>entityId</code>. For cross-entity
+   *          quries, specify a value for <code>componentTypeId</code>.</p>
    */
   public getPropertyValueHistory(
     args: GetPropertyValueHistoryCommandInput,
@@ -670,6 +694,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a scene.</p>
    */
   public getScene(args: GetSceneCommandInput, options?: __HttpHandlerOptions): Promise<GetSceneCommandOutput>;
@@ -696,6 +721,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Gets the SyncJob.</p>
    */
   public getSyncJob(args: GetSyncJobCommandInput, options?: __HttpHandlerOptions): Promise<GetSyncJobCommandOutput>;
@@ -722,6 +748,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about a workspace.</p>
    */
   public getWorkspace(
@@ -751,6 +778,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Lists all component types in a workspace.</p>
    */
   public listComponentTypes(
@@ -783,6 +811,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Lists all entities in a workspace.</p>
    */
   public listEntities(
@@ -812,6 +841,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Lists all scenes in a workspace.</p>
    */
   public listScenes(args: ListScenesCommandInput, options?: __HttpHandlerOptions): Promise<ListScenesCommandOutput>;
@@ -838,6 +868,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>List all SyncJobs.</p>
    */
   public listSyncJobs(
@@ -867,6 +898,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Lists the sync resources.</p>
    */
   public listSyncResources(
@@ -899,6 +931,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Lists all tags associated with a resource.</p>
    */
   public listTagsForResource(
@@ -931,6 +964,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about workspaces in the current account.</p>
    */
   public listWorkspaces(
@@ -963,6 +997,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Adds tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -989,6 +1024,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Removes tags from a resource.</p>
    */
   public untagResource(
@@ -1021,6 +1057,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Updates information in a component type.</p>
    */
   public updateComponentType(
@@ -1053,6 +1090,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Updates an entity.</p>
    */
   public updateEntity(
@@ -1082,6 +1120,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Update the pricing plan.</p>
    */
   public updatePricingPlan(
@@ -1114,6 +1153,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Updates a scene.</p>
    */
   public updateScene(args: UpdateSceneCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSceneCommandOutput>;
@@ -1140,6 +1180,7 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * @public
    * <p>Updates a workspace.</p>
    */
   public updateWorkspace(

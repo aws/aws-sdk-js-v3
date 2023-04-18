@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult } from "../models/models_1";
 import {
-  ModifyDBClusterSnapshotAttributeMessage,
-  ModifyDBClusterSnapshotAttributeMessageFilterSensitiveLog,
-  ModifyDBClusterSnapshotAttributeResult,
-  ModifyDBClusterSnapshotAttributeResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBClusterSnapshotAttributeCommand,
-  serializeAws_queryModifyDBClusterSnapshotAttributeCommand,
+  de_ModifyDBClusterSnapshotAttributeCommand,
+  se_ModifyDBClusterSnapshotAttributeCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyDBClusterSnapshotAttributeCommand}.
+ */
 export interface ModifyDBClusterSnapshotAttributeCommandInput extends ModifyDBClusterSnapshotAttributeMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyDBClusterSnapshotAttributeCommand}.
+ */
 export interface ModifyDBClusterSnapshotAttributeCommandOutput
   extends ModifyDBClusterSnapshotAttributeResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
  *          <p>To share a manual DB cluster snapshot with other Amazon Web Services accounts, specify
  *                 <code>restore</code> as the <code>AttributeName</code> and use the
@@ -56,13 +62,66 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * import { RDSClient, ModifyDBClusterSnapshotAttributeCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBClusterSnapshotAttributeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyDBClusterSnapshotAttributeMessage
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   AttributeName: "STRING_VALUE", // required
+ *   ValuesToAdd: [ // AttributeValueList
+ *     "STRING_VALUE",
+ *   ],
+ *   ValuesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyDBClusterSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterSnapshotAttributeCommandInput - {@link ModifyDBClusterSnapshotAttributeCommandInput}
+ * @returns {@link ModifyDBClusterSnapshotAttributeCommandOutput}
  * @see {@link ModifyDBClusterSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+ *
+ * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
+ *  <p>The supplied value isn't a valid DB cluster snapshot state.</p>
+ *
+ * @throws {@link SharedSnapshotQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
+ *
+ *
+ * @example To modify a DB cluster snapshot attribute
+ * ```javascript
+ * // The following example makes changes to the specified DB cluster snapshot attribute.
+ * const input = {
+ *   "AttributeName": "restore",
+ *   "DBClusterSnapshotIdentifier": "myclustersnapshot",
+ *   "ValuesToAdd": [
+ *     "123456789012"
+ *   ]
+ * };
+ * const command = new ModifyDBClusterSnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterSnapshotAttributesResult": {
+ *     "DBClusterSnapshotAttributes": [
+ *       {
+ *         "AttributeName": "restore",
+ *         "AttributeValues": [
+ *           "123456789012"
+ *         ]
+ *       }
+ *     ],
+ *     "DBClusterSnapshotIdentifier": "myclustersnapshot"
+ *   }
+ * }
+ * *\/
+ * // example id: to-modify-a-db-cluster-snapshot-attribute-1680310358770
+ * ```
  *
  */
 export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
@@ -82,6 +141,9 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterSnapshotAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +172,8 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBClusterSnapshotAttributeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBClusterSnapshotAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +183,24 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyDBClusterSnapshotAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterSnapshotAttributeCommand(input, context);
+    return se_ModifyDBClusterSnapshotAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> {
-    return deserializeAws_queryModifyDBClusterSnapshotAttributeCommand(output, context);
+    return de_ModifyDBClusterSnapshotAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

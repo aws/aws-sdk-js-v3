@@ -9,11 +9,13 @@ import {
 import { KinesisVideoWebRTCStorageClient } from "./KinesisVideoWebRTCStorageClient";
 
 /**
+ * @public
  * <p>
  *     </p>
  */
 export class KinesisVideoWebRTCStorage extends KinesisVideoWebRTCStorageClient {
   /**
+   * @public
    * <p>
    *       Join the ongoing one way-video and/or multi-way audio WebRTC session as
    *       a video producing device for an input channel. If there’s no existing

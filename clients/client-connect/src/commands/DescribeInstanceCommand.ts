@@ -16,19 +16,26 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import {
   DescribeInstanceRequest,
-  DescribeInstanceRequestFilterSensitiveLog,
   DescribeInstanceResponse,
   DescribeInstanceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeInstanceCommand,
-  serializeAws_restJson1DescribeInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeInstanceCommand, se_DescribeInstanceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstanceCommand}.
+ */
 export interface DescribeInstanceCommandInput extends DescribeInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstanceCommand}.
+ */
 export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns the current state of the specified instance identifier. It tracks the instance while
  *    it is being created and returns an error status, if applicable. </p>
@@ -41,13 +48,28 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * import { ConnectClient, DescribeInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceCommandInput - {@link DescribeInstanceCommandInput}
+ * @returns {@link DescribeInstanceCommandOutput}
  * @see {@link DescribeInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DescribeInstanceCommand extends $Command<
@@ -67,6 +89,9 @@ export class DescribeInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +120,7 @@ export class DescribeInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeInstanceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -106,12 +131,18 @@ export class DescribeInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInstanceCommand(input, context);
+    return se_DescribeInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstanceCommandOutput> {
-    return deserializeAws_restJson1DescribeInstanceCommand(output, context);
+    return de_DescribeInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

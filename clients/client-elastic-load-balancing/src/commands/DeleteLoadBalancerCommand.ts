@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  DeleteAccessPointInput,
-  DeleteAccessPointInputFilterSensitiveLog,
-  DeleteAccessPointOutput,
-  DeleteAccessPointOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteLoadBalancerCommand,
-  serializeAws_queryDeleteLoadBalancerCommand,
-} from "../protocols/Aws_query";
+import { DeleteAccessPointInput, DeleteAccessPointOutput } from "../models/models_0";
+import { de_DeleteLoadBalancerCommand, se_DeleteLoadBalancerCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteLoadBalancerCommand}.
+ */
 export interface DeleteLoadBalancerCommandInput extends DeleteAccessPointInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLoadBalancerCommand}.
+ */
 export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified load balancer.</p>
  *         <p>If you are attempting to recreate a load balancer, you must reconfigure all settings. The DNS name associated with a deleted load balancer are no longer usable. The name and associated DNS record of the deleted load balancer no longer exist and traffic sent to any of its IP addresses is no longer delivered to your instances.</p>
  *         <p>If the load balancer does not exist or has already been deleted, the call to
@@ -43,13 +46,30 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  * import { ElasticLoadBalancingClient, DeleteLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DeleteLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // DeleteAccessPointInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoadBalancerCommandInput - {@link DeleteLoadBalancerCommandInput}
+ * @returns {@link DeleteLoadBalancerCommandOutput}
  * @see {@link DeleteLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
+ *
+ *
+ * @example To delete a load balancer
+ * ```javascript
+ * // This example deletes the specified load balancer.
+ * const input = {
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new DeleteLoadBalancerCommand(input);
+ * await client.send(command);
+ * // example id: elb-delete-load-balancer-1
+ * ```
  *
  */
 export class DeleteLoadBalancerCommand extends $Command<
@@ -69,6 +89,9 @@ export class DeleteLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +120,8 @@ export class DeleteLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessPointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccessPointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +131,18 @@ export class DeleteLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteLoadBalancerCommand(input, context);
+    return se_DeleteLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoadBalancerCommandOutput> {
-    return deserializeAws_queryDeleteLoadBalancerCommand(output, context);
+    return de_DeleteLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

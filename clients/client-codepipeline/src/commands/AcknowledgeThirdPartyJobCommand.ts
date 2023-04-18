@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  AcknowledgeThirdPartyJobInput,
-  AcknowledgeThirdPartyJobInputFilterSensitiveLog,
-  AcknowledgeThirdPartyJobOutput,
-  AcknowledgeThirdPartyJobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AcknowledgeThirdPartyJobCommand,
-  serializeAws_json1_1AcknowledgeThirdPartyJobCommand,
-} from "../protocols/Aws_json1_1";
+import { AcknowledgeThirdPartyJobInput, AcknowledgeThirdPartyJobOutput } from "../models/models_0";
+import { de_AcknowledgeThirdPartyJobCommand, se_AcknowledgeThirdPartyJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AcknowledgeThirdPartyJobCommand}.
+ */
 export interface AcknowledgeThirdPartyJobCommandInput extends AcknowledgeThirdPartyJobInput {}
+/**
+ * @public
+ *
+ * The output of {@link AcknowledgeThirdPartyJobCommand}.
+ */
 export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdPartyJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Confirms a job worker has received the specified job. Used for partner actions
  *             only.</p>
  * @example
@@ -37,13 +40,33 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * import { CodePipelineClient, AcknowledgeThirdPartyJobCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, AcknowledgeThirdPartyJobCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // AcknowledgeThirdPartyJobInput
+ *   jobId: "STRING_VALUE", // required
+ *   nonce: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new AcknowledgeThirdPartyJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcknowledgeThirdPartyJobCommandInput - {@link AcknowledgeThirdPartyJobCommandInput}
+ * @returns {@link AcknowledgeThirdPartyJobCommandOutput}
  * @see {@link AcknowledgeThirdPartyJobCommandInput} for command's `input` shape.
  * @see {@link AcknowledgeThirdPartyJobCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link InvalidClientTokenException} (client fault)
+ *  <p>The client token was specified in an invalid format</p>
+ *
+ * @throws {@link InvalidNonceException} (client fault)
+ *  <p>The nonce was specified in an invalid format.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
  *
  */
 export class AcknowledgeThirdPartyJobCommand extends $Command<
@@ -63,6 +86,9 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcknowledgeThirdPartyJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcknowledgeThirdPartyJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AcknowledgeThirdPartyJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcknowledgeThirdPartyJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcknowledgeThirdPartyJobCommand(input, context);
+    return se_AcknowledgeThirdPartyJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcknowledgeThirdPartyJobCommandOutput> {
-    return deserializeAws_json1_1AcknowledgeThirdPartyJobCommand(output, context);
+    return de_AcknowledgeThirdPartyJobCommand(output, context);
   }
 
   // Start section: command_body_extra

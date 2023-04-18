@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  RegisterGameServerInput,
-  RegisterGameServerInputFilterSensitiveLog,
-  RegisterGameServerOutput,
-  RegisterGameServerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterGameServerCommand,
-  serializeAws_json1_1RegisterGameServerCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterGameServerInput, RegisterGameServerOutput } from "../models/models_0";
+import { de_RegisterGameServerCommand, se_RegisterGameServerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterGameServerCommand}.
+ */
 export interface RegisterGameServerCommandInput extends RegisterGameServerInput {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterGameServerCommand}.
+ */
 export interface RegisterGameServerCommandOutput extends RegisterGameServerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -58,13 +61,44 @@ export interface RegisterGameServerCommandOutput extends RegisterGameServerOutpu
  * import { GameLiftClient, RegisterGameServerCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, RegisterGameServerCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // RegisterGameServerInput
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   GameServerId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   ConnectionInfo: "STRING_VALUE",
+ *   GameServerData: "STRING_VALUE",
+ * };
  * const command = new RegisterGameServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterGameServerCommandInput - {@link RegisterGameServerCommandInput}
+ * @returns {@link RegisterGameServerCommandOutput}
  * @see {@link RegisterGameServerCommandInput} for command's `input` shape.
  * @see {@link RegisterGameServerCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *             resource associated with the request. Resolve the conflict before retrying this
+ *             request.</p>
+ *         <p></p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested operation would cause the resource to exceed the allowed service limit.
+ *             Resolve the issue before retrying.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class RegisterGameServerCommand extends $Command<
@@ -84,6 +118,9 @@ export class RegisterGameServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterGameServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +149,8 @@ export class RegisterGameServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterGameServerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterGameServerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +160,18 @@ export class RegisterGameServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterGameServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterGameServerCommand(input, context);
+    return se_RegisterGameServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterGameServerCommandOutput> {
-    return deserializeAws_json1_1RegisterGameServerCommand(output, context);
+    return de_RegisterGameServerCommand(output, context);
   }
 
   // Start section: command_body_extra

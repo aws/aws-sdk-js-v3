@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DeleteVpcPeeringAuthorizationInput, DeleteVpcPeeringAuthorizationOutput } from "../models/models_0";
 import {
-  DeleteVpcPeeringAuthorizationInput,
-  DeleteVpcPeeringAuthorizationInputFilterSensitiveLog,
-  DeleteVpcPeeringAuthorizationOutput,
-  DeleteVpcPeeringAuthorizationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommand,
-  serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand,
+  de_DeleteVpcPeeringAuthorizationCommand,
+  se_DeleteVpcPeeringAuthorizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVpcPeeringAuthorizationCommand}.
+ */
 export interface DeleteVpcPeeringAuthorizationCommandInput extends DeleteVpcPeeringAuthorizationInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVpcPeeringAuthorizationCommand}.
+ */
 export interface DeleteVpcPeeringAuthorizationCommandOutput
   extends DeleteVpcPeeringAuthorizationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a pending VPC peering authorization for the specified VPC. If you need to
  *             delete an existing VPC peering connection, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteVpcPeeringConnection.html">DeleteVpcPeeringConnection</a>.</p>
  *          <p>
@@ -45,13 +51,34 @@ export interface DeleteVpcPeeringAuthorizationCommandOutput
  * import { GameLiftClient, DeleteVpcPeeringAuthorizationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteVpcPeeringAuthorizationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DeleteVpcPeeringAuthorizationInput
+ *   GameLiftAwsAccountId: "STRING_VALUE", // required
+ *   PeerVpcId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcPeeringAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcPeeringAuthorizationCommandInput - {@link DeleteVpcPeeringAuthorizationCommandInput}
+ * @returns {@link DeleteVpcPeeringAuthorizationCommandOutput}
  * @see {@link DeleteVpcPeeringAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcPeeringAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class DeleteVpcPeeringAuthorizationCommand extends $Command<
@@ -71,6 +98,9 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcPeeringAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +129,8 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcPeeringAuthorizationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcPeeringAuthorizationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +140,21 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcPeeringAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(input, context);
+    return se_DeleteVpcPeeringAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcPeeringAuthorizationCommandOutput> {
-    return deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(output, context);
+    return de_DeleteVpcPeeringAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

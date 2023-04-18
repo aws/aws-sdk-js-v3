@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
-import {
-  DescribeObjectRequest,
-  DescribeObjectRequestFilterSensitiveLog,
-  DescribeObjectResponse,
-  DescribeObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeObjectCommand,
-  serializeAws_restJson1DescribeObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeObjectRequest, DescribeObjectResponse } from "../models/models_0";
+import { de_DescribeObjectCommand, se_DescribeObjectCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeObjectCommand}.
+ */
 export interface DescribeObjectCommandInput extends DescribeObjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeObjectCommand}.
+ */
 export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the headers for an object at the specified path.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  * import { MediaStoreDataClient, DescribeObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
  * // const { MediaStoreDataClient, DescribeObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
  * const client = new MediaStoreDataClient(config);
+ * const input = { // DescribeObjectRequest
+ *   Path: "STRING_VALUE", // required
+ * };
  * const command = new DescribeObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeObjectCommandInput - {@link DescribeObjectCommandInput}
+ * @returns {@link DescribeObjectCommandOutput}
  * @see {@link DescribeObjectCommandInput} for command's `input` shape.
  * @see {@link DescribeObjectCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The specified container was not found for the specified account.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ObjectNotFoundException} (client fault)
+ *  <p>Could not perform an operation on an object that does not exist.</p>
+ *
  *
  */
 export class DescribeObjectCommand extends $Command<
@@ -62,6 +80,9 @@ export class DescribeObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DescribeObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeObjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class DescribeObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeObjectCommand(input, context);
+    return se_DescribeObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeObjectCommandOutput> {
-    return deserializeAws_restJson1DescribeObjectCommand(output, context);
+    return de_DescribeObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

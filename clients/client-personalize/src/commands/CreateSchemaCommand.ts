@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSchemaRequest,
-  CreateSchemaRequestFilterSensitiveLog,
-  CreateSchemaResponse,
-  CreateSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSchemaRequest, CreateSchemaResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateSchemaCommand,
-  serializeAws_json1_1CreateSchemaCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateSchemaCommand, se_CreateSchemaCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSchemaCommand}.
+ */
 export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSchemaCommand}.
+ */
 export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create
  *       must be in Avro JSON format.</p>
  *          <p>Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
@@ -62,13 +65,30 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * import { PersonalizeClient, CreateSchemaCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateSchemaCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateSchemaRequest
+ *   name: "STRING_VALUE", // required
+ *   schema: "STRING_VALUE", // required
+ *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
+ * @returns {@link CreateSchemaCommandOutput}
  * @see {@link CreateSchemaCommandInput} for command's `input` shape.
  * @see {@link CreateSchemaCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
  *
  */
 export class CreateSchemaCommand extends $Command<
@@ -88,6 +108,9 @@ export class CreateSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +137,8 @@ export class CreateSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +148,18 @@ export class CreateSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSchemaCommand(input, context);
+    return se_CreateSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSchemaCommandOutput> {
-    return deserializeAws_json1_1CreateSchemaCommand(output, context);
+    return de_CreateSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

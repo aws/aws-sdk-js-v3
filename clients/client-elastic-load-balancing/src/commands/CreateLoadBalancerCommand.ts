@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  CreateAccessPointInput,
-  CreateAccessPointInputFilterSensitiveLog,
-  CreateAccessPointOutput,
-  CreateAccessPointOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateLoadBalancerCommand,
-  serializeAws_queryCreateLoadBalancerCommand,
-} from "../protocols/Aws_query";
+import { CreateAccessPointInput, CreateAccessPointOutput } from "../models/models_0";
+import { de_CreateLoadBalancerCommand, se_CreateLoadBalancerCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLoadBalancerCommand}.
+ */
 export interface CreateLoadBalancerCommandInput extends CreateAccessPointInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLoadBalancerCommand}.
+ */
 export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Classic Load Balancer.</p>
  *
  *         <p>You can add listeners, security groups, subnets, and tags when you create your load balancer,
@@ -53,13 +56,241 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * import { ElasticLoadBalancingClient, CreateLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, CreateLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // CreateAccessPointInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   Listeners: [ // Listeners // required
+ *     { // Listener
+ *       Protocol: "STRING_VALUE", // required
+ *       LoadBalancerPort: Number("int"), // required
+ *       InstanceProtocol: "STRING_VALUE",
+ *       InstancePort: Number("int"), // required
+ *       SSLCertificateId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     "STRING_VALUE",
+ *   ],
+ *   Subnets: [ // Subnets
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroups: [ // SecurityGroups
+ *     "STRING_VALUE",
+ *   ],
+ *   Scheme: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoadBalancerCommandInput - {@link CreateLoadBalancerCommandInput}
+ * @returns {@link CreateLoadBalancerCommandOutput}
  * @see {@link CreateLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
+ *
+ * @throws {@link CertificateNotFoundException} (client fault)
+ *  <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM)
+ *             or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might
+ *             indicate that the certificate is not fully available yet.</p>
+ *
+ * @throws {@link DuplicateAccessPointNameException} (client fault)
+ *  <p>The specified load balancer name already exists for this account.</p>
+ *
+ * @throws {@link DuplicateTagKeysException} (client fault)
+ *  <p>A tag key was specified more than once.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ * @throws {@link InvalidSchemeException} (client fault)
+ *  <p>The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.</p>
+ *
+ * @throws {@link InvalidSecurityGroupException} (client fault)
+ *  <p>One or more of the specified security groups do not exist.</p>
+ *
+ * @throws {@link InvalidSubnetException} (client fault)
+ *  <p>The specified VPC has no associated Internet gateway.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link SubnetNotFoundException} (client fault)
+ *  <p>One or more of the specified subnets do not exist.</p>
+ *
+ * @throws {@link TooManyAccessPointsException} (client fault)
+ *  <p>The quota for the number of load balancers has been reached.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>
+ *
+ * @throws {@link UnsupportedProtocolException} (client fault)
+ *  <p>The specified protocol or signature version is not supported.</p>
+ *
+ *
+ * @example To create an HTTP load balancer in a VPC
+ * ```javascript
+ * // This example creates a load balancer with an HTTP listener in a VPC.
+ * const input = {
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 80,
+ *       "Protocol": "HTTP"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "SecurityGroups": [
+ *     "sg-a61988c3"
+ *   ],
+ *   "Subnets": [
+ *     "subnet-15aaab61"
+ *   ]
+ * };
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DNSName": "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com"
+ * }
+ * *\/
+ * // example id: elb-create-load-balancer-1
+ * ```
+ *
+ * @example To create an HTTP load balancer in EC2-Classic
+ * ```javascript
+ * // This example creates a load balancer with an HTTP listener in EC2-Classic.
+ * const input = {
+ *   "AvailabilityZones": [
+ *     "us-west-2a"
+ *   ],
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 80,
+ *       "Protocol": "HTTP"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DNSName": "my-load-balancer-123456789.us-west-2.elb.amazonaws.com"
+ * }
+ * *\/
+ * // example id: elb-create-load-balancer-2
+ * ```
+ *
+ * @example To create an HTTPS load balancer in a VPC
+ * ```javascript
+ * // This example creates a load balancer with an HTTPS listener in a VPC.
+ * const input = {
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 80,
+ *       "Protocol": "HTTP"
+ *     },
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 443,
+ *       "Protocol": "HTTPS",
+ *       "SSLCertificateId": "arn:aws:iam::123456789012:server-certificate/my-server-cert"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "SecurityGroups": [
+ *     "sg-a61988c3"
+ *   ],
+ *   "Subnets": [
+ *     "subnet-15aaab61"
+ *   ]
+ * };
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DNSName": "my-load-balancer-1234567890.us-west-2.elb.amazonaws.com"
+ * }
+ * *\/
+ * // example id: elb-create-load-balancer-3
+ * ```
+ *
+ * @example To create an HTTPS load balancer in EC2-Classic
+ * ```javascript
+ * // This example creates a load balancer with an HTTPS listener in EC2-Classic.
+ * const input = {
+ *   "AvailabilityZones": [
+ *     "us-west-2a"
+ *   ],
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 80,
+ *       "Protocol": "HTTP"
+ *     },
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 443,
+ *       "Protocol": "HTTPS",
+ *       "SSLCertificateId": "arn:aws:iam::123456789012:server-certificate/my-server-cert"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer"
+ * };
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DNSName": "my-load-balancer-123456789.us-west-2.elb.amazonaws.com"
+ * }
+ * *\/
+ * // example id: elb-create-load-balancer-4
+ * ```
+ *
+ * @example To create an internal load balancer
+ * ```javascript
+ * // This example creates an internal load balancer with an HTTP listener in a VPC.
+ * const input = {
+ *   "Listeners": [
+ *     {
+ *       "InstancePort": 80,
+ *       "InstanceProtocol": "HTTP",
+ *       "LoadBalancerPort": 80,
+ *       "Protocol": "HTTP"
+ *     }
+ *   ],
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "Scheme": "internal",
+ *   "SecurityGroups": [
+ *     "sg-a61988c3"
+ *   ],
+ *   "Subnets": [
+ *     "subnet-15aaab61"
+ *   ]
+ * };
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DNSName": "internal-my-load-balancer-123456789.us-west-2.elb.amazonaws.com"
+ * }
+ * *\/
+ * // example id: elb-create-load-balancer-5
+ * ```
  *
  */
 export class CreateLoadBalancerCommand extends $Command<
@@ -79,6 +310,9 @@ export class CreateLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +341,8 @@ export class CreateLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessPointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccessPointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +352,18 @@ export class CreateLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateLoadBalancerCommand(input, context);
+    return se_CreateLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerCommandOutput> {
-    return deserializeAws_queryCreateLoadBalancerCommand(output, context);
+    return de_CreateLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

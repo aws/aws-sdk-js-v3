@@ -6,12 +6,11 @@ import {
   ListAttachedPoliciesCommandInput,
   ListAttachedPoliciesCommandOutput,
 } from "../commands/ListAttachedPoliciesCommand";
-import { IoT } from "../IoT";
 import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAttachedPoliciesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoT,
-  input: ListAttachedPoliciesCommandInput,
-  ...args: any
-): Promise<ListAttachedPoliciesCommandOutput> => {
-  // @ts-ignore
-  return await client.listAttachedPolicies(input, ...args);
-};
 export async function* paginateListAttachedPolicies(
   config: IoTPaginationConfiguration,
   input: ListAttachedPoliciesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListAttachedPolicies(
   while (hasNext) {
     input.marker = token;
     input["pageSize"] = config.pageSize;
-    if (config.client instanceof IoT) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTClient) {
+    if (config.client instanceof IoTClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoT | IoTClient");

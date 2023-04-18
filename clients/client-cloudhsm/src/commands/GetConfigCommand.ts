@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  GetConfigRequest,
-  GetConfigRequestFilterSensitiveLog,
-  GetConfigResponse,
-  GetConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetConfigCommand, serializeAws_json1_1GetConfigCommand } from "../protocols/Aws_json1_1";
+import { GetConfigRequest, GetConfigResponse } from "../models/models_0";
+import { de_GetConfigCommand, se_GetConfigCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetConfigCommand}.
+ */
 export interface GetConfigCommandInput extends GetConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetConfigCommand}.
+ */
 export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -44,13 +50,32 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * import { CloudHSMClient, GetConfigCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, GetConfigCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // GetConfigRequest
+ *   ClientArn: "STRING_VALUE", // required
+ *   ClientVersion: "STRING_VALUE", // required
+ *   HapgList: [ // HapgList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigCommandInput - {@link GetConfigCommandInput}
+ * @returns {@link GetConfigCommandOutput}
  * @see {@link GetConfigCommandInput} for command's `input` shape.
  * @see {@link GetConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
+ *
+ * @throws {@link CloudHsmInternalException} (server fault)
+ *  <p>Indicates that an internal error occurred.</p>
+ *
+ * @throws {@link CloudHsmServiceException} (client fault)
+ *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that one or more of the request parameters are not valid.</p>
+ *
  *
  */
 export class GetConfigCommand extends $Command<
@@ -70,6 +95,9 @@ export class GetConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +124,8 @@ export class GetConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +135,18 @@ export class GetConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetConfigCommand(input, context);
+    return se_GetConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigCommandOutput> {
-    return deserializeAws_json1_1GetConfigCommand(output, context);
+    return de_GetConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  CreateUsagePlanKeyRequest,
-  CreateUsagePlanKeyRequestFilterSensitiveLog,
-  UsagePlanKey,
-  UsagePlanKeyFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateUsagePlanKeyCommand,
-  serializeAws_restJson1CreateUsagePlanKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateUsagePlanKeyRequest, UsagePlanKey } from "../models/models_0";
+import { de_CreateUsagePlanKeyCommand, se_CreateUsagePlanKeyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateUsagePlanKeyCommand}.
+ */
 export interface CreateUsagePlanKeyCommandInput extends CreateUsagePlanKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateUsagePlanKeyCommand}.
+ */
 export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a usage plan key for adding an existing API key to a usage plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __Metadat
  * import { APIGatewayClient, CreateUsagePlanKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateUsagePlanKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // CreateUsagePlanKeyRequest
+ *   usagePlanId: "STRING_VALUE", // required
+ *   keyId: "STRING_VALUE", // required
+ *   keyType: "STRING_VALUE", // required
+ * };
  * const command = new CreateUsagePlanKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUsagePlanKeyCommandInput - {@link CreateUsagePlanKeyCommandInput}
+ * @returns {@link CreateUsagePlanKeyCommandOutput}
  * @see {@link CreateUsagePlanKeyCommandInput} for command's `input` shape.
  * @see {@link CreateUsagePlanKeyCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class CreateUsagePlanKeyCommand extends $Command<
@@ -62,6 +91,9 @@ export class CreateUsagePlanKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUsagePlanKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class CreateUsagePlanKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUsagePlanKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UsagePlanKeyFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +133,18 @@ export class CreateUsagePlanKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUsagePlanKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUsagePlanKeyCommand(input, context);
+    return se_CreateUsagePlanKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUsagePlanKeyCommandOutput> {
-    return deserializeAws_restJson1CreateUsagePlanKeyCommand(output, context);
+    return de_CreateUsagePlanKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

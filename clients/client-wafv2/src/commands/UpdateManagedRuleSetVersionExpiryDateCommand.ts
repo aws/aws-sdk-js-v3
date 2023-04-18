@@ -15,23 +15,32 @@ import {
 
 import {
   UpdateManagedRuleSetVersionExpiryDateRequest,
-  UpdateManagedRuleSetVersionExpiryDateRequestFilterSensitiveLog,
   UpdateManagedRuleSetVersionExpiryDateResponse,
-  UpdateManagedRuleSetVersionExpiryDateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand,
-  serializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand,
+  de_UpdateManagedRuleSetVersionExpiryDateCommand,
+  se_UpdateManagedRuleSetVersionExpiryDateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
+ */
 export interface UpdateManagedRuleSetVersionExpiryDateCommandInput
   extends UpdateManagedRuleSetVersionExpiryDateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
+ */
 export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
   extends UpdateManagedRuleSetVersionExpiryDateResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the expiration information for your managed rule set. Use this to initiate the
  *          expiration of a managed rule group version. After you initiate expiration for a version,
  *          WAF excludes it from the response to <a>ListAvailableManagedRuleGroupVersions</a> for the managed rule group. </p>
@@ -45,13 +54,63 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
  * import { WAFV2Client, UpdateManagedRuleSetVersionExpiryDateCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, UpdateManagedRuleSetVersionExpiryDateCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // UpdateManagedRuleSetVersionExpiryDateRequest
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Id: "STRING_VALUE", // required
+ *   LockToken: "STRING_VALUE", // required
+ *   VersionToExpire: "STRING_VALUE", // required
+ *   ExpiryTimestamp: new Date("TIMESTAMP"), // required
+ * };
  * const command = new UpdateManagedRuleSetVersionExpiryDateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateManagedRuleSetVersionExpiryDateCommandInput - {@link UpdateManagedRuleSetVersionExpiryDateCommandInput}
+ * @returns {@link UpdateManagedRuleSetVersionExpiryDateCommandOutput}
  * @see {@link UpdateManagedRuleSetVersionExpiryDateCommandInput} for command's `input` shape.
  * @see {@link UpdateManagedRuleSetVersionExpiryDateCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
+ *          problem. Retry your request. </p>
+ *
+ * @throws {@link WAFInvalidOperationException} (client fault)
+ *  <p>The operation isn't valid. </p>
+ *
+ * @throws {@link WAFInvalidParameterException} (client fault)
+ *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
+ *          example: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified a parameter name or value that isn't valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
+ *                can’t be nested. </p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
+ *                isn't among the types available at <a>DefaultAction</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                with which a web ACL can't be associated.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>WAF couldn’t perform the operation because your resource doesn't exist.
+ *        If you've just created a resource that you're using in this operation, you might
+ *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
+ *        for changes to propagate. </p>
+ *
+ * @throws {@link WAFOptimisticLockException} (client fault)
+ *  <p>WAF couldn’t save your changes because you tried to update or delete a resource
+ *          that has changed since you last retrieved it. Get the resource again, make any changes you
+ *          need to make to the new copy, and retry your operation. </p>
+ *
  *
  */
 export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
@@ -71,6 +130,9 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateManagedRuleSetVersionExpiryDateCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +161,8 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateManagedRuleSetVersionExpiryDateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateManagedRuleSetVersionExpiryDateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +172,24 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateManagedRuleSetVersionExpiryDateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand(input, context);
+    return se_UpdateManagedRuleSetVersionExpiryDateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateManagedRuleSetVersionExpiryDateCommandOutput> {
-    return deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand(output, context);
+    return de_UpdateManagedRuleSetVersionExpiryDateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  PutLifecyclePolicyInput,
-  PutLifecyclePolicyInputFilterSensitiveLog,
-  PutLifecyclePolicyOutput,
-  PutLifecyclePolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutLifecyclePolicyCommand,
-  serializeAws_json1_1PutLifecyclePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutLifecyclePolicyInput, PutLifecyclePolicyOutput } from "../models/models_0";
+import { de_PutLifecyclePolicyCommand, se_PutLifecyclePolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutLifecyclePolicyCommand}.
+ */
 export interface PutLifecyclePolicyCommandInput extends PutLifecyclePolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutLifecyclePolicyCommand}.
+ */
 export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.</p>
  *          <p>For information about how to construct an object lifecycle policy, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html">Components of an Object Lifecycle Policy</a>.</p>
  * @example
@@ -37,13 +40,30 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutpu
  * import { MediaStoreClient, PutLifecyclePolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, PutLifecyclePolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = { // PutLifecyclePolicyInput
+ *   ContainerName: "STRING_VALUE", // required
+ *   LifecyclePolicy: "STRING_VALUE", // required
+ * };
  * const command = new PutLifecyclePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLifecyclePolicyCommandInput - {@link PutLifecyclePolicyCommandInput}
+ * @returns {@link PutLifecyclePolicyCommandOutput}
  * @see {@link PutLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link PutLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
+ *
+ * @throws {@link ContainerInUseException} (client fault)
+ *  <p>The container that you specified in the request already exists or is being
+ *          updated.</p>
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
  *
  */
 export class PutLifecyclePolicyCommand extends $Command<
@@ -63,6 +83,9 @@ export class PutLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +114,8 @@ export class PutLifecyclePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLifecyclePolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLifecyclePolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +125,18 @@ export class PutLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLifecyclePolicyCommand(input, context);
+    return se_PutLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLifecyclePolicyCommandOutput> {
-    return deserializeAws_json1_1PutLifecyclePolicyCommand(output, context);
+    return de_PutLifecyclePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

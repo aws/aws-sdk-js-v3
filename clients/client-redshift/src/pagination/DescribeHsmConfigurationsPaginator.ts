@@ -6,12 +6,11 @@ import {
   DescribeHsmConfigurationsCommandInput,
   DescribeHsmConfigurationsCommandOutput,
 } from "../commands/DescribeHsmConfigurationsCommand";
-import { Redshift } from "../Redshift";
 import { RedshiftClient } from "../RedshiftClient";
 import { RedshiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RedshiftClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeHsmConfigurationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Redshift,
-  input: DescribeHsmConfigurationsCommandInput,
-  ...args: any
-): Promise<DescribeHsmConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeHsmConfigurations(input, ...args);
-};
 export async function* paginateDescribeHsmConfigurations(
   config: RedshiftPaginationConfiguration,
   input: DescribeHsmConfigurationsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeHsmConfigurations(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof Redshift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RedshiftClient) {
+    if (config.client instanceof RedshiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Redshift | RedshiftClient");

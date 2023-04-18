@@ -15,20 +15,27 @@ import {
 
 import {
   GetServiceTemplateVersionInput,
-  GetServiceTemplateVersionInputFilterSensitiveLog,
   GetServiceTemplateVersionOutput,
   GetServiceTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetServiceTemplateVersionCommand,
-  serializeAws_json1_0GetServiceTemplateVersionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetServiceTemplateVersionCommand, se_GetServiceTemplateVersionCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetServiceTemplateVersionCommand}.
+ */
 export interface GetServiceTemplateVersionCommandInput extends GetServiceTemplateVersionInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetServiceTemplateVersionCommand}.
+ */
 export interface GetServiceTemplateVersionCommandOutput extends GetServiceTemplateVersionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed data for a major or minor version of a service template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,36 @@ export interface GetServiceTemplateVersionCommandOutput extends GetServiceTempla
  * import { ProtonClient, GetServiceTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetServiceTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // GetServiceTemplateVersionInput
+ *   templateName: "STRING_VALUE", // required
+ *   majorVersion: "STRING_VALUE", // required
+ *   minorVersion: "STRING_VALUE", // required
+ * };
  * const command = new GetServiceTemplateVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceTemplateVersionCommandInput - {@link GetServiceTemplateVersionCommandInput}
+ * @returns {@link GetServiceTemplateVersionCommandOutput}
  * @see {@link GetServiceTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link GetServiceTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class GetServiceTemplateVersionCommand extends $Command<
@@ -62,6 +92,9 @@ export class GetServiceTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +123,7 @@ export class GetServiceTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceTemplateVersionInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetServiceTemplateVersionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +134,21 @@ export class GetServiceTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetServiceTemplateVersionCommand(input, context);
+    return se_GetServiceTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceTemplateVersionCommandOutput> {
-    return deserializeAws_json1_0GetServiceTemplateVersionCommand(output, context);
+    return de_GetServiceTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

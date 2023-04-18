@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  DescribeImageTagsRequest,
-  DescribeImageTagsRequestFilterSensitiveLog,
-  DescribeImageTagsResponse,
-  DescribeImageTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImageTagsCommand,
-  serializeAws_json1_1DescribeImageTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeImageTagsRequest, DescribeImageTagsResponse } from "../models/models_0";
+import { de_DescribeImageTagsCommand, se_DescribeImageTagsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeImageTagsCommand}.
+ */
 export interface DescribeImageTagsCommandInput extends DescribeImageTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeImageTagsCommand}.
+ */
 export interface DescribeImageTagsCommandOutput extends DescribeImageTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the image tag details for a repository in a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface DescribeImageTagsCommandOutput extends DescribeImageTagsRespons
  * import { ECRPUBLICClient, DescribeImageTagsCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, DescribeImageTagsCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // DescribeImageTagsRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeImageTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageTagsCommandInput - {@link DescribeImageTagsCommandInput}
+ * @returns {@link DescribeImageTagsCommandOutput}
  * @see {@link DescribeImageTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeImageTagsCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *          request.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository can't be found. Check the spelling of the specified repository
+ *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedCommandException} (client fault)
+ *  <p>The action isn't supported in this Region.</p>
+ *
  *
  */
 export class DescribeImageTagsCommand extends $Command<
@@ -62,6 +88,9 @@ export class DescribeImageTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class DescribeImageTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class DescribeImageTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImageTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageTagsCommand(input, context);
+    return se_DescribeImageTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageTagsCommandOutput> {
-    return deserializeAws_json1_1DescribeImageTagsCommand(output, context);
+    return de_DescribeImageTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

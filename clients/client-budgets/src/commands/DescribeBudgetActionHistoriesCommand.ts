@@ -16,21 +16,31 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import {
   DescribeBudgetActionHistoriesRequest,
-  DescribeBudgetActionHistoriesRequestFilterSensitiveLog,
   DescribeBudgetActionHistoriesResponse,
   DescribeBudgetActionHistoriesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeBudgetActionHistoriesCommand,
-  serializeAws_json1_1DescribeBudgetActionHistoriesCommand,
+  de_DescribeBudgetActionHistoriesCommand,
+  se_DescribeBudgetActionHistoriesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBudgetActionHistoriesCommand}.
+ */
 export interface DescribeBudgetActionHistoriesCommandInput extends DescribeBudgetActionHistoriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBudgetActionHistoriesCommand}.
+ */
 export interface DescribeBudgetActionHistoriesCommandOutput
   extends DescribeBudgetActionHistoriesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Describes a budget action history detail.
  *       </p>
@@ -40,13 +50,47 @@ export interface DescribeBudgetActionHistoriesCommandOutput
  * import { BudgetsClient, DescribeBudgetActionHistoriesCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetActionHistoriesCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // DescribeBudgetActionHistoriesRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   ActionId: "STRING_VALUE", // required
+ *   TimePeriod: { // TimePeriod
+ *     Start: new Date("TIMESTAMP"),
+ *     End: new Date("TIMESTAMP"),
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeBudgetActionHistoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBudgetActionHistoriesCommandInput - {@link DescribeBudgetActionHistoriesCommandInput}
+ * @returns {@link DescribeBudgetActionHistoriesCommandOutput}
  * @see {@link DescribeBudgetActionHistoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetActionHistoriesCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to use this operation with the given parameters.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>We can’t locate the resource that you specified.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
+ *     </p>
+ *
  *
  */
 export class DescribeBudgetActionHistoriesCommand extends $Command<
@@ -66,6 +110,9 @@ export class DescribeBudgetActionHistoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBudgetActionHistoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +141,7 @@ export class DescribeBudgetActionHistoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBudgetActionHistoriesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeBudgetActionHistoriesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,15 +152,21 @@ export class DescribeBudgetActionHistoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBudgetActionHistoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBudgetActionHistoriesCommand(input, context);
+    return se_DescribeBudgetActionHistoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBudgetActionHistoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeBudgetActionHistoriesCommand(output, context);
+    return de_DescribeBudgetActionHistoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,24 +16,33 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   GetAggregateConformancePackComplianceSummaryRequest,
-  GetAggregateConformancePackComplianceSummaryRequestFilterSensitiveLog,
   GetAggregateConformancePackComplianceSummaryResponse,
-  GetAggregateConformancePackComplianceSummaryResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommand,
-  serializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommand,
+  de_GetAggregateConformancePackComplianceSummaryCommand,
+  se_GetAggregateConformancePackComplianceSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAggregateConformancePackComplianceSummaryCommand}.
+ */
 export interface GetAggregateConformancePackComplianceSummaryCommandInput
   extends GetAggregateConformancePackComplianceSummaryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAggregateConformancePackComplianceSummaryCommand}.
+ */
 export interface GetAggregateConformancePackComplianceSummaryCommandOutput
   extends GetAggregateConformancePackComplianceSummaryResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the count of compliant and noncompliant conformance packs across all Amazon Web Services accounts and Amazon Web Services Regions in an aggregator. You can filter based on Amazon Web Services account ID or Amazon Web Services Region.</p>
- * 		       <note>
+ *          <note>
  *             <p>The results can return an empty result page, but if you have a nextToken, the results are displayed on the next page.</p>
  *          </note>
  * @example
@@ -42,13 +51,42 @@ export interface GetAggregateConformancePackComplianceSummaryCommandOutput
  * import { ConfigServiceClient, GetAggregateConformancePackComplianceSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetAggregateConformancePackComplianceSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetAggregateConformancePackComplianceSummaryRequest
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   Filters: { // AggregateConformancePackComplianceSummaryFilters
+ *     AccountId: "STRING_VALUE",
+ *     AwsRegion: "STRING_VALUE",
+ *   },
+ *   GroupByKey: "ACCOUNT_ID" || "AWS_REGION",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetAggregateConformancePackComplianceSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAggregateConformancePackComplianceSummaryCommandInput - {@link GetAggregateConformancePackComplianceSummaryCommandInput}
+ * @returns {@link GetAggregateConformancePackComplianceSummaryCommandOutput}
  * @see {@link GetAggregateConformancePackComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetAggregateConformancePackComplianceSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidLimitException} (client fault)
+ *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is not valid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
+ *  <p>You have specified a configuration aggregator that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *
  *
  */
 export class GetAggregateConformancePackComplianceSummaryCommand extends $Command<
@@ -68,6 +106,9 @@ export class GetAggregateConformancePackComplianceSummaryCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAggregateConformancePackComplianceSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +143,8 @@ export class GetAggregateConformancePackComplianceSummaryCommand extends $Comman
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAggregateConformancePackComplianceSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAggregateConformancePackComplianceSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +154,24 @@ export class GetAggregateConformancePackComplianceSummaryCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAggregateConformancePackComplianceSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommand(input, context);
+    return se_GetAggregateConformancePackComplianceSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAggregateConformancePackComplianceSummaryCommandOutput> {
-    return deserializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommand(output, context);
+    return de_GetAggregateConformancePackComplianceSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

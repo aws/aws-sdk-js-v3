@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteNamespaceRequest,
-  DeleteNamespaceRequestFilterSensitiveLog,
-  DeleteNamespaceResponse,
-  DeleteNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNamespaceCommand,
-  serializeAws_json1_1DeleteNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_0";
+import { de_DeleteNamespaceCommand, se_DeleteNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNamespaceCommand}.
+ */
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a namespace from the current account. If the namespace still contains one or more
  *    services, the request fails.</p>
  * @example
@@ -37,13 +40,50 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * import { ServiceDiscoveryClient, DeleteNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, DeleteNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // DeleteNamespaceRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNamespaceCommandInput - {@link DeleteNamespaceCommandInput}
+ * @returns {@link DeleteNamespaceCommandOutput}
  * @see {@link DeleteNamespaceCommandInput} for command's `input` shape.
  * @see {@link DeleteNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
+ *
+ * @throws {@link DuplicateRequest} (client fault)
+ *  <p>The operation is already in progress.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
+ *
+ * @throws {@link NamespaceNotFound} (client fault)
+ *  <p>No namespace exists with the specified ID.</p>
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>The specified resource can't be deleted because it contains other resources. For example,
+ *    you can't delete a service that contains any instances.</p>
+ *
+ *
+ * @example Example: Delete namespace
+ * ```javascript
+ * // Example: Delete namespace
+ * const input = {
+ *   "Id": "ns-ylexjili4cdxy3xm"
+ * };
+ * const command = new DeleteNamespaceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OperationId": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k98y6drk"
+ * }
+ * *\/
+ * // example id: example-delete-namespace-1587416093508
+ * ```
  *
  */
 export class DeleteNamespaceCommand extends $Command<
@@ -63,6 +103,9 @@ export class DeleteNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +134,8 @@ export class DeleteNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +145,18 @@ export class DeleteNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNamespaceCommand(input, context);
+    return se_DeleteNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNamespaceCommandOutput> {
-    return deserializeAws_json1_1DeleteNamespaceCommand(output, context);
+    return de_DeleteNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

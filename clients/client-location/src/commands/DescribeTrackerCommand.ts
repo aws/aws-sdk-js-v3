@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DescribeTrackerRequest,
-  DescribeTrackerRequestFilterSensitiveLog,
-  DescribeTrackerResponse,
-  DescribeTrackerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTrackerCommand,
-  serializeAws_restJson1DescribeTrackerCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeTrackerRequest, DescribeTrackerResponse } from "../models/models_0";
+import { de_DescribeTrackerCommand, se_DescribeTrackerCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTrackerCommand}.
+ */
 export interface DescribeTrackerCommandInput extends DescribeTrackerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTrackerCommand}.
+ */
 export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the tracker resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, _
  * import { LocationClient, DescribeTrackerCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribeTrackerCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // DescribeTrackerRequest
+ *   TrackerName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTrackerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrackerCommandInput - {@link DescribeTrackerCommandInput}
+ * @returns {@link DescribeTrackerCommandOutput}
  * @see {@link DescribeTrackerCommandInput} for command's `input` shape.
  * @see {@link DescribeTrackerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class DescribeTrackerCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeTrackerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class DescribeTrackerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrackerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrackerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class DescribeTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTrackerCommand(input, context);
+    return se_DescribeTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrackerCommandOutput> {
-    return deserializeAws_restJson1DescribeTrackerCommand(output, context);
+    return de_DescribeTrackerCommand(output, context);
   }
 
   // Start section: command_body_extra

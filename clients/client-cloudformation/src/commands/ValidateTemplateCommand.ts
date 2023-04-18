@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ValidateTemplateInput,
-  ValidateTemplateInputFilterSensitiveLog,
-  ValidateTemplateOutput,
-  ValidateTemplateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryValidateTemplateCommand,
-  serializeAws_queryValidateTemplateCommand,
-} from "../protocols/Aws_query";
+import { ValidateTemplateInput, ValidateTemplateOutput } from "../models/models_0";
+import { de_ValidateTemplateCommand, se_ValidateTemplateCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ValidateTemplateCommand}.
+ */
 export interface ValidateTemplateCommandInput extends ValidateTemplateInput {}
+/**
+ * @public
+ *
+ * The output of {@link ValidateTemplateCommand}.
+ */
 export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates a specified template. CloudFormation first checks if the template is
  *          valid JSON. If it isn't, CloudFormation checks if the template is valid YAML. If
  *          both these checks fail, CloudFormation returns a template validation error.</p>
@@ -38,13 +41,20 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  * import { CloudFormationClient, ValidateTemplateCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ValidateTemplateCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ValidateTemplateInput
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ * };
  * const command = new ValidateTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateTemplateCommandInput - {@link ValidateTemplateCommandInput}
+ * @returns {@link ValidateTemplateCommandOutput}
  * @see {@link ValidateTemplateCommandInput} for command's `input` shape.
  * @see {@link ValidateTemplateCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
  *
  */
 export class ValidateTemplateCommand extends $Command<
@@ -64,6 +74,9 @@ export class ValidateTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +105,8 @@ export class ValidateTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateTemplateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateTemplateOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +116,18 @@ export class ValidateTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryValidateTemplateCommand(input, context);
+    return se_ValidateTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateTemplateCommandOutput> {
-    return deserializeAws_queryValidateTemplateCommand(output, context);
+    return de_ValidateTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

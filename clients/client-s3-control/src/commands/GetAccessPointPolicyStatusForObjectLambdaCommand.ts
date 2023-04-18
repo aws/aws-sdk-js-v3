@@ -16,23 +16,32 @@ import {
 
 import {
   GetAccessPointPolicyStatusForObjectLambdaRequest,
-  GetAccessPointPolicyStatusForObjectLambdaRequestFilterSensitiveLog,
   GetAccessPointPolicyStatusForObjectLambdaResult,
-  GetAccessPointPolicyStatusForObjectLambdaResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand,
-  serializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand,
+  de_GetAccessPointPolicyStatusForObjectLambdaCommand,
+  se_GetAccessPointPolicyStatusForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAccessPointPolicyStatusForObjectLambdaCommand}.
+ */
 export interface GetAccessPointPolicyStatusForObjectLambdaCommandInput
   extends GetAccessPointPolicyStatusForObjectLambdaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAccessPointPolicyStatusForObjectLambdaCommand}.
+ */
 export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput
   extends GetAccessPointPolicyStatusForObjectLambdaResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the status of the resource policy associated with an Object Lambda Access Point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +49,20 @@ export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput
  * import { S3ControlClient, GetAccessPointPolicyStatusForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetAccessPointPolicyStatusForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetAccessPointPolicyStatusForObjectLambdaRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessPointPolicyStatusForObjectLambdaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointPolicyStatusForObjectLambdaCommandInput - {@link GetAccessPointPolicyStatusForObjectLambdaCommandInput}
+ * @returns {@link GetAccessPointPolicyStatusForObjectLambdaCommandOutput}
  * @see {@link GetAccessPointPolicyStatusForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointPolicyStatusForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command<
@@ -69,6 +85,9 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointPolicyStatusForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +123,8 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessPointPolicyStatusForObjectLambdaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessPointPolicyStatusForObjectLambdaResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,18 +134,24 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand(input, context);
+    return se_GetAccessPointPolicyStatusForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAccessPointPolicyStatusForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand(output, context);
+    return de_GetAccessPointPolicyStatusForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

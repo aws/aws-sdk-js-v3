@@ -6,12 +6,11 @@ import {
   ListAssessmentTargetsCommandInput,
   ListAssessmentTargetsCommandOutput,
 } from "../commands/ListAssessmentTargetsCommand";
-import { Inspector } from "../Inspector";
 import { InspectorClient } from "../InspectorClient";
 import { InspectorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: InspectorClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAssessmentTargetsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Inspector,
-  input: ListAssessmentTargetsCommandInput,
-  ...args: any
-): Promise<ListAssessmentTargetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAssessmentTargets(input, ...args);
-};
 export async function* paginateListAssessmentTargets(
   config: InspectorPaginationConfiguration,
   input: ListAssessmentTargetsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListAssessmentTargets(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Inspector) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof InspectorClient) {
+    if (config.client instanceof InspectorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Inspector | InspectorClient");

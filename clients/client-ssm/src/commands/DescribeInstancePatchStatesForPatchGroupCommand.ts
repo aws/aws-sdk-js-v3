@@ -15,23 +15,33 @@ import {
 
 import {
   DescribeInstancePatchStatesForPatchGroupRequest,
-  DescribeInstancePatchStatesForPatchGroupRequestFilterSensitiveLog,
   DescribeInstancePatchStatesForPatchGroupResult,
   DescribeInstancePatchStatesForPatchGroupResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand,
-  serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand,
+  de_DescribeInstancePatchStatesForPatchGroupCommand,
+  se_DescribeInstancePatchStatesForPatchGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstancePatchStatesForPatchGroupCommand}.
+ */
 export interface DescribeInstancePatchStatesForPatchGroupCommandInput
   extends DescribeInstancePatchStatesForPatchGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstancePatchStatesForPatchGroupCommand}.
+ */
 export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
   extends DescribeInstancePatchStatesForPatchGroupResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the high-level patch state for the managed nodes in the specified patch
  *    group.</p>
  * @example
@@ -40,13 +50,39 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
  * import { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeInstancePatchStatesForPatchGroupRequest
+ *   PatchGroup: "STRING_VALUE", // required
+ *   Filters: [ // InstancePatchStateFilterList
+ *     { // InstancePatchStateFilter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // InstancePatchStateFilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Type: "Equal" || "NotEqual" || "LessThan" || "GreaterThan", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeInstancePatchStatesForPatchGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancePatchStatesForPatchGroupCommandInput - {@link DescribeInstancePatchStatesForPatchGroupCommandInput}
+ * @returns {@link DescribeInstancePatchStatesForPatchGroupCommandOutput}
  * @see {@link DescribeInstancePatchStatesForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancePatchStatesForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilter} (client fault)
+ *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
  *
  */
 export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
@@ -66,6 +102,9 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancePatchStatesForPatchGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,7 +139,7 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancePatchStatesForPatchGroupRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeInstancePatchStatesForPatchGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -111,18 +150,24 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeInstancePatchStatesForPatchGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand(input, context);
+    return se_DescribeInstancePatchStatesForPatchGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand(output, context);
+    return de_DescribeInstancePatchStatesForPatchGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

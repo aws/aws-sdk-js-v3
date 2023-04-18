@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  DeleteWorkflowStepGroupRequest,
-  DeleteWorkflowStepGroupRequestFilterSensitiveLog,
-  DeleteWorkflowStepGroupResponse,
-  DeleteWorkflowStepGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkflowStepGroupCommand,
-  serializeAws_restJson1DeleteWorkflowStepGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteWorkflowStepGroupRequest, DeleteWorkflowStepGroupResponse } from "../models/models_0";
+import { de_DeleteWorkflowStepGroupCommand, se_DeleteWorkflowStepGroupCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteWorkflowStepGroupCommand}.
+ */
 export interface DeleteWorkflowStepGroupCommandInput extends DeleteWorkflowStepGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteWorkflowStepGroupCommand}.
+ */
 export interface DeleteWorkflowStepGroupCommandOutput extends DeleteWorkflowStepGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a step group in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,35 @@ export interface DeleteWorkflowStepGroupCommandOutput extends DeleteWorkflowStep
  * import { MigrationHubOrchestratorClient, DeleteWorkflowStepGroupCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, DeleteWorkflowStepGroupCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // DeleteWorkflowStepGroupRequest
+ *   workflowId: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkflowStepGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkflowStepGroupCommandInput - {@link DeleteWorkflowStepGroupCommandInput}
+ * @returns {@link DeleteWorkflowStepGroupCommandOutput}
  * @see {@link DeleteWorkflowStepGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowStepGroupCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class DeleteWorkflowStepGroupCommand extends $Command<
@@ -66,6 +91,9 @@ export class DeleteWorkflowStepGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkflowStepGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +122,8 @@ export class DeleteWorkflowStepGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkflowStepGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkflowStepGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +133,18 @@ export class DeleteWorkflowStepGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkflowStepGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkflowStepGroupCommand(input, context);
+    return se_DeleteWorkflowStepGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowStepGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkflowStepGroupCommand(output, context);
+    return de_DeleteWorkflowStepGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

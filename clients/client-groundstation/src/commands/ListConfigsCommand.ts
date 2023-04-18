@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  ListConfigsRequest,
-  ListConfigsRequestFilterSensitiveLog,
-  ListConfigsResponse,
-  ListConfigsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConfigsCommand,
-  serializeAws_restJson1ListConfigsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListConfigsRequest, ListConfigsResponse } from "../models/models_0";
+import { de_ListConfigsCommand, se_ListConfigsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListConfigsCommand}.
+ */
 export interface ListConfigsCommandInput extends ListConfigsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListConfigsCommand}.
+ */
 export interface ListConfigsCommandOutput extends ListConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>Config</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * import { GroundStationClient, ListConfigsCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListConfigsCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // ListConfigsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigsCommandInput - {@link ListConfigsCommandInput}
+ * @returns {@link ListConfigsCommandOutput}
  * @see {@link ListConfigsCommandInput} for command's `input` shape.
  * @see {@link ListConfigsCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
+ *
+ * @throws {@link DependencyException} (server fault)
+ *  <p>Dependency encountered an error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource was not found.</p>
+ *
  *
  */
 export class ListConfigsCommand extends $Command<
@@ -62,6 +81,9 @@ export class ListConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +110,8 @@ export class ListConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +121,18 @@ export class ListConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfigsCommand(input, context);
+    return se_ListConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigsCommandOutput> {
-    return deserializeAws_restJson1ListConfigsCommand(output, context);
+    return de_ListConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

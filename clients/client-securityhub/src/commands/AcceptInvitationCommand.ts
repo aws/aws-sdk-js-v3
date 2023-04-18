@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AcceptInvitationRequest,
-  AcceptInvitationRequestFilterSensitiveLog,
-  AcceptInvitationResponse,
-  AcceptInvitationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AcceptInvitationCommand,
-  serializeAws_restJson1AcceptInvitationCommand,
-} from "../protocols/Aws_restJson1";
+import { AcceptInvitationRequest, AcceptInvitationResponse } from "../models/models_0";
+import { de_AcceptInvitationCommand, se_AcceptInvitationCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AcceptInvitationCommand}.
+ */
 export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AcceptInvitationCommand}.
+ */
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.</p>
@@ -45,13 +48,37 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * import { SecurityHubClient, AcceptInvitationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, AcceptInvitationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // AcceptInvitationRequest
+ *   MasterId: "STRING_VALUE", // required
+ *   InvitationId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
+ * @returns {@link AcceptInvitationCommandOutput}
  * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
  *
  */
 export class AcceptInvitationCommand extends $Command<
@@ -71,6 +98,9 @@ export class AcceptInvitationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptInvitationCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +129,8 @@ export class AcceptInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptInvitationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptInvitationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +140,18 @@ export class AcceptInvitationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptInvitationCommand(input, context);
+    return se_AcceptInvitationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptInvitationCommandOutput> {
-    return deserializeAws_restJson1AcceptInvitationCommand(output, context);
+    return de_AcceptInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

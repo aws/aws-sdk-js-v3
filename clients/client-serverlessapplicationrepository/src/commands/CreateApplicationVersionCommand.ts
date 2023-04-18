@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateApplicationVersionRequest,
-  CreateApplicationVersionRequestFilterSensitiveLog,
-  CreateApplicationVersionResponse,
-  CreateApplicationVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateApplicationVersionCommand,
-  serializeAws_restJson1CreateApplicationVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateApplicationVersionRequest, CreateApplicationVersionResponse } from "../models/models_0";
+import { de_CreateApplicationVersionCommand, se_CreateApplicationVersionCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateApplicationVersionCommand}.
+ */
 export interface CreateApplicationVersionCommandInput extends CreateApplicationVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateApplicationVersionCommand}.
+ */
 export interface CreateApplicationVersionCommandOutput extends CreateApplicationVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,39 @@ export interface CreateApplicationVersionCommandOutput extends CreateApplication
  * import { ServerlessApplicationRepositoryClient, CreateApplicationVersionCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, CreateApplicationVersionCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = { // CreateApplicationVersionRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   SemanticVersion: "STRING_VALUE", // required
+ *   SourceCodeArchiveUrl: "STRING_VALUE",
+ *   SourceCodeUrl: "STRING_VALUE",
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateUrl: "STRING_VALUE",
+ * };
  * const command = new CreateApplicationVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationVersionCommandInput - {@link CreateApplicationVersionCommandInput}
+ * @returns {@link CreateApplicationVersionCommandOutput}
  * @see {@link CreateApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource already exists.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is not authenticated.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
+ *
  *
  */
 export class CreateApplicationVersionCommand extends $Command<
@@ -66,6 +95,9 @@ export class CreateApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +126,8 @@ export class CreateApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +137,18 @@ export class CreateApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApplicationVersionCommand(input, context);
+    return se_CreateApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1CreateApplicationVersionCommand(output, context);
+    return de_CreateApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

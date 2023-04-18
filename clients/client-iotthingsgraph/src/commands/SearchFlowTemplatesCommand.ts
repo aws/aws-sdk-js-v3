@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  SearchFlowTemplatesRequest,
-  SearchFlowTemplatesRequestFilterSensitiveLog,
-  SearchFlowTemplatesResponse,
-  SearchFlowTemplatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchFlowTemplatesCommand,
-  serializeAws_json1_1SearchFlowTemplatesCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchFlowTemplatesRequest, SearchFlowTemplatesResponse } from "../models/models_0";
+import { de_SearchFlowTemplatesCommand, se_SearchFlowTemplatesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchFlowTemplatesCommand}.
+ */
 export interface SearchFlowTemplatesCommandInput extends SearchFlowTemplatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchFlowTemplatesCommand}.
+ */
 export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Searches for summary information about workflows.</p>
@@ -38,13 +41,37 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
  * import { IoTThingsGraphClient, SearchFlowTemplatesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchFlowTemplatesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // SearchFlowTemplatesRequest
+ *   filters: [ // FlowTemplateFilters
+ *     { // FlowTemplateFilter
+ *       name: "STRING_VALUE", // required
+ *       value: [ // FlowTemplateFilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new SearchFlowTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchFlowTemplatesCommandInput - {@link SearchFlowTemplatesCommandInput}
+ * @returns {@link SearchFlowTemplatesCommandOutput}
  * @see {@link SearchFlowTemplatesCommandInput} for command's `input` shape.
  * @see {@link SearchFlowTemplatesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class SearchFlowTemplatesCommand extends $Command<
@@ -64,6 +91,9 @@ export class SearchFlowTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchFlowTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +122,8 @@ export class SearchFlowTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchFlowTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchFlowTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +133,18 @@ export class SearchFlowTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchFlowTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchFlowTemplatesCommand(input, context);
+    return se_SearchFlowTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFlowTemplatesCommandOutput> {
-    return deserializeAws_json1_1SearchFlowTemplatesCommand(output, context);
+    return de_SearchFlowTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

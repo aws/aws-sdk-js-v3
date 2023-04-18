@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  UpdateClusterRequest,
-  UpdateClusterRequestFilterSensitiveLog,
-  UpdateClusterResponse,
-  UpdateClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateClusterCommand,
-  serializeAws_json1_1UpdateClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateClusterRequest, UpdateClusterResponse } from "../models/models_0";
+import { de_UpdateClusterCommand, se_UpdateClusterCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateClusterCommand}.
+ */
 export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateClusterCommand}.
+ */
 export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,56 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * import { ECSClient, UpdateClusterCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateClusterCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // UpdateClusterRequest
+ *   cluster: "STRING_VALUE", // required
+ *   settings: [ // ClusterSettings
+ *     { // ClusterSetting
+ *       name: "containerInsights",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   configuration: { // ClusterConfiguration
+ *     executeCommandConfiguration: { // ExecuteCommandConfiguration
+ *       kmsKeyId: "STRING_VALUE",
+ *       logging: "NONE" || "DEFAULT" || "OVERRIDE",
+ *       logConfiguration: { // ExecuteCommandLogConfiguration
+ *         cloudWatchLogGroupName: "STRING_VALUE",
+ *         cloudWatchEncryptionEnabled: true || false,
+ *         s3BucketName: "STRING_VALUE",
+ *         s3EncryptionEnabled: true || false,
+ *         s3KeyPrefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   serviceConnectDefaults: { // ClusterServiceConnectDefaultsRequest
+ *     namespace: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
+ * @returns {@link UpdateClusterCommandOutput}
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
  *
  */
 export class UpdateClusterCommand extends $Command<
@@ -62,6 +108,9 @@ export class UpdateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +137,8 @@ export class UpdateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +148,18 @@ export class UpdateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateClusterCommand(input, context);
+    return se_UpdateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterCommandOutput> {
-    return deserializeAws_json1_1UpdateClusterCommand(output, context);
+    return de_UpdateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

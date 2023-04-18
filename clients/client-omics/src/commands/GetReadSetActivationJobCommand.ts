@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetReadSetActivationJobRequest,
-  GetReadSetActivationJobRequestFilterSensitiveLog,
-  GetReadSetActivationJobResponse,
-  GetReadSetActivationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReadSetActivationJobRequest, GetReadSetActivationJobResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetReadSetActivationJobCommand,
-  serializeAws_restJson1GetReadSetActivationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReadSetActivationJobCommand, se_GetReadSetActivationJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetReadSetActivationJobCommand}.
+ */
 export interface GetReadSetActivationJobCommandInput extends GetReadSetActivationJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetReadSetActivationJobCommand}.
+ */
 export interface GetReadSetActivationJobCommandOutput extends GetReadSetActivationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a read set activation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface GetReadSetActivationJobCommandOutput extends GetReadSetActivati
  * import { OmicsClient, GetReadSetActivationJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReadSetActivationJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // GetReadSetActivationJobRequest
+ *   id: "STRING_VALUE", // required
+ *   sequenceStoreId: "STRING_VALUE", // required
+ * };
  * const command = new GetReadSetActivationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReadSetActivationJobCommandInput - {@link GetReadSetActivationJobCommandInput}
+ * @returns {@link GetReadSetActivationJobCommandOutput}
  * @see {@link GetReadSetActivationJobCommandInput} for command's `input` shape.
  * @see {@link GetReadSetActivationJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetReadSetActivationJobCommand extends $Command<
@@ -62,6 +90,9 @@ export class GetReadSetActivationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReadSetActivationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class GetReadSetActivationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReadSetActivationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReadSetActivationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class GetReadSetActivationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReadSetActivationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReadSetActivationJobCommand(input, context);
+    return se_GetReadSetActivationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReadSetActivationJobCommandOutput> {
-    return deserializeAws_restJson1GetReadSetActivationJobCommand(output, context);
+    return de_GetReadSetActivationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

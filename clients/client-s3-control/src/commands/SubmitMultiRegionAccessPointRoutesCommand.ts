@@ -17,36 +17,43 @@ import {
 
 import {
   SubmitMultiRegionAccessPointRoutesRequest,
-  SubmitMultiRegionAccessPointRoutesRequestFilterSensitiveLog,
   SubmitMultiRegionAccessPointRoutesResult,
-  SubmitMultiRegionAccessPointRoutesResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand,
-  serializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand,
+  de_SubmitMultiRegionAccessPointRoutesCommand,
+  se_SubmitMultiRegionAccessPointRoutesCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SubmitMultiRegionAccessPointRoutesCommand}.
+ */
 export interface SubmitMultiRegionAccessPointRoutesCommandInput extends SubmitMultiRegionAccessPointRoutesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SubmitMultiRegionAccessPointRoutesCommand}.
+ */
 export interface SubmitMultiRegionAccessPointRoutesCommandOutput
   extends SubmitMultiRegionAccessPointRoutesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits an updated route configuration for a Multi-Region Access Point. This API operation updates the
  *          routing status for the specified Regions from active to passive, or from passive to active.
  *          A value of <code>0</code> indicates a passive status, which means that traffic won't be
  *          routed to the specified Region. A value of <code>100</code> indicates an active status,
  *          which means that traffic will be routed to the specified Region. At least one Region must be active at all times.</p>
- *          <p>When
- *          the routing configuration is changed, any in-progress operations (uploads, copies, deletes,
- *          and so on) to formerly active Regions will continue to run to their
- *          final completion state (success or failure). The routing configurations of any Regions that
+ *          <p>When the routing configuration is changed, any in-progress operations (uploads, copies,
+ *          deletes, and so on) to formerly active Regions will continue to run to their final
+ *          completion state (success or failure). The routing configurations of any Regions that
  *          aren’t specified remain unchanged.</p>
  *          <note>
- *             <p>Updated routing configurations might not be immediately applied.
- *             It
- *             can take up to 2 minutes for your changes to take effect.</p>
+ *             <p>Updated routing configurations might not be immediately applied. It can take up to 2
+ *             minutes for your changes to take effect.</p>
  *          </note>
  *          <p>To submit routing control changes and failover requests, use the Amazon S3 failover control
  *          infrastructure endpoints in these five Amazon Web Services Regions:</p>
@@ -86,13 +93,27 @@ export interface SubmitMultiRegionAccessPointRoutesCommandOutput
  * import { S3ControlClient, SubmitMultiRegionAccessPointRoutesCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, SubmitMultiRegionAccessPointRoutesCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // SubmitMultiRegionAccessPointRoutesRequest
+ *   AccountId: "STRING_VALUE",
+ *   Mrap: "STRING_VALUE", // required
+ *   RouteUpdates: [ // RouteList // required
+ *     { // MultiRegionAccessPointRoute
+ *       Bucket: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       TrafficDialPercentage: Number("int"), // required
+ *     },
+ *   ],
+ * };
  * const command = new SubmitMultiRegionAccessPointRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitMultiRegionAccessPointRoutesCommandInput - {@link SubmitMultiRegionAccessPointRoutesCommandInput}
+ * @returns {@link SubmitMultiRegionAccessPointRoutesCommandOutput}
  * @see {@link SubmitMultiRegionAccessPointRoutesCommandInput} for command's `input` shape.
  * @see {@link SubmitMultiRegionAccessPointRoutesCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class SubmitMultiRegionAccessPointRoutesCommand extends $Command<
@@ -115,6 +136,9 @@ export class SubmitMultiRegionAccessPointRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitMultiRegionAccessPointRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +169,8 @@ export class SubmitMultiRegionAccessPointRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitMultiRegionAccessPointRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubmitMultiRegionAccessPointRoutesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,18 +180,24 @@ export class SubmitMultiRegionAccessPointRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SubmitMultiRegionAccessPointRoutesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand(input, context);
+    return se_SubmitMultiRegionAccessPointRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SubmitMultiRegionAccessPointRoutesCommandOutput> {
-    return deserializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand(output, context);
+    return de_SubmitMultiRegionAccessPointRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

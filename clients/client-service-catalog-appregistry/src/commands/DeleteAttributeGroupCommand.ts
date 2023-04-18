@@ -13,40 +13,58 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAttributeGroupRequest,
-  DeleteAttributeGroupRequestFilterSensitiveLog,
-  DeleteAttributeGroupResponse,
-  DeleteAttributeGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAttributeGroupCommand,
-  serializeAws_restJson1DeleteAttributeGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAttributeGroupRequest, DeleteAttributeGroupResponse } from "../models/models_0";
+import { de_DeleteAttributeGroupCommand, se_DeleteAttributeGroupCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAttributeGroupCommand}.
+ */
 export interface DeleteAttributeGroupCommandInput extends DeleteAttributeGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAttributeGroupCommand}.
+ */
 export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an attribute group, specified either by its attribute group ID or name.</p>
+ * @public
+ * <p>Deletes an attribute group, specified either by its attribute group ID, name, or ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogAppRegistryClient, DeleteAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, DeleteAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // DeleteAttributeGroupRequest
+ *   attributeGroup: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAttributeGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAttributeGroupCommandInput - {@link DeleteAttributeGroupCommandInput}
+ * @returns {@link DeleteAttributeGroupCommandOutput}
  * @see {@link DeleteAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service is experiencing internal problems.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has invalid or missing parameters.</p>
+ *
  *
  */
 export class DeleteAttributeGroupCommand extends $Command<
@@ -66,6 +84,9 @@ export class DeleteAttributeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAttributeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +115,8 @@ export class DeleteAttributeGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAttributeGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAttributeGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +126,18 @@ export class DeleteAttributeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAttributeGroupCommand(input, context);
+    return se_DeleteAttributeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAttributeGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteAttributeGroupCommand(output, context);
+    return de_DeleteAttributeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

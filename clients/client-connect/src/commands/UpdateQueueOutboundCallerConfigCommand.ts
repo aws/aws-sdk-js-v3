@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { UpdateQueueOutboundCallerConfigRequest } from "../models/models_1";
 import {
-  UpdateQueueOutboundCallerConfigRequest,
-  UpdateQueueOutboundCallerConfigRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateQueueOutboundCallerConfigCommand,
-  serializeAws_restJson1UpdateQueueOutboundCallerConfigCommand,
+  de_UpdateQueueOutboundCallerConfigCommand,
+  se_UpdateQueueOutboundCallerConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateQueueOutboundCallerConfigCommand}.
+ */
 export interface UpdateQueueOutboundCallerConfigCommandInput extends UpdateQueueOutboundCallerConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateQueueOutboundCallerConfigCommand}.
+ */
 export interface UpdateQueueOutboundCallerConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the outbound caller ID name, number, and outbound whisper flow for a specified
  *    queue.</p>
@@ -47,13 +55,40 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  * import { ConnectClient, UpdateQueueOutboundCallerConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQueueOutboundCallerConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateQueueOutboundCallerConfigRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   QueueId: "STRING_VALUE", // required
+ *   OutboundCallerConfig: { // OutboundCallerConfig
+ *     OutboundCallerIdName: "STRING_VALUE",
+ *     OutboundCallerIdNumberId: "STRING_VALUE",
+ *     OutboundFlowId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateQueueOutboundCallerConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQueueOutboundCallerConfigCommandInput - {@link UpdateQueueOutboundCallerConfigCommandInput}
+ * @returns {@link UpdateQueueOutboundCallerConfigCommandOutput}
  * @see {@link UpdateQueueOutboundCallerConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueOutboundCallerConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class UpdateQueueOutboundCallerConfigCommand extends $Command<
@@ -73,6 +108,9 @@ export class UpdateQueueOutboundCallerConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQueueOutboundCallerConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +139,8 @@ export class UpdateQueueOutboundCallerConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQueueOutboundCallerConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +150,24 @@ export class UpdateQueueOutboundCallerConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateQueueOutboundCallerConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateQueueOutboundCallerConfigCommand(input, context);
+    return se_UpdateQueueOutboundCallerConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateQueueOutboundCallerConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateQueueOutboundCallerConfigCommand(output, context);
+    return de_UpdateQueueOutboundCallerConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

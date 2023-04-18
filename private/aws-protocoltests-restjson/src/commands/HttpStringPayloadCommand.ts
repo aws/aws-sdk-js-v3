@@ -12,14 +12,21 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StringPayloadInput, StringPayloadInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpStringPayloadCommand,
-  serializeAws_restJson1HttpStringPayloadCommand,
-} from "../protocols/Aws_restJson1";
+import { StringPayloadInput } from "../models/models_0";
+import { de_HttpStringPayloadCommand, se_HttpStringPayloadCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link HttpStringPayloadCommand}.
+ */
 export interface HttpStringPayloadCommandInput extends StringPayloadInput {}
+/**
+ * @public
+ *
+ * The output of {@link HttpStringPayloadCommand}.
+ */
 export interface HttpStringPayloadCommandOutput extends StringPayloadInput, __MetadataBearer {}
 
 export class HttpStringPayloadCommand extends $Command<
@@ -30,6 +37,9 @@ export class HttpStringPayloadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpStringPayloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -55,8 +65,8 @@ export class HttpStringPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StringPayloadInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StringPayloadInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,12 +76,18 @@ export class HttpStringPayloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpStringPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpStringPayloadCommand(input, context);
+    return se_HttpStringPayloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpStringPayloadCommandOutput> {
-    return deserializeAws_restJson1HttpStringPayloadCommand(output, context);
+    return de_HttpStringPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

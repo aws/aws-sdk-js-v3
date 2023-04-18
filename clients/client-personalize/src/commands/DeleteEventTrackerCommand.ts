@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteEventTrackerRequest, DeleteEventTrackerRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteEventTrackerRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteEventTrackerCommand,
-  serializeAws_json1_1DeleteEventTrackerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEventTrackerCommand, se_DeleteEventTrackerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteEventTrackerCommand}.
+ */
 export interface DeleteEventTrackerCommandInput extends DeleteEventTrackerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEventTrackerCommand}.
+ */
 export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the event tracker. Does not delete the event-interactions dataset from
  *         the associated dataset group. For more
  *         information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
@@ -33,13 +41,28 @@ export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteEventTrackerCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteEventTrackerCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DeleteEventTrackerRequest
+ *   eventTrackerArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventTrackerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventTrackerCommandInput - {@link DeleteEventTrackerCommandInput}
+ * @returns {@link DeleteEventTrackerCommandOutput}
  * @see {@link DeleteEventTrackerCommandInput} for command's `input` shape.
  * @see {@link DeleteEventTrackerCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DeleteEventTrackerCommand extends $Command<
@@ -59,6 +82,9 @@ export class DeleteEventTrackerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventTrackerCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +113,8 @@ export class DeleteEventTrackerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventTrackerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +124,18 @@ export class DeleteEventTrackerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEventTrackerCommand(input, context);
+    return se_DeleteEventTrackerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventTrackerCommandOutput> {
-    return deserializeAws_json1_1DeleteEventTrackerCommand(output, context);
+    return de_DeleteEventTrackerCommand(output, context);
   }
 
   // Start section: command_body_extra

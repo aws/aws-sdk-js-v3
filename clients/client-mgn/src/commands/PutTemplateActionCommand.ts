@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  PutTemplateActionRequest,
-  PutTemplateActionRequestFilterSensitiveLog,
-  TemplateActionDocument,
-  TemplateActionDocumentFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutTemplateActionCommand,
-  serializeAws_restJson1PutTemplateActionCommand,
-} from "../protocols/Aws_restJson1";
+import { PutTemplateActionRequest, TemplateActionDocument } from "../models/models_0";
+import { de_PutTemplateActionCommand, se_PutTemplateActionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutTemplateActionCommand}.
+ */
 export interface PutTemplateActionCommandInput extends PutTemplateActionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutTemplateActionCommand}.
+ */
 export interface PutTemplateActionCommandOutput extends TemplateActionDocument, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Put template post migration custom action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,55 @@ export interface PutTemplateActionCommandOutput extends TemplateActionDocument, 
  * import { MgnClient, PutTemplateActionCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, PutTemplateActionCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // PutTemplateActionRequest
+ *   launchConfigurationTemplateID: "STRING_VALUE", // required
+ *   actionName: "STRING_VALUE", // required
+ *   documentIdentifier: "STRING_VALUE", // required
+ *   order: Number("int"), // required
+ *   actionID: "STRING_VALUE", // required
+ *   documentVersion: "STRING_VALUE",
+ *   active: true || false,
+ *   timeoutSeconds: Number("int"),
+ *   mustSucceedForCutover: true || false,
+ *   parameters: { // SsmDocumentParameters
+ *     "<keys>": [ // SsmParameterStoreParameters
+ *       { // SsmParameterStoreParameter
+ *         parameterType: "STRING_VALUE", // required
+ *         parameterName: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   operatingSystem: "STRING_VALUE",
+ *   externalParameters: { // SsmDocumentExternalParameters
+ *     "<keys>": { // SsmExternalParameter Union: only one key present
+ *       dynamicPath: "STRING_VALUE",
+ *     },
+ *   },
+ *   description: "STRING_VALUE",
+ *   category: "STRING_VALUE",
+ * };
  * const command = new PutTemplateActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutTemplateActionCommandInput - {@link PutTemplateActionCommandInput}
+ * @returns {@link PutTemplateActionCommandOutput}
  * @see {@link PutTemplateActionCommandInput} for command's `input` shape.
  * @see {@link PutTemplateActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
  *
  */
 export class PutTemplateActionCommand extends $Command<
@@ -62,6 +107,9 @@ export class PutTemplateActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutTemplateActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +138,8 @@ export class PutTemplateActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutTemplateActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TemplateActionDocumentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +149,18 @@ export class PutTemplateActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutTemplateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutTemplateActionCommand(input, context);
+    return se_PutTemplateActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTemplateActionCommandOutput> {
-    return deserializeAws_restJson1PutTemplateActionCommand(output, context);
+    return de_PutTemplateActionCommand(output, context);
   }
 
   // Start section: command_body_extra

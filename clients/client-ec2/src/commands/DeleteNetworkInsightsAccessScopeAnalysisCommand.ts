@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteNetworkInsightsAccessScopeAnalysisRequest,
-  DeleteNetworkInsightsAccessScopeAnalysisRequestFilterSensitiveLog,
   DeleteNetworkInsightsAccessScopeAnalysisResult,
-  DeleteNetworkInsightsAccessScopeAnalysisResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand,
-  serializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand,
+  de_DeleteNetworkInsightsAccessScopeAnalysisCommand,
+  se_DeleteNetworkInsightsAccessScopeAnalysisCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteNetworkInsightsAccessScopeAnalysisCommand}.
+ */
 export interface DeleteNetworkInsightsAccessScopeAnalysisCommandInput
   extends DeleteNetworkInsightsAccessScopeAnalysisRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteNetworkInsightsAccessScopeAnalysisCommand}.
+ */
 export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
   extends DeleteNetworkInsightsAccessScopeAnalysisResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Network Access Scope analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,20 @@ export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
  * import { EC2Client, DeleteNetworkInsightsAccessScopeAnalysisCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkInsightsAccessScopeAnalysisCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteNetworkInsightsAccessScopeAnalysisRequest
+ *   NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteNetworkInsightsAccessScopeAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkInsightsAccessScopeAnalysisCommandInput - {@link DeleteNetworkInsightsAccessScopeAnalysisCommandInput}
+ * @returns {@link DeleteNetworkInsightsAccessScopeAnalysisCommandOutput}
  * @see {@link DeleteNetworkInsightsAccessScopeAnalysisCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInsightsAccessScopeAnalysisCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
@@ -65,6 +81,9 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkInsightsAccessScopeAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +118,8 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkInsightsAccessScopeAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkInsightsAccessScopeAnalysisResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +129,24 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNetworkInsightsAccessScopeAnalysisCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand(input, context);
+    return se_DeleteNetworkInsightsAccessScopeAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNetworkInsightsAccessScopeAnalysisCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand(output, context);
+    return de_DeleteNetworkInsightsAccessScopeAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

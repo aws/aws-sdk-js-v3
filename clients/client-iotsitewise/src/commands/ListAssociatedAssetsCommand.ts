@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListAssociatedAssetsRequest,
-  ListAssociatedAssetsRequestFilterSensitiveLog,
-  ListAssociatedAssetsResponse,
-  ListAssociatedAssetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssociatedAssetsCommand,
-  serializeAws_restJson1ListAssociatedAssetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAssociatedAssetsRequest, ListAssociatedAssetsResponse } from "../models/models_0";
+import { de_ListAssociatedAssetsCommand, se_ListAssociatedAssetsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAssociatedAssetsCommand}.
+ */
 export interface ListAssociatedAssetsCommandInput extends ListAssociatedAssetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAssociatedAssetsCommand}.
+ */
 export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of associated assets.</p>
  *          <p>You can use this operation to do the following:</p>
  *          <ul>
@@ -45,13 +48,39 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  * import { IoTSiteWiseClient, ListAssociatedAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAssociatedAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // ListAssociatedAssetsRequest
+ *   assetId: "STRING_VALUE", // required
+ *   hierarchyId: "STRING_VALUE",
+ *   traversalDirection: "PARENT" || "CHILD",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssociatedAssetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedAssetsCommandInput - {@link ListAssociatedAssetsCommandInput}
+ * @returns {@link ListAssociatedAssetsCommandOutput}
  * @see {@link ListAssociatedAssetsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
  *
  */
 export class ListAssociatedAssetsCommand extends $Command<
@@ -71,6 +100,9 @@ export class ListAssociatedAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +131,8 @@ export class ListAssociatedAssetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociatedAssetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociatedAssetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +142,18 @@ export class ListAssociatedAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociatedAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssociatedAssetsCommand(input, context);
+    return se_ListAssociatedAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedAssetsCommandOutput> {
-    return deserializeAws_restJson1ListAssociatedAssetsCommand(output, context);
+    return de_ListAssociatedAssetsCommand(output, context);
   }
 
   // Start section: command_body_extra

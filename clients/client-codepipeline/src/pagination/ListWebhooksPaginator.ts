@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CodePipeline } from "../CodePipeline";
 import { CodePipelineClient } from "../CodePipelineClient";
 import {
   ListWebhooksCommand,
@@ -11,7 +10,7 @@ import {
 import { CodePipelinePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodePipelineClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListWebhooksCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CodePipeline,
-  input: ListWebhooksCommandInput,
-  ...args: any
-): Promise<ListWebhooksCommandOutput> => {
-  // @ts-ignore
-  return await client.listWebhooks(input, ...args);
-};
 export async function* paginateListWebhooks(
   config: CodePipelinePaginationConfiguration,
   input: ListWebhooksCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListWebhooks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CodePipeline) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodePipelineClient) {
+    if (config.client instanceof CodePipelineClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodePipeline | CodePipelineClient");

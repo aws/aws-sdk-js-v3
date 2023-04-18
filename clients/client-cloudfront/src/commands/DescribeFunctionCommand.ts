@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  DescribeFunctionRequest,
-  DescribeFunctionRequestFilterSensitiveLog,
-  DescribeFunctionResult,
-  DescribeFunctionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlDescribeFunctionCommand,
-  serializeAws_restXmlDescribeFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { DescribeFunctionRequest, DescribeFunctionResult } from "../models/models_1";
+import { de_DescribeFunctionCommand, se_DescribeFunctionCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFunctionCommand}.
+ */
 export interface DescribeFunctionCommandInput extends DescribeFunctionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFunctionCommand}.
+ */
 export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets configuration information and metadata about a CloudFront function, but not the
  * 			function's code. To get a function's code, use <code>GetFunction</code>.</p>
  *          <p>To get configuration information and metadata about a function, you must provide the
@@ -40,13 +43,26 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  * import { CloudFrontClient, DescribeFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DescribeFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DescribeFunctionRequest
+ *   Name: "STRING_VALUE", // required
+ *   Stage: "DEVELOPMENT" || "LIVE",
+ * };
  * const command = new DescribeFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFunctionCommandInput - {@link DescribeFunctionCommandInput}
+ * @returns {@link DescribeFunctionCommandOutput}
  * @see {@link DescribeFunctionCommandInput} for command's `input` shape.
  * @see {@link DescribeFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link NoSuchFunctionExists} (client fault)
+ *  <p>The function does not exist.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
+ *
  *
  */
 export class DescribeFunctionCommand extends $Command<
@@ -66,6 +82,9 @@ export class DescribeFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +113,8 @@ export class DescribeFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFunctionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +124,18 @@ export class DescribeFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDescribeFunctionCommand(input, context);
+    return se_DescribeFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFunctionCommandOutput> {
-    return deserializeAws_restXmlDescribeFunctionCommand(output, context);
+    return de_DescribeFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  ListClassificationScopesRequest,
-  ListClassificationScopesRequestFilterSensitiveLog,
-  ListClassificationScopesResponse,
-  ListClassificationScopesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListClassificationScopesCommand,
-  serializeAws_restJson1ListClassificationScopesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListClassificationScopesRequest, ListClassificationScopesResponse } from "../models/models_0";
+import { de_ListClassificationScopesCommand, se_ListClassificationScopesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListClassificationScopesCommand}.
+ */
 export interface ListClassificationScopesCommandInput extends ListClassificationScopesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListClassificationScopesCommand}.
+ */
 export interface ListClassificationScopesCommandOutput extends ListClassificationScopesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a subset of information about the classification scope for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface ListClassificationScopesCommandOutput extends ListClassificatio
  * import { Macie2Client, ListClassificationScopesCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListClassificationScopesCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // ListClassificationScopesRequest
+ *   name: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListClassificationScopesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClassificationScopesCommandInput - {@link ListClassificationScopesCommandInput}
+ * @returns {@link ListClassificationScopesCommandOutput}
  * @see {@link ListClassificationScopesCommandInput} for command's `input` shape.
  * @see {@link ListClassificationScopesCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class ListClassificationScopesCommand extends $Command<
@@ -62,6 +84,9 @@ export class ListClassificationScopesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClassificationScopesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class ListClassificationScopesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClassificationScopesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClassificationScopesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class ListClassificationScopesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClassificationScopesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListClassificationScopesCommand(input, context);
+    return se_ListClassificationScopesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClassificationScopesCommandOutput> {
-    return deserializeAws_restJson1ListClassificationScopesCommand(output, context);
+    return de_ListClassificationScopesCommand(output, context);
   }
 
   // Start section: command_body_extra

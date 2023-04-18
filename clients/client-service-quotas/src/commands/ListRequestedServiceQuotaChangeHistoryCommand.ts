@@ -15,23 +15,32 @@ import {
 
 import {
   ListRequestedServiceQuotaChangeHistoryRequest,
-  ListRequestedServiceQuotaChangeHistoryRequestFilterSensitiveLog,
   ListRequestedServiceQuotaChangeHistoryResponse,
-  ListRequestedServiceQuotaChangeHistoryResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand,
-  serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand,
+  de_ListRequestedServiceQuotaChangeHistoryCommand,
+  se_ListRequestedServiceQuotaChangeHistoryCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRequestedServiceQuotaChangeHistoryCommand}.
+ */
 export interface ListRequestedServiceQuotaChangeHistoryCommandInput
   extends ListRequestedServiceQuotaChangeHistoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRequestedServiceQuotaChangeHistoryCommand}.
+ */
 export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
   extends ListRequestedServiceQuotaChangeHistoryResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the quota increase requests for the specified service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,41 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
  * import { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = { // ListRequestedServiceQuotaChangeHistoryRequest
+ *   ServiceCode: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRequestedServiceQuotaChangeHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRequestedServiceQuotaChangeHistoryCommandInput - {@link ListRequestedServiceQuotaChangeHistoryCommandInput}
+ * @returns {@link ListRequestedServiceQuotaChangeHistoryCommandOutput}
  * @see {@link ListRequestedServiceQuotaChangeHistoryCommandInput} for command's `input` shape.
  * @see {@link ListRequestedServiceQuotaChangeHistoryCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  <p>Invalid input was provided.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Invalid input was provided.</p>
+ *
+ * @throws {@link NoSuchResourceException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>Something went wrong.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
+ *       an increase for this quota.</p>
+ *
  *
  */
 export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
@@ -65,6 +102,9 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRequestedServiceQuotaChangeHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +133,8 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +144,24 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListRequestedServiceQuotaChangeHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand(input, context);
+    return se_ListRequestedServiceQuotaChangeHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> {
-    return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand(output, context);
+    return de_ListRequestedServiceQuotaChangeHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

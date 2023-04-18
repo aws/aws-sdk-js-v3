@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopTextTranslationJobRequest,
-  StopTextTranslationJobRequestFilterSensitiveLog,
-  StopTextTranslationJobResponse,
-  StopTextTranslationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopTextTranslationJobCommand,
-  serializeAws_json1_1StopTextTranslationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopTextTranslationJobRequest, StopTextTranslationJobResponse } from "../models/models_0";
+import { de_StopTextTranslationJobCommand, se_StopTextTranslationJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopTextTranslationJobCommand}.
+ */
 export interface StopTextTranslationJobCommandInput extends StopTextTranslationJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopTextTranslationJobCommand}.
+ */
 export interface StopTextTranslationJobCommandOutput extends StopTextTranslationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an asynchronous batch translation job that is in progress.</p>
  *          <p>If the job's state is <code>IN_PROGRESS</code>, the job will be marked for termination and
  *       put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped,
@@ -42,13 +45,31 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  * import { TranslateClient, StopTextTranslationJobCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, StopTextTranslationJobCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = { // StopTextTranslationJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopTextTranslationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTextTranslationJobCommandInput - {@link StopTextTranslationJobCommandInput}
+ * @returns {@link StopTextTranslationJobCommandOutput}
  * @see {@link StopTextTranslationJobCommandInput} for command's `input` shape.
  * @see {@link StopTextTranslationJobCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you are looking for has not been found. Review the resource you're looking
+ *       for and see if a different resource will accomplish your needs before retrying the revised
+ *       request.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again.</p>
+ *
  *
  */
 export class StopTextTranslationJobCommand extends $Command<
@@ -68,6 +89,9 @@ export class StopTextTranslationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTextTranslationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +120,8 @@ export class StopTextTranslationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTextTranslationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopTextTranslationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +131,18 @@ export class StopTextTranslationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopTextTranslationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTextTranslationJobCommand(input, context);
+    return se_StopTextTranslationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTextTranslationJobCommandOutput> {
-    return deserializeAws_json1_1StopTextTranslationJobCommand(output, context);
+    return de_StopTextTranslationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

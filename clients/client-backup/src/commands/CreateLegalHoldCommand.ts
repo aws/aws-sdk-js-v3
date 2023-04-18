@@ -18,17 +18,24 @@ import {
   CreateLegalHoldInput,
   CreateLegalHoldInputFilterSensitiveLog,
   CreateLegalHoldOutput,
-  CreateLegalHoldOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLegalHoldCommand,
-  serializeAws_restJson1CreateLegalHoldCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateLegalHoldCommand, se_CreateLegalHoldCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLegalHoldCommand}.
+ */
 export interface CreateLegalHoldCommandInput extends CreateLegalHoldInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLegalHoldCommand}.
+ */
 export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action creates a legal hold on a recovery point (backup). A legal hold
  *          is a restraint on altering or deleting a backup until an authorized user cancels the
  *          legal hold. Any actions to delete or disassociate a recovery point will fail with
@@ -39,13 +46,50 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * import { BackupClient, CreateLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // CreateLegalHoldInput
+ *   Title: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   IdempotencyToken: "STRING_VALUE",
+ *   RecoveryPointSelection: { // RecoveryPointSelection
+ *     VaultNames: [ // VaultNames
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceIdentifiers: [ // ResourceIdentifiers
+ *       "STRING_VALUE",
+ *     ],
+ *     DateRange: { // DateRange
+ *       FromDate: new Date("TIMESTAMP"), // required
+ *       ToDate: new Date("TIMESTAMP"), // required
+ *     },
+ *   },
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLegalHoldCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLegalHoldCommandInput - {@link CreateLegalHoldCommandInput}
+ * @returns {@link CreateLegalHoldCommandOutput}
  * @see {@link CreateLegalHoldCommandInput} for command's `input` shape.
  * @see {@link CreateLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
+ *          in a request.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class CreateLegalHoldCommand extends $Command<
@@ -65,6 +109,9 @@ export class CreateLegalHoldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +141,7 @@ export class CreateLegalHoldCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLegalHoldInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLegalHoldOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +151,18 @@ export class CreateLegalHoldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLegalHoldCommand(input, context);
+    return se_CreateLegalHoldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLegalHoldCommandOutput> {
-    return deserializeAws_restJson1CreateLegalHoldCommand(output, context);
+    return de_CreateLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

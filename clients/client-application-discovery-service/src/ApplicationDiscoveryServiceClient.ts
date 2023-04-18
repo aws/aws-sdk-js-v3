@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -125,6 +127,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateConfigurationItemsToApplicationCommandInput
   | BatchDeleteImportDataCommandInput
@@ -152,6 +157,9 @@ export type ServiceInputTypes =
   | StopDataCollectionByAgentIdsCommandInput
   | UpdateApplicationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateConfigurationItemsToApplicationCommandOutput
   | BatchDeleteImportDataCommandOutput
@@ -179,6 +187,9 @@ export type ServiceOutputTypes =
   | StopDataCollectionByAgentIdsCommandOutput
   | UpdateApplicationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -186,11 +197,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -247,19 +258,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -270,12 +272,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -295,11 +291,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ApplicationDiscoveryServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -310,10 +324,15 @@ type ApplicationDiscoveryServiceClientConfigType = Partial<__SmithyConfiguration
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ApplicationDiscoveryServiceClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ApplicationDiscoveryServiceClient class constructor that set the region, credentials and other options.
  */
 export interface ApplicationDiscoveryServiceClientConfig extends ApplicationDiscoveryServiceClientConfigType {}
 
+/**
+ * @public
+ */
 type ApplicationDiscoveryServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -324,27 +343,27 @@ type ApplicationDiscoveryServiceClientResolvedConfigType = __SmithyResolvedConfi
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ApplicationDiscoveryServiceClient class. This is resolved and normalized from the {@link ApplicationDiscoveryServiceClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ApplicationDiscoveryServiceClient class. This is resolved and normalized from the {@link ApplicationDiscoveryServiceClientConfig | constructor configuration interface}.
  */
 export interface ApplicationDiscoveryServiceClientResolvedConfig
   extends ApplicationDiscoveryServiceClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Web Services Application Discovery Service</fullname>
- *
  *          <p>Amazon Web Services Application Discovery Service helps you plan application migration projects. It
  *       automatically identifies servers, virtual machines (VMs), and network dependencies in your
  *       on-premises data centers. For more information, see the <a href="http://aws.amazon.com/application-discovery/faqs/">Amazon Web Services Application Discovery Service FAQ</a>.
  *       Application Discovery Service offers three ways of performing discovery and
  *       collecting data about your on-premises servers:</p>
- *
  *          <ul>
  *             <li>
  *                <p>
  *                   <b>Agentless discovery</b> is recommended for environments
  *           that use VMware vCenter Server. This mode doesn't require you to install an agent on each
  *           host. It does not work in non-VMware environments.</p>
- *
  *                <ul>
  *                   <li>
  *                      <p>Agentless discovery gathers server information regardless of the operating
@@ -358,14 +377,12 @@ export interface ApplicationDiscoveryServiceClientResolvedConfig
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <ul>
  *             <li>
  *                <p>
  *                   <b>Agent-based discovery</b> collects a richer set of data
  *           than agentless discovery by using the Amazon Web Services Application Discovery Agent, which you install
  *           on one or more hosts in your data center.</p>
- *
  *                <ul>
  *                   <li>
  *                      <p> The agent captures infrastructure and application information, including an
@@ -379,7 +396,6 @@ export interface ApplicationDiscoveryServiceClientResolvedConfig
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <ul>
  *             <li>
  *                <p>
@@ -387,7 +403,6 @@ export interface ApplicationDiscoveryServiceClientResolvedConfig
  *           Application Discovery Service, enabling you to import details of your on-premises
  *           environment directly into Migration Hub without using the discovery connector or discovery
  *           agent.</p>
- *
  *                <ul>
  *                   <li>
  *                      <p>Third-party application discovery tools can query Amazon Web Services Application Discovery
@@ -401,8 +416,6 @@ export interface ApplicationDiscoveryServiceClientResolvedConfig
  *                </ul>
  *             </li>
  *          </ul>
- *
- *
  *          <p>
  *             <b>Recommendations</b>
  *          </p>
@@ -411,18 +424,15 @@ export interface ApplicationDiscoveryServiceClientResolvedConfig
  *       and agentless discovery simultaneously. Use agentless discovery to complete the initial
  *       infrastructure assessment quickly, and then install agents on select hosts to collect
  *       additional information.</p>
- *
  *          <p>
  *             <b>Working With This Guide</b>
  *          </p>
- *
  *          <p>This API reference provides descriptions, syntax, and usage examples for each of the
  *       actions and data types for Application Discovery Service. The topic for each action shows the
  *       API request parameters and the response. Alternatively, you can use one of the Amazon Web Services SDKs to
  *       access an API that is tailored to the programming language or platform that you're using. For
  *       more information, see <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services
  *       SDKs</a>.</p>
- *
  *          <note>
  *             <ul>
  *                <li>
@@ -448,10 +458,8 @@ export interface ApplicationDiscoveryServiceClientResolvedConfig
  *                </li>
  *             </ul>
  *          </note>
- *
  *          <p>This guide is intended for use with the <a href="http://docs.aws.amazon.com/application-discovery/latest/userguide/">Amazon Web Services Application
  *         Discovery Service User Guide</a>.</p>
- *
  *          <important>
  *             <p>All data is handled according to the <a href="http://aws.amazon.com/privacy/">Amazon Web Services
  *           Privacy Policy</a>. You can operate Application Discovery Service offline to inspect

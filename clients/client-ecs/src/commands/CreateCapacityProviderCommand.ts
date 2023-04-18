@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  CreateCapacityProviderRequest,
-  CreateCapacityProviderRequestFilterSensitiveLog,
-  CreateCapacityProviderResponse,
-  CreateCapacityProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCapacityProviderCommand,
-  serializeAws_json1_1CreateCapacityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCapacityProviderRequest, CreateCapacityProviderResponse } from "../models/models_0";
+import { de_CreateCapacityProviderCommand, se_CreateCapacityProviderCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCapacityProviderCommand}.
+ */
 export interface CreateCapacityProviderCommandInput extends CreateCapacityProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCapacityProviderCommand}.
+ */
 export interface CreateCapacityProviderCommandOutput extends CreateCapacityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new capacity provider. Capacity providers are associated with an Amazon ECS
  * 			cluster and are used in capacity provider strategies to facilitate cluster auto
  * 			scaling.</p>
@@ -42,13 +45,58 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * import { ECSClient, CreateCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // CreateCapacityProviderRequest
+ *   name: "STRING_VALUE", // required
+ *   autoScalingGroupProvider: { // AutoScalingGroupProvider
+ *     autoScalingGroupArn: "STRING_VALUE", // required
+ *     managedScaling: { // ManagedScaling
+ *       status: "ENABLED" || "DISABLED",
+ *       targetCapacity: Number("int"),
+ *       minimumScalingStepSize: Number("int"),
+ *       maximumScalingStepSize: Number("int"),
+ *       instanceWarmupPeriod: Number("int"),
+ *     },
+ *     managedTerminationProtection: "ENABLED" || "DISABLED",
+ *   },
+ *   tags: [ // Tags
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateCapacityProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCapacityProviderCommandInput - {@link CreateCapacityProviderCommandInput}
+ * @returns {@link CreateCapacityProviderCommandOutput}
  * @see {@link CreateCapacityProviderCommandInput} for command's `input` shape.
  * @see {@link CreateCapacityProviderCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit for the resource was exceeded.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link UpdateInProgressException} (client fault)
+ *  <p>There's already a current Amazon ECS container agent update in progress on the container
+ * 			instance that's specified. If the container agent becomes disconnected while it's in a
+ * 			transitional stage, such as <code>PENDING</code> or <code>STAGING</code>, the update
+ * 			process can get stuck in that state. However, when the agent reconnects, it resumes
+ * 			where it stopped previously.</p>
+ *
  *
  */
 export class CreateCapacityProviderCommand extends $Command<
@@ -68,6 +116,9 @@ export class CreateCapacityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCapacityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +147,8 @@ export class CreateCapacityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCapacityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCapacityProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +158,18 @@ export class CreateCapacityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCapacityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCapacityProviderCommand(input, context);
+    return se_CreateCapacityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCapacityProviderCommandOutput> {
-    return deserializeAws_json1_1CreateCapacityProviderCommand(output, context);
+    return de_CreateCapacityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

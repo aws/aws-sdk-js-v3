@@ -18,16 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoWebRTCStorageClient";
-import { JoinStorageSessionInput, JoinStorageSessionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1JoinStorageSessionCommand,
-  serializeAws_restJson1JoinStorageSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { JoinStorageSessionInput } from "../models/models_0";
+import { de_JoinStorageSessionCommand, se_JoinStorageSessionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link JoinStorageSessionCommand}.
+ */
 export interface JoinStorageSessionCommandInput extends JoinStorageSessionInput {}
+/**
+ * @public
+ *
+ * The output of {@link JoinStorageSessionCommand}.
+ */
 export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Join the ongoing one way-video and/or multi-way audio WebRTC session as
  *       a video producing device for an input channel. If there’s no existing
@@ -56,13 +64,33 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * import { KinesisVideoWebRTCStorageClient, JoinStorageSessionCommand } from "@aws-sdk/client-kinesis-video-webrtc-storage"; // ES Modules import
  * // const { KinesisVideoWebRTCStorageClient, JoinStorageSessionCommand } = require("@aws-sdk/client-kinesis-video-webrtc-storage"); // CommonJS import
  * const client = new KinesisVideoWebRTCStorageClient(config);
+ * const input = { // JoinStorageSessionInput
+ *   channelArn: "STRING_VALUE", // required
+ * };
  * const command = new JoinStorageSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param JoinStorageSessionCommandInput - {@link JoinStorageSessionCommandInput}
+ * @returns {@link JoinStorageSessionCommandOutput}
  * @see {@link JoinStorageSessionCommandInput} for command's `input` shape.
  * @see {@link JoinStorageSessionCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoWebRTCStorageClientResolvedConfig | config} for KinesisVideoWebRTCStorageClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>
+ *       Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
+ *     </p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource is not found.</p>
+ *
  *
  */
 export class JoinStorageSessionCommand extends $Command<
@@ -82,6 +110,9 @@ export class JoinStorageSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: JoinStorageSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +141,8 @@ export class JoinStorageSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JoinStorageSessionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +152,18 @@ export class JoinStorageSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JoinStorageSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1JoinStorageSessionCommand(input, context);
+    return se_JoinStorageSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JoinStorageSessionCommandOutput> {
-    return deserializeAws_restJson1JoinStorageSessionCommand(output, context);
+    return de_JoinStorageSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

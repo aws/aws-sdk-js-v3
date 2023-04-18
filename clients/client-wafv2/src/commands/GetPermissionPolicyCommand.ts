@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPermissionPolicyRequest,
-  GetPermissionPolicyRequestFilterSensitiveLog,
-  GetPermissionPolicyResponse,
-  GetPermissionPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPermissionPolicyCommand,
-  serializeAws_json1_1GetPermissionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetPermissionPolicyRequest, GetPermissionPolicyResponse } from "../models/models_0";
+import { de_GetPermissionPolicyCommand, se_GetPermissionPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPermissionPolicyCommand}.
+ */
 export interface GetPermissionPolicyCommandInput extends GetPermissionPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPermissionPolicyCommand}.
+ */
 export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the IAM policy that is attached to the specified rule group.</p>
  *          <p>You must be the owner of the rule group to perform this operation.</p>
  * @example
@@ -37,13 +40,50 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  * import { WAFV2Client, GetPermissionPolicyCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetPermissionPolicyCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // GetPermissionPolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetPermissionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPermissionPolicyCommandInput - {@link GetPermissionPolicyCommandInput}
+ * @returns {@link GetPermissionPolicyCommandOutput}
  * @see {@link GetPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
+ *          problem. Retry your request. </p>
+ *
+ * @throws {@link WAFInvalidParameterException} (client fault)
+ *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
+ *          example: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified a parameter name or value that isn't valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
+ *                can’t be nested. </p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
+ *                isn't among the types available at <a>DefaultAction</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                with which a web ACL can't be associated.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>WAF couldn’t perform the operation because your resource doesn't exist.
+ *        If you've just created a resource that you're using in this operation, you might
+ *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
+ *        for changes to propagate. </p>
+ *
  *
  */
 export class GetPermissionPolicyCommand extends $Command<
@@ -63,6 +103,9 @@ export class GetPermissionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPermissionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +134,8 @@ export class GetPermissionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPermissionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPermissionPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +145,18 @@ export class GetPermissionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPermissionPolicyCommand(input, context);
+    return se_GetPermissionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPermissionPolicyCommandOutput> {
-    return deserializeAws_json1_1GetPermissionPolicyCommand(output, context);
+    return de_GetPermissionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

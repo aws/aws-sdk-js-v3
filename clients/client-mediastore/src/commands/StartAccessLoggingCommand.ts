@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  StartAccessLoggingInput,
-  StartAccessLoggingInputFilterSensitiveLog,
-  StartAccessLoggingOutput,
-  StartAccessLoggingOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartAccessLoggingCommand,
-  serializeAws_json1_1StartAccessLoggingCommand,
-} from "../protocols/Aws_json1_1";
+import { StartAccessLoggingInput, StartAccessLoggingOutput } from "../models/models_0";
+import { de_StartAccessLoggingCommand, se_StartAccessLoggingCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartAccessLoggingCommand}.
+ */
 export interface StartAccessLoggingCommandInput extends StartAccessLoggingInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartAccessLoggingCommand}.
+ */
 export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts access logging on the specified container. When you enable access logging on a container, MediaStore delivers access logs for objects stored in that container to Amazon CloudWatch Logs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutpu
  * import { MediaStoreClient, StartAccessLoggingCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, StartAccessLoggingCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = { // StartAccessLoggingInput
+ *   ContainerName: "STRING_VALUE", // required
+ * };
  * const command = new StartAccessLoggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAccessLoggingCommandInput - {@link StartAccessLoggingCommandInput}
+ * @returns {@link StartAccessLoggingCommandOutput}
  * @see {@link StartAccessLoggingCommandInput} for command's `input` shape.
  * @see {@link StartAccessLoggingCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
+ *
+ * @throws {@link ContainerInUseException} (client fault)
+ *  <p>The container that you specified in the request already exists or is being
+ *          updated.</p>
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
  *
  */
 export class StartAccessLoggingCommand extends $Command<
@@ -62,6 +81,9 @@ export class StartAccessLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAccessLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class StartAccessLoggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAccessLoggingInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartAccessLoggingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class StartAccessLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAccessLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartAccessLoggingCommand(input, context);
+    return se_StartAccessLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAccessLoggingCommandOutput> {
-    return deserializeAws_json1_1StartAccessLoggingCommand(output, context);
+    return de_StartAccessLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

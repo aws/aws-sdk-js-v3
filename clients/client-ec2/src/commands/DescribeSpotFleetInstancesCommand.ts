@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeSpotFleetInstancesRequest,
-  DescribeSpotFleetInstancesRequestFilterSensitiveLog,
-  DescribeSpotFleetInstancesResponse,
-  DescribeSpotFleetInstancesResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSpotFleetInstancesCommand,
-  serializeAws_ec2DescribeSpotFleetInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeSpotFleetInstancesRequest, DescribeSpotFleetInstancesResponse } from "../models/models_4";
+import { de_DescribeSpotFleetInstancesCommand, se_DescribeSpotFleetInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSpotFleetInstancesCommand}.
+ */
 export interface DescribeSpotFleetInstancesCommandInput extends DescribeSpotFleetInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSpotFleetInstancesCommand}.
+ */
 export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFleetInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the running instances for the specified Spot Fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,45 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * import { EC2Client, DescribeSpotFleetInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSpotFleetInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSpotFleetInstancesRequest
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SpotFleetRequestId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSpotFleetInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpotFleetInstancesCommandInput - {@link DescribeSpotFleetInstancesCommandInput}
+ * @returns {@link DescribeSpotFleetInstancesCommandOutput}
  * @see {@link DescribeSpotFleetInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotFleetInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe the Spot Instances associated with a Spot fleet
+ * ```javascript
+ * // This example lists the Spot Instances associated with the specified Spot fleet.
+ * const input = {
+ *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ * };
+ * const command = new DescribeSpotFleetInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ActiveInstances": [
+ *     {
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "InstanceType": "m3.medium",
+ *       "SpotInstanceRequestId": "sir-08b93456"
+ *     }
+ *   ],
+ *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ * }
+ * *\/
+ * // example id: ec2-describe-spot-fleet-instances-1
+ * ```
  *
  */
 export class DescribeSpotFleetInstancesCommand extends $Command<
@@ -62,6 +97,9 @@ export class DescribeSpotFleetInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpotFleetInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +128,8 @@ export class DescribeSpotFleetInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpotFleetInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSpotFleetInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +139,21 @@ export class DescribeSpotFleetInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpotFleetInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSpotFleetInstancesCommand(input, context);
+    return se_DescribeSpotFleetInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSpotFleetInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeSpotFleetInstancesCommand(output, context);
+    return de_DescribeSpotFleetInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

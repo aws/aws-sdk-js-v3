@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeOrderableClusterOptionsMessage, OrderableClusterOptionsMessage } from "../models/models_1";
 import {
-  DescribeOrderableClusterOptionsMessage,
-  DescribeOrderableClusterOptionsMessageFilterSensitiveLog,
-  OrderableClusterOptionsMessage,
-  OrderableClusterOptionsMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeOrderableClusterOptionsCommand,
-  serializeAws_queryDescribeOrderableClusterOptionsCommand,
+  de_DescribeOrderableClusterOptionsCommand,
+  se_DescribeOrderableClusterOptionsCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeOrderableClusterOptionsCommand}.
+ */
 export interface DescribeOrderableClusterOptionsCommandInput extends DescribeOrderableClusterOptionsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeOrderableClusterOptionsCommand}.
+ */
 export interface DescribeOrderableClusterOptionsCommandOutput
   extends OrderableClusterOptionsMessage,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of orderable cluster options. Before you create a new cluster you
  *             can use this operation to find what options are available, such as the EC2 Availability
  *             Zones (AZ) in the specific Amazon Web Services Region that you can specify, and the node types you can
@@ -46,13 +52,22 @@ export interface DescribeOrderableClusterOptionsCommandOutput
  * import { RedshiftClient, DescribeOrderableClusterOptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeOrderableClusterOptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeOrderableClusterOptionsMessage
+ *   ClusterVersion: "STRING_VALUE",
+ *   NodeType: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeOrderableClusterOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrderableClusterOptionsCommandInput - {@link DescribeOrderableClusterOptionsCommandInput}
+ * @returns {@link DescribeOrderableClusterOptionsCommandOutput}
  * @see {@link DescribeOrderableClusterOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOrderableClusterOptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
  *
  */
 export class DescribeOrderableClusterOptionsCommand extends $Command<
@@ -72,6 +87,9 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrderableClusterOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +118,8 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrderableClusterOptionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: OrderableClusterOptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +129,24 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrderableClusterOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeOrderableClusterOptionsCommand(input, context);
+    return se_DescribeOrderableClusterOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrderableClusterOptionsCommandOutput> {
-    return deserializeAws_queryDescribeOrderableClusterOptionsCommand(output, context);
+    return de_DescribeOrderableClusterOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateGlobalClusterMessage,
-  CreateGlobalClusterMessageFilterSensitiveLog,
-  CreateGlobalClusterResult,
-  CreateGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateGlobalClusterCommand,
-  serializeAws_queryCreateGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { CreateGlobalClusterMessage, CreateGlobalClusterResult } from "../models/models_0";
+import { de_CreateGlobalClusterCommand, se_CreateGlobalClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateGlobalClusterCommand}.
+ */
 export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateGlobalClusterCommand}.
+ */
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Aurora global database
  *         spread across multiple Amazon Web Services Regions. The global database
  *         contains a single primary cluster with read-write capability,
@@ -48,13 +51,65 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * import { RDSClient, CreateGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CreateGlobalClusterMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   SourceDBClusterIdentifier: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   DatabaseName: "STRING_VALUE",
+ *   StorageEncrypted: true || false,
+ * };
  * const command = new CreateGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGlobalClusterCommandInput - {@link CreateGlobalClusterCommandInput}
+ * @returns {@link CreateGlobalClusterCommandOutput}
  * @see {@link CreateGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * @throws {@link GlobalClusterAlreadyExistsFault} (client fault)
+ *  <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
+ *
+ * @throws {@link GlobalClusterQuotaExceededFault} (client fault)
+ *  <p>The number of global database clusters for this account is already at the maximum allowed.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ *
+ * @example To create a global DB cluster
+ * ```javascript
+ * // The following example creates a new Aurora MySQL-compatible global DB cluster.
+ * const input = {
+ *   "Engine": "aurora-mysql",
+ *   "GlobalClusterIdentifier": "myglobalcluster"
+ * };
+ * const command = new CreateGlobalClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GlobalCluster": {
+ *     "DeletionProtection": false,
+ *     "Engine": "aurora-mysql",
+ *     "EngineVersion": "5.7.mysql_aurora.2.07.2",
+ *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     "GlobalClusterIdentifier": "myglobalcluster",
+ *     "GlobalClusterMembers": [],
+ *     "GlobalClusterResourceId": "cluster-f0e523bfe07aabb",
+ *     "Status": "available",
+ *     "StorageEncrypted": false
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-global-db-cluster-1679957040413
+ * ```
  *
  */
 export class CreateGlobalClusterCommand extends $Command<
@@ -74,6 +129,9 @@ export class CreateGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +160,8 @@ export class CreateGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +171,18 @@ export class CreateGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateGlobalClusterCommand(input, context);
+    return se_CreateGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalClusterCommandOutput> {
-    return deserializeAws_queryCreateGlobalClusterCommand(output, context);
+    return de_CreateGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

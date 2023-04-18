@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateControlPanelRequest,
-  CreateControlPanelRequestFilterSensitiveLog,
-  CreateControlPanelResponse,
-  CreateControlPanelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateControlPanelCommand,
-  serializeAws_restJson1CreateControlPanelCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateControlPanelRequest, CreateControlPanelResponse } from "../models/models_0";
+import { de_CreateControlPanelCommand, se_CreateControlPanelCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateControlPanelCommand}.
+ */
 export interface CreateControlPanelCommandInput extends CreateControlPanelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateControlPanelCommand}.
+ */
 export interface CreateControlPanelCommandOutput extends CreateControlPanelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new control panel. A control panel represents a group of routing controls that can be changed together in a single transaction. You can use a control panel to centrally view the operational status of applications across your organization, and trigger multi-app failovers in a single transaction, for example, to fail over an Availability Zone or Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,45 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  * import { Route53RecoveryControlConfigClient, CreateControlPanelCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, CreateControlPanelCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // CreateControlPanelRequest
+ *   ClientToken: "STRING_VALUE",
+ *   ClusterArn: "STRING_VALUE", // required
+ *   ControlPanelName: "STRING_VALUE", // required
+ *   Tags: { // __mapOf__stringMin0Max256PatternS
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateControlPanelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateControlPanelCommandInput - {@link CreateControlPanelCommandInput}
+ * @returns {@link CreateControlPanelCommandOutput}
  * @see {@link CreateControlPanelCommandInput} for command's `input` shape.
  * @see {@link CreateControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>403 response - You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>409 response - ConflictException. You might be using a predefined variable.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>402 response - You attempted to create more resources than the service allows based on service quotas.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ *
  *
  */
 export class CreateControlPanelCommand extends $Command<
@@ -66,6 +101,9 @@ export class CreateControlPanelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateControlPanelCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +132,8 @@ export class CreateControlPanelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateControlPanelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateControlPanelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +143,18 @@ export class CreateControlPanelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateControlPanelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateControlPanelCommand(input, context);
+    return se_CreateControlPanelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateControlPanelCommandOutput> {
-    return deserializeAws_restJson1CreateControlPanelCommand(output, context);
+    return de_CreateControlPanelCommand(output, context);
   }
 
   // Start section: command_body_extra

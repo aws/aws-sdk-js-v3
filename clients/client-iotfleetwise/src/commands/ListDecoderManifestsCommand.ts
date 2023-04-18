@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  ListDecoderManifestsRequest,
-  ListDecoderManifestsRequestFilterSensitiveLog,
-  ListDecoderManifestsResponse,
-  ListDecoderManifestsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListDecoderManifestsCommand,
-  serializeAws_json1_0ListDecoderManifestsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListDecoderManifestsRequest, ListDecoderManifestsResponse } from "../models/models_0";
+import { de_ListDecoderManifestsCommand, se_ListDecoderManifestsCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDecoderManifestsCommand}.
+ */
 export interface ListDecoderManifestsCommandInput extends ListDecoderManifestsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDecoderManifestsCommand}.
+ */
 export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists decoder manifests. </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -39,13 +42,33 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  * import { IoTFleetWiseClient, ListDecoderManifestsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListDecoderManifestsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // ListDecoderManifestsRequest
+ *   modelManifestArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDecoderManifestsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDecoderManifestsCommandInput - {@link ListDecoderManifestsCommandInput}
+ * @returns {@link ListDecoderManifestsCommandOutput}
  * @see {@link ListDecoderManifestsCommandInput} for command's `input` shape.
  * @see {@link ListDecoderManifestsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class ListDecoderManifestsCommand extends $Command<
@@ -65,6 +88,9 @@ export class ListDecoderManifestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDecoderManifestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +119,8 @@ export class ListDecoderManifestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDecoderManifestsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDecoderManifestsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +130,18 @@ export class ListDecoderManifestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDecoderManifestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListDecoderManifestsCommand(input, context);
+    return se_ListDecoderManifestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDecoderManifestsCommandOutput> {
-    return deserializeAws_json1_0ListDecoderManifestsCommand(output, context);
+    return de_ListDecoderManifestsCommand(output, context);
   }
 
   // Start section: command_body_extra

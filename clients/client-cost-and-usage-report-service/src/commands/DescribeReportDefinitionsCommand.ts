@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient";
-import {
-  DescribeReportDefinitionsRequest,
-  DescribeReportDefinitionsRequestFilterSensitiveLog,
-  DescribeReportDefinitionsResponse,
-  DescribeReportDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReportDefinitionsCommand,
-  serializeAws_json1_1DescribeReportDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeReportDefinitionsRequest, DescribeReportDefinitionsResponse } from "../models/models_0";
+import { de_DescribeReportDefinitionsCommand, se_DescribeReportDefinitionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeReportDefinitionsCommand}.
+ */
 export interface DescribeReportDefinitionsCommandInput extends DescribeReportDefinitionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeReportDefinitionsCommand}.
+ */
 export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the AWS Cost and Usage reports available to this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,70 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  * import { CostAndUsageReportServiceClient, DescribeReportDefinitionsCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
  * // const { CostAndUsageReportServiceClient, DescribeReportDefinitionsCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
  * const client = new CostAndUsageReportServiceClient(config);
+ * const input = { // DescribeReportDefinitionsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeReportDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReportDefinitionsCommandInput - {@link DescribeReportDefinitionsCommandInput}
+ * @returns {@link DescribeReportDefinitionsCommandOutput}
  * @see {@link DescribeReportDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DescribeReportDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ *
+ * @example To list the AWS Cost and Usage reports for the account.
+ * ```javascript
+ * // The following example lists the AWS Cost and Usage reports for the account.
+ * const input = {
+ *   "MaxResults": 5
+ * };
+ * const command = new DescribeReportDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReportDefinitions": [
+ *     {
+ *       "AdditionalArtifacts": [
+ *         "QUICKSIGHT"
+ *       ],
+ *       "AdditionalSchemaElements": [
+ *         "RESOURCES"
+ *       ],
+ *       "Compression": "GZIP",
+ *       "Format": "textORcsv",
+ *       "ReportName": "ExampleReport",
+ *       "S3Bucket": "example-s3-bucket",
+ *       "S3Prefix": "exampleprefix",
+ *       "S3Region": "us-east-1",
+ *       "TimeUnit": "HOURLY"
+ *     },
+ *     {
+ *       "AdditionalArtifacts": [
+ *         "QUICKSIGHT"
+ *       ],
+ *       "AdditionalSchemaElements": [
+ *         "RESOURCES"
+ *       ],
+ *       "Compression": "GZIP",
+ *       "Format": "textORcsv",
+ *       "ReportName": "ExampleReport2",
+ *       "S3Bucket": "example-s3-bucket",
+ *       "S3Prefix": "exampleprefix",
+ *       "S3Region": "us-east-1",
+ *       "TimeUnit": "HOURLY"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-retrieve-report-definitions
+ * ```
  *
  */
 export class DescribeReportDefinitionsCommand extends $Command<
@@ -66,6 +126,9 @@ export class DescribeReportDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReportDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +157,8 @@ export class DescribeReportDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReportDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReportDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +168,21 @@ export class DescribeReportDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReportDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReportDefinitionsCommand(input, context);
+    return se_DescribeReportDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReportDefinitionsCommandOutput> {
-    return deserializeAws_json1_1DescribeReportDefinitionsCommand(output, context);
+    return de_DescribeReportDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

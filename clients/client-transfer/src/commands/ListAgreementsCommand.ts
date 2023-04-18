@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAgreementsRequest,
-  ListAgreementsRequestFilterSensitiveLog,
-  ListAgreementsResponse,
-  ListAgreementsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAgreementsCommand,
-  serializeAws_json1_1ListAgreementsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAgreementsRequest, ListAgreementsResponse } from "../models/models_0";
+import { de_ListAgreementsCommand, se_ListAgreementsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAgreementsCommand}.
+ */
 export interface ListAgreementsCommandInput extends ListAgreementsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAgreementsCommand}.
+ */
 export interface ListAgreementsCommandOutput extends ListAgreementsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the agreements for the server that's identified by the
  *         <code>ServerId</code> that you supply. If you want to limit the results to a certain number,
  *       supply a value for the <code>MaxResults</code> parameter. If you ran the command previously
@@ -40,13 +43,37 @@ export interface ListAgreementsCommandOutput extends ListAgreementsResponse, __M
  * import { TransferClient, ListAgreementsCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListAgreementsCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // ListAgreementsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ServerId: "STRING_VALUE", // required
+ * };
  * const command = new ListAgreementsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAgreementsCommandInput - {@link ListAgreementsCommandInput}
+ * @returns {@link ListAgreementsCommandOutput}
  * @see {@link ListAgreementsCommandInput} for command's `input` shape.
  * @see {@link ListAgreementsCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
  *
  */
 export class ListAgreementsCommand extends $Command<
@@ -66,6 +93,9 @@ export class ListAgreementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAgreementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +124,8 @@ export class ListAgreementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAgreementsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAgreementsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +135,18 @@ export class ListAgreementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAgreementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAgreementsCommand(input, context);
+    return se_ListAgreementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAgreementsCommandOutput> {
-    return deserializeAws_json1_1ListAgreementsCommand(output, context);
+    return de_ListAgreementsCommand(output, context);
   }
 
   // Start section: command_body_extra

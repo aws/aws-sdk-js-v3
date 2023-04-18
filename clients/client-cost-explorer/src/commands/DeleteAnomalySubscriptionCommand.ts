@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  DeleteAnomalySubscriptionRequest,
-  DeleteAnomalySubscriptionRequestFilterSensitiveLog,
-  DeleteAnomalySubscriptionResponse,
-  DeleteAnomalySubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAnomalySubscriptionCommand,
-  serializeAws_json1_1DeleteAnomalySubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAnomalySubscriptionRequest, DeleteAnomalySubscriptionResponse } from "../models/models_0";
+import { de_DeleteAnomalySubscriptionCommand, se_DeleteAnomalySubscriptionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAnomalySubscriptionCommand}.
+ */
 export interface DeleteAnomalySubscriptionCommandInput extends DeleteAnomalySubscriptionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAnomalySubscriptionCommand}.
+ */
 export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a cost anomaly subscription. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySub
  * import { CostExplorerClient, DeleteAnomalySubscriptionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, DeleteAnomalySubscriptionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // DeleteAnomalySubscriptionRequest
+ *   SubscriptionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAnomalySubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAnomalySubscriptionCommandInput - {@link DeleteAnomalySubscriptionCommandInput}
+ * @returns {@link DeleteAnomalySubscriptionCommandOutput}
  * @see {@link DeleteAnomalySubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteAnomalySubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link UnknownSubscriptionException} (client fault)
+ *  <p>The cost anomaly subscription does not exist for the account. </p>
+ *
  *
  */
 export class DeleteAnomalySubscriptionCommand extends $Command<
@@ -62,6 +77,9 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAnomalySubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAnomalySubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAnomalySubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +119,21 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAnomalySubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAnomalySubscriptionCommand(input, context);
+    return se_DeleteAnomalySubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAnomalySubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteAnomalySubscriptionCommand(output, context);
+    return de_DeleteAnomalySubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

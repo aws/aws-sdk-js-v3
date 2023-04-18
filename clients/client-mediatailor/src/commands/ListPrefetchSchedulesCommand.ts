@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  ListPrefetchSchedulesRequest,
-  ListPrefetchSchedulesRequestFilterSensitiveLog,
-  ListPrefetchSchedulesResponse,
-  ListPrefetchSchedulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPrefetchSchedulesCommand,
-  serializeAws_restJson1ListPrefetchSchedulesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPrefetchSchedulesRequest, ListPrefetchSchedulesResponse } from "../models/models_0";
+import { de_ListPrefetchSchedulesCommand, se_ListPrefetchSchedulesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPrefetchSchedulesCommand}.
+ */
 export interface ListPrefetchSchedulesCommandInput extends ListPrefetchSchedulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPrefetchSchedulesCommand}.
+ */
 export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the prefetch schedules for a playback configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,22 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  * import { MediaTailorClient, ListPrefetchSchedulesCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListPrefetchSchedulesCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // ListPrefetchSchedulesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   PlaybackConfigurationName: "STRING_VALUE", // required
+ *   StreamId: "STRING_VALUE",
+ * };
  * const command = new ListPrefetchSchedulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPrefetchSchedulesCommandInput - {@link ListPrefetchSchedulesCommandInput}
+ * @returns {@link ListPrefetchSchedulesCommandOutput}
  * @see {@link ListPrefetchSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListPrefetchSchedulesCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
  *
  */
 export class ListPrefetchSchedulesCommand extends $Command<
@@ -62,6 +74,9 @@ export class ListPrefetchSchedulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPrefetchSchedulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +105,8 @@ export class ListPrefetchSchedulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPrefetchSchedulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPrefetchSchedulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +116,18 @@ export class ListPrefetchSchedulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPrefetchSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPrefetchSchedulesCommand(input, context);
+    return se_ListPrefetchSchedulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPrefetchSchedulesCommandOutput> {
-    return deserializeAws_restJson1ListPrefetchSchedulesCommand(output, context);
+    return de_ListPrefetchSchedulesCommand(output, context);
   }
 
   // Start section: command_body_extra

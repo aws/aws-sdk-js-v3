@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  GetDataLakeSettingsRequest,
-  GetDataLakeSettingsRequestFilterSensitiveLog,
-  GetDataLakeSettingsResponse,
-  GetDataLakeSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataLakeSettingsCommand,
-  serializeAws_restJson1GetDataLakeSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDataLakeSettingsRequest, GetDataLakeSettingsResponse } from "../models/models_0";
+import { de_GetDataLakeSettingsCommand, se_GetDataLakeSettingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDataLakeSettingsCommand}.
+ */
 export interface GetDataLakeSettingsCommandInput extends GetDataLakeSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDataLakeSettingsCommand}.
+ */
 export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the list of the data lake administrators of a Lake Formation-managed data lake. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsRes
  * import { LakeFormationClient, GetDataLakeSettingsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetDataLakeSettingsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // GetDataLakeSettingsRequest
+ *   CatalogId: "STRING_VALUE",
+ * };
  * const command = new GetDataLakeSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataLakeSettingsCommandInput - {@link GetDataLakeSettingsCommandInput}
+ * @returns {@link GetDataLakeSettingsCommandOutput}
  * @see {@link GetDataLakeSettingsCommandInput} for command's `input` shape.
  * @see {@link GetDataLakeSettingsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
  *
  */
 export class GetDataLakeSettingsCommand extends $Command<
@@ -62,6 +80,9 @@ export class GetDataLakeSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataLakeSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class GetDataLakeSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataLakeSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataLakeSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class GetDataLakeSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataLakeSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataLakeSettingsCommand(input, context);
+    return se_GetDataLakeSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataLakeSettingsCommandOutput> {
-    return deserializeAws_restJson1GetDataLakeSettingsCommand(output, context);
+    return de_GetDataLakeSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

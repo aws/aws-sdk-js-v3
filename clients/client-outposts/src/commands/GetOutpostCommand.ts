@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetOutpostInput,
-  GetOutpostInputFilterSensitiveLog,
-  GetOutpostOutput,
-  GetOutpostOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetOutpostInput, GetOutpostOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1GetOutpostCommand,
-  serializeAws_restJson1GetOutpostCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetOutpostCommand, se_GetOutpostCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOutpostCommand}.
+ */
 export interface GetOutpostCommandInput extends GetOutpostInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetOutpostCommand}.
+ */
 export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
  * import { OutpostsClient, GetOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // GetOutpostInput
+ *   OutpostId: "STRING_VALUE", // required
+ * };
  * const command = new GetOutpostCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOutpostCommandInput - {@link GetOutpostCommandInput}
+ * @returns {@link GetOutpostCommandOutput}
  * @see {@link GetOutpostCommandInput} for command's `input` shape.
  * @see {@link GetOutpostCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified request is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
  *
  */
 export class GetOutpostCommand extends $Command<
@@ -62,6 +83,9 @@ export class GetOutpostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOutpostCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +112,8 @@ export class GetOutpostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOutpostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOutpostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +123,18 @@ export class GetOutpostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOutpostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetOutpostCommand(input, context);
+    return se_GetOutpostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOutpostCommandOutput> {
-    return deserializeAws_restJson1GetOutpostCommand(output, context);
+    return de_GetOutpostCommand(output, context);
   }
 
   // Start section: command_body_extra

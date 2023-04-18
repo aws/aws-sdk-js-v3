@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateRoutingProfileNameRequest, UpdateRoutingProfileNameRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateRoutingProfileNameCommand,
-  serializeAws_restJson1UpdateRoutingProfileNameCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRoutingProfileNameRequest } from "../models/models_1";
+import { de_UpdateRoutingProfileNameCommand, se_UpdateRoutingProfileNameCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateRoutingProfileNameCommand}.
+ */
 export interface UpdateRoutingProfileNameCommandInput extends UpdateRoutingProfileNameRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateRoutingProfileNameCommand}.
+ */
 export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format.
  *    At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
@@ -32,13 +40,40 @@ export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer 
  * import { ConnectClient, UpdateRoutingProfileNameCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateRoutingProfileNameCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateRoutingProfileNameRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   RoutingProfileId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateRoutingProfileNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingProfileNameCommandInput - {@link UpdateRoutingProfileNameCommandInput}
+ * @returns {@link UpdateRoutingProfileNameCommandOutput}
  * @see {@link UpdateRoutingProfileNameCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link DuplicateResourceException} (client fault)
+ *  <p>A resource with the specified name already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class UpdateRoutingProfileNameCommand extends $Command<
@@ -58,6 +93,9 @@ export class UpdateRoutingProfileNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingProfileNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +124,8 @@ export class UpdateRoutingProfileNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoutingProfileNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +135,18 @@ export class UpdateRoutingProfileNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoutingProfileNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoutingProfileNameCommand(input, context);
+    return se_UpdateRoutingProfileNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoutingProfileNameCommandOutput> {
-    return deserializeAws_restJson1UpdateRoutingProfileNameCommand(output, context);
+    return de_UpdateRoutingProfileNameCommand(output, context);
   }
 
   // Start section: command_body_extra

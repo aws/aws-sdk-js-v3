@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetServiceSettingRequest,
-  GetServiceSettingRequestFilterSensitiveLog,
-  GetServiceSettingResult,
-  GetServiceSettingResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetServiceSettingCommand,
-  serializeAws_json1_1GetServiceSettingCommand,
-} from "../protocols/Aws_json1_1";
+import { GetServiceSettingRequest, GetServiceSettingResult } from "../models/models_1";
+import { de_GetServiceSettingCommand, se_GetServiceSettingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetServiceSettingCommand}.
+ */
 export interface GetServiceSettingCommandInput extends GetServiceSettingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetServiceSettingCommand}.
+ */
 export interface GetServiceSettingCommandOutput extends GetServiceSettingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
  *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -49,13 +52,26 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  * import { SSMClient, GetServiceSettingCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetServiceSettingCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetServiceSettingRequest
+ *   SettingId: "STRING_VALUE", // required
+ * };
  * const command = new GetServiceSettingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceSettingCommandInput - {@link GetServiceSettingCommandInput}
+ * @returns {@link GetServiceSettingCommandOutput}
  * @see {@link GetServiceSettingCommandInput} for command's `input` shape.
  * @see {@link GetServiceSettingCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ServiceSettingNotFound} (client fault)
+ *  <p>The specified service setting wasn't found. Either the service name or the setting hasn't
+ *    been provisioned by the Amazon Web Services service team.</p>
+ *
  *
  */
 export class GetServiceSettingCommand extends $Command<
@@ -75,6 +91,9 @@ export class GetServiceSettingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceSettingCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +122,8 @@ export class GetServiceSettingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceSettingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceSettingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +133,18 @@ export class GetServiceSettingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetServiceSettingCommand(input, context);
+    return se_GetServiceSettingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceSettingCommandOutput> {
-    return deserializeAws_json1_1GetServiceSettingCommand(output, context);
+    return de_GetServiceSettingCommand(output, context);
   }
 
   // Start section: command_body_extra

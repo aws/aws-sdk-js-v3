@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  ListWorkersRequest,
-  ListWorkersRequestFilterSensitiveLog,
-  ListWorkersResponse,
-  ListWorkersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorkersCommand,
-  serializeAws_restJson1ListWorkersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWorkersRequest, ListWorkersResponse } from "../models/models_0";
+import { de_ListWorkersCommand, se_ListWorkersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListWorkersCommand}.
+ */
 export interface ListWorkersCommandInput extends ListWorkersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListWorkersCommand}.
+ */
 export interface ListWorkersCommandOutput extends ListWorkersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to list workers
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface ListWorkersCommandOutput extends ListWorkersResponse, __Metadat
  * import { IoTRoboRunnerClient, ListWorkersCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, ListWorkersCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // ListWorkersRequest
+ *   site: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   fleet: "STRING_VALUE",
+ * };
  * const command = new ListWorkersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkersCommandInput - {@link ListWorkersCommandInput}
+ * @returns {@link ListWorkersCommandOutput}
  * @see {@link ListWorkersCommandInput} for command's `input` shape.
  * @see {@link ListWorkersCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *   User does not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Exception thrown if something goes wrong within the service.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Exception thrown if a resource referenced in the request doesn't exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Exception thrown if the api has been called too quickly be the client.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  Exception thrown if an invalid parameter is provided to an API.
+ *
  *
  */
 export class ListWorkersCommand extends $Command<
@@ -62,6 +89,9 @@ export class ListWorkersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkersCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +118,8 @@ export class ListWorkersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +129,18 @@ export class ListWorkersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorkersCommand(input, context);
+    return se_ListWorkersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkersCommandOutput> {
-    return deserializeAws_restJson1ListWorkersCommand(output, context);
+    return de_ListWorkersCommand(output, context);
   }
 
   // Start section: command_body_extra

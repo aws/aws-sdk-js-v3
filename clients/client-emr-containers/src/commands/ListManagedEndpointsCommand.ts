@@ -16,35 +16,64 @@ import {
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import {
   ListManagedEndpointsRequest,
-  ListManagedEndpointsRequestFilterSensitiveLog,
   ListManagedEndpointsResponse,
   ListManagedEndpointsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListManagedEndpointsCommand,
-  serializeAws_restJson1ListManagedEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListManagedEndpointsCommand, se_ListManagedEndpointsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListManagedEndpointsCommand}.
+ */
 export interface ListManagedEndpointsCommandInput extends ListManagedEndpointsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListManagedEndpointsCommand}.
+ */
 export interface ListManagedEndpointsCommandOutput extends ListManagedEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists managed endpoints based on a set of parameters. A managed endpoint
- *          is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio
- *          can communicate with your virtual cluster.</p>
+ * @public
+ * <p>Lists managed endpoints based on a set of parameters. A managed endpoint is a gateway
+ *          that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with
+ *          your virtual cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRContainersClient, ListManagedEndpointsCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, ListManagedEndpointsCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // ListManagedEndpointsRequest
+ *   virtualClusterId: "STRING_VALUE", // required
+ *   createdBefore: new Date("TIMESTAMP"),
+ *   createdAfter: new Date("TIMESTAMP"),
+ *   types: [ // EndpointTypes
+ *     "STRING_VALUE",
+ *   ],
+ *   states: [ // EndpointStates
+ *     "CREATING" || "ACTIVE" || "TERMINATING" || "TERMINATED" || "TERMINATED_WITH_ERRORS",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListManagedEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListManagedEndpointsCommandInput - {@link ListManagedEndpointsCommandInput}
+ * @returns {@link ListManagedEndpointsCommandOutput}
  * @see {@link ListManagedEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListManagedEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This is an internal server exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There are invalid parameters in the client request.</p>
+ *
  *
  */
 export class ListManagedEndpointsCommand extends $Command<
@@ -64,6 +93,9 @@ export class ListManagedEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListManagedEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +124,7 @@ export class ListManagedEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListManagedEndpointsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListManagedEndpointsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -103,12 +135,18 @@ export class ListManagedEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListManagedEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListManagedEndpointsCommand(input, context);
+    return se_ListManagedEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedEndpointsCommandOutput> {
-    return deserializeAws_restJson1ListManagedEndpointsCommand(output, context);
+    return de_ListManagedEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

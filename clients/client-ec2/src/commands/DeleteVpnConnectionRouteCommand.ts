@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVpnConnectionRouteRequest, DeleteVpnConnectionRouteRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteVpnConnectionRouteCommand,
-  serializeAws_ec2DeleteVpnConnectionRouteCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteVpnConnectionRouteRequest } from "../models/models_3";
+import { de_DeleteVpnConnectionRouteCommand, se_DeleteVpnConnectionRouteCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVpnConnectionRouteCommand}.
+ */
 export interface DeleteVpnConnectionRouteCommandInput extends DeleteVpnConnectionRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVpnConnectionRouteCommand}.
+ */
 export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified static route associated with a VPN connection between an
  *             existing virtual private gateway and a VPN customer gateway. The static route allows
  *             traffic to be routed from the virtual private gateway to the VPN customer
@@ -34,13 +42,20 @@ export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * import { EC2Client, DeleteVpnConnectionRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpnConnectionRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteVpnConnectionRouteRequest
+ *   DestinationCidrBlock: "STRING_VALUE", // required
+ *   VpnConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpnConnectionRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpnConnectionRouteCommandInput - {@link DeleteVpnConnectionRouteCommandInput}
+ * @returns {@link DeleteVpnConnectionRouteCommandOutput}
  * @see {@link DeleteVpnConnectionRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteVpnConnectionRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteVpnConnectionRouteCommand extends $Command<
@@ -60,6 +75,9 @@ export class DeleteVpnConnectionRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpnConnectionRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class DeleteVpnConnectionRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpnConnectionRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class DeleteVpnConnectionRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpnConnectionRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpnConnectionRouteCommand(input, context);
+    return se_DeleteVpnConnectionRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpnConnectionRouteCommandOutput> {
-    return deserializeAws_ec2DeleteVpnConnectionRouteCommand(output, context);
+    return de_DeleteVpnConnectionRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

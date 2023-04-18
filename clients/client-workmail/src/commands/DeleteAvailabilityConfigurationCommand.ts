@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteAvailabilityConfigurationRequest, DeleteAvailabilityConfigurationResponse } from "../models/models_0";
 import {
-  DeleteAvailabilityConfigurationRequest,
-  DeleteAvailabilityConfigurationRequestFilterSensitiveLog,
-  DeleteAvailabilityConfigurationResponse,
-  DeleteAvailabilityConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAvailabilityConfigurationCommand,
-  serializeAws_json1_1DeleteAvailabilityConfigurationCommand,
+  de_DeleteAvailabilityConfigurationCommand,
+  se_DeleteAvailabilityConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAvailabilityConfigurationCommand}.
+ */
 export interface DeleteAvailabilityConfigurationCommandInput extends DeleteAvailabilityConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAvailabilityConfigurationCommand}.
+ */
 export interface DeleteAvailabilityConfigurationCommandOutput
   extends DeleteAvailabilityConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,28 @@ export interface DeleteAvailabilityConfigurationCommandOutput
  * import { WorkMailClient, DeleteAvailabilityConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteAvailabilityConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // DeleteAvailabilityConfigurationRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAvailabilityConfigurationCommandInput - {@link DeleteAvailabilityConfigurationCommandInput}
+ * @returns {@link DeleteAvailabilityConfigurationCommandOutput}
  * @see {@link DeleteAvailabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAvailabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
  *
  */
 export class DeleteAvailabilityConfigurationCommand extends $Command<
@@ -64,6 +85,9 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAvailabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAvailabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAvailabilityConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +127,24 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAvailabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAvailabilityConfigurationCommand(input, context);
+    return se_DeleteAvailabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAvailabilityConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteAvailabilityConfigurationCommand(output, context);
+    return de_DeleteAvailabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

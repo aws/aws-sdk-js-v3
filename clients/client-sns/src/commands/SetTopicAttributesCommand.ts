@@ -13,36 +13,69 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetTopicAttributesInput, SetTopicAttributesInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_querySetTopicAttributesCommand,
-  serializeAws_querySetTopicAttributesCommand,
-} from "../protocols/Aws_query";
+import { SetTopicAttributesInput } from "../models/models_0";
+import { de_SetTopicAttributesCommand, se_SetTopicAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SetTopicAttributesCommand}.
+ */
 export interface SetTopicAttributesCommandInput extends SetTopicAttributesInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetTopicAttributesCommand}.
+ */
 export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
- *         <note>
+ *          <note>
  *             <p>To remove the ability to change topic permissions, you must deny permissions to
  *                 the <code>AddPermission</code>, <code>RemovePermission</code>, and
  *                     <code>SetTopicAttributes</code> actions in your IAM policy.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, SetTopicAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SetTopicAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // SetTopicAttributesInput
+ *   TopicArn: "STRING_VALUE", // required
+ *   AttributeName: "STRING_VALUE", // required
+ *   AttributeValue: "STRING_VALUE",
+ * };
  * const command = new SetTopicAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTopicAttributesCommandInput - {@link SetTopicAttributesCommandInput}
+ * @returns {@link SetTopicAttributesCommandOutput}
  * @see {@link SetTopicAttributesCommandInput} for command's `input` shape.
  * @see {@link SetTopicAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link InvalidSecurityException} (client fault)
+ *  <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
+ *             request using Signature Version 4.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Indicates that the requested resource does not exist.</p>
+ *
  *
  */
 export class SetTopicAttributesCommand extends $Command<
@@ -62,6 +95,9 @@ export class SetTopicAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTopicAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class SetTopicAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTopicAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class SetTopicAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTopicAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetTopicAttributesCommand(input, context);
+    return se_SetTopicAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTopicAttributesCommandOutput> {
-    return deserializeAws_querySetTopicAttributesCommand(output, context);
+    return de_SetTopicAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

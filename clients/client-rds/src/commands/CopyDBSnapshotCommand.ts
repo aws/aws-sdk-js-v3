@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CopyDBSnapshotMessage,
-  CopyDBSnapshotMessageFilterSensitiveLog,
-  CopyDBSnapshotResult,
-  CopyDBSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCopyDBSnapshotCommand,
-  serializeAws_queryCopyDBSnapshotCommand,
-} from "../protocols/Aws_query";
+import { CopyDBSnapshotMessage, CopyDBSnapshotResult } from "../models/models_0";
+import { de_CopyDBSnapshotCommand, se_CopyDBSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CopyDBSnapshotCommand}.
+ */
 export interface CopyDBSnapshotCommandInput extends CopyDBSnapshotMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CopyDBSnapshotCommand}.
+ */
 export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code> state.</p>
  *          <p>You can copy a snapshot from one Amazon Web Services Region to another. In that case, the
  *             Amazon Web Services Region where you call the <code>CopyDBSnapshot</code> operation is the destination
@@ -43,13 +46,98 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * import { RDSClient, CopyDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CopyDBSnapshotMessage
+ *   SourceDBSnapshotIdentifier: "STRING_VALUE", // required
+ *   TargetDBSnapshotIdentifier: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   CopyTags: true || false,
+ *   PreSignedUrl: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   TargetCustomAvailabilityZone: "STRING_VALUE",
+ *   CopyOptionGroup: true || false,
+ * };
  * const command = new CopyDBSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDBSnapshotCommandInput - {@link CopyDBSnapshotCommandInput}
+ * @returns {@link CopyDBSnapshotCommandOutput}
  * @see {@link CopyDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link CopyDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link CustomAvailabilityZoneNotFoundFault} (client fault)
+ *  <p>
+ *             <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom
+ *             Availability Zone identifier.</p>
+ *
+ * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
+ *  <p>
+ *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ *
+ * @throws {@link DBSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * @throws {@link InvalidDBSnapshotStateFault} (client fault)
+ *  <p>The state of the DB snapshot doesn't allow deletion.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * @throws {@link SnapshotQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of DB
+ *             snapshots.</p>
+ *
+ *
+ * @example To copy a DB snapshot
+ * ```javascript
+ * // The following example creates a copy of a DB snapshot.
+ * const input = {
+ *   "SourceDBSnapshotIdentifier": "rds:database-mysql-2019-06-06-08-38",
+ *   "TargetDBSnapshotIdentifier": "mydbsnapshotcopy"
+ * };
+ * const command = new CopyDBSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSnapshot": {
+ *     "AllocatedStorage": 100,
+ *     "AvailabilityZone": "us-east-1f",
+ *     "DBInstanceIdentifier": "database-mysql",
+ *     "DBSnapshotArn": "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshotcopy",
+ *     "DBSnapshotIdentifier": "mydbsnapshotcopy",
+ *     "DbiResourceId": "db-ZI7UJ5BLKMBYFGX7FDENCKADC4",
+ *     "Encrypted": true,
+ *     "Engine": "mysql",
+ *     "EngineVersion": "5.6.40",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "InstanceCreateTime": "2019-04-30T15:45:53.663Z",
+ *     "Iops": 1000,
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     "LicenseModel": "general-public-license",
+ *     "MasterUsername": "admin",
+ *     "OptionGroupName": "default:mysql-5-6",
+ *     "PercentProgress": 0,
+ *     "Port": 3306,
+ *     "ProcessorFeatures": [],
+ *     "SnapshotType": "manual",
+ *     "SourceDBSnapshotIdentifier": "arn:aws:rds:us-east-1:123456789012:snapshot:rds:database-mysql-2019-06-06-08-38",
+ *     "SourceRegion": "us-east-1",
+ *     "Status": "creating",
+ *     "StorageType": "io1",
+ *     "VpcId": "vpc-6594f31c"
+ *   }
+ * }
+ * *\/
+ * // example id: to-copy-a-db-snapshot-1679695661487
+ * ```
  *
  */
 export class CopyDBSnapshotCommand extends $Command<
@@ -69,6 +157,9 @@ export class CopyDBSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +189,8 @@ export class CopyDBSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDBSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyDBSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +200,18 @@ export class CopyDBSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBSnapshotCommand(input, context);
+    return se_CopyDBSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBSnapshotCommandOutput> {
-    return deserializeAws_queryCopyDBSnapshotCommand(output, context);
+    return de_CopyDBSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

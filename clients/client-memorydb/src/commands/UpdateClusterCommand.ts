@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  UpdateClusterRequest,
-  UpdateClusterRequestFilterSensitiveLog,
-  UpdateClusterResponse,
-  UpdateClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateClusterCommand,
-  serializeAws_json1_1UpdateClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateClusterRequest, UpdateClusterResponse } from "../models/models_0";
+import { de_UpdateClusterCommand, se_UpdateClusterCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateClusterCommand}.
+ */
 export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateClusterCommand}.
+ */
 export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a cluster. You can use this operation to change one or more cluster configuration settings by specifying the settings and the new values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,86 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * import { MemoryDBClient, UpdateClusterCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, UpdateClusterCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // UpdateClusterRequest
+ *   ClusterName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   SecurityGroupIds: [ // SecurityGroupIdsList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaintenanceWindow: "STRING_VALUE",
+ *   SnsTopicArn: "STRING_VALUE",
+ *   SnsTopicStatus: "STRING_VALUE",
+ *   ParameterGroupName: "STRING_VALUE",
+ *   SnapshotWindow: "STRING_VALUE",
+ *   SnapshotRetentionLimit: Number("int"),
+ *   NodeType: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   ReplicaConfiguration: { // ReplicaConfigurationRequest
+ *     ReplicaCount: Number("int"),
+ *   },
+ *   ShardConfiguration: { // ShardConfigurationRequest
+ *     ShardCount: Number("int"),
+ *   },
+ *   ACLName: "STRING_VALUE",
+ * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
+ * @returns {@link UpdateClusterCommandOutput}
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
+ *
+ * @throws {@link ACLNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidACLStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidKMSKeyFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidNodeStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link NoOperationFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ParameterGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ShardsPerClusterQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class UpdateClusterCommand extends $Command<
@@ -62,6 +138,9 @@ export class UpdateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +167,8 @@ export class UpdateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +178,18 @@ export class UpdateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateClusterCommand(input, context);
+    return se_UpdateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterCommandOutput> {
-    return deserializeAws_json1_1UpdateClusterCommand(output, context);
+    return de_UpdateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  PutLifecyclePolicyRequest,
-  PutLifecyclePolicyRequestFilterSensitiveLog,
-  PutLifecyclePolicyResponse,
-  PutLifecyclePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutLifecyclePolicyCommand,
-  serializeAws_json1_1PutLifecyclePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutLifecyclePolicyRequest, PutLifecyclePolicyResponse } from "../models/models_0";
+import { de_PutLifecyclePolicyCommand, se_PutLifecyclePolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutLifecyclePolicyCommand}.
+ */
 export interface PutLifecyclePolicyCommandInput extends PutLifecyclePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutLifecyclePolicyCommand}.
+ */
 export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the lifecycle policy for the specified repository. For more
  *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html">Lifecycle policy
  *                 template</a>.</p>
@@ -38,13 +41,32 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyRespo
  * import { ECRClient, PutLifecyclePolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutLifecyclePolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // PutLifecyclePolicyRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   lifecyclePolicyText: "STRING_VALUE", // required
+ * };
  * const command = new PutLifecyclePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLifecyclePolicyCommandInput - {@link PutLifecyclePolicyCommandInput}
+ * @returns {@link PutLifecyclePolicyCommandOutput}
  * @see {@link PutLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link PutLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class PutLifecyclePolicyCommand extends $Command<
@@ -64,6 +86,9 @@ export class PutLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class PutLifecyclePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLifecyclePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLifecyclePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +128,18 @@ export class PutLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLifecyclePolicyCommand(input, context);
+    return se_PutLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLifecyclePolicyCommandOutput> {
-    return deserializeAws_json1_1PutLifecyclePolicyCommand(output, context);
+    return de_PutLifecyclePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

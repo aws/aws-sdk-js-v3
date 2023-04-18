@@ -6,12 +6,11 @@ import {
   DescribeCacheClustersCommandInput,
   DescribeCacheClustersCommandOutput,
 } from "../commands/DescribeCacheClustersCommand";
-import { ElastiCache } from "../ElastiCache";
 import { ElastiCacheClient } from "../ElastiCacheClient";
 import { ElastiCachePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElastiCacheClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeCacheClustersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ElastiCache,
-  input: DescribeCacheClustersCommandInput,
-  ...args: any
-): Promise<DescribeCacheClustersCommandOutput> => {
-  // @ts-ignore
-  return await client.describeCacheClusters(input, ...args);
-};
 export async function* paginateDescribeCacheClusters(
   config: ElastiCachePaginationConfiguration,
   input: DescribeCacheClustersCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeCacheClusters(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof ElastiCache) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElastiCacheClient) {
+    if (config.client instanceof ElastiCacheClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElastiCache | ElastiCacheClient");

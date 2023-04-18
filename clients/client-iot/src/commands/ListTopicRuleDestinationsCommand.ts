@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListTopicRuleDestinationsRequest,
-  ListTopicRuleDestinationsRequestFilterSensitiveLog,
-  ListTopicRuleDestinationsResponse,
-  ListTopicRuleDestinationsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListTopicRuleDestinationsCommand,
-  serializeAws_restJson1ListTopicRuleDestinationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTopicRuleDestinationsRequest, ListTopicRuleDestinationsResponse } from "../models/models_2";
+import { de_ListTopicRuleDestinationsCommand, se_ListTopicRuleDestinationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTopicRuleDestinationsCommand}.
+ */
 export interface ListTopicRuleDestinationsCommandInput extends ListTopicRuleDestinationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTopicRuleDestinationsCommand}.
+ */
 export interface ListTopicRuleDestinationsCommandOutput extends ListTopicRuleDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the topic rule destinations in your Amazon Web Services account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTopicRuleDestinations</a> action.</p>
  * @example
@@ -37,13 +40,32 @@ export interface ListTopicRuleDestinationsCommandOutput extends ListTopicRuleDes
  * import { IoTClient, ListTopicRuleDestinationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListTopicRuleDestinationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListTopicRuleDestinationsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTopicRuleDestinationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTopicRuleDestinationsCommandInput - {@link ListTopicRuleDestinationsCommandInput}
+ * @returns {@link ListTopicRuleDestinationsCommandOutput}
  * @see {@link ListTopicRuleDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListTopicRuleDestinationsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class ListTopicRuleDestinationsCommand extends $Command<
@@ -63,6 +85,9 @@ export class ListTopicRuleDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTopicRuleDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class ListTopicRuleDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTopicRuleDestinationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTopicRuleDestinationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +127,21 @@ export class ListTopicRuleDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTopicRuleDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTopicRuleDestinationsCommand(input, context);
+    return se_ListTopicRuleDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTopicRuleDestinationsCommandOutput> {
-    return deserializeAws_restJson1ListTopicRuleDestinationsCommand(output, context);
+    return de_ListTopicRuleDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

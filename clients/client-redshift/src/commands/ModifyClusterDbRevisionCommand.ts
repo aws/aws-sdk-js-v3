@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyClusterDbRevisionMessage,
-  ModifyClusterDbRevisionMessageFilterSensitiveLog,
-  ModifyClusterDbRevisionResult,
-  ModifyClusterDbRevisionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyClusterDbRevisionCommand,
-  serializeAws_queryModifyClusterDbRevisionCommand,
-} from "../protocols/Aws_query";
+import { ModifyClusterDbRevisionMessage, ModifyClusterDbRevisionResult } from "../models/models_1";
+import { de_ModifyClusterDbRevisionCommand, se_ModifyClusterDbRevisionCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyClusterDbRevisionCommand}.
+ */
 export interface ModifyClusterDbRevisionCommandInput extends ModifyClusterDbRevisionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyClusterDbRevisionCommand}.
+ */
 export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRevisionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the database revision of a cluster. The database revision is a unique
  *             revision of the database running in a cluster.</p>
  * @example
@@ -37,13 +40,30 @@ export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRev
  * import { RedshiftClient, ModifyClusterDbRevisionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterDbRevisionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifyClusterDbRevisionMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   RevisionTarget: "STRING_VALUE", // required
+ * };
  * const command = new ModifyClusterDbRevisionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterDbRevisionCommandInput - {@link ModifyClusterDbRevisionCommandInput}
+ * @returns {@link ModifyClusterDbRevisionCommandOutput}
  * @see {@link ModifyClusterDbRevisionCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterDbRevisionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link ClusterOnLatestRevisionFault} (client fault)
+ *  <p>Cluster is already on the latest database revision.</p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
  *
  */
 export class ModifyClusterDbRevisionCommand extends $Command<
@@ -63,6 +83,9 @@ export class ModifyClusterDbRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterDbRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +114,8 @@ export class ModifyClusterDbRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterDbRevisionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterDbRevisionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +125,18 @@ export class ModifyClusterDbRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterDbRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterDbRevisionCommand(input, context);
+    return se_ModifyClusterDbRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterDbRevisionCommandOutput> {
-    return deserializeAws_queryModifyClusterDbRevisionCommand(output, context);
+    return de_ModifyClusterDbRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

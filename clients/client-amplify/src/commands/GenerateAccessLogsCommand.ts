@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  GenerateAccessLogsRequest,
-  GenerateAccessLogsRequestFilterSensitiveLog,
-  GenerateAccessLogsResult,
-  GenerateAccessLogsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GenerateAccessLogsCommand,
-  serializeAws_restJson1GenerateAccessLogsCommand,
-} from "../protocols/Aws_restJson1";
+import { GenerateAccessLogsRequest, GenerateAccessLogsResult } from "../models/models_0";
+import { de_GenerateAccessLogsCommand, se_GenerateAccessLogsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GenerateAccessLogsCommand}.
+ */
 export interface GenerateAccessLogsCommandInput extends GenerateAccessLogsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GenerateAccessLogsCommand}.
+ */
 export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the website access logs for a specific time range using a presigned URL.
  *         </p>
  * @example
@@ -37,13 +40,34 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  * import { AmplifyClient, GenerateAccessLogsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GenerateAccessLogsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // GenerateAccessLogsRequest
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   domainName: "STRING_VALUE", // required
+ *   appId: "STRING_VALUE", // required
+ * };
  * const command = new GenerateAccessLogsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateAccessLogsCommandInput - {@link GenerateAccessLogsCommandInput}
+ * @returns {@link GenerateAccessLogsCommandOutput}
  * @see {@link GenerateAccessLogsCommandInput} for command's `input` shape.
  * @see {@link GenerateAccessLogsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p> An entity was not found during an operation. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
  *
  */
 export class GenerateAccessLogsCommand extends $Command<
@@ -63,6 +87,9 @@ export class GenerateAccessLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateAccessLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +118,8 @@ export class GenerateAccessLogsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateAccessLogsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateAccessLogsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +129,18 @@ export class GenerateAccessLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateAccessLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GenerateAccessLogsCommand(input, context);
+    return se_GenerateAccessLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateAccessLogsCommandOutput> {
-    return deserializeAws_restJson1GenerateAccessLogsCommand(output, context);
+    return de_GenerateAccessLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

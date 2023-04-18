@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/models_0";
 import {
-  RestoreDBClusterToPointInTimeMessage,
-  RestoreDBClusterToPointInTimeMessageFilterSensitiveLog,
-  RestoreDBClusterToPointInTimeResult,
-  RestoreDBClusterToPointInTimeResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryRestoreDBClusterToPointInTimeCommand,
-  serializeAws_queryRestoreDBClusterToPointInTimeCommand,
+  de_RestoreDBClusterToPointInTimeCommand,
+  se_RestoreDBClusterToPointInTimeCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RestoreDBClusterToPointInTimeCommand}.
+ */
 export interface RestoreDBClusterToPointInTimeCommandInput extends RestoreDBClusterToPointInTimeMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RestoreDBClusterToPointInTimeCommand}.
+ */
 export interface RestoreDBClusterToPointInTimeCommandOutput
   extends RestoreDBClusterToPointInTimeResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a cluster to an arbitrary point in time. Users can restore to any point in
  *             time before <code>LatestRestorableTime</code> for up to
  *                 <code>BackupRetentionPeriod</code> days. The target cluster is created from the
@@ -42,13 +48,91 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * import { DocDBClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // RestoreDBClusterToPointInTimeMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   RestoreType: "STRING_VALUE",
+ *   SourceDBClusterIdentifier: "STRING_VALUE", // required
+ *   RestoreToTime: new Date("TIMESTAMP"),
+ *   UseLatestRestorableTime: true || false,
+ *   Port: Number("int"),
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   DeletionProtection: true || false,
+ * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBClusterToPointInTimeCommandInput - {@link RestoreDBClusterToPointInTimeCommandInput}
+ * @returns {@link RestoreDBClusterToPointInTimeCommandOutput}
  * @see {@link RestoreDBClusterToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link DBClusterAlreadyExistsFault} (client fault)
+ *  <p>You already have a cluster with the given identifier.</p>
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * @throws {@link DBClusterQuotaExceededFault} (client fault)
+ *  <p>The cluster can't be created because you have reached the maximum allowed quota of clusters.</p>
+ *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+ *
+ * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+ *
+ * @throws {@link InsufficientDBClusterCapacityFault} (client fault)
+ *  <p>The cluster doesn't have enough capacity for the current operation.</p>
+ *
+ * @throws {@link InsufficientStorageClusterCapacityFault} (client fault)
+ *  <p>There is not enough storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available. </p>
+ *
+ * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
+ *  <p>The provided value isn't a valid cluster snapshot state.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The cluster isn't in a valid state.</p>
+ *
+ * @throws {@link InvalidDBSnapshotStateFault} (client fault)
+ *  <p>The state of the snapshot doesn't allow deletion.</p>
+ *
+ * @throws {@link InvalidRestoreFault} (client fault)
+ *  <p>You cannot restore from a virtual private cloud (VPC) backup to a non-VPC DB
+ *             instance.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is not valid, or multiple subnets were requested that are not all
+ *             in a common virtual private cloud (VPC).</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The subnet group doesn't cover all Availability Zones after it is created
+ *             because of changes that were made.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred when accessing an KMS key.</p>
+ *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>The request would cause you to exceed the allowed amount of storage available across
+ *             all instances.</p>
+ *
  *
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<
@@ -68,6 +152,9 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBClusterToPointInTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +183,8 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBClusterToPointInTimeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBClusterToPointInTimeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +194,21 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDBClusterToPointInTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBClusterToPointInTimeCommand(input, context);
+    return se_RestoreDBClusterToPointInTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBClusterToPointInTimeCommandOutput> {
-    return deserializeAws_queryRestoreDBClusterToPointInTimeCommand(output, context);
+    return de_RestoreDBClusterToPointInTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  ListPipelinesInput,
-  ListPipelinesInputFilterSensitiveLog,
-  ListPipelinesOutput,
-  ListPipelinesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPipelinesCommand,
-  serializeAws_json1_1ListPipelinesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPipelinesInput, ListPipelinesOutput } from "../models/models_0";
+import { de_ListPipelinesCommand, se_ListPipelinesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPipelinesCommand}.
+ */
 export interface ListPipelinesCommandInput extends ListPipelinesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListPipelinesCommand}.
+ */
 export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a summary of all of the pipelines associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * import { CodePipelineClient, ListPipelinesCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListPipelinesCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // ListPipelinesInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
+ * @returns {@link ListPipelinesCommandOutput}
  * @see {@link ListPipelinesCommandInput} for command's `input` shape.
  * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format. Make sure that the next token
+ *             you provide is the token returned by a previous call.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
  *
  */
 export class ListPipelinesCommand extends $Command<
@@ -62,6 +79,9 @@ export class ListPipelinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +108,8 @@ export class ListPipelinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPipelinesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPipelinesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +119,18 @@ export class ListPipelinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPipelinesCommand(input, context);
+    return se_ListPipelinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelinesCommandOutput> {
-    return deserializeAws_json1_1ListPipelinesCommand(output, context);
+    return de_ListPipelinesCommand(output, context);
   }
 
   // Start section: command_body_extra

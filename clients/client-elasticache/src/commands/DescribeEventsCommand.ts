@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DescribeEventsMessage,
-  DescribeEventsMessageFilterSensitiveLog,
-  EventsMessage,
-  EventsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEventsCommand,
-  serializeAws_queryDescribeEventsCommand,
-} from "../protocols/Aws_query";
+import { DescribeEventsMessage, EventsMessage } from "../models/models_0";
+import { de_DescribeEventsCommand, se_DescribeEventsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEventsCommand}.
+ */
 export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEventsCommand}.
+ */
 export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns events related to clusters, cache
  *             security groups, and cache parameter groups. You can obtain events specific to a
  *             particular cluster, cache security group, or cache parameter group by providing
@@ -41,13 +44,80 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * import { ElastiCacheClient, DescribeEventsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeEventsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeEventsMessage
+ *   SourceIdentifier: "STRING_VALUE",
+ *   SourceType: "cache-cluster" || "cache-parameter-group" || "cache-security-group" || "cache-subnet-group" || "replication-group" || "user" || "user-group",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Duration: Number("int"),
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
+ * @returns {@link DescribeEventsCommandOutput}
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ *
+ * @example DescribeEvents
+ * ```javascript
+ * // Describes all the cache-cluster events for the past 120 minutes.
+ * const input = {
+ *   "Duration": 360,
+ *   "SourceType": "cache-cluster"
+ * };
+ * const command = new DescribeEventsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Events": [
+ *     {
+ *       "Date": "2016-12-22T16:27:56.088Z",
+ *       "Message": "Added cache node 0001 in availability zone us-east-1e",
+ *       "SourceIdentifier": "redis-cluster",
+ *       "SourceType": "cache-cluster"
+ *     },
+ *     {
+ *       "Date": "2016-12-22T16:27:56.078Z",
+ *       "Message": "Cache cluster created",
+ *       "SourceIdentifier": "redis-cluster",
+ *       "SourceType": "cache-cluster"
+ *     },
+ *     {
+ *       "Date": "2016-12-22T16:05:17.326Z",
+ *       "Message": "Added cache node 0002 in availability zone us-east-1c",
+ *       "SourceIdentifier": "my-memcached2",
+ *       "SourceType": "cache-cluster"
+ *     },
+ *     {
+ *       "Date": "2016-12-22T16:05:17.323Z",
+ *       "Message": "Added cache node 0001 in availability zone us-east-1e",
+ *       "SourceIdentifier": "my-memcached2",
+ *       "SourceType": "cache-cluster"
+ *     },
+ *     {
+ *       "Date": "2016-12-22T16:05:17.314Z",
+ *       "Message": "Cache cluster created",
+ *       "SourceIdentifier": "my-memcached2",
+ *       "SourceType": "cache-cluster"
+ *     }
+ *   ],
+ *   "Marker": ""
+ * }
+ * *\/
+ * // example id: describeevents-1481843894757
+ * ```
  *
  */
 export class DescribeEventsCommand extends $Command<
@@ -67,6 +137,9 @@ export class DescribeEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +168,8 @@ export class DescribeEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EventsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +179,18 @@ export class DescribeEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventsCommand(input, context);
+    return se_DescribeEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventsCommandOutput> {
-    return deserializeAws_queryDescribeEventsCommand(output, context);
+    return de_DescribeEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

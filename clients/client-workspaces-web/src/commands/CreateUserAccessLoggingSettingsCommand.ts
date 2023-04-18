@@ -17,20 +17,30 @@ import {
   CreateUserAccessLoggingSettingsRequest,
   CreateUserAccessLoggingSettingsRequestFilterSensitiveLog,
   CreateUserAccessLoggingSettingsResponse,
-  CreateUserAccessLoggingSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateUserAccessLoggingSettingsCommand,
-  serializeAws_restJson1CreateUserAccessLoggingSettingsCommand,
+  de_CreateUserAccessLoggingSettingsCommand,
+  se_CreateUserAccessLoggingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateUserAccessLoggingSettingsCommand}.
+ */
 export interface CreateUserAccessLoggingSettingsCommandInput extends CreateUserAccessLoggingSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateUserAccessLoggingSettingsCommand}.
+ */
 export interface CreateUserAccessLoggingSettingsCommandOutput
   extends CreateUserAccessLoggingSettingsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a user access logging settings resource that can be associated with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +48,44 @@ export interface CreateUserAccessLoggingSettingsCommandOutput
  * import { WorkSpacesWebClient, CreateUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // CreateUserAccessLoggingSettingsRequest
+ *   kinesisStreamArn: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserAccessLoggingSettingsCommandInput - {@link CreateUserAccessLoggingSettingsCommandInput}
+ * @returns {@link CreateUserAccessLoggingSettingsCommandOutput}
  * @see {@link CreateUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is an internal server error.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>There is a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There is a validation error.</p>
+ *
  *
  */
 export class CreateUserAccessLoggingSettingsCommand extends $Command<
@@ -64,6 +105,9 @@ export class CreateUserAccessLoggingSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserAccessLoggingSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +137,7 @@ export class CreateUserAccessLoggingSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateUserAccessLoggingSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserAccessLoggingSettingsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +147,24 @@ export class CreateUserAccessLoggingSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateUserAccessLoggingSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUserAccessLoggingSettingsCommand(input, context);
+    return se_CreateUserAccessLoggingSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateUserAccessLoggingSettingsCommandOutput> {
-    return deserializeAws_restJson1CreateUserAccessLoggingSettingsCommand(output, context);
+    return de_CreateUserAccessLoggingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

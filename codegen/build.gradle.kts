@@ -28,7 +28,7 @@ allprojects {
         mavenCentral()
     }
     group = "software.amazon.smithy.typescript"
-    version = "0.12.0"
+    version = "0.14.0"
 }
 
 // The root project doesn't produce a JAR.
@@ -75,8 +75,8 @@ subprojects {
         apply(plugin = "java-library")
 
         java {
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
         }
 
         tasks.withType<JavaCompile> {

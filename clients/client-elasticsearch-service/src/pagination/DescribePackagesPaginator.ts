@@ -6,12 +6,11 @@ import {
   DescribePackagesCommandInput,
   DescribePackagesCommandOutput,
 } from "../commands/DescribePackagesCommand";
-import { ElasticsearchService } from "../ElasticsearchService";
 import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticsearchServiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribePackagesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ElasticsearchService,
-  input: DescribePackagesCommandInput,
-  ...args: any
-): Promise<DescribePackagesCommandOutput> => {
-  // @ts-ignore
-  return await client.describePackages(input, ...args);
-};
 export async function* paginateDescribePackages(
   config: ElasticsearchServicePaginationConfiguration,
   input: DescribePackagesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribePackages(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ElasticsearchService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElasticsearchServiceClient) {
+    if (config.client instanceof ElasticsearchServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElasticsearchService | ElasticsearchServiceClient");

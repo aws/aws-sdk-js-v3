@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAppsRequest,
-  ListAppsRequestFilterSensitiveLog,
-  ListAppsResponse,
-  ListAppsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import { deserializeAws_json1_1ListAppsCommand, serializeAws_json1_1ListAppsCommand } from "../protocols/Aws_json1_1";
+import { ListAppsRequest, ListAppsResponse } from "../models/models_3";
+import { de_ListAppsCommand, se_ListAppsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAppsCommand}.
+ */
 export interface ListAppsCommandInput extends ListAppsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAppsCommand}.
+ */
 export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists apps.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,25 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * import { SageMakerClient, ListAppsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAppsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListAppsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortOrder: "Ascending" || "Descending",
+ *   SortBy: "CreationTime",
+ *   DomainIdEquals: "STRING_VALUE",
+ *   UserProfileNameEquals: "STRING_VALUE",
+ *   SpaceNameEquals: "STRING_VALUE",
+ * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppsCommandInput - {@link ListAppsCommandInput}
+ * @returns {@link ListAppsCommandOutput}
  * @see {@link ListAppsCommandInput} for command's `input` shape.
  * @see {@link ListAppsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListAppsCommand extends $Command<
@@ -59,6 +77,9 @@ export class ListAppsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppsCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +106,8 @@ export class ListAppsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +117,18 @@ export class ListAppsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAppsCommand(input, context);
+    return se_ListAppsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppsCommandOutput> {
-    return deserializeAws_json1_1ListAppsCommand(output, context);
+    return de_ListAppsCommand(output, context);
   }
 
   // Start section: command_body_extra

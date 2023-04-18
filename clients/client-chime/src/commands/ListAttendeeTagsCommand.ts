@@ -16,19 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ListAttendeeTagsRequest,
-  ListAttendeeTagsRequestFilterSensitiveLog,
   ListAttendeeTagsResponse,
   ListAttendeeTagsResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListAttendeeTagsCommand,
-  serializeAws_restJson1ListAttendeeTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAttendeeTagsCommand, se_ListAttendeeTagsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAttendeeTagsCommand}.
+ */
 export interface ListAttendeeTagsCommandInput extends ListAttendeeTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAttendeeTagsCommand}.
+ */
 export interface ListAttendeeTagsCommandOutput extends ListAttendeeTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags applied to an Amazon Chime SDK attendee resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,41 @@ export interface ListAttendeeTagsCommandOutput extends ListAttendeeTagsResponse,
  * import { ChimeClient, ListAttendeeTagsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListAttendeeTagsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListAttendeeTagsRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   AttendeeId: "STRING_VALUE", // required
+ * };
  * const command = new ListAttendeeTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttendeeTagsCommandInput - {@link ListAttendeeTagsCommandInput}
+ * @returns {@link ListAttendeeTagsCommandOutput}
  * @see {@link ListAttendeeTagsCommandInput} for command's `input` shape.
  * @see {@link ListAttendeeTagsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class ListAttendeeTagsCommand extends $Command<
@@ -62,6 +97,9 @@ export class ListAttendeeTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttendeeTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +128,7 @@ export class ListAttendeeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttendeeTagsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListAttendeeTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +139,18 @@ export class ListAttendeeTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttendeeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttendeeTagsCommand(input, context);
+    return se_ListAttendeeTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttendeeTagsCommandOutput> {
-    return deserializeAws_restJson1ListAttendeeTagsCommand(output, context);
+    return de_ListAttendeeTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

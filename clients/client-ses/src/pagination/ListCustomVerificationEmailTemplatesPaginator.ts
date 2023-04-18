@@ -6,12 +6,11 @@ import {
   ListCustomVerificationEmailTemplatesCommandInput,
   ListCustomVerificationEmailTemplatesCommandOutput,
 } from "../commands/ListCustomVerificationEmailTemplatesCommand";
-import { SES } from "../SES";
 import { SESClient } from "../SESClient";
 import { SESPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SESClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListCustomVerificationEmailTemplatesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SES,
-  input: ListCustomVerificationEmailTemplatesCommandInput,
-  ...args: any
-): Promise<ListCustomVerificationEmailTemplatesCommandOutput> => {
-  // @ts-ignore
-  return await client.listCustomVerificationEmailTemplates(input, ...args);
-};
 export async function* paginateListCustomVerificationEmailTemplates(
   config: SESPaginationConfiguration,
   input: ListCustomVerificationEmailTemplatesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListCustomVerificationEmailTemplates(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SES) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SESClient) {
+    if (config.client instanceof SESClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SES | SESClient");

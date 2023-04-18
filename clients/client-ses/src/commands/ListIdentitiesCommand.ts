@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListIdentitiesRequest,
-  ListIdentitiesRequestFilterSensitiveLog,
-  ListIdentitiesResponse,
-  ListIdentitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListIdentitiesCommand,
-  serializeAws_queryListIdentitiesCommand,
-} from "../protocols/Aws_query";
+import { ListIdentitiesRequest, ListIdentitiesResponse } from "../models/models_0";
+import { de_ListIdentitiesCommand, se_ListIdentitiesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListIdentitiesCommand}.
+ */
 export interface ListIdentitiesCommandInput extends ListIdentitiesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListIdentitiesCommand}.
+ */
 export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list containing all of the identities (email addresses and domains) for your
  *             AWS account in the current AWS Region, regardless of verification status.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -38,13 +41,42 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * import { SESClient, ListIdentitiesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListIdentitiesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // ListIdentitiesRequest
+ *   IdentityType: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListIdentitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIdentitiesCommandInput - {@link ListIdentitiesCommandInput}
+ * @returns {@link ListIdentitiesCommandOutput}
  * @see {@link ListIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example ListIdentities
+ * ```javascript
+ * // The following example lists the email address identities that have been submitted for verification with Amazon SES:
+ * const input = {
+ *   "IdentityType": "EmailAddress",
+ *   "MaxItems": 123,
+ *   "NextToken": ""
+ * };
+ * const command = new ListIdentitiesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Identities": [
+ *     "user@example.com"
+ *   ],
+ *   "NextToken": ""
+ * }
+ * *\/
+ * // example id: listidentities-1469048638493
+ * ```
  *
  */
 export class ListIdentitiesCommand extends $Command<
@@ -64,6 +96,9 @@ export class ListIdentitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +127,8 @@ export class ListIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIdentitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIdentitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +138,18 @@ export class ListIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListIdentitiesCommand(input, context);
+    return se_ListIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentitiesCommandOutput> {
-    return deserializeAws_queryListIdentitiesCommand(output, context);
+    return de_ListIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

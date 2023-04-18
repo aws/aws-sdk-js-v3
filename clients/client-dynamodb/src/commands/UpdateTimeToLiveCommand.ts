@@ -14,45 +14,48 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  UpdateTimeToLiveInput,
-  UpdateTimeToLiveInputFilterSensitiveLog,
-  UpdateTimeToLiveOutput,
-  UpdateTimeToLiveOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateTimeToLiveCommand,
-  serializeAws_json1_0UpdateTimeToLiveCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateTimeToLiveInput, UpdateTimeToLiveOutput } from "../models/models_0";
+import { de_UpdateTimeToLiveCommand, se_UpdateTimeToLiveCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateTimeToLiveCommand}.
+ */
 export interface UpdateTimeToLiveCommandInput extends UpdateTimeToLiveInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTimeToLiveCommand}.
+ */
 export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for
  *             the specified table. A successful <code>UpdateTimeToLive</code> call returns the current
  *                 <code>TimeToLiveSpecification</code>. It can take up to one hour for the change to
  *             fully process. Any additional <code>UpdateTimeToLive</code> calls for the same table
  *             during this one hour duration result in a <code>ValidationException</code>. </p>
- *         <p>TTL compares the current time in epoch time format to the time stored in the TTL
+ *          <p>TTL compares the current time in epoch time format to the time stored in the TTL
  *             attribute of an item. If the epoch time value stored in the attribute is less than the
  *             current time, the item is marked as expired and subsequently deleted.</p>
- *         <note>
+ *          <note>
  *             <p> The epoch time format is the number of seconds elapsed since 12:00:00 AM January
  *                 1, 1970 UTC. </p>
- *         </note>
- *         <p>DynamoDB deletes expired items on a best-effort basis to ensure availability of
+ *          </note>
+ *          <p>DynamoDB deletes expired items on a best-effort basis to ensure availability of
  *             throughput for other data operations. </p>
- *         <important>
+ *          <important>
  *             <p>DynamoDB typically deletes expired items within two days of expiration. The exact
  *                 duration within which an item gets deleted after expiration is specific to the
  *                 nature of the workload. Items that have expired and not been deleted will still show
  *                 up in reads, queries, and scans.</p>
- *         </important>
- *         <p>As items are deleted, they are removed from any local secondary index and global
+ *          </important>
+ *          <p>As items are deleted, they are removed from any local secondary index and global
  *             secondary index immediately in the same eventually consistent way as a standard delete
  *             operation.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time To Live</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time To Live</a> in the
  *             Amazon DynamoDB Developer Guide. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,13 +63,50 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  * import { DynamoDBClient, UpdateTimeToLiveCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateTimeToLiveCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // UpdateTimeToLiveInput
+ *   TableName: "STRING_VALUE", // required
+ *   TimeToLiveSpecification: { // TimeToLiveSpecification
+ *     Enabled: true || false, // required
+ *     AttributeName: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateTimeToLiveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTimeToLiveCommandInput - {@link UpdateTimeToLiveCommandInput}
+ * @returns {@link UpdateTimeToLiveCommandOutput}
  * @see {@link UpdateTimeToLiveCommandInput} for command's `input` shape.
  * @see {@link UpdateTimeToLiveCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
+ *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
+ *             include <code>CreateTable</code>, <code>UpdateTable</code>,
+ *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
+ *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
+ *          <p>When you are creating a table with one or more secondary
+ *             indexes, you can have up to 250 such requests running at a time. However, if the table or
+ *             index specifications are complex, then DynamoDB might temporarily reduce the number
+ *             of concurrent operations.</p>
+ *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
+ *          <p>There is a soft account quota of 2,500 tables.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The operation conflicts with the resource's availability. For example, you
+ *             attempted to recreate an existing table, or tried to delete a table currently in the
+ *                 <code>CREATING</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a nonexistent table or index. The resource might not
+ *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
  *
  */
 export class UpdateTimeToLiveCommand extends $Command<
@@ -86,6 +126,9 @@ export class UpdateTimeToLiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTimeToLiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +157,8 @@ export class UpdateTimeToLiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTimeToLiveInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTimeToLiveOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +168,18 @@ export class UpdateTimeToLiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTimeToLiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateTimeToLiveCommand(input, context);
+    return se_UpdateTimeToLiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTimeToLiveCommandOutput> {
-    return deserializeAws_json1_0UpdateTimeToLiveCommand(output, context);
+    return de_UpdateTimeToLiveCommand(output, context);
   }
 
   // Start section: command_body_extra

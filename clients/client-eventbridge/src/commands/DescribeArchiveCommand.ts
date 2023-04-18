@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  DescribeArchiveRequest,
-  DescribeArchiveRequestFilterSensitiveLog,
-  DescribeArchiveResponse,
-  DescribeArchiveResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeArchiveCommand,
-  serializeAws_json1_1DescribeArchiveCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeArchiveRequest, DescribeArchiveResponse } from "../models/models_0";
+import { de_DescribeArchiveCommand, se_DescribeArchiveCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeArchiveCommand}.
+ */
 export interface DescribeArchiveCommandInput extends DescribeArchiveRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeArchiveCommand}.
+ */
 export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about an archive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * import { EventBridgeClient, DescribeArchiveCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeArchiveCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // DescribeArchiveRequest
+ *   ArchiveName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeArchiveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeArchiveCommandInput - {@link DescribeArchiveCommandInput}
+ * @returns {@link DescribeArchiveCommandOutput}
  * @see {@link DescribeArchiveCommandInput} for command's `input` shape.
  * @see {@link DescribeArchiveCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource you are trying to create already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class DescribeArchiveCommand extends $Command<
@@ -62,6 +80,9 @@ export class DescribeArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DescribeArchiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeArchiveRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeArchiveResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class DescribeArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeArchiveCommand(input, context);
+    return se_DescribeArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeArchiveCommandOutput> {
-    return deserializeAws_json1_1DescribeArchiveCommand(output, context);
+    return de_DescribeArchiveCommand(output, context);
   }
 
   // Start section: command_body_extra

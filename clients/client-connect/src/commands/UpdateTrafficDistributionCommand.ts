@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateTrafficDistributionRequest,
-  UpdateTrafficDistributionRequestFilterSensitiveLog,
-  UpdateTrafficDistributionResponse,
-  UpdateTrafficDistributionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateTrafficDistributionCommand,
-  serializeAws_restJson1UpdateTrafficDistributionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateTrafficDistributionRequest, UpdateTrafficDistributionResponse } from "../models/models_1";
+import { de_UpdateTrafficDistributionCommand, se_UpdateTrafficDistributionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateTrafficDistributionCommand}.
+ */
 export interface UpdateTrafficDistributionCommandInput extends UpdateTrafficDistributionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTrafficDistributionCommand}.
+ */
 export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDistributionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the traffic distribution for a given traffic distribution group. </p>
  *          <p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony
  *     traffic distribution across Amazon Web Services Regions
@@ -39,13 +42,45 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * import { ConnectClient, UpdateTrafficDistributionCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateTrafficDistributionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateTrafficDistributionRequest
+ *   Id: "STRING_VALUE", // required
+ *   TelephonyConfig: { // TelephonyConfig
+ *     Distributions: [ // DistributionList // required
+ *       { // Distribution
+ *         Region: "STRING_VALUE", // required
+ *         Percentage: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateTrafficDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrafficDistributionCommandInput - {@link UpdateTrafficDistributionCommandInput}
+ * @returns {@link UpdateTrafficDistributionCommandOutput}
  * @see {@link UpdateTrafficDistributionCommandInput} for command's `input` shape.
  * @see {@link UpdateTrafficDistributionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>A resource already has that name.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class UpdateTrafficDistributionCommand extends $Command<
@@ -65,6 +100,9 @@ export class UpdateTrafficDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrafficDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +131,8 @@ export class UpdateTrafficDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrafficDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrafficDistributionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +142,21 @@ export class UpdateTrafficDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrafficDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTrafficDistributionCommand(input, context);
+    return se_UpdateTrafficDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTrafficDistributionCommandOutput> {
-    return deserializeAws_restJson1UpdateTrafficDistributionCommand(output, context);
+    return de_UpdateTrafficDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

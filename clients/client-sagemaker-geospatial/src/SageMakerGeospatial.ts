@@ -91,10 +91,12 @@ import {
 import { SageMakerGeospatialClient } from "./SageMakerGeospatialClient";
 
 /**
+ * @public
  * <p>Provides APIs for creating and managing SageMaker geospatial resources.</p>
  */
 export class SageMakerGeospatial extends SageMakerGeospatialClient {
   /**
+   * @public
    * <p>Use this operation to delete an Earth Observation job.</p>
    */
   public deleteEarthObservationJob(
@@ -127,6 +129,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to delete a Vector Enrichment job.</p>
    */
   public deleteVectorEnrichmentJob(
@@ -159,7 +162,8 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
-   * <p>Use this operation to export results of an Earth Observation job and optionally source images used as input to the EOJ to an S3 location.</p>
+   * @public
+   * <p>Use this operation to export results of an Earth Observation job and optionally source images used as input to the EOJ to an Amazon S3 location.</p>
    */
   public exportEarthObservationJob(
     args: ExportEarthObservationJobCommandInput,
@@ -191,7 +195,8 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
-   * <p>Use this operation to copy results of a Vector Enrichment job to an S3 location.</p>
+   * @public
+   * <p>Use this operation to copy results of a Vector Enrichment job to an Amazon S3 location.</p>
    */
   public exportVectorEnrichmentJob(
     args: ExportVectorEnrichmentJobCommandInput,
@@ -223,6 +228,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Get the details for a previously initiated Earth Observation job.</p>
    */
   public getEarthObservationJob(
@@ -255,6 +261,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to get details of a specific raster data collection.</p>
    */
   public getRasterDataCollection(
@@ -287,6 +294,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Gets a web mercator tile for the given Earth Observation job.</p>
    */
   public getTile(args: GetTileCommandInput, options?: __HttpHandlerOptions): Promise<GetTileCommandOutput>;
@@ -313,6 +321,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Retrieves details of a Vector Enrichment Job for a given job Amazon Resource Name (ARN).</p>
    */
   public getVectorEnrichmentJob(
@@ -345,6 +354,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to get a list of the Earth Observation jobs associated with the calling Amazon Web Services account.</p>
    */
   public listEarthObservationJobs(
@@ -377,6 +387,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to get raster data collections.</p>
    */
   public listRasterDataCollections(
@@ -409,6 +420,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags attached to the resource.</p>
    */
   public listTagsForResource(
@@ -441,6 +453,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a list of vector enrichment jobs.</p>
    */
   public listVectorEnrichmentJobs(
@@ -473,6 +486,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Allows you run image query on a specific raster data collection to get a list of the satellite imagery matching the selected filters.</p>
    */
   public searchRasterDataCollection(
@@ -505,6 +519,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to create an Earth observation job.</p>
    */
   public startEarthObservationJob(
@@ -537,6 +552,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Creates a Vector Enrichment job for the supplied job type.  Currently, there are two supported job types: reverse geocoding and map matching.</p>
    */
   public startVectorEnrichmentJob(
@@ -569,6 +585,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Use this operation to stop an existing earth observation job.</p>
    */
   public stopEarthObservationJob(
@@ -601,6 +618,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>Stops the  Vector Enrichment job for a given job ARN.</p>
    */
   public stopVectorEnrichmentJob(
@@ -633,6 +651,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>The resource you want to tag.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -659,6 +678,7 @@ export class SageMakerGeospatial extends SageMakerGeospatialClient {
   }
 
   /**
+   * @public
    * <p>The resource you want to untag.</p>
    */
   public untagResource(

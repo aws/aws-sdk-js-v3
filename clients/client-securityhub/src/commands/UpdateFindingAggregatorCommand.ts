@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateFindingAggregatorRequest,
-  UpdateFindingAggregatorRequestFilterSensitiveLog,
-  UpdateFindingAggregatorResponse,
-  UpdateFindingAggregatorResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateFindingAggregatorCommand,
-  serializeAws_restJson1UpdateFindingAggregatorCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFindingAggregatorRequest, UpdateFindingAggregatorResponse } from "../models/models_2";
+import { de_UpdateFindingAggregatorCommand, se_UpdateFindingAggregatorCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateFindingAggregatorCommand}.
+ */
 export interface UpdateFindingAggregatorCommandInput extends UpdateFindingAggregatorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateFindingAggregatorCommand}.
+ */
 export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggregatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the finding aggregation configuration. Used to update the Region linking mode and the list of included or excluded Regions. You cannot use <code>UpdateFindingAggregator</code> to change the aggregation Region.</p>
  *          <p>You must run <code>UpdateFindingAggregator</code> from the current aggregation Region.
  *       </p>
@@ -38,13 +41,43 @@ export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggre
  * import { SecurityHubClient, UpdateFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // UpdateFindingAggregatorRequest
+ *   FindingAggregatorArn: "STRING_VALUE", // required
+ *   RegionLinkingMode: "STRING_VALUE", // required
+ *   Regions: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateFindingAggregatorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFindingAggregatorCommandInput - {@link UpdateFindingAggregatorCommandInput}
+ * @returns {@link UpdateFindingAggregatorCommandOutput}
  * @see {@link UpdateFindingAggregatorCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingAggregatorCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
  *
  */
 export class UpdateFindingAggregatorCommand extends $Command<
@@ -64,6 +97,9 @@ export class UpdateFindingAggregatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFindingAggregatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +128,8 @@ export class UpdateFindingAggregatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFindingAggregatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFindingAggregatorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +139,18 @@ export class UpdateFindingAggregatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFindingAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFindingAggregatorCommand(input, context);
+    return se_UpdateFindingAggregatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFindingAggregatorCommandOutput> {
-    return deserializeAws_restJson1UpdateFindingAggregatorCommand(output, context);
+    return de_UpdateFindingAggregatorCommand(output, context);
   }
 
   // Start section: command_body_extra

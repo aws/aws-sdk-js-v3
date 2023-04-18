@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { CreateIntegrationAssociationRequest, CreateIntegrationAssociationResponse } from "../models/models_0";
 import {
-  CreateIntegrationAssociationRequest,
-  CreateIntegrationAssociationRequestFilterSensitiveLog,
-  CreateIntegrationAssociationResponse,
-  CreateIntegrationAssociationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateIntegrationAssociationCommand,
-  serializeAws_restJson1CreateIntegrationAssociationCommand,
+  de_CreateIntegrationAssociationCommand,
+  se_CreateIntegrationAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateIntegrationAssociationCommand}.
+ */
 export interface CreateIntegrationAssociationCommandInput extends CreateIntegrationAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateIntegrationAssociationCommand}.
+ */
 export interface CreateIntegrationAssociationCommandOutput
   extends CreateIntegrationAssociationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services resource association with an Amazon Connect
  *    instance.</p>
  * @example
@@ -39,13 +45,42 @@ export interface CreateIntegrationAssociationCommandOutput
  * import { ConnectClient, CreateIntegrationAssociationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateIntegrationAssociationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateIntegrationAssociationRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "CASES_DOMAIN", // required
+ *   IntegrationArn: "STRING_VALUE", // required
+ *   SourceApplicationUrl: "STRING_VALUE",
+ *   SourceApplicationName: "STRING_VALUE",
+ *   SourceType: "SALESFORCE" || "ZENDESK",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateIntegrationAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIntegrationAssociationCommandInput - {@link CreateIntegrationAssociationCommandInput}
+ * @returns {@link CreateIntegrationAssociationCommandOutput}
  * @see {@link CreateIntegrationAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateIntegrationAssociationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link DuplicateResourceException} (client fault)
+ *  <p>A resource with the specified name already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class CreateIntegrationAssociationCommand extends $Command<
@@ -65,6 +100,9 @@ export class CreateIntegrationAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIntegrationAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +131,8 @@ export class CreateIntegrationAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIntegrationAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIntegrationAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +142,21 @@ export class CreateIntegrationAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIntegrationAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIntegrationAssociationCommand(input, context);
+    return se_CreateIntegrationAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIntegrationAssociationCommandOutput> {
-    return deserializeAws_restJson1CreateIntegrationAssociationCommand(output, context);
+    return de_CreateIntegrationAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

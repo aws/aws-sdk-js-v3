@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  ListLogPatternsRequest,
-  ListLogPatternsRequestFilterSensitiveLog,
-  ListLogPatternsResponse,
-  ListLogPatternsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLogPatternsCommand,
-  serializeAws_json1_1ListLogPatternsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLogPatternsRequest, ListLogPatternsResponse } from "../models/models_0";
+import { de_ListLogPatternsCommand, se_ListLogPatternsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListLogPatternsCommand}.
+ */
 export interface ListLogPatternsCommandInput extends ListLogPatternsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLogPatternsCommand}.
+ */
 export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the log patterns in the specific log <code>LogPatternSet</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,31 @@ export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, _
  * import { ApplicationInsightsClient, ListLogPatternsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, ListLogPatternsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // ListLogPatternsRequest
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   PatternSetName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLogPatternsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLogPatternsCommandInput - {@link ListLogPatternsCommandInput}
+ * @returns {@link ListLogPatternsCommandOutput}
  * @see {@link ListLogPatternsCommandInput} for command's `input` shape.
  * @see {@link ListLogPatternsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource does not exist in the customer account.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class ListLogPatternsCommand extends $Command<
@@ -66,6 +87,9 @@ export class ListLogPatternsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLogPatternsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +118,8 @@ export class ListLogPatternsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLogPatternsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLogPatternsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +129,18 @@ export class ListLogPatternsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLogPatternsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLogPatternsCommand(input, context);
+    return se_ListLogPatternsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogPatternsCommandOutput> {
-    return deserializeAws_json1_1ListLogPatternsCommand(output, context);
+    return de_ListLogPatternsCommand(output, context);
   }
 
   // Start section: command_body_extra

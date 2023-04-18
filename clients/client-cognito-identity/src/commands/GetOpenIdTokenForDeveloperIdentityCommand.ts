@@ -17,21 +17,30 @@ import {
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import {
   GetOpenIdTokenForDeveloperIdentityInput,
-  GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog,
   GetOpenIdTokenForDeveloperIdentityResponse,
-  GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand,
-  serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand,
+  de_GetOpenIdTokenForDeveloperIdentityCommand,
+  se_GetOpenIdTokenForDeveloperIdentityCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOpenIdTokenForDeveloperIdentityCommand}.
+ */
 export interface GetOpenIdTokenForDeveloperIdentityCommandInput extends GetOpenIdTokenForDeveloperIdentityInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetOpenIdTokenForDeveloperIdentityCommand}.
+ */
 export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
   extends GetOpenIdTokenForDeveloperIdentityResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect
  *          token for a user authenticated by your backend authentication process. Supplying multiple
  *          logins will create an implicit linked account. You can only specify one developer provider
@@ -51,13 +60,51 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  * import { CognitoIdentityClient, GetOpenIdTokenForDeveloperIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetOpenIdTokenForDeveloperIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // GetOpenIdTokenForDeveloperIdentityInput
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityId: "STRING_VALUE",
+ *   Logins: { // LoginsMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   PrincipalTags: { // PrincipalTags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TokenDuration: Number("long"),
+ * };
  * const command = new GetOpenIdTokenForDeveloperIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOpenIdTokenForDeveloperIdentityCommandInput - {@link GetOpenIdTokenForDeveloperIdentityCommandInput}
+ * @returns {@link GetOpenIdTokenForDeveloperIdentityCommandOutput}
  * @see {@link GetOpenIdTokenForDeveloperIdentityCommandInput} for command's `input` shape.
  * @see {@link GetOpenIdTokenForDeveloperIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
+ *
+ * @throws {@link DeveloperUserAlreadyRegisteredException} (client fault)
+ *  <p>The provided developer user identifier is already registered with Cognito under a
+ *          different identity ID.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>Thrown when a user tries to use a login which is already linked to another
+ *          account.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when the requested resource (for example, a dataset or record) does not
+ *          exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Thrown when a request is throttled.</p>
+ *
  *
  */
 export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
@@ -77,6 +124,9 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOpenIdTokenForDeveloperIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +156,8 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +167,24 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetOpenIdTokenForDeveloperIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand(input, context);
+    return se_GetOpenIdTokenForDeveloperIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOpenIdTokenForDeveloperIdentityCommandOutput> {
-    return deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand(output, context);
+    return de_GetOpenIdTokenForDeveloperIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

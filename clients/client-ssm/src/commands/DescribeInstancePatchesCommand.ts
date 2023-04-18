@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeInstancePatchesRequest,
-  DescribeInstancePatchesRequestFilterSensitiveLog,
-  DescribeInstancePatchesResult,
-  DescribeInstancePatchesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInstancePatchesCommand,
-  serializeAws_json1_1DescribeInstancePatchesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeInstancePatchesRequest, DescribeInstancePatchesResult } from "../models/models_0";
+import { de_DescribeInstancePatchesCommand, se_DescribeInstancePatchesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstancePatchesCommand}.
+ */
 export interface DescribeInstancePatchesCommandInput extends DescribeInstancePatchesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstancePatchesCommand}.
+ */
 export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePatchesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the patches on the specified managed node and their state
  *    relative to the patch baseline being used for the node.</p>
  * @example
@@ -37,13 +40,58 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * import { SSMClient, DescribeInstancePatchesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstancePatchesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeInstancePatchesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Filters: [ // PatchOrchestratorFilterList
+ *     { // PatchOrchestratorFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // PatchOrchestratorFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeInstancePatchesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancePatchesCommandInput - {@link DescribeInstancePatchesCommandInput}
+ * @returns {@link DescribeInstancePatchesCommandOutput}
  * @see {@link DescribeInstancePatchesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancePatchesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilter} (client fault)
+ *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *
+ * @throws {@link InvalidInstanceId} (client fault)
+ *  <p>The following problems can cause this exception:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You don't have permission to access the managed node.</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon Web Services Systems Manager Agent(SSM Agent) isn't running. Verify that SSM Agent is
+ *      running.</p>
+ *             </li>
+ *             <li>
+ *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
+ *             </li>
+ *             <li>
+ *                <p>The managed node isn't in valid state. Valid states are: <code>Running</code>,
+ *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
+ *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
  *
  */
 export class DescribeInstancePatchesCommand extends $Command<
@@ -63,6 +111,9 @@ export class DescribeInstancePatchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancePatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +142,8 @@ export class DescribeInstancePatchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancePatchesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstancePatchesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +153,18 @@ export class DescribeInstancePatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancePatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstancePatchesCommand(input, context);
+    return se_DescribeInstancePatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancePatchesCommandOutput> {
-    return deserializeAws_json1_1DescribeInstancePatchesCommand(output, context);
+    return de_DescribeInstancePatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

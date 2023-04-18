@@ -16,19 +16,26 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import {
   SearchContactsRequest,
-  SearchContactsRequestFilterSensitiveLog,
   SearchContactsResponse,
   SearchContactsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchContactsCommand,
-  serializeAws_json1_1SearchContactsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchContactsCommand, se_SearchContactsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchContactsCommand}.
+ */
 export interface SearchContactsCommandInput extends SearchContactsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchContactsCommand}.
+ */
 export interface SearchContactsCommandOutput extends SearchContactsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches contacts and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -37,13 +44,34 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * import { AlexaForBusinessClient, SearchContactsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SearchContactsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // SearchContactsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SortCriteria: [ // SortList
+ *     { // Sort
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new SearchContactsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchContactsCommandInput - {@link SearchContactsCommandInput}
+ * @returns {@link SearchContactsCommandOutput}
  * @see {@link SearchContactsCommandInput} for command's `input` shape.
  * @see {@link SearchContactsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
  *
  */
 export class SearchContactsCommand extends $Command<
@@ -63,6 +91,9 @@ export class SearchContactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchContactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +122,7 @@ export class SearchContactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchContactsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SearchContactsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -102,12 +133,18 @@ export class SearchContactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchContactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchContactsCommand(input, context);
+    return se_SearchContactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchContactsCommandOutput> {
-    return deserializeAws_json1_1SearchContactsCommand(output, context);
+    return de_SearchContactsCommand(output, context);
   }
 
   // Start section: command_body_extra

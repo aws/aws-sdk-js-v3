@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   CreateVpcEndpointConnectionNotificationRequest,
-  CreateVpcEndpointConnectionNotificationRequestFilterSensitiveLog,
   CreateVpcEndpointConnectionNotificationResult,
-  CreateVpcEndpointConnectionNotificationResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommand,
-  serializeAws_ec2CreateVpcEndpointConnectionNotificationCommand,
+  de_CreateVpcEndpointConnectionNotificationCommand,
+  se_CreateVpcEndpointConnectionNotificationCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateVpcEndpointConnectionNotificationCommand}.
+ */
 export interface CreateVpcEndpointConnectionNotificationCommandInput
   extends CreateVpcEndpointConnectionNotificationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVpcEndpointConnectionNotificationCommand}.
+ */
 export interface CreateVpcEndpointConnectionNotificationCommandOutput
   extends CreateVpcEndpointConnectionNotificationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a connection notification for a specified VPC endpoint or VPC endpoint
  *             service. A connection notification notifies you of specific endpoint events. You must
  *             create an SNS topic to receive notifications. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Create a Topic</a> in
@@ -43,13 +52,26 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  * import { EC2Client, CreateVpcEndpointConnectionNotificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVpcEndpointConnectionNotificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateVpcEndpointConnectionNotificationRequest
+ *   DryRun: true || false,
+ *   ServiceId: "STRING_VALUE",
+ *   VpcEndpointId: "STRING_VALUE",
+ *   ConnectionNotificationArn: "STRING_VALUE", // required
+ *   ConnectionEvents: [ // ValueStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateVpcEndpointConnectionNotificationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcEndpointConnectionNotificationCommandInput - {@link CreateVpcEndpointConnectionNotificationCommandInput}
+ * @returns {@link CreateVpcEndpointConnectionNotificationCommandOutput}
  * @see {@link CreateVpcEndpointConnectionNotificationCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointConnectionNotificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
@@ -69,6 +91,9 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcEndpointConnectionNotificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +128,8 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcEndpointConnectionNotificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcEndpointConnectionNotificationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +139,24 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateVpcEndpointConnectionNotificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVpcEndpointConnectionNotificationCommand(input, context);
+    return se_CreateVpcEndpointConnectionNotificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVpcEndpointConnectionNotificationCommandOutput> {
-    return deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommand(output, context);
+    return de_CreateVpcEndpointConnectionNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

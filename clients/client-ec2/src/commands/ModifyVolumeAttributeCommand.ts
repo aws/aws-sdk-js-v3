@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVolumeAttributeRequest, ModifyVolumeAttributeRequestFilterSensitiveLog } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVolumeAttributeCommand,
-  serializeAws_ec2ModifyVolumeAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyVolumeAttributeRequest } from "../models/models_6";
+import { de_ModifyVolumeAttributeCommand, se_ModifyVolumeAttributeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyVolumeAttributeCommand}.
+ */
 export interface ModifyVolumeAttributeCommandInput extends ModifyVolumeAttributeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyVolumeAttributeCommand}.
+ */
 export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a volume attribute.</p>
  *          <p>By default, all I/O operations for the volume are suspended when the data on the volume is
  *       determined to be potentially inconsistent, to prevent undetectable, latent data corruption.
@@ -37,13 +45,38 @@ export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ModifyVolumeAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVolumeAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVolumeAttributeRequest
+ *   AutoEnableIO: { // AttributeBooleanValue
+ *     Value: true || false,
+ *   },
+ *   VolumeId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyVolumeAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVolumeAttributeCommandInput - {@link ModifyVolumeAttributeCommandInput}
+ * @returns {@link ModifyVolumeAttributeCommandOutput}
  * @see {@link ModifyVolumeAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyVolumeAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To modify a volume attribute
+ * ```javascript
+ * // This example sets the ``autoEnableIo`` attribute of the volume with the ID ``vol-1234567890abcdef0`` to ``true``. If the command succeeds, no output is returned.
+ * const input = {
+ *   "AutoEnableIO": {
+ *     "Value": true
+ *   },
+ *   "DryRun": true,
+ *   "VolumeId": "vol-1234567890abcdef0"
+ * };
+ * const command = new ModifyVolumeAttributeCommand(input);
+ * await client.send(command);
+ * // example id: to-modify-a-volume-attribute-1472508596749
+ * ```
  *
  */
 export class ModifyVolumeAttributeCommand extends $Command<
@@ -63,6 +96,9 @@ export class ModifyVolumeAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVolumeAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +127,8 @@ export class ModifyVolumeAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVolumeAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +138,18 @@ export class ModifyVolumeAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVolumeAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVolumeAttributeCommand(input, context);
+    return se_ModifyVolumeAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVolumeAttributeCommandOutput> {
-    return deserializeAws_ec2ModifyVolumeAttributeCommand(output, context);
+    return de_ModifyVolumeAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

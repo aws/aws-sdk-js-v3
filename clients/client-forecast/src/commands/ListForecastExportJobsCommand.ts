@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  ListForecastExportJobsRequest,
-  ListForecastExportJobsRequestFilterSensitiveLog,
-  ListForecastExportJobsResponse,
-  ListForecastExportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListForecastExportJobsCommand,
-  serializeAws_json1_1ListForecastExportJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListForecastExportJobsRequest, ListForecastExportJobsResponse } from "../models/models_0";
+import { de_ListForecastExportJobsCommand, se_ListForecastExportJobsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListForecastExportJobsCommand}.
+ */
 export interface ListForecastExportJobsCommandInput extends ListForecastExportJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListForecastExportJobsCommand}.
+ */
 export interface ListForecastExportJobsCommandOutput extends ListForecastExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of forecast export jobs created using the <a>CreateForecastExportJob</a> operation. For each forecast export job, this operation
  *       returns a summary of its properties, including its Amazon Resource Name (ARN). To retrieve the
  *       complete set of properties, use the ARN with the <a>DescribeForecastExportJob</a>
@@ -39,13 +42,34 @@ export interface ListForecastExportJobsCommandOutput extends ListForecastExportJ
  * import { ForecastClient, ListForecastExportJobsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListForecastExportJobsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // ListForecastExportJobsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Condition: "IS" || "IS_NOT", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListForecastExportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListForecastExportJobsCommandInput - {@link ListForecastExportJobsCommandInput}
+ * @returns {@link ListForecastExportJobsCommandOutput}
  * @see {@link ListForecastExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListForecastExportJobsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
  *
  */
 export class ListForecastExportJobsCommand extends $Command<
@@ -65,6 +89,9 @@ export class ListForecastExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListForecastExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +120,8 @@ export class ListForecastExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListForecastExportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListForecastExportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +131,18 @@ export class ListForecastExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListForecastExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListForecastExportJobsCommand(input, context);
+    return se_ListForecastExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListForecastExportJobsCommandOutput> {
-    return deserializeAws_json1_1ListForecastExportJobsCommand(output, context);
+    return de_ListForecastExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

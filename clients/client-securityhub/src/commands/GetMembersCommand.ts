@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetMembersRequest,
-  GetMembersRequestFilterSensitiveLog,
-  GetMembersResponse,
-  GetMembersResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1GetMembersCommand,
-  serializeAws_restJson1GetMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMembersRequest, GetMembersResponse } from "../models/models_2";
+import { de_GetMembersCommand, se_GetMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMembersCommand}.
+ */
 export interface GetMembersCommandInput extends GetMembersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetMembersCommand}.
+ */
 export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details for the Security Hub member accounts for the specified account IDs.</p>
  *          <p>An administrator account can be either the delegated Security Hub administrator account for an
  *          organization or an administrator account that enabled Security Hub manually.</p>
@@ -40,13 +43,38 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * import { SecurityHubClient, GetMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // GetMembersRequest
+ *   AccountIds: [ // AccountIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMembersCommandInput - {@link GetMembersCommandInput}
+ * @returns {@link GetMembersCommandOutput}
  * @see {@link GetMembersCommandInput} for command's `input` shape.
  * @see {@link GetMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
  *
  */
 export class GetMembersCommand extends $Command<
@@ -66,6 +94,9 @@ export class GetMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class GetMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +134,18 @@ export class GetMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMembersCommand(input, context);
+    return se_GetMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMembersCommandOutput> {
-    return deserializeAws_restJson1GetMembersCommand(output, context);
+    return de_GetMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

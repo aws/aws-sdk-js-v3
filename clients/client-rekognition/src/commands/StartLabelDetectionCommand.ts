@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartLabelDetectionRequest,
-  StartLabelDetectionRequestFilterSensitiveLog,
-  StartLabelDetectionResponse,
-  StartLabelDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartLabelDetectionCommand,
-  serializeAws_json1_1StartLabelDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartLabelDetectionRequest, StartLabelDetectionResponse } from "../models/models_0";
+import { de_StartLabelDetectionCommand, se_StartLabelDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartLabelDetectionCommand}.
+ */
 export interface StartLabelDetectionCommandInput extends StartLabelDetectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartLabelDetectionCommand}.
+ */
 export interface StartLabelDetectionCommandOutput extends StartLabelDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts asynchronous detection of labels in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect labels in a video. Labels are instances of real-world entities.
  *        This includes objects like flower, tree, and table; events like
@@ -60,13 +63,84 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  * import { RekognitionClient, StartLabelDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartLabelDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartLabelDetectionRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   MinConfidence: Number("float"),
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ *   Features: [ // LabelDetectionFeatureList
+ *     "GENERAL_LABELS",
+ *   ],
+ *   Settings: { // LabelDetectionSettings
+ *     GeneralLabels: { // GeneralLabelsSettings
+ *       LabelInclusionFilters: [ // GeneralLabelsFilterList
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelExclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelCategoryInclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelCategoryExclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new StartLabelDetectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartLabelDetectionCommandInput - {@link StartLabelDetectionCommandInput}
+ * @returns {@link StartLabelDetectionCommandOutput}
  * @see {@link StartLabelDetectionCommandInput} for command's `input` shape.
  * @see {@link StartLabelDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input
+ *         parameters is different from the previous call to the operation.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
+ *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
+ *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link VideoTooLargeException} (client fault)
+ *  <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
+ *         The maximum duration is 6 hours. </p>
+ *
  *
  */
 export class StartLabelDetectionCommand extends $Command<
@@ -86,6 +160,9 @@ export class StartLabelDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartLabelDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +191,8 @@ export class StartLabelDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartLabelDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartLabelDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +202,18 @@ export class StartLabelDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartLabelDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartLabelDetectionCommand(input, context);
+    return se_StartLabelDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartLabelDetectionCommandOutput> {
-    return deserializeAws_json1_1StartLabelDetectionCommand(output, context);
+    return de_StartLabelDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

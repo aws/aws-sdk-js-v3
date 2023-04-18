@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  RestoreFromSnapshotRequest,
-  RestoreFromSnapshotRequestFilterSensitiveLog,
-  RestoreFromSnapshotResult,
-  RestoreFromSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreFromSnapshotCommand,
-  serializeAws_json1_1RestoreFromSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { RestoreFromSnapshotRequest, RestoreFromSnapshotResult } from "../models/models_0";
+import { de_RestoreFromSnapshotCommand, se_RestoreFromSnapshotCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RestoreFromSnapshotCommand}.
+ */
 export interface RestoreFromSnapshotCommandInput extends RestoreFromSnapshotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RestoreFromSnapshotCommand}.
+ */
 export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a directory using an existing directory snapshot.</p>
  *          <p>When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.</p>
  *          <p>This action returns as soon as the restore operation is initiated. You can monitor the
@@ -41,13 +44,31 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * import { DirectoryServiceClient, RestoreFromSnapshotCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RestoreFromSnapshotCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // RestoreFromSnapshotRequest
+ *   SnapshotId: "STRING_VALUE", // required
+ * };
  * const command = new RestoreFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreFromSnapshotCommandInput - {@link RestoreFromSnapshotCommandInput}
+ * @returns {@link RestoreFromSnapshotCommandOutput}
  * @see {@link RestoreFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
  *
  */
 export class RestoreFromSnapshotCommand extends $Command<
@@ -67,6 +88,9 @@ export class RestoreFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +119,8 @@ export class RestoreFromSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreFromSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreFromSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +130,18 @@ export class RestoreFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreFromSnapshotCommand(input, context);
+    return se_RestoreFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreFromSnapshotCommandOutput> {
-    return deserializeAws_json1_1RestoreFromSnapshotCommand(output, context);
+    return de_RestoreFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

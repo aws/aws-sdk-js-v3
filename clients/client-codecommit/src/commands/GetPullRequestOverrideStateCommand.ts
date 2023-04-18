@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetPullRequestOverrideStateInput,
-  GetPullRequestOverrideStateInputFilterSensitiveLog,
-  GetPullRequestOverrideStateOutput,
-  GetPullRequestOverrideStateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPullRequestOverrideStateCommand,
-  serializeAws_json1_1GetPullRequestOverrideStateCommand,
-} from "../protocols/Aws_json1_1";
+import { GetPullRequestOverrideStateInput, GetPullRequestOverrideStateOutput } from "../models/models_0";
+import { de_GetPullRequestOverrideStateCommand, se_GetPullRequestOverrideStateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPullRequestOverrideStateCommand}.
+ */
 export interface GetPullRequestOverrideStateCommandInput extends GetPullRequestOverrideStateInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetPullRequestOverrideStateCommand}.
+ */
 export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequestOverrideStateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about whether approval rules have been set aside (overridden) for a
  *             pull request, and if so, the Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.</p>
  * @example
@@ -37,13 +40,50 @@ export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequest
  * import { CodeCommitClient, GetPullRequestOverrideStateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetPullRequestOverrideStateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetPullRequestOverrideStateInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE", // required
+ * };
  * const command = new GetPullRequestOverrideStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPullRequestOverrideStateCommandInput - {@link GetPullRequestOverrideStateCommandInput}
+ * @returns {@link GetPullRequestOverrideStateCommandOutput}
  * @see {@link GetPullRequestOverrideStateCommandInput} for command's `input` shape.
  * @see {@link GetPullRequestOverrideStateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidPullRequestIdException} (client fault)
+ *  <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+ *
+ * @throws {@link InvalidRevisionIdException} (client fault)
+ *  <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
+ *
+ * @throws {@link PullRequestDoesNotExistException} (client fault)
+ *  <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+ *
+ * @throws {@link PullRequestIdRequiredException} (client fault)
+ *  <p>A pull request ID is required, but none was provided.</p>
+ *
+ * @throws {@link RevisionIdRequiredException} (client fault)
+ *  <p>A revision ID is required, but was not provided.</p>
+ *
  *
  */
 export class GetPullRequestOverrideStateCommand extends $Command<
@@ -63,6 +103,9 @@ export class GetPullRequestOverrideStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPullRequestOverrideStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +134,8 @@ export class GetPullRequestOverrideStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPullRequestOverrideStateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPullRequestOverrideStateOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +145,21 @@ export class GetPullRequestOverrideStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPullRequestOverrideStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPullRequestOverrideStateCommand(input, context);
+    return se_GetPullRequestOverrideStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPullRequestOverrideStateCommandOutput> {
-    return deserializeAws_json1_1GetPullRequestOverrideStateCommand(output, context);
+    return de_GetPullRequestOverrideStateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateVolumeRequest,
-  CreateVolumeRequestFilterSensitiveLog,
-  CreateVolumeResponse,
-  CreateVolumeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVolumeCommand,
-  serializeAws_json1_1CreateVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateVolumeRequest, CreateVolumeResponse } from "../models/models_0";
+import { de_CreateVolumeCommand, se_CreateVolumeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateVolumeCommand}.
+ */
 export interface CreateVolumeCommandInput extends CreateVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVolumeCommand}.
+ */
 export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,100 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * import { FSxClient, CreateVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // CreateVolumeRequest
+ *   ClientRequestToken: "STRING_VALUE",
+ *   VolumeType: "ONTAP" || "OPENZFS", // required
+ *   Name: "STRING_VALUE", // required
+ *   OntapConfiguration: { // CreateOntapVolumeConfiguration
+ *     JunctionPath: "STRING_VALUE",
+ *     SecurityStyle: "UNIX" || "NTFS" || "MIXED",
+ *     SizeInMegabytes: Number("int"), // required
+ *     StorageEfficiencyEnabled: true || false,
+ *     StorageVirtualMachineId: "STRING_VALUE", // required
+ *     TieringPolicy: { // TieringPolicy
+ *       CoolingPeriod: Number("int"),
+ *       Name: "SNAPSHOT_ONLY" || "AUTO" || "ALL" || "NONE",
+ *     },
+ *     OntapVolumeType: "RW" || "DP",
+ *     SnapshotPolicy: "STRING_VALUE",
+ *     CopyTagsToBackups: true || false,
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   OpenZFSConfiguration: { // CreateOpenZFSVolumeConfiguration
+ *     ParentVolumeId: "STRING_VALUE", // required
+ *     StorageCapacityReservationGiB: Number("int"),
+ *     StorageCapacityQuotaGiB: Number("int"),
+ *     RecordSizeKiB: Number("int"),
+ *     DataCompressionType: "NONE" || "ZSTD" || "LZ4",
+ *     CopyTagsToSnapshots: true || false,
+ *     OriginSnapshot: { // CreateOpenZFSOriginSnapshotConfiguration
+ *       SnapshotARN: "STRING_VALUE", // required
+ *       CopyStrategy: "CLONE" || "FULL_COPY", // required
+ *     },
+ *     ReadOnly: true || false,
+ *     NfsExports: [ // OpenZFSNfsExports
+ *       { // OpenZFSNfsExport
+ *         ClientConfigurations: [ // OpenZFSClientConfigurations // required
+ *           { // OpenZFSClientConfiguration
+ *             Clients: "STRING_VALUE", // required
+ *             Options: [ // OpenZFSNfsExportOptions // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     UserAndGroupQuotas: [ // OpenZFSUserAndGroupQuotas
+ *       { // OpenZFSUserOrGroupQuota
+ *         Type: "USER" || "GROUP", // required
+ *         Id: Number("int"), // required
+ *         StorageCapacityQuotaGiB: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVolumeCommandInput - {@link CreateVolumeCommandInput}
+ * @returns {@link CreateVolumeCommandOutput}
  * @see {@link CreateVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateVolumeCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link MissingVolumeConfiguration} (client fault)
+ *  <p>A volume configuration is required for this operation.</p>
+ *
+ * @throws {@link ServiceLimitExceeded} (client fault)
+ *  <p>An error indicating that a particular service limit was exceeded. You can increase
+ *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * @throws {@link StorageVirtualMachineNotFound} (client fault)
+ *  <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>The requested operation is not supported for this resource or API.</p>
+ *
  *
  */
 export class CreateVolumeCommand extends $Command<
@@ -62,6 +152,9 @@ export class CreateVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +181,8 @@ export class CreateVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVolumeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +192,18 @@ export class CreateVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVolumeCommand(input, context);
+    return se_CreateVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVolumeCommandOutput> {
-    return deserializeAws_json1_1CreateVolumeCommand(output, context);
+    return de_CreateVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

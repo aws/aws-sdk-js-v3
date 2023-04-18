@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListUpdatesCommand, ListUpdatesCommandInput, ListUpdatesCommandOutput } from "../commands/ListUpdatesCommand";
-import { EKS } from "../EKS";
 import { EKSClient } from "../EKSClient";
 import { EKSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EKSClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListUpdatesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EKS,
-  input: ListUpdatesCommandInput,
-  ...args: any
-): Promise<ListUpdatesCommandOutput> => {
-  // @ts-ignore
-  return await client.listUpdates(input, ...args);
-};
 export async function* paginateListUpdates(
   config: EKSPaginationConfiguration,
   input: ListUpdatesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListUpdates(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof EKS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EKSClient) {
+    if (config.client instanceof EKSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EKS | EKSClient");

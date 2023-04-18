@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DescribeLogStreamsRequest,
-  DescribeLogStreamsRequestFilterSensitiveLog,
-  DescribeLogStreamsResponse,
-  DescribeLogStreamsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLogStreamsCommand,
-  serializeAws_json1_1DescribeLogStreamsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLogStreamsRequest, DescribeLogStreamsResponse } from "../models/models_0";
+import { de_DescribeLogStreamsCommand, se_DescribeLogStreamsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLogStreamsCommand}.
+ */
 export interface DescribeLogStreamsCommandInput extends DescribeLogStreamsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLogStreamsCommand}.
+ */
 export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the log streams for the specified log group.
  *       You can list all the log streams or filter the results by prefix.
  *       You can also control how the results are ordered.</p>
@@ -45,13 +48,34 @@ export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsRespo
  * import { CloudWatchLogsClient, DescribeLogStreamsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeLogStreamsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeLogStreamsRequest
+ *   logGroupName: "STRING_VALUE",
+ *   logGroupIdentifier: "STRING_VALUE",
+ *   logStreamNamePrefix: "STRING_VALUE",
+ *   orderBy: "LogStreamName" || "LastEventTime",
+ *   descending: true || false,
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new DescribeLogStreamsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLogStreamsCommandInput - {@link DescribeLogStreamsCommandInput}
+ * @returns {@link DescribeLogStreamsCommandOutput}
  * @see {@link DescribeLogStreamsCommandInput} for command's `input` shape.
  * @see {@link DescribeLogStreamsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class DescribeLogStreamsCommand extends $Command<
@@ -71,6 +95,9 @@ export class DescribeLogStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLogStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +126,8 @@ export class DescribeLogStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLogStreamsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLogStreamsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +137,18 @@ export class DescribeLogStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLogStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLogStreamsCommand(input, context);
+    return se_DescribeLogStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLogStreamsCommandOutput> {
-    return deserializeAws_json1_1DescribeLogStreamsCommand(output, context);
+    return de_DescribeLogStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

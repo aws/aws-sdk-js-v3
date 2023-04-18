@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  GetWorkflowStepRequest,
-  GetWorkflowStepRequestFilterSensitiveLog,
-  GetWorkflowStepResponse,
-  GetWorkflowStepResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkflowStepCommand,
-  serializeAws_restJson1GetWorkflowStepCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWorkflowStepRequest, GetWorkflowStepResponse } from "../models/models_0";
+import { de_GetWorkflowStepCommand, se_GetWorkflowStepCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetWorkflowStepCommand}.
+ */
 export interface GetWorkflowStepCommandInput extends GetWorkflowStepRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetWorkflowStepCommand}.
+ */
 export interface GetWorkflowStepCommandOutput extends GetWorkflowStepResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a step in the migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,33 @@ export interface GetWorkflowStepCommandOutput extends GetWorkflowStepResponse, _
  * import { MigrationHubOrchestratorClient, GetWorkflowStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, GetWorkflowStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // GetWorkflowStepRequest
+ *   workflowId: "STRING_VALUE", // required
+ *   stepGroupId: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetWorkflowStepCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkflowStepCommandInput - {@link GetWorkflowStepCommandInput}
+ * @returns {@link GetWorkflowStepCommandOutput}
  * @see {@link GetWorkflowStepCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class GetWorkflowStepCommand extends $Command<
@@ -66,6 +89,9 @@ export class GetWorkflowStepCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkflowStepCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +120,8 @@ export class GetWorkflowStepCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkflowStepRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkflowStepResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +131,18 @@ export class GetWorkflowStepCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkflowStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkflowStepCommand(input, context);
+    return se_GetWorkflowStepCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowStepCommandOutput> {
-    return deserializeAws_restJson1GetWorkflowStepCommand(output, context);
+    return de_GetWorkflowStepCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEngineDefaultParametersMessage,
-  DescribeEngineDefaultParametersMessageFilterSensitiveLog,
-  DescribeEngineDefaultParametersResult,
-  DescribeEngineDefaultParametersResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryDescribeEngineDefaultParametersCommand,
-  serializeAws_queryDescribeEngineDefaultParametersCommand,
+  de_DescribeEngineDefaultParametersCommand,
+  se_DescribeEngineDefaultParametersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEngineDefaultParametersCommand}.
+ */
 export interface DescribeEngineDefaultParametersCommandInput extends DescribeEngineDefaultParametersMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEngineDefaultParametersCommand}.
+ */
 export interface DescribeEngineDefaultParametersCommandOutput
   extends DescribeEngineDefaultParametersResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the default engine and system parameter information for the specified database
  *       engine.</p>
  * @example
@@ -39,13 +45,29 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * import { NeptuneClient, DescribeEngineDefaultParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeEngineDefaultParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DescribeEngineDefaultParametersMessage
+ *   DBParameterGroupFamily: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEngineDefaultParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEngineDefaultParametersCommandInput - {@link DescribeEngineDefaultParametersCommandInput}
+ * @returns {@link DescribeEngineDefaultParametersCommandOutput}
  * @see {@link DescribeEngineDefaultParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineDefaultParametersCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
  *
  */
 export class DescribeEngineDefaultParametersCommand extends $Command<
@@ -65,6 +87,9 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEngineDefaultParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +118,8 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEngineDefaultParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEngineDefaultParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +129,24 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEngineDefaultParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEngineDefaultParametersCommand(input, context);
+    return se_DescribeEngineDefaultParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEngineDefaultParametersCommandOutput> {
-    return deserializeAws_queryDescribeEngineDefaultParametersCommand(output, context);
+    return de_DescribeEngineDefaultParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

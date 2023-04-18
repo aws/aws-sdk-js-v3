@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  AddPermissionRequest,
-  AddPermissionRequestFilterSensitiveLog,
-  AddPermissionResponse,
-  AddPermissionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AddPermissionCommand,
-  serializeAws_restJson1AddPermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { AddPermissionRequest, AddPermissionResponse } from "../models/models_0";
+import { de_AddPermissionCommand, se_AddPermissionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link AddPermissionCommand}.
+ */
 export interface AddPermissionCommandInput extends AddPermissionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AddPermissionCommand}.
+ */
 export interface AddPermissionCommandOutput extends AddPermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants an Amazon Web Service, Amazon Web Services account, or Amazon Web Services organization
  *       permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict
  *       access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name
@@ -48,13 +51,51 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  * import { LambdaClient, AddPermissionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, AddPermissionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // AddPermissionRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   StatementId: "STRING_VALUE", // required
+ *   Action: "STRING_VALUE", // required
+ *   Principal: "STRING_VALUE", // required
+ *   SourceArn: "STRING_VALUE",
+ *   SourceAccount: "STRING_VALUE",
+ *   EventSourceToken: "STRING_VALUE",
+ *   Qualifier: "STRING_VALUE",
+ *   RevisionId: "STRING_VALUE",
+ *   PrincipalOrgID: "STRING_VALUE",
+ *   FunctionUrlAuthType: "NONE" || "AWS_IAM",
+ * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddPermissionCommandInput - {@link AddPermissionCommandInput}
+ * @returns {@link AddPermissionCommandOutput}
  * @see {@link AddPermissionCommandInput} for command's `input` shape.
  * @see {@link AddPermissionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link PolicyLengthExceededException} (client fault)
+ *  <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code>
+ *       API operation to retrieve the latest RevisionId for your resource.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>The resource already exists, or another operation is in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
  *
  */
 export class AddPermissionCommand extends $Command<
@@ -74,6 +115,9 @@ export class AddPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +144,8 @@ export class AddPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddPermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddPermissionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +155,18 @@ export class AddPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddPermissionCommand(input, context);
+    return se_AddPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPermissionCommandOutput> {
-    return deserializeAws_restJson1AddPermissionCommand(output, context);
+    return de_AddPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,18 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBParameterGroupDetails, DBParameterGroupDetailsFilterSensitiveLog } from "../models/models_0";
-import { DescribeDBParametersMessage, DescribeDBParametersMessageFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBParametersCommand,
-  serializeAws_queryDescribeDBParametersCommand,
-} from "../protocols/Aws_query";
+import { DBParameterGroupDetails, DescribeDBParametersMessage } from "../models/models_1";
+import { de_DescribeDBParametersCommand, se_DescribeDBParametersCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDBParametersCommand}.
+ */
 export interface DescribeDBParametersCommandInput extends DescribeDBParametersMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDBParametersCommand}.
+ */
 export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the detailed parameter list for a particular DB parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -32,13 +39,72 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * import { RDSClient, DescribeDBParametersCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBParametersCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBParametersMessage
+ *   DBParameterGroupName: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBParametersCommandInput - {@link DescribeDBParametersCommandInput}
+ * @returns {@link DescribeDBParametersCommandOutput}
  * @see {@link DescribeDBParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an
+ *         existing DB parameter group.</p>
+ *
+ *
+ * @example To describe the parameters in a DB parameter group
+ * ```javascript
+ * // The following example retrieves the details of the specified DB parameter group.
+ * const input = {
+ *   "DBParameterGroupName": "mydbpg"
+ * };
+ * const command = new DescribeDBParametersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Parameters": [
+ *     {
+ *       "AllowedValues": "0,1",
+ *       "ApplyMethod": "pending-reboot",
+ *       "ApplyType": "static",
+ *       "DataType": "boolean",
+ *       "Description": "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
+ *       "IsModifiable": false,
+ *       "ParameterName": "allow-suspicious-udfs",
+ *       "Source": "engine-default"
+ *     },
+ *     {
+ *       "AllowedValues": "0,1",
+ *       "ApplyMethod": "pending-reboot",
+ *       "ApplyType": "static",
+ *       "DataType": "boolean",
+ *       "Description": "Controls whether the server autogenerates SSL key and certificate files in the data directory, if they do not already exist.",
+ *       "IsModifiable": false,
+ *       "ParameterName": "auto_generate_certs",
+ *       "Source": "engine-default"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-parameters-in-a-db-parameter-group-1680279500600
+ * ```
  *
  */
 export class DescribeDBParametersCommand extends $Command<
@@ -58,6 +124,9 @@ export class DescribeDBParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +155,8 @@ export class DescribeDBParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBParameterGroupDetailsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +166,18 @@ export class DescribeDBParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBParametersCommand(input, context);
+    return se_DescribeDBParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBParametersCommandOutput> {
-    return deserializeAws_queryDescribeDBParametersCommand(output, context);
+    return de_DescribeDBParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

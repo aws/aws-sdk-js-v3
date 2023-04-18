@@ -6,12 +6,11 @@ import {
   ListUserAccessLoggingSettingsCommandInput,
   ListUserAccessLoggingSettingsCommandOutput,
 } from "../commands/ListUserAccessLoggingSettingsCommand";
-import { WorkSpacesWeb } from "../WorkSpacesWeb";
 import { WorkSpacesWebClient } from "../WorkSpacesWebClient";
 import { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkSpacesWebClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListUserAccessLoggingSettingsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: WorkSpacesWeb,
-  input: ListUserAccessLoggingSettingsCommandInput,
-  ...args: any
-): Promise<ListUserAccessLoggingSettingsCommandOutput> => {
-  // @ts-ignore
-  return await client.listUserAccessLoggingSettings(input, ...args);
-};
 export async function* paginateListUserAccessLoggingSettings(
   config: WorkSpacesWebPaginationConfiguration,
   input: ListUserAccessLoggingSettingsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListUserAccessLoggingSettings(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof WorkSpacesWeb) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WorkSpacesWebClient) {
+    if (config.client instanceof WorkSpacesWebClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WorkSpacesWeb | WorkSpacesWebClient");

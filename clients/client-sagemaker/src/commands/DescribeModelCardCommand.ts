@@ -15,20 +15,27 @@ import {
 
 import {
   DescribeModelCardRequest,
-  DescribeModelCardRequestFilterSensitiveLog,
   DescribeModelCardResponse,
   DescribeModelCardResponseFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeModelCardCommand,
-  serializeAws_json1_1DescribeModelCardCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeModelCardCommand, se_DescribeModelCardCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeModelCardCommand}.
+ */
 export interface DescribeModelCardCommandInput extends DescribeModelCardRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeModelCardCommand}.
+ */
 export interface DescribeModelCardCommandOutput extends DescribeModelCardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the content, creation time, and security configuration of an Amazon SageMaker Model Card.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,23 @@ export interface DescribeModelCardCommandOutput extends DescribeModelCardRespons
  * import { SageMakerClient, DescribeModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeModelCardRequest
+ *   ModelCardName: "STRING_VALUE", // required
+ *   ModelCardVersion: Number("int"),
+ * };
  * const command = new DescribeModelCardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelCardCommandInput - {@link DescribeModelCardCommandInput}
+ * @returns {@link DescribeModelCardCommandOutput}
  * @see {@link DescribeModelCardCommandInput} for command's `input` shape.
  * @see {@link DescribeModelCardCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeModelCardCommand extends $Command<
@@ -62,6 +79,9 @@ export class DescribeModelCardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelCardCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +110,7 @@ export class DescribeModelCardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelCardRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeModelCardResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +121,18 @@ export class DescribeModelCardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelCardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelCardCommand(input, context);
+    return se_DescribeModelCardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelCardCommandOutput> {
-    return deserializeAws_json1_1DescribeModelCardCommand(output, context);
+    return de_DescribeModelCardCommand(output, context);
   }
 
   // Start section: command_body_extra

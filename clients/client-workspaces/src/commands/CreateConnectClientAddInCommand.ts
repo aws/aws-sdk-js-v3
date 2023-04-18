@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateConnectClientAddInRequest,
-  CreateConnectClientAddInRequestFilterSensitiveLog,
-  CreateConnectClientAddInResult,
-  CreateConnectClientAddInResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateConnectClientAddInCommand,
-  serializeAws_json1_1CreateConnectClientAddInCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateConnectClientAddInRequest, CreateConnectClientAddInResult } from "../models/models_0";
+import { de_CreateConnectClientAddInCommand, se_CreateConnectClientAddInCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateConnectClientAddInCommand}.
+ */
 export interface CreateConnectClientAddInCommandInput extends CreateConnectClientAddInRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateConnectClientAddInCommand}.
+ */
 export interface CreateConnectClientAddInCommandOutput extends CreateConnectClientAddInResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a client-add-in for Amazon Connect within a directory. You can create only
  *          one Amazon Connect client add-in within a directory.</p>
  *          <p>This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.</p>
@@ -38,13 +41,36 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
  * import { WorkSpacesClient, CreateConnectClientAddInCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateConnectClientAddInCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // CreateConnectClientAddInRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   URL: "STRING_VALUE", // required
+ * };
  * const command = new CreateConnectClientAddInCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectClientAddInCommandInput - {@link CreateConnectClientAddInCommandInput}
+ * @returns {@link CreateConnectClientAddInCommandOutput}
  * @see {@link CreateConnectClientAddInCommandInput} for command's `input` shape.
  * @see {@link CreateConnectClientAddInCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceCreationFailedException} (client fault)
+ *  <p>The resource could not be created.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class CreateConnectClientAddInCommand extends $Command<
@@ -64,6 +90,9 @@ export class CreateConnectClientAddInCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectClientAddInCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class CreateConnectClientAddInCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectClientAddInRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectClientAddInResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +132,18 @@ export class CreateConnectClientAddInCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectClientAddInCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateConnectClientAddInCommand(input, context);
+    return se_CreateConnectClientAddInCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectClientAddInCommandOutput> {
-    return deserializeAws_json1_1CreateConnectClientAddInCommand(output, context);
+    return de_CreateConnectClientAddInCommand(output, context);
   }
 
   // Start section: command_body_extra

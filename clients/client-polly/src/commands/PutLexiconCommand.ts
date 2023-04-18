@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutLexiconInput,
-  PutLexiconInputFilterSensitiveLog,
-  PutLexiconOutput,
-  PutLexiconOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutLexiconInput, PutLexiconInputFilterSensitiveLog, PutLexiconOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1PutLexiconCommand,
-  serializeAws_restJson1PutLexiconCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutLexiconCommand, se_PutLexiconCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutLexiconCommand}.
+ */
 export interface PutLexiconCommandInput extends PutLexiconInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutLexiconCommand}.
+ */
 export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stores a pronunciation lexicon in an Amazon Web Services Region. If
  *       a lexicon with the same name already exists in the region, it is
  *       overwritten by the new lexicon. Lexicon operations have eventual
@@ -41,13 +44,59 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * import { PollyClient, PutLexiconCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, PutLexiconCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
+ * const input = { // PutLexiconInput
+ *   Name: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE", // required
+ * };
  * const command = new PutLexiconCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLexiconCommandInput - {@link PutLexiconCommandInput}
+ * @returns {@link PutLexiconCommandOutput}
  * @see {@link PutLexiconCommandInput} for command's `input` shape.
  * @see {@link PutLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
+ *
+ * @throws {@link InvalidLexiconException} (client fault)
+ *  <p>Amazon Polly can't find the specified lexicon. Verify that the lexicon's
+ *       name is spelled correctly, and then try again.</p>
+ *
+ * @throws {@link LexiconSizeExceededException} (client fault)
+ *  <p>The maximum size of the specified lexicon would be exceeded by this
+ *       operation.</p>
+ *
+ * @throws {@link MaxLexemeLengthExceededException} (client fault)
+ *  <p>The maximum size of the lexeme would be exceeded by this
+ *       operation.</p>
+ *
+ * @throws {@link MaxLexiconsNumberExceededException} (client fault)
+ *  <p>The maximum number of lexicons would be exceeded by this
+ *       operation.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>An unknown condition has caused a service failure.</p>
+ *
+ * @throws {@link UnsupportedPlsAlphabetException} (client fault)
+ *  <p>The alphabet specified by the lexicon is not a supported alphabet.
+ *       Valid values are <code>x-sampa</code> and <code>ipa</code>.</p>
+ *
+ * @throws {@link UnsupportedPlsLanguageException} (client fault)
+ *  <p>The language specified in the lexicon is unsupported. For a list of
+ *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
+ *
+ *
+ * @example To save a lexicon
+ * ```javascript
+ * // Stores a pronunciation lexicon in an AWS Region.
+ * const input = {
+ *   "Content": "file://example.pls",
+ *   "Name": "W3C"
+ * };
+ * const command = new PutLexiconCommand(input);
+ * await client.send(command);
+ * // example id: to-save-a-lexicon-1482272584088
+ * ```
  *
  */
 export class PutLexiconCommand extends $Command<
@@ -67,6 +116,9 @@ export class PutLexiconCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLexiconCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +146,7 @@ export class PutLexiconCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutLexiconInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLexiconOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +156,18 @@ export class PutLexiconCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLexiconCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutLexiconCommand(input, context);
+    return se_PutLexiconCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLexiconCommandOutput> {
-    return deserializeAws_restJson1PutLexiconCommand(output, context);
+    return de_PutLexiconCommand(output, context);
   }
 
   // Start section: command_body_extra

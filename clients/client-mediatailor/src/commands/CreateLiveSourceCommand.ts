@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  CreateLiveSourceRequest,
-  CreateLiveSourceRequestFilterSensitiveLog,
-  CreateLiveSourceResponse,
-  CreateLiveSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLiveSourceCommand,
-  serializeAws_restJson1CreateLiveSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateLiveSourceRequest, CreateLiveSourceResponse } from "../models/models_0";
+import { de_CreateLiveSourceCommand, se_CreateLiveSourceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLiveSourceCommand}.
+ */
 export interface CreateLiveSourceCommandInput extends CreateLiveSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLiveSourceCommand}.
+ */
 export interface CreateLiveSourceCommandOutput extends CreateLiveSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The live source configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface CreateLiveSourceCommandOutput extends CreateLiveSourceResponse,
  * import { MediaTailorClient, CreateLiveSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateLiveSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // CreateLiveSourceRequest
+ *   HttpPackageConfigurations: [ // HttpPackageConfigurations // required
+ *     { // HttpPackageConfiguration
+ *       Path: "STRING_VALUE", // required
+ *       SourceGroup: "STRING_VALUE", // required
+ *       Type: "DASH" || "HLS", // required
+ *     },
+ *   ],
+ *   LiveSourceName: "STRING_VALUE", // required
+ *   SourceLocationName: "STRING_VALUE", // required
+ *   Tags: { // __mapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLiveSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLiveSourceCommandInput - {@link CreateLiveSourceCommandInput}
+ * @returns {@link CreateLiveSourceCommandOutput}
  * @see {@link CreateLiveSourceCommandInput} for command's `input` shape.
  * @see {@link CreateLiveSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
  *
  */
 export class CreateLiveSourceCommand extends $Command<
@@ -62,6 +82,9 @@ export class CreateLiveSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLiveSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class CreateLiveSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLiveSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLiveSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class CreateLiveSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLiveSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLiveSourceCommand(input, context);
+    return se_CreateLiveSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLiveSourceCommandOutput> {
-    return deserializeAws_restJson1CreateLiveSourceCommand(output, context);
+    return de_CreateLiveSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateVolumeRequest,
-  CreateVolumeRequestFilterSensitiveLog,
-  Volume,
-  VolumeFilterSensitiveLog,
-} from "../models/models_2";
-import { deserializeAws_ec2CreateVolumeCommand, serializeAws_ec2CreateVolumeCommand } from "../protocols/Aws_ec2";
+import { CreateVolumeRequest, Volume } from "../models/models_2";
+import { de_CreateVolumeCommand, se_CreateVolumeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateVolumeCommand}.
+ */
 export interface CreateVolumeCommandInput extends CreateVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVolumeCommand}.
+ */
 export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>
  *          <p>You can create a new empty volume or restore a volume from an EBS snapshot.
  *       Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p>
@@ -43,13 +49,95 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * import { EC2Client, CreateVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateVolumeRequest
+ *   AvailabilityZone: "STRING_VALUE", // required
+ *   Encrypted: true || false,
+ *   Iops: Number("int"),
+ *   KmsKeyId: "STRING_VALUE",
+ *   OutpostArn: "STRING_VALUE",
+ *   Size: Number("int"),
+ *   SnapshotId: "STRING_VALUE",
+ *   VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ *   DryRun: true || false,
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MultiAttachEnabled: true || false,
+ *   Throughput: Number("int"),
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVolumeCommandInput - {@link CreateVolumeCommandInput}
+ * @returns {@link CreateVolumeCommandOutput}
  * @see {@link CreateVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To create a new volume
+ * ```javascript
+ * // This example creates an 80 GiB General Purpose (SSD) volume in the Availability Zone ``us-east-1a``.
+ * const input = {
+ *   "AvailabilityZone": "us-east-1a",
+ *   "Size": 80,
+ *   "VolumeType": "gp2"
+ * };
+ * const command = new CreateVolumeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AvailabilityZone": "us-east-1a",
+ *   "CreateTime": "2016-08-29T18:52:32.724Z",
+ *   "Encrypted": false,
+ *   "Iops": 240,
+ *   "Size": 80,
+ *   "SnapshotId": "",
+ *   "State": "creating",
+ *   "VolumeId": "vol-6b60b7c7",
+ *   "VolumeType": "gp2"
+ * }
+ * *\/
+ * // example id: to-create-a-new-volume-1472496724296
+ * ```
+ *
+ * @example To create a new Provisioned IOPS (SSD) volume from a snapshot
+ * ```javascript
+ * // This example creates a new Provisioned IOPS (SSD) volume with 1000 provisioned IOPS from a snapshot in the Availability Zone ``us-east-1a``.
+ * const input = {
+ *   "AvailabilityZone": "us-east-1a",
+ *   "Iops": 1000,
+ *   "SnapshotId": "snap-066877671789bd71b",
+ *   "VolumeType": "io1"
+ * };
+ * const command = new CreateVolumeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Attachments": [],
+ *   "AvailabilityZone": "us-east-1a",
+ *   "CreateTime": "2016-08-29T18:52:32.724Z",
+ *   "Iops": 1000,
+ *   "Size": 500,
+ *   "SnapshotId": "snap-066877671789bd71b",
+ *   "State": "creating",
+ *   "Tags": [],
+ *   "VolumeId": "vol-1234567890abcdef0",
+ *   "VolumeType": "io1"
+ * }
+ * *\/
+ * // example id: to-create-a-new-provisioned-iops-ssd-volume-from-a-snapshot-1472498975176
+ * ```
  *
  */
 export class CreateVolumeCommand extends $Command<
@@ -69,6 +157,9 @@ export class CreateVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +186,8 @@ export class CreateVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VolumeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +197,18 @@ export class CreateVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVolumeCommand(input, context);
+    return se_CreateVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVolumeCommandOutput> {
-    return deserializeAws_ec2CreateVolumeCommand(output, context);
+    return de_CreateVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

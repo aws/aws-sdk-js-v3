@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSimulationJobBatchRequest,
-  DescribeSimulationJobBatchRequestFilterSensitiveLog,
-  DescribeSimulationJobBatchResponse,
-  DescribeSimulationJobBatchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSimulationJobBatchCommand,
-  serializeAws_restJson1DescribeSimulationJobBatchCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSimulationJobBatchRequest, DescribeSimulationJobBatchResponse } from "../models/models_0";
+import { de_DescribeSimulationJobBatchCommand, se_DescribeSimulationJobBatchCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSimulationJobBatchCommand}.
+ */
 export interface DescribeSimulationJobBatchCommandInput extends DescribeSimulationJobBatchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSimulationJobBatchCommand}.
+ */
 export interface DescribeSimulationJobBatchCommandOutput extends DescribeSimulationJobBatchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a simulation job batch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface DescribeSimulationJobBatchCommandOutput extends DescribeSimulat
  * import { RoboMakerClient, DescribeSimulationJobBatchCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeSimulationJobBatchCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DescribeSimulationJobBatchRequest
+ *   batch: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSimulationJobBatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSimulationJobBatchCommandInput - {@link DescribeSimulationJobBatchCommandInput}
+ * @returns {@link DescribeSimulationJobBatchCommandOutput}
  * @see {@link DescribeSimulationJobBatchCommandInput} for command's `input` shape.
  * @see {@link DescribeSimulationJobBatchCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
  *
  */
 export class DescribeSimulationJobBatchCommand extends $Command<
@@ -62,6 +81,9 @@ export class DescribeSimulationJobBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSimulationJobBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class DescribeSimulationJobBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSimulationJobBatchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSimulationJobBatchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +123,21 @@ export class DescribeSimulationJobBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSimulationJobBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSimulationJobBatchCommand(input, context);
+    return se_DescribeSimulationJobBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSimulationJobBatchCommandOutput> {
-    return deserializeAws_restJson1DescribeSimulationJobBatchCommand(output, context);
+    return de_DescribeSimulationJobBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

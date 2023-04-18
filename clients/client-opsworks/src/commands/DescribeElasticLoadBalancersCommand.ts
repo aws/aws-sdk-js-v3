@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeElasticLoadBalancersRequest,
-  DescribeElasticLoadBalancersRequestFilterSensitiveLog,
-  DescribeElasticLoadBalancersResult,
-  DescribeElasticLoadBalancersResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeElasticLoadBalancersRequest, DescribeElasticLoadBalancersResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
-  deserializeAws_json1_1DescribeElasticLoadBalancersCommand,
-  serializeAws_json1_1DescribeElasticLoadBalancersCommand,
+  de_DescribeElasticLoadBalancersCommand,
+  se_DescribeElasticLoadBalancersCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeElasticLoadBalancersCommand}.
+ */
 export interface DescribeElasticLoadBalancersCommandInput extends DescribeElasticLoadBalancersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeElasticLoadBalancersCommand}.
+ */
 export interface DescribeElasticLoadBalancersCommandOutput
   extends DescribeElasticLoadBalancersResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a stack's Elastic Load Balancing instances.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -46,13 +52,28 @@ export interface DescribeElasticLoadBalancersCommandOutput
  * import { OpsWorksClient, DescribeElasticLoadBalancersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeElasticLoadBalancersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeElasticLoadBalancersRequest
+ *   StackId: "STRING_VALUE",
+ *   LayerIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeElasticLoadBalancersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeElasticLoadBalancersCommandInput - {@link DescribeElasticLoadBalancersCommandInput}
+ * @returns {@link DescribeElasticLoadBalancersCommandOutput}
  * @see {@link DescribeElasticLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class DescribeElasticLoadBalancersCommand extends $Command<
@@ -72,6 +93,9 @@ export class DescribeElasticLoadBalancersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticLoadBalancersCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +124,8 @@ export class DescribeElasticLoadBalancersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeElasticLoadBalancersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeElasticLoadBalancersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +135,21 @@ export class DescribeElasticLoadBalancersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeElasticLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeElasticLoadBalancersCommand(input, context);
+    return se_DescribeElasticLoadBalancersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeElasticLoadBalancersCommandOutput> {
-    return deserializeAws_json1_1DescribeElasticLoadBalancersCommand(output, context);
+    return de_DescribeElasticLoadBalancersCommand(output, context);
   }
 
   // Start section: command_body_extra

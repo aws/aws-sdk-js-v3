@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeApplicationsRequest,
-  DescribeApplicationsRequestFilterSensitiveLog,
-  DescribeApplicationsResult,
-  DescribeApplicationsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeApplicationsCommand,
-  serializeAws_json1_1DescribeApplicationsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeApplicationsRequest, DescribeApplicationsResult } from "../models/models_0";
+import { de_DescribeApplicationsCommand, se_DescribeApplicationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeApplicationsCommand}.
+ */
 export interface DescribeApplicationsCommandInput extends DescribeApplicationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeApplicationsCommand}.
+ */
 export interface DescribeApplicationsCommandOutput extends DescribeApplicationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  * import { AppStreamClient, DescribeApplicationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeApplicationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeApplicationsRequest
+ *   Arns: [ // ArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeApplicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeApplicationsCommandInput - {@link DescribeApplicationsCommandInput}
+ * @returns {@link DescribeApplicationsCommandOutput}
  * @see {@link DescribeApplicationsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DescribeApplicationsCommand extends $Command<
@@ -62,6 +81,9 @@ export class DescribeApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class DescribeApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class DescribeApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicationsCommand(input, context);
+    return se_DescribeApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationsCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicationsCommand(output, context);
+    return de_DescribeApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

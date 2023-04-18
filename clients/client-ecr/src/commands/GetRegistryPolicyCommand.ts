@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  GetRegistryPolicyRequest,
-  GetRegistryPolicyRequestFilterSensitiveLog,
-  GetRegistryPolicyResponse,
-  GetRegistryPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRegistryPolicyCommand,
-  serializeAws_json1_1GetRegistryPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRegistryPolicyRequest, GetRegistryPolicyResponse } from "../models/models_0";
+import { de_GetRegistryPolicyCommand, se_GetRegistryPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetRegistryPolicyCommand}.
+ */
 export interface GetRegistryPolicyCommandInput extends GetRegistryPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRegistryPolicyCommand}.
+ */
 export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the permissions policy for a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyRespons
  * import { ECRClient, GetRegistryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetRegistryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {};
  * const command = new GetRegistryPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegistryPolicyCommandInput - {@link GetRegistryPolicyCommandInput}
+ * @returns {@link GetRegistryPolicyCommandOutput}
  * @see {@link GetRegistryPolicyCommandInput} for command's `input` shape.
  * @see {@link GetRegistryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link RegistryPolicyNotFoundException} (client fault)
+ *  <p>The registry doesn't have an associated registry policy.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this request.</p>
+ *
  *
  */
 export class GetRegistryPolicyCommand extends $Command<
@@ -62,6 +82,9 @@ export class GetRegistryPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegistryPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class GetRegistryPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegistryPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRegistryPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class GetRegistryPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegistryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRegistryPolicyCommand(input, context);
+    return se_GetRegistryPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegistryPolicyCommandOutput> {
-    return deserializeAws_json1_1GetRegistryPolicyCommand(output, context);
+    return de_GetRegistryPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

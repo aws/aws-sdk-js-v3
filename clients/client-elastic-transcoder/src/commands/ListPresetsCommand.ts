@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  ListPresetsRequest,
-  ListPresetsRequestFilterSensitiveLog,
-  ListPresetsResponse,
-  ListPresetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPresetsCommand,
-  serializeAws_restJson1ListPresetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPresetsRequest, ListPresetsResponse } from "../models/models_0";
+import { de_ListPresetsCommand, se_ListPresetsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPresetsCommand}.
+ */
 export interface ListPresetsCommandInput extends ListPresetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPresetsCommand}.
+ */
 export interface ListPresetsCommandOutput extends ListPresetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that
  *             you've added in an AWS region.</p>
  * @example
@@ -41,13 +44,31 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * import { ElasticTranscoderClient, ListPresetsCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ListPresetsCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // ListPresetsRequest
+ *   Ascending: "STRING_VALUE",
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new ListPresetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPresetsCommandInput - {@link ListPresetsCommandInput}
+ * @returns {@link ListPresetsCommandOutput}
  * @see {@link ListPresetsCommandInput} for command's `input` shape.
  * @see {@link ListPresetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>General authentication failure. The request was not signed correctly.</p>
+ *
+ * @throws {@link IncompatibleVersionException} (client fault)
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more required parameter values were not provided in the request.</p>
+ *
  *
  */
 export class ListPresetsCommand extends $Command<
@@ -67,6 +88,9 @@ export class ListPresetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPresetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +117,8 @@ export class ListPresetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPresetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPresetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +128,18 @@ export class ListPresetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPresetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPresetsCommand(input, context);
+    return se_ListPresetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPresetsCommandOutput> {
-    return deserializeAws_restJson1ListPresetsCommand(output, context);
+    return de_ListPresetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListResolverEndpointIpAddressesRequest, ListResolverEndpointIpAddressesResponse } from "../models/models_0";
 import {
-  ListResolverEndpointIpAddressesRequest,
-  ListResolverEndpointIpAddressesRequestFilterSensitiveLog,
-  ListResolverEndpointIpAddressesResponse,
-  ListResolverEndpointIpAddressesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResolverEndpointIpAddressesCommand,
-  serializeAws_json1_1ListResolverEndpointIpAddressesCommand,
+  de_ListResolverEndpointIpAddressesCommand,
+  se_ListResolverEndpointIpAddressesCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResolverEndpointIpAddressesCommand}.
+ */
 export interface ListResolverEndpointIpAddressesCommandInput extends ListResolverEndpointIpAddressesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListResolverEndpointIpAddressesCommand}.
+ */
 export interface ListResolverEndpointIpAddressesCommandOutput
   extends ListResolverEndpointIpAddressesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the IP addresses for a specified Resolver endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,36 @@ export interface ListResolverEndpointIpAddressesCommandOutput
  * import { Route53ResolverClient, ListResolverEndpointIpAddressesCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListResolverEndpointIpAddressesCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // ListResolverEndpointIpAddressesRequest
+ *   ResolverEndpointId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListResolverEndpointIpAddressesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverEndpointIpAddressesCommandInput - {@link ListResolverEndpointIpAddressesCommandInput}
+ * @returns {@link ListResolverEndpointIpAddressesCommandOutput}
  * @see {@link ListResolverEndpointIpAddressesCommandInput} for command's `input` shape.
  * @see {@link ListResolverEndpointIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
  *
  */
 export class ListResolverEndpointIpAddressesCommand extends $Command<
@@ -64,6 +93,9 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverEndpointIpAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResolverEndpointIpAddressesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResolverEndpointIpAddressesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +135,24 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListResolverEndpointIpAddressesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResolverEndpointIpAddressesCommand(input, context);
+    return se_ListResolverEndpointIpAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResolverEndpointIpAddressesCommandOutput> {
-    return deserializeAws_json1_1ListResolverEndpointIpAddressesCommand(output, context);
+    return de_ListResolverEndpointIpAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

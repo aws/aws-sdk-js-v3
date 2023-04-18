@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeWorkspaceBundlesRequest,
-  DescribeWorkspaceBundlesRequestFilterSensitiveLog,
-  DescribeWorkspaceBundlesResult,
-  DescribeWorkspaceBundlesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkspaceBundlesCommand,
-  serializeAws_json1_1DescribeWorkspaceBundlesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeWorkspaceBundlesRequest, DescribeWorkspaceBundlesResult } from "../models/models_0";
+import { de_DescribeWorkspaceBundlesCommand, se_DescribeWorkspaceBundlesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeWorkspaceBundlesCommand}.
+ */
 export interface DescribeWorkspaceBundlesCommandInput extends DescribeWorkspaceBundlesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeWorkspaceBundlesCommand}.
+ */
 export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspaceBundlesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the available WorkSpace bundles.</p>
  *          <p>You can filter the results using either bundle ID or owner, but not both.</p>
  * @example
@@ -37,13 +40,26 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * import { WorkSpacesClient, DescribeWorkspaceBundlesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceBundlesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeWorkspaceBundlesRequest
+ *   BundleIds: [ // BundleIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Owner: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeWorkspaceBundlesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceBundlesCommandInput - {@link DescribeWorkspaceBundlesCommandInput}
+ * @returns {@link DescribeWorkspaceBundlesCommandOutput}
  * @see {@link DescribeWorkspaceBundlesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceBundlesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
  *
  */
 export class DescribeWorkspaceBundlesCommand extends $Command<
@@ -63,6 +79,9 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +110,8 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceBundlesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspaceBundlesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +121,18 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspaceBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspaceBundlesCommand(input, context);
+    return se_DescribeWorkspaceBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspaceBundlesCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceBundlesCommand(output, context);
+    return de_DescribeWorkspaceBundlesCommand(output, context);
   }
 
   // Start section: command_body_extra

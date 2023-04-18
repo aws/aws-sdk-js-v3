@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSnapshotRequest,
-  GetSnapshotRequestFilterSensitiveLog,
-  GetSnapshotResponse,
-  GetSnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSnapshotCommand,
-  serializeAws_json1_1GetSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSnapshotRequest, GetSnapshotResponse } from "../models/models_0";
+import { de_GetSnapshotCommand, se_GetSnapshotCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSnapshotCommand}.
+ */
 export interface GetSnapshotCommandInput extends GetSnapshotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSnapshotCommand}.
+ */
 export interface GetSnapshotCommandOutput extends GetSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,30 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResponse, __Metadat
  * import { RedshiftServerlessClient, GetSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // GetSnapshotRequest
+ *   snapshotName: "STRING_VALUE",
+ *   ownerAccount: "STRING_VALUE",
+ *   snapshotArn: "STRING_VALUE",
+ * };
  * const command = new GetSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSnapshotCommandInput - {@link GetSnapshotCommandInput}
+ * @returns {@link GetSnapshotCommandOutput}
  * @see {@link GetSnapshotCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetSnapshotCommand extends $Command<
@@ -66,6 +86,9 @@ export class GetSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class GetSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSnapshotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +126,18 @@ export class GetSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSnapshotCommand(input, context);
+    return se_GetSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnapshotCommandOutput> {
-    return deserializeAws_json1_1GetSnapshotCommand(output, context);
+    return de_GetSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

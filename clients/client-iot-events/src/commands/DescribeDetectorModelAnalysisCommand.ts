@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
+import { DescribeDetectorModelAnalysisRequest, DescribeDetectorModelAnalysisResponse } from "../models/models_0";
 import {
-  DescribeDetectorModelAnalysisRequest,
-  DescribeDetectorModelAnalysisRequestFilterSensitiveLog,
-  DescribeDetectorModelAnalysisResponse,
-  DescribeDetectorModelAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDetectorModelAnalysisCommand,
-  serializeAws_restJson1DescribeDetectorModelAnalysisCommand,
+  de_DescribeDetectorModelAnalysisCommand,
+  se_DescribeDetectorModelAnalysisCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDetectorModelAnalysisCommand}.
+ */
 export interface DescribeDetectorModelAnalysisCommandInput extends DescribeDetectorModelAnalysisRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDetectorModelAnalysisCommand}.
+ */
 export interface DescribeDetectorModelAnalysisCommandOutput
   extends DescribeDetectorModelAnalysisResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves runtime information about a detector model analysis.</p>
  *          <note>
  *             <p>After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.</p>
@@ -41,13 +47,34 @@ export interface DescribeDetectorModelAnalysisCommandOutput
  * import { IoTEventsClient, DescribeDetectorModelAnalysisCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DescribeDetectorModelAnalysisCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // DescribeDetectorModelAnalysisRequest
+ *   analysisId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDetectorModelAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDetectorModelAnalysisCommandInput - {@link DescribeDetectorModelAnalysisCommandInput}
+ * @returns {@link DescribeDetectorModelAnalysisCommandOutput}
  * @see {@link DescribeDetectorModelAnalysisCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectorModelAnalysisCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
  *
  */
 export class DescribeDetectorModelAnalysisCommand extends $Command<
@@ -67,6 +94,9 @@ export class DescribeDetectorModelAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDetectorModelAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +125,8 @@ export class DescribeDetectorModelAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDetectorModelAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDetectorModelAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +136,21 @@ export class DescribeDetectorModelAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDetectorModelAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDetectorModelAnalysisCommand(input, context);
+    return se_DescribeDetectorModelAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDetectorModelAnalysisCommandOutput> {
-    return deserializeAws_restJson1DescribeDetectorModelAnalysisCommand(output, context);
+    return de_DescribeDetectorModelAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

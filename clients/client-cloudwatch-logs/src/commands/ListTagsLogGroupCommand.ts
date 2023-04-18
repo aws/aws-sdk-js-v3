@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  ListTagsLogGroupRequest,
-  ListTagsLogGroupRequestFilterSensitiveLog,
-  ListTagsLogGroupResponse,
-  ListTagsLogGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagsLogGroupCommand,
-  serializeAws_json1_1ListTagsLogGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTagsLogGroupRequest, ListTagsLogGroupResponse } from "../models/models_0";
+import { de_ListTagsLogGroupCommand, se_ListTagsLogGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTagsLogGroupCommand}.
+ */
 export interface ListTagsLogGroupCommandInput extends ListTagsLogGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTagsLogGroupCommand}.
+ */
 export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <important>
@@ -42,13 +45,25 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  * import { CloudWatchLogsClient, ListTagsLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, ListTagsLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // ListTagsLogGroupRequest
+ *   logGroupName: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsLogGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsLogGroupCommandInput - {@link ListTagsLogGroupCommandInput}
+ * @returns {@link ListTagsLogGroupCommandOutput}
  * @see {@link ListTagsLogGroupCommandInput} for command's `input` shape.
  * @see {@link ListTagsLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class ListTagsLogGroupCommand extends $Command<
@@ -68,6 +83,9 @@ export class ListTagsLogGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +114,8 @@ export class ListTagsLogGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsLogGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsLogGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +125,18 @@ export class ListTagsLogGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsLogGroupCommand(input, context);
+    return se_ListTagsLogGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsLogGroupCommandOutput> {
-    return deserializeAws_json1_1ListTagsLogGroupCommand(output, context);
+    return de_ListTagsLogGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAssociationRequest,
-  DeleteAssociationRequestFilterSensitiveLog,
-  DeleteAssociationResponse,
-  DeleteAssociationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteAssociationCommand,
-  serializeAws_json1_1DeleteAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAssociationRequest, DeleteAssociationResponse } from "../models/models_1";
+import { de_DeleteAssociationCommand, se_DeleteAssociationCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAssociationCommand}.
+ */
 export interface DeleteAssociationCommandInput extends DeleteAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAssociationCommand}.
+ */
 export interface DeleteAssociationCommandOutput extends DeleteAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationRespons
  * import { SageMakerClient, DeleteAssociationCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteAssociationCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteAssociationRequest
+ *   SourceArn: "STRING_VALUE", // required
+ *   DestinationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssociationCommandInput - {@link DeleteAssociationCommandInput}
+ * @returns {@link DeleteAssociationCommandOutput}
  * @see {@link DeleteAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteAssociationCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DeleteAssociationCommand extends $Command<
@@ -62,6 +75,9 @@ export class DeleteAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class DeleteAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class DeleteAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAssociationCommand(input, context);
+    return se_DeleteAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssociationCommandOutput> {
-    return deserializeAws_json1_1DeleteAssociationCommand(output, context);
+    return de_DeleteAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

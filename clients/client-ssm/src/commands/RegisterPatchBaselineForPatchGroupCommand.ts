@@ -15,22 +15,31 @@ import {
 
 import {
   RegisterPatchBaselineForPatchGroupRequest,
-  RegisterPatchBaselineForPatchGroupRequestFilterSensitiveLog,
   RegisterPatchBaselineForPatchGroupResult,
-  RegisterPatchBaselineForPatchGroupResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand,
-  serializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand,
+  de_RegisterPatchBaselineForPatchGroupCommand,
+  se_RegisterPatchBaselineForPatchGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterPatchBaselineForPatchGroupCommand}.
+ */
 export interface RegisterPatchBaselineForPatchGroupCommandInput extends RegisterPatchBaselineForPatchGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterPatchBaselineForPatchGroupCommand}.
+ */
 export interface RegisterPatchBaselineForPatchGroupCommandOutput
   extends RegisterPatchBaselineForPatchGroupResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a patch baseline for a patch group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,42 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
  * import { SSMClient, RegisterPatchBaselineForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, RegisterPatchBaselineForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // RegisterPatchBaselineForPatchGroupRequest
+ *   BaselineId: "STRING_VALUE", // required
+ *   PatchGroup: "STRING_VALUE", // required
+ * };
  * const command = new RegisterPatchBaselineForPatchGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterPatchBaselineForPatchGroupCommandInput - {@link RegisterPatchBaselineForPatchGroupCommandInput}
+ * @returns {@link RegisterPatchBaselineForPatchGroupCommandOutput}
  * @see {@link RegisterPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link RegisterPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>Error returned if an attempt is made to register a patch group with a patch baseline that is
+ *    already registered with a different patch baseline.</p>
+ *
+ * @throws {@link DoesNotExistException} (client fault)
+ *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
+ *    baseline, doesn't exist.</p>
+ *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidResourceId} (client fault)
+ *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Error returned when the caller has exceeded the default resource quotas. For example, too
+ *    many maintenance windows or patch baselines have been created.</p>
+ *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
  *
  */
 export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
@@ -64,6 +102,9 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterPatchBaselineForPatchGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +133,8 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterPatchBaselineForPatchGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterPatchBaselineForPatchGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +144,24 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterPatchBaselineForPatchGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand(input, context);
+    return se_RegisterPatchBaselineForPatchGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterPatchBaselineForPatchGroupCommandOutput> {
-    return deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand(output, context);
+    return de_RegisterPatchBaselineForPatchGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -17,18 +17,25 @@ import {
   SetLocalConsolePasswordInput,
   SetLocalConsolePasswordInputFilterSensitiveLog,
   SetLocalConsolePasswordOutput,
-  SetLocalConsolePasswordOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetLocalConsolePasswordCommand,
-  serializeAws_json1_1SetLocalConsolePasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetLocalConsolePasswordCommand, se_SetLocalConsolePasswordCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link SetLocalConsolePasswordCommand}.
+ */
 export interface SetLocalConsolePasswordCommandInput extends SetLocalConsolePasswordInput {}
+/**
+ * @public
+ *
+ * The output of {@link SetLocalConsolePasswordCommand}.
+ */
 export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePasswordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the password for your VM local console. When you log in to the local console for
  *          the first time, you log in to the VM with the default credentials. We recommend that you
  *          set a new password. You don't need to know the default password to set a new
@@ -39,13 +46,45 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  * import { StorageGatewayClient, SetLocalConsolePasswordCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, SetLocalConsolePasswordCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // SetLocalConsolePasswordInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   LocalConsolePassword: "STRING_VALUE", // required
+ * };
  * const command = new SetLocalConsolePasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetLocalConsolePasswordCommandInput - {@link SetLocalConsolePasswordCommandInput}
+ * @returns {@link SetLocalConsolePasswordCommandOutput}
  * @see {@link SetLocalConsolePasswordCommandInput} for command's `input` shape.
  * @see {@link SetLocalConsolePasswordCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To set a password for your VM
+ * ```javascript
+ * // Sets the password for your VM local console.
+ * const input = {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+ *   "LocalConsolePassword": "PassWordMustBeAtLeast6Chars."
+ * };
+ * const command = new SetLocalConsolePasswordCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ * }
+ * *\/
+ * // example id: to-set-a-password-for-your-vm-1472150202632
+ * ```
  *
  */
 export class SetLocalConsolePasswordCommand extends $Command<
@@ -65,6 +104,9 @@ export class SetLocalConsolePasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetLocalConsolePasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +136,7 @@ export class SetLocalConsolePasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SetLocalConsolePasswordInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetLocalConsolePasswordOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +146,18 @@ export class SetLocalConsolePasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetLocalConsolePasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetLocalConsolePasswordCommand(input, context);
+    return se_SetLocalConsolePasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetLocalConsolePasswordCommandOutput> {
-    return deserializeAws_json1_1SetLocalConsolePasswordCommand(output, context);
+    return de_SetLocalConsolePasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

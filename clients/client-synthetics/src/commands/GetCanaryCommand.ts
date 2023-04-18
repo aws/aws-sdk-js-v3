@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCanaryRequest,
-  GetCanaryRequestFilterSensitiveLog,
-  GetCanaryResponse,
-  GetCanaryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCanaryCommand,
-  serializeAws_restJson1GetCanaryCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCanaryRequest, GetCanaryResponse } from "../models/models_0";
+import { de_GetCanaryCommand, se_GetCanaryCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCanaryCommand}.
+ */
 export interface GetCanaryCommandInput extends GetCanaryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCanaryCommand}.
+ */
 export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves complete information about one canary. You must specify
  *       the name of the canary that you want. To get a list of canaries
  *       and their names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
@@ -38,13 +41,25 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * import { SyntheticsClient, GetCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, GetCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // GetCanaryRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetCanaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCanaryCommandInput - {@link GetCanaryCommandInput}
+ * @returns {@link GetCanaryCommandOutput}
  * @see {@link GetCanaryCommandInput} for command's `input` shape.
  * @see {@link GetCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unknown internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter could not be validated.</p>
+ *
  *
  */
 export class GetCanaryCommand extends $Command<
@@ -64,6 +79,9 @@ export class GetCanaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCanaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class GetCanaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCanaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCanaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class GetCanaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCanaryCommand(input, context);
+    return se_GetCanaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCanaryCommandOutput> {
-    return deserializeAws_restJson1GetCanaryCommand(output, context);
+    return de_GetCanaryCommand(output, context);
   }
 
   // Start section: command_body_extra

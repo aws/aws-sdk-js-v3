@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateVolumeRequest, UpdateVolumeRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateVolumeRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateVolumeCommand,
-  serializeAws_json1_1UpdateVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateVolumeCommand, se_UpdateVolumeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateVolumeCommand}.
+ */
 export interface UpdateVolumeCommandInput extends UpdateVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateVolumeCommand}.
+ */
 export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon EBS volume's name or mount point. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -36,13 +44,27 @@ export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UpdateVolumeRequest
+ *   VolumeId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   MountPoint: "STRING_VALUE",
+ * };
  * const command = new UpdateVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVolumeCommandInput - {@link UpdateVolumeCommandInput}
+ * @returns {@link UpdateVolumeCommandOutput}
  * @see {@link UpdateVolumeCommandInput} for command's `input` shape.
  * @see {@link UpdateVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
  *
  */
 export class UpdateVolumeCommand extends $Command<
@@ -62,6 +84,9 @@ export class UpdateVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +113,8 @@ export class UpdateVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +124,18 @@ export class UpdateVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVolumeCommand(input, context);
+    return se_UpdateVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVolumeCommandOutput> {
-    return deserializeAws_json1_1UpdateVolumeCommand(output, context);
+    return de_UpdateVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

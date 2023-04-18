@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ReplicateKeyRequest,
-  ReplicateKeyRequestFilterSensitiveLog,
-  ReplicateKeyResponse,
-  ReplicateKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ReplicateKeyCommand,
-  serializeAws_json1_1ReplicateKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { ReplicateKeyRequest, ReplicateKeyResponse } from "../models/models_0";
+import { de_ReplicateKeyCommand, se_ReplicateKeyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ReplicateKeyCommand}.
+ */
 export interface ReplicateKeyCommandInput extends ReplicateKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReplicateKeyCommand}.
+ */
 export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replicates a multi-Region key into the specified Region. This operation creates a
  *       multi-Region replica key based on a multi-Region primary key in a different Region of the same
  *       Amazon Web Services partition. You can create multiple replicas of a primary key, but each must be in a
@@ -118,13 +121,129 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * import { KMSClient, ReplicateKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ReplicateKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ReplicateKeyRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   ReplicaRegion: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE",
+ *   BypassPolicyLockoutSafetyCheck: true || false,
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ReplicateKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplicateKeyCommandInput - {@link ReplicateKeyCommandInput}
+ * @returns {@link ReplicateKeyCommandOutput}
  * @see {@link ReplicateKeyCommandInput} for command's `input` shape.
  * @see {@link ReplicateKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The request was rejected because it attempted to create a resource that already
+ *       exists.</p>
+ *
+ * @throws {@link DisabledException} (client fault)
+ *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
+ *       valid.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
+ *       <i>Key Management Service Developer Guide</i>.</p>
+ *
+ * @throws {@link MalformedPolicyDocumentException} (client fault)
+ *  <p>The request was rejected because the specified policy is not syntactically or semantically
+ *       correct.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ * @throws {@link TagException} (client fault)
+ *  <p>The request was rejected because one or more tags are not valid.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified
+ *       resource is not valid for this operation.</p>
+ *
+ *
+ * @example To replicate a multi-Region key in a different AWS Region
+ * ```javascript
+ * // This example creates a multi-Region replica key in us-west-2 of a multi-Region primary key in us-east-1.
+ * const input = {
+ *   "KeyId": "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *   "ReplicaRegion": "us-west-2"
+ * };
+ * const command = new ReplicateKeyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicaKeyMetadata": {
+ *     "AWSAccountId": "111122223333",
+ *     "Arn": "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *     "CreationDate": 1607472987.918,
+ *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
+ *     "Description": "",
+ *     "Enabled": true,
+ *     "EncryptionAlgorithms": [
+ *       "SYMMETRIC_DEFAULT"
+ *     ],
+ *     "KeyId": "mrk-1234abcd12ab34cd56ef1234567890ab",
+ *     "KeyManager": "CUSTOMER",
+ *     "KeyState": "Enabled",
+ *     "KeyUsage": "ENCRYPT_DECRYPT",
+ *     "MultiRegion": true,
+ *     "MultiRegionConfiguration": {
+ *       "MultiRegionKeyType": "REPLICA",
+ *       "PrimaryKey": {
+ *         "Arn": "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *         "Region": "us-east-1"
+ *       },
+ *       "ReplicaKeys": [
+ *         {
+ *           "Arn": "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *           "Region": "us-west-2"
+ *         }
+ *       ]
+ *     },
+ *     "Origin": "AWS_KMS"
+ *   },
+ *   "ReplicaPolicy": "{\n  \"Version\" : \"2012-10-17\",\n  \"Id\" : \"key-default-1\",...}",
+ *   "ReplicaTags": []
+ * }
+ * *\/
+ * // example id: to-replicate-a-multi-region-key-in-a-different-aws-region-1628622402887
+ * ```
  *
  */
 export class ReplicateKeyCommand extends $Command<
@@ -144,6 +263,9 @@ export class ReplicateKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplicateKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,8 +292,8 @@ export class ReplicateKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplicateKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplicateKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -181,12 +303,18 @@ export class ReplicateKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplicateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReplicateKeyCommand(input, context);
+    return se_ReplicateKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplicateKeyCommandOutput> {
-    return deserializeAws_json1_1ReplicateKeyCommand(output, context);
+    return de_ReplicateKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

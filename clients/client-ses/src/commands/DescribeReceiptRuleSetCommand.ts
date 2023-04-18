@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeReceiptRuleSetRequest,
-  DescribeReceiptRuleSetRequestFilterSensitiveLog,
-  DescribeReceiptRuleSetResponse,
-  DescribeReceiptRuleSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeReceiptRuleSetCommand,
-  serializeAws_queryDescribeReceiptRuleSetCommand,
-} from "../protocols/Aws_query";
+import { DescribeReceiptRuleSetRequest, DescribeReceiptRuleSetResponse } from "../models/models_0";
+import { de_DescribeReceiptRuleSetCommand, se_DescribeReceiptRuleSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeReceiptRuleSetCommand}.
+ */
 export interface DescribeReceiptRuleSetCommandInput extends DescribeReceiptRuleSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeReceiptRuleSetCommand}.
+ */
 export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of the specified receipt rule set.</p>
  *         <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -38,13 +41,57 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
  * import { SESClient, DescribeReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DescribeReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DescribeReceiptRuleSetRequest
+ *   RuleSetName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeReceiptRuleSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReceiptRuleSetCommandInput - {@link DescribeReceiptRuleSetCommandInput}
+ * @returns {@link DescribeReceiptRuleSetCommandOutput}
  * @see {@link DescribeReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link DescribeReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link RuleSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ *
+ * @example DescribeReceiptRuleSet
+ * ```javascript
+ * // The following example returns the metadata and receipt rules of a receipt rule set:
+ * const input = {
+ *   "RuleSetName": "MyRuleSet"
+ * };
+ * const command = new DescribeReceiptRuleSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Metadata": {
+ *     "CreatedTimestamp": "2016-07-15T16:25:59.607Z",
+ *     "Name": "MyRuleSet"
+ *   },
+ *   "Rules": [
+ *     {
+ *       "Actions": [
+ *         {
+ *           "S3Action": {
+ *             "BucketName": "MyBucket",
+ *             "ObjectKeyPrefix": "email"
+ *           }
+ *         }
+ *       ],
+ *       "Enabled": true,
+ *       "Name": "MyRule",
+ *       "ScanEnabled": true,
+ *       "TlsPolicy": "Optional"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: describereceiptruleset-1469121240385
+ * ```
  *
  */
 export class DescribeReceiptRuleSetCommand extends $Command<
@@ -64,6 +111,9 @@ export class DescribeReceiptRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +142,8 @@ export class DescribeReceiptRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReceiptRuleSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReceiptRuleSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +153,18 @@ export class DescribeReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReceiptRuleSetCommand(input, context);
+    return se_DescribeReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReceiptRuleSetCommandOutput> {
-    return deserializeAws_queryDescribeReceiptRuleSetCommand(output, context);
+    return de_DescribeReceiptRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

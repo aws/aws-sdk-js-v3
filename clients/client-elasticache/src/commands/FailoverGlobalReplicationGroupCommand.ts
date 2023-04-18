@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { FailoverGlobalReplicationGroupMessage, FailoverGlobalReplicationGroupResult } from "../models/models_0";
 import {
-  FailoverGlobalReplicationGroupMessage,
-  FailoverGlobalReplicationGroupMessageFilterSensitiveLog,
-  FailoverGlobalReplicationGroupResult,
-  FailoverGlobalReplicationGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryFailoverGlobalReplicationGroupCommand,
-  serializeAws_queryFailoverGlobalReplicationGroupCommand,
+  de_FailoverGlobalReplicationGroupCommand,
+  se_FailoverGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link FailoverGlobalReplicationGroupCommand}.
+ */
 export interface FailoverGlobalReplicationGroupCommandInput extends FailoverGlobalReplicationGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link FailoverGlobalReplicationGroupCommand}.
+ */
 export interface FailoverGlobalReplicationGroupCommandOutput
   extends FailoverGlobalReplicationGroupResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to failover the primary region to a secondary region. The secondary region will become primary, and all other clusters will become secondary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,33 @@ export interface FailoverGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, FailoverGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, FailoverGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // FailoverGlobalReplicationGroupMessage
+ *   GlobalReplicationGroupId: "STRING_VALUE", // required
+ *   PrimaryRegion: "STRING_VALUE", // required
+ *   PrimaryReplicationGroupId: "STRING_VALUE", // required
+ * };
  * const command = new FailoverGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param FailoverGlobalReplicationGroupCommandInput - {@link FailoverGlobalReplicationGroupCommandInput}
+ * @returns {@link FailoverGlobalReplicationGroupCommandOutput}
  * @see {@link FailoverGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link FailoverGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
+ *  <p>The Global datastore does not exist</p>
+ *
+ * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
+ *  <p>The Global datastore is not available or in primary-only state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
  *
  */
 export class FailoverGlobalReplicationGroupCommand extends $Command<
@@ -64,6 +90,9 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FailoverGlobalReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FailoverGlobalReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: FailoverGlobalReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +132,24 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: FailoverGlobalReplicationGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryFailoverGlobalReplicationGroupCommand(input, context);
+    return se_FailoverGlobalReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<FailoverGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryFailoverGlobalReplicationGroupCommand(output, context);
+    return de_FailoverGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

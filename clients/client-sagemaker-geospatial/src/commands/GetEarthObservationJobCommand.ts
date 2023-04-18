@@ -15,24 +15,31 @@ import {
 
 import {
   GetEarthObservationJobInput,
-  GetEarthObservationJobInputFilterSensitiveLog,
   GetEarthObservationJobOutput,
   GetEarthObservationJobOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEarthObservationJobCommand,
-  serializeAws_restJson1GetEarthObservationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEarthObservationJobCommand, se_GetEarthObservationJobCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEarthObservationJobCommand}.
+ */
 export interface GetEarthObservationJobCommandInput extends GetEarthObservationJobInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetEarthObservationJobCommand}.
+ */
 export interface GetEarthObservationJobCommandOutput extends GetEarthObservationJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the details for a previously initiated Earth Observation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +47,34 @@ export interface GetEarthObservationJobCommandOutput extends GetEarthObservation
  * import { SageMakerGeospatialClient, GetEarthObservationJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, GetEarthObservationJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
+ * const input = { // GetEarthObservationJobInput
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new GetEarthObservationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEarthObservationJobCommandInput - {@link GetEarthObservationJobCommandInput}
+ * @returns {@link GetEarthObservationJobCommandOutput}
  * @see {@link GetEarthObservationJobCommandInput} for command's `input` shape.
  * @see {@link GetEarthObservationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource which does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class GetEarthObservationJobCommand extends $Command<
@@ -66,6 +94,9 @@ export class GetEarthObservationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEarthObservationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +125,7 @@ export class GetEarthObservationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEarthObservationJobInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEarthObservationJobOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +136,18 @@ export class GetEarthObservationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEarthObservationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEarthObservationJobCommand(input, context);
+    return se_GetEarthObservationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEarthObservationJobCommandOutput> {
-    return deserializeAws_restJson1GetEarthObservationJobCommand(output, context);
+    return de_GetEarthObservationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

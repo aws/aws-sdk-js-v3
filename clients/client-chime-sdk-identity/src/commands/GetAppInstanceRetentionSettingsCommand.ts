@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
+import { GetAppInstanceRetentionSettingsRequest, GetAppInstanceRetentionSettingsResponse } from "../models/models_0";
 import {
-  GetAppInstanceRetentionSettingsRequest,
-  GetAppInstanceRetentionSettingsRequestFilterSensitiveLog,
-  GetAppInstanceRetentionSettingsResponse,
-  GetAppInstanceRetentionSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand,
-  serializeAws_restJson1GetAppInstanceRetentionSettingsCommand,
+  de_GetAppInstanceRetentionSettingsCommand,
+  se_GetAppInstanceRetentionSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAppInstanceRetentionSettingsCommand}.
+ */
 export interface GetAppInstanceRetentionSettingsCommandInput extends GetAppInstanceRetentionSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAppInstanceRetentionSettingsCommand}.
+ */
 export interface GetAppInstanceRetentionSettingsCommandOutput
   extends GetAppInstanceRetentionSettingsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the retention settings for an <code>AppInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,37 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
  * import { ChimeSDKIdentityClient, GetAppInstanceRetentionSettingsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, GetAppInstanceRetentionSettingsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = { // GetAppInstanceRetentionSettingsRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetAppInstanceRetentionSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppInstanceRetentionSettingsCommandInput - {@link GetAppInstanceRetentionSettingsCommandInput}
+ * @returns {@link GetAppInstanceRetentionSettingsCommandOutput}
  * @see {@link GetAppInstanceRetentionSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAppInstanceRetentionSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class GetAppInstanceRetentionSettingsCommand extends $Command<
@@ -64,6 +94,9 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppInstanceRetentionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +125,8 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppInstanceRetentionSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAppInstanceRetentionSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +136,24 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAppInstanceRetentionSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAppInstanceRetentionSettingsCommand(input, context);
+    return se_GetAppInstanceRetentionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAppInstanceRetentionSettingsCommandOutput> {
-    return deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand(output, context);
+    return de_GetAppInstanceRetentionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

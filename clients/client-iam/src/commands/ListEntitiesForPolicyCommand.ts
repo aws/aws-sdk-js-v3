@@ -14,28 +14,31 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListEntitiesForPolicyRequest,
-  ListEntitiesForPolicyRequestFilterSensitiveLog,
-  ListEntitiesForPolicyResponse,
-  ListEntitiesForPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListEntitiesForPolicyCommand,
-  serializeAws_queryListEntitiesForPolicyCommand,
-} from "../protocols/Aws_query";
+import { ListEntitiesForPolicyRequest, ListEntitiesForPolicyResponse } from "../models/models_0";
+import { de_ListEntitiesForPolicyCommand, se_ListEntitiesForPolicyCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEntitiesForPolicyCommand}.
+ */
 export interface ListEntitiesForPolicyCommandInput extends ListEntitiesForPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEntitiesForPolicyCommand}.
+ */
 export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all IAM users, groups, and roles that the specified managed policy is attached
  *             to.</p>
- *         <p>You can use the optional <code>EntityFilter</code> parameter to limit the results to a
+ *          <p>You can use the optional <code>EntityFilter</code> parameter to limit the results to a
  *             particular type of entity (users, groups, or roles). For example, to list only the roles
  *             that are attached to the specified policy, set <code>EntityFilter</code> to
  *                 <code>Role</code>.</p>
- *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,13 +46,36 @@ export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolic
  * import { IAMClient, ListEntitiesForPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListEntitiesForPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListEntitiesForPolicyRequest
+ *   PolicyArn: "STRING_VALUE", // required
+ *   EntityFilter: "User" || "Role" || "Group" || "LocalManagedPolicy" || "AWSManagedPolicy",
+ *   PathPrefix: "STRING_VALUE",
+ *   PolicyUsageFilter: "PermissionsPolicy" || "PermissionsBoundary",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListEntitiesForPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntitiesForPolicyCommandInput - {@link ListEntitiesForPolicyCommandInput}
+ * @returns {@link ListEntitiesForPolicyCommandOutput}
  * @see {@link ListEntitiesForPolicyCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesForPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class ListEntitiesForPolicyCommand extends $Command<
@@ -69,6 +95,9 @@ export class ListEntitiesForPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitiesForPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +126,8 @@ export class ListEntitiesForPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntitiesForPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEntitiesForPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +137,18 @@ export class ListEntitiesForPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitiesForPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListEntitiesForPolicyCommand(input, context);
+    return se_ListEntitiesForPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitiesForPolicyCommandOutput> {
-    return deserializeAws_queryListEntitiesForPolicyCommand(output, context);
+    return de_ListEntitiesForPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

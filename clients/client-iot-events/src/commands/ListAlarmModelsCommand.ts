@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  ListAlarmModelsRequest,
-  ListAlarmModelsRequestFilterSensitiveLog,
-  ListAlarmModelsResponse,
-  ListAlarmModelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAlarmModelsCommand,
-  serializeAws_restJson1ListAlarmModelsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAlarmModelsRequest, ListAlarmModelsResponse } from "../models/models_0";
+import { de_ListAlarmModelsCommand, se_ListAlarmModelsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAlarmModelsCommand}.
+ */
 export interface ListAlarmModelsCommandInput extends ListAlarmModelsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAlarmModelsCommand}.
+ */
 export interface ListAlarmModelsCommandOutput extends ListAlarmModelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the alarm models that you created. The operation returns only the metadata
  *       associated with each alarm model.</p>
  * @example
@@ -37,13 +40,32 @@ export interface ListAlarmModelsCommandOutput extends ListAlarmModelsResponse, _
  * import { IoTEventsClient, ListAlarmModelsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListAlarmModelsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // ListAlarmModelsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAlarmModelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAlarmModelsCommandInput - {@link ListAlarmModelsCommandInput}
+ * @returns {@link ListAlarmModelsCommandOutput}
  * @see {@link ListAlarmModelsCommandInput} for command's `input` shape.
  * @see {@link ListAlarmModelsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
  *
  */
 export class ListAlarmModelsCommand extends $Command<
@@ -63,6 +85,9 @@ export class ListAlarmModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAlarmModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class ListAlarmModelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAlarmModelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAlarmModelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +127,18 @@ export class ListAlarmModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAlarmModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAlarmModelsCommand(input, context);
+    return se_ListAlarmModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlarmModelsCommandOutput> {
-    return deserializeAws_restJson1ListAlarmModelsCommand(output, context);
+    return de_ListAlarmModelsCommand(output, context);
   }
 
   // Start section: command_body_extra

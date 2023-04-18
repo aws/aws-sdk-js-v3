@@ -6,12 +6,11 @@ import {
   ListTopicsDetectionJobsCommandInput,
   ListTopicsDetectionJobsCommandOutput,
 } from "../commands/ListTopicsDetectionJobsCommand";
-import { Comprehend } from "../Comprehend";
 import { ComprehendClient } from "../ComprehendClient";
 import { ComprehendPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ComprehendClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTopicsDetectionJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Comprehend,
-  input: ListTopicsDetectionJobsCommandInput,
-  ...args: any
-): Promise<ListTopicsDetectionJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTopicsDetectionJobs(input, ...args);
-};
 export async function* paginateListTopicsDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListTopicsDetectionJobsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListTopicsDetectionJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Comprehend) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ComprehendClient) {
+    if (config.client instanceof ComprehendClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Comprehend | ComprehendClient");

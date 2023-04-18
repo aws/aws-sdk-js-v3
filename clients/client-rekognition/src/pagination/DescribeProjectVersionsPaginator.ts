@@ -6,12 +6,11 @@ import {
   DescribeProjectVersionsCommandInput,
   DescribeProjectVersionsCommandOutput,
 } from "../commands/DescribeProjectVersionsCommand";
-import { Rekognition } from "../Rekognition";
 import { RekognitionClient } from "../RekognitionClient";
 import { RekognitionPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RekognitionClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeProjectVersionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Rekognition,
-  input: DescribeProjectVersionsCommandInput,
-  ...args: any
-): Promise<DescribeProjectVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeProjectVersions(input, ...args);
-};
 export async function* paginateDescribeProjectVersions(
   config: RekognitionPaginationConfiguration,
   input: DescribeProjectVersionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeProjectVersions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Rekognition) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RekognitionClient) {
+    if (config.client instanceof RekognitionClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Rekognition | RekognitionClient");

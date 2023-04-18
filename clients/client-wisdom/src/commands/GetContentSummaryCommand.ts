@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetContentSummaryRequest,
-  GetContentSummaryRequestFilterSensitiveLog,
-  GetContentSummaryResponse,
-  GetContentSummaryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetContentSummaryCommand,
-  serializeAws_restJson1GetContentSummaryCommand,
-} from "../protocols/Aws_restJson1";
+import { GetContentSummaryRequest, GetContentSummaryResponse } from "../models/models_0";
+import { de_GetContentSummaryCommand, se_GetContentSummaryCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetContentSummaryCommand}.
+ */
 export interface GetContentSummaryCommandInput extends GetContentSummaryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetContentSummaryCommand}.
+ */
 export interface GetContentSummaryCommandOutput extends GetContentSummaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves summary information about the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface GetContentSummaryCommandOutput extends GetContentSummaryRespons
  * import { WisdomClient, GetContentSummaryCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetContentSummaryCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // GetContentSummaryRequest
+ *   contentId: "STRING_VALUE", // required
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ * };
  * const command = new GetContentSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContentSummaryCommandInput - {@link GetContentSummaryCommandInput}
+ * @returns {@link GetContentSummaryCommandOutput}
  * @see {@link GetContentSummaryCommandInput} for command's `input` shape.
  * @see {@link GetContentSummaryCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
  *
  */
 export class GetContentSummaryCommand extends $Command<
@@ -62,6 +81,9 @@ export class GetContentSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContentSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class GetContentSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContentSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContentSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class GetContentSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContentSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetContentSummaryCommand(input, context);
+    return se_GetContentSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContentSummaryCommandOutput> {
-    return deserializeAws_restJson1GetContentSummaryCommand(output, context);
+    return de_GetContentSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

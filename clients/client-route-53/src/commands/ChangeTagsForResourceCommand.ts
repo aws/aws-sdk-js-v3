@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ChangeTagsForResourceRequest,
-  ChangeTagsForResourceRequestFilterSensitiveLog,
-  ChangeTagsForResourceResponse,
-  ChangeTagsForResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlChangeTagsForResourceCommand,
-  serializeAws_restXmlChangeTagsForResourceCommand,
-} from "../protocols/Aws_restXml";
+import { ChangeTagsForResourceRequest, ChangeTagsForResourceResponse } from "../models/models_0";
+import { de_ChangeTagsForResourceCommand, se_ChangeTagsForResourceCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ChangeTagsForResourceCommand}.
+ */
 export interface ChangeTagsForResourceCommandInput extends ChangeTagsForResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ChangeTagsForResourceCommand}.
+ */
 export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds, edits, or deletes tags for a health check or a hosted zone.</p>
- * 		       <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
+ *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
  * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,73 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * import { Route53Client, ChangeTagsForResourceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ChangeTagsForResourceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ChangeTagsForResourceRequest
+ *   ResourceType: "healthcheck" || "hostedzone", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   AddTags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   RemoveTagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ChangeTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangeTagsForResourceCommandInput - {@link ChangeTagsForResourceCommandInput}
+ * @returns {@link ChangeTagsForResourceCommandOutput}
  * @see {@link ChangeTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ChangeTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHealthCheck} (client fault)
+ *  <p>No health check exists with the specified ID.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * @throws {@link PriorRequestNotComplete} (client fault)
+ *  <p>If Amazon Route 53 can't process a request before the next request arrives, it will
+ * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
+ * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
+ * 			for the same request, we recommend that you wait, in intervals of increasing duration,
+ * 			before you try the request again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ *
+ * @example To add or remove tags from a hosted zone or health check
+ * ```javascript
+ * // The following example adds two tags and removes one tag from the hosted zone with ID Z3M3LMPEXAMPLE.
+ * const input = {
+ *   "AddTags": [
+ *     {
+ *       "Key": "apex",
+ *       "Value": "3874"
+ *     },
+ *     {
+ *       "Key": "acme",
+ *       "Value": "4938"
+ *     }
+ *   ],
+ *   "RemoveTagKeys": [
+ *     "Nadir"
+ *   ],
+ *   "ResourceId": "Z3M3LMPEXAMPLE",
+ *   "ResourceType": "hostedzone"
+ * };
+ * const command = new ChangeTagsForResourceCommand(input);
+ * await client.send(command);
+ * // example id: to-add-or-remove-tags-from-a-hosted-zone-or-health-check-1484084752409
+ * ```
  *
  */
 export class ChangeTagsForResourceCommand extends $Command<
@@ -64,6 +127,9 @@ export class ChangeTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangeTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +158,8 @@ export class ChangeTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ChangeTagsForResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ChangeTagsForResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +169,18 @@ export class ChangeTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangeTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlChangeTagsForResourceCommand(input, context);
+    return se_ChangeTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeTagsForResourceCommandOutput> {
-    return deserializeAws_restXmlChangeTagsForResourceCommand(output, context);
+    return de_ChangeTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

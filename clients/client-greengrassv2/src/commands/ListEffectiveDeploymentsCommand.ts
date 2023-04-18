@@ -14,36 +14,63 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  ListEffectiveDeploymentsRequest,
-  ListEffectiveDeploymentsRequestFilterSensitiveLog,
-  ListEffectiveDeploymentsResponse,
-  ListEffectiveDeploymentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEffectiveDeploymentsCommand,
-  serializeAws_restJson1ListEffectiveDeploymentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEffectiveDeploymentsRequest, ListEffectiveDeploymentsResponse } from "../models/models_0";
+import { de_ListEffectiveDeploymentsCommand, se_ListEffectiveDeploymentsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEffectiveDeploymentsCommand}.
+ */
 export interface ListEffectiveDeploymentsCommandInput extends ListEffectiveDeploymentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEffectiveDeploymentsCommand}.
+ */
 export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDeploymentsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of deployment jobs that IoT Greengrass sends to Greengrass core
- *       devices.</p>
+ * @public
+ * <p>Retrieves a paginated list of deployment jobs that IoT Greengrass sends to Greengrass core devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GreengrassV2Client, ListEffectiveDeploymentsCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ListEffectiveDeploymentsCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // ListEffectiveDeploymentsRequest
+ *   coreDeviceThingName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListEffectiveDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEffectiveDeploymentsCommandInput - {@link ListEffectiveDeploymentsCommandInput}
+ * @returns {@link ListEffectiveDeploymentsCommandOutput}
  * @see {@link ListEffectiveDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListEffectiveDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform the action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a request rate quota. For example, you might have exceeded the
+ *       amount of times that you can retrieve device or deployment status per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters.</p>
+ *
  *
  */
 export class ListEffectiveDeploymentsCommand extends $Command<
@@ -63,6 +90,9 @@ export class ListEffectiveDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEffectiveDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +121,8 @@ export class ListEffectiveDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEffectiveDeploymentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEffectiveDeploymentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +132,18 @@ export class ListEffectiveDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEffectiveDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEffectiveDeploymentsCommand(input, context);
+    return se_ListEffectiveDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEffectiveDeploymentsCommandOutput> {
-    return deserializeAws_restJson1ListEffectiveDeploymentsCommand(output, context);
+    return de_ListEffectiveDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  ModifyEventSubscriptionMessage,
-  ModifyEventSubscriptionMessageFilterSensitiveLog,
-  ModifyEventSubscriptionResponse,
-  ModifyEventSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyEventSubscriptionCommand,
-  serializeAws_json1_1ModifyEventSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResponse } from "../models/models_0";
+import { de_ModifyEventSubscriptionCommand, se_ModifyEventSubscriptionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyEventSubscriptionCommand}.
+ */
 export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscriptionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyEventSubscriptionCommand}.
+ */
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing DMS event notification subscription. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,52 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * import { DatabaseMigrationServiceClient, ModifyEventSubscriptionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ModifyEventSubscriptionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // ModifyEventSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SnsTopicArn: "STRING_VALUE",
+ *   SourceType: "STRING_VALUE",
+ *   EventCategories: [ // EventCategoriesList
+ *     "STRING_VALUE",
+ *   ],
+ *   Enabled: true || false,
+ * };
  * const command = new ModifyEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyEventSubscriptionCommandInput - {@link ModifyEventSubscriptionCommandInput}
+ * @returns {@link ModifyEventSubscriptionCommandOutput}
  * @see {@link ModifyEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link KMSAccessDeniedFault} (client fault)
+ *  <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+ *
+ * @throws {@link KMSDisabledFault} (client fault)
+ *  <p>The specified KMS key isn't enabled.</p>
+ *
+ * @throws {@link KMSInvalidStateFault} (client fault)
+ *  <p>The state of the specified KMS resource isn't valid for this request.</p>
+ *
+ * @throws {@link KMSNotFoundFault} (client fault)
+ *  <p>The specified KMS entity or resource can't be found.</p>
+ *
+ * @throws {@link KMSThrottlingFault} (client fault)
+ *  <p>This request triggered KMS request throttling.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ResourceQuotaExceededFault} (client fault)
+ *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>The SNS topic is invalid.</p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>You are not authorized for the SNS subscription.</p>
+ *
  *
  */
 export class ModifyEventSubscriptionCommand extends $Command<
@@ -66,6 +108,9 @@ export class ModifyEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +139,8 @@ export class ModifyEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyEventSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyEventSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +150,18 @@ export class ModifyEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyEventSubscriptionCommand(input, context);
+    return se_ModifyEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEventSubscriptionCommandOutput> {
-    return deserializeAws_json1_1ModifyEventSubscriptionCommand(output, context);
+    return de_ModifyEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

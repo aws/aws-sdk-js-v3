@@ -17,18 +17,25 @@ import {
   CreateModelCardRequest,
   CreateModelCardRequestFilterSensitiveLog,
   CreateModelCardResponse,
-  CreateModelCardResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateModelCardCommand,
-  serializeAws_json1_1CreateModelCardCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateModelCardCommand, se_CreateModelCardCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateModelCardCommand}.
+ */
 export interface CreateModelCardCommandInput extends CreateModelCardRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateModelCardCommand}.
+ */
 export interface CreateModelCardCommandOutput extends CreateModelCardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon SageMaker Model Card.</p>
  *          <p>For information about how to use model cards, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html">Amazon SageMaker Model Card</a>.</p>
  * @example
@@ -37,13 +44,38 @@ export interface CreateModelCardCommandOutput extends CreateModelCardResponse, _
  * import { SageMakerClient, CreateModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateModelCardRequest
+ *   ModelCardName: "STRING_VALUE", // required
+ *   SecurityConfig: { // ModelCardSecurityConfig
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   Content: "STRING_VALUE", // required
+ *   ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateModelCardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelCardCommandInput - {@link CreateModelCardCommandInput}
+ * @returns {@link CreateModelCardCommandOutput}
  * @see {@link CreateModelCardCommandInput} for command's `input` shape.
  * @see {@link CreateModelCardCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
  *
  */
 export class CreateModelCardCommand extends $Command<
@@ -63,6 +95,9 @@ export class CreateModelCardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelCardCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,7 +127,7 @@ export class CreateModelCardCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateModelCardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelCardResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +137,18 @@ export class CreateModelCardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelCardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateModelCardCommand(input, context);
+    return se_CreateModelCardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelCardCommandOutput> {
-    return deserializeAws_json1_1CreateModelCardCommand(output, context);
+    return de_CreateModelCardCommand(output, context);
   }
 
   // Start section: command_body_extra

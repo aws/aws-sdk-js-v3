@@ -24,6 +24,8 @@ export * from "./DescribeFleetAdvisorSchemaObjectSummaryPaginator";
 export * from "./DescribeFleetAdvisorSchemasPaginator";
 export * from "./DescribeOrderableReplicationInstancesPaginator";
 export * from "./DescribePendingMaintenanceActionsPaginator";
+export * from "./DescribeRecommendationLimitationsPaginator";
+export * from "./DescribeRecommendationsPaginator";
 export * from "./DescribeReplicationInstanceTaskLogsPaginator";
 export * from "./DescribeReplicationInstancesPaginator";
 export * from "./DescribeReplicationSubnetGroupsPaginator";

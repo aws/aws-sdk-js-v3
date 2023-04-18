@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListScheduledAuditsRequest,
-  ListScheduledAuditsRequestFilterSensitiveLog,
-  ListScheduledAuditsResponse,
-  ListScheduledAuditsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListScheduledAuditsCommand,
-  serializeAws_restJson1ListScheduledAuditsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListScheduledAuditsRequest, ListScheduledAuditsResponse } from "../models/models_1";
+import { de_ListScheduledAuditsCommand, se_ListScheduledAuditsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListScheduledAuditsCommand}.
+ */
 export interface ListScheduledAuditsCommandInput extends ListScheduledAuditsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListScheduledAuditsCommand}.
+ */
 export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of your scheduled audits.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListScheduledAudits</a> action.</p>
  * @example
@@ -37,13 +40,29 @@ export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsRes
  * import { IoTClient, ListScheduledAuditsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListScheduledAuditsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListScheduledAuditsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListScheduledAuditsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListScheduledAuditsCommandInput - {@link ListScheduledAuditsCommandInput}
+ * @returns {@link ListScheduledAuditsCommandOutput}
  * @see {@link ListScheduledAuditsCommandInput} for command's `input` shape.
  * @see {@link ListScheduledAuditsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class ListScheduledAuditsCommand extends $Command<
@@ -63,6 +82,9 @@ export class ListScheduledAuditsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListScheduledAuditsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +113,8 @@ export class ListScheduledAuditsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListScheduledAuditsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListScheduledAuditsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +124,18 @@ export class ListScheduledAuditsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListScheduledAuditsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListScheduledAuditsCommand(input, context);
+    return se_ListScheduledAuditsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduledAuditsCommandOutput> {
-    return deserializeAws_restJson1ListScheduledAuditsCommand(output, context);
+    return de_ListScheduledAuditsCommand(output, context);
   }
 
   // Start section: command_body_extra

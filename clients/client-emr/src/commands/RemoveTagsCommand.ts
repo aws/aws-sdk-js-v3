@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  RemoveTagsInput,
-  RemoveTagsInputFilterSensitiveLog,
-  RemoveTagsOutput,
-  RemoveTagsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveTagsCommand,
-  serializeAws_json1_1RemoveTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveTagsInput, RemoveTagsOutput } from "../models/models_0";
+import { de_RemoveTagsCommand, se_RemoveTagsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveTagsCommand}.
+ */
 export interface RemoveTagsCommandInput extends RemoveTagsInput {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveTagsCommand}.
+ */
 export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes tags from an Amazon EMR resource, such as a cluster or Amazon EMR Studio. Tags make it easier to associate resources in various ways, such as grouping
  *          clusters to track your Amazon EMR resource allocation costs. For more information,
  *          see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
@@ -40,13 +43,29 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * import { EMRClient, RemoveTagsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, RemoveTagsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // RemoveTagsInput
+ *   ResourceId: "STRING_VALUE", // required
+ *   TagKeys: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
+ * @returns {@link RemoveTagsCommandOutput}
  * @see {@link RemoveTagsCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class RemoveTagsCommand extends $Command<
@@ -66,6 +85,9 @@ export class RemoveTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +114,8 @@ export class RemoveTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTagsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +125,18 @@ export class RemoveTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTagsCommand(input, context);
+    return se_RemoveTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsCommand(output, context);
+    return de_RemoveTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,17 +18,24 @@ import {
   CreateLocationFsxOpenZfsRequest,
   CreateLocationFsxOpenZfsRequestFilterSensitiveLog,
   CreateLocationFsxOpenZfsResponse,
-  CreateLocationFsxOpenZfsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationFsxOpenZfsCommand,
-  serializeAws_json1_1CreateLocationFsxOpenZfsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationFsxOpenZfsCommand, se_CreateLocationFsxOpenZfsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLocationFsxOpenZfsCommand}.
+ */
 export interface CreateLocationFsxOpenZfsCommandInput extends CreateLocationFsxOpenZfsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLocationFsxOpenZfsCommand}.
+ */
 export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync
  *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Creating a location for FSx for OpenZFS</a>.</p>
  *          <note>
@@ -41,13 +48,50 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  * import { DataSyncClient, CreateLocationFsxOpenZfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationFsxOpenZfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateLocationFsxOpenZfsRequest
+ *   FsxFilesystemArn: "STRING_VALUE", // required
+ *   Protocol: { // FsxProtocol
+ *     NFS: { // FsxProtocolNfs
+ *       MountOptions: { // NfsMountOptions
+ *         Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ *       },
+ *     },
+ *     SMB: { // FsxProtocolSmb
+ *       Domain: "STRING_VALUE",
+ *       MountOptions: { // SmbMountOptions
+ *         Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ *       },
+ *       Password: "STRING_VALUE", // required
+ *       User: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Subdirectory: "STRING_VALUE",
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationFsxOpenZfsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationFsxOpenZfsCommandInput - {@link CreateLocationFsxOpenZfsCommandInput}
+ * @returns {@link CreateLocationFsxOpenZfsCommandOutput}
  * @see {@link CreateLocationFsxOpenZfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxOpenZfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class CreateLocationFsxOpenZfsCommand extends $Command<
@@ -67,6 +111,9 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationFsxOpenZfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +143,7 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLocationFsxOpenZfsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationFsxOpenZfsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +153,18 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationFsxOpenZfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationFsxOpenZfsCommand(input, context);
+    return se_CreateLocationFsxOpenZfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxOpenZfsCommandOutput> {
-    return deserializeAws_json1_1CreateLocationFsxOpenZfsCommand(output, context);
+    return de_CreateLocationFsxOpenZfsCommand(output, context);
   }
 
   // Start section: command_body_extra

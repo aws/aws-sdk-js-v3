@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateCampaignRequest,
-  UpdateCampaignRequestFilterSensitiveLog,
-  UpdateCampaignResponse,
-  UpdateCampaignResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateCampaignRequest, UpdateCampaignResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1UpdateCampaignCommand,
-  serializeAws_json1_1UpdateCampaignCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateCampaignCommand, se_UpdateCampaignCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateCampaignCommand}.
+ */
 export interface UpdateCampaignCommandInput extends UpdateCampaignRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateCampaignCommand}.
+ */
 export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a campaign by either deploying a new solution or changing the value of the
  *       campaign's <code>minProvisionedTPS</code> parameter.</p>
  *          <p>To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
@@ -47,13 +50,35 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * import { PersonalizeClient, UpdateCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, UpdateCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // UpdateCampaignRequest
+ *   campaignArn: "STRING_VALUE", // required
+ *   solutionVersionArn: "STRING_VALUE",
+ *   minProvisionedTPS: Number("int"),
+ *   campaignConfig: { // CampaignConfig
+ *     itemExplorationConfig: { // HyperParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCampaignCommandInput - {@link UpdateCampaignCommandInput}
+ * @returns {@link UpdateCampaignCommandOutput}
  * @see {@link UpdateCampaignCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class UpdateCampaignCommand extends $Command<
@@ -73,6 +98,9 @@ export class UpdateCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +129,8 @@ export class UpdateCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCampaignResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +140,18 @@ export class UpdateCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCampaignCommand(input, context);
+    return se_UpdateCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCampaignCommandOutput> {
-    return deserializeAws_json1_1UpdateCampaignCommand(output, context);
+    return de_UpdateCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

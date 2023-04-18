@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { ResumeCampaignRequest, ResumeCampaignRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1ResumeCampaignCommand,
-  serializeAws_restJson1ResumeCampaignCommand,
-} from "../protocols/Aws_restJson1";
+import { ResumeCampaignRequest } from "../models/models_0";
+import { de_ResumeCampaignCommand, se_ResumeCampaignCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ResumeCampaignCommand}.
+ */
 export interface ResumeCampaignCommandInput extends ResumeCampaignRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ResumeCampaignCommand}.
+ */
 export interface ResumeCampaignCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Stops a campaign for the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,40 @@ export interface ResumeCampaignCommandOutput extends __MetadataBearer {}
  * import { ConnectCampaignsClient, ResumeCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, ResumeCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // ResumeCampaignRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new ResumeCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeCampaignCommandInput - {@link ResumeCampaignCommandInput}
+ * @returns {@link ResumeCampaignCommandOutput}
  * @see {@link ResumeCampaignCommandInput} for command's `input` shape.
  * @see {@link ResumeCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  You do not have sufficient access to perform this action.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  The request could not be processed because of conflict in the current state of the resource.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Request processing failed because of an error or failure with the service.
+ *
+ * @throws {@link InvalidCampaignStateException} (client fault)
+ *  The request could not be processed because of conflict in the current state of the campaign.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  The specified resource was not found.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  The request was denied due to request throttling.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class ResumeCampaignCommand extends $Command<
@@ -57,6 +92,9 @@ export class ResumeCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +123,8 @@ export class ResumeCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +134,18 @@ export class ResumeCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResumeCampaignCommand(input, context);
+    return se_ResumeCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeCampaignCommandOutput> {
-    return deserializeAws_restJson1ResumeCampaignCommand(output, context);
+    return de_ResumeCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

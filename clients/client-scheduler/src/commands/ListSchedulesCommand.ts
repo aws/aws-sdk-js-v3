@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSchedulesInput,
-  ListSchedulesInputFilterSensitiveLog,
-  ListSchedulesOutput,
-  ListSchedulesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSchedulesCommand,
-  serializeAws_restJson1ListSchedulesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSchedulesInput, ListSchedulesOutput } from "../models/models_0";
+import { de_ListSchedulesCommand, se_ListSchedulesCommand } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSchedulesCommand}.
+ */
 export interface ListSchedulesCommandInput extends ListSchedulesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListSchedulesCommand}.
+ */
 export interface ListSchedulesCommandOutput extends ListSchedulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of your EventBridge Scheduler schedules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface ListSchedulesCommandOutput extends ListSchedulesOutput, __Metad
  * import { SchedulerClient, ListSchedulesCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, ListSchedulesCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
+ * const input = { // ListSchedulesInput
+ *   GroupName: "STRING_VALUE",
+ *   NamePrefix: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSchedulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchedulesCommandInput - {@link ListSchedulesCommandInput}
+ * @returns {@link ListSchedulesCommandOutput}
  * @see {@link ListSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListSchedulesCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error encountered while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource which does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class ListSchedulesCommand extends $Command<
@@ -62,6 +87,9 @@ export class ListSchedulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchedulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class ListSchedulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSchedulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSchedulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class ListSchedulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSchedulesCommand(input, context);
+    return se_ListSchedulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchedulesCommandOutput> {
-    return deserializeAws_restJson1ListSchedulesCommand(output, context);
+    return de_ListSchedulesCommand(output, context);
   }
 
   // Start section: command_body_extra

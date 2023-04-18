@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  UpdateAvailabilityOptionsRequest,
-  UpdateAvailabilityOptionsRequestFilterSensitiveLog,
-  UpdateAvailabilityOptionsResponse,
-  UpdateAvailabilityOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryUpdateAvailabilityOptionsCommand,
-  serializeAws_queryUpdateAvailabilityOptionsCommand,
-} from "../protocols/Aws_query";
+import { UpdateAvailabilityOptionsRequest, UpdateAvailabilityOptionsResponse } from "../models/models_0";
+import { de_UpdateAvailabilityOptionsCommand, se_UpdateAvailabilityOptionsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAvailabilityOptionsCommand}.
+ */
 export interface UpdateAvailabilityOptionsCommandInput extends UpdateAvailabilityOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAvailabilityOptionsCommand}.
+ */
 export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabilityOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures the availability options for a domain. Enabling the Multi-AZ option expands an Amazon CloudSearch domain to an additional Availability Zone in the same Region to increase fault tolerance in the event of a service disruption. Changes to the Multi-AZ option can take about half an hour to become active. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html" target="_blank">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,42 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  * import { CloudSearchClient, UpdateAvailabilityOptionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, UpdateAvailabilityOptionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // UpdateAvailabilityOptionsRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   MultiAZ: true || false, // required
+ * };
  * const command = new UpdateAvailabilityOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAvailabilityOptionsCommandInput - {@link UpdateAvailabilityOptionsCommandInput}
+ * @returns {@link UpdateAvailabilityOptionsCommandOutput}
  * @see {@link UpdateAvailabilityOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateAvailabilityOptionsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>The request was rejected because it attempted an operation which is not enabled.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An internal error occurred while processing the request. If this problem persists,
+ *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * @throws {@link InvalidTypeException} (client fault)
+ *  <p>The request was rejected because it specified an invalid type definition.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because a resource limit has already been met.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request was rejected because it has invalid parameters.</p>
+ *
  *
  */
 export class UpdateAvailabilityOptionsCommand extends $Command<
@@ -62,6 +94,9 @@ export class UpdateAvailabilityOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAvailabilityOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class UpdateAvailabilityOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAvailabilityOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAvailabilityOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +136,21 @@ export class UpdateAvailabilityOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAvailabilityOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateAvailabilityOptionsCommand(input, context);
+    return se_UpdateAvailabilityOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAvailabilityOptionsCommandOutput> {
-    return deserializeAws_queryUpdateAvailabilityOptionsCommand(output, context);
+    return de_UpdateAvailabilityOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

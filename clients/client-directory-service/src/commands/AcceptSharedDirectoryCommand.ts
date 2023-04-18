@@ -16,19 +16,26 @@ import {
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import {
   AcceptSharedDirectoryRequest,
-  AcceptSharedDirectoryRequestFilterSensitiveLog,
   AcceptSharedDirectoryResult,
   AcceptSharedDirectoryResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AcceptSharedDirectoryCommand,
-  serializeAws_json1_1AcceptSharedDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AcceptSharedDirectoryCommand, se_AcceptSharedDirectoryCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AcceptSharedDirectoryCommand}.
+ */
 export interface AcceptSharedDirectoryCommandInput extends AcceptSharedDirectoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AcceptSharedDirectoryCommand}.
+ */
 export interface AcceptSharedDirectoryCommandOutput extends AcceptSharedDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a directory sharing request that was sent from the directory owner account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,34 @@ export interface AcceptSharedDirectoryCommandOutput extends AcceptSharedDirector
  * import { DirectoryServiceClient, AcceptSharedDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, AcceptSharedDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // AcceptSharedDirectoryRequest
+ *   SharedDirectoryId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptSharedDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptSharedDirectoryCommandInput - {@link AcceptSharedDirectoryCommandInput}
+ * @returns {@link AcceptSharedDirectoryCommandOutput}
  * @see {@link AcceptSharedDirectoryCommandInput} for command's `input` shape.
  * @see {@link AcceptSharedDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryAlreadySharedException} (client fault)
+ *  <p>The specified directory has already been shared with this Amazon Web Services account.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
  *
  */
 export class AcceptSharedDirectoryCommand extends $Command<
@@ -62,6 +90,9 @@ export class AcceptSharedDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptSharedDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +121,7 @@ export class AcceptSharedDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptSharedDirectoryRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: AcceptSharedDirectoryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +132,18 @@ export class AcceptSharedDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptSharedDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptSharedDirectoryCommand(input, context);
+    return se_AcceptSharedDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptSharedDirectoryCommandOutput> {
-    return deserializeAws_json1_1AcceptSharedDirectoryCommand(output, context);
+    return de_AcceptSharedDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

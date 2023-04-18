@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteCoipCidrRequest,
-  DeleteCoipCidrRequestFilterSensitiveLog,
-  DeleteCoipCidrResult,
-  DeleteCoipCidrResultFilterSensitiveLog,
-} from "../models/models_2";
-import { deserializeAws_ec2DeleteCoipCidrCommand, serializeAws_ec2DeleteCoipCidrCommand } from "../protocols/Aws_ec2";
+import { DeleteCoipCidrRequest, DeleteCoipCidrResult } from "../models/models_2";
+import { de_DeleteCoipCidrCommand, se_DeleteCoipCidrCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCoipCidrCommand}.
+ */
 export interface DeleteCoipCidrCommandInput extends DeleteCoipCidrRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCoipCidrCommand}.
+ */
 export interface DeleteCoipCidrCommandOutput extends DeleteCoipCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a range of customer-owned IP addresses.
  *       </p>
@@ -35,13 +41,21 @@ export interface DeleteCoipCidrCommandOutput extends DeleteCoipCidrResult, __Met
  * import { EC2Client, DeleteCoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteCoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteCoipCidrRequest
+ *   Cidr: "STRING_VALUE", // required
+ *   CoipPoolId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteCoipCidrCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCoipCidrCommandInput - {@link DeleteCoipCidrCommandInput}
+ * @returns {@link DeleteCoipCidrCommandOutput}
  * @see {@link DeleteCoipCidrCommandInput} for command's `input` shape.
  * @see {@link DeleteCoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteCoipCidrCommand extends $Command<
@@ -61,6 +75,9 @@ export class DeleteCoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +106,8 @@ export class DeleteCoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCoipCidrResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +117,18 @@ export class DeleteCoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteCoipCidrCommand(input, context);
+    return se_DeleteCoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCoipCidrCommandOutput> {
-    return deserializeAws_ec2DeleteCoipCidrCommand(output, context);
+    return de_DeleteCoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

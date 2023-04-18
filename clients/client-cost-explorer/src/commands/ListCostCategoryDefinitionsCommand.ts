@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  ListCostCategoryDefinitionsRequest,
-  ListCostCategoryDefinitionsRequestFilterSensitiveLog,
-  ListCostCategoryDefinitionsResponse,
-  ListCostCategoryDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCostCategoryDefinitionsCommand,
-  serializeAws_json1_1ListCostCategoryDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCostCategoryDefinitionsRequest, ListCostCategoryDefinitionsResponse } from "../models/models_0";
+import { de_ListCostCategoryDefinitionsCommand, se_ListCostCategoryDefinitionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCostCategoryDefinitionsCommand}.
+ */
 export interface ListCostCategoryDefinitionsCommandInput extends ListCostCategoryDefinitionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCostCategoryDefinitionsCommand}.
+ */
 export interface ListCostCategoryDefinitionsCommandOutput
   extends ListCostCategoryDefinitionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the name, Amazon Resource Name (ARN), <code>NumberOfRules</code> and effective
  *       dates of all Cost Categories defined in the account. You have the option to use
  *         <code>EffectiveOn</code> to return a list of Cost Categories that were active on a specific
@@ -44,13 +47,24 @@ export interface ListCostCategoryDefinitionsCommandOutput
  * import { CostExplorerClient, ListCostCategoryDefinitionsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, ListCostCategoryDefinitionsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // ListCostCategoryDefinitionsRequest
+ *   EffectiveOn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCostCategoryDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCostCategoryDefinitionsCommandInput - {@link ListCostCategoryDefinitionsCommandInput}
+ * @returns {@link ListCostCategoryDefinitionsCommandOutput}
  * @see {@link ListCostCategoryDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListCostCategoryDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
  *
  */
 export class ListCostCategoryDefinitionsCommand extends $Command<
@@ -70,6 +84,9 @@ export class ListCostCategoryDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCostCategoryDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +115,8 @@ export class ListCostCategoryDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCostCategoryDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCostCategoryDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +126,21 @@ export class ListCostCategoryDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCostCategoryDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCostCategoryDefinitionsCommand(input, context);
+    return se_ListCostCategoryDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCostCategoryDefinitionsCommandOutput> {
-    return deserializeAws_json1_1ListCostCategoryDefinitionsCommand(output, context);
+    return de_ListCostCategoryDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

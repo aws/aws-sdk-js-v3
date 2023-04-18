@@ -20,21 +20,30 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   CancelReplicationTaskAssessmentRunMessage,
-  CancelReplicationTaskAssessmentRunMessageFilterSensitiveLog,
   CancelReplicationTaskAssessmentRunResponse,
-  CancelReplicationTaskAssessmentRunResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CancelReplicationTaskAssessmentRunCommand,
-  serializeAws_json1_1CancelReplicationTaskAssessmentRunCommand,
+  de_CancelReplicationTaskAssessmentRunCommand,
+  se_CancelReplicationTaskAssessmentRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelReplicationTaskAssessmentRunCommand}.
+ */
 export interface CancelReplicationTaskAssessmentRunCommandInput extends CancelReplicationTaskAssessmentRunMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CancelReplicationTaskAssessmentRunCommand}.
+ */
 export interface CancelReplicationTaskAssessmentRunCommandOutput
   extends CancelReplicationTaskAssessmentRunResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a single premigration assessment run.</p>
  *          <p>This operation prevents any individual assessments from running if they haven't started
  *          running. It also attempts to cancel any individual assessments that are currently
@@ -45,13 +54,29 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
  * import { DatabaseMigrationServiceClient, CancelReplicationTaskAssessmentRunCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CancelReplicationTaskAssessmentRunCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // CancelReplicationTaskAssessmentRunMessage
+ *   ReplicationTaskAssessmentRunArn: "STRING_VALUE", // required
+ * };
  * const command = new CancelReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelReplicationTaskAssessmentRunCommandInput - {@link CancelReplicationTaskAssessmentRunCommandInput}
+ * @returns {@link CancelReplicationTaskAssessmentRunCommandOutput}
  * @see {@link CancelReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link CancelReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class CancelReplicationTaskAssessmentRunCommand extends $Command<
@@ -71,6 +96,9 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelReplicationTaskAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +127,8 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelReplicationTaskAssessmentRunMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelReplicationTaskAssessmentRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +138,24 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelReplicationTaskAssessmentRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelReplicationTaskAssessmentRunCommand(input, context);
+    return se_CancelReplicationTaskAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelReplicationTaskAssessmentRunCommandOutput> {
-    return deserializeAws_json1_1CancelReplicationTaskAssessmentRunCommand(output, context);
+    return de_CancelReplicationTaskAssessmentRunCommand(output, context);
   }
 
   // Start section: command_body_extra

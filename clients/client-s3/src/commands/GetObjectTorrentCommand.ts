@@ -20,22 +20,29 @@ import {
   GetObjectTorrentOutput,
   GetObjectTorrentOutputFilterSensitiveLog,
   GetObjectTorrentRequest,
-  GetObjectTorrentRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectTorrentCommand,
-  serializeAws_restXmlGetObjectTorrentCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetObjectTorrentCommand, se_GetObjectTorrentCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetObjectTorrentCommand}.
+ */
 export interface GetObjectTorrentCommandInput extends GetObjectTorrentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetObjectTorrentCommand}.
+ */
 export interface GetObjectTorrentCommandOutput
   extends __WithSdkStreamMixin<GetObjectTorrentOutput, "Body">,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're
- *          distributing large files. For more information about BitTorrent, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Using BitTorrent with Amazon S3</a>.</p>
+ *          distributing large files.</p>
  *          <note>
  *             <p>You can get torrent only for objects that are less than 5 GB in size, and that are
  *             not encrypted using server-side encryption with a customer-provided encryption
@@ -57,13 +64,34 @@ export interface GetObjectTorrentCommandOutput
  * import { S3Client, GetObjectTorrentCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectTorrentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetObjectTorrentRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetObjectTorrentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectTorrentCommandInput - {@link GetObjectTorrentCommandInput}
+ * @returns {@link GetObjectTorrentCommandOutput}
  * @see {@link GetObjectTorrentCommandInput} for command's `input` shape.
  * @see {@link GetObjectTorrentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ *
+ * @example To retrieve torrent files for an object
+ * ```javascript
+ * // The following example retrieves torrent files of an object.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new GetObjectTorrentCommand(input);
+ * await client.send(command);
+ * // example id: to-retrieve-torrent-files-for-an-object-1481834115959
+ * ```
  *
  */
 export class GetObjectTorrentCommand extends $Command<
@@ -89,6 +117,9 @@ export class GetObjectTorrentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectTorrentCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,7 +148,7 @@ export class GetObjectTorrentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectTorrentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetObjectTorrentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -128,15 +159,21 @@ export class GetObjectTorrentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectTorrentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectTorrentCommand(input, context);
+    return se_GetObjectTorrentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetObjectTorrentCommandOutput> {
-    return deserializeAws_restXmlGetObjectTorrentCommand(output, context);
+    return de_GetObjectTorrentCommand(output, context);
   }
 
   // Start section: command_body_extra

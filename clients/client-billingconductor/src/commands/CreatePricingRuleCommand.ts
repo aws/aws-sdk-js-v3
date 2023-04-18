@@ -18,17 +18,24 @@ import {
   CreatePricingRuleInput,
   CreatePricingRuleInputFilterSensitiveLog,
   CreatePricingRuleOutput,
-  CreatePricingRuleOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePricingRuleCommand,
-  serializeAws_restJson1CreatePricingRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePricingRuleCommand, se_CreatePricingRuleCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreatePricingRuleCommand}.
+ */
 export interface CreatePricingRuleCommandInput extends CreatePricingRuleInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePricingRuleCommand}.
+ */
 export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans.
  *     </p>
@@ -38,13 +45,59 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  * import { BillingconductorClient, CreatePricingRuleCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, CreatePricingRuleCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // CreatePricingRuleInput
+ *   ClientToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Scope: "STRING_VALUE", // required
+ *   Type: "STRING_VALUE", // required
+ *   ModifierPercentage: Number("double"),
+ *   Service: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   BillingEntity: "STRING_VALUE",
+ *   Tiering: { // CreateTieringInput
+ *     FreeTier: { // CreateFreeTierConfig
+ *       Activated: true || false, // required
+ *     },
+ *   },
+ *   UsageType: "STRING_VALUE",
+ *   Operation: "STRING_VALUE",
+ * };
  * const command = new CreatePricingRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePricingRuleCommandInput - {@link CreatePricingRuleCommandInput}
+ * @returns {@link CreatePricingRuleCommandOutput}
  * @see {@link CreatePricingRuleCommandInput} for command's `input` shape.
  * @see {@link CreatePricingRuleCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.
+ *     </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You can cause an inconsistent state by updating or deleting a resource.
+ *     </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.
+ *     </p>
+ *
+ * @throws {@link ServiceLimitExceededException} (client fault)
+ *  <p>The request would cause a service limit to exceed.
+ *     </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
  *
  */
 export class CreatePricingRuleCommand extends $Command<
@@ -64,6 +117,9 @@ export class CreatePricingRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePricingRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +149,7 @@ export class CreatePricingRuleCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreatePricingRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePricingRuleOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +159,18 @@ export class CreatePricingRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePricingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePricingRuleCommand(input, context);
+    return se_CreatePricingRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePricingRuleCommandOutput> {
-    return deserializeAws_restJson1CreatePricingRuleCommand(output, context);
+    return de_CreatePricingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

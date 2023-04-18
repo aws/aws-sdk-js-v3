@@ -16,21 +16,30 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   PurchaseReservedCacheNodesOfferingMessage,
-  PurchaseReservedCacheNodesOfferingMessageFilterSensitiveLog,
   PurchaseReservedCacheNodesOfferingResult,
-  PurchaseReservedCacheNodesOfferingResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand,
-  serializeAws_queryPurchaseReservedCacheNodesOfferingCommand,
+  de_PurchaseReservedCacheNodesOfferingCommand,
+  se_PurchaseReservedCacheNodesOfferingCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link PurchaseReservedCacheNodesOfferingCommand}.
+ */
 export interface PurchaseReservedCacheNodesOfferingCommandInput extends PurchaseReservedCacheNodesOfferingMessage {}
+/**
+ * @public
+ *
+ * The output of {@link PurchaseReservedCacheNodesOfferingCommand}.
+ */
 export interface PurchaseReservedCacheNodesOfferingCommandOutput
   extends PurchaseReservedCacheNodesOfferingResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to purchase a reserved
  *             cache node offering. Reserved nodes are not eligible for cancellation and are non-refundable. For more information,
  *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Redis or
@@ -41,13 +50,56 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  * import { ElastiCacheClient, PurchaseReservedCacheNodesOfferingCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, PurchaseReservedCacheNodesOfferingCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // PurchaseReservedCacheNodesOfferingMessage
+ *   ReservedCacheNodesOfferingId: "STRING_VALUE", // required
+ *   ReservedCacheNodeId: "STRING_VALUE",
+ *   CacheNodeCount: Number("int"),
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PurchaseReservedCacheNodesOfferingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedCacheNodesOfferingCommandInput - {@link PurchaseReservedCacheNodesOfferingCommandInput}
+ * @returns {@link PurchaseReservedCacheNodesOfferingCommandOutput}
  * @see {@link PurchaseReservedCacheNodesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedCacheNodesOfferingCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ReservedCacheNodeAlreadyExistsFault} (client fault)
+ *  <p>You already have a reservation with the given identifier.</p>
+ *
+ * @throws {@link ReservedCacheNodeQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
+ *
+ * @throws {@link ReservedCacheNodesOfferingNotFoundFault} (client fault)
+ *  <p>The requested cache node offering does not exist.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ *
+ * @example PurchaseReservedCacheNodesOfferings
+ * ```javascript
+ * // Allows you to purchase a reserved cache node offering.
+ * const input = {
+ *   "ReservedCacheNodesOfferingId": "1ef01f5b-94ff-433f-a530-61a56bfc8e7a"
+ * };
+ * const command = new PurchaseReservedCacheNodesOfferingCommand(input);
+ * await client.send(command);
+ * // example id: purchasereservedcachenodesofferings-1483040798484
+ * ```
  *
  */
 export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
@@ -67,6 +119,9 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedCacheNodesOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +150,8 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedCacheNodesOfferingMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedCacheNodesOfferingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +161,24 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PurchaseReservedCacheNodesOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryPurchaseReservedCacheNodesOfferingCommand(input, context);
+    return se_PurchaseReservedCacheNodesOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> {
-    return deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand(output, context);
+    return de_PurchaseReservedCacheNodesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

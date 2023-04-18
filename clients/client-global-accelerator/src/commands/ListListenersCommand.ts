@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  ListListenersRequest,
-  ListListenersRequestFilterSensitiveLog,
-  ListListenersResponse,
-  ListListenersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListListenersCommand,
-  serializeAws_json1_1ListListenersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListListenersRequest, ListListenersResponse } from "../models/models_0";
+import { de_ListListenersCommand, se_ListListenersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListListenersCommand}.
+ */
 export interface ListListenersCommandInput extends ListListenersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListListenersCommand}.
+ */
 export interface ListListenersCommandOutput extends ListListenersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the listeners for an accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,33 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  * import { GlobalAcceleratorClient, ListListenersCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListListenersCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // ListListenersRequest
+ *   AcceleratorArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListListenersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListListenersCommandInput - {@link ListListenersCommandInput}
+ * @returns {@link ListListenersCommandOutput}
  * @see {@link ListListenersCommandInput} for command's `input` shape.
  * @see {@link ListListenersCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link AcceleratorNotFoundException} (client fault)
+ *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>There isn't another item to return.</p>
+ *
  *
  */
 export class ListListenersCommand extends $Command<
@@ -66,6 +89,9 @@ export class ListListenersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListListenersCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class ListListenersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListListenersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListListenersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +129,18 @@ export class ListListenersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListListenersCommand(input, context);
+    return se_ListListenersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListListenersCommandOutput> {
-    return deserializeAws_json1_1ListListenersCommand(output, context);
+    return de_ListListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

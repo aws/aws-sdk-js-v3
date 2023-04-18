@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  DescribeConnectionRequest,
-  DescribeConnectionRequestFilterSensitiveLog,
-  DescribeConnectionResponse,
-  DescribeConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConnectionCommand,
-  serializeAws_json1_1DescribeConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeConnectionRequest, DescribeConnectionResponse } from "../models/models_0";
+import { de_DescribeConnectionCommand, se_DescribeConnectionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConnectionCommand}.
+ */
 export interface DescribeConnectionCommandInput extends DescribeConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConnectionCommand}.
+ */
 export interface DescribeConnectionCommandOutput extends DescribeConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about a connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * import { CloudWatchEventsClient, DescribeConnectionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DescribeConnectionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // DescribeConnectionRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionCommandInput - {@link DescribeConnectionCommandInput}
+ * @returns {@link DescribeConnectionCommandOutput}
  * @see {@link DescribeConnectionCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class DescribeConnectionCommand extends $Command<
@@ -62,6 +77,9 @@ export class DescribeConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class DescribeConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class DescribeConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionCommand(input, context);
+    return se_DescribeConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectionCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionCommand(output, context);
+    return de_DescribeConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

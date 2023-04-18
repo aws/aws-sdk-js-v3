@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  ExtensionAssociation,
-  ExtensionAssociationFilterSensitiveLog,
-  UpdateExtensionAssociationRequest,
-  UpdateExtensionAssociationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateExtensionAssociationCommand,
-  serializeAws_restJson1UpdateExtensionAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { ExtensionAssociation, UpdateExtensionAssociationRequest } from "../models/models_0";
+import { de_UpdateExtensionAssociationCommand, se_UpdateExtensionAssociationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateExtensionAssociationCommand}.
+ */
 export interface UpdateExtensionAssociationCommandInput extends UpdateExtensionAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateExtensionAssociationCommand}.
+ */
 export interface UpdateExtensionAssociationCommandOutput extends ExtensionAssociation, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an association. For more information about extensions and associations, see
  *             <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
@@ -39,13 +42,31 @@ export interface UpdateExtensionAssociationCommandOutput extends ExtensionAssoci
  * import { AppConfigClient, UpdateExtensionAssociationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, UpdateExtensionAssociationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // UpdateExtensionAssociationRequest
+ *   ExtensionAssociationId: "STRING_VALUE", // required
+ *   Parameters: { // ParameterValueMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateExtensionAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateExtensionAssociationCommandInput - {@link UpdateExtensionAssociationCommandInput}
+ * @returns {@link UpdateExtensionAssociationCommandOutput}
  * @see {@link UpdateExtensionAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateExtensionAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
  *
  */
 export class UpdateExtensionAssociationCommand extends $Command<
@@ -65,6 +86,9 @@ export class UpdateExtensionAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateExtensionAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +117,8 @@ export class UpdateExtensionAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateExtensionAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtensionAssociationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +128,21 @@ export class UpdateExtensionAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateExtensionAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateExtensionAssociationCommand(input, context);
+    return se_UpdateExtensionAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateExtensionAssociationCommandOutput> {
-    return deserializeAws_restJson1UpdateExtensionAssociationCommand(output, context);
+    return de_UpdateExtensionAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

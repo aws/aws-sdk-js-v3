@@ -14,15 +14,66 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { UpdateGlobalSettingsRequest, UpdateGlobalSettingsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGlobalSettingsCommand,
-  serializeAws_restJson1UpdateGlobalSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateGlobalSettingsRequest } from "../models/models_0";
+import { de_UpdateGlobalSettingsCommand, se_UpdateGlobalSettingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateGlobalSettingsCommand}.
+ */
 export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateGlobalSettingsCommand}.
+ */
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Updates global settings for the Amazon Chime SDK Voice Connectors in an AWS account.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, UpdateGlobalSettingsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, UpdateGlobalSettingsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // UpdateGlobalSettingsRequest
+ *   VoiceConnector: { // VoiceConnectorSettings
+ *     CdrBucket: "STRING_VALUE",
+ *   },
+ * };
+ * const command = new UpdateGlobalSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param UpdateGlobalSettingsCommandInput - {@link UpdateGlobalSettingsCommandInput}
+ * @returns {@link UpdateGlobalSettingsCommandOutput}
+ * @see {@link UpdateGlobalSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateGlobalSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class UpdateGlobalSettingsCommand extends $Command<
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
@@ -40,6 +91,9 @@ export class UpdateGlobalSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGlobalSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,8 +122,8 @@ export class UpdateGlobalSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGlobalSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -79,12 +133,18 @@ export class UpdateGlobalSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGlobalSettingsCommand(input, context);
+    return se_UpdateGlobalSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateGlobalSettingsCommand(output, context);
+    return de_UpdateGlobalSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorldGenerationJobsRequest,
-  ListWorldGenerationJobsRequestFilterSensitiveLog,
-  ListWorldGenerationJobsResponse,
-  ListWorldGenerationJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorldGenerationJobsCommand,
-  serializeAws_restJson1ListWorldGenerationJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWorldGenerationJobsRequest, ListWorldGenerationJobsResponse } from "../models/models_0";
+import { de_ListWorldGenerationJobsCommand, se_ListWorldGenerationJobsCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListWorldGenerationJobsCommand}.
+ */
 export interface ListWorldGenerationJobsCommandInput extends ListWorldGenerationJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListWorldGenerationJobsCommand}.
+ */
 export interface ListWorldGenerationJobsCommandOutput extends ListWorldGenerationJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists world generator jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface ListWorldGenerationJobsCommandOutput extends ListWorldGeneratio
  * import { RoboMakerClient, ListWorldGenerationJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListWorldGenerationJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // ListWorldGenerationJobsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListWorldGenerationJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorldGenerationJobsCommandInput - {@link ListWorldGenerationJobsCommandInput}
+ * @returns {@link ListWorldGenerationJobsCommandOutput}
  * @see {@link ListWorldGenerationJobsCommandInput} for command's `input` shape.
  * @see {@link ListWorldGenerationJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class ListWorldGenerationJobsCommand extends $Command<
@@ -62,6 +90,9 @@ export class ListWorldGenerationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorldGenerationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class ListWorldGenerationJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorldGenerationJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorldGenerationJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class ListWorldGenerationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorldGenerationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorldGenerationJobsCommand(input, context);
+    return se_ListWorldGenerationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorldGenerationJobsCommandOutput> {
-    return deserializeAws_restJson1ListWorldGenerationJobsCommand(output, context);
+    return de_ListWorldGenerationJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

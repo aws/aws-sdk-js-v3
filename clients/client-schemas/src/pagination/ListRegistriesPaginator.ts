@@ -6,12 +6,11 @@ import {
   ListRegistriesCommandInput,
   ListRegistriesCommandOutput,
 } from "../commands/ListRegistriesCommand";
-import { Schemas } from "../Schemas";
 import { SchemasClient } from "../SchemasClient";
 import { SchemasPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SchemasClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListRegistriesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Schemas,
-  input: ListRegistriesCommandInput,
-  ...args: any
-): Promise<ListRegistriesCommandOutput> => {
-  // @ts-ignore
-  return await client.listRegistries(input, ...args);
-};
 export async function* paginateListRegistries(
   config: SchemasPaginationConfiguration,
   input: ListRegistriesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListRegistries(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof Schemas) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SchemasClient) {
+    if (config.client instanceof SchemasClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Schemas | SchemasClient");

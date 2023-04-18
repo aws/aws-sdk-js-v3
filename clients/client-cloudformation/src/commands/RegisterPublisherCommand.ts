@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  RegisterPublisherInput,
-  RegisterPublisherInputFilterSensitiveLog,
-  RegisterPublisherOutput,
-  RegisterPublisherOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryRegisterPublisherCommand,
-  serializeAws_queryRegisterPublisherCommand,
-} from "../protocols/Aws_query";
+import { RegisterPublisherInput, RegisterPublisherOutput } from "../models/models_0";
+import { de_RegisterPublisherCommand, se_RegisterPublisherCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterPublisherCommand}.
+ */
 export interface RegisterPublisherCommandInput extends RegisterPublisherInput {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterPublisherCommand}.
+ */
 export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers your account as a publisher of public extensions in the CloudFormation registry. Public extensions are available for use by all CloudFormation users.
  *          This publisher ID applies to your account in all Amazon Web Services Regions.</p>
  *          <p>For information about requirements for registering as a public extension publisher, see
@@ -42,13 +45,23 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * import { CloudFormationClient, RegisterPublisherCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, RegisterPublisherCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // RegisterPublisherInput
+ *   AcceptTermsAndConditions: true || false,
+ *   ConnectionArn: "STRING_VALUE",
+ * };
  * const command = new RegisterPublisherCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterPublisherCommandInput - {@link RegisterPublisherCommandInput}
+ * @returns {@link RegisterPublisherCommandOutput}
  * @see {@link RegisterPublisherCommandInput} for command's `input` shape.
  * @see {@link RegisterPublisherCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
  *
  */
 export class RegisterPublisherCommand extends $Command<
@@ -68,6 +81,9 @@ export class RegisterPublisherCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterPublisherCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +112,8 @@ export class RegisterPublisherCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterPublisherInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterPublisherOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +123,18 @@ export class RegisterPublisherCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterPublisherCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRegisterPublisherCommand(input, context);
+    return se_RegisterPublisherCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterPublisherCommandOutput> {
-    return deserializeAws_queryRegisterPublisherCommand(output, context);
+    return de_RegisterPublisherCommand(output, context);
   }
 
   // Start section: command_body_extra

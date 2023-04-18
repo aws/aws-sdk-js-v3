@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  StopApplicationRequest,
-  StopApplicationRequestFilterSensitiveLog,
-  StopApplicationResponse,
-  StopApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopApplicationCommand,
-  serializeAws_restJson1StopApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { StopApplicationRequest, StopApplicationResponse } from "../models/models_0";
+import { de_StopApplicationCommand, se_StopApplicationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopApplicationCommand}.
+ */
 export interface StopApplicationCommandInput extends StopApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopApplicationCommand}.
+ */
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * import { M2Client, StopApplicationCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, StopApplicationCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // StopApplicationRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   forceStop: true || false,
+ * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
+ * @returns {@link StopApplicationCommandOutput}
  * @see {@link StopApplicationCommandInput} for command's `input` shape.
  * @see {@link StopApplicationCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The parameters provided in the request conflict with existing resources.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameters provided in the request is not valid.</p>
+ *
  *
  */
 export class StopApplicationCommand extends $Command<
@@ -62,6 +90,9 @@ export class StopApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class StopApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class StopApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopApplicationCommand(input, context);
+    return se_StopApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopApplicationCommandOutput> {
-    return deserializeAws_restJson1StopApplicationCommand(output, context);
+    return de_StopApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

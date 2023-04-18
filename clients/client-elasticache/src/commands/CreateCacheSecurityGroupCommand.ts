@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CreateCacheSecurityGroupMessage,
-  CreateCacheSecurityGroupMessageFilterSensitiveLog,
-  CreateCacheSecurityGroupResult,
-  CreateCacheSecurityGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateCacheSecurityGroupCommand,
-  serializeAws_queryCreateCacheSecurityGroupCommand,
-} from "../protocols/Aws_query";
+import { CreateCacheSecurityGroupMessage, CreateCacheSecurityGroupResult } from "../models/models_0";
+import { de_CreateCacheSecurityGroupCommand, se_CreateCacheSecurityGroupCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateCacheSecurityGroupCommand}.
+ */
 export interface CreateCacheSecurityGroupCommandInput extends CreateCacheSecurityGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCacheSecurityGroupCommand}.
+ */
 export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecurityGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cache security group. Use a
  *             cache security group to control access to one or more clusters.</p>
  *          <p>Cache security groups are only used when you are creating a cluster outside of an Amazon
@@ -41,13 +44,53 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  * import { ElastiCacheClient, CreateCacheSecurityGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateCacheSecurityGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // CreateCacheSecurityGroupMessage
+ *   CacheSecurityGroupName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateCacheSecurityGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCacheSecurityGroupCommandInput - {@link CreateCacheSecurityGroupCommandInput}
+ * @returns {@link CreateCacheSecurityGroupCommandOutput}
  * @see {@link CreateCacheSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCacheSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link CacheSecurityGroupAlreadyExistsFault} (client fault)
+ *  <p>A cache security group with the specified name already exists.</p>
+ *
+ * @throws {@link CacheSecurityGroupQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ *
+ * @example CreateCacheSecurityGroup
+ * ```javascript
+ * // Creates an ElastiCache security group. ElastiCache security groups are only for clusters not running in an AWS VPC.
+ * const input = {
+ *   "CacheSecurityGroupName": "my-cache-sec-grp",
+ *   "Description": "Example ElastiCache security group."
+ * };
+ * const command = new CreateCacheSecurityGroupCommand(input);
+ * await client.send(command);
+ * // example id: createcachesecuritygroup-1483041506604
+ * ```
  *
  */
 export class CreateCacheSecurityGroupCommand extends $Command<
@@ -67,6 +110,9 @@ export class CreateCacheSecurityGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCacheSecurityGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +141,8 @@ export class CreateCacheSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCacheSecurityGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCacheSecurityGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +152,18 @@ export class CreateCacheSecurityGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCacheSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateCacheSecurityGroupCommand(input, context);
+    return se_CreateCacheSecurityGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCacheSecurityGroupCommandOutput> {
-    return deserializeAws_queryCreateCacheSecurityGroupCommand(output, context);
+    return de_CreateCacheSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeFleetsRequest,
-  DescribeFleetsRequestFilterSensitiveLog,
-  DescribeFleetsResult,
-  DescribeFleetsResultFilterSensitiveLog,
-} from "../models/models_3";
-import { deserializeAws_ec2DescribeFleetsCommand, serializeAws_ec2DescribeFleetsCommand } from "../protocols/Aws_ec2";
+import { DescribeFleetsRequest, DescribeFleetsResult } from "../models/models_3";
+import { de_DescribeFleetsCommand, se_DescribeFleetsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetsCommand}.
+ */
 export interface DescribeFleetsCommandInput extends DescribeFleetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetsCommand}.
+ */
 export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -34,13 +40,32 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * import { EC2Client, DescribeFleetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFleetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeFleetsRequest
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   FleetIds: [ // FleetIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribeFleetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetsCommandInput - {@link DescribeFleetsCommandInput}
+ * @returns {@link DescribeFleetsCommandOutput}
  * @see {@link DescribeFleetsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeFleetsCommand extends $Command<
@@ -60,6 +85,9 @@ export class DescribeFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class DescribeFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class DescribeFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeFleetsCommand(input, context);
+    return se_DescribeFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetsCommandOutput> {
-    return deserializeAws_ec2DescribeFleetsCommand(output, context);
+    return de_DescribeFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

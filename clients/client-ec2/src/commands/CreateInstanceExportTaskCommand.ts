@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateInstanceExportTaskRequest,
-  CreateInstanceExportTaskRequestFilterSensitiveLog,
-  CreateInstanceExportTaskResult,
-  CreateInstanceExportTaskResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_ec2CreateInstanceExportTaskCommand,
-  serializeAws_ec2CreateInstanceExportTaskCommand,
-} from "../protocols/Aws_ec2";
+import { CreateInstanceExportTaskRequest, CreateInstanceExportTaskResult } from "../models/models_1";
+import { de_CreateInstanceExportTaskCommand, se_CreateInstanceExportTaskCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateInstanceExportTaskCommand}.
+ */
 export interface CreateInstanceExportTaskCommandInput extends CreateInstanceExportTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateInstanceExportTaskCommand}.
+ */
 export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExportTaskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a running or stopped instance to an Amazon S3 bucket.</p>
  *          <p>For information about the supported operating systems, image formats, and known limitations
  *    for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting an instance as a VM Using VM Import/Export</a>
@@ -39,13 +42,38 @@ export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExp
  * import { EC2Client, CreateInstanceExportTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateInstanceExportTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateInstanceExportTaskRequest
+ *   Description: "STRING_VALUE",
+ *   ExportToS3Task: { // ExportToS3TaskSpecification
+ *     ContainerFormat: "ova",
+ *     DiskImageFormat: "VMDK" || "RAW" || "VHD",
+ *     S3Bucket: "STRING_VALUE",
+ *     S3Prefix: "STRING_VALUE",
+ *   },
+ *   InstanceId: "STRING_VALUE", // required
+ *   TargetEnvironment: "citrix" || "vmware" || "microsoft", // required
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateInstanceExportTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceExportTaskCommandInput - {@link CreateInstanceExportTaskCommandInput}
+ * @returns {@link CreateInstanceExportTaskCommandOutput}
  * @see {@link CreateInstanceExportTaskCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceExportTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class CreateInstanceExportTaskCommand extends $Command<
@@ -65,6 +93,9 @@ export class CreateInstanceExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +124,8 @@ export class CreateInstanceExportTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInstanceExportTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInstanceExportTaskResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +135,18 @@ export class CreateInstanceExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstanceExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateInstanceExportTaskCommand(input, context);
+    return se_CreateInstanceExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceExportTaskCommandOutput> {
-    return deserializeAws_ec2CreateInstanceExportTaskCommand(output, context);
+    return de_CreateInstanceExportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

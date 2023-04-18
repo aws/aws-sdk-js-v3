@@ -15,22 +15,31 @@ import {
 
 import {
   DescribeInferenceRecommendationsJobRequest,
-  DescribeInferenceRecommendationsJobRequestFilterSensitiveLog,
   DescribeInferenceRecommendationsJobResponse,
-  DescribeInferenceRecommendationsJobResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1DescribeInferenceRecommendationsJobCommand,
-  serializeAws_json1_1DescribeInferenceRecommendationsJobCommand,
+  de_DescribeInferenceRecommendationsJobCommand,
+  se_DescribeInferenceRecommendationsJobCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInferenceRecommendationsJobCommand}.
+ */
 export interface DescribeInferenceRecommendationsJobCommandInput extends DescribeInferenceRecommendationsJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInferenceRecommendationsJobCommand}.
+ */
 export interface DescribeInferenceRecommendationsJobCommandOutput
   extends DescribeInferenceRecommendationsJobResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the results of the Inference Recommender job.
  *           One or more recommendation jobs are returned.</p>
  * @example
@@ -39,13 +48,22 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
  * import { SageMakerClient, DescribeInferenceRecommendationsJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeInferenceRecommendationsJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeInferenceRecommendationsJobRequest
+ *   JobName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInferenceRecommendationsJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInferenceRecommendationsJobCommandInput - {@link DescribeInferenceRecommendationsJobCommandInput}
+ * @returns {@link DescribeInferenceRecommendationsJobCommandOutput}
  * @see {@link DescribeInferenceRecommendationsJobCommandInput} for command's `input` shape.
  * @see {@link DescribeInferenceRecommendationsJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeInferenceRecommendationsJobCommand extends $Command<
@@ -65,6 +83,9 @@ export class DescribeInferenceRecommendationsJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInferenceRecommendationsJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +114,8 @@ export class DescribeInferenceRecommendationsJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInferenceRecommendationsJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInferenceRecommendationsJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +125,24 @@ export class DescribeInferenceRecommendationsJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeInferenceRecommendationsJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInferenceRecommendationsJobCommand(input, context);
+    return se_DescribeInferenceRecommendationsJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInferenceRecommendationsJobCommandOutput> {
-    return deserializeAws_json1_1DescribeInferenceRecommendationsJobCommand(output, context);
+    return de_DescribeInferenceRecommendationsJobCommand(output, context);
   }
 
   // Start section: command_body_extra

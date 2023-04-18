@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
+import { DescribeComponentConfigurationRequest, DescribeComponentConfigurationResponse } from "../models/models_0";
 import {
-  DescribeComponentConfigurationRequest,
-  DescribeComponentConfigurationRequestFilterSensitiveLog,
-  DescribeComponentConfigurationResponse,
-  DescribeComponentConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeComponentConfigurationCommand,
-  serializeAws_json1_1DescribeComponentConfigurationCommand,
+  de_DescribeComponentConfigurationCommand,
+  se_DescribeComponentConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeComponentConfigurationCommand}.
+ */
 export interface DescribeComponentConfigurationCommandInput extends DescribeComponentConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeComponentConfigurationCommand}.
+ */
 export interface DescribeComponentConfigurationCommandOutput
   extends DescribeComponentConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the monitoring configuration of the component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +48,29 @@ export interface DescribeComponentConfigurationCommandOutput
  * import { ApplicationInsightsClient, DescribeComponentConfigurationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeComponentConfigurationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // DescribeComponentConfigurationRequest
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   ComponentName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeComponentConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComponentConfigurationCommandInput - {@link DescribeComponentConfigurationCommandInput}
+ * @returns {@link DescribeComponentConfigurationCommandOutput}
  * @see {@link DescribeComponentConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeComponentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource does not exist in the customer account.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class DescribeComponentConfigurationCommand extends $Command<
@@ -68,6 +90,9 @@ export class DescribeComponentConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComponentConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +121,8 @@ export class DescribeComponentConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeComponentConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeComponentConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +132,24 @@ export class DescribeComponentConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeComponentConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeComponentConfigurationCommand(input, context);
+    return se_DescribeComponentConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeComponentConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeComponentConfigurationCommand(output, context);
+    return de_DescribeComponentConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,28 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeSpotInstanceRequestsRequest,
-  DescribeSpotInstanceRequestsRequestFilterSensitiveLog,
   DescribeSpotInstanceRequestsResult,
   DescribeSpotInstanceRequestsResultFilterSensitiveLog,
 } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSpotInstanceRequestsCommand,
-  serializeAws_ec2DescribeSpotInstanceRequestsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeSpotInstanceRequestsCommand, se_DescribeSpotInstanceRequestsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSpotInstanceRequestsCommand}.
+ */
 export interface DescribeSpotInstanceRequestsCommandInput extends DescribeSpotInstanceRequestsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSpotInstanceRequestsCommand}.
+ */
 export interface DescribeSpotInstanceRequestsCommandOutput
   extends DescribeSpotInstanceRequestsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Spot Instance requests.</p>
  *          <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by
  *             examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the
@@ -39,12 +46,12 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  *             with a filter to look for instances where the instance lifecycle is
  *             <code>spot</code>.</p>
  *          <p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to
- *             limit the number of results returned. This paginates the output, which makes the list
- *             more manageable and returns the results faster. If the list of results exceeds your
- *                 <code>MaxResults</code> value, then that number of results is returned along with a
+ *             limit the number of items returned. This paginates the output, which makes the list
+ *             more manageable and returns the items faster. If the list of items exceeds your
+ *                 <code>MaxResults</code> value, then that number of items is returned along with a
  *                 <code>NextToken</code> value that can be passed to a subsequent
  *                 <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining
- *             results.</p>
+ *             items.</p>
  *          <p>Spot Instance requests are deleted four hours after they are canceled and their instances are
  *             terminated.</p>
  * @example
@@ -53,13 +60,88 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * import { EC2Client, DescribeSpotInstanceRequestsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSpotInstanceRequestsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSpotInstanceRequestsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   SpotInstanceRequestIds: [ // SpotInstanceRequestIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeSpotInstanceRequestsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpotInstanceRequestsCommandInput - {@link DescribeSpotInstanceRequestsCommandInput}
+ * @returns {@link DescribeSpotInstanceRequestsCommandOutput}
  * @see {@link DescribeSpotInstanceRequestsCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotInstanceRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To describe a Spot Instance request
+ * ```javascript
+ * // This example describes the specified Spot Instance request.
+ * const input = {
+ *   "SpotInstanceRequestIds": [
+ *     "sir-08b93456"
+ *   ]
+ * };
+ * const command = new DescribeSpotInstanceRequestsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SpotInstanceRequests": [
+ *     {
+ *       "CreateTime": "2014-04-30T18:14:55.000Z",
+ *       "InstanceId": "i-1234567890abcdef0",
+ *       "LaunchSpecification": {
+ *         "BlockDeviceMappings": [
+ *           {
+ *             "DeviceName": "/dev/sda1",
+ *             "Ebs": {
+ *               "DeleteOnTermination": true,
+ *               "VolumeSize": 8,
+ *               "VolumeType": "standard"
+ *             }
+ *           }
+ *         ],
+ *         "EbsOptimized": false,
+ *         "ImageId": "ami-7aba833f",
+ *         "InstanceType": "m1.small",
+ *         "KeyName": "my-key-pair",
+ *         "SecurityGroups": [
+ *           {
+ *             "GroupId": "sg-e38f24a7",
+ *             "GroupName": "my-security-group"
+ *           }
+ *         ]
+ *       },
+ *       "LaunchedAvailabilityZone": "us-west-1b",
+ *       "ProductDescription": "Linux/UNIX",
+ *       "SpotInstanceRequestId": "sir-08b93456",
+ *       "SpotPrice": "0.010000",
+ *       "State": "active",
+ *       "Status": {
+ *         "Code": "fulfilled",
+ *         "Message": "Your Spot request is fulfilled.",
+ *         "UpdateTime": "2014-04-30T18:16:21.000Z"
+ *       },
+ *       "Type": "one-time"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-describe-spot-instance-requests-1
+ * ```
  *
  */
 export class DescribeSpotInstanceRequestsCommand extends $Command<
@@ -79,6 +161,9 @@ export class DescribeSpotInstanceRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpotInstanceRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +192,7 @@ export class DescribeSpotInstanceRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpotInstanceRequestsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeSpotInstanceRequestsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -118,15 +203,21 @@ export class DescribeSpotInstanceRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpotInstanceRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSpotInstanceRequestsCommand(input, context);
+    return se_DescribeSpotInstanceRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSpotInstanceRequestsCommandOutput> {
-    return deserializeAws_ec2DescribeSpotInstanceRequestsCommand(output, context);
+    return de_DescribeSpotInstanceRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

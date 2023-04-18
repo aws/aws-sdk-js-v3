@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  GetLogGroupFieldsRequest,
-  GetLogGroupFieldsRequestFilterSensitiveLog,
-  GetLogGroupFieldsResponse,
-  GetLogGroupFieldsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLogGroupFieldsCommand,
-  serializeAws_json1_1GetLogGroupFieldsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetLogGroupFieldsRequest, GetLogGroupFieldsResponse } from "../models/models_0";
+import { de_GetLogGroupFieldsCommand, se_GetLogGroupFieldsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLogGroupFieldsCommand}.
+ */
 export interface GetLogGroupFieldsCommandInput extends GetLogGroupFieldsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLogGroupFieldsCommand}.
+ */
 export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the fields that are included in log events in the specified log group.
  *       Includes the percentage of log events that contain each field. The search is limited to a time
  *       period that you specify.</p>
@@ -50,13 +53,33 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  * import { CloudWatchLogsClient, GetLogGroupFieldsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetLogGroupFieldsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // GetLogGroupFieldsRequest
+ *   logGroupName: "STRING_VALUE",
+ *   time: Number("long"),
+ *   logGroupIdentifier: "STRING_VALUE",
+ * };
  * const command = new GetLogGroupFieldsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLogGroupFieldsCommandInput - {@link GetLogGroupFieldsCommandInput}
+ * @returns {@link GetLogGroupFieldsCommandOutput}
  * @see {@link GetLogGroupFieldsCommandInput} for command's `input` shape.
  * @see {@link GetLogGroupFieldsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class GetLogGroupFieldsCommand extends $Command<
@@ -76,6 +99,9 @@ export class GetLogGroupFieldsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLogGroupFieldsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +130,8 @@ export class GetLogGroupFieldsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLogGroupFieldsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLogGroupFieldsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +141,18 @@ export class GetLogGroupFieldsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLogGroupFieldsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLogGroupFieldsCommand(input, context);
+    return se_GetLogGroupFieldsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLogGroupFieldsCommandOutput> {
-    return deserializeAws_json1_1GetLogGroupFieldsCommand(output, context);
+    return de_GetLogGroupFieldsCommand(output, context);
   }
 
   // Start section: command_body_extra

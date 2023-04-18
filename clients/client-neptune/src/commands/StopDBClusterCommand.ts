@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopDBClusterMessage,
-  StopDBClusterMessageFilterSensitiveLog,
-  StopDBClusterResult,
-  StopDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryStopDBClusterCommand,
-  serializeAws_queryStopDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_StopDBClusterCommand, se_StopDBClusterCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link StopDBClusterCommand}.
+ */
 export interface StopDBClusterCommandInput extends StopDBClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link StopDBClusterCommand}.
+ */
 export interface StopDBClusterCommandOutput extends StopDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune
  *       retains the DB cluster's metadata, including its endpoints and DB parameter
  *       groups.</p>
- *
  *          <p>Neptune also retains the transaction logs so you can do a point-in-time
  *       restore if necessary.</p>
  * @example
@@ -41,13 +43,29 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * import { NeptuneClient, StopDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, StopDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // StopDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new StopDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDBClusterCommandInput - {@link StopDBClusterCommandInput}
+ * @returns {@link StopDBClusterCommandOutput}
  * @see {@link StopDBClusterCommandInput} for command's `input` shape.
  * @see {@link StopDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
  *
  */
 export class StopDBClusterCommand extends $Command<
@@ -67,6 +85,9 @@ export class StopDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +114,8 @@ export class StopDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StopDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +125,18 @@ export class StopDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopDBClusterCommand(input, context);
+    return se_StopDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBClusterCommandOutput> {
-    return deserializeAws_queryStopDBClusterCommand(output, context);
+    return de_StopDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

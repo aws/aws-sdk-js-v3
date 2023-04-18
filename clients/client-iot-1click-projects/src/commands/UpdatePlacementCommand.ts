@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import {
-  UpdatePlacementRequest,
-  UpdatePlacementRequestFilterSensitiveLog,
-  UpdatePlacementResponse,
-  UpdatePlacementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePlacementCommand,
-  serializeAws_restJson1UpdatePlacementCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePlacementRequest, UpdatePlacementResponse } from "../models/models_0";
+import { de_UpdatePlacementCommand, se_UpdatePlacementCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdatePlacementCommand}.
+ */
 export interface UpdatePlacementCommandInput extends UpdatePlacementRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdatePlacementCommand}.
+ */
 export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a placement with the given attributes. To clear an attribute, pass an empty value
  *       (i.e., "").</p>
  * @example
@@ -41,13 +44,35 @@ export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, _
  * import { IoT1ClickProjectsClient, UpdatePlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, UpdatePlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = { // UpdatePlacementRequest
+ *   placementName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   attributes: { // PlacementAttributeMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdatePlacementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePlacementCommandInput - {@link UpdatePlacementCommandInput}
+ * @returns {@link UpdatePlacementCommandOutput}
  * @see {@link UpdatePlacementCommandInput} for command's `input` shape.
  * @see {@link UpdatePlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class UpdatePlacementCommand extends $Command<
@@ -67,6 +92,9 @@ export class UpdatePlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +123,8 @@ export class UpdatePlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePlacementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePlacementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +134,18 @@ export class UpdatePlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePlacementCommand(input, context);
+    return se_UpdatePlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePlacementCommandOutput> {
-    return deserializeAws_restJson1UpdatePlacementCommand(output, context);
+    return de_UpdatePlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

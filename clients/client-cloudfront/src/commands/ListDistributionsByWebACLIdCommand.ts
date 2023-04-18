@@ -16,19 +16,26 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   ListDistributionsByWebACLIdRequest,
-  ListDistributionsByWebACLIdRequestFilterSensitiveLog,
   ListDistributionsByWebACLIdResult,
   ListDistributionsByWebACLIdResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlListDistributionsByWebACLIdCommand,
-  serializeAws_restXmlListDistributionsByWebACLIdCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListDistributionsByWebACLIdCommand, se_ListDistributionsByWebACLIdCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDistributionsByWebACLIdCommand}.
+ */
 export interface ListDistributionsByWebACLIdCommandInput extends ListDistributionsByWebACLIdRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDistributionsByWebACLIdCommand}.
+ */
 export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributionsByWebACLIdResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the distributions that are associated with a specified WAF web ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,31 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * import { CloudFrontClient, ListDistributionsByWebACLIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByWebACLIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListDistributionsByWebACLIdRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   WebACLId: "STRING_VALUE", // required
+ * };
  * const command = new ListDistributionsByWebACLIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsByWebACLIdCommandInput - {@link ListDistributionsByWebACLIdCommandInput}
+ * @returns {@link ListDistributionsByWebACLIdCommandOutput}
  * @see {@link ListDistributionsByWebACLIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByWebACLIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidWebACLId} (client fault)
+ *  <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest
+ * 			version of WAF, use the ACL ARN, for example
+ * 				<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+ * 			To specify a web ACL created using WAF Classic, use the ACL ID, for example
+ * 				<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+ *
  *
  */
 export class ListDistributionsByWebACLIdCommand extends $Command<
@@ -62,6 +87,9 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByWebACLIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +118,7 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsByWebACLIdRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListDistributionsByWebACLIdResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,15 +129,21 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDistributionsByWebACLIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByWebACLIdCommand(input, context);
+    return se_ListDistributionsByWebACLIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByWebACLIdCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByWebACLIdCommand(output, context);
+    return de_ListDistributionsByWebACLIdCommand(output, context);
   }
 
   // Start section: command_body_extra

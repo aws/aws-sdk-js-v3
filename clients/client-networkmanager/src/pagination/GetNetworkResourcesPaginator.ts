@@ -6,12 +6,11 @@ import {
   GetNetworkResourcesCommandInput,
   GetNetworkResourcesCommandOutput,
 } from "../commands/GetNetworkResourcesCommand";
-import { NetworkManager } from "../NetworkManager";
 import { NetworkManagerClient } from "../NetworkManagerClient";
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NetworkManagerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetNetworkResourcesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: NetworkManager,
-  input: GetNetworkResourcesCommandInput,
-  ...args: any
-): Promise<GetNetworkResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.getNetworkResources(input, ...args);
-};
 export async function* paginateGetNetworkResources(
   config: NetworkManagerPaginationConfiguration,
   input: GetNetworkResourcesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetNetworkResources(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof NetworkManager) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NetworkManagerClient) {
+    if (config.client instanceof NetworkManagerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");

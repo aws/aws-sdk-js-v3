@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  UnarchiveWaveRequest,
-  UnarchiveWaveRequestFilterSensitiveLog,
-  Wave,
-  WaveFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UnarchiveWaveCommand,
-  serializeAws_restJson1UnarchiveWaveCommand,
-} from "../protocols/Aws_restJson1";
+import { UnarchiveWaveRequest, Wave, WaveFilterSensitiveLog } from "../models/models_0";
+import { de_UnarchiveWaveCommand, se_UnarchiveWaveCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UnarchiveWaveCommand}.
+ */
 export interface UnarchiveWaveCommandInput extends UnarchiveWaveRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UnarchiveWaveCommand}.
+ */
 export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unarchive wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * import { MgnClient, UnarchiveWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UnarchiveWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // UnarchiveWaveRequest
+ *   waveID: "STRING_VALUE", // required
+ * };
  * const command = new UnarchiveWaveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnarchiveWaveCommandInput - {@link UnarchiveWaveCommandInput}
+ * @returns {@link UnarchiveWaveCommandOutput}
  * @see {@link UnarchiveWaveCommandInput} for command's `input` shape.
  * @see {@link UnarchiveWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request could not be completed because its exceeded the service quota.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
  *
  */
 export class UnarchiveWaveCommand extends $Command<
@@ -62,6 +80,9 @@ export class UnarchiveWaveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnarchiveWaveCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +109,7 @@ export class UnarchiveWaveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnarchiveWaveRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: WaveFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,12 +120,18 @@ export class UnarchiveWaveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnarchiveWaveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnarchiveWaveCommand(input, context);
+    return se_UnarchiveWaveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnarchiveWaveCommandOutput> {
-    return deserializeAws_restJson1UnarchiveWaveCommand(output, context);
+    return de_UnarchiveWaveCommand(output, context);
   }
 
   // Start section: command_body_extra

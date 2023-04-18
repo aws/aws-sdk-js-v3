@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RevokeClientVpnIngressRequest,
-  RevokeClientVpnIngressRequestFilterSensitiveLog,
-  RevokeClientVpnIngressResult,
-  RevokeClientVpnIngressResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2RevokeClientVpnIngressCommand,
-  serializeAws_ec2RevokeClientVpnIngressCommand,
-} from "../protocols/Aws_ec2";
+import { RevokeClientVpnIngressRequest, RevokeClientVpnIngressResult } from "../models/models_6";
+import { de_RevokeClientVpnIngressCommand, se_RevokeClientVpnIngressCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link RevokeClientVpnIngressCommand}.
+ */
 export interface RevokeClientVpnIngressCommandInput extends RevokeClientVpnIngressRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RevokeClientVpnIngressCommand}.
+ */
 export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an ingress authorization rule from a Client VPN endpoint. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngr
  * import { EC2Client, RevokeClientVpnIngressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RevokeClientVpnIngressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RevokeClientVpnIngressRequest
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   TargetNetworkCidr: "STRING_VALUE", // required
+ *   AccessGroupId: "STRING_VALUE",
+ *   RevokeAllGroups: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new RevokeClientVpnIngressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeClientVpnIngressCommandInput - {@link RevokeClientVpnIngressCommandInput}
+ * @returns {@link RevokeClientVpnIngressCommandOutput}
  * @see {@link RevokeClientVpnIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeClientVpnIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class RevokeClientVpnIngressCommand extends $Command<
@@ -62,6 +75,9 @@ export class RevokeClientVpnIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeClientVpnIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +106,8 @@ export class RevokeClientVpnIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeClientVpnIngressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeClientVpnIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +117,18 @@ export class RevokeClientVpnIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeClientVpnIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RevokeClientVpnIngressCommand(input, context);
+    return se_RevokeClientVpnIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeClientVpnIngressCommandOutput> {
-    return deserializeAws_ec2RevokeClientVpnIngressCommand(output, context);
+    return de_RevokeClientVpnIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

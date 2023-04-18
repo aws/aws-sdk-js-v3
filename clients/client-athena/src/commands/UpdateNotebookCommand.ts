@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  UpdateNotebookInput,
-  UpdateNotebookInputFilterSensitiveLog,
-  UpdateNotebookOutput,
-  UpdateNotebookOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateNotebookCommand,
-  serializeAws_json1_1UpdateNotebookCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateNotebookInput, UpdateNotebookOutput } from "../models/models_0";
+import { de_UpdateNotebookCommand, se_UpdateNotebookCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateNotebookCommand}.
+ */
 export interface UpdateNotebookCommandInput extends UpdateNotebookInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateNotebookCommand}.
+ */
 export interface UpdateNotebookCommandOutput extends UpdateNotebookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the contents of a Spark notebook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface UpdateNotebookCommandOutput extends UpdateNotebookOutput, __Met
  * import { AthenaClient, UpdateNotebookCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdateNotebookCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // UpdateNotebookInput
+ *   NotebookId: "STRING_VALUE", // required
+ *   Payload: "STRING_VALUE", // required
+ *   Type: "IPYNB", // required
+ *   SessionId: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new UpdateNotebookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNotebookCommandInput - {@link UpdateNotebookCommandInput}
+ * @returns {@link UpdateNotebookCommandOutput}
  * @see {@link UpdateNotebookCommandInput} for command's `input` shape.
  * @see {@link UpdateNotebookCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Indicates that the request was throttled.</p>
+ *
  *
  */
 export class UpdateNotebookCommand extends $Command<
@@ -62,6 +86,9 @@ export class UpdateNotebookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNotebookCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class UpdateNotebookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNotebookInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNotebookOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class UpdateNotebookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNotebookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNotebookCommand(input, context);
+    return se_UpdateNotebookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNotebookCommandOutput> {
-    return deserializeAws_json1_1UpdateNotebookCommand(output, context);
+    return de_UpdateNotebookCommand(output, context);
   }
 
   // Start section: command_body_extra

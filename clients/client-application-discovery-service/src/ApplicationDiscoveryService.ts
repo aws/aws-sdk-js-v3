@@ -121,21 +121,19 @@ import {
 } from "./commands/UpdateApplicationCommand";
 
 /**
+ * @public
  * <fullname>Amazon Web Services Application Discovery Service</fullname>
- *
  *          <p>Amazon Web Services Application Discovery Service helps you plan application migration projects. It
  *       automatically identifies servers, virtual machines (VMs), and network dependencies in your
  *       on-premises data centers. For more information, see the <a href="http://aws.amazon.com/application-discovery/faqs/">Amazon Web Services Application Discovery Service FAQ</a>.
  *       Application Discovery Service offers three ways of performing discovery and
  *       collecting data about your on-premises servers:</p>
- *
  *          <ul>
  *             <li>
  *                <p>
  *                   <b>Agentless discovery</b> is recommended for environments
  *           that use VMware vCenter Server. This mode doesn't require you to install an agent on each
  *           host. It does not work in non-VMware environments.</p>
- *
  *                <ul>
  *                   <li>
  *                      <p>Agentless discovery gathers server information regardless of the operating
@@ -149,14 +147,12 @@ import {
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <ul>
  *             <li>
  *                <p>
  *                   <b>Agent-based discovery</b> collects a richer set of data
  *           than agentless discovery by using the Amazon Web Services Application Discovery Agent, which you install
  *           on one or more hosts in your data center.</p>
- *
  *                <ul>
  *                   <li>
  *                      <p> The agent captures infrastructure and application information, including an
@@ -170,7 +166,6 @@ import {
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <ul>
  *             <li>
  *                <p>
@@ -178,7 +173,6 @@ import {
  *           Application Discovery Service, enabling you to import details of your on-premises
  *           environment directly into Migration Hub without using the discovery connector or discovery
  *           agent.</p>
- *
  *                <ul>
  *                   <li>
  *                      <p>Third-party application discovery tools can query Amazon Web Services Application Discovery
@@ -192,8 +186,6 @@ import {
  *                </ul>
  *             </li>
  *          </ul>
- *
- *
  *          <p>
  *             <b>Recommendations</b>
  *          </p>
@@ -202,18 +194,15 @@ import {
  *       and agentless discovery simultaneously. Use agentless discovery to complete the initial
  *       infrastructure assessment quickly, and then install agents on select hosts to collect
  *       additional information.</p>
- *
  *          <p>
  *             <b>Working With This Guide</b>
  *          </p>
- *
  *          <p>This API reference provides descriptions, syntax, and usage examples for each of the
  *       actions and data types for Application Discovery Service. The topic for each action shows the
  *       API request parameters and the response. Alternatively, you can use one of the Amazon Web Services SDKs to
  *       access an API that is tailored to the programming language or platform that you're using. For
  *       more information, see <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services
  *       SDKs</a>.</p>
- *
  *          <note>
  *             <ul>
  *                <li>
@@ -239,10 +228,8 @@ import {
  *                </li>
  *             </ul>
  *          </note>
- *
  *          <p>This guide is intended for use with the <a href="http://docs.aws.amazon.com/application-discovery/latest/userguide/">Amazon Web Services Application
  *         Discovery Service User Guide</a>.</p>
- *
  *          <important>
  *             <p>All data is handled according to the <a href="http://aws.amazon.com/privacy/">Amazon Web Services
  *           Privacy Policy</a>. You can operate Application Discovery Service offline to inspect
@@ -251,6 +238,7 @@ import {
  */
 export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClient {
   /**
+   * @public
    * <p>Associates one or more configuration items with an application.</p>
    */
   public associateConfigurationItemsToApplication(
@@ -285,9 +273,9 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has
    *       a number of records that can identify servers or applications. </p>
-   *
    *          <p>Amazon Web Services Application Discovery Service has built-in matching logic that will identify when
    *       discovered servers match existing entries that you've previously discovered, the information
    *       for the already-existing discovered server is updated. When you delete an import task that
@@ -324,6 +312,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Creates an application with the given name and description.</p>
    */
   public createApplication(
@@ -356,9 +345,9 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Creates one or more tags for configuration items. Tags are metadata that help you
    *       categorize IT assets. This API accepts a list of multiple configuration items.</p>
-   *
    *          <important>
    *             <p>Do not store sensitive information (like personal data) in tags.</p>
    *          </important>
@@ -387,6 +376,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Deletes a list of applications and their associations with configuration
    *       items.</p>
    */
@@ -420,6 +410,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Deletes the association between configuration items and one or more tags. This API
    *       accepts a list of multiple configuration items.</p>
    */
@@ -447,6 +438,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Lists agents or connectors as specified by ID or other filters. All agents/connectors
    *       associated with your user account can be listed if you call <code>DescribeAgents</code> as is
    *       without passing any parameters.</p>
@@ -481,8 +473,8 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Retrieves attributes for a list of configuration item IDs.</p>
-   *
    *          <note>
    *             <p>All of the supplied IDs must be for the same asset type from one of the
    *         following:</p>
@@ -500,7 +492,6 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
    *                   <p>connection</p>
    *                </li>
    *             </ul>
-   *
    *             <p>Output fields are specific to the asset type specified. For example, the output for a
    *           <i>server</i> configuration item includes a list of attributes about the
    *         server, such as host name, operating system, number of network cards, etc.</p>
@@ -538,6 +529,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Lists exports as specified by ID. All continuous exports associated with your user
    *       account can be listed if you call <code>DescribeContinuousExports</code> as is without passing
    *       any parameters.</p>
@@ -572,6 +564,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>
@@ -607,6 +600,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Retrieve status of one or more export tasks. You can retrieve the status of up to 100
    *       export tasks.</p>
    */
@@ -640,6 +634,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Returns an array of import tasks for your account, including status information, times,
    *       IDs, the Amazon S3 Object URL for the import file, and more.</p>
    */
@@ -673,6 +668,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Retrieves a list of configuration items that have tags as specified by the key-value
    *       pairs, name and value, passed to the optional parameter <code>filters</code>.</p>
    *          <p>There are three valid tag filter names:</p>
@@ -717,6 +713,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Disassociates one or more configuration items from an application.</p>
    */
   public disassociateConfigurationItemsFromApplication(
@@ -751,6 +748,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deprecated. Use <code>StartExportTask</code> instead.</p>
@@ -790,6 +788,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Retrieves a short summary of discovered assets.</p>
    *          <p>This API operation takes no request parameters and is called as is at the command
    *       prompt as shown in the example.</p>
@@ -824,6 +823,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Retrieves a list of configuration items as specified by the value passed to the
    *       required parameter <code>configurationType</code>. Optional filtering may be applied to refine
    *       search results.</p>
@@ -858,6 +858,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Retrieves a list of servers that are one network hop away from a specified
    *       server.</p>
    */
@@ -891,6 +892,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Start the continuous flow of agent's discovered data into Amazon Athena.</p>
    */
   public startContinuousExport(
@@ -923,6 +925,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Instructs the specified agents or connectors to start collecting data.</p>
    */
   public startDataCollectionByAgentIds(
@@ -955,6 +958,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p> Begins the export of discovered data to an S3 bucket.</p>
    *          <p> If you specify <code>agentIds</code> in a filter, the task exports up to 72 hours of
    *       detailed data collected by the identified Application Discovery Agent, including network,
@@ -995,14 +999,13 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Starts an import task, which allows you to import details of your on-premises environment
    *       directly into Amazon Web Services Migration Hub without having to use the Application Discovery Service (ADS)
    *       tools such as the Discovery Connector or Discovery Agent. This gives you the option to perform
    *       migration assessment and planning directly from your imported data, including the ability to
    *       group your devices as applications and track their migration status.</p>
-   *
    *          <p>To start an import request, do this:</p>
-   *
    *          <ol>
    *             <li>
    *                <p>Download the specially formatted comma separated value (CSV) import template, which
@@ -1020,11 +1023,9 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
    *           the Amazon Web Services SDKs to import the records from your file.</p>
    *             </li>
    *          </ol>
-   *
    *          <p>For more information, including step-by-step procedures, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-import.html">Migration Hub
    *         Import</a> in the <i>Amazon Web Services Application Discovery Service User
    *       Guide</i>.</p>
-   *
    *          <note>
    *             <p>There are limits to the number of import tasks you can create (and delete) in an Amazon Web Services
    *         account. For more information, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/ads_service_limits.html">Amazon Web Services Application
@@ -1062,6 +1063,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Stop the continuous flow of agent's discovered data into Amazon Athena.</p>
    */
   public stopContinuousExport(
@@ -1094,6 +1096,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Instructs the specified agents or connectors to stop collecting data.</p>
    */
   public stopDataCollectionByAgentIds(
@@ -1126,6 +1129,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @public
    * <p>Updates metadata about an application.</p>
    */
   public updateApplication(

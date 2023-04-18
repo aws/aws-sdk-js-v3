@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
-import {
-  CreateFHIRDatastoreRequest,
-  CreateFHIRDatastoreRequestFilterSensitiveLog,
-  CreateFHIRDatastoreResponse,
-  CreateFHIRDatastoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateFHIRDatastoreCommand,
-  serializeAws_json1_0CreateFHIRDatastoreCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateFHIRDatastoreRequest, CreateFHIRDatastoreResponse } from "../models/models_0";
+import { de_CreateFHIRDatastoreCommand, se_CreateFHIRDatastoreCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateFHIRDatastoreCommand}.
+ */
 export interface CreateFHIRDatastoreCommandInput extends CreateFHIRDatastoreRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateFHIRDatastoreCommand}.
+ */
 export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Data Store that can ingest and export FHIR formatted data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * import { HealthLakeClient, CreateFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, CreateFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
+ * const input = { // CreateFHIRDatastoreRequest
+ *   DatastoreName: "STRING_VALUE",
+ *   DatastoreTypeVersion: "STRING_VALUE", // required
+ *   SseConfiguration: { // SseConfiguration
+ *     KmsEncryptionConfig: { // KmsEncryptionConfig
+ *       CmkType: "STRING_VALUE", // required
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *   },
+ *   PreloadDataConfig: { // PreloadDataConfig
+ *     PreloadDataType: "STRING_VALUE", // required
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFHIRDatastoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFHIRDatastoreCommandInput - {@link CreateFHIRDatastoreCommandInput}
+ * @returns {@link CreateFHIRDatastoreCommandOutput}
  * @see {@link CreateFHIRDatastoreCommandInput} for command's `input` shape.
  * @see {@link CreateFHIRDatastoreCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unknown error occurs in the service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input parameter was invalid.</p>
+ *
  *
  */
 export class CreateFHIRDatastoreCommand extends $Command<
@@ -62,6 +100,9 @@ export class CreateFHIRDatastoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFHIRDatastoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +131,8 @@ export class CreateFHIRDatastoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFHIRDatastoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFHIRDatastoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +142,18 @@ export class CreateFHIRDatastoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFHIRDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateFHIRDatastoreCommand(input, context);
+    return se_CreateFHIRDatastoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFHIRDatastoreCommandOutput> {
-    return deserializeAws_json1_0CreateFHIRDatastoreCommand(output, context);
+    return de_CreateFHIRDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

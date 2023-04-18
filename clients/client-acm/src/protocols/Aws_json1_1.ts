@@ -1,14 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -68,19 +69,13 @@ import {
   DeleteCertificateRequest,
   DescribeCertificateRequest,
   DescribeCertificateResponse,
-  DomainValidation,
   DomainValidationOption,
   ExpiryEventsConfiguration,
   ExportCertificateRequest,
-  ExportCertificateResponse,
-  ExtendedKeyUsage,
   ExtendedKeyUsageName,
   Filters,
-  GetAccountConfigurationResponse,
   GetCertificateRequest,
-  GetCertificateResponse,
   ImportCertificateRequest,
-  ImportCertificateResponse,
   InvalidArgsException,
   InvalidArnException,
   InvalidDomainValidationOptionsException,
@@ -88,24 +83,20 @@ import {
   InvalidStateException,
   InvalidTagException,
   KeyAlgorithm,
-  KeyUsage,
   KeyUsageName,
   LimitExceededException,
   ListCertificatesRequest,
   ListCertificatesResponse,
   ListTagsForCertificateRequest,
-  ListTagsForCertificateResponse,
   PutAccountConfigurationRequest,
   RemoveTagsFromCertificateRequest,
   RenewalSummary,
   RenewCertificateRequest,
   RequestCertificateRequest,
-  RequestCertificateResponse,
   RequestInProgressException,
   ResendValidationEmailRequest,
   ResourceInUseException,
   ResourceNotFoundException,
-  ResourceRecord,
   Tag,
   TagPolicyException,
   ThrottlingException,
@@ -114,215 +105,221 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_json1_1AddTagsToCertificateCommand = async (
+/**
+ * serializeAws_json1_1AddTagsToCertificateCommand
+ */
+export const se_AddTagsToCertificateCommand = async (
   input: AddTagsToCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.AddTagsToCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddTagsToCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddTagsToCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteCertificateCommand = async (
+/**
+ * serializeAws_json1_1DeleteCertificateCommand
+ */
+export const se_DeleteCertificateCommand = async (
   input: DeleteCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.DeleteCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCertificateCommand = async (
+/**
+ * serializeAws_json1_1DescribeCertificateCommand
+ */
+export const se_DescribeCertificateCommand = async (
   input: DescribeCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.DescribeCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ExportCertificateCommand = async (
+/**
+ * serializeAws_json1_1ExportCertificateCommand
+ */
+export const se_ExportCertificateCommand = async (
   input: ExportCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.ExportCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExportCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ExportCertificateRequest(input, context));
+  body = JSON.stringify(se_ExportCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAccountConfigurationCommand = async (
+/**
+ * serializeAws_json1_1GetAccountConfigurationCommand
+ */
+export const se_GetAccountConfigurationCommand = async (
   input: GetAccountConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.GetAccountConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAccountConfiguration");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetCertificateCommand = async (
+/**
+ * serializeAws_json1_1GetCertificateCommand
+ */
+export const se_GetCertificateCommand = async (
   input: GetCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.GetCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ImportCertificateCommand = async (
+/**
+ * serializeAws_json1_1ImportCertificateCommand
+ */
+export const se_ImportCertificateCommand = async (
   input: ImportCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.ImportCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ImportCertificateRequest(input, context));
+  body = JSON.stringify(se_ImportCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListCertificatesCommand = async (
+/**
+ * serializeAws_json1_1ListCertificatesCommand
+ */
+export const se_ListCertificatesCommand = async (
   input: ListCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.ListCertificates",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCertificates");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListCertificatesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForCertificateCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForCertificateCommand
+ */
+export const se_ListTagsForCertificateCommand = async (
   input: ListTagsForCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.ListTagsForCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutAccountConfigurationCommand = async (
+/**
+ * serializeAws_json1_1PutAccountConfigurationCommand
+ */
+export const se_PutAccountConfigurationCommand = async (
   input: PutAccountConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.PutAccountConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutAccountConfiguration");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutAccountConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RemoveTagsFromCertificateCommand = async (
+/**
+ * serializeAws_json1_1RemoveTagsFromCertificateCommand
+ */
+export const se_RemoveTagsFromCertificateCommand = async (
   input: RemoveTagsFromCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.RemoveTagsFromCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveTagsFromCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RemoveTagsFromCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RenewCertificateCommand = async (
+/**
+ * serializeAws_json1_1RenewCertificateCommand
+ */
+export const se_RenewCertificateCommand = async (
   input: RenewCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.RenewCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("RenewCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RenewCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RequestCertificateCommand = async (
+/**
+ * serializeAws_json1_1RequestCertificateCommand
+ */
+export const se_RequestCertificateCommand = async (
   input: RequestCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.RequestCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("RequestCertificate");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RequestCertificateRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ResendValidationEmailCommand = async (
+/**
+ * serializeAws_json1_1ResendValidationEmailCommand
+ */
+export const se_ResendValidationEmailCommand = async (
   input: ResendValidationEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.ResendValidationEmail",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResendValidationEmail");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ResendValidationEmailRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateCertificateOptionsCommand = async (
+/**
+ * serializeAws_json1_1UpdateCertificateOptionsCommand
+ */
+export const se_UpdateCertificateOptionsCommand = async (
   input: UpdateCertificateOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CertificateManager.UpdateCertificateOptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCertificateOptions");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateCertificateOptionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AddTagsToCertificateCommand = async (
+/**
+ * deserializeAws_json1_1AddTagsToCertificateCommand
+ */
+export const de_AddTagsToCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddTagsToCertificateCommandError(output, context);
+    return de_AddTagsToCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddTagsToCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1AddTagsToCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1AddTagsToCertificateCommandError
+ */
+const de_AddTagsToCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToCertificateCommandOutput> => {
@@ -334,51 +331,56 @@ const deserializeAws_json1_1AddTagsToCertificateCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.acm#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.acm#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagPolicyException":
     case "com.amazonaws.acm#TagPolicyException":
-      throw await deserializeAws_json1_1TagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.acm#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.acm#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteCertificateCommand = async (
+/**
+ * deserializeAws_json1_1DeleteCertificateCommand
+ */
+export const de_DeleteCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteCertificateCommandError(output, context);
+    return de_DeleteCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteCertificateCommandError
+ */
+const de_DeleteCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCertificateCommandOutput> => {
@@ -390,51 +392,56 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.acm#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.acm#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.acm#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.acm#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeCertificateCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCertificateCommand
+ */
+export const de_DescribeCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCertificateCommandError(output, context);
+    return de_DescribeCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCertificateResponse(data, context);
+  contents = de_DescribeCertificateResponse(data, context);
   const response: DescribeCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCertificateCommandError
+ */
+const de_DescribeCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateCommandOutput> => {
@@ -446,39 +453,44 @@ const deserializeAws_json1_1DescribeCertificateCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ExportCertificateCommand = async (
+/**
+ * deserializeAws_json1_1ExportCertificateCommand
+ */
+export const de_ExportCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ExportCertificateCommandError(output, context);
+    return de_ExportCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExportCertificateResponse(data, context);
+  contents = _json(data);
   const response: ExportCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ExportCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1ExportCertificateCommandError
+ */
+const de_ExportCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportCertificateCommandOutput> => {
@@ -490,42 +502,47 @@ const deserializeAws_json1_1ExportCertificateCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "RequestInProgressException":
     case "com.amazonaws.acm#RequestInProgressException":
-      throw await deserializeAws_json1_1RequestInProgressExceptionResponse(parsedOutput, context);
+      throw await de_RequestInProgressExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetAccountConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1GetAccountConfigurationCommand
+ */
+export const de_GetAccountConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAccountConfigurationCommandError(output, context);
+    return de_GetAccountConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAccountConfigurationResponse(data, context);
+  contents = _json(data);
   const response: GetAccountConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetAccountConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1GetAccountConfigurationCommandError
+ */
+const de_GetAccountConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountConfigurationCommandOutput> => {
@@ -537,39 +554,44 @@ const deserializeAws_json1_1GetAccountConfigurationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.acm#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.acm#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetCertificateCommand = async (
+/**
+ * deserializeAws_json1_1GetCertificateCommand
+ */
+export const de_GetCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetCertificateCommandError(output, context);
+    return de_GetCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCertificateResponse(data, context);
+  contents = _json(data);
   const response: GetCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1GetCertificateCommandError
+ */
+const de_GetCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCertificateCommandOutput> => {
@@ -581,42 +603,47 @@ const deserializeAws_json1_1GetCertificateCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "RequestInProgressException":
     case "com.amazonaws.acm#RequestInProgressException":
-      throw await deserializeAws_json1_1RequestInProgressExceptionResponse(parsedOutput, context);
+      throw await de_RequestInProgressExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ImportCertificateCommand = async (
+/**
+ * deserializeAws_json1_1ImportCertificateCommand
+ */
+export const de_ImportCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ImportCertificateCommandError(output, context);
+    return de_ImportCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportCertificateResponse(data, context);
+  contents = _json(data);
   const response: ImportCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ImportCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1ImportCertificateCommandError
+ */
+const de_ImportCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportCertificateCommandOutput> => {
@@ -628,54 +655,59 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.acm#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.acm#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.acm#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagPolicyException":
     case "com.amazonaws.acm#TagPolicyException":
-      throw await deserializeAws_json1_1TagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.acm#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListCertificatesCommand = async (
+/**
+ * deserializeAws_json1_1ListCertificatesCommand
+ */
+export const de_ListCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListCertificatesCommandError(output, context);
+    return de_ListCertificatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCertificatesResponse(data, context);
+  contents = de_ListCertificatesResponse(data, context);
   const response: ListCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListCertificatesCommandError = async (
+/**
+ * deserializeAws_json1_1ListCertificatesCommandError
+ */
+const de_ListCertificatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCertificatesCommandOutput> => {
@@ -687,39 +719,44 @@ const deserializeAws_json1_1ListCertificatesCommandError = async (
   switch (errorCode) {
     case "InvalidArgsException":
     case "com.amazonaws.acm#InvalidArgsException":
-      throw await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.acm#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsForCertificateCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForCertificateCommand
+ */
+export const de_ListTagsForCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForCertificateCommandError(output, context);
+    return de_ListTagsForCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForCertificateResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForCertificateCommandError
+ */
+const de_ListTagsForCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForCertificateCommandOutput> => {
@@ -731,36 +768,41 @@ const deserializeAws_json1_1ListTagsForCertificateCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutAccountConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1PutAccountConfigurationCommand
+ */
+export const de_PutAccountConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutAccountConfigurationCommandError(output, context);
+    return de_PutAccountConfigurationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutAccountConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutAccountConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1PutAccountConfigurationCommandError
+ */
+const de_PutAccountConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountConfigurationCommandOutput> => {
@@ -772,42 +814,47 @@ const deserializeAws_json1_1PutAccountConfigurationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.acm#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.acm#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.acm#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.acm#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RemoveTagsFromCertificateCommand = async (
+/**
+ * deserializeAws_json1_1RemoveTagsFromCertificateCommand
+ */
+export const de_RemoveTagsFromCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RemoveTagsFromCertificateCommandError(output, context);
+    return de_RemoveTagsFromCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemoveTagsFromCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RemoveTagsFromCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1RemoveTagsFromCertificateCommandError
+ */
+const de_RemoveTagsFromCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromCertificateCommandOutput> => {
@@ -819,48 +866,53 @@ const deserializeAws_json1_1RemoveTagsFromCertificateCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.acm#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.acm#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagPolicyException":
     case "com.amazonaws.acm#TagPolicyException":
-      throw await deserializeAws_json1_1TagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.acm#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RenewCertificateCommand = async (
+/**
+ * deserializeAws_json1_1RenewCertificateCommand
+ */
+export const de_RenewCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RenewCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RenewCertificateCommandError(output, context);
+    return de_RenewCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RenewCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RenewCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1RenewCertificateCommandError
+ */
+const de_RenewCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RenewCertificateCommandOutput> => {
@@ -872,39 +924,44 @@ const deserializeAws_json1_1RenewCertificateCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RequestCertificateCommand = async (
+/**
+ * deserializeAws_json1_1RequestCertificateCommand
+ */
+export const de_RequestCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RequestCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RequestCertificateCommandError(output, context);
+    return de_RequestCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RequestCertificateResponse(data, context);
+  contents = _json(data);
   const response: RequestCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RequestCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1RequestCertificateCommandError
+ */
+const de_RequestCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RequestCertificateCommandOutput> => {
@@ -916,51 +973,56 @@ const deserializeAws_json1_1RequestCertificateCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidDomainValidationOptionsException":
     case "com.amazonaws.acm#InvalidDomainValidationOptionsException":
-      throw await deserializeAws_json1_1InvalidDomainValidationOptionsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDomainValidationOptionsExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.acm#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.acm#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.acm#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "TagPolicyException":
     case "com.amazonaws.acm#TagPolicyException":
-      throw await deserializeAws_json1_1TagPolicyExceptionResponse(parsedOutput, context);
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.acm#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ResendValidationEmailCommand = async (
+/**
+ * deserializeAws_json1_1ResendValidationEmailCommand
+ */
+export const de_ResendValidationEmailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResendValidationEmailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ResendValidationEmailCommandError(output, context);
+    return de_ResendValidationEmailCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ResendValidationEmailCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ResendValidationEmailCommandError = async (
+/**
+ * deserializeAws_json1_1ResendValidationEmailCommandError
+ */
+const de_ResendValidationEmailCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResendValidationEmailCommandOutput> => {
@@ -972,42 +1034,47 @@ const deserializeAws_json1_1ResendValidationEmailCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidDomainValidationOptionsException":
     case "com.amazonaws.acm#InvalidDomainValidationOptionsException":
-      throw await deserializeAws_json1_1InvalidDomainValidationOptionsExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDomainValidationOptionsExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acm#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateCertificateOptionsCommand = async (
+/**
+ * deserializeAws_json1_1UpdateCertificateOptionsCommand
+ */
+export const de_UpdateCertificateOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCertificateOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateCertificateOptionsCommandError(output, context);
+    return de_UpdateCertificateOptionsCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateCertificateOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateCertificateOptionsCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateCertificateOptionsCommandError
+ */
+const de_UpdateCertificateOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCertificateOptionsCommandOutput> => {
@@ -1019,33 +1086,35 @@ const deserializeAws_json1_1UpdateCertificateOptionsCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.acm#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.acm#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1053,12 +1122,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1066,12 +1135,15 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidArgsExceptionRes
+ */
+const de_InvalidArgsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidArgsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArgsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1079,12 +1151,12 @@ const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidArnExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidArnException> => {
+/**
+ * deserializeAws_json1_1InvalidArnExceptionRes
+ */
+const de_InvalidArnExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidArnException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1092,12 +1164,15 @@ const deserializeAws_json1_1InvalidArnExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDomainValidationOptionsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDomainValidationOptionsExceptionRes
+ */
+const de_InvalidDomainValidationOptionsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDomainValidationOptionsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDomainValidationOptionsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidDomainValidationOptionsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1105,12 +1180,15 @@ const deserializeAws_json1_1InvalidDomainValidationOptionsExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1118,12 +1196,15 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidStateExceptionRes
+ */
+const de_InvalidStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1131,12 +1212,12 @@ const deserializeAws_json1_1InvalidStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTagExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidTagException> => {
+/**
+ * deserializeAws_json1_1InvalidTagExceptionRes
+ */
+const de_InvalidTagExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTagException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1144,12 +1225,15 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1157,12 +1241,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RequestInProgressExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RequestInProgressExceptionRes
+ */
+const de_RequestInProgressExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RequestInProgressException(body, context);
+  const deserialized: any = _json(body);
   const exception = new RequestInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1170,12 +1257,15 @@ const deserializeAws_json1_1RequestInProgressExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1183,12 +1273,15 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1196,12 +1289,12 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagPolicyExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TagPolicyException> => {
+/**
+ * deserializeAws_json1_1TagPolicyExceptionRes
+ */
+const de_TagPolicyExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<TagPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagPolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1209,12 +1302,12 @@ const deserializeAws_json1_1TagPolicyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1222,12 +1315,15 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1235,12 +1331,12 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1248,724 +1344,255 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AddTagsToCertificateRequest = (
-  input: AddTagsToCertificateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
+// se_AddTagsToCertificateRequest omitted.
+
+// se_CertificateOptions omitted.
+
+// se_CertificateStatuses omitted.
+
+// se_DeleteCertificateRequest omitted.
+
+// se_DescribeCertificateRequest omitted.
+
+// se_DomainList omitted.
+
+// se_DomainValidationOption omitted.
+
+// se_DomainValidationOptionList omitted.
+
+// se_ExpiryEventsConfiguration omitted.
+
+/**
+ * serializeAws_json1_1ExportCertificateRequest
+ */
+const se_ExportCertificateRequest = (input: ExportCertificateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CertificateArn: [],
+    Passphrase: context.base64Encoder,
+  });
 };
 
-const serializeAws_json1_1CertificateOptions = (input: CertificateOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateTransparencyLoggingPreference != null && {
-      CertificateTransparencyLoggingPreference: input.CertificateTransparencyLoggingPreference,
-    }),
-  };
+// se_ExtendedKeyUsageFilterList omitted.
+
+// se_Filters omitted.
+
+// se_GetCertificateRequest omitted.
+
+/**
+ * serializeAws_json1_1ImportCertificateRequest
+ */
+const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Certificate: context.base64Encoder,
+    CertificateArn: [],
+    CertificateChain: context.base64Encoder,
+    PrivateKey: context.base64Encoder,
+    Tags: _json,
+  });
 };
 
-const serializeAws_json1_1CertificateStatuses = (
-  input: (CertificateStatus | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+// se_KeyAlgorithmList omitted.
+
+// se_KeyUsageFilterList omitted.
+
+// se_ListCertificatesRequest omitted.
+
+// se_ListTagsForCertificateRequest omitted.
+
+// se_PutAccountConfigurationRequest omitted.
+
+// se_RemoveTagsFromCertificateRequest omitted.
+
+// se_RenewCertificateRequest omitted.
+
+// se_RequestCertificateRequest omitted.
+
+// se_ResendValidationEmailRequest omitted.
+
+// se_Tag omitted.
+
+// se_TagList omitted.
+
+// se_UpdateCertificateOptionsRequest omitted.
+
+// de_AccessDeniedException omitted.
+
+/**
+ * deserializeAws_json1_1CertificateDetail
+ */
+const de_CertificateDetail = (output: any, context: __SerdeContext): CertificateDetail => {
+  return take(output, {
+    CertificateArn: __expectString,
+    CertificateAuthorityArn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainName: __expectString,
+    DomainValidationOptions: _json,
+    ExtendedKeyUsages: _json,
+    FailureReason: __expectString,
+    ImportedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InUseBy: _json,
+    IssuedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Issuer: __expectString,
+    KeyAlgorithm: __expectString,
+    KeyUsages: _json,
+    NotAfter: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NotBefore: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Options: _json,
+    RenewalEligibility: __expectString,
+    RenewalSummary: (_: any) => de_RenewalSummary(_, context),
+    RevocationReason: __expectString,
+    RevokedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Serial: __expectString,
+    SignatureAlgorithm: __expectString,
+    Status: __expectString,
+    Subject: __expectString,
+    SubjectAlternativeNames: _json,
+    Type: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1DeleteCertificateRequest = (
-  input: DeleteCertificateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-  };
+// de_CertificateOptions omitted.
+
+/**
+ * deserializeAws_json1_1CertificateSummary
+ */
+const de_CertificateSummary = (output: any, context: __SerdeContext): CertificateSummary => {
+  return take(output, {
+    CertificateArn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainName: __expectString,
+    Exported: __expectBoolean,
+    ExtendedKeyUsages: _json,
+    HasAdditionalSubjectAlternativeNames: __expectBoolean,
+    ImportedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InUse: __expectBoolean,
+    IssuedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    KeyAlgorithm: __expectString,
+    KeyUsages: _json,
+    NotAfter: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NotBefore: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RenewalEligibility: __expectString,
+    RevokedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    SubjectAlternativeNameSummaries: _json,
+    Type: __expectString,
+  }) as any;
 };
 
-const serializeAws_json1_1DescribeCertificateRequest = (
-  input: DescribeCertificateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-  };
-};
-
-const serializeAws_json1_1DomainList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1DomainValidationOption = (input: DomainValidationOption, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.ValidationDomain != null && { ValidationDomain: input.ValidationDomain }),
-  };
-};
-
-const serializeAws_json1_1DomainValidationOptionList = (
-  input: DomainValidationOption[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1DomainValidationOption(entry, context);
-    });
-};
-
-const serializeAws_json1_1ExpiryEventsConfiguration = (
-  input: ExpiryEventsConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DaysBeforeExpiry != null && { DaysBeforeExpiry: input.DaysBeforeExpiry }),
-  };
-};
-
-const serializeAws_json1_1ExportCertificateRequest = (
-  input: ExportCertificateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Passphrase != null && { Passphrase: context.base64Encoder(input.Passphrase) }),
-  };
-};
-
-const serializeAws_json1_1ExtendedKeyUsageFilterList = (
-  input: (ExtendedKeyUsageName | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1Filters = (input: Filters, context: __SerdeContext): any => {
-  return {
-    ...(input.extendedKeyUsage != null && {
-      extendedKeyUsage: serializeAws_json1_1ExtendedKeyUsageFilterList(input.extendedKeyUsage, context),
-    }),
-    ...(input.keyTypes != null && { keyTypes: serializeAws_json1_1KeyAlgorithmList(input.keyTypes, context) }),
-    ...(input.keyUsage != null && { keyUsage: serializeAws_json1_1KeyUsageFilterList(input.keyUsage, context) }),
-  };
-};
-
-const serializeAws_json1_1GetCertificateRequest = (input: GetCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-  };
-};
-
-const serializeAws_json1_1ImportCertificateRequest = (
-  input: ImportCertificateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Certificate != null && { Certificate: context.base64Encoder(input.Certificate) }),
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.CertificateChain != null && { CertificateChain: context.base64Encoder(input.CertificateChain) }),
-    ...(input.PrivateKey != null && { PrivateKey: context.base64Encoder(input.PrivateKey) }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1KeyAlgorithmList = (input: (KeyAlgorithm | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1KeyUsageFilterList = (input: (KeyUsageName | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1ListCertificatesRequest = (input: ListCertificatesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateStatuses != null && {
-      CertificateStatuses: serializeAws_json1_1CertificateStatuses(input.CertificateStatuses, context),
-    }),
-    ...(input.Includes != null && { Includes: serializeAws_json1_1Filters(input.Includes, context) }),
-    ...(input.MaxItems != null && { MaxItems: input.MaxItems }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SortBy != null && { SortBy: input.SortBy }),
-    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
-  };
-};
-
-const serializeAws_json1_1ListTagsForCertificateRequest = (
-  input: ListTagsForCertificateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-  };
-};
-
-const serializeAws_json1_1PutAccountConfigurationRequest = (
-  input: PutAccountConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ExpiryEvents != null && {
-      ExpiryEvents: serializeAws_json1_1ExpiryEventsConfiguration(input.ExpiryEvents, context),
-    }),
-    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
-  };
-};
-
-const serializeAws_json1_1RemoveTagsFromCertificateRequest = (
-  input: RemoveTagsFromCertificateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1RenewCertificateRequest = (input: RenewCertificateRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-  };
-};
-
-const serializeAws_json1_1RequestCertificateRequest = (
-  input: RequestCertificateRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.DomainValidationOptions != null && {
-      DomainValidationOptions: serializeAws_json1_1DomainValidationOptionList(input.DomainValidationOptions, context),
-    }),
-    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.KeyAlgorithm != null && { KeyAlgorithm: input.KeyAlgorithm }),
-    ...(input.Options != null && { Options: serializeAws_json1_1CertificateOptions(input.Options, context) }),
-    ...(input.SubjectAlternativeNames != null && {
-      SubjectAlternativeNames: serializeAws_json1_1DomainList(input.SubjectAlternativeNames, context),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.ValidationMethod != null && { ValidationMethod: input.ValidationMethod }),
-  };
-};
-
-const serializeAws_json1_1ResendValidationEmailRequest = (
-  input: ResendValidationEmailRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.ValidationDomain != null && { ValidationDomain: input.ValidationDomain }),
-  };
-};
-
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
-
-const serializeAws_json1_1UpdateCertificateOptionsRequest = (
-  input: UpdateCertificateOptionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
-    ...(input.Options != null && { Options: serializeAws_json1_1CertificateOptions(input.Options, context) }),
-  };
-};
-
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1CertificateDetail = (output: any, context: __SerdeContext): CertificateDetail => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-    CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DomainName: __expectString(output.DomainName),
-    DomainValidationOptions:
-      output.DomainValidationOptions != null
-        ? deserializeAws_json1_1DomainValidationList(output.DomainValidationOptions, context)
-        : undefined,
-    ExtendedKeyUsages:
-      output.ExtendedKeyUsages != null
-        ? deserializeAws_json1_1ExtendedKeyUsageList(output.ExtendedKeyUsages, context)
-        : undefined,
-    FailureReason: __expectString(output.FailureReason),
-    ImportedAt:
-      output.ImportedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ImportedAt))) : undefined,
-    InUseBy: output.InUseBy != null ? deserializeAws_json1_1InUseList(output.InUseBy, context) : undefined,
-    IssuedAt:
-      output.IssuedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.IssuedAt))) : undefined,
-    Issuer: __expectString(output.Issuer),
-    KeyAlgorithm: __expectString(output.KeyAlgorithm),
-    KeyUsages: output.KeyUsages != null ? deserializeAws_json1_1KeyUsageList(output.KeyUsages, context) : undefined,
-    NotAfter:
-      output.NotAfter != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfter))) : undefined,
-    NotBefore:
-      output.NotBefore != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBefore))) : undefined,
-    Options: output.Options != null ? deserializeAws_json1_1CertificateOptions(output.Options, context) : undefined,
-    RenewalEligibility: __expectString(output.RenewalEligibility),
-    RenewalSummary:
-      output.RenewalSummary != null ? deserializeAws_json1_1RenewalSummary(output.RenewalSummary, context) : undefined,
-    RevocationReason: __expectString(output.RevocationReason),
-    RevokedAt:
-      output.RevokedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RevokedAt))) : undefined,
-    Serial: __expectString(output.Serial),
-    SignatureAlgorithm: __expectString(output.SignatureAlgorithm),
-    Status: __expectString(output.Status),
-    Subject: __expectString(output.Subject),
-    SubjectAlternativeNames:
-      output.SubjectAlternativeNames != null
-        ? deserializeAws_json1_1DomainList(output.SubjectAlternativeNames, context)
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_1CertificateOptions = (output: any, context: __SerdeContext): CertificateOptions => {
-  return {
-    CertificateTransparencyLoggingPreference: __expectString(output.CertificateTransparencyLoggingPreference),
-  } as any;
-};
-
-const deserializeAws_json1_1CertificateSummary = (output: any, context: __SerdeContext): CertificateSummary => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DomainName: __expectString(output.DomainName),
-    Exported: __expectBoolean(output.Exported),
-    ExtendedKeyUsages:
-      output.ExtendedKeyUsages != null
-        ? deserializeAws_json1_1ExtendedKeyUsageNames(output.ExtendedKeyUsages, context)
-        : undefined,
-    HasAdditionalSubjectAlternativeNames: __expectBoolean(output.HasAdditionalSubjectAlternativeNames),
-    ImportedAt:
-      output.ImportedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ImportedAt))) : undefined,
-    InUse: __expectBoolean(output.InUse),
-    IssuedAt:
-      output.IssuedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.IssuedAt))) : undefined,
-    KeyAlgorithm: __expectString(output.KeyAlgorithm),
-    KeyUsages: output.KeyUsages != null ? deserializeAws_json1_1KeyUsageNames(output.KeyUsages, context) : undefined,
-    NotAfter:
-      output.NotAfter != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfter))) : undefined,
-    NotBefore:
-      output.NotBefore != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBefore))) : undefined,
-    RenewalEligibility: __expectString(output.RenewalEligibility),
-    RevokedAt:
-      output.RevokedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RevokedAt))) : undefined,
-    Status: __expectString(output.Status),
-    SubjectAlternativeNameSummaries:
-      output.SubjectAlternativeNameSummaries != null
-        ? deserializeAws_json1_1DomainList(output.SubjectAlternativeNameSummaries, context)
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_1CertificateSummaryList = (output: any, context: __SerdeContext): CertificateSummary[] => {
+/**
+ * deserializeAws_json1_1CertificateSummaryList
+ */
+const de_CertificateSummaryList = (output: any, context: __SerdeContext): CertificateSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CertificateSummary(entry, context);
+      return de_CertificateSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_ConflictException omitted.
+
+/**
+ * deserializeAws_json1_1DescribeCertificateResponse
+ */
+const de_DescribeCertificateResponse = (output: any, context: __SerdeContext): DescribeCertificateResponse => {
+  return take(output, {
+    Certificate: (_: any) => de_CertificateDetail(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeCertificateResponse => {
-  return {
-    Certificate:
-      output.Certificate != null ? deserializeAws_json1_1CertificateDetail(output.Certificate, context) : undefined,
-  } as any;
+// de_DomainList omitted.
+
+// de_DomainValidation omitted.
+
+// de_DomainValidationList omitted.
+
+// de_ExpiryEventsConfiguration omitted.
+
+// de_ExportCertificateResponse omitted.
+
+// de_ExtendedKeyUsage omitted.
+
+// de_ExtendedKeyUsageList omitted.
+
+// de_ExtendedKeyUsageNames omitted.
+
+// de_GetAccountConfigurationResponse omitted.
+
+// de_GetCertificateResponse omitted.
+
+// de_ImportCertificateResponse omitted.
+
+// de_InUseList omitted.
+
+// de_InvalidArgsException omitted.
+
+// de_InvalidArnException omitted.
+
+// de_InvalidDomainValidationOptionsException omitted.
+
+// de_InvalidParameterException omitted.
+
+// de_InvalidStateException omitted.
+
+// de_InvalidTagException omitted.
+
+// de_KeyUsage omitted.
+
+// de_KeyUsageList omitted.
+
+// de_KeyUsageNames omitted.
+
+// de_LimitExceededException omitted.
+
+/**
+ * deserializeAws_json1_1ListCertificatesResponse
+ */
+const de_ListCertificatesResponse = (output: any, context: __SerdeContext): ListCertificatesResponse => {
+  return take(output, {
+    CertificateSummaryList: (_: any) => de_CertificateSummaryList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DomainList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
+// de_ListTagsForCertificateResponse omitted.
+
+/**
+ * deserializeAws_json1_1RenewalSummary
+ */
+const de_RenewalSummary = (output: any, context: __SerdeContext): RenewalSummary => {
+  return take(output, {
+    DomainValidationOptions: _json,
+    RenewalStatus: __expectString,
+    RenewalStatusReason: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1DomainValidation = (output: any, context: __SerdeContext): DomainValidation => {
-  return {
-    DomainName: __expectString(output.DomainName),
-    ResourceRecord:
-      output.ResourceRecord != null ? deserializeAws_json1_1ResourceRecord(output.ResourceRecord, context) : undefined,
-    ValidationDomain: __expectString(output.ValidationDomain),
-    ValidationEmails:
-      output.ValidationEmails != null
-        ? deserializeAws_json1_1ValidationEmailList(output.ValidationEmails, context)
-        : undefined,
-    ValidationMethod: __expectString(output.ValidationMethod),
-    ValidationStatus: __expectString(output.ValidationStatus),
-  } as any;
-};
+// de_RequestCertificateResponse omitted.
 
-const deserializeAws_json1_1DomainValidationList = (output: any, context: __SerdeContext): DomainValidation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DomainValidation(entry, context);
-    });
-  return retVal;
-};
+// de_RequestInProgressException omitted.
 
-const deserializeAws_json1_1ExpiryEventsConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ExpiryEventsConfiguration => {
-  return {
-    DaysBeforeExpiry: __expectInt32(output.DaysBeforeExpiry),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-const deserializeAws_json1_1ExportCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): ExportCertificateResponse => {
-  return {
-    Certificate: __expectString(output.Certificate),
-    CertificateChain: __expectString(output.CertificateChain),
-    PrivateKey: __expectString(output.PrivateKey),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-const deserializeAws_json1_1ExtendedKeyUsage = (output: any, context: __SerdeContext): ExtendedKeyUsage => {
-  return {
-    Name: __expectString(output.Name),
-    OID: __expectString(output.OID),
-  } as any;
-};
+// de_ResourceRecord omitted.
 
-const deserializeAws_json1_1ExtendedKeyUsageList = (output: any, context: __SerdeContext): ExtendedKeyUsage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ExtendedKeyUsage(entry, context);
-    });
-  return retVal;
-};
+// de_Tag omitted.
 
-const deserializeAws_json1_1ExtendedKeyUsageNames = (
-  output: any,
-  context: __SerdeContext
-): (ExtendedKeyUsageName | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_TagList omitted.
 
-const deserializeAws_json1_1GetAccountConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAccountConfigurationResponse => {
-  return {
-    ExpiryEvents:
-      output.ExpiryEvents != null
-        ? deserializeAws_json1_1ExpiryEventsConfiguration(output.ExpiryEvents, context)
-        : undefined,
-  } as any;
-};
+// de_TagPolicyException omitted.
 
-const deserializeAws_json1_1GetCertificateResponse = (output: any, context: __SerdeContext): GetCertificateResponse => {
-  return {
-    Certificate: __expectString(output.Certificate),
-    CertificateChain: __expectString(output.CertificateChain),
-  } as any;
-};
+// de_ThrottlingException omitted.
 
-const deserializeAws_json1_1ImportCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): ImportCertificateResponse => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-  } as any;
-};
+// de_TooManyTagsException omitted.
 
-const deserializeAws_json1_1InUseList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_ValidationEmailList omitted.
 
-const deserializeAws_json1_1InvalidArgsException = (output: any, context: __SerdeContext): InvalidArgsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidArnException = (output: any, context: __SerdeContext): InvalidArnException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidDomainValidationOptionsException = (
-  output: any,
-  context: __SerdeContext
-): InvalidDomainValidationOptionsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1KeyUsage = (output: any, context: __SerdeContext): KeyUsage => {
-  return {
-    Name: __expectString(output.Name),
-  } as any;
-};
-
-const deserializeAws_json1_1KeyUsageList = (output: any, context: __SerdeContext): KeyUsage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1KeyUsage(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1KeyUsageNames = (output: any, context: __SerdeContext): (KeyUsageName | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ListCertificatesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListCertificatesResponse => {
-  return {
-    CertificateSummaryList:
-      output.CertificateSummaryList != null
-        ? deserializeAws_json1_1CertificateSummaryList(output.CertificateSummaryList, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagsForCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForCertificateResponse => {
-  return {
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1RenewalSummary = (output: any, context: __SerdeContext): RenewalSummary => {
-  return {
-    DomainValidationOptions:
-      output.DomainValidationOptions != null
-        ? deserializeAws_json1_1DomainValidationList(output.DomainValidationOptions, context)
-        : undefined,
-    RenewalStatus: __expectString(output.RenewalStatus),
-    RenewalStatusReason: __expectString(output.RenewalStatusReason),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1RequestCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): RequestCertificateResponse => {
-  return {
-    CertificateArn: __expectString(output.CertificateArn),
-  } as any;
-};
-
-const deserializeAws_json1_1RequestInProgressException = (
-  output: any,
-  context: __SerdeContext
-): RequestInProgressException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceRecord = (output: any, context: __SerdeContext): ResourceRecord => {
-  return {
-    Name: __expectString(output.Name),
-    Type: __expectString(output.Type),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ValidationEmailList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ValidationException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -1987,6 +1614,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -2011,6 +1639,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `CertificateManager.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

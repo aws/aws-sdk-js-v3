@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  BatchGetChannelRequest,
-  BatchGetChannelRequestFilterSensitiveLog,
-  BatchGetChannelResponse,
-  BatchGetChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetChannelCommand,
-  serializeAws_restJson1BatchGetChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchGetChannelRequest, BatchGetChannelResponse } from "../models/models_0";
+import { de_BatchGetChannelCommand, se_BatchGetChannelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetChannelCommand}.
+ */
 export interface BatchGetChannelCommandInput extends BatchGetChannelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetChannelCommand}.
+ */
 export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Performs <a>GetChannel</a> on multiple ARNs simultaneously.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,21 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * import { IvsClient, BatchGetChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, BatchGetChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // BatchGetChannelRequest
+ *   arns: [ // ChannelArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetChannelCommandInput - {@link BatchGetChannelCommandInput}
+ * @returns {@link BatchGetChannelCommandOutput}
  * @see {@link BatchGetChannelCommandInput} for command's `input` shape.
  * @see {@link BatchGetChannelCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
+ *
  *
  */
 export class BatchGetChannelCommand extends $Command<
@@ -62,6 +73,9 @@ export class BatchGetChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +104,8 @@ export class BatchGetChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +115,18 @@ export class BatchGetChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetChannelCommand(input, context);
+    return se_BatchGetChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetChannelCommandOutput> {
-    return deserializeAws_restJson1BatchGetChannelCommand(output, context);
+    return de_BatchGetChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

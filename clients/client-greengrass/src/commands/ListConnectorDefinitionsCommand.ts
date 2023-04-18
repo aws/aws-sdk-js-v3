@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  ListConnectorDefinitionsRequest,
-  ListConnectorDefinitionsRequestFilterSensitiveLog,
-  ListConnectorDefinitionsResponse,
-  ListConnectorDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConnectorDefinitionsCommand,
-  serializeAws_restJson1ListConnectorDefinitionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListConnectorDefinitionsRequest, ListConnectorDefinitionsResponse } from "../models/models_0";
+import { de_ListConnectorDefinitionsCommand, se_ListConnectorDefinitionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListConnectorDefinitionsCommand}.
+ */
 export interface ListConnectorDefinitionsCommandInput extends ListConnectorDefinitionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListConnectorDefinitionsCommand}.
+ */
 export interface ListConnectorDefinitionsCommandOutput extends ListConnectorDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves a list of connector definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface ListConnectorDefinitionsCommandOutput extends ListConnectorDefi
  * import { GreengrassClient, ListConnectorDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListConnectorDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListConnectorDefinitionsRequest
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectorDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectorDefinitionsCommandInput - {@link ListConnectorDefinitionsCommandInput}
+ * @returns {@link ListConnectorDefinitionsCommandOutput}
  * @see {@link ListConnectorDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectorDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
  *
  */
 export class ListConnectorDefinitionsCommand extends $Command<
@@ -62,6 +72,9 @@ export class ListConnectorDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectorDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class ListConnectorDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConnectorDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConnectorDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class ListConnectorDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConnectorDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConnectorDefinitionsCommand(input, context);
+    return se_ListConnectorDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectorDefinitionsCommandOutput> {
-    return deserializeAws_restJson1ListConnectorDefinitionsCommand(output, context);
+    return de_ListConnectorDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

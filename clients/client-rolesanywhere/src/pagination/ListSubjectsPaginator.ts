@@ -6,12 +6,11 @@ import {
   ListSubjectsCommandInput,
   ListSubjectsCommandOutput,
 } from "../commands/ListSubjectsCommand";
-import { RolesAnywhere } from "../RolesAnywhere";
 import { RolesAnywhereClient } from "../RolesAnywhereClient";
 import { RolesAnywherePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RolesAnywhereClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSubjectsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RolesAnywhere,
-  input: ListSubjectsCommandInput,
-  ...args: any
-): Promise<ListSubjectsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSubjects(input, ...args);
-};
 export async function* paginateListSubjects(
   config: RolesAnywherePaginationConfiguration,
   input: ListSubjectsCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListSubjects(
   let page: ListSubjectsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof RolesAnywhere) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RolesAnywhereClient) {
+    if (config.client instanceof RolesAnywhereClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RolesAnywhere | RolesAnywhereClient");

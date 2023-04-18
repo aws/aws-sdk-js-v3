@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListSlackWorkspaceConfigurationsRequest, ListSlackWorkspaceConfigurationsResult } from "../models/models_0";
 import {
-  ListSlackWorkspaceConfigurationsRequest,
-  ListSlackWorkspaceConfigurationsRequestFilterSensitiveLog,
-  ListSlackWorkspaceConfigurationsResult,
-  ListSlackWorkspaceConfigurationsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommand,
-  serializeAws_restJson1ListSlackWorkspaceConfigurationsCommand,
+  de_ListSlackWorkspaceConfigurationsCommand,
+  se_ListSlackWorkspaceConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSlackWorkspaceConfigurationsCommand}.
+ */
 export interface ListSlackWorkspaceConfigurationsCommandInput extends ListSlackWorkspaceConfigurationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSlackWorkspaceConfigurationsCommand}.
+ */
 export interface ListSlackWorkspaceConfigurationsCommandOutput
   extends ListSlackWorkspaceConfigurationsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Slack workspace configurations for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,25 @@ export interface ListSlackWorkspaceConfigurationsCommandOutput
  * import { SupportAppClient, ListSlackWorkspaceConfigurationsCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, ListSlackWorkspaceConfigurationsCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = { // ListSlackWorkspaceConfigurationsRequest
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSlackWorkspaceConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSlackWorkspaceConfigurationsCommandInput - {@link ListSlackWorkspaceConfigurationsCommandInput}
+ * @returns {@link ListSlackWorkspaceConfigurationsCommandOutput}
  * @see {@link ListSlackWorkspaceConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListSlackWorkspaceConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
  *
  */
 export class ListSlackWorkspaceConfigurationsCommand extends $Command<
@@ -64,6 +82,9 @@ export class ListSlackWorkspaceConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSlackWorkspaceConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +113,8 @@ export class ListSlackWorkspaceConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSlackWorkspaceConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSlackWorkspaceConfigurationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +124,24 @@ export class ListSlackWorkspaceConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSlackWorkspaceConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSlackWorkspaceConfigurationsCommand(input, context);
+    return se_ListSlackWorkspaceConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSlackWorkspaceConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListSlackWorkspaceConfigurationsCommand(output, context);
+    return de_ListSlackWorkspaceConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

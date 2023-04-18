@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetCertificatesRequest,
-  GetCertificatesRequestFilterSensitiveLog,
-  GetCertificatesResult,
-  GetCertificatesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCertificatesCommand,
-  serializeAws_json1_1GetCertificatesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCertificatesRequest, GetCertificatesResult } from "../models/models_0";
+import { de_GetCertificatesCommand, se_GetCertificatesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCertificatesCommand}.
+ */
 export interface GetCertificatesCommandInput extends GetCertificatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCertificatesCommand}.
+ */
 export interface GetCertificatesCommandOutput extends GetCertificatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more Amazon Lightsail SSL/TLS certificates.</p>
  *          <note>
  *             <p>To get a summary of a certificate, ommit <code>includeCertificateDetails</code> from
@@ -41,13 +44,46 @@ export interface GetCertificatesCommandOutput extends GetCertificatesResult, __M
  * import { LightsailClient, GetCertificatesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetCertificatesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetCertificatesRequest
+ *   certificateStatuses: [ // CertificateStatusList
+ *     "PENDING_VALIDATION" || "ISSUED" || "INACTIVE" || "EXPIRED" || "VALIDATION_TIMED_OUT" || "REVOKED" || "FAILED",
+ *   ],
+ *   includeCertificateDetails: true || false,
+ *   certificateName: "STRING_VALUE",
+ * };
  * const command = new GetCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCertificatesCommandInput - {@link GetCertificatesCommandInput}
+ * @returns {@link GetCertificatesCommandOutput}
  * @see {@link GetCertificatesCommandInput} for command's `input` shape.
  * @see {@link GetCertificatesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class GetCertificatesCommand extends $Command<
@@ -67,6 +103,9 @@ export class GetCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +134,8 @@ export class GetCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCertificatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCertificatesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +145,18 @@ export class GetCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCertificatesCommand(input, context);
+    return se_GetCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCertificatesCommandOutput> {
-    return deserializeAws_json1_1GetCertificatesCommand(output, context);
+    return de_GetCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

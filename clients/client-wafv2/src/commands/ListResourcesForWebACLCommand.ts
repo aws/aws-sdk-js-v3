@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResourcesForWebACLRequest,
-  ListResourcesForWebACLRequestFilterSensitiveLog,
-  ListResourcesForWebACLResponse,
-  ListResourcesForWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourcesForWebACLCommand,
-  serializeAws_json1_1ListResourcesForWebACLCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourcesForWebACLRequest, ListResourcesForWebACLResponse } from "../models/models_0";
+import { de_ListResourcesForWebACLCommand, se_ListResourcesForWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link ListResourcesForWebACLCommand}.
+ */
 export interface ListResourcesForWebACLCommandInput extends ListResourcesForWebACLRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListResourcesForWebACLCommand}.
+ */
 export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources that
  *          are associated with the specified web ACL. If you want the list of Amazon CloudFront resources, use
  *          the CloudFront call <code>ListDistributionsByWebACLId</code>. </p>
@@ -38,13 +41,54 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * import { WAFV2Client, ListResourcesForWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListResourcesForWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // ListResourcesForWebACLRequest
+ *   WebACLArn: "STRING_VALUE", // required
+ *   ResourceType: "APPLICATION_LOAD_BALANCER" || "API_GATEWAY" || "APPSYNC" || "COGNITO_USER_POOL" || "APP_RUNNER_SERVICE",
+ * };
  * const command = new ListResourcesForWebACLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesForWebACLCommandInput - {@link ListResourcesForWebACLCommandInput}
+ * @returns {@link ListResourcesForWebACLCommandOutput}
  * @see {@link ListResourcesForWebACLCommandInput} for command's `input` shape.
  * @see {@link ListResourcesForWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
+ *          problem. Retry your request. </p>
+ *
+ * @throws {@link WAFInvalidOperationException} (client fault)
+ *  <p>The operation isn't valid. </p>
+ *
+ * @throws {@link WAFInvalidParameterException} (client fault)
+ *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
+ *          example: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified a parameter name or value that isn't valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
+ *                can’t be nested. </p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
+ *                isn't among the types available at <a>DefaultAction</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                with which a web ACL can't be associated.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>WAF couldn’t perform the operation because your resource doesn't exist.
+ *        If you've just created a resource that you're using in this operation, you might
+ *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
+ *        for changes to propagate. </p>
+ *
  *
  */
 export class ListResourcesForWebACLCommand extends $Command<
@@ -64,6 +108,9 @@ export class ListResourcesForWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesForWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +139,8 @@ export class ListResourcesForWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourcesForWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourcesForWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +150,18 @@ export class ListResourcesForWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourcesForWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourcesForWebACLCommand(input, context);
+    return se_ListResourcesForWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesForWebACLCommandOutput> {
-    return deserializeAws_json1_1ListResourcesForWebACLCommand(output, context);
+    return de_ListResourcesForWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

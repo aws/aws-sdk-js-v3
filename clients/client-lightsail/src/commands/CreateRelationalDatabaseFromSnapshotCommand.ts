@@ -16,21 +16,30 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
   CreateRelationalDatabaseFromSnapshotRequest,
-  CreateRelationalDatabaseFromSnapshotRequestFilterSensitiveLog,
   CreateRelationalDatabaseFromSnapshotResult,
-  CreateRelationalDatabaseFromSnapshotResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand,
-  serializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand,
+  de_CreateRelationalDatabaseFromSnapshotCommand,
+  se_CreateRelationalDatabaseFromSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRelationalDatabaseFromSnapshotCommand}.
+ */
 export interface CreateRelationalDatabaseFromSnapshotCommandInput extends CreateRelationalDatabaseFromSnapshotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRelationalDatabaseFromSnapshotCommand}.
+ */
 export interface CreateRelationalDatabaseFromSnapshotCommandOutput
   extends CreateRelationalDatabaseFromSnapshotResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new database from an existing database snapshot in Amazon Lightsail.</p>
  *          <p>You can create a new database from a snapshot in if something goes wrong with your
  *       original database, or to change it to a different plan, such as a high availability or
@@ -44,13 +53,62 @@ export interface CreateRelationalDatabaseFromSnapshotCommandOutput
  * import { LightsailClient, CreateRelationalDatabaseFromSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateRelationalDatabaseFromSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateRelationalDatabaseFromSnapshotRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   availabilityZone: "STRING_VALUE",
+ *   publiclyAccessible: true || false,
+ *   relationalDatabaseSnapshotName: "STRING_VALUE",
+ *   relationalDatabaseBundleId: "STRING_VALUE",
+ *   sourceRelationalDatabaseName: "STRING_VALUE",
+ *   restoreTime: new Date("TIMESTAMP"),
+ *   useLatestRestorableTime: true || false,
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateRelationalDatabaseFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRelationalDatabaseFromSnapshotCommandInput - {@link CreateRelationalDatabaseFromSnapshotCommandInput}
+ * @returns {@link CreateRelationalDatabaseFromSnapshotCommandOutput}
  * @see {@link CreateRelationalDatabaseFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateRelationalDatabaseFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
@@ -70,6 +128,9 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRelationalDatabaseFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +159,8 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRelationalDatabaseFromSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRelationalDatabaseFromSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +170,24 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateRelationalDatabaseFromSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand(input, context);
+    return se_CreateRelationalDatabaseFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRelationalDatabaseFromSnapshotCommandOutput> {
-    return deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand(output, context);
+    return de_CreateRelationalDatabaseFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

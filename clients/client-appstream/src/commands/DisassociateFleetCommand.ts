@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DisassociateFleetRequest,
-  DisassociateFleetRequestFilterSensitiveLog,
-  DisassociateFleetResult,
-  DisassociateFleetResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateFleetCommand,
-  serializeAws_json1_1DisassociateFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateFleetRequest, DisassociateFleetResult } from "../models/models_0";
+import { de_DisassociateFleetCommand, se_DisassociateFleetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociateFleetCommand}.
+ */
 export interface DisassociateFleetCommandInput extends DisassociateFleetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateFleetCommand}.
+ */
 export interface DisassociateFleetCommandOutput extends DisassociateFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified fleet from the specified stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface DisassociateFleetCommandOutput extends DisassociateFleetResult,
  * import { AppStreamClient, DisassociateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DisassociateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DisassociateFleetRequest
+ *   FleetName: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFleetCommandInput - {@link DisassociateFleetCommandInput}
+ * @returns {@link DisassociateFleetCommandOutput}
  * @see {@link DisassociateFleetCommandInput} for command's `input` shape.
  * @see {@link DisassociateFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DisassociateFleetCommand extends $Command<
@@ -62,6 +84,9 @@ export class DisassociateFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class DisassociateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class DisassociateFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateFleetCommand(input, context);
+    return se_DisassociateFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateFleetCommandOutput> {
-    return deserializeAws_json1_1DisassociateFleetCommand(output, context);
+    return de_DisassociateFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

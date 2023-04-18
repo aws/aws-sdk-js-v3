@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeBatchInferenceJobRequest,
-  DescribeBatchInferenceJobRequestFilterSensitiveLog,
-  DescribeBatchInferenceJobResponse,
-  DescribeBatchInferenceJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeBatchInferenceJobRequest, DescribeBatchInferenceJobResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeBatchInferenceJobCommand,
-  serializeAws_json1_1DescribeBatchInferenceJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeBatchInferenceJobCommand, se_DescribeBatchInferenceJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeBatchInferenceJobCommand}.
+ */
 export interface DescribeBatchInferenceJobCommandInput extends DescribeBatchInferenceJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeBatchInferenceJobCommand}.
+ */
 export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties of a batch inference job including name, Amazon Resource Name (ARN),
  *       status, input and output configurations, and the ARN of the solution version used to generate
  *       the recommendations.</p>
@@ -38,13 +41,25 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  * import { PersonalizeClient, DescribeBatchInferenceJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeBatchInferenceJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeBatchInferenceJobRequest
+ *   batchInferenceJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBatchInferenceJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBatchInferenceJobCommandInput - {@link DescribeBatchInferenceJobCommandInput}
+ * @returns {@link DescribeBatchInferenceJobCommandOutput}
  * @see {@link DescribeBatchInferenceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeBatchInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DescribeBatchInferenceJobCommand extends $Command<
@@ -64,6 +79,9 @@ export class DescribeBatchInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBatchInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class DescribeBatchInferenceJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBatchInferenceJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBatchInferenceJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +121,21 @@ export class DescribeBatchInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBatchInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBatchInferenceJobCommand(input, context);
+    return se_DescribeBatchInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBatchInferenceJobCommandOutput> {
-    return deserializeAws_json1_1DescribeBatchInferenceJobCommand(output, context);
+    return de_DescribeBatchInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

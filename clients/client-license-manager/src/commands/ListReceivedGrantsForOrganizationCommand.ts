@@ -16,21 +16,30 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   ListReceivedGrantsForOrganizationRequest,
-  ListReceivedGrantsForOrganizationRequestFilterSensitiveLog,
   ListReceivedGrantsForOrganizationResponse,
-  ListReceivedGrantsForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListReceivedGrantsForOrganizationCommand,
-  serializeAws_json1_1ListReceivedGrantsForOrganizationCommand,
+  de_ListReceivedGrantsForOrganizationCommand,
+  se_ListReceivedGrantsForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListReceivedGrantsForOrganizationCommand}.
+ */
 export interface ListReceivedGrantsForOrganizationCommandInput extends ListReceivedGrantsForOrganizationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListReceivedGrantsForOrganizationCommand}.
+ */
 export interface ListReceivedGrantsForOrganizationCommandOutput
   extends ListReceivedGrantsForOrganizationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the grants received for all accounts in the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,51 @@ export interface ListReceivedGrantsForOrganizationCommandOutput
  * import { LicenseManagerClient, ListReceivedGrantsForOrganizationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListReceivedGrantsForOrganizationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListReceivedGrantsForOrganizationRequest
+ *   LicenseArn: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListReceivedGrantsForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReceivedGrantsForOrganizationCommandInput - {@link ListReceivedGrantsForOrganizationCommandInput}
+ * @returns {@link ListReceivedGrantsForOrganizationCommandOutput}
  * @see {@link ListReceivedGrantsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListReceivedGrantsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
  *
  */
 export class ListReceivedGrantsForOrganizationCommand extends $Command<
@@ -64,6 +111,9 @@ export class ListReceivedGrantsForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReceivedGrantsForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +142,8 @@ export class ListReceivedGrantsForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReceivedGrantsForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReceivedGrantsForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +153,24 @@ export class ListReceivedGrantsForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListReceivedGrantsForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReceivedGrantsForOrganizationCommand(input, context);
+    return se_ListReceivedGrantsForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReceivedGrantsForOrganizationCommandOutput> {
-    return deserializeAws_json1_1ListReceivedGrantsForOrganizationCommand(output, context);
+    return de_ListReceivedGrantsForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

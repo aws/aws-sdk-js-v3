@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteRobotApplicationRequest,
-  DeleteRobotApplicationRequestFilterSensitiveLog,
-  DeleteRobotApplicationResponse,
-  DeleteRobotApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRobotApplicationCommand,
-  serializeAws_restJson1DeleteRobotApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRobotApplicationRequest, DeleteRobotApplicationResponse } from "../models/models_0";
+import { de_DeleteRobotApplicationCommand, se_DeleteRobotApplicationCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRobotApplicationCommand}.
+ */
 export interface DeleteRobotApplicationCommandInput extends DeleteRobotApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRobotApplicationCommand}.
+ */
 export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a robot application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicat
  * import { RoboMakerClient, DeleteRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DeleteRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DeleteRobotApplicationRequest
+ *   application: "STRING_VALUE", // required
+ *   applicationVersion: "STRING_VALUE",
+ * };
  * const command = new DeleteRobotApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRobotApplicationCommandInput - {@link DeleteRobotApplicationCommandInput}
+ * @returns {@link DeleteRobotApplicationCommandOutput}
  * @see {@link DeleteRobotApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteRobotApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class DeleteRobotApplicationCommand extends $Command<
@@ -62,6 +82,9 @@ export class DeleteRobotApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRobotApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DeleteRobotApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRobotApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRobotApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class DeleteRobotApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRobotApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRobotApplicationCommand(input, context);
+    return se_DeleteRobotApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1DeleteRobotApplicationCommand(output, context);
+    return de_DeleteRobotApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

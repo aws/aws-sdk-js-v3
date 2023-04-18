@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteQualificationTypeRequest,
-  DeleteQualificationTypeRequestFilterSensitiveLog,
-  DeleteQualificationTypeResponse,
-  DeleteQualificationTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteQualificationTypeRequest, DeleteQualificationTypeResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1DeleteQualificationTypeCommand,
-  serializeAws_json1_1DeleteQualificationTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteQualificationTypeCommand, se_DeleteQualificationTypeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteQualificationTypeCommand}.
+ */
 export interface DeleteQualificationTypeCommandInput extends DeleteQualificationTypeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteQualificationTypeCommand}.
+ */
 export interface DeleteQualificationTypeCommandOutput extends DeleteQualificationTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>DeleteQualificationType</code>
@@ -54,13 +57,25 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * import { MTurkClient, DeleteQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, DeleteQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // DeleteQualificationTypeRequest
+ *   QualificationTypeId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteQualificationTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQualificationTypeCommandInput - {@link DeleteQualificationTypeCommandInput}
+ * @returns {@link DeleteQualificationTypeCommandOutput}
  * @see {@link DeleteQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class DeleteQualificationTypeCommand extends $Command<
@@ -80,6 +95,9 @@ export class DeleteQualificationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQualificationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +126,8 @@ export class DeleteQualificationTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQualificationTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteQualificationTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +137,18 @@ export class DeleteQualificationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteQualificationTypeCommand(input, context);
+    return se_DeleteQualificationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1DeleteQualificationTypeCommand(output, context);
+    return de_DeleteQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

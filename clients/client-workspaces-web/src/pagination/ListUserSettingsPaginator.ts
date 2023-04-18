@@ -6,12 +6,11 @@ import {
   ListUserSettingsCommandInput,
   ListUserSettingsCommandOutput,
 } from "../commands/ListUserSettingsCommand";
-import { WorkSpacesWeb } from "../WorkSpacesWeb";
 import { WorkSpacesWebClient } from "../WorkSpacesWebClient";
 import { WorkSpacesWebPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkSpacesWebClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListUserSettingsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: WorkSpacesWeb,
-  input: ListUserSettingsCommandInput,
-  ...args: any
-): Promise<ListUserSettingsCommandOutput> => {
-  // @ts-ignore
-  return await client.listUserSettings(input, ...args);
-};
 export async function* paginateListUserSettings(
   config: WorkSpacesWebPaginationConfiguration,
   input: ListUserSettingsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListUserSettings(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof WorkSpacesWeb) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WorkSpacesWebClient) {
+    if (config.client instanceof WorkSpacesWebClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WorkSpacesWeb | WorkSpacesWebClient");

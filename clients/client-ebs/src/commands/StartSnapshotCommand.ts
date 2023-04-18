@@ -20,15 +20,23 @@ import {
   StartSnapshotResponse,
   StartSnapshotResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartSnapshotCommand,
-  serializeAws_restJson1StartSnapshotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartSnapshotCommand, se_StartSnapshotCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartSnapshotCommand}.
+ */
 export interface StartSnapshotCommandInput extends StartSnapshotRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartSnapshotCommand}.
+ */
 export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code> state
  *             after the request completes. </p>
  *         <p>After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html"> PutSnapshotBlock</a> to
@@ -39,13 +47,59 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * import { EBSClient, StartSnapshotCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, StartSnapshotCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
  * const client = new EBSClient(config);
+ * const input = { // StartSnapshotRequest
+ *   VolumeSize: Number("long"), // required
+ *   ParentSnapshotId: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   Encrypted: true || false,
+ *   KmsKeyArn: "STRING_VALUE",
+ *   Timeout: Number("int"),
+ * };
  * const command = new StartSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSnapshotCommandInput - {@link StartSnapshotCommandInput}
+ * @returns {@link StartSnapshotCommandOutput}
  * @see {@link StartSnapshotCommandInput} for command's `input` shape.
  * @see {@link StartSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConcurrentLimitExceededException} (client fault)
+ *  <p>You have reached the limit for concurrent API requests. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapi-performance">Optimizing performance of the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud
+ *                 User Guide</i>.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request uses the same client token as a previous, but non-identical
+ *             request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link RequestThrottledException} (client fault)
+ *  <p>The number of API requests has exceed the maximum allowed API request throttling
+ *             limit.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current service quotas do not allow you to perform this action.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+ *
  *
  */
 export class StartSnapshotCommand extends $Command<
@@ -65,6 +119,9 @@ export class StartSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,12 +159,18 @@ export class StartSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartSnapshotCommand(input, context);
+    return se_StartSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSnapshotCommandOutput> {
-    return deserializeAws_restJson1StartSnapshotCommand(output, context);
+    return de_StartSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

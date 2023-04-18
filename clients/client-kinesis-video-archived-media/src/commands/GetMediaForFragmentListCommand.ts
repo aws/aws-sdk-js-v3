@@ -23,21 +23,28 @@ import {
 } from "../KinesisVideoArchivedMediaClient";
 import {
   GetMediaForFragmentListInput,
-  GetMediaForFragmentListInputFilterSensitiveLog,
   GetMediaForFragmentListOutput,
   GetMediaForFragmentListOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMediaForFragmentListCommand,
-  serializeAws_restJson1GetMediaForFragmentListCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMediaForFragmentListCommand, se_GetMediaForFragmentListCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetMediaForFragmentListCommand}.
+ */
 export interface GetMediaForFragmentListCommandInput extends GetMediaForFragmentListInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetMediaForFragmentListCommand}.
+ */
 export interface GetMediaForFragmentListCommandOutput
   extends __WithSdkStreamMixin<GetMediaForFragmentListOutput, "Payload">,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets media for a list of fragments (specified by fragment number) from the archived
  *             data in an Amazon Kinesis video stream.</p>
  *
@@ -81,13 +88,46 @@ export interface GetMediaForFragmentListCommandOutput
  * import { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
+ * const input = { // GetMediaForFragmentListInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   Fragments: [ // FragmentNumberList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetMediaForFragmentListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMediaForFragmentListCommandInput - {@link GetMediaForFragmentListCommandInput}
+ * @returns {@link GetMediaForFragmentListCommandOutput}
  * @see {@link GetMediaForFragmentListCommandInput} for command's `input` shape.
  * @see {@link GetMediaForFragmentListCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded a limit. Try making the call later. For information about limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be
+ *             used.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>Status Code: 403, The caller is not authorized to perform an operation on the given
+ *             stream, or the token has expired.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>
+ *             <code>GetMedia</code> throws this error when Kinesis Video Streams can't find the stream
+ *             that you specified.</p>
+ *         <p>
+ *             <code>GetHLSStreamingSessionURL</code> and <code>GetDASHStreamingSessionURL</code> throw
+ *             this error if a session with a <code>PlaybackMode</code> of <code>ON_DEMAND</code> or
+ *                 <code>LIVE_REPLAY</code>is requested for a stream that has no fragments within the
+ *             requested time range, or if a session with a <code>PlaybackMode</code> of
+ *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
+ *             seconds.</p>
+ *
  *
  */
 export class GetMediaForFragmentListCommand extends $Command<
@@ -107,6 +147,9 @@ export class GetMediaForFragmentListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMediaForFragmentListCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,7 +178,7 @@ export class GetMediaForFragmentListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMediaForFragmentListInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMediaForFragmentListOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -146,15 +189,21 @@ export class GetMediaForFragmentListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMediaForFragmentListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMediaForFragmentListCommand(input, context);
+    return se_GetMediaForFragmentListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetMediaForFragmentListCommandOutput> {
-    return deserializeAws_restJson1GetMediaForFragmentListCommand(output, context);
+    return de_GetMediaForFragmentListCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListDatasetContentsCommandInput,
   ListDatasetContentsCommandOutput,
 } from "../commands/ListDatasetContentsCommand";
-import { IoTAnalytics } from "../IoTAnalytics";
 import { IoTAnalyticsClient } from "../IoTAnalyticsClient";
 import { IoTAnalyticsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTAnalyticsClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDatasetContentsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTAnalytics,
-  input: ListDatasetContentsCommandInput,
-  ...args: any
-): Promise<ListDatasetContentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDatasetContents(input, ...args);
-};
 export async function* paginateListDatasetContents(
   config: IoTAnalyticsPaginationConfiguration,
   input: ListDatasetContentsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListDatasetContents(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTAnalytics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTAnalyticsClient) {
+    if (config.client instanceof IoTAnalyticsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTAnalytics | IoTAnalyticsClient");

@@ -1,6 +1,9 @@
 import { QueryParameterBag } from "@aws-sdk/types";
 import { escapeUri } from "@aws-sdk/util-uri-escape";
 
+/**
+ * @internal
+ */
 export function buildQueryString(query: QueryParameterBag): string {
   const parts: string[] = [];
   for (let key of Object.keys(query).sort()) {

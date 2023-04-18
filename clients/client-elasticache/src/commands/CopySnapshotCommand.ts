@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CopySnapshotMessage,
-  CopySnapshotMessageFilterSensitiveLog,
-  CopySnapshotResult,
-  CopySnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryCopySnapshotCommand, serializeAws_queryCopySnapshotCommand } from "../protocols/Aws_query";
+import { CopySnapshotMessage, CopySnapshotResult } from "../models/models_0";
+import { de_CopySnapshotCommand, se_CopySnapshotCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CopySnapshotCommand}.
+ */
 export interface CopySnapshotCommandInput extends CopySnapshotMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CopySnapshotCommand}.
+ */
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Makes a copy of an existing snapshot.</p>
  *          <note>
  *             <p>This operation is valid for Redis only.</p>
@@ -123,13 +129,94 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * import { ElastiCacheClient, CopySnapshotCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CopySnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // CopySnapshotMessage
+ *   SourceSnapshotName: "STRING_VALUE", // required
+ *   TargetSnapshotName: "STRING_VALUE", // required
+ *   TargetBucket: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
+ * @returns {@link CopySnapshotCommandOutput}
  * @see {@link CopySnapshotCommandInput} for command's `input` shape.
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidSnapshotStateFault} (client fault)
+ *  <p>The current state of the snapshot does not allow the requested operation to occur.</p>
+ *
+ * @throws {@link SnapshotAlreadyExistsFault} (client fault)
+ *  <p>You already have a snapshot with the given name.</p>
+ *
+ * @throws {@link SnapshotNotFoundFault} (client fault)
+ *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ *
+ * @throws {@link SnapshotQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ *
+ * @example CopySnapshot
+ * ```javascript
+ * // Copies a snapshot to a specified name.
+ * const input = {
+ *   "SourceSnapshotName": "my-snapshot",
+ *   "TargetBucket": "",
+ *   "TargetSnapshotName": "my-snapshot-copy"
+ * };
+ * const command = new CopySnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Snapshot": {
+ *     "AutoMinorVersionUpgrade": true,
+ *     "CacheClusterCreateTime": "2016-12-21T22:24:04.955Z",
+ *     "CacheClusterId": "my-redis4",
+ *     "CacheNodeType": "cache.m3.large",
+ *     "CacheParameterGroupName": "default.redis3.2",
+ *     "CacheSubnetGroupName": "default",
+ *     "Engine": "redis",
+ *     "EngineVersion": "3.2.4",
+ *     "NodeSnapshots": [
+ *       {
+ *         "CacheNodeCreateTime": "2016-12-21T22:24:04.955Z",
+ *         "CacheNodeId": "0001",
+ *         "CacheSize": "3 MB",
+ *         "SnapshotCreateTime": "2016-12-28T07:00:52Z"
+ *       }
+ *     ],
+ *     "NumCacheNodes": 1,
+ *     "Port": 6379,
+ *     "PreferredAvailabilityZone": "us-east-1c",
+ *     "PreferredMaintenanceWindow": "tue:09:30-tue:10:30",
+ *     "SnapshotName": "my-snapshot-copy",
+ *     "SnapshotRetentionLimit": 7,
+ *     "SnapshotSource": "manual",
+ *     "SnapshotStatus": "creating",
+ *     "SnapshotWindow": "07:00-08:00",
+ *     "VpcId": "vpc-3820329f3"
+ *   }
+ * }
+ * *\/
+ * // example id: copysnapshot-1482961393820
+ * ```
  *
  */
 export class CopySnapshotCommand extends $Command<
@@ -149,6 +236,9 @@ export class CopySnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopySnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,8 +265,8 @@ export class CopySnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopySnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CopySnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -186,12 +276,18 @@ export class CopySnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopySnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopySnapshotCommand(input, context);
+    return se_CopySnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopySnapshotCommandOutput> {
-    return deserializeAws_queryCopySnapshotCommand(output, context);
+    return de_CopySnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

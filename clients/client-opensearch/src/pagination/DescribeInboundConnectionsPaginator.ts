@@ -6,12 +6,11 @@ import {
   DescribeInboundConnectionsCommandInput,
   DescribeInboundConnectionsCommandOutput,
 } from "../commands/DescribeInboundConnectionsCommand";
-import { OpenSearch } from "../OpenSearch";
 import { OpenSearchClient } from "../OpenSearchClient";
 import { OpenSearchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpenSearchClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeInboundConnectionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: OpenSearch,
-  input: DescribeInboundConnectionsCommandInput,
-  ...args: any
-): Promise<DescribeInboundConnectionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeInboundConnections(input, ...args);
-};
 export async function* paginateDescribeInboundConnections(
   config: OpenSearchPaginationConfiguration,
   input: DescribeInboundConnectionsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeInboundConnections(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof OpenSearch) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OpenSearchClient) {
+    if (config.client instanceof OpenSearchClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OpenSearch | OpenSearchClient");

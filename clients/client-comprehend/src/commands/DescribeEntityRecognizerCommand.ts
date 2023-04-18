@@ -16,19 +16,26 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   DescribeEntityRecognizerRequest,
-  DescribeEntityRecognizerRequestFilterSensitiveLog,
   DescribeEntityRecognizerResponse,
   DescribeEntityRecognizerResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEntityRecognizerCommand,
-  serializeAws_json1_1DescribeEntityRecognizerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEntityRecognizerCommand, se_DescribeEntityRecognizerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEntityRecognizerCommand}.
+ */
 export interface DescribeEntityRecognizerCommandInput extends DescribeEntityRecognizerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEntityRecognizerCommand}.
+ */
 export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRecognizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about an entity recognizer including status, S3 buckets containing
  *       training data, recognizer metadata, metrics, and so on.</p>
  * @example
@@ -37,13 +44,31 @@ export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRec
  * import { ComprehendClient, DescribeEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeEntityRecognizerRequest
+ *   EntityRecognizerArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEntityRecognizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEntityRecognizerCommandInput - {@link DescribeEntityRecognizerCommandInput}
+ * @returns {@link DescribeEntityRecognizerCommandOutput}
  * @see {@link DescribeEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link DescribeEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class DescribeEntityRecognizerCommand extends $Command<
@@ -63,6 +88,9 @@ export class DescribeEntityRecognizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEntityRecognizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +119,7 @@ export class DescribeEntityRecognizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEntityRecognizerRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeEntityRecognizerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -102,12 +130,18 @@ export class DescribeEntityRecognizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEntityRecognizerCommand(input, context);
+    return se_DescribeEntityRecognizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntityRecognizerCommandOutput> {
-    return deserializeAws_json1_1DescribeEntityRecognizerCommand(output, context);
+    return de_DescribeEntityRecognizerCommand(output, context);
   }
 
   // Start section: command_body_extra

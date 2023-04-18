@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteProtectionRequest,
-  DeleteProtectionRequestFilterSensitiveLog,
-  DeleteProtectionResponse,
-  DeleteProtectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProtectionCommand,
-  serializeAws_json1_1DeleteProtectionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProtectionRequest, DeleteProtectionResponse } from "../models/models_0";
+import { de_DeleteProtectionCommand, se_DeleteProtectionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteProtectionCommand}.
+ */
 export interface DeleteProtectionCommandInput extends DeleteProtectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProtectionCommand}.
+ */
 export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Shield Advanced <a>Protection</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse,
  * import { ShieldClient, DeleteProtectionCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DeleteProtectionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // DeleteProtectionRequest
+ *   ProtectionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProtectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProtectionCommandInput - {@link DeleteProtectionCommandInput}
+ * @returns {@link DeleteProtectionCommandOutput}
  * @see {@link DeleteProtectionCommandInput} for command's `input` shape.
  * @see {@link DeleteProtectionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * @throws {@link OptimisticLockException} (client fault)
+ *  <p>Exception that indicates that the resource state has been modified by another
+ *          client. Retrieve the resource and then retry your request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
  *
  */
 export class DeleteProtectionCommand extends $Command<
@@ -62,6 +81,9 @@ export class DeleteProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class DeleteProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProtectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProtectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +123,18 @@ export class DeleteProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProtectionCommand(input, context);
+    return se_DeleteProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProtectionCommandOutput> {
-    return deserializeAws_json1_1DeleteProtectionCommand(output, context);
+    return de_DeleteProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,22 +16,31 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
   DescribeDirectConnectGatewayAssociationsRequest,
-  DescribeDirectConnectGatewayAssociationsRequestFilterSensitiveLog,
   DescribeDirectConnectGatewayAssociationsResult,
-  DescribeDirectConnectGatewayAssociationsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand,
-  serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand,
+  de_DescribeDirectConnectGatewayAssociationsCommand,
+  se_DescribeDirectConnectGatewayAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDirectConnectGatewayAssociationsCommand}.
+ */
 export interface DescribeDirectConnectGatewayAssociationsCommandInput
   extends DescribeDirectConnectGatewayAssociationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDirectConnectGatewayAssociationsCommand}.
+ */
 export interface DescribeDirectConnectGatewayAssociationsCommandOutput
   extends DescribeDirectConnectGatewayAssociationsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the associations between your Direct Connect gateways and virtual private gateways and transit gateways. You must specify one of the following:</p>
  *          <ul>
  *             <li>
@@ -61,13 +70,30 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
  * import { DirectConnectClient, DescribeDirectConnectGatewayAssociationsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeDirectConnectGatewayAssociationsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeDirectConnectGatewayAssociationsRequest
+ *   associationId: "STRING_VALUE",
+ *   associatedGatewayId: "STRING_VALUE",
+ *   directConnectGatewayId: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   virtualGatewayId: "STRING_VALUE",
+ * };
  * const command = new DescribeDirectConnectGatewayAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDirectConnectGatewayAssociationsCommandInput - {@link DescribeDirectConnectGatewayAssociationsCommandInput}
+ * @returns {@link DescribeDirectConnectGatewayAssociationsCommandOutput}
  * @see {@link DescribeDirectConnectGatewayAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewayAssociationsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
@@ -87,6 +113,9 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDirectConnectGatewayAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +150,8 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,18 +161,24 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDirectConnectGatewayAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(input, context);
+    return se_DescribeDirectConnectGatewayAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(output, context);
+    return de_DescribeDirectConnectGatewayAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

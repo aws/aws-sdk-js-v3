@@ -15,17 +15,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketPolicyRequest, PutBucketPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketPolicyCommand,
-  serializeAws_restXmlPutBucketPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { PutBucketPolicyRequest } from "../models/models_0";
+import { de_PutBucketPolicyCommand, se_PutBucketPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PutBucketPolicyCommand}.
+ */
 export interface PutBucketPolicyCommandInput extends PutBucketPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutBucketPolicyCommand}.
+ */
 export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action puts a bucket policy to an Amazon S3 on Outposts bucket. To put a policy on an
  *             S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html">PutBucketPolicy</a> in the
@@ -37,24 +45,18 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  *          Outposts bucket, the calling identity must have the <code>PutBucketPolicy</code>
  *          permissions on the specified Outposts bucket and belong to the bucket owner's account in
  *          order to use this action.</p>
- *
  *          <p>If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403
  *             Access Denied</code> error. If you have the correct permissions, but you're not using an
  *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
  *             Allowed</code> error.</p>
- *
  *          <important>
  *             <p> As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
  *             always use this action, even if the policy explicitly denies the root user the ability
  *             to perform this action. </p>
  *          </important>
- *
- *
  *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
  *             Policies</a>.</p>
- *
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html#API_control_PutBucketPolicy_Examples">Examples</a> section.</p>
- *
  *          <p>The following actions are related to <code>PutBucketPolicy</code>:</p>
  *          <ul>
  *             <li>
@@ -74,13 +76,22 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, PutBucketPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutBucketPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // PutBucketPolicyRequest
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ *   ConfirmRemoveSelfBucketAccess: true || false,
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutBucketPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketPolicyCommandInput - {@link PutBucketPolicyCommandInput}
+ * @returns {@link PutBucketPolicyCommandOutput}
  * @see {@link PutBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class PutBucketPolicyCommand extends $Command<
@@ -104,6 +115,9 @@ export class PutBucketPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +148,8 @@ export class PutBucketPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +159,18 @@ export class PutBucketPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketPolicyCommand(input, context);
+    return se_PutBucketPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketPolicyCommandOutput> {
-    return deserializeAws_restXmlPutBucketPolicyCommand(output, context);
+    return de_PutBucketPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

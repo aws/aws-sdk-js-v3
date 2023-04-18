@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  ListKeywordsForDataSourceRequest,
-  ListKeywordsForDataSourceRequestFilterSensitiveLog,
-  ListKeywordsForDataSourceResponse,
-  ListKeywordsForDataSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListKeywordsForDataSourceCommand,
-  serializeAws_restJson1ListKeywordsForDataSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { ListKeywordsForDataSourceRequest, ListKeywordsForDataSourceResponse } from "../models/models_0";
+import { de_ListKeywordsForDataSourceCommand, se_ListKeywordsForDataSourceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListKeywordsForDataSourceCommand}.
+ */
 export interface ListKeywordsForDataSourceCommandInput extends ListKeywordsForDataSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListKeywordsForDataSourceCommand}.
+ */
 export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForDataSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of keywords that are pre-mapped to the specified control data source.
  *       </p>
  * @example
@@ -37,13 +40,32 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  * import { AuditManagerClient, ListKeywordsForDataSourceCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListKeywordsForDataSourceCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // ListKeywordsForDataSourceRequest
+ *   source: "AWS_Cloudtrail" || "AWS_Config" || "AWS_Security_Hub" || "AWS_API_Call" || "MANUAL", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListKeywordsForDataSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeywordsForDataSourceCommandInput - {@link ListKeywordsForDataSourceCommandInput}
+ * @returns {@link ListKeywordsForDataSourceCommandOutput}
  * @see {@link ListKeywordsForDataSourceCommandInput} for command's `input` shape.
  * @see {@link ListKeywordsForDataSourceCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
  *
  */
 export class ListKeywordsForDataSourceCommand extends $Command<
@@ -63,6 +85,9 @@ export class ListKeywordsForDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeywordsForDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +116,8 @@ export class ListKeywordsForDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListKeywordsForDataSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListKeywordsForDataSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +127,21 @@ export class ListKeywordsForDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeywordsForDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListKeywordsForDataSourceCommand(input, context);
+    return se_ListKeywordsForDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListKeywordsForDataSourceCommandOutput> {
-    return deserializeAws_restJson1ListKeywordsForDataSourceCommand(output, context);
+    return de_ListKeywordsForDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

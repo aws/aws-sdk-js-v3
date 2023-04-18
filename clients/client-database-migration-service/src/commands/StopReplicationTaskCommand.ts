@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  StopReplicationTaskMessage,
-  StopReplicationTaskMessageFilterSensitiveLog,
-  StopReplicationTaskResponse,
-  StopReplicationTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopReplicationTaskCommand,
-  serializeAws_json1_1StopReplicationTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { StopReplicationTaskMessage, StopReplicationTaskResponse } from "../models/models_0";
+import { de_StopReplicationTaskCommand, se_StopReplicationTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopReplicationTaskCommand}.
+ */
 export interface StopReplicationTaskCommandInput extends StopReplicationTaskMessage {}
+/**
+ * @public
+ *
+ * The output of {@link StopReplicationTaskCommand}.
+ */
 export interface StopReplicationTaskCommandOutput extends StopReplicationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the replication task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,52 @@ export interface StopReplicationTaskCommandOutput extends StopReplicationTaskRes
  * import { DatabaseMigrationServiceClient, StopReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StopReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // StopReplicationTaskMessage
+ *   ReplicationTaskArn: "STRING_VALUE", // required
+ * };
  * const command = new StopReplicationTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopReplicationTaskCommandInput - {@link StopReplicationTaskCommandInput}
+ * @returns {@link StopReplicationTaskCommandOutput}
  * @see {@link StopReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link StopReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
+ * @example Stop replication task
+ * ```javascript
+ * // Stops the replication task.
+ * const input = {
+ *   "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+ * };
+ * const command = new StopReplicationTaskCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicationTask": {
+ *     "MigrationType": "full-load",
+ *     "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *     "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:task:OEAMB3NXSTZ6LFYZFEPPBBXPYM",
+ *     "ReplicationTaskCreationDate": "2016-12-14T18:25:43Z",
+ *     "ReplicationTaskIdentifier": "task1",
+ *     "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":true,\"LobChunkSize\":64,\"LimitedSizeLobMode\":false,\"LobMaxSize\":0},\"FullLoadSettings\":{\"FullLoadEnabled\":true,\"ApplyChangesEnabled\":false,\"TargetTablePrepMode\":\"DROP_AND_CREATE\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"ResumeEnabled\":false,\"ResumeMinTableSize\":100000,\"ResumeOnlyClusteredPKTables\":true,\"MaxFullLoadSubTasks\":8,\"TransactionConsistencyTimeout\":600,\"CommitRate\":10000},\"Logging\":{\"EnableLogging\":false}}",
+ *     "SourceEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+ *     "Status": "creating",
+ *     "TableMappings": "file://mappingfile.json",
+ *     "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+ *   }
+ * }
+ * *\/
+ * // example id: stop-replication-task-1481762924947
+ * ```
  *
  */
 export class StopReplicationTaskCommand extends $Command<
@@ -66,6 +108,9 @@ export class StopReplicationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopReplicationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +139,8 @@ export class StopReplicationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopReplicationTaskMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StopReplicationTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +150,18 @@ export class StopReplicationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopReplicationTaskCommand(input, context);
+    return se_StopReplicationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopReplicationTaskCommandOutput> {
-    return deserializeAws_json1_1StopReplicationTaskCommand(output, context);
+    return de_StopReplicationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import {
-  ListMemberAccountsRequest,
-  ListMemberAccountsRequestFilterSensitiveLog,
-  ListMemberAccountsResult,
-  ListMemberAccountsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMemberAccountsCommand,
-  serializeAws_json1_1ListMemberAccountsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMemberAccountsRequest, ListMemberAccountsResult } from "../models/models_0";
+import { de_ListMemberAccountsCommand, se_ListMemberAccountsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMemberAccountsCommand}.
+ */
 export interface ListMemberAccountsCommandInput extends ListMemberAccountsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMemberAccountsCommand}.
+ */
 export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Lists all Amazon Macie Classic member accounts for the current Macie
  *       Classic administrator account.</p>
  * @example
@@ -37,13 +40,27 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResul
  * import { MacieClient, ListMemberAccountsCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, ListMemberAccountsCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
+ * const input = { // ListMemberAccountsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListMemberAccountsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMemberAccountsCommandInput - {@link ListMemberAccountsCommandInput}
+ * @returns {@link ListMemberAccountsCommandOutput}
  * @see {@link ListMemberAccountsCommandInput} for command's `input` shape.
  * @see {@link ListMemberAccountsCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>(Discontinued) Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
  *
  */
 export class ListMemberAccountsCommand extends $Command<
@@ -63,6 +80,9 @@ export class ListMemberAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMemberAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +111,8 @@ export class ListMemberAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMemberAccountsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMemberAccountsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +122,18 @@ export class ListMemberAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMemberAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMemberAccountsCommand(input, context);
+    return se_ListMemberAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMemberAccountsCommandOutput> {
-    return deserializeAws_json1_1ListMemberAccountsCommand(output, context);
+    return de_ListMemberAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  CreateMetricSetRequest,
-  CreateMetricSetRequestFilterSensitiveLog,
-  CreateMetricSetResponse,
-  CreateMetricSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMetricSetCommand,
-  serializeAws_restJson1CreateMetricSetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMetricSetRequest, CreateMetricSetResponse } from "../models/models_0";
+import { de_CreateMetricSetCommand, se_CreateMetricSetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateMetricSetCommand}.
+ */
 export interface CreateMetricSetCommandInput extends CreateMetricSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMetricSetCommand}.
+ */
 export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,156 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  * import { LookoutMetricsClient, CreateMetricSetCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, CreateMetricSetCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // CreateMetricSetRequest
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   MetricSetName: "STRING_VALUE", // required
+ *   MetricSetDescription: "STRING_VALUE",
+ *   MetricList: [ // MetricList // required
+ *     { // Metric
+ *       MetricName: "STRING_VALUE", // required
+ *       AggregationFunction: "STRING_VALUE", // required
+ *       Namespace: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Offset: Number("int"),
+ *   TimestampColumn: { // TimestampColumn
+ *     ColumnName: "STRING_VALUE",
+ *     ColumnFormat: "STRING_VALUE",
+ *   },
+ *   DimensionList: [ // DimensionList
+ *     "STRING_VALUE",
+ *   ],
+ *   MetricSetFrequency: "STRING_VALUE",
+ *   MetricSource: { // MetricSource
+ *     S3SourceConfig: { // S3SourceConfig
+ *       RoleArn: "STRING_VALUE",
+ *       TemplatedPathList: [ // TemplatedPathList
+ *         "STRING_VALUE",
+ *       ],
+ *       HistoricalDataPathList: [ // HistoricalDataPathList
+ *         "STRING_VALUE",
+ *       ],
+ *       FileFormatDescriptor: { // FileFormatDescriptor
+ *         CsvFormatDescriptor: { // CsvFormatDescriptor
+ *           FileCompression: "STRING_VALUE",
+ *           Charset: "STRING_VALUE",
+ *           ContainsHeader: true || false,
+ *           Delimiter: "STRING_VALUE",
+ *           HeaderList: [ // HeaderList
+ *             "STRING_VALUE",
+ *           ],
+ *           QuoteSymbol: "STRING_VALUE",
+ *         },
+ *         JsonFormatDescriptor: { // JsonFormatDescriptor
+ *           FileCompression: "STRING_VALUE",
+ *           Charset: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     AppFlowConfig: { // AppFlowConfig
+ *       RoleArn: "STRING_VALUE",
+ *       FlowName: "STRING_VALUE",
+ *     },
+ *     CloudWatchConfig: { // CloudWatchConfig
+ *       RoleArn: "STRING_VALUE",
+ *       BackTestConfiguration: { // BackTestConfiguration
+ *         RunBackTestMode: true || false, // required
+ *       },
+ *     },
+ *     RDSSourceConfig: { // RDSSourceConfig
+ *       DBInstanceIdentifier: "STRING_VALUE",
+ *       DatabaseHost: "STRING_VALUE",
+ *       DatabasePort: Number("int"),
+ *       SecretManagerArn: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE",
+ *       VpcConfiguration: { // VpcConfiguration
+ *         SubnetIdList: [ // SubnetIdList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIdList: [ // SecurityGroupIdList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     RedshiftSourceConfig: { // RedshiftSourceConfig
+ *       ClusterIdentifier: "STRING_VALUE",
+ *       DatabaseHost: "STRING_VALUE",
+ *       DatabasePort: Number("int"),
+ *       SecretManagerArn: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE",
+ *       VpcConfiguration: {
+ *         SubnetIdList: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIdList: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     AthenaSourceConfig: { // AthenaSourceConfig
+ *       RoleArn: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       DataCatalog: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       WorkGroupName: "STRING_VALUE",
+ *       S3ResultsPath: "STRING_VALUE",
+ *       BackTestConfiguration: {
+ *         RunBackTestMode: true || false, // required
+ *       },
+ *     },
+ *   },
+ *   Timezone: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   DimensionFilterList: [ // MetricSetDimensionFilterList
+ *     { // MetricSetDimensionFilter
+ *       Name: "STRING_VALUE",
+ *       FilterList: [ // FilterList
+ *         { // Filter
+ *           DimensionValue: "STRING_VALUE",
+ *           FilterOperation: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateMetricSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMetricSetCommandInput - {@link CreateMetricSetCommandInput}
+ * @returns {@link CreateMetricSetCommandOutput}
  * @see {@link CreateMetricSetCommandInput} for command's `input` shape.
  * @see {@link CreateMetricSetCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Try your request again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found. Check the ARN of the resource and try again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeded the service's quotas. Check the service quotas and try again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request was denied due to too many requests being submitted at the same time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
+ *       again.</p>
+ *
  *
  */
 export class CreateMetricSetCommand extends $Command<
@@ -62,6 +208,9 @@ export class CreateMetricSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMetricSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +239,8 @@ export class CreateMetricSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMetricSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMetricSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +250,18 @@ export class CreateMetricSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMetricSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMetricSetCommand(input, context);
+    return se_CreateMetricSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMetricSetCommandOutput> {
-    return deserializeAws_restJson1CreateMetricSetCommand(output, context);
+    return de_CreateMetricSetCommand(output, context);
   }
 
   // Start section: command_body_extra

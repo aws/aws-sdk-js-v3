@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDBParameterGroupMessage,
-  CreateDBParameterGroupMessageFilterSensitiveLog,
-  CreateDBParameterGroupResult,
-  CreateDBParameterGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBParameterGroupCommand,
-  serializeAws_queryCreateDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { CreateDBParameterGroupMessage, CreateDBParameterGroupResult } from "../models/models_0";
+import { de_CreateDBParameterGroupCommand, se_CreateDBParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDBParameterGroupCommand}.
+ */
 export interface CreateDBParameterGroupCommandInput extends CreateDBParameterGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDBParameterGroupCommand}.
+ */
 export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB parameter group.</p>
  *          <p>A DB parameter group is initially created with the default parameters for the
  *             database engine used by the DB instance. To provide custom values for any of the
@@ -55,13 +58,57 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * import { RDSClient, CreateDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CreateDBParameterGroupMessage
+ *   DBParameterGroupName: "STRING_VALUE", // required
+ *   DBParameterGroupFamily: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBParameterGroupCommandInput - {@link CreateDBParameterGroupCommandInput}
+ * @returns {@link CreateDBParameterGroupCommandOutput}
  * @see {@link CreateDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
+ *  <p>A DB parameter group with the same name exists.</p>
+ *
+ * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of DB parameter
+ *             groups.</p>
+ *
+ *
+ * @example To create a DB parameter group
+ * ```javascript
+ * // The following example creates a DB parameter group.
+ * const input = {
+ *   "DBParameterGroupFamily": "MySQL8.0",
+ *   "DBParameterGroupName": "mydbparametergroup",
+ *   "Description": "My new parameter group"
+ * };
+ * const command = new CreateDBParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBParameterGroup": {
+ *     "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:mydbparametergroup",
+ *     "DBParameterGroupFamily": "mysql8.0",
+ *     "DBParameterGroupName": "mydbparametergroup",
+ *     "Description": "My new parameter group"
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-db-parameter-group-1679939227970
+ * ```
  *
  */
 export class CreateDBParameterGroupCommand extends $Command<
@@ -81,6 +128,9 @@ export class CreateDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +159,8 @@ export class CreateDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBParameterGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +170,18 @@ export class CreateDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBParameterGroupCommand(input, context);
+    return se_CreateDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateDBParameterGroupCommand(output, context);
+    return de_CreateDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

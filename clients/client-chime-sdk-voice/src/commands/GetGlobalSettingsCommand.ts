@@ -14,15 +14,62 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { GetGlobalSettingsResponse, GetGlobalSettingsResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGlobalSettingsCommand,
-  serializeAws_restJson1GetGlobalSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGlobalSettingsResponse } from "../models/models_0";
+import { de_GetGlobalSettingsCommand, se_GetGlobalSettingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetGlobalSettingsCommand}.
+ */
 export interface GetGlobalSettingsCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetGlobalSettingsCommand}.
+ */
 export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Retrieves the global settings for the Amazon Chime SDK Voice Connectors in an AWS account.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, GetGlobalSettingsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetGlobalSettingsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {};
+ * const command = new GetGlobalSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param GetGlobalSettingsCommandInput - {@link GetGlobalSettingsCommandInput}
+ * @returns {@link GetGlobalSettingsCommandOutput}
+ * @see {@link GetGlobalSettingsCommandInput} for command's `input` shape.
+ * @see {@link GetGlobalSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class GetGlobalSettingsCommand extends $Command<
   GetGlobalSettingsCommandInput,
   GetGlobalSettingsCommandOutput,
@@ -40,6 +87,9 @@ export class GetGlobalSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGlobalSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,8 +118,8 @@ export class GetGlobalSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetGlobalSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -79,12 +129,18 @@ export class GetGlobalSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGlobalSettingsCommand(input, context);
+    return se_GetGlobalSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGlobalSettingsCommandOutput> {
-    return deserializeAws_restJson1GetGlobalSettingsCommand(output, context);
+    return de_GetGlobalSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

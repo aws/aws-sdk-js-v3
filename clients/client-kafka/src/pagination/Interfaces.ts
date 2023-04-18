@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
-import { Kafka } from "../Kafka";
 import { KafkaClient } from "../KafkaClient";
 
+/**
+ * @public
+ */
 export interface KafkaPaginationConfiguration extends PaginationConfiguration {
-  client: Kafka | KafkaClient;
+  client: KafkaClient;
 }

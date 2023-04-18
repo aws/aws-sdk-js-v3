@@ -6,12 +6,11 @@ import {
   ListNetworkAnalyzerConfigurationsCommandInput,
   ListNetworkAnalyzerConfigurationsCommandOutput,
 } from "../commands/ListNetworkAnalyzerConfigurationsCommand";
-import { IoTWireless } from "../IoTWireless";
 import { IoTWirelessClient } from "../IoTWirelessClient";
 import { IoTWirelessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTWirelessClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListNetworkAnalyzerConfigurationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTWireless,
-  input: ListNetworkAnalyzerConfigurationsCommandInput,
-  ...args: any
-): Promise<ListNetworkAnalyzerConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listNetworkAnalyzerConfigurations(input, ...args);
-};
 export async function* paginateListNetworkAnalyzerConfigurations(
   config: IoTWirelessPaginationConfiguration,
   input: ListNetworkAnalyzerConfigurationsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListNetworkAnalyzerConfigurations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof IoTWireless) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTWirelessClient) {
+    if (config.client instanceof IoTWirelessClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTWireless | IoTWirelessClient");

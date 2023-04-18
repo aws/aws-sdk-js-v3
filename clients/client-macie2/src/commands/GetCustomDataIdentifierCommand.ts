@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetCustomDataIdentifierRequest,
-  GetCustomDataIdentifierRequestFilterSensitiveLog,
-  GetCustomDataIdentifierResponse,
-  GetCustomDataIdentifierResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCustomDataIdentifierCommand,
-  serializeAws_restJson1GetCustomDataIdentifierCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCustomDataIdentifierRequest, GetCustomDataIdentifierResponse } from "../models/models_0";
+import { de_GetCustomDataIdentifierCommand, se_GetCustomDataIdentifierCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCustomDataIdentifierCommand}.
+ */
 export interface GetCustomDataIdentifierCommandInput extends GetCustomDataIdentifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCustomDataIdentifierCommand}.
+ */
 export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the criteria and other settings for a custom data identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdent
  * import { Macie2Client, GetCustomDataIdentifierCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetCustomDataIdentifierCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // GetCustomDataIdentifierRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetCustomDataIdentifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCustomDataIdentifierCommandInput - {@link GetCustomDataIdentifierCommandInput}
+ * @returns {@link GetCustomDataIdentifierCommandOutput}
  * @see {@link GetCustomDataIdentifierCommandInput} for command's `input` shape.
  * @see {@link GetCustomDataIdentifierCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class GetCustomDataIdentifierCommand extends $Command<
@@ -62,6 +92,9 @@ export class GetCustomDataIdentifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCustomDataIdentifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class GetCustomDataIdentifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCustomDataIdentifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCustomDataIdentifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class GetCustomDataIdentifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCustomDataIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCustomDataIdentifierCommand(input, context);
+    return se_GetCustomDataIdentifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCustomDataIdentifierCommandOutput> {
-    return deserializeAws_restJson1GetCustomDataIdentifierCommand(output, context);
+    return de_GetCustomDataIdentifierCommand(output, context);
   }
 
   // Start section: command_body_extra

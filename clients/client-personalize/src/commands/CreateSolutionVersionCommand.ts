@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSolutionVersionRequest,
-  CreateSolutionVersionRequestFilterSensitiveLog,
-  CreateSolutionVersionResponse,
-  CreateSolutionVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSolutionVersionRequest, CreateSolutionVersionResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateSolutionVersionCommand,
-  serializeAws_json1_1CreateSolutionVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateSolutionVersionCommand, se_CreateSolutionVersionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateSolutionVersionCommand}.
+ */
 export interface CreateSolutionVersionCommandInput extends CreateSolutionVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSolutionVersionCommand}.
+ */
 export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Trains or retrains an active solution in a Custom dataset group. A solution is created using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
  *       operation and must be in the ACTIVE state before calling
  *         <code>CreateSolutionVersion</code>. A new version of the solution is created every time you
@@ -102,13 +105,45 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  * import { PersonalizeClient, CreateSolutionVersionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateSolutionVersionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateSolutionVersionRequest
+ *   name: "STRING_VALUE",
+ *   solutionArn: "STRING_VALUE", // required
+ *   trainingMode: "FULL" || "UPDATE",
+ *   tags: [ // Tags
+ *     { // Tag
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSolutionVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSolutionVersionCommandInput - {@link CreateSolutionVersionCommandInput}
+ * @returns {@link CreateSolutionVersionCommandOutput}
  * @see {@link CreateSolutionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateSolutionVersionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
  *
  */
 export class CreateSolutionVersionCommand extends $Command<
@@ -128,6 +163,9 @@ export class CreateSolutionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSolutionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,8 +194,8 @@ export class CreateSolutionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSolutionVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSolutionVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -167,12 +205,18 @@ export class CreateSolutionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSolutionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSolutionVersionCommand(input, context);
+    return se_CreateSolutionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSolutionVersionCommandOutput> {
-    return deserializeAws_json1_1CreateSolutionVersionCommand(output, context);
+    return de_CreateSolutionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

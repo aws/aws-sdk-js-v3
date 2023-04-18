@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import {
-  UpdateZonalShiftRequest,
-  UpdateZonalShiftRequestFilterSensitiveLog,
-  ZonalShift,
-  ZonalShiftFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateZonalShiftCommand,
-  serializeAws_restJson1UpdateZonalShiftCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateZonalShiftRequest, ZonalShift } from "../models/models_0";
+import { de_UpdateZonalShiftCommand, se_UpdateZonalShiftCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateZonalShiftCommand}.
+ */
 export interface UpdateZonalShiftCommandInput extends UpdateZonalShiftRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateZonalShiftCommand}.
+ */
 export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an active zonal shift in Amazon Route 53 Application Recovery Controller in your AWS account. You can update a zonal shift to set a new expiration, or
  *    	edit or replace the comment for the zonal shift. </p>
  * @example
@@ -37,13 +40,39 @@ export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * import { ARCZonalShiftClient, UpdateZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, UpdateZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
+ * const input = { // UpdateZonalShiftRequest
+ *   zonalShiftId: "STRING_VALUE", // required
+ *   comment: "STRING_VALUE",
+ *   expiresIn: "STRING_VALUE",
+ * };
  * const command = new UpdateZonalShiftCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateZonalShiftCommandInput - {@link UpdateZonalShiftCommandInput}
+ * @returns {@link UpdateZonalShiftCommandOutput}
  * @see {@link UpdateZonalShiftCommandInput} for command's `input` shape.
  * @see {@link UpdateZonalShiftCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The input requested a resource that was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class UpdateZonalShiftCommand extends $Command<
@@ -63,6 +92,9 @@ export class UpdateZonalShiftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateZonalShiftCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +123,8 @@ export class UpdateZonalShiftCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateZonalShiftRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ZonalShiftFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +134,18 @@ export class UpdateZonalShiftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateZonalShiftCommand(input, context);
+    return se_UpdateZonalShiftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateZonalShiftCommandOutput> {
-    return deserializeAws_restJson1UpdateZonalShiftCommand(output, context);
+    return de_UpdateZonalShiftCommand(output, context);
   }
 
   // Start section: command_body_extra

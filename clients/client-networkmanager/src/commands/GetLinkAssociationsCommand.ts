@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLinkAssociationsRequest,
-  GetLinkAssociationsRequestFilterSensitiveLog,
-  GetLinkAssociationsResponse,
-  GetLinkAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLinkAssociationsRequest, GetLinkAssociationsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetLinkAssociationsCommand,
-  serializeAws_restJson1GetLinkAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLinkAssociationsCommand, se_GetLinkAssociationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLinkAssociationsCommand}.
+ */
 export interface GetLinkAssociationsCommandInput extends GetLinkAssociationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLinkAssociationsCommand}.
+ */
 export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the link associations for a device or a link. Either the device ID or the link ID
  *             must be specified.</p>
  * @example
@@ -37,13 +40,38 @@ export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsRes
  * import { NetworkManagerClient, GetLinkAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetLinkAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetLinkAssociationsRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE",
+ *   LinkId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetLinkAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLinkAssociationsCommandInput - {@link GetLinkAssociationsCommandInput}
+ * @returns {@link GetLinkAssociationsCommandOutput}
  * @see {@link GetLinkAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetLinkAssociationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class GetLinkAssociationsCommand extends $Command<
@@ -63,6 +91,9 @@ export class GetLinkAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLinkAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +122,8 @@ export class GetLinkAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLinkAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLinkAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +133,18 @@ export class GetLinkAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLinkAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLinkAssociationsCommand(input, context);
+    return se_GetLinkAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinkAssociationsCommandOutput> {
-    return deserializeAws_restJson1GetLinkAssociationsCommand(output, context);
+    return de_GetLinkAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

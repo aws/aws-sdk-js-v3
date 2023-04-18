@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetInstancesRequest,
-  GetInstancesRequestFilterSensitiveLog,
-  GetInstancesResult,
-  GetInstancesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetInstancesCommand,
-  serializeAws_json1_1GetInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetInstancesRequest, GetInstancesResult } from "../models/models_1";
+import { de_GetInstancesCommand, se_GetInstancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetInstancesCommand}.
+ */
 export interface GetInstancesCommandInput extends GetInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetInstancesCommand}.
+ */
 export interface GetInstancesCommandOutput extends GetInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all Amazon Lightsail virtual private servers, or
  *         <i>instances</i>.</p>
  * @example
@@ -37,13 +40,49 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  * import { LightsailClient, GetInstancesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstancesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetInstancesRequest
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstancesCommandInput - {@link GetInstancesCommandInput}
+ * @returns {@link GetInstancesCommandOutput}
  * @see {@link GetInstancesCommandInput} for command's `input` shape.
  * @see {@link GetInstancesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class GetInstancesCommand extends $Command<
@@ -63,6 +102,9 @@ export class GetInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +131,8 @@ export class GetInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +142,18 @@ export class GetInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstancesCommand(input, context);
+    return se_GetInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstancesCommandOutput> {
-    return deserializeAws_json1_1GetInstancesCommand(output, context);
+    return de_GetInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

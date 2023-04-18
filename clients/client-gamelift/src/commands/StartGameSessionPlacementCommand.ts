@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  StartGameSessionPlacementInput,
-  StartGameSessionPlacementInputFilterSensitiveLog,
-  StartGameSessionPlacementOutput,
-  StartGameSessionPlacementOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartGameSessionPlacementCommand,
-  serializeAws_json1_1StartGameSessionPlacementCommand,
-} from "../protocols/Aws_json1_1";
+import { StartGameSessionPlacementInput, StartGameSessionPlacementOutput } from "../models/models_0";
+import { de_StartGameSessionPlacementCommand, se_StartGameSessionPlacementCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartGameSessionPlacementCommand}.
+ */
 export interface StartGameSessionPlacementCommandInput extends StartGameSessionPlacementInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartGameSessionPlacementCommand}.
+ */
 export interface StartGameSessionPlacementCommandOutput extends StartGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Places a request for a new game session in a queue. When processing a placement
  *             request, Amazon GameLift searches for available resources on the queue's destinations, scanning
  *             each until it finds resources or the placement request times out.</p>
@@ -75,13 +78,56 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  * import { GameLiftClient, StartGameSessionPlacementCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartGameSessionPlacementCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // StartGameSessionPlacementInput
+ *   PlacementId: "STRING_VALUE", // required
+ *   GameSessionQueueName: "STRING_VALUE", // required
+ *   GameProperties: [ // GamePropertyList
+ *     { // GameProperty
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   MaximumPlayerSessionCount: Number("int"), // required
+ *   GameSessionName: "STRING_VALUE",
+ *   PlayerLatencies: [ // PlayerLatencyList
+ *     { // PlayerLatency
+ *       PlayerId: "STRING_VALUE",
+ *       RegionIdentifier: "STRING_VALUE",
+ *       LatencyInMilliseconds: Number("float"),
+ *     },
+ *   ],
+ *   DesiredPlayerSessions: [ // DesiredPlayerSessionList
+ *     { // DesiredPlayerSession
+ *       PlayerId: "STRING_VALUE",
+ *       PlayerData: "STRING_VALUE",
+ *     },
+ *   ],
+ *   GameSessionData: "STRING_VALUE",
+ * };
  * const command = new StartGameSessionPlacementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartGameSessionPlacementCommandInput - {@link StartGameSessionPlacementCommandInput}
+ * @returns {@link StartGameSessionPlacementCommandOutput}
  * @see {@link StartGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link StartGameSessionPlacementCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class StartGameSessionPlacementCommand extends $Command<
@@ -101,6 +147,9 @@ export class StartGameSessionPlacementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartGameSessionPlacementCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +178,8 @@ export class StartGameSessionPlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartGameSessionPlacementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartGameSessionPlacementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,15 +189,21 @@ export class StartGameSessionPlacementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartGameSessionPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartGameSessionPlacementCommand(input, context);
+    return se_StartGameSessionPlacementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartGameSessionPlacementCommandOutput> {
-    return deserializeAws_json1_1StartGameSessionPlacementCommand(output, context);
+    return de_StartGameSessionPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

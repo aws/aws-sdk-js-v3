@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAddressesRequest,
-  DescribeAddressesRequestFilterSensitiveLog,
-  DescribeAddressesResult,
-  DescribeAddressesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAddressesCommand,
-  serializeAws_json1_1DescribeAddressesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeAddressesRequest, DescribeAddressesResult } from "../models/models_0";
+import { de_DescribeAddressesCommand, se_DescribeAddressesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAddressesCommand}.
+ */
 export interface DescribeAddressesCommandInput extends DescribeAddressesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAddressesCommand}.
+ */
 export interface DescribeAddressesCommandOutput extends DescribeAddressesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a specified number of <code>ADDRESS</code> objects. Calling this API in one of
  *       the US regions will return addresses from the list of all addresses associated with this
  *       account in all US regions.</p>
@@ -38,13 +41,55 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * import { SnowballClient, DescribeAddressesCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeAddressesCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // DescribeAddressesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAddressesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddressesCommandInput - {@link DescribeAddressesCommandInput}
+ * @returns {@link DescribeAddressesCommandOutput}
  * @see {@link DescribeAddressesCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressesCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
+ *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
+ *       again.</p>
+ *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ *
+ * @example To describe all the addresses you've created for AWS Snowball
+ * ```javascript
+ * // This operation describes all the addresses that you've created for AWS Snowball. Calling this API in one of the US regions will return addresses from the list of all addresses associated with this account in all US regions.
+ * const input = {};
+ * const command = new DescribeAddressesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Addresses": [
+ *     {
+ *       "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
+ *       "City": "Seattle",
+ *       "Company": "My Company",
+ *       "Country": "US",
+ *       "Name": "My Name",
+ *       "PhoneNumber": "425-555-5555",
+ *       "PostalCode": "98101",
+ *       "StateOrProvince": "WA",
+ *       "Street1": "123 Main Street"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-all-the-addresses-youve-created-for-aws-snowball-1482538936603
+ * ```
  *
  */
 export class DescribeAddressesCommand extends $Command<
@@ -64,6 +109,9 @@ export class DescribeAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +140,8 @@ export class DescribeAddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAddressesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAddressesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +151,18 @@ export class DescribeAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAddressesCommand(input, context);
+    return se_DescribeAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddressesCommandOutput> {
-    return deserializeAws_json1_1DescribeAddressesCommand(output, context);
+    return de_DescribeAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

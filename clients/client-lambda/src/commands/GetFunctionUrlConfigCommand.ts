@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  GetFunctionUrlConfigRequest,
-  GetFunctionUrlConfigRequestFilterSensitiveLog,
-  GetFunctionUrlConfigResponse,
-  GetFunctionUrlConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFunctionUrlConfigCommand,
-  serializeAws_restJson1GetFunctionUrlConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFunctionUrlConfigRequest, GetFunctionUrlConfigResponse } from "../models/models_0";
+import { de_GetFunctionUrlConfigCommand, se_GetFunctionUrlConfigCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFunctionUrlConfigCommand}.
+ */
 export interface GetFunctionUrlConfigCommandInput extends GetFunctionUrlConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFunctionUrlConfigCommand}.
+ */
 export interface GetFunctionUrlConfigCommandOutput extends GetFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about a Lambda function URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface GetFunctionUrlConfigCommandOutput extends GetFunctionUrlConfigR
  * import { LambdaClient, GetFunctionUrlConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetFunctionUrlConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // GetFunctionUrlConfigRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ * };
  * const command = new GetFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFunctionUrlConfigCommandInput - {@link GetFunctionUrlConfigCommandInput}
+ * @returns {@link GetFunctionUrlConfigCommandOutput}
  * @see {@link GetFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link GetFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
  *
  */
 export class GetFunctionUrlConfigCommand extends $Command<
@@ -62,6 +84,9 @@ export class GetFunctionUrlConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFunctionUrlConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class GetFunctionUrlConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFunctionUrlConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFunctionUrlConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class GetFunctionUrlConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFunctionUrlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFunctionUrlConfigCommand(input, context);
+    return se_GetFunctionUrlConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionUrlConfigCommandOutput> {
-    return deserializeAws_restJson1GetFunctionUrlConfigCommand(output, context);
+    return de_GetFunctionUrlConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

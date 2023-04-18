@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateOptionGroupMessage,
-  CreateOptionGroupMessageFilterSensitiveLog,
-  CreateOptionGroupResult,
-  CreateOptionGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateOptionGroupCommand,
-  serializeAws_queryCreateOptionGroupCommand,
-} from "../protocols/Aws_query";
+import { CreateOptionGroupMessage, CreateOptionGroupResult } from "../models/models_0";
+import { de_CreateOptionGroupCommand, se_CreateOptionGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateOptionGroupCommand}.
+ */
 export interface CreateOptionGroupCommandInput extends CreateOptionGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateOptionGroupCommand}.
+ */
 export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new option group. You can create up to 20 option groups.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
@@ -37,13 +40,61 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  * import { RDSClient, CreateOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CreateOptionGroupMessage
+ *   OptionGroupName: "STRING_VALUE", // required
+ *   EngineName: "STRING_VALUE", // required
+ *   MajorEngineVersion: "STRING_VALUE", // required
+ *   OptionGroupDescription: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateOptionGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOptionGroupCommandInput - {@link CreateOptionGroupCommandInput}
+ * @returns {@link CreateOptionGroupCommandOutput}
  * @see {@link CreateOptionGroupCommandInput} for command's `input` shape.
  * @see {@link CreateOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link OptionGroupAlreadyExistsFault} (client fault)
+ *  <p>The option group you are trying to create already exists.</p>
+ *
+ * @throws {@link OptionGroupQuotaExceededFault} (client fault)
+ *  <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
+ *
+ *
+ * @example To Create an Amazon RDS option group
+ * ```javascript
+ * // The following example creates a new Amazon RDS option group for Oracle MySQL version 8,0 named MyOptionGroup.
+ * const input = {
+ *   "EngineName": "mysql",
+ *   "MajorEngineVersion": "8.0",
+ *   "OptionGroupDescription": "MySQL 8.0 option group",
+ *   "OptionGroupName": "MyOptionGroup"
+ * };
+ * const command = new CreateOptionGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OptionGroup": {
+ *     "AllowsVpcAndNonVpcInstanceMemberships": true,
+ *     "EngineName": "mysql",
+ *     "MajorEngineVersion": "8.0",
+ *     "OptionGroupArn": "arn:aws:rds:us-east-1:123456789012:og:myoptiongroup",
+ *     "OptionGroupDescription": "MySQL 8.0 option group",
+ *     "OptionGroupName": "myoptiongroup",
+ *     "Options": []
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-an-amazon-rds-option-group-1679958217590
+ * ```
  *
  */
 export class CreateOptionGroupCommand extends $Command<
@@ -63,6 +114,9 @@ export class CreateOptionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOptionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +145,8 @@ export class CreateOptionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOptionGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOptionGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +156,18 @@ export class CreateOptionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOptionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateOptionGroupCommand(input, context);
+    return se_CreateOptionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOptionGroupCommandOutput> {
-    return deserializeAws_queryCreateOptionGroupCommand(output, context);
+    return de_CreateOptionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

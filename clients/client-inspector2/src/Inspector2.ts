@@ -140,11 +140,13 @@ import {
 import { Inspector2Client } from "./Inspector2Client";
 
 /**
+ * @public
  * <p>Amazon Inspector is a vulnerability discovery service that automates continuous scanning for
  *          security vulnerabilities within your Amazon EC2 and Amazon ECR environments.</p>
  */
 export class Inspector2 extends Inspector2Client {
   /**
+   * @public
    * <p>Associates an Amazon Web Services account with an Amazon Inspector delegated administrator.</p>
    */
   public associateMember(
@@ -177,6 +179,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the Amazon Inspector status of multiple Amazon Web Services accounts within your environment.</p>
    */
   public batchGetAccountStatus(
@@ -209,6 +212,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Gets free trial status for multiple Amazon Web Services accounts.</p>
    */
   public batchGetFreeTrialInfo(
@@ -241,6 +245,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Cancels the given findings report.</p>
    */
   public cancelFindingsReport(
@@ -273,6 +278,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Creates a filter resource using specified filter criteria.</p>
    */
   public createFilter(
@@ -302,6 +308,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Creates a finding report.</p>
    */
   public createFindingsReport(
@@ -334,6 +341,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a filter resource.</p>
    */
   public deleteFilter(
@@ -363,6 +371,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Describe Amazon Inspector configuration settings for an Amazon Web Services organization.</p>
    */
   public describeOrganizationConfiguration(
@@ -395,6 +404,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Disables Amazon Inspector scans for one or more Amazon Web Services accounts. Disabling all scan types in an account
    *          disables the Amazon Inspector service.</p>
    */
@@ -422,6 +432,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Disables the Amazon Inspector delegated administrator for your organization.</p>
    */
   public disableDelegatedAdminAccount(
@@ -454,6 +465,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Disassociates a member account from an Amazon Inspector delegated administrator.</p>
    */
   public disassociateMember(
@@ -486,6 +498,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Enables Amazon Inspector scans for one or more Amazon Web Services accounts.</p>
    */
   public enable(args: EnableCommandInput, options?: __HttpHandlerOptions): Promise<EnableCommandOutput>;
@@ -512,6 +525,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Enables the Amazon Inspector delegated administrator for your Organizations organization.</p>
    */
   public enableDelegatedAdminAccount(
@@ -544,6 +558,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves setting configurations for Inspector scans.</p>
    */
   public getConfiguration(
@@ -576,6 +591,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves information about the Amazon Inspector delegated administrator for your
    *          organization.</p>
    */
@@ -609,6 +625,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Gets the status of a findings report.</p>
    */
   public getFindingsReportStatus(
@@ -641,6 +658,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Gets member information for your organization.</p>
    */
   public getMember(args: GetMemberCommandInput, options?: __HttpHandlerOptions): Promise<GetMemberCommandOutput>;
@@ -667,6 +685,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Lists the permissions an account has to configure Amazon Inspector.</p>
    */
   public listAccountPermissions(
@@ -699,6 +718,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Lists coverage details for you environment.</p>
    */
   public listCoverage(
@@ -728,6 +748,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Lists Amazon Inspector coverage statistics for your environment.</p>
    */
   public listCoverageStatistics(
@@ -760,6 +781,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Lists information about the Amazon Inspector delegated administrator of your
    *          organization.</p>
    */
@@ -793,6 +815,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Lists the filters associated with your account.</p>
    */
   public listFilters(args: ListFiltersCommandInput, options?: __HttpHandlerOptions): Promise<ListFiltersCommandOutput>;
@@ -819,6 +842,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Lists aggregated finding data for your environment based on specific criteria.</p>
    */
   public listFindingAggregations(
@@ -851,6 +875,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Lists findings for your environment.</p>
    */
   public listFindings(
@@ -880,6 +905,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>List members associated with the Amazon Inspector delegated administrator for your
    *          organization.</p>
    */
@@ -907,6 +933,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Lists all tags attached to a given resource.</p>
    */
   public listTagsForResource(
@@ -939,6 +966,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Lists the Amazon Inspector usage totals over the last 30 days.</p>
    */
   public listUsageTotals(
@@ -971,6 +999,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Adds tags to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -997,6 +1026,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Removes tags from a resource.</p>
    */
   public untagResource(
@@ -1029,6 +1059,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Updates setting configurations for your Amazon Inspector account. When you use this API as an Amazon Inspector delegated administrator this updates the setting for all accounts you manage. Member accounts in an organization cannot update this setting.</p>
    */
   public updateConfiguration(
@@ -1061,6 +1092,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
   public updateFilter(
@@ -1090,6 +1122,7 @@ export class Inspector2 extends Inspector2Client {
   }
 
   /**
+   * @public
    * <p>Updates the configurations for your Amazon Inspector organization.</p>
    */
   public updateOrganizationConfiguration(

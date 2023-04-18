@@ -14,33 +14,39 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetChangeRequest,
-  GetChangeRequestFilterSensitiveLog,
-  GetChangeResponse,
-  GetChangeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restXmlGetChangeCommand, serializeAws_restXmlGetChangeCommand } from "../protocols/Aws_restXml";
+import { GetChangeRequest, GetChangeResponse } from "../models/models_0";
+import { de_GetChangeCommand, se_GetChangeCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetChangeCommand}.
+ */
 export interface GetChangeCommandInput extends GetChangeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetChangeCommand}.
+ */
 export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current status of a change batch request. The status is one of the
  * 			following values:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>PENDING</code> indicates that the changes in this request have not
  * 					propagated to all Amazon Route 53 DNS servers. This is the initial status of all
  * 					change batch requests.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>INSYNC</code> indicates that the changes have propagated to all Route 53
  * 					DNS servers. </p>
- * 			         </li>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,13 +54,25 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * import { Route53Client, GetChangeCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetChangeCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // GetChangeRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetChangeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChangeCommandInput - {@link GetChangeCommandInput}
+ * @returns {@link GetChangeCommandOutput}
  * @see {@link GetChangeCommandInput} for command's `input` shape.
  * @see {@link GetChangeCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchChange} (client fault)
+ *  <p>A change with the specified change ID does not exist.</p>
+ *
  *
  */
 export class GetChangeCommand extends $Command<
@@ -74,6 +92,9 @@ export class GetChangeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChangeCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +122,8 @@ export class GetChangeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChangeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetChangeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +133,18 @@ export class GetChangeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetChangeCommand(input, context);
+    return se_GetChangeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeCommandOutput> {
-    return deserializeAws_restXmlGetChangeCommand(output, context);
+    return de_GetChangeCommand(output, context);
   }
 
   // Start section: command_body_extra

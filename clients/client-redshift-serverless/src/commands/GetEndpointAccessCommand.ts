@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEndpointAccessRequest,
-  GetEndpointAccessRequestFilterSensitiveLog,
-  GetEndpointAccessResponse,
-  GetEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetEndpointAccessCommand,
-  serializeAws_json1_1GetEndpointAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { GetEndpointAccessRequest, GetEndpointAccessResponse } from "../models/models_0";
+import { de_GetEndpointAccessCommand, se_GetEndpointAccessCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEndpointAccessCommand}.
+ */
 export interface GetEndpointAccessCommandInput extends GetEndpointAccessRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEndpointAccessCommand}.
+ */
 export interface GetEndpointAccessCommandOutput extends GetEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information, such as the name, about a VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,31 @@ export interface GetEndpointAccessCommandOutput extends GetEndpointAccessRespons
  * import { RedshiftServerlessClient, GetEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // GetEndpointAccessRequest
+ *   endpointName: "STRING_VALUE", // required
+ * };
  * const command = new GetEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEndpointAccessCommandInput - {@link GetEndpointAccessCommandInput}
+ * @returns {@link GetEndpointAccessCommandOutput}
  * @see {@link GetEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link GetEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The submitted action has conflicts.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class GetEndpointAccessCommand extends $Command<
@@ -66,6 +87,9 @@ export class GetEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +118,8 @@ export class GetEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +129,18 @@ export class GetEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEndpointAccessCommand(input, context);
+    return se_GetEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEndpointAccessCommandOutput> {
-    return deserializeAws_json1_1GetEndpointAccessCommand(output, context);
+    return de_GetEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

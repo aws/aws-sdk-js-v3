@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateDefaultVpcRequest,
-  CreateDefaultVpcRequestFilterSensitiveLog,
-  CreateDefaultVpcResult,
-  CreateDefaultVpcResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_ec2CreateDefaultVpcCommand,
-  serializeAws_ec2CreateDefaultVpcCommand,
-} from "../protocols/Aws_ec2";
+import { CreateDefaultVpcRequest, CreateDefaultVpcResult } from "../models/models_1";
+import { de_CreateDefaultVpcCommand, se_CreateDefaultVpcCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDefaultVpcCommand}.
+ */
 export interface CreateDefaultVpcCommandInput extends CreateDefaultVpcRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDefaultVpcCommand}.
+ */
 export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet
  * 			in each Availability Zone. For more information about the components of a default VPC,
  * 			see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default VPC and
@@ -50,13 +53,19 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * import { EC2Client, CreateDefaultVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateDefaultVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateDefaultVpcRequest
+ *   DryRun: true || false,
+ * };
  * const command = new CreateDefaultVpcCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDefaultVpcCommandInput - {@link CreateDefaultVpcCommandInput}
+ * @returns {@link CreateDefaultVpcCommandOutput}
  * @see {@link CreateDefaultVpcCommandInput} for command's `input` shape.
  * @see {@link CreateDefaultVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class CreateDefaultVpcCommand extends $Command<
@@ -76,6 +85,9 @@ export class CreateDefaultVpcCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDefaultVpcCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +116,8 @@ export class CreateDefaultVpcCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDefaultVpcRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDefaultVpcResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +127,18 @@ export class CreateDefaultVpcCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDefaultVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateDefaultVpcCommand(input, context);
+    return se_CreateDefaultVpcCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDefaultVpcCommandOutput> {
-    return deserializeAws_ec2CreateDefaultVpcCommand(output, context);
+    return de_CreateDefaultVpcCommand(output, context);
   }
 
   // Start section: command_body_extra

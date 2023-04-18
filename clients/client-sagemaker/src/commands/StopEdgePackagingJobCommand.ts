@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopEdgePackagingJobRequest, StopEdgePackagingJobRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopEdgePackagingJobCommand,
-  serializeAws_json1_1StopEdgePackagingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopEdgePackagingJobRequest } from "../models/models_3";
+import { de_StopEdgePackagingJobCommand, se_StopEdgePackagingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopEdgePackagingJobCommand}.
+ */
 export interface StopEdgePackagingJobCommandInput extends StopEdgePackagingJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopEdgePackagingJobCommand}.
+ */
 export interface StopEdgePackagingJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Request to stop an edge packaging job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,19 @@ export interface StopEdgePackagingJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopEdgePackagingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopEdgePackagingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopEdgePackagingJobRequest
+ *   EdgePackagingJobName: "STRING_VALUE", // required
+ * };
  * const command = new StopEdgePackagingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopEdgePackagingJobCommandInput - {@link StopEdgePackagingJobCommandInput}
+ * @returns {@link StopEdgePackagingJobCommandOutput}
  * @see {@link StopEdgePackagingJobCommandInput} for command's `input` shape.
  * @see {@link StopEdgePackagingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class StopEdgePackagingJobCommand extends $Command<
@@ -57,6 +71,9 @@ export class StopEdgePackagingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopEdgePackagingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +102,8 @@ export class StopEdgePackagingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopEdgePackagingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +113,18 @@ export class StopEdgePackagingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopEdgePackagingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopEdgePackagingJobCommand(input, context);
+    return se_StopEdgePackagingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEdgePackagingJobCommandOutput> {
-    return deserializeAws_json1_1StopEdgePackagingJobCommand(output, context);
+    return de_StopEdgePackagingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

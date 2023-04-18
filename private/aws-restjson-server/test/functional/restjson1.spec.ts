@@ -3,7 +3,7 @@ import { streamCollector as __streamCollector } from "@aws-sdk/node-http-handler
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
-import { toUtf8 as __utf8Encoder } from "@aws-sdk/util-utf8-node";
+import { toUtf8 as __utf8Encoder } from "@aws-sdk/util-utf8";
 import {
   httpbinding,
   OperationSerializer as __OperationSerializer,
@@ -92,6 +92,11 @@ import {
 } from "../../src/server/operations/InputAndOutputWithHeaders";
 import { JsonBlobs, JsonBlobsSerializer, JsonBlobsServerOutput } from "../../src/server/operations/JsonBlobs";
 import { JsonEnums, JsonEnumsSerializer, JsonEnumsServerOutput } from "../../src/server/operations/JsonEnums";
+import {
+  JsonIntEnums,
+  JsonIntEnumsSerializer,
+  JsonIntEnumsServerOutput,
+} from "../../src/server/operations/JsonIntEnums";
 import { JsonLists, JsonListsSerializer, JsonListsServerOutput } from "../../src/server/operations/JsonLists";
 import { JsonMaps, JsonMapsSerializer, JsonMapsServerOutput } from "../../src/server/operations/JsonMaps";
 import {
@@ -107,7 +112,6 @@ import { MalformedBlob } from "../../src/server/operations/MalformedBlob";
 import { MalformedBoolean } from "../../src/server/operations/MalformedBoolean";
 import { MalformedByte } from "../../src/server/operations/MalformedByte";
 import { MalformedContentTypeWithBody } from "../../src/server/operations/MalformedContentTypeWithBody";
-import { MalformedContentTypeWithGenericString } from "../../src/server/operations/MalformedContentTypeWithGenericString";
 import { MalformedContentTypeWithoutBody } from "../../src/server/operations/MalformedContentTypeWithoutBody";
 import { MalformedContentTypeWithPayload } from "../../src/server/operations/MalformedContentTypeWithPayload";
 import { MalformedDouble } from "../../src/server/operations/MalformedDouble";
@@ -245,11 +249,11 @@ class ResponseDeserializationTestHandler implements HttpHandler {
 
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.resolve({
-      response: {
+      response: new HttpResponse({
         statusCode: this.code,
         headers: this.headers,
         body: Readable.from([this.body]),
-      },
+      }),
     });
   }
 }
@@ -365,6 +369,7 @@ it("RestJsonAllQueryStringTypes:ServerRequest", async () => {
       String: ["Hello there"],
       Timestamp: ["1970-01-01T00:00:01Z"],
       Double: ["1.1"],
+      IntegerEnumList: ["1", "2", "3"],
       Integer: ["3"],
       Float: ["1.1"],
       TimestampList: ["1970-01-01T00:00:01Z", "1970-01-01T00:00:02Z", "1970-01-01T00:00:03Z"],
@@ -376,6 +381,7 @@ it("RestJsonAllQueryStringTypes:ServerRequest", async () => {
       StringSet: ["a", "b", "c"],
       IntegerSet: ["1", "2", "3"],
       Boolean: ["true"],
+      IntegerEnum: ["1"],
       Short: ["2"],
     },
     headers: {},
@@ -441,6 +447,58 @@ it("RestJsonAllQueryStringTypes:ServerRequest", async () => {
       queryEnum: "Foo",
 
       queryEnumList: ["Foo", "Baz", "Bar"],
+
+      queryIntegerEnum: 1,
+
+      queryIntegerEnumList: [
+        1,
+
+        2,
+
+        3,
+      ],
+
+      queryParamsMapOfStringList: {
+        String: ["Hello there"],
+
+        StringList: ["a", "b", "c"],
+
+        StringSet: ["a", "b", "c"],
+
+        Byte: ["1"],
+
+        Short: ["2"],
+
+        Integer: ["3"],
+
+        IntegerList: ["1", "2", "3"],
+
+        IntegerSet: ["1", "2", "3"],
+
+        Long: ["4"],
+
+        Float: ["1.1"],
+
+        Double: ["1.1"],
+
+        DoubleList: ["1.1", "2.1", "3.1"],
+
+        Boolean: ["true"],
+
+        BooleanList: ["true", "false", "true"],
+
+        Timestamp: ["1970-01-01T00:00:01Z"],
+
+        TimestampList: ["1970-01-01T00:00:01Z", "1970-01-01T00:00:02Z", "1970-01-01T00:00:03Z"],
+
+        Enum: ["Foo"],
+
+        EnumList: ["Foo", "Baz", "Bar"],
+
+        IntegerEnum: ["1"],
+
+        IntegerEnumList: ["1", "2", "3"],
+      },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -534,6 +592,10 @@ it("RestJsonQueryStringEscaping:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       queryString: "%:/?#[]@!$&'()*+,;=😹",
+
+      queryParamsMapOfStringList: {
+        String: ["%:/?#[]@!$&'()*+,;=😹"],
+      },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2773,52 +2835,6 @@ it("RestJsonHttpPrefixHeadersArePresent:ServerRequest", async () => {
 });
 
 /**
- * No prefix headers are serialized because the value is empty
- */
-it("RestJsonHttpPrefixHeadersAreNotPresent:ServerRequest", async () => {
-  const testFunction = jest.fn();
-  testFunction.mockReturnValue(Promise.resolve({}));
-  const testService: Partial<RestJsonService<{}>> = {
-    HttpPrefixHeaders: testFunction as HttpPrefixHeaders<{}>,
-  };
-  const handler = getRestJsonServiceHandler(
-    testService as RestJsonService<{}>,
-    (ctx: {}, failures: __ValidationFailure[]) => {
-      if (failures) {
-        throw failures;
-      }
-      return undefined;
-    }
-  );
-  const request = new HttpRequest({
-    method: "GET",
-    hostname: "foo.example.com",
-    path: "/HttpPrefixHeaders",
-    query: {},
-    headers: {
-      "x-foo": "Foo",
-    },
-    body: Readable.from([""]),
-  });
-  await handler.handle(request, {});
-
-  expect(testFunction.mock.calls.length).toBe(1);
-  const r: any = testFunction.mock.calls[0][0];
-
-  const paramsToValidate: any = [
-    {
-      foo: "Foo",
-
-      fooMap: {},
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
-});
-
-/**
  * Adds headers by prefix
  */
 it("RestJsonHttpPrefixHeadersArePresent:ServerResponse", async () => {
@@ -3885,6 +3901,59 @@ it("RestJsonInputAndOutputWithEnumHeaders:ServerRequest", async () => {
 });
 
 /**
+ * Tests requests with intEnum header bindings
+ */
+it("RestJsonInputAndOutputWithIntEnumHeaders:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    InputAndOutputWithHeaders: testFunction as InputAndOutputWithHeaders<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/InputAndOutputWithHeaders",
+    query: {},
+    headers: {
+      "x-integerenum": "1",
+      "x-integerenumlist": "1, 2, 3",
+    },
+    body: Readable.from([""]),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+
+  const paramsToValidate: any = [
+    {
+      headerIntegerEnum: 1,
+
+      headerIntegerEnumList: [
+        1,
+
+        2,
+
+        3,
+      ],
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Supports handling NaN float header values.
  */
 it("RestJsonSupportsNaNFloatHeaderInputs:ServerRequest", async () => {
@@ -4376,6 +4445,66 @@ it("RestJsonInputAndOutputWithEnumHeaders:ServerResponse", async () => {
 });
 
 /**
+ * Tests responses with intEnum header bindings
+ */
+it("RestJsonInputAndOutputWithIntEnumHeaders:ServerResponse", async () => {
+  class TestService implements Partial<RestJsonService<{}>> {
+    InputAndOutputWithHeaders(input: any, ctx: {}): Promise<InputAndOutputWithHeadersServerOutput> {
+      const response = {
+        headerIntegerEnum: 1,
+
+        headerIntegerEnumList: [
+          1,
+
+          2,
+
+          3,
+        ],
+      } as any;
+      return Promise.resolve({ ...response, $metadata: {} });
+    }
+  }
+  const service: any = new TestService();
+  const testMux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<{}>>([
+    new httpbinding.UriSpec<"RestJson", "InputAndOutputWithHeaders">("POST", [], [], {
+      service: "RestJson",
+      operation: "InputAndOutputWithHeaders",
+    }),
+  ]);
+  class TestSerializer extends InputAndOutputWithHeadersSerializer {
+    deserialize = (output: any, context: any): Promise<any> => {
+      return Promise.resolve({});
+    };
+  }
+  const request = new HttpRequest({ method: "POST", hostname: "example.com" });
+  const serFn: (
+    op: RestJsonServiceOperations
+  ) => __OperationSerializer<RestJsonService<{}>, RestJsonServiceOperations, __ServiceException> = (op) => {
+    return new TestSerializer();
+  };
+  const handler = new RestJsonServiceHandler(
+    service,
+    testMux,
+    serFn,
+    serializeFrameworkException,
+    (ctx: {}, f: __ValidationFailure[]) => {
+      if (f) {
+        throw f;
+      }
+      return undefined;
+    }
+  );
+  const r = await handler.handle(request, {});
+
+  expect(r.statusCode).toBe(200);
+
+  expect(r.headers["x-integerenum"]).toBeDefined();
+  expect(r.headers["x-integerenum"]).toBe("1");
+  expect(r.headers["x-integerenumlist"]).toBeDefined();
+  expect(r.headers["x-integerenumlist"]).toBe("1, 2, 3");
+});
+
+/**
  * Supports handling NaN float header values.
  */
 it("RestJsonSupportsNaNFloatHeaderOutputs:ServerResponse", async () => {
@@ -4633,8 +4762,8 @@ it("RestJsonJsonBlobs:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                        \"data\": \"dmFsdWU=\"
-                                                                    }`;
+                                                                          \"data\": \"dmFsdWU=\"
+                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -4765,22 +4894,189 @@ it("RestJsonJsonEnums:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                          \"fooEnum1\": \"Foo\",
-                                                                          \"fooEnum2\": \"0\",
-                                                                          \"fooEnum3\": \"1\",
-                                                                          \"fooEnumList\": [
-                                                                              \"Foo\",
-                                                                              \"0\"
-                                                                          ],
-                                                                          \"fooEnumSet\": [
-                                                                              \"Foo\",
-                                                                              \"0\"
-                                                                          ],
-                                                                          \"fooEnumMap\": {
-                                                                              \"hi\": \"Foo\",
-                                                                              \"zero\": \"0\"
-                                                                          }
-                                                                      }`;
+                                                                            \"fooEnum1\": \"Foo\",
+                                                                            \"fooEnum2\": \"0\",
+                                                                            \"fooEnum3\": \"1\",
+                                                                            \"fooEnumList\": [
+                                                                                \"Foo\",
+                                                                                \"0\"
+                                                                            ],
+                                                                            \"fooEnumSet\": [
+                                                                                \"Foo\",
+                                                                                \"0\"
+                                                                            ],
+                                                                            \"fooEnumMap\": {
+                                                                                \"hi\": \"Foo\",
+                                                                                \"zero\": \"0\"
+                                                                            }
+                                                                        }`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * Serializes intEnums as integers
+ */
+it("RestJsonJsonIntEnums:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    JsonIntEnums: testFunction as JsonIntEnums<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "PUT",
+    hostname: "foo.example.com",
+    path: "/JsonIntEnums",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from([
+      '{\n    "integerEnum1": 1,\n    "integerEnum2": 2,\n    "integerEnum3": 3,\n    "integerEnumList": [\n        1,\n        2,\n        3\n    ],\n    "integerEnumSet": [\n        1,\n        2\n    ],\n    "integerEnumMap": {\n        "abc": 1,\n        "def": 2\n    }\n}',
+    ]),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+
+  const paramsToValidate: any = [
+    {
+      integerEnum1: 1,
+
+      integerEnum2: 2,
+
+      integerEnum3: 3,
+
+      integerEnumList: [
+        1,
+
+        2,
+
+        3,
+      ],
+
+      integerEnumSet: [
+        1,
+
+        2,
+      ],
+
+      integerEnumMap: {
+        abc: 1,
+
+        def: 2,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes intEnums as integers
+ */
+it("RestJsonJsonIntEnums:ServerResponse", async () => {
+  class TestService implements Partial<RestJsonService<{}>> {
+    JsonIntEnums(input: any, ctx: {}): Promise<JsonIntEnumsServerOutput> {
+      const response = {
+        integerEnum1: 1,
+
+        integerEnum2: 2,
+
+        integerEnum3: 3,
+
+        integerEnumList: [
+          1,
+
+          2,
+
+          3,
+        ],
+
+        integerEnumSet: [
+          1,
+
+          2,
+        ],
+
+        integerEnumMap: {
+          abc: 1,
+
+          def: 2,
+        } as any,
+      } as any;
+      return Promise.resolve({ ...response, $metadata: {} });
+    }
+  }
+  const service: any = new TestService();
+  const testMux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<{}>>([
+    new httpbinding.UriSpec<"RestJson", "JsonIntEnums">("POST", [], [], {
+      service: "RestJson",
+      operation: "JsonIntEnums",
+    }),
+  ]);
+  class TestSerializer extends JsonIntEnumsSerializer {
+    deserialize = (output: any, context: any): Promise<any> => {
+      return Promise.resolve({});
+    };
+  }
+  const request = new HttpRequest({ method: "POST", hostname: "example.com" });
+  const serFn: (
+    op: RestJsonServiceOperations
+  ) => __OperationSerializer<RestJsonService<{}>, RestJsonServiceOperations, __ServiceException> = (op) => {
+    return new TestSerializer();
+  };
+  const handler = new RestJsonServiceHandler(
+    service,
+    testMux,
+    serFn,
+    serializeFrameworkException,
+    (ctx: {}, f: __ValidationFailure[]) => {
+      if (f) {
+        throw f;
+      }
+      return undefined;
+    }
+  );
+  const r = await handler.handle(request, {});
+
+  expect(r.statusCode).toBe(200);
+
+  expect(r.headers["content-type"]).toBeDefined();
+  expect(r.headers["content-type"]).toBe("application/json");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{
+                                                                              \"integerEnum1\": 1,
+                                                                              \"integerEnum2\": 2,
+                                                                              \"integerEnum3\": 3,
+                                                                              \"integerEnumList\": [
+                                                                                  1,
+                                                                                  2,
+                                                                                  3
+                                                                              ],
+                                                                              \"integerEnumSet\": [
+                                                                                  1,
+                                                                                  2
+                                                                              ],
+                                                                              \"integerEnumMap\": {
+                                                                                  \"abc\": 1,
+                                                                                  \"def\": 2
+                                                                              }
+                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -4812,7 +5108,7 @@ it("RestJsonLists:ServerRequest", async () => {
       "content-type": "application/json",
     },
     body: Readable.from([
-      '{\n    "stringList": [\n        "foo",\n        "bar"\n    ],\n    "stringSet": [\n        "foo",\n        "bar"\n    ],\n    "integerList": [\n        1,\n        2\n    ],\n    "booleanList": [\n        true,\n        false\n    ],\n    "timestampList": [\n        1398796238,\n        1398796238\n    ],\n    "enumList": [\n        "Foo",\n        "0"\n    ],\n    "nestedStringList": [\n        [\n            "foo",\n            "bar"\n        ],\n        [\n            "baz",\n            "qux"\n        ]\n    ],\n    "myStructureList": [\n        {\n            "value": "1",\n            "other": "2"\n        },\n        {\n            "value": "3",\n            "other": "4"\n        }\n    ]\n}',
+      '{\n    "stringList": [\n        "foo",\n        "bar"\n    ],\n    "stringSet": [\n        "foo",\n        "bar"\n    ],\n    "integerList": [\n        1,\n        2\n    ],\n    "booleanList": [\n        true,\n        false\n    ],\n    "timestampList": [\n        1398796238,\n        1398796238\n    ],\n    "enumList": [\n        "Foo",\n        "0"\n    ],\n    "intEnumList": [\n        1,\n        2\n    ],\n    "nestedStringList": [\n        [\n            "foo",\n            "bar"\n        ],\n        [\n            "baz",\n            "qux"\n        ]\n    ],\n    "myStructureList": [\n        {\n            "value": "1",\n            "other": "2"\n        },\n        {\n            "value": "3",\n            "other": "4"\n        }\n    ]\n}',
     ]),
   });
   await handler.handle(request, {});
@@ -4837,6 +5133,12 @@ it("RestJsonLists:ServerRequest", async () => {
       timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
       enumList: ["Foo", "0"],
+
+      intEnumList: [
+        1,
+
+        2,
+      ],
 
       nestedStringList: [
         ["foo", "bar"],
@@ -4976,6 +5278,12 @@ it("RestJsonLists:ServerResponse", async () => {
 
         enumList: ["Foo", "0"],
 
+        intEnumList: [
+          1,
+
+          2,
+        ],
+
         nestedStringList: [
           ["foo", "bar"],
 
@@ -5039,51 +5347,55 @@ it("RestJsonLists:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                            \"stringList\": [
-                                                                                \"foo\",
-                                                                                \"bar\"
-                                                                            ],
-                                                                            \"stringSet\": [
-                                                                                \"foo\",
-                                                                                \"bar\"
-                                                                            ],
-                                                                            \"integerList\": [
-                                                                                1,
-                                                                                2
-                                                                            ],
-                                                                            \"booleanList\": [
-                                                                                true,
-                                                                                false
-                                                                            ],
-                                                                            \"timestampList\": [
-                                                                                1398796238,
-                                                                                1398796238
-                                                                            ],
-                                                                            \"enumList\": [
-                                                                                \"Foo\",
-                                                                                \"0\"
-                                                                            ],
-                                                                            \"nestedStringList\": [
-                                                                                [
+                                                                                \"stringList\": [
                                                                                     \"foo\",
                                                                                     \"bar\"
                                                                                 ],
-                                                                                [
-                                                                                    \"baz\",
-                                                                                    \"qux\"
+                                                                                \"stringSet\": [
+                                                                                    \"foo\",
+                                                                                    \"bar\"
+                                                                                ],
+                                                                                \"integerList\": [
+                                                                                    1,
+                                                                                    2
+                                                                                ],
+                                                                                \"booleanList\": [
+                                                                                    true,
+                                                                                    false
+                                                                                ],
+                                                                                \"timestampList\": [
+                                                                                    1398796238,
+                                                                                    1398796238
+                                                                                ],
+                                                                                \"enumList\": [
+                                                                                    \"Foo\",
+                                                                                    \"0\"
+                                                                                ],
+                                                                                \"intEnumList\": [
+                                                                                    1,
+                                                                                    2
+                                                                                ],
+                                                                                \"nestedStringList\": [
+                                                                                    [
+                                                                                        \"foo\",
+                                                                                        \"bar\"
+                                                                                    ],
+                                                                                    [
+                                                                                        \"baz\",
+                                                                                        \"qux\"
+                                                                                    ]
+                                                                                ],
+                                                                                \"myStructureList\": [
+                                                                                    {
+                                                                                        \"value\": \"1\",
+                                                                                        \"other\": \"2\"
+                                                                                    },
+                                                                                    {
+                                                                                        \"value\": \"3\",
+                                                                                        \"other\": \"4\"
+                                                                                    }
                                                                                 ]
-                                                                            ],
-                                                                            \"myStructureList\": [
-                                                                                {
-                                                                                    \"value\": \"1\",
-                                                                                    \"other\": \"2\"
-                                                                                },
-                                                                                {
-                                                                                    \"value\": \"3\",
-                                                                                    \"other\": \"4\"
-                                                                                }
-                                                                            ]
-                                                                        }`;
+                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5140,8 +5452,8 @@ it("RestJsonListsEmpty:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                              \"stringList\": []
-                                                                          }`;
+                                                                                  \"stringList\": []
+                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5198,11 +5510,11 @@ it("RestJsonListsSerializeNull:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                \"sparseStringList\": [
-                                                                                    null,
-                                                                                    \"hi\"
-                                                                                ]
-                                                                            }`;
+                                                                                    \"sparseStringList\": [
+                                                                                        null,
+                                                                                        \"hi\"
+                                                                                    ]
+                                                                                }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5609,23 +5921,23 @@ it("RestJsonJsonMaps:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                  \"denseStructMap\": {
-                                                                                      \"foo\": {
-                                                                                          \"hi\": \"there\"
+                                                                                      \"denseStructMap\": {
+                                                                                          \"foo\": {
+                                                                                              \"hi\": \"there\"
+                                                                                          },
+                                                                                          \"baz\": {
+                                                                                              \"hi\": \"bye\"
+                                                                                          }
                                                                                       },
-                                                                                      \"baz\": {
-                                                                                          \"hi\": \"bye\"
-                                                                                      }
-                                                                                  },
-                                                                                  \"sparseStructMap\": {
-                                                                                      \"foo\": {
-                                                                                          \"hi\": \"there\"
-                                                                                      },
-                                                                                      \"baz\": {
-                                                                                          \"hi\": \"bye\"
-                                                                                      }
-                                                                                 }
-                                                                              }`;
+                                                                                      \"sparseStructMap\": {
+                                                                                          \"foo\": {
+                                                                                              \"hi\": \"there\"
+                                                                                          },
+                                                                                          \"baz\": {
+                                                                                              \"hi\": \"bye\"
+                                                                                          }
+                                                                                     }
+                                                                                  }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5696,19 +6008,19 @@ it("RestJsonDeserializesNullMapValues:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                    \"sparseBooleanMap\": {
-                                                                                        \"x\": null
-                                                                                    },
-                                                                                    \"sparseNumberMap\": {
-                                                                                        \"x\": null
-                                                                                    },
-                                                                                    \"sparseStringMap\": {
-                                                                                        \"x\": null
-                                                                                    },
-                                                                                    \"sparseStructMap\": {
-                                                                                        \"x\": null
-                                                                                    }
-                                                                                }`;
+                                                                                        \"sparseBooleanMap\": {
+                                                                                            \"x\": null
+                                                                                        },
+                                                                                        \"sparseNumberMap\": {
+                                                                                            \"x\": null
+                                                                                        },
+                                                                                        \"sparseStringMap\": {
+                                                                                            \"x\": null
+                                                                                        },
+                                                                                        \"sparseStructMap\": {
+                                                                                            \"x\": null
+                                                                                        }
+                                                                                    }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5779,19 +6091,19 @@ it("RestJsonDeserializesZeroValuesInMaps:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                      \"denseNumberMap\": {
-                                                                                          \"x\": 0
-                                                                                      },
-                                                                                      \"sparseNumberMap\": {
-                                                                                          \"x\": 0
-                                                                                      },
-                                                                                      \"denseBooleanMap\": {
-                                                                                          \"x\": false
-                                                                                      },
-                                                                                      \"sparseBooleanMap\": {
-                                                                                          \"x\": false
-                                                                                      }
-                                                                                  }`;
+                                                                                          \"denseNumberMap\": {
+                                                                                              \"x\": 0
+                                                                                          },
+                                                                                          \"sparseNumberMap\": {
+                                                                                              \"x\": 0
+                                                                                          },
+                                                                                          \"denseBooleanMap\": {
+                                                                                              \"x\": false
+                                                                                          },
+                                                                                          \"sparseBooleanMap\": {
+                                                                                              \"x\": false
+                                                                                          }
+                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5852,11 +6164,11 @@ it("RestJsonDeserializesSparseSetMap:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                        \"sparseSetMap\": {
-                                                                                            \"x\": [],
-                                                                                            \"y\": [\"a\", \"b\"]
-                                                                                        }
-                                                                                    }`;
+                                                                                            \"sparseSetMap\": {
+                                                                                                \"x\": [],
+                                                                                                \"y\": [\"a\", \"b\"]
+                                                                                            }
+                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5917,11 +6229,11 @@ it("RestJsonDeserializesDenseSetMap:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                          \"denseSetMap\": {
-                                                                                              \"x\": [],
-                                                                                              \"y\": [\"a\", \"b\"]
-                                                                                          }
-                                                                                      }`;
+                                                                                              \"denseSetMap\": {
+                                                                                                  \"x\": [],
+                                                                                                  \"y\": [\"a\", \"b\"]
+                                                                                              }
+                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -5984,12 +6296,12 @@ it("RestJsonDeserializesSparseSetMapAndRetainsNull:ServerResponse", async () => 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                            \"sparseSetMap\": {
-                                                                                                \"x\": [],
-                                                                                                \"y\": [\"a\", \"b\"],
-                                                                                                \"z\": null
-                                                                                            }
-                                                                                        }`;
+                                                                                                \"sparseSetMap\": {
+                                                                                                    \"x\": [],
+                                                                                                    \"y\": [\"a\", \"b\"],
+                                                                                                    \"z\": null
+                                                                                                }
+                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6083,6 +6395,50 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:ServerRequest", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of date-time on the target shape works like normal timestamps
+ */
+it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    JsonTimestamps: testFunction as JsonTimestamps<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/JsonTimestamps",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{\n    "dateTimeOnTarget": "2014-04-29T18:30:38Z"\n}']),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+
+  const paramsToValidate: any = [
+    {
+      dateTimeOnTarget: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Ensures that the timestampFormat of epoch-seconds works
  */
 it("RestJsonJsonTimestampsWithEpochSecondsFormat:ServerRequest", async () => {
@@ -6127,6 +6483,50 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:ServerRequest", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of epoch-seconds on the target shape works
+ */
+it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    JsonTimestamps: testFunction as JsonTimestamps<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/JsonTimestamps",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{\n    "epochSecondsOnTarget": 1398796238\n}']),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+
+  const paramsToValidate: any = [
+    {
+      epochSecondsOnTarget: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Ensures that the timestampFormat of http-date works
  */
 it("RestJsonJsonTimestampsWithHttpDateFormat:ServerRequest", async () => {
@@ -6162,6 +6562,50 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       httpDate: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that the timestampFormat of http-date on the target shape works
+ */
+it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    JsonTimestamps: testFunction as JsonTimestamps<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/JsonTimestamps",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{\n    "httpDateOnTarget": "Tue, 29 Apr 2014 18:30:38 GMT"\n}']),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+
+  const paramsToValidate: any = [
+    {
+      httpDateOnTarget: new Date(1398796238000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6222,8 +6666,8 @@ it("RestJsonJsonTimestamps:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                              \"normal\": 1398796238
-                                                                                          }`;
+                                                                                                  \"normal\": 1398796238
+                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6280,8 +6724,66 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                \"dateTime\": \"2014-04-29T18:30:38Z\"
-                                                                                            }`;
+                                                                                                    \"dateTime\": \"2014-04-29T18:30:38Z\"
+                                                                                                }`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * Ensures that the timestampFormat of date-time on the target shape works like normal timestamps
+ */
+it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:ServerResponse", async () => {
+  class TestService implements Partial<RestJsonService<{}>> {
+    JsonTimestamps(input: any, ctx: {}): Promise<JsonTimestampsServerOutput> {
+      const response = {
+        dateTimeOnTarget: new Date(1398796238000),
+      } as any;
+      return Promise.resolve({ ...response, $metadata: {} });
+    }
+  }
+  const service: any = new TestService();
+  const testMux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<{}>>([
+    new httpbinding.UriSpec<"RestJson", "JsonTimestamps">("POST", [], [], {
+      service: "RestJson",
+      operation: "JsonTimestamps",
+    }),
+  ]);
+  class TestSerializer extends JsonTimestampsSerializer {
+    deserialize = (output: any, context: any): Promise<any> => {
+      return Promise.resolve({});
+    };
+  }
+  const request = new HttpRequest({ method: "POST", hostname: "example.com" });
+  const serFn: (
+    op: RestJsonServiceOperations
+  ) => __OperationSerializer<RestJsonService<{}>, RestJsonServiceOperations, __ServiceException> = (op) => {
+    return new TestSerializer();
+  };
+  const handler = new RestJsonServiceHandler(
+    service,
+    testMux,
+    serFn,
+    serializeFrameworkException,
+    (ctx: {}, f: __ValidationFailure[]) => {
+      if (f) {
+        throw f;
+      }
+      return undefined;
+    }
+  );
+  const r = await handler.handle(request, {});
+
+  expect(r.statusCode).toBe(200);
+
+  expect(r.headers["content-type"]).toBeDefined();
+  expect(r.headers["content-type"]).toBe("application/json");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{
+                                                                                                      \"dateTimeOnTarget\": \"2014-04-29T18:30:38Z\"
+                                                                                                  }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6338,8 +6840,66 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                  \"epochSeconds\": 1398796238
-                                                                                              }`;
+                                                                                                        \"epochSeconds\": 1398796238
+                                                                                                    }`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * Ensures that the timestampFormat of epoch-seconds on the target shape works
+ */
+it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:ServerResponse", async () => {
+  class TestService implements Partial<RestJsonService<{}>> {
+    JsonTimestamps(input: any, ctx: {}): Promise<JsonTimestampsServerOutput> {
+      const response = {
+        epochSecondsOnTarget: new Date(1398796238000),
+      } as any;
+      return Promise.resolve({ ...response, $metadata: {} });
+    }
+  }
+  const service: any = new TestService();
+  const testMux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<{}>>([
+    new httpbinding.UriSpec<"RestJson", "JsonTimestamps">("POST", [], [], {
+      service: "RestJson",
+      operation: "JsonTimestamps",
+    }),
+  ]);
+  class TestSerializer extends JsonTimestampsSerializer {
+    deserialize = (output: any, context: any): Promise<any> => {
+      return Promise.resolve({});
+    };
+  }
+  const request = new HttpRequest({ method: "POST", hostname: "example.com" });
+  const serFn: (
+    op: RestJsonServiceOperations
+  ) => __OperationSerializer<RestJsonService<{}>, RestJsonServiceOperations, __ServiceException> = (op) => {
+    return new TestSerializer();
+  };
+  const handler = new RestJsonServiceHandler(
+    service,
+    testMux,
+    serFn,
+    serializeFrameworkException,
+    (ctx: {}, f: __ValidationFailure[]) => {
+      if (f) {
+        throw f;
+      }
+      return undefined;
+    }
+  );
+  const r = await handler.handle(request, {});
+
+  expect(r.statusCode).toBe(200);
+
+  expect(r.headers["content-type"]).toBeDefined();
+  expect(r.headers["content-type"]).toBe("application/json");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{
+                                                                                                          \"epochSecondsOnTarget\": 1398796238
+                                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6396,8 +6956,66 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                    \"httpDate\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
-                                                                                                }`;
+                                                                                                            \"httpDate\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
+                                                                                                        }`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * Ensures that the timestampFormat of http-date on the target shape works
+ */
+it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:ServerResponse", async () => {
+  class TestService implements Partial<RestJsonService<{}>> {
+    JsonTimestamps(input: any, ctx: {}): Promise<JsonTimestampsServerOutput> {
+      const response = {
+        httpDateOnTarget: new Date(1398796238000),
+      } as any;
+      return Promise.resolve({ ...response, $metadata: {} });
+    }
+  }
+  const service: any = new TestService();
+  const testMux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<{}>>([
+    new httpbinding.UriSpec<"RestJson", "JsonTimestamps">("POST", [], [], {
+      service: "RestJson",
+      operation: "JsonTimestamps",
+    }),
+  ]);
+  class TestSerializer extends JsonTimestampsSerializer {
+    deserialize = (output: any, context: any): Promise<any> => {
+      return Promise.resolve({});
+    };
+  }
+  const request = new HttpRequest({ method: "POST", hostname: "example.com" });
+  const serFn: (
+    op: RestJsonServiceOperations
+  ) => __OperationSerializer<RestJsonService<{}>, RestJsonServiceOperations, __ServiceException> = (op) => {
+    return new TestSerializer();
+  };
+  const handler = new RestJsonServiceHandler(
+    service,
+    testMux,
+    serFn,
+    serializeFrameworkException,
+    (ctx: {}, f: __ValidationFailure[]) => {
+      if (f) {
+        throw f;
+      }
+      return undefined;
+    }
+  );
+  const r = await handler.handle(request, {});
+
+  expect(r.statusCode).toBe(200);
+
+  expect(r.headers["content-type"]).toBeDefined();
+  expect(r.headers["content-type"]).toBe("application/json");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{
+                                                                                                              \"httpDateOnTarget\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
+                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6930,10 +7548,10 @@ it("RestJsonDeserializeStringUnionValue:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                      \"contents\": {
-                                                                                                          \"stringValue\": \"foo\"
-                                                                                                      }
-                                                                                                  }`;
+                                                                                                                \"contents\": {
+                                                                                                                    \"stringValue\": \"foo\"
+                                                                                                                }
+                                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -6992,10 +7610,10 @@ it("RestJsonDeserializeBooleanUnionValue:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                        \"contents\": {
-                                                                                                            \"booleanValue\": true
-                                                                                                        }
-                                                                                                    }`;
+                                                                                                                  \"contents\": {
+                                                                                                                      \"booleanValue\": true
+                                                                                                                  }
+                                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7054,10 +7672,10 @@ it("RestJsonDeserializeNumberUnionValue:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                          \"contents\": {
-                                                                                                              \"numberValue\": 1
-                                                                                                          }
-                                                                                                      }`;
+                                                                                                                    \"contents\": {
+                                                                                                                        \"numberValue\": 1
+                                                                                                                    }
+                                                                                                                }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7116,10 +7734,10 @@ it("RestJsonDeserializeBlobUnionValue:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                            \"contents\": {
-                                                                                                                \"blobValue\": \"Zm9v\"
-                                                                                                            }
-                                                                                                        }`;
+                                                                                                                      \"contents\": {
+                                                                                                                          \"blobValue\": \"Zm9v\"
+                                                                                                                      }
+                                                                                                                  }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7178,10 +7796,10 @@ it("RestJsonDeserializeTimestampUnionValue:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                              \"contents\": {
-                                                                                                                  \"timestampValue\": 1398796238
-                                                                                                              }
-                                                                                                          }`;
+                                                                                                                        \"contents\": {
+                                                                                                                            \"timestampValue\": 1398796238
+                                                                                                                        }
+                                                                                                                    }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7240,10 +7858,10 @@ it("RestJsonDeserializeEnumUnionValue:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                \"contents\": {
-                                                                                                                    \"enumValue\": \"Foo\"
-                                                                                                                }
-                                                                                                            }`;
+                                                                                                                          \"contents\": {
+                                                                                                                              \"enumValue\": \"Foo\"
+                                                                                                                          }
+                                                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7302,10 +7920,10 @@ it("RestJsonDeserializeListUnionValue:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                  \"contents\": {
-                                                                                                                      \"listValue\": [\"foo\", \"bar\"]
-                                                                                                                  }
-                                                                                                              }`;
+                                                                                                                            \"contents\": {
+                                                                                                                                \"listValue\": [\"foo\", \"bar\"]
+                                                                                                                            }
+                                                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7368,13 +7986,13 @@ it("RestJsonDeserializeMapUnionValue:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                    \"contents\": {
-                                                                                                                        \"mapValue\": {
-                                                                                                                            \"foo\": \"bar\",
-                                                                                                                            \"spam\": \"eggs\"
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                }`;
+                                                                                                                              \"contents\": {
+                                                                                                                                  \"mapValue\": {
+                                                                                                                                      \"foo\": \"bar\",
+                                                                                                                                      \"spam\": \"eggs\"
+                                                                                                                                  }
+                                                                                                                              }
+                                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -7435,12 +8053,12 @@ it("RestJsonDeserializeStructureUnionValue:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                      \"contents\": {
-                                                                                                                          \"structureValue\": {
-                                                                                                                              \"hi\": \"hello\"
-                                                                                                                          }
-                                                                                                                      }
-                                                                                                                  }`;
+                                                                                                                                \"contents\": {
+                                                                                                                                    \"structureValue\": {
+                                                                                                                                        \"hi\": \"hello\"
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -14009,45 +14627,6 @@ it("RestJsonWithBodyExpectsApplicationJsonContentType:MalformedRequest", async (
 });
 
 /**
- * When there is a payload without a mediaType trait, the content type must match the
- * implied content type of the shape.
- */
-it("RestJsonWithPayloadExpectsImpliedContentType:MalformedRequest", async () => {
-  const testFunction = jest.fn();
-  testFunction.mockImplementation(() => {
-    throw new Error("This request should have been rejected.");
-  });
-  const testService: Partial<RestJsonService<{}>> = {
-    MalformedContentTypeWithGenericString: testFunction as MalformedContentTypeWithGenericString<{}>,
-  };
-  const handler = getRestJsonServiceHandler(
-    testService as RestJsonService<{}>,
-    (ctx: {}, failures: __ValidationFailure[]) => {
-      if (failures) {
-        throw failures;
-      }
-      return undefined;
-    }
-  );
-  const request = new HttpRequest({
-    method: "POST",
-    hostname: "foo.example.com",
-    path: "/MalformedContentTypeWithPayload",
-    query: {},
-    headers: {
-      "content-type": "application/json",
-    },
-    body: Readable.from(["{}"]),
-  });
-  const r = await handler.handle(request, {});
-
-  expect(testFunction.mock.calls.length).toBe(0);
-  expect(r.statusCode).toBe(415);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
-  expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
-});
-
-/**
  * When there is no modeled input, content type must not be set and the body must be empty.
  */
 it("RestJsonWithoutBodyExpectsEmptyContentType:MalformedRequest", async () => {
@@ -14089,6 +14668,45 @@ it("RestJsonWithoutBodyExpectsEmptyContentType:MalformedRequest", async () => {
  * When there is a payload with a mediaType trait, the content type must match.
  */
 it("RestJsonWithPayloadExpectsModeledContentType:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonService<{}>> = {
+    MalformedContentTypeWithPayload: testFunction as MalformedContentTypeWithPayload<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedContentTypeWithPayload",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(["{}"]),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(415);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
+});
+
+/**
+ * When there is a payload without a mediaType trait, the content type must match the
+ * implied content type of the shape.
+ */
+it("RestJsonWithPayloadExpectsImpliedContentType:MalformedRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
@@ -27661,10 +28279,10 @@ it("RestJsonOutputUnionWithUnitMember:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                \"action\": {
-                                                                                                                                    \"quit\": {}
-                                                                                                                                }
-                                                                                                                            }`;
+                                                                                                                                          \"action\": {
+                                                                                                                                              \"quit\": {}
+                                                                                                                                          }
+                                                                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -27861,10 +28479,10 @@ it("PostUnionWithJsonNameResponse1:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                  \"value\": {
-                                                                                                                                      \"FOO\": \"hi\"
-                                                                                                                                  }
-                                                                                                                              }`;
+                                                                                                                                            \"value\": {
+                                                                                                                                                \"FOO\": \"hi\"
+                                                                                                                                            }
+                                                                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -27923,10 +28541,10 @@ it("PostUnionWithJsonNameResponse2:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                    \"value\": {
-                                                                                                                                        \"_baz\": \"hi\"
-                                                                                                                                    }
-                                                                                                                                }`;
+                                                                                                                                              \"value\": {
+                                                                                                                                                  \"_baz\": \"hi\"
+                                                                                                                                              }
+                                                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -27985,10 +28603,10 @@ it("PostUnionWithJsonNameResponse3:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                      \"value\": {
-                                                                                                                                          \"bar\": \"hi\"
-                                                                                                                                      }
-                                                                                                                                  }`;
+                                                                                                                                                \"value\": {
+                                                                                                                                                    \"bar\": \"hi\"
+                                                                                                                                                }
+                                                                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28221,19 +28839,19 @@ it("RestJsonRecursiveShapes:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                        \"nested\": {
-                                                                                                                                            \"foo\": \"Foo1\",
-                                                                                                                                            \"nested\": {
-                                                                                                                                                \"bar\": \"Bar1\",
-                                                                                                                                                \"recursiveMember\": {
-                                                                                                                                                    \"foo\": \"Foo2\",
-                                                                                                                                                    \"nested\": {
-                                                                                                                                                        \"bar\": \"Bar2\"
-                                                                                                                                                    }
-                                                                                                                                                }
-                                                                                                                                            }
-                                                                                                                                        }
-                                                                                                                                    }`;
+                                                                                                                                                  \"nested\": {
+                                                                                                                                                      \"foo\": \"Foo1\",
+                                                                                                                                                      \"nested\": {
+                                                                                                                                                          \"bar\": \"Bar1\",
+                                                                                                                                                          \"recursiveMember\": {
+                                                                                                                                                              \"foo\": \"Foo2\",
+                                                                                                                                                              \"nested\": {
+                                                                                                                                                                  \"bar\": \"Bar2\"
+                                                                                                                                                              }
+                                                                                                                                                          }
+                                                                                                                                                      }
+                                                                                                                                                  }
+                                                                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28547,16 +29165,16 @@ it("RestJsonSimpleScalarProperties:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                          \"stringValue\": \"string\",
-                                                                                                                                          \"trueBooleanValue\": true,
-                                                                                                                                          \"falseBooleanValue\": false,
-                                                                                                                                          \"byteValue\": 1,
-                                                                                                                                          \"shortValue\": 2,
-                                                                                                                                          \"integerValue\": 3,
-                                                                                                                                          \"longValue\": 4,
-                                                                                                                                          \"floatValue\": 5.5,
-                                                                                                                                          \"DoubleDribble\": 6.5
-                                                                                                                                      }`;
+                                                                                                                                                    \"stringValue\": \"string\",
+                                                                                                                                                    \"trueBooleanValue\": true,
+                                                                                                                                                    \"falseBooleanValue\": false,
+                                                                                                                                                    \"byteValue\": 1,
+                                                                                                                                                    \"shortValue\": 2,
+                                                                                                                                                    \"integerValue\": 3,
+                                                                                                                                                    \"longValue\": 4,
+                                                                                                                                                    \"floatValue\": 5.5,
+                                                                                                                                                    \"DoubleDribble\": 6.5
+                                                                                                                                                }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28671,9 +29289,9 @@ it("RestJsonSupportsNaNFloatInputs:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                              \"floatValue\": \"NaN\",
-                                                                                                                                              \"DoubleDribble\": \"NaN\"
-                                                                                                                                          }`;
+                                                                                                                                                        \"floatValue\": \"NaN\",
+                                                                                                                                                        \"DoubleDribble\": \"NaN\"
+                                                                                                                                                    }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28732,9 +29350,9 @@ it("RestJsonSupportsInfinityFloatInputs:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                \"floatValue\": \"Infinity\",
-                                                                                                                                                \"DoubleDribble\": \"Infinity\"
-                                                                                                                                            }`;
+                                                                                                                                                          \"floatValue\": \"Infinity\",
+                                                                                                                                                          \"DoubleDribble\": \"Infinity\"
+                                                                                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28793,9 +29411,9 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                  \"floatValue\": \"-Infinity\",
-                                                                                                                                                  \"DoubleDribble\": \"-Infinity\"
-                                                                                                                                              }`;
+                                                                                                                                                            \"floatValue\": \"-Infinity\",
+                                                                                                                                                            \"DoubleDribble\": \"-Infinity\"
+                                                                                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });

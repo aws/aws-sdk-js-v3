@@ -14,35 +14,81 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  ListImagePipelineImagesRequest,
-  ListImagePipelineImagesRequestFilterSensitiveLog,
-  ListImagePipelineImagesResponse,
-  ListImagePipelineImagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListImagePipelineImagesCommand,
-  serializeAws_restJson1ListImagePipelineImagesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListImagePipelineImagesRequest, ListImagePipelineImagesResponse } from "../models/models_0";
+import { de_ListImagePipelineImagesCommand, se_ListImagePipelineImagesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListImagePipelineImagesCommand}.
+ */
 export interface ListImagePipelineImagesCommandInput extends ListImagePipelineImagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListImagePipelineImagesCommand}.
+ */
 export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineImagesResponse, __MetadataBearer {}
 
 /**
- * <p> Returns a list of images created by the specified pipeline.</p>
+ * @public
+ * <p>Returns a list of images created by the specified pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, ListImagePipelineImagesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImagePipelineImagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // ListImagePipelineImagesRequest
+ *   imagePipelineArn: "STRING_VALUE", // required
+ *   filters: [ // FilterList
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListImagePipelineImagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImagePipelineImagesCommandInput - {@link ListImagePipelineImagesCommandInput}
+ * @returns {@link ListImagePipelineImagesCommandOutput}
  * @see {@link ListImagePipelineImagesCommandInput} for command's `input` shape.
  * @see {@link ListImagePipelineImagesCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
+ *
+ * @throws {@link CallRateLimitExceededException} (client fault)
+ *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>You have provided an invalid pagination token in your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You have requested an action that that the service doesn't support.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>At least one of the resources referenced by your request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unable to process your request at this time.</p>
+ *
  *
  */
 export class ListImagePipelineImagesCommand extends $Command<
@@ -62,6 +108,9 @@ export class ListImagePipelineImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImagePipelineImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +139,8 @@ export class ListImagePipelineImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImagePipelineImagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImagePipelineImagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +150,18 @@ export class ListImagePipelineImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImagePipelineImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListImagePipelineImagesCommand(input, context);
+    return se_ListImagePipelineImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagePipelineImagesCommandOutput> {
-    return deserializeAws_restJson1ListImagePipelineImagesCommand(output, context);
+    return de_ListImagePipelineImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

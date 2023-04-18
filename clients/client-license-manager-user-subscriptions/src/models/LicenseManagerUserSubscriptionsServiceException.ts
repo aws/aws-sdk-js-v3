@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.
  */
 export class LicenseManagerUserSubscriptionsServiceException extends __ServiceException {

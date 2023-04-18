@@ -14,28 +14,36 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { SetSecurityTokenServicePreferencesRequest } from "../models/models_0";
 import {
-  SetSecurityTokenServicePreferencesRequest,
-  SetSecurityTokenServicePreferencesRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetSecurityTokenServicePreferencesCommand,
-  serializeAws_querySetSecurityTokenServicePreferencesCommand,
+  de_SetSecurityTokenServicePreferencesCommand,
+  se_SetSecurityTokenServicePreferencesCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link SetSecurityTokenServicePreferencesCommand}.
+ */
 export interface SetSecurityTokenServicePreferencesCommandInput extends SetSecurityTokenServicePreferencesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetSecurityTokenServicePreferencesCommand}.
+ */
 export interface SetSecurityTokenServicePreferencesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified version of the global endpoint token as the token version used for
  *             the Amazon Web Services account.</p>
- *         <p>By default, Security Token Service (STS) is available as a global service, and all STS requests
+ *          <p>By default, Security Token Service (STS) is available as a global service, and all STS requests
  *             go to a single endpoint at <code>https://sts.amazonaws.com</code>. Amazon Web Services recommends
  *             using Regional STS endpoints to reduce latency, build in redundancy, and increase
  *             session token availability. For information about Regional endpoints for STS, see
  *                 <a href="https://docs.aws.amazon.com/general/latest/gr/sts.html">Security Token Service
  *                 endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
- *         <p>If you make an STS call to the global endpoint, the resulting session tokens might
+ *          <p>If you make an STS call to the global endpoint, the resulting session tokens might
  *             be valid in some Regions but not others. It depends on the version that is set in this
  *             operation. Version 1 tokens are valid only in Amazon Web Services Regions that are
  *             available by default. These tokens do not work in manually enabled Regions, such as Asia
@@ -44,7 +52,7 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
  *                 deactivating STS in an Amazon Web Services Region</a> in the
  *                 <i>IAM User Guide</i>.</p>
- *         <p>To view the current session token version, see the
+ *          <p>To view the current session token version, see the
  *                 <code>GlobalEndpointTokenVersion</code> entry in the response of the <a>GetAccountSummary</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -52,13 +60,34 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  * import { IAMClient, SetSecurityTokenServicePreferencesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, SetSecurityTokenServicePreferencesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // SetSecurityTokenServicePreferencesRequest
+ *   GlobalEndpointTokenVersion: "v1Token" || "v2Token", // required
+ * };
  * const command = new SetSecurityTokenServicePreferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSecurityTokenServicePreferencesCommandInput - {@link SetSecurityTokenServicePreferencesCommandInput}
+ * @returns {@link SetSecurityTokenServicePreferencesCommandOutput}
  * @see {@link SetSecurityTokenServicePreferencesCommandInput} for command's `input` shape.
  * @see {@link SetSecurityTokenServicePreferencesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
+ * @example To delete an access key for an IAM user
+ * ```javascript
+ * // The following command sets the STS global endpoint token to version 2. Version 2 tokens are valid in all Regions.
+ * const input = {
+ *   "GlobalEndpointTokenVersion": "v2Token"
+ * };
+ * const command = new SetSecurityTokenServicePreferencesCommand(input);
+ * await client.send(command);
+ * // example id: 61a785a7-d30a-415a-ae18-ab9236e56871
+ * ```
  *
  */
 export class SetSecurityTokenServicePreferencesCommand extends $Command<
@@ -78,6 +107,9 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSecurityTokenServicePreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +138,8 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSecurityTokenServicePreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +149,24 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetSecurityTokenServicePreferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetSecurityTokenServicePreferencesCommand(input, context);
+    return se_SetSecurityTokenServicePreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetSecurityTokenServicePreferencesCommandOutput> {
-    return deserializeAws_querySetSecurityTokenServicePreferencesCommand(output, context);
+    return de_SetSecurityTokenServicePreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

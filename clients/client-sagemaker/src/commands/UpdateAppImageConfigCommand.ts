@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAppImageConfigRequest,
-  UpdateAppImageConfigRequestFilterSensitiveLog,
-  UpdateAppImageConfigResponse,
-  UpdateAppImageConfigResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1UpdateAppImageConfigCommand,
-  serializeAws_json1_1UpdateAppImageConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateAppImageConfigRequest, UpdateAppImageConfigResponse } from "../models/models_4";
+import { de_UpdateAppImageConfigCommand, se_UpdateAppImageConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAppImageConfigCommand}.
+ */
 export interface UpdateAppImageConfigCommandInput extends UpdateAppImageConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAppImageConfigCommand}.
+ */
 export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of an AppImageConfig.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
  * import { SageMakerClient, UpdateAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateAppImageConfigRequest
+ *   AppImageConfigName: "STRING_VALUE", // required
+ *   KernelGatewayImageConfig: { // KernelGatewayImageConfig
+ *     KernelSpecs: [ // KernelSpecs // required
+ *       { // KernelSpec
+ *         Name: "STRING_VALUE", // required
+ *         DisplayName: "STRING_VALUE",
+ *       },
+ *     ],
+ *     FileSystemConfig: { // FileSystemConfig
+ *       MountPath: "STRING_VALUE",
+ *       DefaultUid: Number("int"),
+ *       DefaultGid: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new UpdateAppImageConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppImageConfigCommandInput - {@link UpdateAppImageConfigCommandInput}
+ * @returns {@link UpdateAppImageConfigCommandOutput}
  * @see {@link UpdateAppImageConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateAppImageConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class UpdateAppImageConfigCommand extends $Command<
@@ -62,6 +87,9 @@ export class UpdateAppImageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppImageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class UpdateAppImageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAppImageConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppImageConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class UpdateAppImageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppImageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAppImageConfigCommand(input, context);
+    return se_UpdateAppImageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppImageConfigCommandOutput> {
-    return deserializeAws_json1_1UpdateAppImageConfigCommand(output, context);
+    return de_UpdateAppImageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

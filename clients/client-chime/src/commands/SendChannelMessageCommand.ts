@@ -18,17 +18,24 @@ import {
   SendChannelMessageRequest,
   SendChannelMessageRequestFilterSensitiveLog,
   SendChannelMessageResponse,
-  SendChannelMessageResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1SendChannelMessageCommand,
-  serializeAws_restJson1SendChannelMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendChannelMessageCommand, se_SendChannelMessageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SendChannelMessageCommand}.
+ */
 export interface SendChannelMessageCommandInput extends SendChannelMessageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendChannelMessageCommand}.
+ */
 export interface SendChannelMessageCommandOutput extends SendChannelMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a message to a particular channel that the member is a part of.</p>
  *
  *          <note>
@@ -45,13 +52,47 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * import { ChimeClient, SendChannelMessageCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, SendChannelMessageCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // SendChannelMessageRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE", // required
+ *   Type: "STRING_VALUE", // required
+ *   Persistence: "STRING_VALUE", // required
+ *   Metadata: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new SendChannelMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendChannelMessageCommandInput - {@link SendChannelMessageCommandInput}
+ * @returns {@link SendChannelMessageCommandOutput}
  * @see {@link SendChannelMessageCommandInput} for command's `input` shape.
  * @see {@link SendChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class SendChannelMessageCommand extends $Command<
@@ -71,6 +112,9 @@ export class SendChannelMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendChannelMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,7 +144,7 @@ export class SendChannelMessageCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SendChannelMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendChannelMessageResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +154,18 @@ export class SendChannelMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendChannelMessageCommand(input, context);
+    return se_SendChannelMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendChannelMessageCommandOutput> {
-    return deserializeAws_restJson1SendChannelMessageCommand(output, context);
+    return de_SendChannelMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

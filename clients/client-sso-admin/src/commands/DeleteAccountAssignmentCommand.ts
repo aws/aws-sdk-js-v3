@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAccountAssignmentRequest,
-  DeleteAccountAssignmentRequestFilterSensitiveLog,
-  DeleteAccountAssignmentResponse,
-  DeleteAccountAssignmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAccountAssignmentCommand,
-  serializeAws_json1_1DeleteAccountAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAccountAssignmentRequest, DeleteAccountAssignmentResponse } from "../models/models_0";
+import { de_DeleteAccountAssignmentCommand, se_DeleteAccountAssignmentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAccountAssignmentCommand}.
+ */
 export interface DeleteAccountAssignmentCommandInput extends DeleteAccountAssignmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAccountAssignmentCommand}.
+ */
 export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a principal's access from a specified AWS account using a specified permission
  *       set.</p>
  *          <note>
@@ -40,13 +43,47 @@ export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssig
  * import { SSOAdminClient, DeleteAccountAssignmentCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DeleteAccountAssignmentCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // DeleteAccountAssignmentRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   TargetId: "STRING_VALUE", // required
+ *   TargetType: "AWS_ACCOUNT", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   PrincipalType: "USER" || "GROUP", // required
+ *   PrincipalId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccountAssignmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountAssignmentCommandInput - {@link DeleteAccountAssignmentCommandInput}
+ * @returns {@link DeleteAccountAssignmentCommandOutput}
  * @see {@link DeleteAccountAssignmentCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAssignmentCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Occurs when a conflict with a previous successful write is detected. This generally occurs
+ *       when the previous write did not have time to propagate to the host serving the current
+ *       request. A retry (with appropriate backoff logic) is the recommended response to this
+ *       exception.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with
+ *       an internal server.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a requested resource is not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Indicates that the principal has crossed the throttling limits of the API
+ *       operations.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed because it contains a syntax error.</p>
+ *
  *
  */
 export class DeleteAccountAssignmentCommand extends $Command<
@@ -66,6 +103,9 @@ export class DeleteAccountAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +134,8 @@ export class DeleteAccountAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountAssignmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccountAssignmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +145,18 @@ export class DeleteAccountAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAccountAssignmentCommand(input, context);
+    return se_DeleteAccountAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountAssignmentCommandOutput> {
-    return deserializeAws_json1_1DeleteAccountAssignmentCommand(output, context);
+    return de_DeleteAccountAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

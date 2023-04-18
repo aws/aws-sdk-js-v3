@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartCallAnalyticsJobRequest,
-  StartCallAnalyticsJobRequestFilterSensitiveLog,
-  StartCallAnalyticsJobResponse,
-  StartCallAnalyticsJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartCallAnalyticsJobCommand,
-  serializeAws_json1_1StartCallAnalyticsJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StartCallAnalyticsJobRequest, StartCallAnalyticsJobResponse } from "../models/models_0";
+import { de_StartCallAnalyticsJobCommand, se_StartCallAnalyticsJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StartCallAnalyticsJobCommand}.
+ */
 export interface StartCallAnalyticsJobCommandInput extends StartCallAnalyticsJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartCallAnalyticsJobCommand}.
+ */
 export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transcribes the audio from a customer service call and applies any additional Request
  *             Parameters you choose to include in your request.</p>
  *          <p>In addition to many standard transcription features, Call Analytics provides you with
@@ -39,12 +42,13 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  *          <p>If you want to apply categories to your Call Analytics job, you must create them
  *             before submitting your job request. Categories cannot be retroactively applied to a job.
  *             To create a new category, use the
- *             operation. To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch
+ *             operation. To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for post-call
  *                 transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for
- *                     streaming transcriptions</a>.</p>
+ *                     real-time transcriptions</a>.</p>
  *          <p>To make a <code>StartCallAnalyticsJob</code> request, you must first upload your media
  *             file into an Amazon S3 bucket; you can then specify the Amazon S3
  *             location of the file using the <code>Media</code> parameter.</p>
+ *          <p>Note that job queuing is enabled by default for Call Analytics jobs.</p>
  *          <p>You must include the following parameters in your <code>StartCallAnalyticsJob</code>
  *             request:</p>
  *          <ul>
@@ -85,13 +89,73 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  * import { TranscribeClient, StartCallAnalyticsJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, StartCallAnalyticsJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // StartCallAnalyticsJobRequest
+ *   CallAnalyticsJobName: "STRING_VALUE", // required
+ *   Media: { // Media
+ *     MediaFileUri: "STRING_VALUE",
+ *     RedactedMediaFileUri: "STRING_VALUE",
+ *   },
+ *   OutputLocation: "STRING_VALUE",
+ *   OutputEncryptionKMSKeyId: "STRING_VALUE",
+ *   DataAccessRoleArn: "STRING_VALUE",
+ *   Settings: { // CallAnalyticsJobSettings
+ *     VocabularyName: "STRING_VALUE",
+ *     VocabularyFilterName: "STRING_VALUE",
+ *     VocabularyFilterMethod: "remove" || "mask" || "tag",
+ *     LanguageModelName: "STRING_VALUE",
+ *     ContentRedaction: { // ContentRedaction
+ *       RedactionType: "PII", // required
+ *       RedactionOutput: "redacted" || "redacted_and_unredacted", // required
+ *       PiiEntityTypes: [ // PiiEntityTypes
+ *         "BANK_ACCOUNT_NUMBER" || "BANK_ROUTING" || "CREDIT_DEBIT_NUMBER" || "CREDIT_DEBIT_CVV" || "CREDIT_DEBIT_EXPIRY" || "PIN" || "EMAIL" || "ADDRESS" || "NAME" || "PHONE" || "SSN" || "ALL",
+ *       ],
+ *     },
+ *     LanguageOptions: [ // LanguageOptions
+ *       "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ *     ],
+ *     LanguageIdSettings: { // LanguageIdSettingsMap
+ *       "<keys>": { // LanguageIdSettings
+ *         VocabularyName: "STRING_VALUE",
+ *         VocabularyFilterName: "STRING_VALUE",
+ *         LanguageModelName: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ChannelDefinitions: [ // ChannelDefinitions
+ *     { // ChannelDefinition
+ *       ChannelId: Number("int"),
+ *       ParticipantRole: "AGENT" || "CUSTOMER",
+ *     },
+ *   ],
+ * };
  * const command = new StartCallAnalyticsJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCallAnalyticsJobCommandInput - {@link StartCallAnalyticsJobCommandInput}
+ * @returns {@link StartCallAnalyticsJobCommandOutput}
  * @see {@link StartCallAnalyticsJobCommandInput} for command's `input` shape.
  * @see {@link StartCallAnalyticsJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
+ *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
+ *                 <code>IN PROGRESS</code>). See the exception message field for more
+ *             information.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A resource already exists with this name. Resource names must be unique within an
+ *                 Amazon Web Services account.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>There was an internal error. Check the error message, correct the issue, and try your
+ *             request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You've either sent too many requests or your input file is too long. Wait before
+ *             retrying your request, or use a smaller file and try your request again.</p>
+ *
  *
  */
 export class StartCallAnalyticsJobCommand extends $Command<
@@ -111,6 +175,9 @@ export class StartCallAnalyticsJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCallAnalyticsJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +206,8 @@ export class StartCallAnalyticsJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartCallAnalyticsJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartCallAnalyticsJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +217,18 @@ export class StartCallAnalyticsJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCallAnalyticsJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartCallAnalyticsJobCommand(input, context);
+    return se_StartCallAnalyticsJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCallAnalyticsJobCommandOutput> {
-    return deserializeAws_json1_1StartCallAnalyticsJobCommand(output, context);
+    return de_StartCallAnalyticsJobCommand(output, context);
   }
 
   // Start section: command_body_extra

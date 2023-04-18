@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateRobotApplicationVersionRequest, CreateRobotApplicationVersionResponse } from "../models/models_0";
 import {
-  CreateRobotApplicationVersionRequest,
-  CreateRobotApplicationVersionRequestFilterSensitiveLog,
-  CreateRobotApplicationVersionResponse,
-  CreateRobotApplicationVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRobotApplicationVersionCommand,
-  serializeAws_restJson1CreateRobotApplicationVersionCommand,
+  de_CreateRobotApplicationVersionCommand,
+  se_CreateRobotApplicationVersionCommand,
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRobotApplicationVersionCommand}.
+ */
 export interface CreateRobotApplicationVersionCommandInput extends CreateRobotApplicationVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRobotApplicationVersionCommand}.
+ */
 export interface CreateRobotApplicationVersionCommandOutput
   extends CreateRobotApplicationVersionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a version of a robot application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,42 @@ export interface CreateRobotApplicationVersionCommandOutput
  * import { RoboMakerClient, CreateRobotApplicationVersionCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateRobotApplicationVersionCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // CreateRobotApplicationVersionRequest
+ *   application: "STRING_VALUE", // required
+ *   currentRevisionId: "STRING_VALUE",
+ *   s3Etags: [ // S3Etags
+ *     "STRING_VALUE",
+ *   ],
+ *   imageDigest: "STRING_VALUE",
+ * };
  * const command = new CreateRobotApplicationVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRobotApplicationVersionCommandInput - {@link CreateRobotApplicationVersionCommandInput}
+ * @returns {@link CreateRobotApplicationVersionCommandOutput}
  * @see {@link CreateRobotApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateRobotApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>The request uses the same client token as a previous, but non-identical request. Do not
+ *          reuse a client token with different requests, unless the requests are identical. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *          stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class CreateRobotApplicationVersionCommand extends $Command<
@@ -64,6 +99,9 @@ export class CreateRobotApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRobotApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +130,8 @@ export class CreateRobotApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRobotApplicationVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRobotApplicationVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +141,21 @@ export class CreateRobotApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRobotApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRobotApplicationVersionCommand(input, context);
+    return se_CreateRobotApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRobotApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1CreateRobotApplicationVersionCommand(output, context);
+    return de_CreateRobotApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

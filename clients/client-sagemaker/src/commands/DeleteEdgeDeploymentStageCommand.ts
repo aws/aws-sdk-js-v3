@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteEdgeDeploymentStageRequest,
-  DeleteEdgeDeploymentStageRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteEdgeDeploymentStageCommand,
-  serializeAws_json1_1DeleteEdgeDeploymentStageCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEdgeDeploymentStageRequest } from "../models/models_1";
+import { de_DeleteEdgeDeploymentStageCommand, se_DeleteEdgeDeploymentStageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteEdgeDeploymentStageCommand}.
+ */
 export interface DeleteEdgeDeploymentStageCommandInput extends DeleteEdgeDeploymentStageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEdgeDeploymentStageCommand}.
+ */
 export interface DeleteEdgeDeploymentStageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a stage in an edge deployment plan if (and only if) the stage is inactive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +39,23 @@ export interface DeleteEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * import { SageMakerClient, DeleteEdgeDeploymentStageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteEdgeDeploymentStageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteEdgeDeploymentStageRequest
+ *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEdgeDeploymentStageCommandInput - {@link DeleteEdgeDeploymentStageCommandInput}
+ * @returns {@link DeleteEdgeDeploymentStageCommandOutput}
  * @see {@link DeleteEdgeDeploymentStageCommandInput} for command's `input` shape.
  * @see {@link DeleteEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
  *
  */
 export class DeleteEdgeDeploymentStageCommand extends $Command<
@@ -60,6 +75,9 @@ export class DeleteEdgeDeploymentStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEdgeDeploymentStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class DeleteEdgeDeploymentStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEdgeDeploymentStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,15 +117,21 @@ export class DeleteEdgeDeploymentStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEdgeDeploymentStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEdgeDeploymentStageCommand(input, context);
+    return se_DeleteEdgeDeploymentStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEdgeDeploymentStageCommandOutput> {
-    return deserializeAws_json1_1DeleteEdgeDeploymentStageCommand(output, context);
+    return de_DeleteEdgeDeploymentStageCommand(output, context);
   }
 
   // Start section: command_body_extra

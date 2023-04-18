@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  BatchDisassociateResourceRequest,
-  BatchDisassociateResourceRequestFilterSensitiveLog,
-  BatchDisassociateResourceResponse,
-  BatchDisassociateResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDisassociateResourceCommand,
-  serializeAws_json1_1BatchDisassociateResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchDisassociateResourceRequest, BatchDisassociateResourceResponse } from "../models/models_0";
+import { de_BatchDisassociateResourceCommand, se_BatchDisassociateResourceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDisassociateResourceCommand}.
+ */
 export interface BatchDisassociateResourceCommandInput extends BatchDisassociateResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDisassociateResourceCommand}.
+ */
 export interface BatchDisassociateResourceCommandOutput extends BatchDisassociateResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates resources from a Firewall Manager resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,39 @@ export interface BatchDisassociateResourceCommandOutput extends BatchDisassociat
  * import { FMSClient, BatchDisassociateResourceCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, BatchDisassociateResourceCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // BatchDisassociateResourceRequest
+ *   ResourceSetIdentifier: "STRING_VALUE", // required
+ *   Items: [ // IdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDisassociateResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisassociateResourceCommandInput - {@link BatchDisassociateResourceCommandInput}
+ * @returns {@link BatchDisassociateResourceCommandOutput}
  * @see {@link BatchDisassociateResourceCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateResourceCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (client fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry
+ *       your request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The parameters of the request were invalid.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
+ *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
+ *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
+ *   that's disabled by default, and that you need to enable for the Firewall Manager
+ *   administrator account and for Organizations before you can access it.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class BatchDisassociateResourceCommand extends $Command<
@@ -62,6 +91,9 @@ export class BatchDisassociateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisassociateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +122,8 @@ export class BatchDisassociateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisassociateResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +133,21 @@ export class BatchDisassociateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDisassociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDisassociateResourceCommand(input, context);
+    return se_BatchDisassociateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateResourceCommandOutput> {
-    return deserializeAws_json1_1BatchDisassociateResourceCommand(output, context);
+    return de_BatchDisassociateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

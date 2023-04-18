@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetOpsMetadataRequest,
-  GetOpsMetadataRequestFilterSensitiveLog,
-  GetOpsMetadataResult,
-  GetOpsMetadataResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetOpsMetadataCommand,
-  serializeAws_json1_1GetOpsMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { GetOpsMetadataRequest, GetOpsMetadataResult } from "../models/models_1";
+import { de_GetOpsMetadataCommand, se_GetOpsMetadataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetOpsMetadataCommand}.
+ */
 export interface GetOpsMetadataCommandInput extends GetOpsMetadataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetOpsMetadataCommand}.
+ */
 export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>View operational metadata related to an application in Application Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
  * import { SSMClient, GetOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetOpsMetadataRequest
+ *   OpsMetadataArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetOpsMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOpsMetadataCommandInput - {@link GetOpsMetadataCommandInput}
+ * @returns {@link GetOpsMetadataCommandOutput}
  * @see {@link GetOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link GetOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsMetadataInvalidArgumentException} (client fault)
+ *  <p>One of the arguments passed is invalid. </p>
+ *
+ * @throws {@link OpsMetadataNotFoundException} (client fault)
+ *  <p>The OpsMetadata object doesn't exist. </p>
+ *
  *
  */
 export class GetOpsMetadataCommand extends $Command<
@@ -62,6 +82,9 @@ export class GetOpsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOpsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class GetOpsMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOpsMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOpsMetadataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class GetOpsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOpsMetadataCommand(input, context);
+    return se_GetOpsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOpsMetadataCommandOutput> {
-    return deserializeAws_json1_1GetOpsMetadataCommand(output, context);
+    return de_GetOpsMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

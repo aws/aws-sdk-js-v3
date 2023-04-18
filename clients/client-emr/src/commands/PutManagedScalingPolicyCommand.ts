@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  PutManagedScalingPolicyInput,
-  PutManagedScalingPolicyInputFilterSensitiveLog,
-  PutManagedScalingPolicyOutput,
-  PutManagedScalingPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutManagedScalingPolicyCommand,
-  serializeAws_json1_1PutManagedScalingPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutManagedScalingPolicyInput, PutManagedScalingPolicyOutput } from "../models/models_0";
+import { de_PutManagedScalingPolicyCommand, se_PutManagedScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutManagedScalingPolicyCommand}.
+ */
 export interface PutManagedScalingPolicyCommandInput extends PutManagedScalingPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutManagedScalingPolicyCommand}.
+ */
 export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a managed scaling policy for an Amazon EMR cluster. The
  *          managed scaling policy defines the limits for resources, such as EC2 instances that can be
  *          added or terminated from a cluster. The policy only applies to the core and task nodes. The
@@ -39,13 +42,28 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * import { EMRClient, PutManagedScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, PutManagedScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // PutManagedScalingPolicyInput
+ *   ClusterId: "STRING_VALUE", // required
+ *   ManagedScalingPolicy: { // ManagedScalingPolicy
+ *     ComputeLimits: { // ComputeLimits
+ *       UnitType: "InstanceFleetUnits" || "Instances" || "VCPU", // required
+ *       MinimumCapacityUnits: Number("int"), // required
+ *       MaximumCapacityUnits: Number("int"), // required
+ *       MaximumOnDemandCapacityUnits: Number("int"),
+ *       MaximumCoreCapacityUnits: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new PutManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutManagedScalingPolicyCommandInput - {@link PutManagedScalingPolicyCommandInput}
+ * @returns {@link PutManagedScalingPolicyCommandOutput}
  * @see {@link PutManagedScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
  *
  */
 export class PutManagedScalingPolicyCommand extends $Command<
@@ -65,6 +83,9 @@ export class PutManagedScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutManagedScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +114,8 @@ export class PutManagedScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutManagedScalingPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutManagedScalingPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +125,18 @@ export class PutManagedScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutManagedScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutManagedScalingPolicyCommand(input, context);
+    return se_PutManagedScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutManagedScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1PutManagedScalingPolicyCommand(output, context);
+    return de_PutManagedScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

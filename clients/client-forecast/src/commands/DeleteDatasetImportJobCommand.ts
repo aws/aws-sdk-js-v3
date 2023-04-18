@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteDatasetImportJobRequest, DeleteDatasetImportJobRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDatasetImportJobCommand,
-  serializeAws_json1_1DeleteDatasetImportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDatasetImportJobRequest } from "../models/models_0";
+import { de_DeleteDatasetImportJobCommand, se_DeleteDatasetImportJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDatasetImportJobCommand}.
+ */
 export interface DeleteDatasetImportJobCommandInput extends DeleteDatasetImportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDatasetImportJobCommand}.
+ */
 export interface DeleteDatasetImportJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a dataset import job created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
  *       operation. You can delete only dataset import jobs that have a status of <code>ACTIVE</code>
  *       or <code>CREATE_FAILED</code>. To get the status, use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a>
@@ -34,13 +42,30 @@ export interface DeleteDatasetImportJobCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, DeleteDatasetImportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteDatasetImportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DeleteDatasetImportJobRequest
+ *   DatasetImportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDatasetImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatasetImportJobCommandInput - {@link DeleteDatasetImportJobCommandInput}
+ * @returns {@link DeleteDatasetImportJobCommandOutput}
  * @see {@link DeleteDatasetImportJobCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetImportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
  *
  */
 export class DeleteDatasetImportJobCommand extends $Command<
@@ -60,6 +85,9 @@ export class DeleteDatasetImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class DeleteDatasetImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatasetImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class DeleteDatasetImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDatasetImportJobCommand(input, context);
+    return se_DeleteDatasetImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetImportJobCommandOutput> {
-    return deserializeAws_json1_1DeleteDatasetImportJobCommand(output, context);
+    return de_DeleteDatasetImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

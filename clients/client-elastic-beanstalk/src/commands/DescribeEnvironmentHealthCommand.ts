@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  DescribeEnvironmentHealthRequest,
-  DescribeEnvironmentHealthRequestFilterSensitiveLog,
-  DescribeEnvironmentHealthResult,
-  DescribeEnvironmentHealthResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEnvironmentHealthCommand,
-  serializeAws_queryDescribeEnvironmentHealthCommand,
-} from "../protocols/Aws_query";
+import { DescribeEnvironmentHealthRequest, DescribeEnvironmentHealthResult } from "../models/models_0";
+import { de_DescribeEnvironmentHealthCommand, se_DescribeEnvironmentHealthCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEnvironmentHealthCommand}.
+ */
 export interface DescribeEnvironmentHealthCommandInput extends DescribeEnvironmentHealthRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEnvironmentHealthCommand}.
+ */
 export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironmentHealthResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the overall health of the specified environment. The
  *         <b>DescribeEnvironmentHealth</b> operation is only available with
  *       AWS Elastic Beanstalk Enhanced Health.</p>
@@ -38,13 +41,83 @@ export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironm
  * import { ElasticBeanstalkClient, DescribeEnvironmentHealthCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentHealthCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DescribeEnvironmentHealthRequest
+ *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   AttributeNames: [ // EnvironmentHealthAttributes
+ *     "Status" || "Color" || "Causes" || "ApplicationMetrics" || "InstancesHealth" || "All" || "HealthStatus" || "RefreshedAt",
+ *   ],
+ * };
  * const command = new DescribeEnvironmentHealthCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentHealthCommandInput - {@link DescribeEnvironmentHealthCommandInput}
+ * @returns {@link DescribeEnvironmentHealthCommandOutput}
  * @see {@link DescribeEnvironmentHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link ElasticBeanstalkServiceException} (client fault)
+ *  <p>A generic service exception has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters is not valid. Please correct the input parameters and try
+ *       the operation again.</p>
+ *
+ *
+ * @example To view environment health
+ * ```javascript
+ * // The following operation retrieves overall health information for an environment named my-env:
+ * const input = {
+ *   "AttributeNames": [
+ *     "All"
+ *   ],
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new DescribeEnvironmentHealthCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationMetrics": {
+ *     "Duration": 10,
+ *     "Latency": {
+ *       "P10": 0.001,
+ *       "P50": 0.001,
+ *       "P75": 0.002,
+ *       "P85": 0.003,
+ *       "P90": 0.003,
+ *       "P95": 0.004,
+ *       "P99": 0.004,
+ *       "P999": 0.004
+ *     },
+ *     "RequestCount": 45,
+ *     "StatusCodes": {
+ *       "Status2xx": 45,
+ *       "Status3xx": 0,
+ *       "Status4xx": 0,
+ *       "Status5xx": 0
+ *     }
+ *   },
+ *   "Causes": [],
+ *   "Color": "Green",
+ *   "EnvironmentName": "my-env",
+ *   "HealthStatus": "Ok",
+ *   "InstancesHealth": {
+ *     "Degraded": 0,
+ *     "Info": 0,
+ *     "NoData": 0,
+ *     "Ok": 1,
+ *     "Pending": 0,
+ *     "Severe": 0,
+ *     "Unknown": 0,
+ *     "Warning": 0
+ *   },
+ *   "RefreshedAt": "2015-08-20T21:09:18Z"
+ * }
+ * *\/
+ * // example id: to-view-environment-health-1456277109510
+ * ```
  *
  */
 export class DescribeEnvironmentHealthCommand extends $Command<
@@ -64,6 +137,9 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +168,8 @@ export class DescribeEnvironmentHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentHealthRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEnvironmentHealthResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +179,21 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEnvironmentHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentHealthCommand(input, context);
+    return se_DescribeEnvironmentHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentHealthCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentHealthCommand(output, context);
+    return de_DescribeEnvironmentHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

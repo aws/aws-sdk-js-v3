@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteVpcPeeringConnectionRequest,
-  DeleteVpcPeeringConnectionRequestFilterSensitiveLog,
-  DeleteVpcPeeringConnectionResult,
-  DeleteVpcPeeringConnectionResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteVpcPeeringConnectionCommand,
-  serializeAws_ec2DeleteVpcPeeringConnectionCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteVpcPeeringConnectionRequest, DeleteVpcPeeringConnectionResult } from "../models/models_3";
+import { de_DeleteVpcPeeringConnectionCommand, se_DeleteVpcPeeringConnectionCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVpcPeeringConnectionCommand}.
+ */
 export interface DeleteVpcPeeringConnectionCommandInput extends DeleteVpcPeeringConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVpcPeeringConnectionCommand}.
+ */
 export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner
  *             of the accepter VPC can delete the VPC peering connection if it's in the
  *                 <code>active</code> state. The owner of the requester VPC can delete a VPC peering
@@ -40,13 +43,20 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * import { EC2Client, DeleteVpcPeeringConnectionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpcPeeringConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteVpcPeeringConnectionRequest
+ *   DryRun: true || false,
+ *   VpcPeeringConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcPeeringConnectionCommandInput - {@link DeleteVpcPeeringConnectionCommandInput}
+ * @returns {@link DeleteVpcPeeringConnectionCommandOutput}
  * @see {@link DeleteVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeleteVpcPeeringConnectionCommand extends $Command<
@@ -66,6 +76,9 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcPeeringConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +107,8 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcPeeringConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcPeeringConnectionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +118,21 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpcPeeringConnectionCommand(input, context);
+    return se_DeleteVpcPeeringConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcPeeringConnectionCommandOutput> {
-    return deserializeAws_ec2DeleteVpcPeeringConnectionCommand(output, context);
+    return de_DeleteVpcPeeringConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

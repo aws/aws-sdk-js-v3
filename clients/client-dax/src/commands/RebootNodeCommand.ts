@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  RebootNodeRequest,
-  RebootNodeRequestFilterSensitiveLog,
-  RebootNodeResponse,
-  RebootNodeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RebootNodeCommand,
-  serializeAws_json1_1RebootNodeCommand,
-} from "../protocols/Aws_json1_1";
+import { RebootNodeRequest, RebootNodeResponse } from "../models/models_0";
+import { de_RebootNodeCommand, se_RebootNodeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RebootNodeCommand}.
+ */
 export interface RebootNodeCommandInput extends RebootNodeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RebootNodeCommand}.
+ */
 export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reboots a single node of a DAX cluster. The reboot action takes place
  *             as soon as possible. During the
  *             reboot, the node status is set to REBOOTING.</p>
@@ -42,13 +45,39 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  * import { DAXClient, RebootNodeCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, RebootNodeCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = { // RebootNodeRequest
+ *   ClusterName: "STRING_VALUE", // required
+ *   NodeId: "STRING_VALUE", // required
+ * };
  * const command = new RebootNodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootNodeCommandInput - {@link RebootNodeCommandInput}
+ * @returns {@link RebootNodeCommandOutput}
  * @see {@link RebootNodeCommandInput} for command's `input` shape.
  * @see {@link RebootNodeCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The requested DAX cluster is not in the <i>available</i>
+ *             state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link NodeNotFoundFault} (client fault)
+ *  <p>None of the nodes in the cluster have the given node ID.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
  *
  */
 export class RebootNodeCommand extends $Command<
@@ -68,6 +97,9 @@ export class RebootNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +126,8 @@ export class RebootNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootNodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootNodeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +137,18 @@ export class RebootNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RebootNodeCommand(input, context);
+    return se_RebootNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootNodeCommandOutput> {
-    return deserializeAws_json1_1RebootNodeCommand(output, context);
+    return de_RebootNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

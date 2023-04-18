@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
+import { UpdateAssessmentControlSetStatusRequest, UpdateAssessmentControlSetStatusResponse } from "../models/models_0";
 import {
-  UpdateAssessmentControlSetStatusRequest,
-  UpdateAssessmentControlSetStatusRequestFilterSensitiveLog,
-  UpdateAssessmentControlSetStatusResponse,
-  UpdateAssessmentControlSetStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAssessmentControlSetStatusCommand,
-  serializeAws_restJson1UpdateAssessmentControlSetStatusCommand,
+  de_UpdateAssessmentControlSetStatusCommand,
+  se_UpdateAssessmentControlSetStatusCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateAssessmentControlSetStatusCommand}.
+ */
 export interface UpdateAssessmentControlSetStatusCommandInput extends UpdateAssessmentControlSetStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAssessmentControlSetStatusCommand}.
+ */
 export interface UpdateAssessmentControlSetStatusCommandOutput
   extends UpdateAssessmentControlSetStatusResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the status of a control set in an Audit Manager assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,36 @@ export interface UpdateAssessmentControlSetStatusCommandOutput
  * import { AuditManagerClient, UpdateAssessmentControlSetStatusCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, UpdateAssessmentControlSetStatusCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // UpdateAssessmentControlSetStatusRequest
+ *   assessmentId: "STRING_VALUE", // required
+ *   controlSetId: "STRING_VALUE", // required
+ *   status: "ACTIVE" || "UNDER_REVIEW" || "REVIEWED", // required
+ *   comment: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAssessmentControlSetStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAssessmentControlSetStatusCommandInput - {@link UpdateAssessmentControlSetStatusCommandInput}
+ * @returns {@link UpdateAssessmentControlSetStatusCommandOutput}
  * @see {@link UpdateAssessmentControlSetStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentControlSetStatusCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
  *
  */
 export class UpdateAssessmentControlSetStatusCommand extends $Command<
@@ -64,6 +93,9 @@ export class UpdateAssessmentControlSetStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAssessmentControlSetStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +124,8 @@ export class UpdateAssessmentControlSetStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAssessmentControlSetStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAssessmentControlSetStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +135,24 @@ export class UpdateAssessmentControlSetStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateAssessmentControlSetStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAssessmentControlSetStatusCommand(input, context);
+    return se_UpdateAssessmentControlSetStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAssessmentControlSetStatusCommandOutput> {
-    return deserializeAws_restJson1UpdateAssessmentControlSetStatusCommand(output, context);
+    return de_UpdateAssessmentControlSetStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

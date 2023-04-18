@@ -16,22 +16,31 @@ import {
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import {
   DescribeEnvironmentManagedActionHistoryRequest,
-  DescribeEnvironmentManagedActionHistoryRequestFilterSensitiveLog,
   DescribeEnvironmentManagedActionHistoryResult,
-  DescribeEnvironmentManagedActionHistoryResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommand,
-  serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand,
+  de_DescribeEnvironmentManagedActionHistoryCommand,
+  se_DescribeEnvironmentManagedActionHistoryCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEnvironmentManagedActionHistoryCommand}.
+ */
 export interface DescribeEnvironmentManagedActionHistoryCommandInput
   extends DescribeEnvironmentManagedActionHistoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEnvironmentManagedActionHistoryCommand}.
+ */
 export interface DescribeEnvironmentManagedActionHistoryCommandOutput
   extends DescribeEnvironmentManagedActionHistoryResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists an environment's completed and failed managed actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,25 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
  * import { ElasticBeanstalkClient, DescribeEnvironmentManagedActionHistoryCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentManagedActionHistoryCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DescribeEnvironmentManagedActionHistoryRequest
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new DescribeEnvironmentManagedActionHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentManagedActionHistoryCommandInput - {@link DescribeEnvironmentManagedActionHistoryCommandInput}
+ * @returns {@link DescribeEnvironmentManagedActionHistoryCommandOutput}
  * @see {@link DescribeEnvironmentManagedActionHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentManagedActionHistoryCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link ElasticBeanstalkServiceException} (client fault)
+ *  <p>A generic service exception has occurred.</p>
+ *
  *
  */
 export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
@@ -65,6 +86,9 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentManagedActionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +123,8 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentManagedActionHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEnvironmentManagedActionHistoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +134,24 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEnvironmentManagedActionHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand(input, context);
+    return se_DescribeEnvironmentManagedActionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommand(output, context);
+    return de_DescribeEnvironmentManagedActionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

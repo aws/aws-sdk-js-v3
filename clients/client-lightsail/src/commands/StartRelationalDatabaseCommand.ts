@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  StartRelationalDatabaseRequest,
-  StartRelationalDatabaseRequestFilterSensitiveLog,
-  StartRelationalDatabaseResult,
-  StartRelationalDatabaseResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1StartRelationalDatabaseCommand,
-  serializeAws_json1_1StartRelationalDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { StartRelationalDatabaseRequest, StartRelationalDatabaseResult } from "../models/models_1";
+import { de_StartRelationalDatabaseCommand, se_StartRelationalDatabaseCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartRelationalDatabaseCommand}.
+ */
 export interface StartRelationalDatabaseCommandInput extends StartRelationalDatabaseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartRelationalDatabaseCommand}.
+ */
 export interface StartRelationalDatabaseCommandOutput extends StartRelationalDatabaseResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a specific database from a stopped state in Amazon Lightsail. To restart a database,
  *       use the <code>reboot relational database</code> operation.</p>
  *          <p>The <code>start relational database</code> operation supports tag-based access control via
@@ -40,13 +43,49 @@ export interface StartRelationalDatabaseCommandOutput extends StartRelationalDat
  * import { LightsailClient, StartRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StartRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // StartRelationalDatabaseRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ * };
  * const command = new StartRelationalDatabaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRelationalDatabaseCommandInput - {@link StartRelationalDatabaseCommandInput}
+ * @returns {@link StartRelationalDatabaseCommandOutput}
  * @see {@link StartRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link StartRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class StartRelationalDatabaseCommand extends $Command<
@@ -66,6 +105,9 @@ export class StartRelationalDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRelationalDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +136,8 @@ export class StartRelationalDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRelationalDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRelationalDatabaseResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +147,18 @@ export class StartRelationalDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartRelationalDatabaseCommand(input, context);
+    return se_StartRelationalDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1StartRelationalDatabaseCommand(output, context);
+    return de_StartRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

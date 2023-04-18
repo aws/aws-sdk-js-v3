@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTextTranslationJobsRequest,
-  ListTextTranslationJobsRequestFilterSensitiveLog,
-  ListTextTranslationJobsResponse,
-  ListTextTranslationJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTextTranslationJobsCommand,
-  serializeAws_json1_1ListTextTranslationJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTextTranslationJobsRequest, ListTextTranslationJobsResponse } from "../models/models_0";
+import { de_ListTextTranslationJobsCommand, se_ListTextTranslationJobsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListTextTranslationJobsCommand}.
+ */
 export interface ListTextTranslationJobsCommandInput extends ListTextTranslationJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTextTranslationJobsCommand}.
+ */
 export interface ListTextTranslationJobsCommandOutput extends ListTextTranslationJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the batch translation jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  * import { TranslateClient, ListTextTranslationJobsCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ListTextTranslationJobsCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = { // ListTextTranslationJobsRequest
+ *   Filter: { // TextTranslationJobFilter
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERROR" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmittedBeforeTime: new Date("TIMESTAMP"),
+ *     SubmittedAfterTime: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTextTranslationJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTextTranslationJobsCommandInput - {@link ListTextTranslationJobsCommandInput}
+ * @returns {@link ListTextTranslationJobsCommandOutput}
  * @see {@link ListTextTranslationJobsCommandInput} for command's `input` shape.
  * @see {@link ListTextTranslationJobsCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidFilterException} (client fault)
+ *  <p>The filter specified for the operation is not valid. Specify a different filter.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p> The request that you made is not valid. Check your request to determine why it's not
+ *       valid and then retry the request. </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again.</p>
+ *
  *
  */
 export class ListTextTranslationJobsCommand extends $Command<
@@ -62,6 +92,9 @@ export class ListTextTranslationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTextTranslationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class ListTextTranslationJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTextTranslationJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTextTranslationJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class ListTextTranslationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTextTranslationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTextTranslationJobsCommand(input, context);
+    return se_ListTextTranslationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTextTranslationJobsCommandOutput> {
-    return deserializeAws_json1_1ListTextTranslationJobsCommand(output, context);
+    return de_ListTextTranslationJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

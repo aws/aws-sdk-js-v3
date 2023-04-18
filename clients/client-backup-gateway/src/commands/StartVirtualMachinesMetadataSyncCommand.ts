@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
+import { StartVirtualMachinesMetadataSyncInput, StartVirtualMachinesMetadataSyncOutput } from "../models/models_0";
 import {
-  StartVirtualMachinesMetadataSyncInput,
-  StartVirtualMachinesMetadataSyncInputFilterSensitiveLog,
-  StartVirtualMachinesMetadataSyncOutput,
-  StartVirtualMachinesMetadataSyncOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0StartVirtualMachinesMetadataSyncCommand,
-  serializeAws_json1_0StartVirtualMachinesMetadataSyncCommand,
+  de_StartVirtualMachinesMetadataSyncCommand,
+  se_StartVirtualMachinesMetadataSyncCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link StartVirtualMachinesMetadataSyncCommand}.
+ */
 export interface StartVirtualMachinesMetadataSyncCommandInput extends StartVirtualMachinesMetadataSyncInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartVirtualMachinesMetadataSyncCommand}.
+ */
 export interface StartVirtualMachinesMetadataSyncCommandOutput
   extends StartVirtualMachinesMetadataSyncOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action sends a request to sync metadata across the specified virtual machines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,35 @@ export interface StartVirtualMachinesMetadataSyncCommandOutput
  * import { BackupGatewayClient, StartVirtualMachinesMetadataSyncCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, StartVirtualMachinesMetadataSyncCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // StartVirtualMachinesMetadataSyncInput
+ *   HypervisorArn: "STRING_VALUE", // required
+ * };
  * const command = new StartVirtualMachinesMetadataSyncCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartVirtualMachinesMetadataSyncCommandInput - {@link StartVirtualMachinesMetadataSyncCommandInput}
+ * @returns {@link StartVirtualMachinesMetadataSyncCommandOutput}
  * @see {@link StartVirtualMachinesMetadataSyncCommandInput} for command's `input` shape.
  * @see {@link StartVirtualMachinesMetadataSyncCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The operation cannot proceed because you have insufficient permissions.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action wasn't found.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>TPS has been limited to protect against intentional or unintentional
+ *     high request volumes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
  *
  */
 export class StartVirtualMachinesMetadataSyncCommand extends $Command<
@@ -64,6 +92,9 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartVirtualMachinesMetadataSyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartVirtualMachinesMetadataSyncInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartVirtualMachinesMetadataSyncOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +134,24 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartVirtualMachinesMetadataSyncCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartVirtualMachinesMetadataSyncCommand(input, context);
+    return se_StartVirtualMachinesMetadataSyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartVirtualMachinesMetadataSyncCommandOutput> {
-    return deserializeAws_json1_0StartVirtualMachinesMetadataSyncCommand(output, context);
+    return de_StartVirtualMachinesMetadataSyncCommand(output, context);
   }
 
   // Start section: command_body_extra

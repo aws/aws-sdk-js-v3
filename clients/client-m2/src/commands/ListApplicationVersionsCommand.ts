@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  ListApplicationVersionsRequest,
-  ListApplicationVersionsRequestFilterSensitiveLog,
-  ListApplicationVersionsResponse,
-  ListApplicationVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListApplicationVersionsCommand,
-  serializeAws_restJson1ListApplicationVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListApplicationVersionsRequest, ListApplicationVersionsResponse } from "../models/models_0";
+import { de_ListApplicationVersionsCommand, se_ListApplicationVersionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListApplicationVersionsCommand}.
+ */
 export interface ListApplicationVersionsCommandInput extends ListApplicationVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListApplicationVersionsCommand}.
+ */
 export interface ListApplicationVersionsCommandOutput extends ListApplicationVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the application versions for a specific application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * import { M2Client, ListApplicationVersionsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListApplicationVersionsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // ListApplicationVersionsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new ListApplicationVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationVersionsCommandInput - {@link ListApplicationVersionsCommandInput}
+ * @returns {@link ListApplicationVersionsCommandOutput}
  * @see {@link ListApplicationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationVersionsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameters provided in the request is not valid.</p>
+ *
  *
  */
 export class ListApplicationVersionsCommand extends $Command<
@@ -62,6 +88,9 @@ export class ListApplicationVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class ListApplicationVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class ListApplicationVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApplicationVersionsCommand(input, context);
+    return se_ListApplicationVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationVersionsCommandOutput> {
-    return deserializeAws_restJson1ListApplicationVersionsCommand(output, context);
+    return de_ListApplicationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

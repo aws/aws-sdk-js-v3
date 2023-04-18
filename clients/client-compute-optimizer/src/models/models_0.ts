@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ComputeOptimizerServiceException as __BaseException } from "./ComputeOptimizerServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,14 +23,24 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum Status {
-  ACTIVE = "Active",
-  FAILED = "Failed",
-  INACTIVE = "Inactive",
-  PENDING = "Pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  ACTIVE: "Active",
+  FAILED: "Failed",
+  INACTIVE: "Inactive",
+  PENDING: "Pending",
+} as const;
 
 /**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
  * <p>Describes the enrollment status of an organization's member accounts in Compute Optimizer.</p>
  */
 export interface AccountEnrollmentStatus {
@@ -57,12 +68,22 @@ export interface AccountEnrollmentStatus {
   lastUpdatedTimestamp?: Date;
 }
 
-export enum AutoScalingConfiguration {
-  TARGET_TRACKING_SCALING_CPU = "TargetTrackingScalingCpu",
-  TARGET_TRACKING_SCALING_MEMORY = "TargetTrackingScalingMemory",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoScalingConfiguration = {
+  TARGET_TRACKING_SCALING_CPU: "TargetTrackingScalingCpu",
+  TARGET_TRACKING_SCALING_MEMORY: "TargetTrackingScalingMemory",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoScalingConfiguration = (typeof AutoScalingConfiguration)[keyof typeof AutoScalingConfiguration];
+
+/**
+ * @public
  * <p>Describes the configuration of an Auto Scaling group.</p>
  */
 export interface AutoScalingGroupConfiguration {
@@ -89,31 +110,69 @@ export interface AutoScalingGroupConfiguration {
   instanceType?: string;
 }
 
-export enum CurrentPerformanceRisk {
-  HIGH = "High",
-  LOW = "Low",
-  MEDIUM = "Medium",
-  VERY_LOW = "VeryLow",
-}
-
-export enum CpuVendorArchitecture {
-  AWS_ARM64 = "AWS_ARM64",
-  CURRENT = "CURRENT",
-}
-
-export enum EnhancedInfrastructureMetrics {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
-
-export enum ExternalMetricsSource {
-  DATADOG = "Datadog",
-  DYNATRACE = "Dynatrace",
-  INSTANA = "Instana",
-  NEWRELIC = "NewRelic",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CurrentPerformanceRisk = {
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  VERY_LOW: "VeryLow",
+} as const;
 
 /**
+ * @public
+ */
+export type CurrentPerformanceRisk = (typeof CurrentPerformanceRisk)[keyof typeof CurrentPerformanceRisk];
+
+/**
+ * @public
+ * @enum
+ */
+export const CpuVendorArchitecture = {
+  AWS_ARM64: "AWS_ARM64",
+  CURRENT: "CURRENT",
+} as const;
+
+/**
+ * @public
+ */
+export type CpuVendorArchitecture = (typeof CpuVendorArchitecture)[keyof typeof CpuVendorArchitecture];
+
+/**
+ * @public
+ * @enum
+ */
+export const EnhancedInfrastructureMetrics = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type EnhancedInfrastructureMetrics =
+  (typeof EnhancedInfrastructureMetrics)[keyof typeof EnhancedInfrastructureMetrics];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalMetricsSource = {
+  DATADOG: "Datadog",
+  DYNATRACE: "Dynatrace",
+  INSTANA: "Instana",
+  NEWRELIC: "NewRelic",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalMetricsSource = (typeof ExternalMetricsSource)[keyof typeof ExternalMetricsSource];
+
+/**
+ * @public
  * <p> Describes the external metrics preferences for EC2 rightsizing recommendations.
  *         </p>
  */
@@ -124,12 +183,23 @@ export interface ExternalMetricsPreference {
   source?: ExternalMetricsSource | string;
 }
 
-export enum InferredWorkloadTypesPreference {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InferredWorkloadTypesPreference = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
 
 /**
+ * @public
+ */
+export type InferredWorkloadTypesPreference =
+  (typeof InferredWorkloadTypesPreference)[keyof typeof InferredWorkloadTypesPreference];
+
+/**
+ * @public
  * <p>Describes the effective recommendation preferences for a resource.</p>
  */
 export interface EffectiveRecommendationPreferences {
@@ -183,53 +253,100 @@ export interface EffectiveRecommendationPreferences {
   externalMetricsPreference?: ExternalMetricsPreference;
 }
 
-export enum Finding {
-  NOT_OPTIMIZED = "NotOptimized",
-  OPTIMIZED = "Optimized",
-  OVER_PROVISIONED = "Overprovisioned",
-  UNDER_PROVISIONED = "Underprovisioned",
-}
-
-export enum InferredWorkloadType {
-  AMAZON_EMR = "AmazonEmr",
-  APACHE_CASSANDRA = "ApacheCassandra",
-  APACHE_HADOOP = "ApacheHadoop",
-  MEMCACHED = "Memcached",
-  NGINX = "Nginx",
-  POSTGRE_SQL = "PostgreSql",
-  REDIS = "Redis",
-}
-
-export enum MigrationEffort {
-  HIGH = "High",
-  LOW = "Low",
-  MEDIUM = "Medium",
-  VERY_LOW = "VeryLow",
-}
-
-export enum MetricName {
-  CPU = "Cpu",
-  DISK_READ_BYTES_PER_SECOND = "DISK_READ_BYTES_PER_SECOND",
-  DISK_READ_OPS_PER_SECOND = "DISK_READ_OPS_PER_SECOND",
-  DISK_WRITE_BYTES_PER_SECOND = "DISK_WRITE_BYTES_PER_SECOND",
-  DISK_WRITE_OPS_PER_SECOND = "DISK_WRITE_OPS_PER_SECOND",
-  EBS_READ_BYTES_PER_SECOND = "EBS_READ_BYTES_PER_SECOND",
-  EBS_READ_OPS_PER_SECOND = "EBS_READ_OPS_PER_SECOND",
-  EBS_WRITE_BYTES_PER_SECOND = "EBS_WRITE_BYTES_PER_SECOND",
-  EBS_WRITE_OPS_PER_SECOND = "EBS_WRITE_OPS_PER_SECOND",
-  MEMORY = "Memory",
-  NETWORK_IN_BYTES_PER_SECOND = "NETWORK_IN_BYTES_PER_SECOND",
-  NETWORK_OUT_BYTES_PER_SECOND = "NETWORK_OUT_BYTES_PER_SECOND",
-  NETWORK_PACKETS_IN_PER_SECOND = "NETWORK_PACKETS_IN_PER_SECOND",
-  NETWORK_PACKETS_OUT_PER_SECOND = "NETWORK_PACKETS_OUT_PER_SECOND",
-}
-
-export enum MetricStatistic {
-  AVERAGE = "Average",
-  MAXIMUM = "Maximum",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Finding = {
+  NOT_OPTIMIZED: "NotOptimized",
+  OPTIMIZED: "Optimized",
+  OVER_PROVISIONED: "Overprovisioned",
+  UNDER_PROVISIONED: "Underprovisioned",
+} as const;
 
 /**
+ * @public
+ */
+export type Finding = (typeof Finding)[keyof typeof Finding];
+
+/**
+ * @public
+ * @enum
+ */
+export const InferredWorkloadType = {
+  AMAZON_EMR: "AmazonEmr",
+  APACHE_CASSANDRA: "ApacheCassandra",
+  APACHE_HADOOP: "ApacheHadoop",
+  KAFKA: "Kafka",
+  MEMCACHED: "Memcached",
+  NGINX: "Nginx",
+  POSTGRE_SQL: "PostgreSql",
+  REDIS: "Redis",
+} as const;
+
+/**
+ * @public
+ */
+export type InferredWorkloadType = (typeof InferredWorkloadType)[keyof typeof InferredWorkloadType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MigrationEffort = {
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  VERY_LOW: "VeryLow",
+} as const;
+
+/**
+ * @public
+ */
+export type MigrationEffort = (typeof MigrationEffort)[keyof typeof MigrationEffort];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricName = {
+  CPU: "Cpu",
+  DISK_READ_BYTES_PER_SECOND: "DISK_READ_BYTES_PER_SECOND",
+  DISK_READ_OPS_PER_SECOND: "DISK_READ_OPS_PER_SECOND",
+  DISK_WRITE_BYTES_PER_SECOND: "DISK_WRITE_BYTES_PER_SECOND",
+  DISK_WRITE_OPS_PER_SECOND: "DISK_WRITE_OPS_PER_SECOND",
+  EBS_READ_BYTES_PER_SECOND: "EBS_READ_BYTES_PER_SECOND",
+  EBS_READ_OPS_PER_SECOND: "EBS_READ_OPS_PER_SECOND",
+  EBS_WRITE_BYTES_PER_SECOND: "EBS_WRITE_BYTES_PER_SECOND",
+  EBS_WRITE_OPS_PER_SECOND: "EBS_WRITE_OPS_PER_SECOND",
+  MEMORY: "Memory",
+  NETWORK_IN_BYTES_PER_SECOND: "NETWORK_IN_BYTES_PER_SECOND",
+  NETWORK_OUT_BYTES_PER_SECOND: "NETWORK_OUT_BYTES_PER_SECOND",
+  NETWORK_PACKETS_IN_PER_SECOND: "NETWORK_PACKETS_IN_PER_SECOND",
+  NETWORK_PACKETS_OUT_PER_SECOND: "NETWORK_PACKETS_OUT_PER_SECOND",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricName = (typeof MetricName)[keyof typeof MetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricStatistic = {
+  AVERAGE: "Average",
+  MAXIMUM: "Maximum",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatistic];
+
+/**
+ * @public
  * <p>Describes a utilization metric of a resource, such as an Amazon EC2
  *             instance.</p>
  *          <p>Compare the utilization metric data of your resource against its projected utilization
@@ -372,12 +489,22 @@ export interface UtilizationMetric {
   value?: number;
 }
 
-export enum Currency {
-  CNY = "CNY",
-  USD = "USD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Currency = {
+  CNY: "CNY",
+  USD: "USD",
+} as const;
 
 /**
+ * @public
+ */
+export type Currency = (typeof Currency)[keyof typeof Currency];
+
+/**
+ * @public
  * <p>Describes the estimated monthly savings amount possible, based on On-Demand instance
  *             pricing, by adopting Compute Optimizer recommendations for a given resource.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-ec2-recommendations.html#ec2-savings-calculation">Estimated monthly savings and savings opportunities</a> in the
@@ -397,6 +524,7 @@ export interface EstimatedMonthlySavings {
 }
 
 /**
+ * @public
  * <p>Describes the savings opportunity for recommendations of a given resource type or for
  *             the recommendation option of an individual resource.</p>
  *          <p>Savings opportunity represents the estimated monthly savings you can achieve by
@@ -430,6 +558,7 @@ export interface SavingsOpportunity {
 }
 
 /**
+ * @public
  * <p>Describes a recommendation option for an Auto Scaling group.</p>
  */
 export interface AutoScalingGroupRecommendationOption {
@@ -496,6 +625,7 @@ export interface AutoScalingGroupRecommendationOption {
 }
 
 /**
+ * @public
  * <p>Describes an Auto Scaling group recommendation.</p>
  */
 export interface AutoScalingGroupRecommendation {
@@ -626,28 +756,57 @@ export interface AutoScalingGroupRecommendation {
   inferredWorkloadTypes?: (InferredWorkloadType | string)[];
 }
 
-export enum RecommendationPreferenceName {
-  ENHANCED_INFRASTRUCTURE_METRICS = "EnhancedInfrastructureMetrics",
-  EXTERNAL_METRICS_PREFERENCE = "ExternalMetricsPreference",
-  INFERRED_WORKLOAD_TYPES = "InferredWorkloadTypes",
-}
-
-export enum ResourceType {
-  AUTO_SCALING_GROUP = "AutoScalingGroup",
-  EBS_VOLUME = "EbsVolume",
-  EC2_INSTANCE = "Ec2Instance",
-  ECS_SERVICE = "EcsService",
-  LAMBDA_FUNCTION = "LambdaFunction",
-  NOT_APPLICABLE = "NotApplicable",
-}
-
-export enum ScopeName {
-  ACCOUNT_ID = "AccountId",
-  ORGANIZATION = "Organization",
-  RESOURCE_ARN = "ResourceArn",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationPreferenceName = {
+  ENHANCED_INFRASTRUCTURE_METRICS: "EnhancedInfrastructureMetrics",
+  EXTERNAL_METRICS_PREFERENCE: "ExternalMetricsPreference",
+  INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
+} as const;
 
 /**
+ * @public
+ */
+export type RecommendationPreferenceName =
+  (typeof RecommendationPreferenceName)[keyof typeof RecommendationPreferenceName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  AUTO_SCALING_GROUP: "AutoScalingGroup",
+  EBS_VOLUME: "EbsVolume",
+  EC2_INSTANCE: "Ec2Instance",
+  ECS_SERVICE: "EcsService",
+  LAMBDA_FUNCTION: "LambdaFunction",
+  NOT_APPLICABLE: "NotApplicable",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScopeName = {
+  ACCOUNT_ID: "AccountId",
+  ORGANIZATION: "Organization",
+  RESOURCE_ARN: "ResourceArn",
+} as const;
+
+/**
+ * @public
+ */
+export type ScopeName = (typeof ScopeName)[keyof typeof ScopeName];
+
+/**
+ * @public
  * <p>Describes the scope of a recommendation preference.</p>
  *          <p>Recommendation preferences can be created at the organization level (for management
  *             accounts of an organization only), account level, and resource level. For more
@@ -715,6 +874,9 @@ export interface Scope {
   value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRecommendationPreferencesRequest {
   /**
    * <p>The target resource type of the recommendation preference to delete.</p>
@@ -744,9 +906,13 @@ export interface DeleteRecommendationPreferencesRequest {
   recommendationPreferenceNames: (RecommendationPreferenceName | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRecommendationPreferencesResponse {}
 
 /**
+ * @public
  * <p>An internal error has occurred. Try your call again.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -766,6 +932,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The value supplied for the input parameter is out of range or not valid.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -785,6 +952,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request must contain either a valid (registered) Amazon Web Services access key ID
  *             or X.509 certificate.</p>
  */
@@ -805,6 +973,7 @@ export class MissingAuthenticationToken extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The account is not opted in to Compute Optimizer.</p>
  */
 export class OptInRequiredException extends __BaseException {
@@ -824,6 +993,7 @@ export class OptInRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource that is required for the action doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -843,6 +1013,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request has failed due to a temporary failure of the server.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -862,6 +1033,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -880,12 +1052,22 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
-export enum JobFilterName {
-  JOB_STATUS = "JobStatus",
-  RESOURCE_TYPE = "ResourceType",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobFilterName = {
+  JOB_STATUS: "JobStatus",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
 
 /**
+ * @public
+ */
+export type JobFilterName = (typeof JobFilterName)[keyof typeof JobFilterName];
+
+/**
+ * @public
  * <p>Describes a filter that returns a more specific list of recommendation export jobs.
  *             Use this filter with the <a>DescribeRecommendationExportJobs</a>
  *             action.</p>
@@ -924,6 +1106,9 @@ export interface JobFilter {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecommendationExportJobsRequest {
   /**
    * <p>The identification numbers of the export jobs to return.</p>
@@ -953,6 +1138,7 @@ export interface DescribeRecommendationExportJobsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
  *             object keys of a recommendations export file, and its associated metadata file.</p>
  */
@@ -977,6 +1163,7 @@ export interface S3Destination {
 }
 
 /**
+ * @public
  * <p>Describes the destination of the recommendations export and metadata files.</p>
  */
 export interface ExportDestination {
@@ -988,14 +1175,24 @@ export interface ExportDestination {
   s3?: S3Destination;
 }
 
-export enum JobStatus {
-  COMPLETE = "Complete",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  QUEUED = "Queued",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  COMPLETE: "Complete",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  QUEUED: "Queued",
+} as const;
 
 /**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
  * <p>Describes a recommendation export job.</p>
  *          <p>Use the <a>DescribeRecommendationExportJobs</a> action to view your
  *             recommendation export jobs.</p>
@@ -1039,6 +1236,9 @@ export interface RecommendationExportJob {
   failureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecommendationExportJobsResponse {
   /**
    * <p>An array of objects that describe recommendation export jobs.</p>
@@ -1052,74 +1252,110 @@ export interface DescribeRecommendationExportJobsResponse {
   nextToken?: string;
 }
 
-export enum ExportableAutoScalingGroupField {
-  ACCOUNT_ID = "AccountId",
-  AUTO_SCALING_GROUP_ARN = "AutoScalingGroupArn",
-  AUTO_SCALING_GROUP_NAME = "AutoScalingGroupName",
-  CURRENT_CONFIGURATION_DESIRED_CAPACITY = "CurrentConfigurationDesiredCapacity",
-  CURRENT_CONFIGURATION_INSTANCE_TYPE = "CurrentConfigurationInstanceType",
-  CURRENT_CONFIGURATION_MAX_SIZE = "CurrentConfigurationMaxSize",
-  CURRENT_CONFIGURATION_MIN_SIZE = "CurrentConfigurationMinSize",
-  CURRENT_MEMORY = "CurrentMemory",
-  CURRENT_NETWORK = "CurrentNetwork",
-  CURRENT_ON_DEMAND_PRICE = "CurrentOnDemandPrice",
-  CURRENT_PERFORMANCE_RISK = "CurrentPerformanceRisk",
-  CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE = "CurrentStandardOneYearNoUpfrontReservedPrice",
-  CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE = "CurrentStandardThreeYearNoUpfrontReservedPrice",
-  CURRENT_STORAGE = "CurrentStorage",
-  CURRENT_VCPUS = "CurrentVCpus",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES = "EffectiveRecommendationPreferencesCpuVendorArchitectures",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS = "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES = "EffectiveRecommendationPreferencesInferredWorkloadTypes",
-  FINDING = "Finding",
-  INFERRED_WORKLOAD_TYPES = "InferredWorkloadTypes",
-  LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
-  LOOKBACK_PERIOD_IN_DAYS = "LookbackPeriodInDays",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY = "RecommendationOptionsConfigurationDesiredCapacity",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE = "RecommendationOptionsConfigurationInstanceType",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE = "RecommendationOptionsConfigurationMaxSize",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE = "RecommendationOptionsConfigurationMinSize",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY = "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
-  RECOMMENDATION_OPTIONS_MEMORY = "RecommendationOptionsMemory",
-  RECOMMENDATION_OPTIONS_MIGRATION_EFFORT = "RecommendationOptionsMigrationEffort",
-  RECOMMENDATION_OPTIONS_NETWORK = "RecommendationOptionsNetwork",
-  RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE = "RecommendationOptionsOnDemandPrice",
-  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK = "RecommendationOptionsPerformanceRisk",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
-  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE = "RecommendationOptionsSavingsOpportunityPercentage",
-  RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE = "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
-  RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE = "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
-  RECOMMENDATION_OPTIONS_STORAGE = "RecommendationOptionsStorage",
-  RECOMMENDATION_OPTIONS_VCPUS = "RecommendationOptionsVcpus",
-  UTILIZATION_METRICS_CPU_MAXIMUM = "UtilizationMetricsCpuMaximum",
-  UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskReadBytesPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskReadOpsPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskWriteBytesPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskWriteOpsPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsReadBytesPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsReadOpsPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
-  UTILIZATION_METRICS_MEMORY_MAXIMUM = "UtilizationMetricsMemoryMaximum",
-  UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkInBytesPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkPacketsInPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkPacketsOutPerSecondMaximum",
-}
-
-export enum FileFormat {
-  CSV = "Csv",
-}
-
-export enum FilterName {
-  FINDING = "Finding",
-  FINDING_REASON_CODES = "FindingReasonCodes",
-  RECOMMENDATION_SOURCE_TYPE = "RecommendationSourceType",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExportableAutoScalingGroupField = {
+  ACCOUNT_ID: "AccountId",
+  AUTO_SCALING_GROUP_ARN: "AutoScalingGroupArn",
+  AUTO_SCALING_GROUP_NAME: "AutoScalingGroupName",
+  CURRENT_CONFIGURATION_DESIRED_CAPACITY: "CurrentConfigurationDesiredCapacity",
+  CURRENT_CONFIGURATION_INSTANCE_TYPE: "CurrentConfigurationInstanceType",
+  CURRENT_CONFIGURATION_MAX_SIZE: "CurrentConfigurationMaxSize",
+  CURRENT_CONFIGURATION_MIN_SIZE: "CurrentConfigurationMinSize",
+  CURRENT_MEMORY: "CurrentMemory",
+  CURRENT_NETWORK: "CurrentNetwork",
+  CURRENT_ON_DEMAND_PRICE: "CurrentOnDemandPrice",
+  CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE: "CurrentStandardOneYearNoUpfrontReservedPrice",
+  CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE: "CurrentStandardThreeYearNoUpfrontReservedPrice",
+  CURRENT_STORAGE: "CurrentStorage",
+  CURRENT_VCPUS: "CurrentVCpus",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES:
+    "EffectiveRecommendationPreferencesCpuVendorArchitectures",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS:
+    "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES:
+    "EffectiveRecommendationPreferencesInferredWorkloadTypes",
+  FINDING: "Finding",
+  INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY: "RecommendationOptionsConfigurationDesiredCapacity",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE: "RecommendationOptionsConfigurationInstanceType",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE: "RecommendationOptionsConfigurationMaxSize",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE: "RecommendationOptionsConfigurationMinSize",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_MEMORY: "RecommendationOptionsMemory",
+  RECOMMENDATION_OPTIONS_MIGRATION_EFFORT: "RecommendationOptionsMigrationEffort",
+  RECOMMENDATION_OPTIONS_NETWORK: "RecommendationOptionsNetwork",
+  RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE: "RecommendationOptionsOnDemandPrice",
+  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "RecommendationOptionsPerformanceRisk",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE:
+    "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
+  RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE:
+    "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
+  RECOMMENDATION_OPTIONS_STORAGE: "RecommendationOptionsStorage",
+  RECOMMENDATION_OPTIONS_VCPUS: "RecommendationOptionsVcpus",
+  UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
+  UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskReadBytesPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskWriteBytesPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadBytesPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
+  UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkInBytesPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkPacketsInPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkPacketsOutPerSecondMaximum",
+} as const;
 
 /**
+ * @public
+ */
+export type ExportableAutoScalingGroupField =
+  (typeof ExportableAutoScalingGroupField)[keyof typeof ExportableAutoScalingGroupField];
+
+/**
+ * @public
+ * @enum
+ */
+export const FileFormat = {
+  CSV: "Csv",
+} as const;
+
+/**
+ * @public
+ */
+export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterName = {
+  FINDING: "Finding",
+  FINDING_REASON_CODES: "FindingReasonCodes",
+  RECOMMENDATION_SOURCE_TYPE: "RecommendationSourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterName = (typeof FilterName)[keyof typeof FilterName];
+
+/**
+ * @public
  * <p>Describes a filter that returns a more specific list of recommendations. Use this
  *             filter with the <a>GetAutoScalingGroupRecommendations</a> and <a>GetEC2InstanceRecommendations</a> actions.</p>
  *          <p>You can use <code>EBSFilter</code> with the <a>GetEBSVolumeRecommendations</a> action,
@@ -1310,6 +1546,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, and <a>GetEC2RecommendationProjectedMetrics</a> request.</p>
  */
 export interface RecommendationPreferences {
@@ -1335,6 +1572,7 @@ export interface RecommendationPreferences {
 }
 
 /**
+ * @public
  * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
  *             key prefix for a recommendations export job.</p>
  *          <p>You must create the destination Amazon S3 bucket for your recommendations
@@ -1358,6 +1596,9 @@ export interface S3DestinationConfig {
   keyPrefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExportAutoScalingGroupRecommendationsRequest {
   /**
    * <p>The IDs of the Amazon Web Services accounts for which to export Auto Scaling group
@@ -1426,6 +1667,9 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
   recommendationPreferences?: RecommendationPreferences;
 }
 
+/**
+ * @public
+ */
 export interface ExportAutoScalingGroupRecommendationsResponse {
   /**
    * <p>The identification number of the export job.</p>
@@ -1442,6 +1686,7 @@ export interface ExportAutoScalingGroupRecommendationsResponse {
 }
 
 /**
+ * @public
  * <p>The request exceeds a limit of the service.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -1460,42 +1705,64 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
-export enum ExportableVolumeField {
-  ACCOUNT_ID = "AccountId",
-  CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS = "CurrentConfigurationVolumeBaselineIOPS",
-  CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT = "CurrentConfigurationVolumeBaselineThroughput",
-  CURRENT_CONFIGURATION_VOLUME_BURST_IOPS = "CurrentConfigurationVolumeBurstIOPS",
-  CURRENT_CONFIGURATION_VOLUME_BURST_THROUGHPUT = "CurrentConfigurationVolumeBurstThroughput",
-  CURRENT_CONFIGURATION_VOLUME_SIZE = "CurrentConfigurationVolumeSize",
-  CURRENT_CONFIGURATION_VOLUME_TYPE = "CurrentConfigurationVolumeType",
-  CURRENT_MONTHLY_PRICE = "CurrentMonthlyPrice",
-  CURRENT_PERFORMANCE_RISK = "CurrentPerformanceRisk",
-  FINDING = "Finding",
-  LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
-  LOOKBACK_PERIOD_IN_DAYS = "LookbackPeriodInDays",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_IOPS = "RecommendationOptionsConfigurationVolumeBaselineIOPS",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT = "RecommendationOptionsConfigurationVolumeBaselineThroughput",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_IOPS = "RecommendationOptionsConfigurationVolumeBurstIOPS",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_THROUGHPUT = "RecommendationOptionsConfigurationVolumeBurstThroughput",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_SIZE = "RecommendationOptionsConfigurationVolumeSize",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_TYPE = "RecommendationOptionsConfigurationVolumeType",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY = "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
-  RECOMMENDATION_OPTIONS_MONTHLY_PRICE = "RecommendationOptionsMonthlyPrice",
-  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK = "RecommendationOptionsPerformanceRisk",
-  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE = "RecommendationOptionsSavingsOpportunityPercentage",
-  UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsVolumeReadBytesPerSecondMaximum",
-  UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
-  UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsVolumeWriteBytesPerSecondMaximum",
-  UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsVolumeWriteOpsPerSecondMaximum",
-  VOLUME_ARN = "VolumeArn",
-}
-
-export enum EBSFilterName {
-  FINDING = "Finding",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExportableVolumeField = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS: "CurrentConfigurationVolumeBaselineIOPS",
+  CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT: "CurrentConfigurationVolumeBaselineThroughput",
+  CURRENT_CONFIGURATION_VOLUME_BURST_IOPS: "CurrentConfigurationVolumeBurstIOPS",
+  CURRENT_CONFIGURATION_VOLUME_BURST_THROUGHPUT: "CurrentConfigurationVolumeBurstThroughput",
+  CURRENT_CONFIGURATION_VOLUME_SIZE: "CurrentConfigurationVolumeSize",
+  CURRENT_CONFIGURATION_VOLUME_TYPE: "CurrentConfigurationVolumeType",
+  CURRENT_MONTHLY_PRICE: "CurrentMonthlyPrice",
+  CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  FINDING: "Finding",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_IOPS: "RecommendationOptionsConfigurationVolumeBaselineIOPS",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT:
+    "RecommendationOptionsConfigurationVolumeBaselineThroughput",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_IOPS: "RecommendationOptionsConfigurationVolumeBurstIOPS",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_THROUGHPUT:
+    "RecommendationOptionsConfigurationVolumeBurstThroughput",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_SIZE: "RecommendationOptionsConfigurationVolumeSize",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_TYPE: "RecommendationOptionsConfigurationVolumeType",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_MONTHLY_PRICE: "RecommendationOptionsMonthlyPrice",
+  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "RecommendationOptionsPerformanceRisk",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  ROOT_VOLUME: "RootVolume",
+  UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadBytesPerSecondMaximum",
+  UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeWriteBytesPerSecondMaximum",
+  UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeWriteOpsPerSecondMaximum",
+  VOLUME_ARN: "VolumeArn",
+} as const;
 
 /**
+ * @public
+ */
+export type ExportableVolumeField = (typeof ExportableVolumeField)[keyof typeof ExportableVolumeField];
+
+/**
+ * @public
+ * @enum
+ */
+export const EBSFilterName = {
+  FINDING: "Finding",
+} as const;
+
+/**
+ * @public
+ */
+export type EBSFilterName = (typeof EBSFilterName)[keyof typeof EBSFilterName];
+
+/**
+ * @public
  * <p>Describes a filter that returns a more specific list of Amazon Elastic Block Store
  *                 (Amazon EBS) volume recommendations. Use this filter with the <a>GetEBSVolumeRecommendations</a> action.</p>
  *          <p>You can use <code>LambdaFunctionRecommendationFilter</code> with the <a>GetLambdaFunctionRecommendations</a> action, <code>JobFilter</code> with the
@@ -1517,6 +1784,9 @@ export interface EBSFilter {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ExportEBSVolumeRecommendationsRequest {
   /**
    * <p>The IDs of the Amazon Web Services accounts for which to export Amazon EBS
@@ -1579,6 +1849,9 @@ export interface ExportEBSVolumeRecommendationsRequest {
   includeMemberAccounts?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ExportEBSVolumeRecommendationsResponse {
   /**
    * <p>The identification number of the export job.</p>
@@ -1594,62 +1867,83 @@ export interface ExportEBSVolumeRecommendationsResponse {
   s3Destination?: S3Destination;
 }
 
-export enum ExportableInstanceField {
-  ACCOUNT_ID = "AccountId",
-  CURRENT_INSTANCE_TYPE = "CurrentInstanceType",
-  CURRENT_MEMORY = "CurrentMemory",
-  CURRENT_NETWORK = "CurrentNetwork",
-  CURRENT_ON_DEMAND_PRICE = "CurrentOnDemandPrice",
-  CURRENT_PERFORMANCE_RISK = "CurrentPerformanceRisk",
-  CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE = "CurrentStandardOneYearNoUpfrontReservedPrice",
-  CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE = "CurrentStandardThreeYearNoUpfrontReservedPrice",
-  CURRENT_STORAGE = "CurrentStorage",
-  CURRENT_VCPUS = "CurrentVCpus",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES = "EffectiveRecommendationPreferencesCpuVendorArchitectures",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS = "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_EXTERNAL_METRICS_SOURCE = "EffectiveRecommendationPreferencesExternalMetricsSource",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES = "EffectiveRecommendationPreferencesInferredWorkloadTypes",
-  FINDING = "Finding",
-  Finding_Reason_Codes = "FindingReasonCodes",
-  INFERRED_WORKLOAD_TYPES = "InferredWorkloadTypes",
-  INSTANCE_ARN = "InstanceArn",
-  INSTANCE_NAME = "InstanceName",
-  LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
-  LOOKBACK_PERIOD_IN_DAYS = "LookbackPeriodInDays",
-  RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN = "RecommendationsSourcesRecommendationSourceArn",
-  RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE = "RecommendationsSourcesRecommendationSourceType",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY = "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
-  RECOMMENDATION_OPTIONS_INSTANCE_TYPE = "RecommendationOptionsInstanceType",
-  RECOMMENDATION_OPTIONS_MEMORY = "RecommendationOptionsMemory",
-  RECOMMENDATION_OPTIONS_MIGRATION_EFFORT = "RecommendationOptionsMigrationEffort",
-  RECOMMENDATION_OPTIONS_NETWORK = "RecommendationOptionsNetwork",
-  RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE = "RecommendationOptionsOnDemandPrice",
-  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK = "RecommendationOptionsPerformanceRisk",
-  RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES = "RecommendationOptionsPlatformDifferences",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
-  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE = "RecommendationOptionsSavingsOpportunityPercentage",
-  RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE = "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
-  RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE = "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
-  RECOMMENDATION_OPTIONS_STORAGE = "RecommendationOptionsStorage",
-  RECOMMENDATION_OPTIONS_VCPUS = "RecommendationOptionsVcpus",
-  UTILIZATION_METRICS_CPU_MAXIMUM = "UtilizationMetricsCpuMaximum",
-  UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskReadBytesPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskReadOpsPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskWriteBytesPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskWriteOpsPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsReadBytesPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsReadOpsPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
-  UTILIZATION_METRICS_MEMORY_MAXIMUM = "UtilizationMetricsMemoryMaximum",
-  UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkInBytesPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkPacketsInPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkPacketsOutPerSecondMaximum",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExportableInstanceField = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_INSTANCE_TYPE: "CurrentInstanceType",
+  CURRENT_MEMORY: "CurrentMemory",
+  CURRENT_NETWORK: "CurrentNetwork",
+  CURRENT_ON_DEMAND_PRICE: "CurrentOnDemandPrice",
+  CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE: "CurrentStandardOneYearNoUpfrontReservedPrice",
+  CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE: "CurrentStandardThreeYearNoUpfrontReservedPrice",
+  CURRENT_STORAGE: "CurrentStorage",
+  CURRENT_VCPUS: "CurrentVCpus",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES:
+    "EffectiveRecommendationPreferencesCpuVendorArchitectures",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS:
+    "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_EXTERNAL_METRICS_SOURCE:
+    "EffectiveRecommendationPreferencesExternalMetricsSource",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES:
+    "EffectiveRecommendationPreferencesInferredWorkloadTypes",
+  FINDING: "Finding",
+  Finding_Reason_Codes: "FindingReasonCodes",
+  INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
+  INSTANCE_ARN: "InstanceArn",
+  INSTANCE_NAME: "InstanceName",
+  INSTANCE_STATE: "InstanceState",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN: "RecommendationsSourcesRecommendationSourceArn",
+  RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE: "RecommendationsSourcesRecommendationSourceType",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_INSTANCE_TYPE: "RecommendationOptionsInstanceType",
+  RECOMMENDATION_OPTIONS_MEMORY: "RecommendationOptionsMemory",
+  RECOMMENDATION_OPTIONS_MIGRATION_EFFORT: "RecommendationOptionsMigrationEffort",
+  RECOMMENDATION_OPTIONS_NETWORK: "RecommendationOptionsNetwork",
+  RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE: "RecommendationOptionsOnDemandPrice",
+  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "RecommendationOptionsPerformanceRisk",
+  RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES: "RecommendationOptionsPlatformDifferences",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE:
+    "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
+  RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE:
+    "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
+  RECOMMENDATION_OPTIONS_STORAGE: "RecommendationOptionsStorage",
+  RECOMMENDATION_OPTIONS_VCPUS: "RecommendationOptionsVcpus",
+  UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
+  UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskReadBytesPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskWriteBytesPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadBytesPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
+  UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkInBytesPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkPacketsInPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkPacketsOutPerSecondMaximum",
+} as const;
 
+/**
+ * @public
+ */
+export type ExportableInstanceField = (typeof ExportableInstanceField)[keyof typeof ExportableInstanceField];
+
+/**
+ * @public
+ */
 export interface ExportEC2InstanceRecommendationsRequest {
   /**
    * <p>The IDs of the Amazon Web Services accounts for which to export instance
@@ -1718,6 +2012,9 @@ export interface ExportEC2InstanceRecommendationsRequest {
   recommendationPreferences?: RecommendationPreferences;
 }
 
+/**
+ * @public
+ */
 export interface ExportEC2InstanceRecommendationsResponse {
   /**
    * <p>The identification number of the export job.</p>
@@ -1733,38 +2030,60 @@ export interface ExportEC2InstanceRecommendationsResponse {
   s3Destination?: S3Destination;
 }
 
-export enum ExportableECSServiceField {
-  ACCOUNT_ID = "AccountId",
-  CURRENT_PERFORMANCE_RISK = "CurrentPerformanceRisk",
-  CURRENT_SERVICE_CONFIGURATION_AUTO_SCALING_CONFIGURATION = "CurrentServiceConfigurationAutoScalingConfiguration",
-  CURRENT_SERVICE_CONFIGURATION_CPU = "CurrentServiceConfigurationCpu",
-  CURRENT_SERVICE_CONFIGURATION_MEMORY = "CurrentServiceConfigurationMemory",
-  CURRENT_SERVICE_CONFIGURATION_TASK_DEFINITION_ARN = "CurrentServiceConfigurationTaskDefinitionArn",
-  CURRENT_SERVICE_CONTAINER_CONFIGURATIONS = "CurrentServiceContainerConfigurations",
-  FINDING = "Finding",
-  FINDING_REASON_CODES = "FindingReasonCodes",
-  LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
-  LAUNCH_TYPE = "LaunchType",
-  LOOKBACK_PERIOD_IN_DAYS = "LookbackPeriodInDays",
-  RECOMMENDATION_OPTIONS_CONTAINER_RECOMMENDATIONS = "RecommendationOptionsContainerRecommendations",
-  RECOMMENDATION_OPTIONS_CPU = "RecommendationOptionsCpu",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY = "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
-  RECOMMENDATION_OPTIONS_MEMORY = "RecommendationOptionsMemory",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
-  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE = "RecommendationOptionsSavingsOpportunityPercentage",
-  SERVICE_ARN = "ServiceArn",
-  UTILIZATION_METRICS_CPU_MAXIMUM = "UtilizationMetricsCpuMaximum",
-  UTILIZATION_METRICS_MEMORY_MAXIMUM = "UtilizationMetricsMemoryMaximum",
-}
-
-export enum ECSServiceRecommendationFilterName {
-  FINDING = "Finding",
-  FINDING_REASON_CODE = "FindingReasonCode",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExportableECSServiceField = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  CURRENT_SERVICE_CONFIGURATION_AUTO_SCALING_CONFIGURATION: "CurrentServiceConfigurationAutoScalingConfiguration",
+  CURRENT_SERVICE_CONFIGURATION_CPU: "CurrentServiceConfigurationCpu",
+  CURRENT_SERVICE_CONFIGURATION_MEMORY: "CurrentServiceConfigurationMemory",
+  CURRENT_SERVICE_CONFIGURATION_TASK_DEFINITION_ARN: "CurrentServiceConfigurationTaskDefinitionArn",
+  CURRENT_SERVICE_CONTAINER_CONFIGURATIONS: "CurrentServiceContainerConfigurations",
+  FINDING: "Finding",
+  FINDING_REASON_CODES: "FindingReasonCodes",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LAUNCH_TYPE: "LaunchType",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATION_OPTIONS_CONTAINER_RECOMMENDATIONS: "RecommendationOptionsContainerRecommendations",
+  RECOMMENDATION_OPTIONS_CPU: "RecommendationOptionsCpu",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_MEMORY: "RecommendationOptionsMemory",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  SERVICE_ARN: "ServiceArn",
+  UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
+  UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
+} as const;
 
 /**
+ * @public
+ */
+export type ExportableECSServiceField = (typeof ExportableECSServiceField)[keyof typeof ExportableECSServiceField];
+
+/**
+ * @public
+ * @enum
+ */
+export const ECSServiceRecommendationFilterName = {
+  FINDING: "Finding",
+  FINDING_REASON_CODE: "FindingReasonCode",
+} as const;
+
+/**
+ * @public
+ */
+export type ECSServiceRecommendationFilterName =
+  (typeof ECSServiceRecommendationFilterName)[keyof typeof ECSServiceRecommendationFilterName];
+
+/**
+ * @public
  * <p>
  *             Describes a filter that returns a more specific list of Amazon ECS service
  *             recommendations. Use this filter with the <a>GetECSServiceRecommendations</a> action.
@@ -1804,10 +2123,13 @@ export interface ECSServiceRecommendationFilter {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ExportECSServiceRecommendationsRequest {
   /**
    * <p>
-   *             The Amazon Web Services account IDs for the export ECS service recommendations.
+   *             The Amazon Web Services account IDs for the export Amazon ECS service recommendations.
    *         </p>
    *          <p>If your account is the management account or the delegated administrator
    *             of an organization, use this parameter to specify the member account you want to
@@ -1823,7 +2145,7 @@ export interface ExportECSServiceRecommendationsRequest {
   /**
    * <p>
    *             An array of objects to specify a filter that exports a more specific set
-   *             of ECS service recommendations.
+   *             of Amazon ECS service recommendations.
    *         </p>
    */
   filters?: ECSServiceRecommendationFilter[];
@@ -1872,6 +2194,9 @@ export interface ExportECSServiceRecommendationsRequest {
   includeMemberAccounts?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ExportECSServiceRecommendationsResponse {
   /**
    * <p>
@@ -1890,41 +2215,65 @@ export interface ExportECSServiceRecommendationsResponse {
   s3Destination?: S3Destination;
 }
 
-export enum ExportableLambdaFunctionField {
-  ACCOUNT_ID = "AccountId",
-  CURRENT_CONFIGURATION_MEMORY_SIZE = "CurrentConfigurationMemorySize",
-  CURRENT_CONFIGURATION_TIMEOUT = "CurrentConfigurationTimeout",
-  CURRENT_COST_AVERAGE = "CurrentCostAverage",
-  CURRENT_COST_TOTAL = "CurrentCostTotal",
-  CURRENT_PERFORMANCE_RISK = "CurrentPerformanceRisk",
-  FINDING = "Finding",
-  FINDING_REASON_CODES = "FindingReasonCodes",
-  FUNCTION_ARN = "FunctionArn",
-  FUNCTION_VERSION = "FunctionVersion",
-  LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
-  LOOKBACK_PERIOD_IN_DAYS = "LookbackPeriodInDays",
-  NUMBER_OF_INVOCATIONS = "NumberOfInvocations",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_MEMORY_SIZE = "RecommendationOptionsConfigurationMemorySize",
-  RECOMMENDATION_OPTIONS_COST_HIGH = "RecommendationOptionsCostHigh",
-  RECOMMENDATION_OPTIONS_COST_LOW = "RecommendationOptionsCostLow",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY = "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_EXPECTED = "RecommendationOptionsProjectedUtilizationMetricsDurationExpected",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_LOWER_BOUND = "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND = "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound",
-  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE = "RecommendationOptionsSavingsOpportunityPercentage",
-  UTILIZATION_METRICS_DURATION_AVERAGE = "UtilizationMetricsDurationAverage",
-  UTILIZATION_METRICS_DURATION_MAXIMUM = "UtilizationMetricsDurationMaximum",
-  UTILIZATION_METRICS_MEMORY_AVERAGE = "UtilizationMetricsMemoryAverage",
-  UTILIZATION_METRICS_MEMORY_MAXIMUM = "UtilizationMetricsMemoryMaximum",
-}
-
-export enum LambdaFunctionRecommendationFilterName {
-  FINDING = "Finding",
-  FINDING_REASON_CODE = "FindingReasonCode",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExportableLambdaFunctionField = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_CONFIGURATION_MEMORY_SIZE: "CurrentConfigurationMemorySize",
+  CURRENT_CONFIGURATION_TIMEOUT: "CurrentConfigurationTimeout",
+  CURRENT_COST_AVERAGE: "CurrentCostAverage",
+  CURRENT_COST_TOTAL: "CurrentCostTotal",
+  CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  FINDING: "Finding",
+  FINDING_REASON_CODES: "FindingReasonCodes",
+  FUNCTION_ARN: "FunctionArn",
+  FUNCTION_VERSION: "FunctionVersion",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  NUMBER_OF_INVOCATIONS: "NumberOfInvocations",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_MEMORY_SIZE: "RecommendationOptionsConfigurationMemorySize",
+  RECOMMENDATION_OPTIONS_COST_HIGH: "RecommendationOptionsCostHigh",
+  RECOMMENDATION_OPTIONS_COST_LOW: "RecommendationOptionsCostLow",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_EXPECTED:
+    "RecommendationOptionsProjectedUtilizationMetricsDurationExpected",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_LOWER_BOUND:
+    "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND:
+    "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  UTILIZATION_METRICS_DURATION_AVERAGE: "UtilizationMetricsDurationAverage",
+  UTILIZATION_METRICS_DURATION_MAXIMUM: "UtilizationMetricsDurationMaximum",
+  UTILIZATION_METRICS_MEMORY_AVERAGE: "UtilizationMetricsMemoryAverage",
+  UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
+} as const;
 
 /**
+ * @public
+ */
+export type ExportableLambdaFunctionField =
+  (typeof ExportableLambdaFunctionField)[keyof typeof ExportableLambdaFunctionField];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionRecommendationFilterName = {
+  FINDING: "Finding",
+  FINDING_REASON_CODE: "FindingReasonCode",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFunctionRecommendationFilterName =
+  (typeof LambdaFunctionRecommendationFilterName)[keyof typeof LambdaFunctionRecommendationFilterName];
+
+/**
+ * @public
  * <p>Describes a filter that returns a more specific list of Lambda
  *             function recommendations. Use this filter with the <a>GetLambdaFunctionRecommendations</a> action.</p>
  *          <p>You can use <code>EBSFilter</code> with the <a>GetEBSVolumeRecommendations</a> action, <code>JobFilter</code> with the
@@ -1962,6 +2311,9 @@ export interface LambdaFunctionRecommendationFilter {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ExportLambdaFunctionRecommendationsRequest {
   /**
    * <p>The IDs of the Amazon Web Services accounts for which to export Lambda
@@ -2024,6 +2376,9 @@ export interface ExportLambdaFunctionRecommendationsRequest {
   includeMemberAccounts?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ExportLambdaFunctionRecommendationsResponse {
   /**
    * <p>The identification number of the export job.</p>
@@ -2039,6 +2394,9 @@ export interface ExportLambdaFunctionRecommendationsResponse {
   s3Destination?: S3Destination;
 }
 
+/**
+ * @public
+ */
 export interface GetAutoScalingGroupRecommendationsRequest {
   /**
    * <p>The ID of the Amazon Web Services account for which to return Auto Scaling group
@@ -2083,6 +2441,7 @@ export interface GetAutoScalingGroupRecommendationsRequest {
 }
 
 /**
+ * @public
  * <p>Describes an error experienced when getting recommendations.</p>
  *          <p>For example, an error is returned if you request recommendations for an unsupported
  *                 Auto Scaling group, or if you request recommendations for an instance of an
@@ -2105,6 +2464,9 @@ export interface GetRecommendationError {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAutoScalingGroupRecommendationsResponse {
   /**
    * <p>The token to use to advance to the next page of Auto Scaling group
@@ -2127,6 +2489,9 @@ export interface GetAutoScalingGroupRecommendationsResponse {
   errors?: GetRecommendationError[];
 }
 
+/**
+ * @public
+ */
 export interface GetEBSVolumeRecommendationsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the volumes for which to return
@@ -2163,6 +2528,7 @@ export interface GetEBSVolumeRecommendationsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of an Amazon Elastic Block Store (Amazon EBS)
  *             volume.</p>
  */
@@ -2200,21 +2566,47 @@ export interface VolumeConfiguration {
    * <p>The burst throughput of the volume.</p>
    */
   volumeBurstThroughput?: number;
-}
 
-export enum EBSFinding {
-  NOT_OPTIMIZED = "NotOptimized",
-  OPTIMIZED = "Optimized",
-}
-
-export enum EBSMetricName {
-  VOLUME_READ_BYTES_PER_SECOND = "VolumeReadBytesPerSecond",
-  VOLUME_READ_OPS_PER_SECOND = "VolumeReadOpsPerSecond",
-  VOLUME_WRITE_BYTES_PER_SECOND = "VolumeWriteBytesPerSecond",
-  VOLUME_WRITE_OPS_PER_SECOND = "VolumeWriteOpsPerSecond",
+  /**
+   * <p>
+   *             Contains the image used to boot the instance during launch.
+   *         </p>
+   */
+  rootVolume?: boolean;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const EBSFinding = {
+  NOT_OPTIMIZED: "NotOptimized",
+  OPTIMIZED: "Optimized",
+} as const;
+
+/**
+ * @public
+ */
+export type EBSFinding = (typeof EBSFinding)[keyof typeof EBSFinding];
+
+/**
+ * @public
+ * @enum
+ */
+export const EBSMetricName = {
+  VOLUME_READ_BYTES_PER_SECOND: "VolumeReadBytesPerSecond",
+  VOLUME_READ_OPS_PER_SECOND: "VolumeReadOpsPerSecond",
+  VOLUME_WRITE_BYTES_PER_SECOND: "VolumeWriteBytesPerSecond",
+  VOLUME_WRITE_OPS_PER_SECOND: "VolumeWriteOpsPerSecond",
+} as const;
+
+/**
+ * @public
+ */
+export type EBSMetricName = (typeof EBSMetricName)[keyof typeof EBSMetricName];
+
+/**
+ * @public
  * <p>Describes a utilization metric of an Amazon Elastic Block Store (Amazon EBS)
  *             volume.</p>
  *          <p>Compare the utilization metric data of your resource against its projected utilization
@@ -2277,6 +2669,7 @@ export interface EBSUtilizationMetric {
 }
 
 /**
+ * @public
  * <p>Describes a recommendation option for an Amazon Elastic Block Store (Amazon EBS)
  *             instance.</p>
  */
@@ -2313,6 +2706,7 @@ export interface VolumeRecommendationOption {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Elastic Block Store (Amazon EBS) volume recommendation.</p>
  */
 export interface VolumeRecommendation {
@@ -2385,6 +2779,9 @@ export interface VolumeRecommendation {
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 }
 
+/**
+ * @public
+ */
 export interface GetEBSVolumeRecommendationsResponse {
   /**
    * <p>The token to use to advance to the next page of volume recommendations.</p>
@@ -2406,6 +2803,9 @@ export interface GetEBSVolumeRecommendationsResponse {
   errors?: GetRecommendationError[];
 }
 
+/**
+ * @public
+ */
 export interface GetEC2InstanceRecommendationsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the instances for which to return
@@ -2447,35 +2847,73 @@ export interface GetEC2InstanceRecommendationsRequest {
   recommendationPreferences?: RecommendationPreferences;
 }
 
-export enum InstanceRecommendationFindingReasonCode {
-  CPU_OVER_PROVISIONED = "CPUOverprovisioned",
-  CPU_UNDER_PROVISIONED = "CPUUnderprovisioned",
-  DISK_IOPS_OVER_PROVISIONED = "DiskIOPSOverprovisioned",
-  DISK_IOPS_UNDER_PROVISIONED = "DiskIOPSUnderprovisioned",
-  DISK_THROUGHPUT_OVER_PROVISIONED = "DiskThroughputOverprovisioned",
-  DISK_THROUGHPUT_UNDER_PROVISIONED = "DiskThroughputUnderprovisioned",
-  EBS_IOPS_OVER_PROVISIONED = "EBSIOPSOverprovisioned",
-  EBS_IOPS_UNDER_PROVISIONED = "EBSIOPSUnderprovisioned",
-  EBS_THROUGHPUT_OVER_PROVISIONED = "EBSThroughputOverprovisioned",
-  EBS_THROUGHPUT_UNDER_PROVISIONED = "EBSThroughputUnderprovisioned",
-  MEMORY_OVER_PROVISIONED = "MemoryOverprovisioned",
-  MEMORY_UNDER_PROVISIONED = "MemoryUnderprovisioned",
-  NETWORK_BANDWIDTH_OVER_PROVISIONED = "NetworkBandwidthOverprovisioned",
-  NETWORK_BANDWIDTH_UNDER_PROVISIONED = "NetworkBandwidthUnderprovisioned",
-  NETWORK_PPS_OVER_PROVISIONED = "NetworkPPSOverprovisioned",
-  NETWORK_PPS_UNDER_PROVISIONED = "NetworkPPSUnderprovisioned",
-}
-
-export enum PlatformDifference {
-  ARCHITECTURE = "Architecture",
-  HYPERVISOR = "Hypervisor",
-  INSTANCE_STORE_AVAILABILITY = "InstanceStoreAvailability",
-  NETWORK_INTERFACE = "NetworkInterface",
-  STORAGE_INTERFACE = "StorageInterface",
-  VIRTUALIZATION_TYPE = "VirtualizationType",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceRecommendationFindingReasonCode = {
+  CPU_OVER_PROVISIONED: "CPUOverprovisioned",
+  CPU_UNDER_PROVISIONED: "CPUUnderprovisioned",
+  DISK_IOPS_OVER_PROVISIONED: "DiskIOPSOverprovisioned",
+  DISK_IOPS_UNDER_PROVISIONED: "DiskIOPSUnderprovisioned",
+  DISK_THROUGHPUT_OVER_PROVISIONED: "DiskThroughputOverprovisioned",
+  DISK_THROUGHPUT_UNDER_PROVISIONED: "DiskThroughputUnderprovisioned",
+  EBS_IOPS_OVER_PROVISIONED: "EBSIOPSOverprovisioned",
+  EBS_IOPS_UNDER_PROVISIONED: "EBSIOPSUnderprovisioned",
+  EBS_THROUGHPUT_OVER_PROVISIONED: "EBSThroughputOverprovisioned",
+  EBS_THROUGHPUT_UNDER_PROVISIONED: "EBSThroughputUnderprovisioned",
+  MEMORY_OVER_PROVISIONED: "MemoryOverprovisioned",
+  MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
+  NETWORK_BANDWIDTH_OVER_PROVISIONED: "NetworkBandwidthOverprovisioned",
+  NETWORK_BANDWIDTH_UNDER_PROVISIONED: "NetworkBandwidthUnderprovisioned",
+  NETWORK_PPS_OVER_PROVISIONED: "NetworkPPSOverprovisioned",
+  NETWORK_PPS_UNDER_PROVISIONED: "NetworkPPSUnderprovisioned",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceRecommendationFindingReasonCode =
+  (typeof InstanceRecommendationFindingReasonCode)[keyof typeof InstanceRecommendationFindingReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceState = {
+  PENDING: "pending",
+  RUNNING: "running",
+  SHUTTING_DOWN: "shutting-down",
+  STOPPED: "stopped",
+  STOPPING: "stopping",
+  TERMINATED: "terminated",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceState = (typeof InstanceState)[keyof typeof InstanceState];
+
+/**
+ * @public
+ * @enum
+ */
+export const PlatformDifference = {
+  ARCHITECTURE: "Architecture",
+  HYPERVISOR: "Hypervisor",
+  INSTANCE_STORE_AVAILABILITY: "InstanceStoreAvailability",
+  NETWORK_INTERFACE: "NetworkInterface",
+  STORAGE_INTERFACE: "StorageInterface",
+  VIRTUALIZATION_TYPE: "VirtualizationType",
+} as const;
+
+/**
+ * @public
+ */
+export type PlatformDifference = (typeof PlatformDifference)[keyof typeof PlatformDifference];
+
+/**
+ * @public
  * <p>Describes a recommendation option for an Amazon EC2 instance.</p>
  */
 export interface InstanceRecommendationOption {
@@ -2641,15 +3079,25 @@ export interface InstanceRecommendationOption {
   migrationEffort?: MigrationEffort | string;
 }
 
-export enum RecommendationSourceType {
-  AUTO_SCALING_GROUP = "AutoScalingGroup",
-  EBS_VOLUME = "EbsVolume",
-  EC2_INSTANCE = "Ec2Instance",
-  ECS_SERVICE = "EcsService",
-  LAMBDA_FUNCTION = "LambdaFunction",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationSourceType = {
+  AUTO_SCALING_GROUP: "AutoScalingGroup",
+  EBS_VOLUME: "EbsVolume",
+  EC2_INSTANCE: "Ec2Instance",
+  ECS_SERVICE: "EcsService",
+  LAMBDA_FUNCTION: "LambdaFunction",
+} as const;
 
 /**
+ * @public
+ */
+export type RecommendationSourceType = (typeof RecommendationSourceType)[keyof typeof RecommendationSourceType];
+
+/**
+ * @public
  * <p>Describes the source of a recommendation, such as an Amazon EC2 instance or
  *                 Auto Scaling group.</p>
  */
@@ -2666,6 +3114,7 @@ export interface RecommendationSource {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon EC2 instance recommendation.</p>
  */
 export interface InstanceRecommendation {
@@ -2792,7 +3241,7 @@ export interface InstanceRecommendation {
    *                   </b> —
    *                     The instance’s EBS throughput configuration can be sized down while still
    *                     meeting the performance requirements of your workload. This is identified by
-   *                     analyzing the <code>VolumeReadOps</code> and <code>VolumeWriteOps</code> metrics
+   *                     analyzing the <code>VolumeReadBytes</code> and <code>VolumeWriteBytes</code> metrics
    *                     of EBS volumes attached to the current instance during the look-back
    *                     period.</p>
    *             </li>
@@ -2804,7 +3253,7 @@ export interface InstanceRecommendation {
    *                     The instance’s EBS throughput configuration doesn't meet the performance
    *                     requirements of your workload and there is an alternative instance type that
    *                     provides better EBS throughput performance. This is identified by analyzing the
-   *                         <code>VolumeReadOps</code> and <code>VolumeWriteOps</code> metrics of EBS
+   *                     <code>VolumeReadBytes</code> and <code>VolumeWriteBytes</code>> metrics of EBS
    *                     volumes attached to the current instance during the look-back period.</p>
    *             </li>
    *             <li>
@@ -2814,7 +3263,7 @@ export interface InstanceRecommendation {
    *                   </b> — The
    *                     instance’s EBS IOPS configuration can be sized down while still meeting the
    *                     performance requirements of your workload. This is identified by analyzing the
-   *                         <code>VolumeReadBytes</code> and <code>VolumeWriteBytes</code> metric of EBS
+   *                     <code>VolumeReadOps</code> and <code>VolumeWriteOps</code> metric of EBS
    *                     volumes attached to the current instance during the look-back period.</p>
    *             </li>
    *             <li>
@@ -2825,7 +3274,7 @@ export interface InstanceRecommendation {
    *                     instance’s EBS IOPS configuration doesn't meet the performance requirements of
    *                     your workload and there is an alternative instance type that provides better EBS
    *                     IOPS performance. This is identified by analyzing the
-   *                         <code>VolumeReadBytes</code> and <code>VolumeWriteBytes</code> metric of EBS
+   *                     <code>VolumeReadOps</code> and <code>VolumeWriteOps</code> metric of EBS
    *                     volumes attached to the current instance during the look-back period.</p>
    *             </li>
    *             <li>
@@ -3006,11 +3455,26 @@ export interface InstanceRecommendation {
    *                   <code>Redis</code> - Infers that Redis might be running on the
    *                     instance.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Kafka</code> - Infers that Kafka might be running on the
+   *                     instance.</p>
+   *             </li>
    *          </ul>
    */
   inferredWorkloadTypes?: (InferredWorkloadType | string)[];
+
+  /**
+   * <p>
+   *             The state of the instance when the recommendation was generated.
+   *         </p>
+   */
+  instanceState?: InstanceState | string;
 }
 
+/**
+ * @public
+ */
 export interface GetEC2InstanceRecommendationsResponse {
   /**
    * <p>The token to use to advance to the next page of instance recommendations.</p>
@@ -3032,6 +3496,9 @@ export interface GetEC2InstanceRecommendationsResponse {
   errors?: GetRecommendationError[];
 }
 
+/**
+ * @public
+ */
 export interface GetEC2RecommendationProjectedMetricsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the instances for which to return recommendation
@@ -3067,6 +3534,7 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a projected utilization metric of a recommendation option, such as an
  *                 Amazon EC2 instance. This represents the projected utilization of a
  *             recommendation option had you used that resource during the analyzed period.</p>
@@ -3126,6 +3594,7 @@ export interface ProjectedMetric {
 }
 
 /**
+ * @public
  * <p>Describes a projected utilization metric of a recommendation option.</p>
  *          <note>
  *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
@@ -3155,6 +3624,9 @@ export interface RecommendedOptionProjectedMetric {
   projectedMetrics?: ProjectedMetric[];
 }
 
+/**
+ * @public
+ */
 export interface GetEC2RecommendationProjectedMetricsResponse {
   /**
    * <p>An array of objects that describes projected metrics.</p>
@@ -3162,10 +3634,13 @@ export interface GetEC2RecommendationProjectedMetricsResponse {
   recommendedOptionProjectedMetrics?: RecommendedOptionProjectedMetric[];
 }
 
+/**
+ * @public
+ */
 export interface GetECSServiceRecommendationProjectedMetricsRequest {
   /**
    * <p>
-   *             The ARN that identifies the ECS service.
+   *             The ARN that identifies the Amazon ECS service.
    *         </p>
    *          <p>
    *             The following is the format of the ARN:
@@ -3205,16 +3680,26 @@ export interface GetECSServiceRecommendationProjectedMetricsRequest {
   endTime: Date | undefined;
 }
 
-export enum ECSServiceMetricName {
-  CPU = "Cpu",
-  MEMORY = "Memory",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ECSServiceMetricName = {
+  CPU: "Cpu",
+  MEMORY: "Memory",
+} as const;
 
 /**
+ * @public
+ */
+export type ECSServiceMetricName = (typeof ECSServiceMetricName)[keyof typeof ECSServiceMetricName];
+
+/**
+ * @public
  * <p>
  *             Describes the projected metrics of an Amazon ECS service recommendation option.
  *         </p>
- *          <p>To determine the performance difference between your current ECS service and the recommended option,
+ *          <p>To determine the performance difference between your current Amazon ECS service and the recommended option,
  *             compare the metric data of your service against its projected metric data.</p>
  */
 export interface ECSServiceProjectedMetric {
@@ -3226,13 +3711,13 @@ export interface ECSServiceProjectedMetric {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CPU</code> — The percentage of allocated compute units
-   *                     that are currently in use on the ECS service tasks.</p>
+   *                   <code>Cpu</code> — The percentage of allocated compute units
+   *                     that are currently in use on the service tasks.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Memory</code> — The percentage of memory that is
-   *                     currently in use on the ECS service tasks.</p>
+   *                   <code>Memory</code> — The percentage of memory that's
+   *                     currently in use on the service tasks.</p>
    *             </li>
    *          </ul>
    */
@@ -3261,23 +3746,24 @@ export interface ECSServiceProjectedMetric {
 }
 
 /**
+ * @public
  * <p>
  *             Describes the projected metrics of an Amazon ECS service recommendation option.
  *         </p>
- *          <p>To determine the performance difference between your current ECS service and the recommended option,
+ *          <p>To determine the performance difference between your current Amazon ECS service and the recommended option,
  *             compare the metric data of your service against its projected metric data.</p>
  */
 export interface ECSServiceRecommendedOptionProjectedMetric {
   /**
    * <p>
-   *             The recommended CPU size for the ECS service.
+   *             The recommended CPU size for the Amazon ECS service.
    *         </p>
    */
   recommendedCpuUnits?: number;
 
   /**
    * <p>
-   *             The recommended memory size for the ECS service.
+   *             The recommended memory size for the Amazon ECS service.
    *         </p>
    */
   recommendedMemorySize?: number;
@@ -3290,6 +3776,9 @@ export interface ECSServiceRecommendedOptionProjectedMetric {
   projectedMetrics?: ECSServiceProjectedMetric[];
 }
 
+/**
+ * @public
+ */
 export interface GetECSServiceRecommendationProjectedMetricsResponse {
   /**
    * <p>
@@ -3299,10 +3788,13 @@ export interface GetECSServiceRecommendationProjectedMetricsResponse {
   recommendedOptionProjectedMetrics?: ECSServiceRecommendedOptionProjectedMetric[];
 }
 
+/**
+ * @public
+ */
 export interface GetECSServiceRecommendationsRequest {
   /**
    * <p>
-   *             The ARN that identifies the ECS service.
+   *             The ARN that identifies the Amazon ECS service.
    *         </p>
    *          <p>
    *             The following is the format of the ARN:
@@ -3315,14 +3807,14 @@ export interface GetECSServiceRecommendationsRequest {
 
   /**
    * <p>
-   *             The token to advance to the next page of ECS service recommendations.
+   *             The token to advance to the next page of Amazon ECS service recommendations.
    *         </p>
    */
   nextToken?: string;
 
   /**
    * <p>
-   *             The maximum number of ECS service recommendations to return with a single request.
+   *             The maximum number of Amazon ECS service recommendations to return with a single request.
    *         </p>
    *          <p>To retrieve the remaining results, make another request with the returned
    *             <code>nextToken</code> value.</p>
@@ -3331,17 +3823,17 @@ export interface GetECSServiceRecommendationsRequest {
 
   /**
    * <p>
-   *             An array of objects to specify a filter that returns a more specific list of ECS service recommendations.
+   *             An array of objects to specify a filter that returns a more specific list of Amazon ECS service recommendations.
    *         </p>
    */
   filters?: ECSServiceRecommendationFilter[];
 
   /**
    * <p>
-   *             Return the ECS service recommendations to the specified Amazon Web Services account IDs.
+   *             Return the Amazon ECS service recommendations to the specified Amazon Web Services account IDs.
    *         </p>
    *          <p>If your account is the management account or the delegated administrator
-   *             of an organization, use this parameter to return the ECS service recommendations to specific
+   *             of an organization, use this parameter to return the Amazon ECS service recommendations to specific
    *             member accounts.</p>
    *          <p>You can only specify one account ID per request.</p>
    */
@@ -3349,6 +3841,7 @@ export interface GetECSServiceRecommendationsRequest {
 }
 
 /**
+ * @public
  * <p>
  *             The memory size configurations of a container.
  *         </p>
@@ -3370,6 +3863,7 @@ export interface MemorySizeConfiguration {
 }
 
 /**
+ * @public
  * <p>
  *             Describes the container configurations within the tasks of your Amazon ECS service.
  *         </p>
@@ -3398,6 +3892,7 @@ export interface ContainerConfiguration {
 }
 
 /**
+ * @public
  * <p>
  *             The Amazon ECS service configurations used for recommendations.
  *         </p>
@@ -3405,21 +3900,21 @@ export interface ContainerConfiguration {
 export interface ServiceConfiguration {
   /**
    * <p>
-   *             The amount of memory used by the tasks in the ECS service.
+   *             The amount of memory used by the tasks in the Amazon ECS service.
    *         </p>
    */
   memory?: number;
 
   /**
    * <p>
-   *             The number of CPU units used by the tasks in the ECS service.
+   *             The number of CPU units used by the tasks in the Amazon ECS service.
    *         </p>
    */
   cpu?: number;
 
   /**
    * <p>
-   *             The container configurations within a task of an ECS service.
+   *             The container configurations within a task of an Amazon ECS service.
    *         </p>
    */
   containerConfigurations?: ContainerConfiguration[];
@@ -3428,18 +3923,18 @@ export interface ServiceConfiguration {
    * <p>
    *             Describes the Auto Scaling configuration methods for an Amazon ECS service. This affects
    *             the generated recommendations. For example, if Auto Scaling is configured on a
-   *             ECS service’s CPU, then Compute Optimizer doesn’t generate CPU size recommendations.
+   *             service’s CPU, then Compute Optimizer doesn’t generate CPU size recommendations.
    *         </p>
    *          <p>The Auto Scaling configuration methods include:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TARGET_TRACKING_SCALING_CPU</code> — If the ECS service is configured
+   *                   <code>TARGET_TRACKING_SCALING_CPU</code> — If the Amazon ECS service is configured
    *                     to use target scaling on CPU, Compute Optimizer doesn't generate CPU recommendations.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TARGET_TRACKING_SCALING_MEMORY</code> — If the ECS service is configured
+   *                   <code>TARGET_TRACKING_SCALING_MEMORY</code> — If the Amazon ECS service is configured
    *                     to use target scaling on memory, Compute Optimizer doesn't generate memory recommendations.</p>
    *             </li>
    *          </ul>
@@ -3454,31 +3949,61 @@ export interface ServiceConfiguration {
 
   /**
    * <p>
-   *             The task definition ARN used by the tasks in the ECS service.
+   *             The task definition ARN used by the tasks in the Amazon ECS service.
    *         </p>
    */
   taskDefinitionArn?: string;
 }
 
-export enum ECSServiceRecommendationFinding {
-  OPTIMIZED = "Optimized",
-  OVER_PROVISIONED = "Overprovisioned",
-  UNDER_PROVISIONED = "Underprovisioned",
-}
-
-export enum ECSServiceRecommendationFindingReasonCode {
-  CPU_OVER_PROVISIONED = "CPUOverprovisioned",
-  CPU_UNDER_PROVISIONED = "CPUUnderprovisioned",
-  MEMORY_OVER_PROVISIONED = "MemoryOverprovisioned",
-  MEMORY_UNDER_PROVISIONED = "MemoryUnderprovisioned",
-}
-
-export enum ECSServiceLaunchType {
-  EC2 = "EC2",
-  FARGATE = "Fargate",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ECSServiceRecommendationFinding = {
+  OPTIMIZED: "Optimized",
+  OVER_PROVISIONED: "Overprovisioned",
+  UNDER_PROVISIONED: "Underprovisioned",
+} as const;
 
 /**
+ * @public
+ */
+export type ECSServiceRecommendationFinding =
+  (typeof ECSServiceRecommendationFinding)[keyof typeof ECSServiceRecommendationFinding];
+
+/**
+ * @public
+ * @enum
+ */
+export const ECSServiceRecommendationFindingReasonCode = {
+  CPU_OVER_PROVISIONED: "CPUOverprovisioned",
+  CPU_UNDER_PROVISIONED: "CPUUnderprovisioned",
+  MEMORY_OVER_PROVISIONED: "MemoryOverprovisioned",
+  MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
+} as const;
+
+/**
+ * @public
+ */
+export type ECSServiceRecommendationFindingReasonCode =
+  (typeof ECSServiceRecommendationFindingReasonCode)[keyof typeof ECSServiceRecommendationFindingReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ECSServiceLaunchType = {
+  EC2: "EC2",
+  FARGATE: "Fargate",
+} as const;
+
+/**
+ * @public
+ */
+export type ECSServiceLaunchType = (typeof ECSServiceLaunchType)[keyof typeof ECSServiceLaunchType];
+
+/**
+ * @public
  * <p>
  *             The CPU and memory recommendations for a container within the tasks of your Amazon ECS service.
  *         </p>
@@ -3506,16 +4031,26 @@ export interface ContainerRecommendation {
   cpu?: number;
 }
 
-export enum ECSServiceMetricStatistic {
-  AVERAGE = "Average",
-  MAXIMUM = "Maximum",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ECSServiceMetricStatistic = {
+  AVERAGE: "Average",
+  MAXIMUM: "Maximum",
+} as const;
 
 /**
+ * @public
+ */
+export type ECSServiceMetricStatistic = (typeof ECSServiceMetricStatistic)[keyof typeof ECSServiceMetricStatistic];
+
+/**
+ * @public
  * <p>
  *             Describes the projected utilization metrics of an Amazon ECS service recommendation option.
  *         </p>
- *          <p>To determine the performance difference between your current ECS service and the recommended option,
+ *          <p>To determine the performance difference between your current Amazon ECS service and the recommended option,
  *             compare the utilization metric data of your service against its projected utilization metric data.</p>
  */
 export interface ECSServiceProjectedUtilizationMetric {
@@ -3527,13 +4062,13 @@ export interface ECSServiceProjectedUtilizationMetric {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CPU</code> — The percentage of allocated compute units
-   *                     that are currently in use on the ECS service tasks.</p>
+   *                   <code>Cpu</code> — The percentage of allocated compute units
+   *                     that are currently in use on the service tasks.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Memory</code> — The percentage of memory that is
-   *                     currently in use on the ECS service tasks.</p>
+   *                   <code>Memory</code> — The percentage of memory that's
+   *                     currently in use on the service tasks.</p>
    *             </li>
    *          </ul>
    */
@@ -3571,6 +4106,7 @@ export interface ECSServiceProjectedUtilizationMetric {
 }
 
 /**
+ * @public
  * <p>
  *             Describes the recommendation options for an Amazon ECS service.
  *         </p>
@@ -3578,14 +4114,14 @@ export interface ECSServiceProjectedUtilizationMetric {
 export interface ECSServiceRecommendationOption {
   /**
    * <p>
-   *             The memory size of the ECS service recommendation option.
+   *             The memory size of the Amazon ECS service recommendation option.
    *         </p>
    */
   memory?: number;
 
   /**
    * <p>
-   *             The CPU size of the ECS service recommendation option.
+   *             The CPU size of the Amazon ECS service recommendation option.
    *         </p>
    */
   cpu?: number;
@@ -3612,24 +4148,25 @@ export interface ECSServiceRecommendationOption {
 
   /**
    * <p>
-   *             An array of objects that describe the projected utilization metrics of the ECS service recommendation option.
+   *             An array of objects that describe the projected utilization metrics of the Amazon ECS service recommendation option.
    *         </p>
    */
   projectedUtilizationMetrics?: ECSServiceProjectedUtilizationMetric[];
 
   /**
    * <p>
-   *             The CPU and memory size recommendations for the containers within the task of your ECS service.
+   *             The CPU and memory size recommendations for the containers within the task of your Amazon ECS service.
    *         </p>
    */
   containerRecommendations?: ContainerRecommendation[];
 }
 
 /**
+ * @public
  * <p>
  *             Describes the utilization metric of an Amazon ECS service.
  *         </p>
- *          <p>To determine the performance difference between your current ECS service and the recommended option,
+ *          <p>To determine the performance difference between your current Amazon ECS service and the recommended option,
  *             compare the utilization metric data of your service against its projected utilization metric data.</p>
  */
 export interface ECSServiceUtilizationMetric {
@@ -3641,11 +4178,11 @@ export interface ECSServiceUtilizationMetric {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Cpu</code> — The amount of CPU units that are used in the service.</p>
+   *                   <code>Cpu</code> — The amount of CPU capacity that's used in the service.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Memory</code> — The amount  of memory that is used in the service.</p>
+   *                   <code>Memory</code> — The amount of memory that's used in the service.</p>
    *             </li>
    *          </ul>
    */
@@ -3676,6 +4213,7 @@ export interface ECSServiceUtilizationMetric {
 }
 
 /**
+ * @public
  * <p>
  *             Describes an Amazon ECS service recommendation.
  *         </p>
@@ -3683,7 +4221,7 @@ export interface ECSServiceUtilizationMetric {
 export interface ECSServiceRecommendation {
   /**
    * <p>
-   *             The Amazon Resource Name (ARN) of the current ECS service.
+   *             The Amazon Resource Name (ARN) of the current Amazon ECS service.
    *         </p>
    *          <p>
    *             The following is the format of the ARN:
@@ -3696,35 +4234,35 @@ export interface ECSServiceRecommendation {
 
   /**
    * <p>
-   *             The Amazon Web Services account ID of the ECS service.
+   *             The Amazon Web Services account ID of the Amazon ECS service.
    *         </p>
    */
   accountId?: string;
 
   /**
    * <p>
-   *             The configuration of the current ECS service.
+   *             The configuration of the current Amazon ECS service.
    *         </p>
    */
   currentServiceConfiguration?: ServiceConfiguration;
 
   /**
    * <p>
-   *             An array of objects that describe the utilization metrics of the ECS service.
+   *             An array of objects that describe the utilization metrics of the Amazon ECS service.
    *         </p>
    */
   utilizationMetrics?: ECSServiceUtilizationMetric[];
 
   /**
    * <p>
-   *             The number of days the ECS service utilization metrics were analyzed.
+   *             The number of days the Amazon ECS service utilization metrics were analyzed.
    *         </p>
    */
   lookbackPeriodInDays?: number;
 
   /**
    * <p>
-   *             The launch type the ECS service is using.
+   *             The launch type the Amazon ECS service is using.
    *         </p>
    *          <note>
    *             <p>Compute Optimizer only supports the Fargate launch type.</p>
@@ -3734,24 +4272,24 @@ export interface ECSServiceRecommendation {
 
   /**
    * <p>
-   *             The timestamp of when the ECS service recommendation was last generated.
+   *             The timestamp of when the Amazon ECS service recommendation was last generated.
    *         </p>
    */
   lastRefreshTimestamp?: Date;
 
   /**
    * <p>
-   *             The finding classification of an ECS service.
+   *             The finding classification of an Amazon ECS service.
    *         </p>
-   *          <p>Findings for ECS services include:</p>
+   *          <p>Findings for Amazon ECS services include:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>Underprovisioned</code>
    *                   </b> —
-   *                     When Compute Optimizer detects that there’s not enough memory or CPU, an ECS
-   *                     service is considered under-provisioned. An under-provisioned ECS service might
+   *                     When Compute Optimizer detects that there’s not enough memory or CPU, an Amazon ECS
+   *                     service is considered under-provisioned. An under-provisioned service might
    *                     result in poor application performance.</p>
    *             </li>
    *             <li>
@@ -3759,8 +4297,8 @@ export interface ECSServiceRecommendation {
    *                   <b>
    *                      <code>Overprovisioned</code>
    *                   </b> —
-   *                     When Compute Optimizer detects that there’s excessive memory or CPU, an ECS
-   *                     service is considered over-provisioned. An over-provisioned ECS service might
+   *                     When Compute Optimizer detects that there’s excessive memory or CPU, an Amazon ECS
+   *                     service is considered over-provisioned. An over-provisioned service might
    *                     result in additional infrastructure costs. </p>
    *             </li>
    *             <li>
@@ -3768,7 +4306,7 @@ export interface ECSServiceRecommendation {
    *                   <b>
    *                      <code>Optimized</code>
    *                   </b> —
-   *                     When both the CPU and memory of your ECS service meet the performance requirements
+   *                     When both the CPU and memory of your Amazon ECS service meet the performance requirements
    *                     of your workload, the service is considered optimized.</p>
    *             </li>
    *          </ul>
@@ -3777,16 +4315,16 @@ export interface ECSServiceRecommendation {
 
   /**
    * <p>
-   *             The reason for the finding classification of an ECS service.
+   *             The reason for the finding classification of an Amazon ECS service.
    *         </p>
-   *          <p>Finding reason codes for ECS services include:</p>
+   *          <p>Finding reason codes for Amazon ECS services include:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>CPUUnderprovisioned</code>
    *                   </b> —
-   *                     The ECS service CPU configuration can be sized up to enhance the performance of
+   *                     The service CPU configuration can be sized up to enhance the performance of
    *                     your workload. This is identified by analyzing the <code>CPUUtilization</code> metric of the
    *                     current service during the look-back period.</p>
    *             </li>
@@ -3795,7 +4333,7 @@ export interface ECSServiceRecommendation {
    *                   <b>
    *                      <code>CPUOverprovisioned</code>
    *                   </b> —
-   *                     The ECS service CPU configuration can be sized down while still meeting the performance
+   *                     The service CPU configuration can be sized down while still meeting the performance
    *                     requirements of your workload. This is identified by analyzing the <code>CPUUtilization</code>
    *                     metric of the current service during the look-back period. </p>
    *             </li>
@@ -3804,7 +4342,7 @@ export interface ECSServiceRecommendation {
    *                   <b>
    *                      <code>MemoryUnderprovisioned</code>
    *                   </b> —
-   *                     The ECS service memory configuration  can be sized up to enhance the performance of
+   *                     The service memory configuration  can be sized up to enhance the performance of
    *                     your workload. This is identified by analyzing the <code>MemoryUtilization</code> metric of the
    *                     current service during the look-back period.</p>
    *             </li>
@@ -3813,7 +4351,7 @@ export interface ECSServiceRecommendation {
    *                   <b>
    *                      <code>MemoryOverprovisioned</code>
    *                   </b> —
-   *                     The ECS service memory configuration can be sized down while still meeting the
+   *                     The service memory configuration can be sized down while still meeting the
    *                     performance requirements of your workload. This is identified by analyzing the
    *                     <code>MemoryUtilization</code> metric of the current service during the look-back period.</p>
    *             </li>
@@ -3823,14 +4361,14 @@ export interface ECSServiceRecommendation {
 
   /**
    * <p>
-   *             An array of objects that describe the recommendation options for the ECS service.
+   *             An array of objects that describe the recommendation options for the Amazon ECS service.
    *         </p>
    */
   serviceRecommendationOptions?: ECSServiceRecommendationOption[];
 
   /**
    * <p>
-   *             The risk of the current ECS service not meeting the performance needs of its workloads.
+   *             The risk of the current Amazon ECS service not meeting the performance needs of its workloads.
    *             The higher the risk, the more likely the current service can't meet the performance
    *             requirements of its workload.
    *         </p>
@@ -3838,17 +4376,20 @@ export interface ECSServiceRecommendation {
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 }
 
+/**
+ * @public
+ */
 export interface GetECSServiceRecommendationsResponse {
   /**
    * <p>
-   *             The token to advance to the next page of ECS service recommendations.
+   *             The token to advance to the next page of Amazon ECS service recommendations.
    *         </p>
    */
   nextToken?: string;
 
   /**
    * <p>
-   *             An array of objects that describe the ECS service recommendations.
+   *             An array of objects that describe the Amazon ECS service recommendations.
    *         </p>
    */
   ecsServiceRecommendations?: ECSServiceRecommendation[];
@@ -3861,6 +4402,9 @@ export interface GetECSServiceRecommendationsResponse {
   errors?: GetRecommendationError[];
 }
 
+/**
+ * @public
+ */
 export interface GetEffectiveRecommendationPreferencesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which to confirm effective
@@ -3870,6 +4414,9 @@ export interface GetEffectiveRecommendationPreferencesRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEffectiveRecommendationPreferencesResponse {
   /**
    * <p>The status of the enhanced infrastructure metrics recommendation preference. Considers
@@ -3904,8 +4451,14 @@ export interface GetEffectiveRecommendationPreferencesResponse {
   externalMetricsPreference?: ExternalMetricsPreference;
 }
 
+/**
+ * @public
+ */
 export interface GetEnrollmentStatusRequest {}
 
+/**
+ * @public
+ */
 export interface GetEnrollmentStatusResponse {
   /**
    * <p>The enrollment status of the account.</p>
@@ -3938,11 +4491,21 @@ export interface GetEnrollmentStatusResponse {
   numberOfMemberAccountsOptedIn?: number;
 }
 
-export enum EnrollmentFilterName {
-  STATUS = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnrollmentFilterName = {
+  STATUS: "Status",
+} as const;
 
 /**
+ * @public
+ */
+export type EnrollmentFilterName = (typeof EnrollmentFilterName)[keyof typeof EnrollmentFilterName];
+
+/**
+ * @public
  * <p>Describes a filter that returns a more specific list of account enrollment statuses.
  *             Use this filter with the <a>GetEnrollmentStatusesForOrganization</a>
  *             action.</p>
@@ -3963,6 +4526,9 @@ export interface EnrollmentFilter {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetEnrollmentStatusesForOrganizationRequest {
   /**
    * <p>An array of objects to specify a filter that returns a more specific list of account
@@ -3984,6 +4550,9 @@ export interface GetEnrollmentStatusesForOrganizationRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEnrollmentStatusesForOrganizationResponse {
   /**
    * <p>An array of objects that describe the enrollment statuses of organization member
@@ -3999,6 +4568,9 @@ export interface GetEnrollmentStatusesForOrganizationResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLambdaFunctionRecommendationsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the functions for which to return
@@ -4041,30 +4613,71 @@ export interface GetLambdaFunctionRecommendationsRequest {
   maxResults?: number;
 }
 
-export enum LambdaFunctionRecommendationFinding {
-  NOT_OPTIMIZED = "NotOptimized",
-  OPTIMIZED = "Optimized",
-  UNAVAILABLE = "Unavailable",
-}
-
-export enum LambdaFunctionRecommendationFindingReasonCode {
-  INCONCLUSIVE = "Inconclusive",
-  INSUFFICIENT_DATA = "InsufficientData",
-  MEMORY_OVER_PROVISIONED = "MemoryOverprovisioned",
-  MEMORY_UNDER_PROVISIONED = "MemoryUnderprovisioned",
-}
-
-export enum LambdaFunctionMemoryMetricName {
-  DURATION = "Duration",
-}
-
-export enum LambdaFunctionMemoryMetricStatistic {
-  EXPECTED = "Expected",
-  LOWER_BOUND = "LowerBound",
-  UPPER_BOUND = "UpperBound",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionRecommendationFinding = {
+  NOT_OPTIMIZED: "NotOptimized",
+  OPTIMIZED: "Optimized",
+  UNAVAILABLE: "Unavailable",
+} as const;
 
 /**
+ * @public
+ */
+export type LambdaFunctionRecommendationFinding =
+  (typeof LambdaFunctionRecommendationFinding)[keyof typeof LambdaFunctionRecommendationFinding];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionRecommendationFindingReasonCode = {
+  INCONCLUSIVE: "Inconclusive",
+  INSUFFICIENT_DATA: "InsufficientData",
+  MEMORY_OVER_PROVISIONED: "MemoryOverprovisioned",
+  MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFunctionRecommendationFindingReasonCode =
+  (typeof LambdaFunctionRecommendationFindingReasonCode)[keyof typeof LambdaFunctionRecommendationFindingReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionMemoryMetricName = {
+  DURATION: "Duration",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFunctionMemoryMetricName =
+  (typeof LambdaFunctionMemoryMetricName)[keyof typeof LambdaFunctionMemoryMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionMemoryMetricStatistic = {
+  EXPECTED: "Expected",
+  LOWER_BOUND: "LowerBound",
+  UPPER_BOUND: "UpperBound",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFunctionMemoryMetricStatistic =
+  (typeof LambdaFunctionMemoryMetricStatistic)[keyof typeof LambdaFunctionMemoryMetricStatistic];
+
+/**
+ * @public
  * <p>Describes a projected utilization metric of an Lambda function
  *             recommendation option.</p>
  */
@@ -4086,6 +4699,7 @@ export interface LambdaFunctionMemoryProjectedMetric {
 }
 
 /**
+ * @public
  * <p>Describes a recommendation option for an Lambda function.</p>
  */
 export interface LambdaFunctionMemoryRecommendationOption {
@@ -4114,17 +4728,37 @@ export interface LambdaFunctionMemoryRecommendationOption {
   savingsOpportunity?: SavingsOpportunity;
 }
 
-export enum LambdaFunctionMetricName {
-  DURATION = "Duration",
-  MEMORY = "Memory",
-}
-
-export enum LambdaFunctionMetricStatistic {
-  AVERAGE = "Average",
-  MAXIMUM = "Maximum",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionMetricName = {
+  DURATION: "Duration",
+  MEMORY: "Memory",
+} as const;
 
 /**
+ * @public
+ */
+export type LambdaFunctionMetricName = (typeof LambdaFunctionMetricName)[keyof typeof LambdaFunctionMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionMetricStatistic = {
+  AVERAGE: "Average",
+  MAXIMUM: "Maximum",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFunctionMetricStatistic =
+  (typeof LambdaFunctionMetricStatistic)[keyof typeof LambdaFunctionMetricStatistic];
+
+/**
+ * @public
  * <p>Describes a utilization metric of an Lambda function.</p>
  */
 export interface LambdaFunctionUtilizationMetric {
@@ -4168,6 +4802,7 @@ export interface LambdaFunctionUtilizationMetric {
 }
 
 /**
+ * @public
  * <p>Describes an Lambda function recommendation.</p>
  */
 export interface LambdaFunctionRecommendation {
@@ -4326,6 +4961,9 @@ export interface LambdaFunctionRecommendation {
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 }
 
+/**
+ * @public
+ */
 export interface GetLambdaFunctionRecommendationsResponse {
   /**
    * <p>The token to use to advance to the next page of function recommendations.</p>
@@ -4340,6 +4978,9 @@ export interface GetLambdaFunctionRecommendationsResponse {
   lambdaFunctionRecommendations?: LambdaFunctionRecommendation[];
 }
 
+/**
+ * @public
+ */
 export interface GetRecommendationPreferencesRequest {
   /**
    * <p>The target resource type of the recommendation preference for which to return
@@ -4379,6 +5020,7 @@ export interface GetRecommendationPreferencesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a recommendation preference.</p>
  */
 export interface RecommendationPreferencesDetail {
@@ -4430,6 +5072,9 @@ export interface RecommendationPreferencesDetail {
   externalMetricsPreference?: ExternalMetricsPreference;
 }
 
+/**
+ * @public
+ */
 export interface GetRecommendationPreferencesResponse {
   /**
    * <p>The token to use to advance to the next page of recommendation preferences.</p>
@@ -4444,6 +5089,9 @@ export interface GetRecommendationPreferencesResponse {
   recommendationPreferencesDetails?: RecommendationPreferencesDetail[];
 }
 
+/**
+ * @public
+ */
 export interface GetRecommendationSummariesRequest {
   /**
    * <p>The ID of the Amazon Web Services account for which to return recommendation
@@ -4468,6 +5116,7 @@ export interface GetRecommendationSummariesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the performance risk ratings for a given resource type.</p>
  *          <p>Resources with a <code>high</code> or <code>medium</code> rating are at risk of not
  *             meeting the performance needs of their workloads, while resources with a
@@ -4496,12 +5145,22 @@ export interface CurrentPerformanceRiskRatings {
   veryLow?: number;
 }
 
-export enum FindingReasonCode {
-  MEMORY_OVER_PROVISIONED = "MemoryOverprovisioned",
-  MEMORY_UNDER_PROVISIONED = "MemoryUnderprovisioned",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FindingReasonCode = {
+  MEMORY_OVER_PROVISIONED: "MemoryOverprovisioned",
+  MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
+} as const;
 
 /**
+ * @public
+ */
+export type FindingReasonCode = (typeof FindingReasonCode)[keyof typeof FindingReasonCode];
+
+/**
+ * @public
  * <p>A summary of a finding reason code.</p>
  */
 export interface ReasonCodeSummary {
@@ -4517,6 +5176,7 @@ export interface ReasonCodeSummary {
 }
 
 /**
+ * @public
  * <p>The summary of a recommendation.</p>
  */
 export interface Summary {
@@ -4537,6 +5197,7 @@ export interface Summary {
 }
 
 /**
+ * @public
  * <p>A summary of a recommendation.</p>
  */
 export interface RecommendationSummary {
@@ -4568,6 +5229,9 @@ export interface RecommendationSummary {
   currentPerformanceRiskRatings?: CurrentPerformanceRiskRatings;
 }
 
+/**
+ * @public
+ */
 export interface GetRecommendationSummariesResponse {
   /**
    * <p>The token to use to advance to the next page of recommendation summaries.</p>
@@ -4582,6 +5246,9 @@ export interface GetRecommendationSummariesResponse {
   recommendationSummaries?: RecommendationSummary[];
 }
 
+/**
+ * @public
+ */
 export interface PutRecommendationPreferencesRequest {
   /**
    * <p>The target resource type of the recommendation preference to create.</p>
@@ -4654,8 +5321,14 @@ export interface PutRecommendationPreferencesRequest {
   externalMetricsPreference?: ExternalMetricsPreference;
 }
 
+/**
+ * @public
+ */
 export interface PutRecommendationPreferencesResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateEnrollmentStatusRequest {
   /**
    * <p>The new enrollment status of the account.</p>
@@ -4690,6 +5363,9 @@ export interface UpdateEnrollmentStatusRequest {
   includeMemberAccounts?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEnrollmentStatusResponse {
   /**
    * <p>The enrollment status of the account.</p>
@@ -4703,727 +5379,3 @@ export interface UpdateEnrollmentStatusResponse {
    */
   statusReason?: string;
 }
-
-/**
- * @internal
- */
-export const AccountEnrollmentStatusFilterSensitiveLog = (obj: AccountEnrollmentStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingGroupConfigurationFilterSensitiveLog = (obj: AutoScalingGroupConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExternalMetricsPreferenceFilterSensitiveLog = (obj: ExternalMetricsPreference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EffectiveRecommendationPreferencesFilterSensitiveLog = (obj: EffectiveRecommendationPreferences): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UtilizationMetricFilterSensitiveLog = (obj: UtilizationMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EstimatedMonthlySavingsFilterSensitiveLog = (obj: EstimatedMonthlySavings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsOpportunityFilterSensitiveLog = (obj: SavingsOpportunity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingGroupRecommendationOptionFilterSensitiveLog = (
-  obj: AutoScalingGroupRecommendationOption
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingGroupRecommendationFilterSensitiveLog = (obj: AutoScalingGroupRecommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScopeFilterSensitiveLog = (obj: Scope): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRecommendationPreferencesRequestFilterSensitiveLog = (
-  obj: DeleteRecommendationPreferencesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRecommendationPreferencesResponseFilterSensitiveLog = (
-  obj: DeleteRecommendationPreferencesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobFilterFilterSensitiveLog = (obj: JobFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecommendationExportJobsRequestFilterSensitiveLog = (
-  obj: DescribeRecommendationExportJobsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationFilterSensitiveLog = (obj: S3Destination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportDestinationFilterSensitiveLog = (obj: ExportDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationExportJobFilterSensitiveLog = (obj: RecommendationExportJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRecommendationExportJobsResponseFilterSensitiveLog = (
-  obj: DescribeRecommendationExportJobsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationPreferencesFilterSensitiveLog = (obj: RecommendationPreferences): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationConfigFilterSensitiveLog = (obj: S3DestinationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportAutoScalingGroupRecommendationsRequestFilterSensitiveLog = (
-  obj: ExportAutoScalingGroupRecommendationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportAutoScalingGroupRecommendationsResponseFilterSensitiveLog = (
-  obj: ExportAutoScalingGroupRecommendationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EBSFilterFilterSensitiveLog = (obj: EBSFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportEBSVolumeRecommendationsRequestFilterSensitiveLog = (
-  obj: ExportEBSVolumeRecommendationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportEBSVolumeRecommendationsResponseFilterSensitiveLog = (
-  obj: ExportEBSVolumeRecommendationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportEC2InstanceRecommendationsRequestFilterSensitiveLog = (
-  obj: ExportEC2InstanceRecommendationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportEC2InstanceRecommendationsResponseFilterSensitiveLog = (
-  obj: ExportEC2InstanceRecommendationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ECSServiceRecommendationFilterFilterSensitiveLog = (obj: ECSServiceRecommendationFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportECSServiceRecommendationsRequestFilterSensitiveLog = (
-  obj: ExportECSServiceRecommendationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportECSServiceRecommendationsResponseFilterSensitiveLog = (
-  obj: ExportECSServiceRecommendationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaFunctionRecommendationFilterFilterSensitiveLog = (obj: LambdaFunctionRecommendationFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportLambdaFunctionRecommendationsRequestFilterSensitiveLog = (
-  obj: ExportLambdaFunctionRecommendationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportLambdaFunctionRecommendationsResponseFilterSensitiveLog = (
-  obj: ExportLambdaFunctionRecommendationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAutoScalingGroupRecommendationsRequestFilterSensitiveLog = (
-  obj: GetAutoScalingGroupRecommendationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRecommendationErrorFilterSensitiveLog = (obj: GetRecommendationError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAutoScalingGroupRecommendationsResponseFilterSensitiveLog = (
-  obj: GetAutoScalingGroupRecommendationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEBSVolumeRecommendationsRequestFilterSensitiveLog = (obj: GetEBSVolumeRecommendationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeConfigurationFilterSensitiveLog = (obj: VolumeConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EBSUtilizationMetricFilterSensitiveLog = (obj: EBSUtilizationMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeRecommendationOptionFilterSensitiveLog = (obj: VolumeRecommendationOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeRecommendationFilterSensitiveLog = (obj: VolumeRecommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEBSVolumeRecommendationsResponseFilterSensitiveLog = (
-  obj: GetEBSVolumeRecommendationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEC2InstanceRecommendationsRequestFilterSensitiveLog = (
-  obj: GetEC2InstanceRecommendationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceRecommendationOptionFilterSensitiveLog = (obj: InstanceRecommendationOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationSourceFilterSensitiveLog = (obj: RecommendationSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceRecommendationFilterSensitiveLog = (obj: InstanceRecommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEC2InstanceRecommendationsResponseFilterSensitiveLog = (
-  obj: GetEC2InstanceRecommendationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEC2RecommendationProjectedMetricsRequestFilterSensitiveLog = (
-  obj: GetEC2RecommendationProjectedMetricsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectedMetricFilterSensitiveLog = (obj: ProjectedMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendedOptionProjectedMetricFilterSensitiveLog = (obj: RecommendedOptionProjectedMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEC2RecommendationProjectedMetricsResponseFilterSensitiveLog = (
-  obj: GetEC2RecommendationProjectedMetricsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetECSServiceRecommendationProjectedMetricsRequestFilterSensitiveLog = (
-  obj: GetECSServiceRecommendationProjectedMetricsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ECSServiceProjectedMetricFilterSensitiveLog = (obj: ECSServiceProjectedMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ECSServiceRecommendedOptionProjectedMetricFilterSensitiveLog = (
-  obj: ECSServiceRecommendedOptionProjectedMetric
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetECSServiceRecommendationProjectedMetricsResponseFilterSensitiveLog = (
-  obj: GetECSServiceRecommendationProjectedMetricsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetECSServiceRecommendationsRequestFilterSensitiveLog = (
-  obj: GetECSServiceRecommendationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemorySizeConfigurationFilterSensitiveLog = (obj: MemorySizeConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerConfigurationFilterSensitiveLog = (obj: ContainerConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceConfigurationFilterSensitiveLog = (obj: ServiceConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerRecommendationFilterSensitiveLog = (obj: ContainerRecommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ECSServiceProjectedUtilizationMetricFilterSensitiveLog = (
-  obj: ECSServiceProjectedUtilizationMetric
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ECSServiceRecommendationOptionFilterSensitiveLog = (obj: ECSServiceRecommendationOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ECSServiceUtilizationMetricFilterSensitiveLog = (obj: ECSServiceUtilizationMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ECSServiceRecommendationFilterSensitiveLog = (obj: ECSServiceRecommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetECSServiceRecommendationsResponseFilterSensitiveLog = (
-  obj: GetECSServiceRecommendationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEffectiveRecommendationPreferencesRequestFilterSensitiveLog = (
-  obj: GetEffectiveRecommendationPreferencesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEffectiveRecommendationPreferencesResponseFilterSensitiveLog = (
-  obj: GetEffectiveRecommendationPreferencesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEnrollmentStatusRequestFilterSensitiveLog = (obj: GetEnrollmentStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEnrollmentStatusResponseFilterSensitiveLog = (obj: GetEnrollmentStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnrollmentFilterFilterSensitiveLog = (obj: EnrollmentFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEnrollmentStatusesForOrganizationRequestFilterSensitiveLog = (
-  obj: GetEnrollmentStatusesForOrganizationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEnrollmentStatusesForOrganizationResponseFilterSensitiveLog = (
-  obj: GetEnrollmentStatusesForOrganizationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLambdaFunctionRecommendationsRequestFilterSensitiveLog = (
-  obj: GetLambdaFunctionRecommendationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaFunctionMemoryProjectedMetricFilterSensitiveLog = (
-  obj: LambdaFunctionMemoryProjectedMetric
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaFunctionMemoryRecommendationOptionFilterSensitiveLog = (
-  obj: LambdaFunctionMemoryRecommendationOption
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaFunctionUtilizationMetricFilterSensitiveLog = (obj: LambdaFunctionUtilizationMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaFunctionRecommendationFilterSensitiveLog = (obj: LambdaFunctionRecommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLambdaFunctionRecommendationsResponseFilterSensitiveLog = (
-  obj: GetLambdaFunctionRecommendationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRecommendationPreferencesRequestFilterSensitiveLog = (
-  obj: GetRecommendationPreferencesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationPreferencesDetailFilterSensitiveLog = (obj: RecommendationPreferencesDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRecommendationPreferencesResponseFilterSensitiveLog = (
-  obj: GetRecommendationPreferencesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRecommendationSummariesRequestFilterSensitiveLog = (obj: GetRecommendationSummariesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CurrentPerformanceRiskRatingsFilterSensitiveLog = (obj: CurrentPerformanceRiskRatings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReasonCodeSummaryFilterSensitiveLog = (obj: ReasonCodeSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SummaryFilterSensitiveLog = (obj: Summary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationSummaryFilterSensitiveLog = (obj: RecommendationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRecommendationSummariesResponseFilterSensitiveLog = (obj: GetRecommendationSummariesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecommendationPreferencesRequestFilterSensitiveLog = (
-  obj: PutRecommendationPreferencesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecommendationPreferencesResponseFilterSensitiveLog = (
-  obj: PutRecommendationPreferencesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEnrollmentStatusRequestFilterSensitiveLog = (obj: UpdateEnrollmentStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEnrollmentStatusResponseFilterSensitiveLog = (obj: UpdateEnrollmentStatusResponse): any => ({
-  ...obj,
-});

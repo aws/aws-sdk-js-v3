@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteResourceShareRequest,
-  DeleteResourceShareRequestFilterSensitiveLog,
-  DeleteResourceShareResponse,
-  DeleteResourceShareResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResourceShareCommand,
-  serializeAws_restJson1DeleteResourceShareCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteResourceShareRequest, DeleteResourceShareResponse } from "../models/models_0";
+import { de_DeleteResourceShareCommand, se_DeleteResourceShareCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteResourceShareCommand}.
+ */
 export interface DeleteResourceShareCommandInput extends DeleteResourceShareRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteResourceShareCommand}.
+ */
 export interface DeleteResourceShareCommandOutput extends DeleteResourceShareResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified resource share. This doesn't delete any of the resources that were
  *             associated with the resource share; it only stops the sharing of those resources outside of the
  *             Amazon Web Services account that created them.</p>
@@ -38,13 +41,49 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
  * import { RAMClient, DeleteResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, DeleteResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // DeleteResourceShareRequest
+ *   resourceShareArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteResourceShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceShareCommandInput - {@link DeleteResourceShareCommandInput}
+ * @returns {@link DeleteResourceShareCommandOutput}
  * @see {@link DeleteResourceShareCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>The client token input parameter was matched one used with a previous call to the
+ *             operation, but at least one of the other input parameters is different from the previous
+ *             call.</p>
+ *
+ * @throws {@link InvalidClientTokenException} (client fault)
+ *  <p>The client token is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link InvalidStateTransitionException} (client fault)
+ *  <p>The requested state transition is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The requested operation is not permitted.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>A specified resource was not found.</p>
+ *
  *
  */
 export class DeleteResourceShareCommand extends $Command<
@@ -64,6 +103,9 @@ export class DeleteResourceShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +134,8 @@ export class DeleteResourceShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceShareRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourceShareResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +145,18 @@ export class DeleteResourceShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourceShareCommand(input, context);
+    return se_DeleteResourceShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceShareCommandOutput> {
-    return deserializeAws_restJson1DeleteResourceShareCommand(output, context);
+    return de_DeleteResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

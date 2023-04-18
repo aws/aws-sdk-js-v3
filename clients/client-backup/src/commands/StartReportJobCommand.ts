@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  StartReportJobInput,
-  StartReportJobInputFilterSensitiveLog,
-  StartReportJobOutput,
-  StartReportJobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartReportJobCommand,
-  serializeAws_restJson1StartReportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { StartReportJobInput, StartReportJobOutput } from "../models/models_0";
+import { de_StartReportJobCommand, se_StartReportJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartReportJobCommand}.
+ */
 export interface StartReportJobCommandInput extends StartReportJobInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartReportJobCommand}.
+ */
 export interface StartReportJobCommandOutput extends StartReportJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an on-demand report job for the specified report plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface StartReportJobCommandOutput extends StartReportJobOutput, __Met
  * import { BackupClient, StartReportJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, StartReportJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // StartReportJobInput
+ *   ReportPlanName: "STRING_VALUE", // required
+ *   IdempotencyToken: "STRING_VALUE",
+ * };
  * const command = new StartReportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReportJobCommandInput - {@link StartReportJobCommandInput}
+ * @returns {@link StartReportJobCommandOutput}
  * @see {@link StartReportJobCommandInput} for command's `input` shape.
  * @see {@link StartReportJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class StartReportJobCommand extends $Command<
@@ -62,6 +85,9 @@ export class StartReportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class StartReportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReportJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartReportJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class StartReportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartReportJobCommand(input, context);
+    return se_StartReportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReportJobCommandOutput> {
-    return deserializeAws_restJson1StartReportJobCommand(output, context);
+    return de_StartReportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

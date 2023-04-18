@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  GetCredentialsForIdentityInput,
-  GetCredentialsForIdentityInputFilterSensitiveLog,
-  GetCredentialsForIdentityResponse,
-  GetCredentialsForIdentityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCredentialsForIdentityCommand,
-  serializeAws_json1_1GetCredentialsForIdentityCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCredentialsForIdentityInput, GetCredentialsForIdentityResponse } from "../models/models_0";
+import { de_GetCredentialsForIdentityCommand, se_GetCredentialsForIdentityCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCredentialsForIdentityCommand}.
+ */
 export interface GetCredentialsForIdentityCommandInput extends GetCredentialsForIdentityInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetCredentialsForIdentityCommand}.
+ */
 export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsForIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns credentials for the provided identity ID. Any provided logins will be
  *          validated against supported login providers. If the token is for
  *          cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service
@@ -40,13 +43,51 @@ export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsFo
  * import { CognitoIdentityClient, GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetCredentialsForIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // GetCredentialsForIdentityInput
+ *   IdentityId: "STRING_VALUE", // required
+ *   Logins: { // LoginsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   CustomRoleArn: "STRING_VALUE",
+ * };
  * const command = new GetCredentialsForIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCredentialsForIdentityCommandInput - {@link GetCredentialsForIdentityCommandInput}
+ * @returns {@link GetCredentialsForIdentityCommandOutput}
  * @see {@link GetCredentialsForIdentityCommandInput} for command's `input` shape.
  * @see {@link GetCredentialsForIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
+ *
+ * @throws {@link ExternalServiceException} (client fault)
+ *  <p>An exception thrown when a dependent service such as Facebook or Twitter is not
+ *          responding</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * @throws {@link InvalidIdentityPoolConfigurationException} (client fault)
+ *  <p>Thrown if the identity pool has no role associated for the given auth type
+ *          (auth/unauth) or if the AssumeRole fails.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>Thrown when a user tries to use a login which is already linked to another
+ *          account.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when the requested resource (for example, a dataset or record) does not
+ *          exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Thrown when a request is throttled.</p>
+ *
  *
  */
 export class GetCredentialsForIdentityCommand extends $Command<
@@ -66,6 +107,9 @@ export class GetCredentialsForIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCredentialsForIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +138,8 @@ export class GetCredentialsForIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCredentialsForIdentityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCredentialsForIdentityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +149,21 @@ export class GetCredentialsForIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCredentialsForIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCredentialsForIdentityCommand(input, context);
+    return se_GetCredentialsForIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCredentialsForIdentityCommandOutput> {
-    return deserializeAws_json1_1GetCredentialsForIdentityCommand(output, context);
+    return de_GetCredentialsForIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

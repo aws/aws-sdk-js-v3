@@ -14,47 +14,113 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  StartImportRequest,
-  StartImportRequestFilterSensitiveLog,
-  StartImportResponse,
-  StartImportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartImportCommand,
-  serializeAws_json1_1StartImportCommand,
-} from "../protocols/Aws_json1_1";
+import { StartImportRequest, StartImportResponse } from "../models/models_0";
+import { de_StartImportCommand, se_StartImportCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartImportCommand}.
+ */
 export interface StartImportCommandInput extends StartImportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartImportCommand}.
+ */
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Starts an import of logged trail events from a source S3 bucket to a destination event data store. By default, CloudTrail only imports events contained in the S3 bucket's <code>CloudTrail</code> prefix and the
- *          prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services services. If you want to import CloudTrail events contained in another prefix, you must include the prefix
- *          in the <code>S3LocationUri</code>. For more considerations about importing trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations</a>.
- *       </p>
- *          <p>
- *          When you start a new import, the <code>Destinations</code> and
- *          <code>ImportSource</code> parameters are required. Before starting a new import, disable any access control lists (ACLs) attached to the source S3 bucket.
- *          For more information about disabling ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of objects and disabling ACLs for your bucket</a>.
- *       </p>
- *          <p>
- *          When you retry an import, the <code>ImportID</code> parameter is required.
- *       </p>
+ * @public
+ * <p> Starts an import of logged trail events from a source S3 bucket to a destination event
+ *          data store. By default, CloudTrail only imports events contained in the S3 bucket's
+ *                <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services
+ *          services. If you want to import CloudTrail events contained in another prefix, you
+ *          must include the prefix in the <code>S3LocationUri</code>. For more considerations about
+ *          importing trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations</a>. </p>
+ *          <p> When you start a new import, the <code>Destinations</code> and
+ *             <code>ImportSource</code> parameters are required. Before starting a new import, disable
+ *          any access control lists (ACLs) attached to the source S3 bucket. For more information
+ *          about disabling ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of
+ *             objects and disabling ACLs for your bucket</a>. </p>
+ *          <p> When you retry an import, the <code>ImportID</code> parameter is required. </p>
+ *          <note>
+ *             <p> If the destination event data store is for an organization, you must use the
+ *             management account to import trail events. You cannot use the delegated administrator
+ *             account for the organization. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudTrailClient, StartImportCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StartImportCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // StartImportRequest
+ *   Destinations: [ // ImportDestinations
+ *     "STRING_VALUE",
+ *   ],
+ *   ImportSource: { // ImportSource
+ *     S3: { // S3ImportSource
+ *       S3LocationUri: "STRING_VALUE", // required
+ *       S3BucketRegion: "STRING_VALUE", // required
+ *       S3BucketAccessRoleArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   StartEventTime: new Date("TIMESTAMP"),
+ *   EndEventTime: new Date("TIMESTAMP"),
+ *   ImportId: "STRING_VALUE",
+ * };
  * const command = new StartImportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImportCommandInput - {@link StartImportCommandInput}
+ * @returns {@link StartImportCommandOutput}
  * @see {@link StartImportCommandInput} for command's `input` shape.
  * @see {@link StartImportCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link AccountHasOngoingImportException} (client fault)
+ *  <p> This exception is thrown when you start a new import and a previous import is still in
+ *          progress. </p>
+ *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
+ *
+ * @throws {@link EventDataStoreNotFoundException} (client fault)
+ *  <p>The specified event data store was not found.</p>
+ *
+ * @throws {@link ImportNotFoundException} (client fault)
+ *  <p> The specified import was not found. </p>
+ *
+ * @throws {@link InactiveEventDataStoreException} (client fault)
+ *  <p>The event data store is inactive.</p>
+ *
+ * @throws {@link InsufficientEncryptionPolicyException} (client fault)
+ *  <p>This exception is thrown when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *
+ * @throws {@link InvalidEventDataStoreCategoryException} (client fault)
+ *  <p>This exception is thrown when event categories of specified event data stores are not
+ *          valid.</p>
+ *
+ * @throws {@link InvalidEventDataStoreStatusException} (client fault)
+ *  <p>The event data store is not in a status that supports the operation.</p>
+ *
+ * @throws {@link InvalidImportSourceException} (client fault)
+ *  <p> This exception is thrown when the provided source S3 bucket is not valid for import.
+ *       </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
  *
  */
 export class StartImportCommand extends $Command<
@@ -74,6 +140,9 @@ export class StartImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +169,8 @@ export class StartImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +180,18 @@ export class StartImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartImportCommand(input, context);
+    return se_StartImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportCommandOutput> {
-    return deserializeAws_json1_1StartImportCommand(output, context);
+    return de_StartImportCommand(output, context);
   }
 
   // Start section: command_body_extra

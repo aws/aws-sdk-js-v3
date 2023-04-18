@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  ReleaseFileSystemNfsV3LocksRequest,
-  ReleaseFileSystemNfsV3LocksRequestFilterSensitiveLog,
-  ReleaseFileSystemNfsV3LocksResponse,
-  ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand,
-  serializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand,
-} from "../protocols/Aws_json1_1";
+import { ReleaseFileSystemNfsV3LocksRequest, ReleaseFileSystemNfsV3LocksResponse } from "../models/models_0";
+import { de_ReleaseFileSystemNfsV3LocksCommand, se_ReleaseFileSystemNfsV3LocksCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ReleaseFileSystemNfsV3LocksCommand}.
+ */
 export interface ReleaseFileSystemNfsV3LocksCommandInput extends ReleaseFileSystemNfsV3LocksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ReleaseFileSystemNfsV3LocksCommand}.
+ */
 export interface ReleaseFileSystemNfsV3LocksCommandOutput
   extends ReleaseFileSystemNfsV3LocksResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Releases the file system lock from an Amazon FSx for OpenZFS file
  *             system.</p>
  * @example
@@ -39,13 +42,38 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * import { FSxClient, ReleaseFileSystemNfsV3LocksCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, ReleaseFileSystemNfsV3LocksCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // ReleaseFileSystemNfsV3LocksRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new ReleaseFileSystemNfsV3LocksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReleaseFileSystemNfsV3LocksCommandInput - {@link ReleaseFileSystemNfsV3LocksCommandInput}
+ * @returns {@link ReleaseFileSystemNfsV3LocksCommandOutput}
  * @see {@link ReleaseFileSystemNfsV3LocksCommandInput} for command's `input` shape.
  * @see {@link ReleaseFileSystemNfsV3LocksCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link ServiceLimitExceeded} (client fault)
+ *  <p>An error indicating that a particular service limit was exceeded. You can increase
+ *             some service limits by contacting Amazon Web Services Support.</p>
+ *
  *
  */
 export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
@@ -65,6 +93,9 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReleaseFileSystemNfsV3LocksCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +124,8 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleaseFileSystemNfsV3LocksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +135,21 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReleaseFileSystemNfsV3LocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand(input, context);
+    return se_ReleaseFileSystemNfsV3LocksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReleaseFileSystemNfsV3LocksCommandOutput> {
-    return deserializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand(output, context);
+    return de_ReleaseFileSystemNfsV3LocksCommand(output, context);
   }
 
   // Start section: command_body_extra

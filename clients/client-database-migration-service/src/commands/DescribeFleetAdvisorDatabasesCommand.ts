@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { DescribeFleetAdvisorDatabasesRequest, DescribeFleetAdvisorDatabasesResponse } from "../models/models_0";
 import {
-  DescribeFleetAdvisorDatabasesRequest,
-  DescribeFleetAdvisorDatabasesRequestFilterSensitiveLog,
-  DescribeFleetAdvisorDatabasesResponse,
-  DescribeFleetAdvisorDatabasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetAdvisorDatabasesCommand,
-  serializeAws_json1_1DescribeFleetAdvisorDatabasesCommand,
+  de_DescribeFleetAdvisorDatabasesCommand,
+  se_DescribeFleetAdvisorDatabasesCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeFleetAdvisorDatabasesCommand}.
+ */
 export interface DescribeFleetAdvisorDatabasesCommandInput extends DescribeFleetAdvisorDatabasesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeFleetAdvisorDatabasesCommand}.
+ */
 export interface DescribeFleetAdvisorDatabasesCommandOutput
   extends DescribeFleetAdvisorDatabasesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Fleet Advisor databases in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +48,31 @@ export interface DescribeFleetAdvisorDatabasesCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorDatabasesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorDatabasesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeFleetAdvisorDatabasesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetAdvisorDatabasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAdvisorDatabasesCommandInput - {@link DescribeFleetAdvisorDatabasesCommandInput}
+ * @returns {@link DescribeFleetAdvisorDatabasesCommandOutput}
  * @see {@link DescribeFleetAdvisorDatabasesCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAdvisorDatabasesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
  *
  */
 export class DescribeFleetAdvisorDatabasesCommand extends $Command<
@@ -68,6 +92,9 @@ export class DescribeFleetAdvisorDatabasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAdvisorDatabasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +123,8 @@ export class DescribeFleetAdvisorDatabasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetAdvisorDatabasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetAdvisorDatabasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +134,21 @@ export class DescribeFleetAdvisorDatabasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetAdvisorDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetAdvisorDatabasesCommand(input, context);
+    return se_DescribeFleetAdvisorDatabasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetAdvisorDatabasesCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetAdvisorDatabasesCommand(output, context);
+    return de_DescribeFleetAdvisorDatabasesCommand(output, context);
   }
 
   // Start section: command_body_extra

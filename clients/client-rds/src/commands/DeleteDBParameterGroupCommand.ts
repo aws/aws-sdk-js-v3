@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDBParameterGroupMessage, DeleteDBParameterGroupMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBParameterGroupCommand,
-  serializeAws_queryDeleteDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBParameterGroupMessage } from "../models/models_0";
+import { de_DeleteDBParameterGroupCommand, se_DeleteDBParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDBParameterGroupCommand}.
+ */
 export interface DeleteDBParameterGroupCommandInput extends DeleteDBParameterGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDBParameterGroupCommand}.
+ */
 export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified DB parameter group. The DB parameter group to be deleted can't be associated with any DB instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,40 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * import { RDSClient, DeleteDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteDBParameterGroupMessage
+ *   DBParameterGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBParameterGroupCommandInput - {@link DeleteDBParameterGroupCommandInput}
+ * @returns {@link DeleteDBParameterGroupCommandOutput}
  * @see {@link DeleteDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an
+ *         existing DB parameter group.</p>
+ *
+ * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
+ *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting
+ *             to delete the parameter group, you can't delete it when the parameter group is in
+ *             this state.</p>
+ *
+ *
+ * @example To delete a DB parameter group
+ * ```javascript
+ * // The following example deletes a DB parameter group.
+ * const input = {
+ *   "DBParameterGroupName": "mydbparametergroup"
+ * };
+ * const command = new DeleteDBParameterGroupCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-db-parameter-group-1679963369020
+ * ```
  *
  */
 export class DeleteDBParameterGroupCommand extends $Command<
@@ -57,6 +92,9 @@ export class DeleteDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +123,8 @@ export class DeleteDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +134,18 @@ export class DeleteDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBParameterGroupCommand(input, context);
+    return se_DeleteDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBParameterGroupCommand(output, context);
+    return de_DeleteDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

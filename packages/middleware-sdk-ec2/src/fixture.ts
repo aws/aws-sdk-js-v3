@@ -12,13 +12,6 @@ export class MockSha256 {
 
 export const region = () => Promise.resolve("mock-region");
 
-export const endpoint = () =>
-  Promise.resolve({
-    protocol: "https:",
-    path: "/",
-    hostname: "ec2.mock-region.amazonaws.com",
-  });
-
 export const credentials = () =>
   Promise.resolve({
     accessKeyId: "akid",

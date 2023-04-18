@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListExecutionsInput,
-  ListExecutionsInputFilterSensitiveLog,
-  ListExecutionsOutput,
-  ListExecutionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExecutionsCommand,
-  serializeAws_restJson1ListExecutionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListExecutionsInput, ListExecutionsOutput } from "../models/models_0";
+import { de_ListExecutionsCommand, se_ListExecutionsCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
   SnowDeviceManagementClientResolvedConfig,
 } from "../SnowDeviceManagementClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListExecutionsCommand}.
+ */
 export interface ListExecutionsCommandInput extends ListExecutionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListExecutionsCommand}.
+ */
 export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the status of tasks for one or more target devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,37 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * import { SnowDeviceManagementClient, ListExecutionsCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, ListExecutionsCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = { // ListExecutionsInput
+ *   taskId: "STRING_VALUE", // required
+ *   state: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExecutionsCommandInput - {@link ListExecutionsCommandInput}
+ * @returns {@link ListExecutionsCommandOutput}
  * @see {@link ListExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class ListExecutionsCommand extends $Command<
@@ -66,6 +93,9 @@ export class ListExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +124,8 @@ export class ListExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExecutionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExecutionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +135,18 @@ export class ListExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExecutionsCommand(input, context);
+    return se_ListExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExecutionsCommandOutput> {
-    return deserializeAws_restJson1ListExecutionsCommand(output, context);
+    return de_ListExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

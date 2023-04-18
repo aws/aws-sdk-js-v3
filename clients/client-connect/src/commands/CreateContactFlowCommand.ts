@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateContactFlowRequest,
-  CreateContactFlowRequestFilterSensitiveLog,
-  CreateContactFlowResponse,
-  CreateContactFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateContactFlowCommand,
-  serializeAws_restJson1CreateContactFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateContactFlowRequest, CreateContactFlowResponse } from "../models/models_0";
+import { de_CreateContactFlowCommand, se_CreateContactFlowCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateContactFlowCommand}.
+ */
 export interface CreateContactFlowCommandInput extends CreateContactFlowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateContactFlowCommand}.
+ */
 export interface CreateContactFlowCommandOutput extends CreateContactFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a flow for the specified Amazon Connect instance.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
@@ -38,13 +41,50 @@ export interface CreateContactFlowCommandOutput extends CreateContactFlowRespons
  * import { ConnectClient, CreateContactFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateContactFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateContactFlowRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER", // required
+ *   Description: "STRING_VALUE",
+ *   Content: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateContactFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContactFlowCommandInput - {@link CreateContactFlowCommandInput}
+ * @returns {@link CreateContactFlowCommandOutput}
  * @see {@link CreateContactFlowCommandInput} for command's `input` shape.
  * @see {@link CreateContactFlowCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link DuplicateResourceException} (client fault)
+ *  <p>A resource with the specified name already exists.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidContactFlowException} (client fault)
+ *  <p>The flow is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The allowed limit for the resource has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class CreateContactFlowCommand extends $Command<
@@ -64,6 +104,9 @@ export class CreateContactFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContactFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +135,8 @@ export class CreateContactFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateContactFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateContactFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +146,18 @@ export class CreateContactFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContactFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateContactFlowCommand(input, context);
+    return se_CreateContactFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContactFlowCommandOutput> {
-    return deserializeAws_restJson1CreateContactFlowCommand(output, context);
+    return de_CreateContactFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

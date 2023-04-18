@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteVolumeInput,
-  DeleteVolumeInputFilterSensitiveLog,
-  DeleteVolumeOutput,
-  DeleteVolumeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVolumeCommand,
-  serializeAws_json1_1DeleteVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteVolumeInput, DeleteVolumeOutput } from "../models/models_0";
+import { de_DeleteVolumeCommand, se_DeleteVolumeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandInput extends DeleteVolumeInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteVolumeCommand}.
+ */
 export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified storage volume that you previously created using the <a>CreateCachediSCSIVolume</a> or <a>CreateStorediSCSIVolume</a> API.
  *          This operation is only supported in the cached volume and stored volume types. For stored
  *          volume gateways, the local disk that was configured as the storage volume is not deleted.
@@ -48,13 +51,43 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  * import { StorageGatewayClient, DeleteVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DeleteVolumeInput
+ *   VolumeARN: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVolumeCommandInput - {@link DeleteVolumeCommandInput}
+ * @returns {@link DeleteVolumeCommandOutput}
  * @see {@link DeleteVolumeCommandInput} for command's `input` shape.
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
+ * @example To delete a gateway volume
+ * ```javascript
+ * // Deletes the specified gateway volume that you previously created using the CreateCachediSCSIVolume or CreateStorediSCSIVolume API.
+ * const input = {
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * };
+ * const command = new DeleteVolumeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ * }
+ * *\/
+ * // example id: to-delete-a-gateway-volume-1471384418416
+ * ```
  *
  */
 export class DeleteVolumeCommand extends $Command<
@@ -74,6 +107,9 @@ export class DeleteVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +136,8 @@ export class DeleteVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVolumeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVolumeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +147,18 @@ export class DeleteVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVolumeCommand(input, context);
+    return se_DeleteVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVolumeCommandOutput> {
-    return deserializeAws_json1_1DeleteVolumeCommand(output, context);
+    return de_DeleteVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

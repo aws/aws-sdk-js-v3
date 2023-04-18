@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  GetLogEventsRequest,
-  GetLogEventsRequestFilterSensitiveLog,
-  GetLogEventsResponse,
-  GetLogEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLogEventsCommand,
-  serializeAws_json1_1GetLogEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetLogEventsRequest, GetLogEventsResponse } from "../models/models_0";
+import { de_GetLogEventsCommand, se_GetLogEventsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetLogEventsCommand}.
+ */
 export interface GetLogEventsCommandInput extends GetLogEventsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetLogEventsCommand}.
+ */
 export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists log events from the specified log stream. You can list all of the log events or
  *       filter using a time range.</p>
  *          <p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events).
@@ -46,13 +49,36 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  * import { CloudWatchLogsClient, GetLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetLogEventsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // GetLogEventsRequest
+ *   logGroupName: "STRING_VALUE",
+ *   logGroupIdentifier: "STRING_VALUE",
+ *   logStreamName: "STRING_VALUE", // required
+ *   startTime: Number("long"),
+ *   endTime: Number("long"),
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   startFromHead: true || false,
+ *   unmask: true || false,
+ * };
  * const command = new GetLogEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLogEventsCommandInput - {@link GetLogEventsCommandInput}
+ * @returns {@link GetLogEventsCommandOutput}
  * @see {@link GetLogEventsCommandInput} for command's `input` shape.
  * @see {@link GetLogEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class GetLogEventsCommand extends $Command<
@@ -72,6 +98,9 @@ export class GetLogEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLogEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +127,8 @@ export class GetLogEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLogEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLogEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +138,18 @@ export class GetLogEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLogEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLogEventsCommand(input, context);
+    return se_GetLogEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLogEventsCommandOutput> {
-    return deserializeAws_json1_1GetLogEventsCommand(output, context);
+    return de_GetLogEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

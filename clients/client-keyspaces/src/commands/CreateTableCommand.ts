@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import {
-  CreateTableRequest,
-  CreateTableRequestFilterSensitiveLog,
-  CreateTableResponse,
-  CreateTableResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateTableCommand,
-  serializeAws_json1_0CreateTableCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateTableRequest, CreateTableResponse } from "../models/models_0";
+import { de_CreateTableCommand, se_CreateTableCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateTableCommand}.
+ */
 export interface CreateTableCommandInput extends CreateTableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateTableCommand}.
+ */
 export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>CreateTable</code> operation adds a new table to the specified keyspace. Within a keyspace, table names
  *          must be unique.</p>
  *          <p>
@@ -43,13 +46,93 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * import { KeyspacesClient, CreateTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, CreateTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = { // CreateTableRequest
+ *   keyspaceName: "STRING_VALUE", // required
+ *   tableName: "STRING_VALUE", // required
+ *   schemaDefinition: { // SchemaDefinition
+ *     allColumns: [ // ColumnDefinitionList // required
+ *       { // ColumnDefinition
+ *         name: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     partitionKeys: [ // PartitionKeyList // required
+ *       { // PartitionKey
+ *         name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     clusteringKeys: [ // ClusteringKeyList
+ *       { // ClusteringKey
+ *         name: "STRING_VALUE", // required
+ *         orderBy: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     staticColumns: [ // StaticColumnList
+ *       { // StaticColumn
+ *         name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   comment: { // Comment
+ *     message: "STRING_VALUE", // required
+ *   },
+ *   capacitySpecification: { // CapacitySpecification
+ *     throughputMode: "STRING_VALUE", // required
+ *     readCapacityUnits: Number("long"),
+ *     writeCapacityUnits: Number("long"),
+ *   },
+ *   encryptionSpecification: { // EncryptionSpecification
+ *     type: "STRING_VALUE", // required
+ *     kmsKeyIdentifier: "STRING_VALUE",
+ *   },
+ *   pointInTimeRecovery: { // PointInTimeRecovery
+ *     status: "STRING_VALUE", // required
+ *   },
+ *   ttl: { // TimeToLive
+ *     status: "STRING_VALUE", // required
+ *   },
+ *   defaultTimeToLive: Number("int"),
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientSideTimestamps: { // ClientSideTimestamps
+ *     status: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTableCommandInput - {@link CreateTableCommandInput}
+ * @returns {@link CreateTableCommandOutput}
  * @see {@link CreateTableCommandInput} for command's `input` shape.
  * @see {@link CreateTableCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Amazon Keyspaces could not complete the requested action. This error may occur if you try to
+ *          perform an action and the same or a different action is already
+ *          in progress, or if you try to create a resource that already exists. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
+ *             Guide</i>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation failed due to an invalid or malformed request.</p>
+ *
  *
  */
 export class CreateTableCommand extends $Command<
@@ -69,6 +152,9 @@ export class CreateTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +181,8 @@ export class CreateTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +192,18 @@ export class CreateTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateTableCommand(input, context);
+    return se_CreateTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTableCommandOutput> {
-    return deserializeAws_json1_0CreateTableCommand(output, context);
+    return de_CreateTableCommand(output, context);
   }
 
   // Start section: command_body_extra

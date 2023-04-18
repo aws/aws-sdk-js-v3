@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -8,7 +9,8 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -120,19 +122,15 @@ import {
   AliasListEntry,
   AlreadyExistsException,
   CancelKeyDeletionRequest,
-  CancelKeyDeletionResponse,
   CloudHsmClusterInUseException,
   CloudHsmClusterInvalidConfigurationException,
   CloudHsmClusterNotActiveException,
   CloudHsmClusterNotFoundException,
   CloudHsmClusterNotRelatedException,
   ConnectCustomKeyStoreRequest,
-  ConnectCustomKeyStoreResponse,
   CreateAliasRequest,
   CreateCustomKeyStoreRequest,
-  CreateCustomKeyStoreResponse,
   CreateGrantRequest,
-  CreateGrantResponse,
   CreateKeyRequest,
   CreateKeyResponse,
   CustomKeyStoreHasCMKsException,
@@ -144,7 +142,6 @@ import {
   DecryptResponse,
   DeleteAliasRequest,
   DeleteCustomKeyStoreRequest,
-  DeleteCustomKeyStoreResponse,
   DeleteImportedKeyMaterialRequest,
   DependencyTimeoutException,
   DescribeCustomKeyStoresRequest,
@@ -155,10 +152,8 @@ import {
   DisableKeyRequest,
   DisableKeyRotationRequest,
   DisconnectCustomKeyStoreRequest,
-  DisconnectCustomKeyStoreResponse,
   EnableKeyRequest,
   EnableKeyRotationRequest,
-  EncryptionAlgorithmSpec,
   EncryptRequest,
   EncryptResponse,
   ExpiredImportTokenException,
@@ -175,9 +170,7 @@ import {
   GenerateRandomRequest,
   GenerateRandomResponse,
   GetKeyPolicyRequest,
-  GetKeyPolicyResponse,
   GetKeyRotationStatusRequest,
-  GetKeyRotationStatusResponse,
   GetParametersForImportRequest,
   GetParametersForImportResponse,
   GetPublicKeyRequest,
@@ -186,7 +179,6 @@ import {
   GrantListEntry,
   GrantOperation,
   ImportKeyMaterialRequest,
-  ImportKeyMaterialResponse,
   IncorrectKeyException,
   IncorrectKeyMaterialException,
   IncorrectTrustAnchorException,
@@ -198,7 +190,6 @@ import {
   InvalidImportTokenException,
   InvalidKeyUsageException,
   InvalidMarkerException,
-  KeyListEntry,
   KeyMetadata,
   KeyUnavailableException,
   KMSInternalException,
@@ -211,16 +202,10 @@ import {
   ListGrantsRequest,
   ListGrantsResponse,
   ListKeyPoliciesRequest,
-  ListKeyPoliciesResponse,
   ListKeysRequest,
-  ListKeysResponse,
   ListResourceTagsRequest,
-  ListResourceTagsResponse,
   ListRetirableGrantsRequest,
-  MacAlgorithmSpec,
   MalformedPolicyDocumentException,
-  MultiRegionConfiguration,
-  MultiRegionKey,
   NotFoundException,
   PutKeyPolicyRequest,
   ReEncryptRequest,
@@ -231,7 +216,6 @@ import {
   RevokeGrantRequest,
   ScheduleKeyDeletionRequest,
   ScheduleKeyDeletionResponse,
-  SigningAlgorithmSpec,
   SignRequest,
   SignResponse,
   Tag,
@@ -241,19 +225,14 @@ import {
   UntagResourceRequest,
   UpdateAliasRequest,
   UpdateCustomKeyStoreRequest,
-  UpdateCustomKeyStoreResponse,
   UpdateKeyDescriptionRequest,
   UpdatePrimaryRegionRequest,
   VerifyMacRequest,
-  VerifyMacResponse,
   VerifyRequest,
-  VerifyResponse,
   XksKeyAlreadyInUseException,
-  XksKeyConfigurationType,
   XksKeyInvalidConfigurationException,
   XksKeyNotFoundException,
   XksProxyAuthenticationCredentialType,
-  XksProxyConfigurationType,
   XksProxyIncorrectAuthenticationCredentialException,
   XksProxyInvalidConfigurationException,
   XksProxyInvalidResponseException,
@@ -265,674 +244,674 @@ import {
   XksProxyVpcEndpointServiceNotFoundException,
 } from "../models/models_0";
 
-export const serializeAws_json1_1CancelKeyDeletionCommand = async (
+/**
+ * serializeAws_json1_1CancelKeyDeletionCommand
+ */
+export const se_CancelKeyDeletionCommand = async (
   input: CancelKeyDeletionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.CancelKeyDeletion",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelKeyDeletion");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CancelKeyDeletionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ConnectCustomKeyStoreCommand = async (
+/**
+ * serializeAws_json1_1ConnectCustomKeyStoreCommand
+ */
+export const se_ConnectCustomKeyStoreCommand = async (
   input: ConnectCustomKeyStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.ConnectCustomKeyStore",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConnectCustomKeyStore");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ConnectCustomKeyStoreRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateAliasCommand = async (
+/**
+ * serializeAws_json1_1CreateAliasCommand
+ */
+export const se_CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.CreateAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAlias");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateAliasRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateCustomKeyStoreCommand = async (
+/**
+ * serializeAws_json1_1CreateCustomKeyStoreCommand
+ */
+export const se_CreateCustomKeyStoreCommand = async (
   input: CreateCustomKeyStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.CreateCustomKeyStore",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCustomKeyStore");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateCustomKeyStoreRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateGrantCommand = async (
+/**
+ * serializeAws_json1_1CreateGrantCommand
+ */
+export const se_CreateGrantCommand = async (
   input: CreateGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.CreateGrant",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGrant");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateGrantRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateKeyCommand = async (
+/**
+ * serializeAws_json1_1CreateKeyCommand
+ */
+export const se_CreateKeyCommand = async (
   input: CreateKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.CreateKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateKey");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DecryptCommand = async (
+/**
+ * serializeAws_json1_1DecryptCommand
+ */
+export const se_DecryptCommand = async (
   input: DecryptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.Decrypt",
-  };
+  const headers: __HeaderBag = sharedHeaders("Decrypt");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DecryptRequest(input, context));
+  body = JSON.stringify(se_DecryptRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteAliasCommand = async (
+/**
+ * serializeAws_json1_1DeleteAliasCommand
+ */
+export const se_DeleteAliasCommand = async (
   input: DeleteAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.DeleteAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAlias");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteAliasRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteCustomKeyStoreCommand = async (
+/**
+ * serializeAws_json1_1DeleteCustomKeyStoreCommand
+ */
+export const se_DeleteCustomKeyStoreCommand = async (
   input: DeleteCustomKeyStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.DeleteCustomKeyStore",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCustomKeyStore");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteCustomKeyStoreRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteImportedKeyMaterialCommand = async (
+/**
+ * serializeAws_json1_1DeleteImportedKeyMaterialCommand
+ */
+export const se_DeleteImportedKeyMaterialCommand = async (
   input: DeleteImportedKeyMaterialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.DeleteImportedKeyMaterial",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteImportedKeyMaterial");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteImportedKeyMaterialRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCustomKeyStoresCommand = async (
+/**
+ * serializeAws_json1_1DescribeCustomKeyStoresCommand
+ */
+export const se_DescribeCustomKeyStoresCommand = async (
   input: DescribeCustomKeyStoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.DescribeCustomKeyStores",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCustomKeyStores");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCustomKeyStoresRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeKeyCommand = async (
+/**
+ * serializeAws_json1_1DescribeKeyCommand
+ */
+export const se_DescribeKeyCommand = async (
   input: DescribeKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.DescribeKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeKey");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisableKeyCommand = async (
+/**
+ * serializeAws_json1_1DisableKeyCommand
+ */
+export const se_DisableKeyCommand = async (
   input: DisableKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.DisableKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableKey");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisableKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisableKeyRotationCommand = async (
+/**
+ * serializeAws_json1_1DisableKeyRotationCommand
+ */
+export const se_DisableKeyRotationCommand = async (
   input: DisableKeyRotationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.DisableKeyRotation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableKeyRotation");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisableKeyRotationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisconnectCustomKeyStoreCommand = async (
+/**
+ * serializeAws_json1_1DisconnectCustomKeyStoreCommand
+ */
+export const se_DisconnectCustomKeyStoreCommand = async (
   input: DisconnectCustomKeyStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.DisconnectCustomKeyStore",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisconnectCustomKeyStore");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisconnectCustomKeyStoreRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1EnableKeyCommand = async (
+/**
+ * serializeAws_json1_1EnableKeyCommand
+ */
+export const se_EnableKeyCommand = async (
   input: EnableKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.EnableKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableKey");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1EnableKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1EnableKeyRotationCommand = async (
+/**
+ * serializeAws_json1_1EnableKeyRotationCommand
+ */
+export const se_EnableKeyRotationCommand = async (
   input: EnableKeyRotationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.EnableKeyRotation",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableKeyRotation");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1EnableKeyRotationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1EncryptCommand = async (
+/**
+ * serializeAws_json1_1EncryptCommand
+ */
+export const se_EncryptCommand = async (
   input: EncryptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.Encrypt",
-  };
+  const headers: __HeaderBag = sharedHeaders("Encrypt");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1EncryptRequest(input, context));
+  body = JSON.stringify(se_EncryptRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GenerateDataKeyCommand = async (
+/**
+ * serializeAws_json1_1GenerateDataKeyCommand
+ */
+export const se_GenerateDataKeyCommand = async (
   input: GenerateDataKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.GenerateDataKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("GenerateDataKey");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GenerateDataKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GenerateDataKeyPairCommand = async (
+/**
+ * serializeAws_json1_1GenerateDataKeyPairCommand
+ */
+export const se_GenerateDataKeyPairCommand = async (
   input: GenerateDataKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.GenerateDataKeyPair",
-  };
+  const headers: __HeaderBag = sharedHeaders("GenerateDataKeyPair");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GenerateDataKeyPairRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand = async (
+/**
+ * serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand
+ */
+export const se_GenerateDataKeyPairWithoutPlaintextCommand = async (
   input: GenerateDataKeyPairWithoutPlaintextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.GenerateDataKeyPairWithoutPlaintext",
-  };
+  const headers: __HeaderBag = sharedHeaders("GenerateDataKeyPairWithoutPlaintext");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand = async (
+/**
+ * serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand
+ */
+export const se_GenerateDataKeyWithoutPlaintextCommand = async (
   input: GenerateDataKeyWithoutPlaintextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.GenerateDataKeyWithoutPlaintext",
-  };
+  const headers: __HeaderBag = sharedHeaders("GenerateDataKeyWithoutPlaintext");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GenerateDataKeyWithoutPlaintextRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GenerateMacCommand = async (
+/**
+ * serializeAws_json1_1GenerateMacCommand
+ */
+export const se_GenerateMacCommand = async (
   input: GenerateMacCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.GenerateMac",
-  };
+  const headers: __HeaderBag = sharedHeaders("GenerateMac");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GenerateMacRequest(input, context));
+  body = JSON.stringify(se_GenerateMacRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GenerateRandomCommand = async (
+/**
+ * serializeAws_json1_1GenerateRandomCommand
+ */
+export const se_GenerateRandomCommand = async (
   input: GenerateRandomCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.GenerateRandom",
-  };
+  const headers: __HeaderBag = sharedHeaders("GenerateRandom");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GenerateRandomRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetKeyPolicyCommand = async (
+/**
+ * serializeAws_json1_1GetKeyPolicyCommand
+ */
+export const se_GetKeyPolicyCommand = async (
   input: GetKeyPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.GetKeyPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetKeyPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetKeyPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetKeyRotationStatusCommand = async (
+/**
+ * serializeAws_json1_1GetKeyRotationStatusCommand
+ */
+export const se_GetKeyRotationStatusCommand = async (
   input: GetKeyRotationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.GetKeyRotationStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetKeyRotationStatus");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetKeyRotationStatusRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetParametersForImportCommand = async (
+/**
+ * serializeAws_json1_1GetParametersForImportCommand
+ */
+export const se_GetParametersForImportCommand = async (
   input: GetParametersForImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.GetParametersForImport",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetParametersForImport");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetParametersForImportRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetPublicKeyCommand = async (
+/**
+ * serializeAws_json1_1GetPublicKeyCommand
+ */
+export const se_GetPublicKeyCommand = async (
   input: GetPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.GetPublicKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPublicKey");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetPublicKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ImportKeyMaterialCommand = async (
+/**
+ * serializeAws_json1_1ImportKeyMaterialCommand
+ */
+export const se_ImportKeyMaterialCommand = async (
   input: ImportKeyMaterialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.ImportKeyMaterial",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportKeyMaterial");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ImportKeyMaterialRequest(input, context));
+  body = JSON.stringify(se_ImportKeyMaterialRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAliasesCommand = async (
+/**
+ * serializeAws_json1_1ListAliasesCommand
+ */
+export const se_ListAliasesCommand = async (
   input: ListAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.ListAliases",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAliases");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAliasesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListGrantsCommand = async (
+/**
+ * serializeAws_json1_1ListGrantsCommand
+ */
+export const se_ListGrantsCommand = async (
   input: ListGrantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.ListGrants",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListGrants");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListGrantsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListKeyPoliciesCommand = async (
+/**
+ * serializeAws_json1_1ListKeyPoliciesCommand
+ */
+export const se_ListKeyPoliciesCommand = async (
   input: ListKeyPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.ListKeyPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListKeyPolicies");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListKeyPoliciesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListKeysCommand = async (
+/**
+ * serializeAws_json1_1ListKeysCommand
+ */
+export const se_ListKeysCommand = async (
   input: ListKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.ListKeys",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListKeys");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListKeysRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResourceTagsCommand = async (
+/**
+ * serializeAws_json1_1ListResourceTagsCommand
+ */
+export const se_ListResourceTagsCommand = async (
   input: ListResourceTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.ListResourceTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourceTags");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResourceTagsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListRetirableGrantsCommand = async (
+/**
+ * serializeAws_json1_1ListRetirableGrantsCommand
+ */
+export const se_ListRetirableGrantsCommand = async (
   input: ListRetirableGrantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.ListRetirableGrants",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRetirableGrants");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListRetirableGrantsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutKeyPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutKeyPolicyCommand
+ */
+export const se_PutKeyPolicyCommand = async (
   input: PutKeyPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.PutKeyPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutKeyPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutKeyPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ReEncryptCommand = async (
+/**
+ * serializeAws_json1_1ReEncryptCommand
+ */
+export const se_ReEncryptCommand = async (
   input: ReEncryptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.ReEncrypt",
-  };
+  const headers: __HeaderBag = sharedHeaders("ReEncrypt");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ReEncryptRequest(input, context));
+  body = JSON.stringify(se_ReEncryptRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ReplicateKeyCommand = async (
+/**
+ * serializeAws_json1_1ReplicateKeyCommand
+ */
+export const se_ReplicateKeyCommand = async (
   input: ReplicateKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.ReplicateKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("ReplicateKey");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ReplicateKeyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RetireGrantCommand = async (
+/**
+ * serializeAws_json1_1RetireGrantCommand
+ */
+export const se_RetireGrantCommand = async (
   input: RetireGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.RetireGrant",
-  };
+  const headers: __HeaderBag = sharedHeaders("RetireGrant");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RetireGrantRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RevokeGrantCommand = async (
+/**
+ * serializeAws_json1_1RevokeGrantCommand
+ */
+export const se_RevokeGrantCommand = async (
   input: RevokeGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.RevokeGrant",
-  };
+  const headers: __HeaderBag = sharedHeaders("RevokeGrant");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RevokeGrantRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ScheduleKeyDeletionCommand = async (
+/**
+ * serializeAws_json1_1ScheduleKeyDeletionCommand
+ */
+export const se_ScheduleKeyDeletionCommand = async (
   input: ScheduleKeyDeletionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.ScheduleKeyDeletion",
-  };
+  const headers: __HeaderBag = sharedHeaders("ScheduleKeyDeletion");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ScheduleKeyDeletionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SignCommand = async (
-  input: SignCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.Sign",
-  };
+/**
+ * serializeAws_json1_1SignCommand
+ */
+export const se_SignCommand = async (input: SignCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("Sign");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SignRequest(input, context));
+  body = JSON.stringify(se_SignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateAliasCommand = async (
+/**
+ * serializeAws_json1_1UpdateAliasCommand
+ */
+export const se_UpdateAliasCommand = async (
   input: UpdateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.UpdateAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAlias");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateAliasRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateCustomKeyStoreCommand = async (
+/**
+ * serializeAws_json1_1UpdateCustomKeyStoreCommand
+ */
+export const se_UpdateCustomKeyStoreCommand = async (
   input: UpdateCustomKeyStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.UpdateCustomKeyStore",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCustomKeyStore");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateCustomKeyStoreRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateKeyDescriptionCommand = async (
+/**
+ * serializeAws_json1_1UpdateKeyDescriptionCommand
+ */
+export const se_UpdateKeyDescriptionCommand = async (
   input: UpdateKeyDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.UpdateKeyDescription",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateKeyDescription");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateKeyDescriptionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePrimaryRegionCommand = async (
+/**
+ * serializeAws_json1_1UpdatePrimaryRegionCommand
+ */
+export const se_UpdatePrimaryRegionCommand = async (
   input: UpdatePrimaryRegionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.UpdatePrimaryRegion",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePrimaryRegion");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePrimaryRegionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1VerifyCommand = async (
-  input: VerifyCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.Verify",
-  };
+/**
+ * serializeAws_json1_1VerifyCommand
+ */
+export const se_VerifyCommand = async (input: VerifyCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("Verify");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1VerifyRequest(input, context));
+  body = JSON.stringify(se_VerifyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1VerifyMacCommand = async (
+/**
+ * serializeAws_json1_1VerifyMacCommand
+ */
+export const se_VerifyMacCommand = async (
   input: VerifyMacCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TrentService.VerifyMac",
-  };
+  const headers: __HeaderBag = sharedHeaders("VerifyMac");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1VerifyMacRequest(input, context));
+  body = JSON.stringify(se_VerifyMacRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CancelKeyDeletionCommand = async (
+/**
+ * deserializeAws_json1_1CancelKeyDeletionCommand
+ */
+export const de_CancelKeyDeletionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelKeyDeletionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CancelKeyDeletionCommandError(output, context);
+    return de_CancelKeyDeletionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelKeyDeletionResponse(data, context);
+  contents = _json(data);
   const response: CancelKeyDeletionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CancelKeyDeletionCommandError = async (
+/**
+ * deserializeAws_json1_1CancelKeyDeletionCommandError
+ */
+const de_CancelKeyDeletionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelKeyDeletionCommandOutput> => {
@@ -944,48 +923,53 @@ const deserializeAws_json1_1CancelKeyDeletionCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ConnectCustomKeyStoreCommand = async (
+/**
+ * deserializeAws_json1_1ConnectCustomKeyStoreCommand
+ */
+export const de_ConnectCustomKeyStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConnectCustomKeyStoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ConnectCustomKeyStoreCommandError(output, context);
+    return de_ConnectCustomKeyStoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ConnectCustomKeyStoreResponse(data, context);
+  contents = _json(data);
   const response: ConnectCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ConnectCustomKeyStoreCommandError = async (
+/**
+ * deserializeAws_json1_1ConnectCustomKeyStoreCommandError
+ */
+const de_ConnectCustomKeyStoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConnectCustomKeyStoreCommandOutput> => {
@@ -997,45 +981,50 @@ const deserializeAws_json1_1ConnectCustomKeyStoreCommandError = async (
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
     case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
-      throw await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_CloudHsmClusterInvalidConfigurationExceptionRes(parsedOutput, context);
     case "CloudHsmClusterNotActiveException":
     case "com.amazonaws.kms#CloudHsmClusterNotActiveException":
-      throw await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(parsedOutput, context);
+      throw await de_CloudHsmClusterNotActiveExceptionRes(parsedOutput, context);
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreInvalidStateExceptionRes(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreNotFoundExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateAliasCommand = async (
+/**
+ * deserializeAws_json1_1CreateAliasCommand
+ */
+export const de_CreateAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateAliasCommandError(output, context);
+    return de_CreateAliasCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateAliasCommandError = async (
+/**
+ * deserializeAws_json1_1CreateAliasCommandError
+ */
+const de_CreateAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> => {
@@ -1047,54 +1036,59 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.kms#AlreadyExistsException":
-      throw await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidAliasNameException":
     case "com.amazonaws.kms#InvalidAliasNameException":
-      throw await deserializeAws_json1_1InvalidAliasNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAliasNameExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateCustomKeyStoreCommand = async (
+/**
+ * deserializeAws_json1_1CreateCustomKeyStoreCommand
+ */
+export const de_CreateCustomKeyStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomKeyStoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateCustomKeyStoreCommandError(output, context);
+    return de_CreateCustomKeyStoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCustomKeyStoreResponse(data, context);
+  contents = _json(data);
   const response: CreateCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
+/**
+ * deserializeAws_json1_1CreateCustomKeyStoreCommandError
+ */
+const de_CreateCustomKeyStoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomKeyStoreCommandOutput> => {
@@ -1106,90 +1100,89 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
   switch (errorCode) {
     case "CloudHsmClusterInUseException":
     case "com.amazonaws.kms#CloudHsmClusterInUseException":
-      throw await deserializeAws_json1_1CloudHsmClusterInUseExceptionResponse(parsedOutput, context);
+      throw await de_CloudHsmClusterInUseExceptionRes(parsedOutput, context);
     case "CloudHsmClusterInvalidConfigurationException":
     case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
-      throw await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_CloudHsmClusterInvalidConfigurationExceptionRes(parsedOutput, context);
     case "CloudHsmClusterNotActiveException":
     case "com.amazonaws.kms#CloudHsmClusterNotActiveException":
-      throw await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(parsedOutput, context);
+      throw await de_CloudHsmClusterNotActiveExceptionRes(parsedOutput, context);
     case "CloudHsmClusterNotFoundException":
     case "com.amazonaws.kms#CloudHsmClusterNotFoundException":
-      throw await deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_CloudHsmClusterNotFoundExceptionRes(parsedOutput, context);
     case "CustomKeyStoreNameInUseException":
     case "com.amazonaws.kms#CustomKeyStoreNameInUseException":
-      throw await deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreNameInUseExceptionRes(parsedOutput, context);
     case "IncorrectTrustAnchorException":
     case "com.amazonaws.kms#IncorrectTrustAnchorException":
-      throw await deserializeAws_json1_1IncorrectTrustAnchorExceptionResponse(parsedOutput, context);
+      throw await de_IncorrectTrustAnchorExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "XksProxyIncorrectAuthenticationCredentialException":
     case "com.amazonaws.kms#XksProxyIncorrectAuthenticationCredentialException":
-      throw await deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_XksProxyIncorrectAuthenticationCredentialExceptionRes(parsedOutput, context);
     case "XksProxyInvalidConfigurationException":
     case "com.amazonaws.kms#XksProxyInvalidConfigurationException":
-      throw await deserializeAws_json1_1XksProxyInvalidConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyInvalidConfigurationExceptionRes(parsedOutput, context);
     case "XksProxyInvalidResponseException":
     case "com.amazonaws.kms#XksProxyInvalidResponseException":
-      throw await deserializeAws_json1_1XksProxyInvalidResponseExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyInvalidResponseExceptionRes(parsedOutput, context);
     case "XksProxyUriEndpointInUseException":
     case "com.amazonaws.kms#XksProxyUriEndpointInUseException":
-      throw await deserializeAws_json1_1XksProxyUriEndpointInUseExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyUriEndpointInUseExceptionRes(parsedOutput, context);
     case "XksProxyUriInUseException":
     case "com.amazonaws.kms#XksProxyUriInUseException":
-      throw await deserializeAws_json1_1XksProxyUriInUseExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyUriInUseExceptionRes(parsedOutput, context);
     case "XksProxyUriUnreachableException":
     case "com.amazonaws.kms#XksProxyUriUnreachableException":
-      throw await deserializeAws_json1_1XksProxyUriUnreachableExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyUriUnreachableExceptionRes(parsedOutput, context);
     case "XksProxyVpcEndpointServiceInUseException":
     case "com.amazonaws.kms#XksProxyVpcEndpointServiceInUseException":
-      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInUseExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyVpcEndpointServiceInUseExceptionRes(parsedOutput, context);
     case "XksProxyVpcEndpointServiceInvalidConfigurationException":
     case "com.amazonaws.kms#XksProxyVpcEndpointServiceInvalidConfigurationException":
-      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_XksProxyVpcEndpointServiceInvalidConfigurationExceptionRes(parsedOutput, context);
     case "XksProxyVpcEndpointServiceNotFoundException":
     case "com.amazonaws.kms#XksProxyVpcEndpointServiceNotFoundException":
-      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyVpcEndpointServiceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateGrantCommand = async (
+/**
+ * deserializeAws_json1_1CreateGrantCommand
+ */
+export const de_CreateGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGrantCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateGrantCommandError(output, context);
+    return de_CreateGrantCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGrantResponse(data, context);
+  contents = _json(data);
   const response: CreateGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateGrantCommandError = async (
+/**
+ * deserializeAws_json1_1CreateGrantCommandError
+ */
+const de_CreateGrantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGrantCommandOutput> => {
@@ -1201,57 +1194,62 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateKeyCommand = async (
+/**
+ * deserializeAws_json1_1CreateKeyCommand
+ */
+export const de_CreateKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateKeyCommandError(output, context);
+    return de_CreateKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateKeyResponse(data, context);
+  contents = de_CreateKeyResponse(data, context);
   const response: CreateKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateKeyCommandError = async (
+/**
+ * deserializeAws_json1_1CreateKeyCommandError
+ */
+const de_CreateKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateKeyCommandOutput> => {
@@ -1263,72 +1261,77 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
     case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
-      throw await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_CloudHsmClusterInvalidConfigurationExceptionRes(parsedOutput, context);
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreInvalidStateExceptionRes(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreNotFoundExceptionRes(parsedOutput, context);
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.kms#MalformedPolicyDocumentException":
-      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "TagException":
     case "com.amazonaws.kms#TagException":
-      throw await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context);
+      throw await de_TagExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     case "XksKeyAlreadyInUseException":
     case "com.amazonaws.kms#XksKeyAlreadyInUseException":
-      throw await deserializeAws_json1_1XksKeyAlreadyInUseExceptionResponse(parsedOutput, context);
+      throw await de_XksKeyAlreadyInUseExceptionRes(parsedOutput, context);
     case "XksKeyInvalidConfigurationException":
     case "com.amazonaws.kms#XksKeyInvalidConfigurationException":
-      throw await deserializeAws_json1_1XksKeyInvalidConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_XksKeyInvalidConfigurationExceptionRes(parsedOutput, context);
     case "XksKeyNotFoundException":
     case "com.amazonaws.kms#XksKeyNotFoundException":
-      throw await deserializeAws_json1_1XksKeyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_XksKeyNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DecryptCommand = async (
+/**
+ * deserializeAws_json1_1DecryptCommand
+ */
+export const de_DecryptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecryptCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DecryptCommandError(output, context);
+    return de_DecryptCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DecryptResponse(data, context);
+  contents = de_DecryptResponse(data, context);
   const response: DecryptCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DecryptCommandError = async (
+/**
+ * deserializeAws_json1_1DecryptCommandError
+ */
+const de_DecryptCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecryptCommandOutput> => {
@@ -1340,60 +1343,65 @@ const deserializeAws_json1_1DecryptCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "IncorrectKeyException":
     case "com.amazonaws.kms#IncorrectKeyException":
-      throw await deserializeAws_json1_1IncorrectKeyExceptionResponse(parsedOutput, context);
+      throw await de_IncorrectKeyExceptionRes(parsedOutput, context);
     case "InvalidCiphertextException":
     case "com.amazonaws.kms#InvalidCiphertextException":
-      throw await deserializeAws_json1_1InvalidCiphertextExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCiphertextExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteAliasCommand = async (
+/**
+ * deserializeAws_json1_1DeleteAliasCommand
+ */
+export const de_DeleteAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteAliasCommandError(output, context);
+    return de_DeleteAliasCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteAliasCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteAliasCommandError
+ */
+const de_DeleteAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> => {
@@ -1405,45 +1413,50 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteCustomKeyStoreCommand = async (
+/**
+ * deserializeAws_json1_1DeleteCustomKeyStoreCommand
+ */
+export const de_DeleteCustomKeyStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomKeyStoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteCustomKeyStoreCommandError(output, context);
+    return de_DeleteCustomKeyStoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteCustomKeyStoreResponse(data, context);
+  contents = _json(data);
   const response: DeleteCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteCustomKeyStoreCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteCustomKeyStoreCommandError
+ */
+const de_DeleteCustomKeyStoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomKeyStoreCommandOutput> => {
@@ -1455,42 +1468,47 @@ const deserializeAws_json1_1DeleteCustomKeyStoreCommandError = async (
   switch (errorCode) {
     case "CustomKeyStoreHasCMKsException":
     case "com.amazonaws.kms#CustomKeyStoreHasCMKsException":
-      throw await deserializeAws_json1_1CustomKeyStoreHasCMKsExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreHasCMKsExceptionRes(parsedOutput, context);
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreInvalidStateExceptionRes(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreNotFoundExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteImportedKeyMaterialCommand = async (
+/**
+ * deserializeAws_json1_1DeleteImportedKeyMaterialCommand
+ */
+export const de_DeleteImportedKeyMaterialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImportedKeyMaterialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteImportedKeyMaterialCommandError(output, context);
+    return de_DeleteImportedKeyMaterialCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteImportedKeyMaterialCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteImportedKeyMaterialCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteImportedKeyMaterialCommandError
+ */
+const de_DeleteImportedKeyMaterialCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImportedKeyMaterialCommandOutput> => {
@@ -1502,51 +1520,56 @@ const deserializeAws_json1_1DeleteImportedKeyMaterialCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeCustomKeyStoresCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCustomKeyStoresCommand
+ */
+export const de_DescribeCustomKeyStoresCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCustomKeyStoresCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCustomKeyStoresCommandError(output, context);
+    return de_DescribeCustomKeyStoresCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCustomKeyStoresResponse(data, context);
+  contents = de_DescribeCustomKeyStoresResponse(data, context);
   const response: DescribeCustomKeyStoresCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeCustomKeyStoresCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCustomKeyStoresCommandError
+ */
+const de_DescribeCustomKeyStoresCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCustomKeyStoresCommandOutput> => {
@@ -1558,42 +1581,47 @@ const deserializeAws_json1_1DescribeCustomKeyStoresCommandError = async (
   switch (errorCode) {
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreNotFoundExceptionRes(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMarkerExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeKeyCommand = async (
+/**
+ * deserializeAws_json1_1DescribeKeyCommand
+ */
+export const de_DescribeKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeKeyCommandError(output, context);
+    return de_DescribeKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeKeyResponse(data, context);
+  contents = de_DescribeKeyResponse(data, context);
   const response: DescribeKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeKeyCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeKeyCommandError
+ */
+const de_DescribeKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeKeyCommandOutput> => {
@@ -1605,42 +1633,47 @@ const deserializeAws_json1_1DescribeKeyCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DisableKeyCommand = async (
+/**
+ * deserializeAws_json1_1DisableKeyCommand
+ */
+export const de_DisableKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisableKeyCommandError(output, context);
+    return de_DisableKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisableKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DisableKeyCommandError = async (
+/**
+ * deserializeAws_json1_1DisableKeyCommandError
+ */
+const de_DisableKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableKeyCommandOutput> => {
@@ -1652,45 +1685,50 @@ const deserializeAws_json1_1DisableKeyCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DisableKeyRotationCommand = async (
+/**
+ * deserializeAws_json1_1DisableKeyRotationCommand
+ */
+export const de_DisableKeyRotationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableKeyRotationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisableKeyRotationCommandError(output, context);
+    return de_DisableKeyRotationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisableKeyRotationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DisableKeyRotationCommandError = async (
+/**
+ * deserializeAws_json1_1DisableKeyRotationCommandError
+ */
+const de_DisableKeyRotationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableKeyRotationCommandOutput> => {
@@ -1702,54 +1740,59 @@ const deserializeAws_json1_1DisableKeyRotationCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DisconnectCustomKeyStoreCommand = async (
+/**
+ * deserializeAws_json1_1DisconnectCustomKeyStoreCommand
+ */
+export const de_DisconnectCustomKeyStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisconnectCustomKeyStoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisconnectCustomKeyStoreCommandError(output, context);
+    return de_DisconnectCustomKeyStoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisconnectCustomKeyStoreResponse(data, context);
+  contents = _json(data);
   const response: DisconnectCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DisconnectCustomKeyStoreCommandError = async (
+/**
+ * deserializeAws_json1_1DisconnectCustomKeyStoreCommandError
+ */
+const de_DisconnectCustomKeyStoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisconnectCustomKeyStoreCommandOutput> => {
@@ -1761,39 +1804,44 @@ const deserializeAws_json1_1DisconnectCustomKeyStoreCommandError = async (
   switch (errorCode) {
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreInvalidStateExceptionRes(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreNotFoundExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1EnableKeyCommand = async (
+/**
+ * deserializeAws_json1_1EnableKeyCommand
+ */
+export const de_EnableKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1EnableKeyCommandError(output, context);
+    return de_EnableKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1EnableKeyCommandError = async (
+/**
+ * deserializeAws_json1_1EnableKeyCommandError
+ */
+const de_EnableKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableKeyCommandOutput> => {
@@ -1805,48 +1853,53 @@ const deserializeAws_json1_1EnableKeyCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1EnableKeyRotationCommand = async (
+/**
+ * deserializeAws_json1_1EnableKeyRotationCommand
+ */
+export const de_EnableKeyRotationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableKeyRotationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1EnableKeyRotationCommandError(output, context);
+    return de_EnableKeyRotationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableKeyRotationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1EnableKeyRotationCommandError = async (
+/**
+ * deserializeAws_json1_1EnableKeyRotationCommandError
+ */
+const de_EnableKeyRotationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableKeyRotationCommandOutput> => {
@@ -1858,54 +1911,59 @@ const deserializeAws_json1_1EnableKeyRotationCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1EncryptCommand = async (
+/**
+ * deserializeAws_json1_1EncryptCommand
+ */
+export const de_EncryptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EncryptCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1EncryptCommandError(output, context);
+    return de_EncryptCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EncryptResponse(data, context);
+  contents = de_EncryptResponse(data, context);
   const response: EncryptCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1EncryptCommandError = async (
+/**
+ * deserializeAws_json1_1EncryptCommandError
+ */
+const de_EncryptCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EncryptCommandOutput> => {
@@ -1917,57 +1975,62 @@ const deserializeAws_json1_1EncryptCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GenerateDataKeyCommand = async (
+/**
+ * deserializeAws_json1_1GenerateDataKeyCommand
+ */
+export const de_GenerateDataKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GenerateDataKeyCommandError(output, context);
+    return de_GenerateDataKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GenerateDataKeyResponse(data, context);
+  contents = de_GenerateDataKeyResponse(data, context);
   const response: GenerateDataKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GenerateDataKeyCommandError = async (
+/**
+ * deserializeAws_json1_1GenerateDataKeyCommandError
+ */
+const de_GenerateDataKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyCommandOutput> => {
@@ -1979,57 +2042,62 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GenerateDataKeyPairCommand = async (
+/**
+ * deserializeAws_json1_1GenerateDataKeyPairCommand
+ */
+export const de_GenerateDataKeyPairCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyPairCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GenerateDataKeyPairCommandError(output, context);
+    return de_GenerateDataKeyPairCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GenerateDataKeyPairResponse(data, context);
+  contents = de_GenerateDataKeyPairResponse(data, context);
   const response: GenerateDataKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
+/**
+ * deserializeAws_json1_1GenerateDataKeyPairCommandError
+ */
+const de_GenerateDataKeyPairCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyPairCommandOutput> => {
@@ -2041,60 +2109,65 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand = async (
+/**
+ * deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand
+ */
+export const de_GenerateDataKeyPairWithoutPlaintextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError(output, context);
+    return de_GenerateDataKeyPairWithoutPlaintextCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextResponse(data, context);
+  contents = de_GenerateDataKeyPairWithoutPlaintextResponse(data, context);
   const response: GenerateDataKeyPairWithoutPlaintextCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = async (
+/**
+ * deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError
+ */
+const de_GenerateDataKeyPairWithoutPlaintextCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput> => {
@@ -2106,60 +2179,65 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand = async (
+/**
+ * deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand
+ */
+export const de_GenerateDataKeyWithoutPlaintextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError(output, context);
+    return de_GenerateDataKeyWithoutPlaintextCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GenerateDataKeyWithoutPlaintextResponse(data, context);
+  contents = de_GenerateDataKeyWithoutPlaintextResponse(data, context);
   const response: GenerateDataKeyWithoutPlaintextCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async (
+/**
+ * deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError
+ */
+const de_GenerateDataKeyWithoutPlaintextCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput> => {
@@ -2171,57 +2249,62 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GenerateMacCommand = async (
+/**
+ * deserializeAws_json1_1GenerateMacCommand
+ */
+export const de_GenerateMacCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateMacCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GenerateMacCommandError(output, context);
+    return de_GenerateMacCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GenerateMacResponse(data, context);
+  contents = de_GenerateMacResponse(data, context);
   const response: GenerateMacCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GenerateMacCommandError = async (
+/**
+ * deserializeAws_json1_1GenerateMacCommandError
+ */
+const de_GenerateMacCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateMacCommandOutput> => {
@@ -2233,54 +2316,59 @@ const deserializeAws_json1_1GenerateMacCommandError = async (
   switch (errorCode) {
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GenerateRandomCommand = async (
+/**
+ * deserializeAws_json1_1GenerateRandomCommand
+ */
+export const de_GenerateRandomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateRandomCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GenerateRandomCommandError(output, context);
+    return de_GenerateRandomCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GenerateRandomResponse(data, context);
+  contents = de_GenerateRandomResponse(data, context);
   const response: GenerateRandomCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GenerateRandomCommandError = async (
+/**
+ * deserializeAws_json1_1GenerateRandomCommandError
+ */
+const de_GenerateRandomCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateRandomCommandOutput> => {
@@ -2292,48 +2380,53 @@ const deserializeAws_json1_1GenerateRandomCommandError = async (
   switch (errorCode) {
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreInvalidStateExceptionRes(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreNotFoundExceptionRes(parsedOutput, context);
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetKeyPolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetKeyPolicyCommand
+ */
+export const de_GetKeyPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKeyPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetKeyPolicyCommandError(output, context);
+    return de_GetKeyPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetKeyPolicyResponse(data, context);
+  contents = _json(data);
   const response: GetKeyPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetKeyPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetKeyPolicyCommandError
+ */
+const de_GetKeyPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKeyPolicyCommandOutput> => {
@@ -2345,48 +2438,53 @@ const deserializeAws_json1_1GetKeyPolicyCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetKeyRotationStatusCommand = async (
+/**
+ * deserializeAws_json1_1GetKeyRotationStatusCommand
+ */
+export const de_GetKeyRotationStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKeyRotationStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetKeyRotationStatusCommandError(output, context);
+    return de_GetKeyRotationStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetKeyRotationStatusResponse(data, context);
+  contents = _json(data);
   const response: GetKeyRotationStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetKeyRotationStatusCommandError = async (
+/**
+ * deserializeAws_json1_1GetKeyRotationStatusCommandError
+ */
+const de_GetKeyRotationStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKeyRotationStatusCommandOutput> => {
@@ -2398,51 +2496,56 @@ const deserializeAws_json1_1GetKeyRotationStatusCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetParametersForImportCommand = async (
+/**
+ * deserializeAws_json1_1GetParametersForImportCommand
+ */
+export const de_GetParametersForImportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetParametersForImportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetParametersForImportCommandError(output, context);
+    return de_GetParametersForImportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetParametersForImportResponse(data, context);
+  contents = de_GetParametersForImportResponse(data, context);
   const response: GetParametersForImportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetParametersForImportCommandError = async (
+/**
+ * deserializeAws_json1_1GetParametersForImportCommandError
+ */
+const de_GetParametersForImportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetParametersForImportCommandOutput> => {
@@ -2454,51 +2557,56 @@ const deserializeAws_json1_1GetParametersForImportCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetPublicKeyCommand = async (
+/**
+ * deserializeAws_json1_1GetPublicKeyCommand
+ */
+export const de_GetPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetPublicKeyCommandError(output, context);
+    return de_GetPublicKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPublicKeyResponse(data, context);
+  contents = de_GetPublicKeyResponse(data, context);
   const response: GetPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetPublicKeyCommandError = async (
+/**
+ * deserializeAws_json1_1GetPublicKeyCommandError
+ */
+const de_GetPublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPublicKeyCommandOutput> => {
@@ -2510,63 +2618,68 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ImportKeyMaterialCommand = async (
+/**
+ * deserializeAws_json1_1ImportKeyMaterialCommand
+ */
+export const de_ImportKeyMaterialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportKeyMaterialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ImportKeyMaterialCommandError(output, context);
+    return de_ImportKeyMaterialCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportKeyMaterialResponse(data, context);
+  contents = _json(data);
   const response: ImportKeyMaterialCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
+/**
+ * deserializeAws_json1_1ImportKeyMaterialCommandError
+ */
+const de_ImportKeyMaterialCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportKeyMaterialCommandOutput> => {
@@ -2578,63 +2691,68 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "ExpiredImportTokenException":
     case "com.amazonaws.kms#ExpiredImportTokenException":
-      throw await deserializeAws_json1_1ExpiredImportTokenExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredImportTokenExceptionRes(parsedOutput, context);
     case "IncorrectKeyMaterialException":
     case "com.amazonaws.kms#IncorrectKeyMaterialException":
-      throw await deserializeAws_json1_1IncorrectKeyMaterialExceptionResponse(parsedOutput, context);
+      throw await de_IncorrectKeyMaterialExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidCiphertextException":
     case "com.amazonaws.kms#InvalidCiphertextException":
-      throw await deserializeAws_json1_1InvalidCiphertextExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCiphertextExceptionRes(parsedOutput, context);
     case "InvalidImportTokenException":
     case "com.amazonaws.kms#InvalidImportTokenException":
-      throw await deserializeAws_json1_1InvalidImportTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidImportTokenExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListAliasesCommand = async (
+/**
+ * deserializeAws_json1_1ListAliasesCommand
+ */
+export const de_ListAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAliasesCommandError(output, context);
+    return de_ListAliasesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAliasesResponse(data, context);
+  contents = de_ListAliasesResponse(data, context);
   const response: ListAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListAliasesCommandError = async (
+/**
+ * deserializeAws_json1_1ListAliasesCommandError
+ */
+const de_ListAliasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> => {
@@ -2646,48 +2764,53 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMarkerExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListGrantsCommand = async (
+/**
+ * deserializeAws_json1_1ListGrantsCommand
+ */
+export const de_ListGrantsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGrantsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListGrantsCommandError(output, context);
+    return de_ListGrantsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGrantsResponse(data, context);
+  contents = de_ListGrantsResponse(data, context);
   const response: ListGrantsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListGrantsCommandError = async (
+/**
+ * deserializeAws_json1_1ListGrantsCommandError
+ */
+const de_ListGrantsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGrantsCommandOutput> => {
@@ -2699,54 +2822,59 @@ const deserializeAws_json1_1ListGrantsCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidGrantIdException":
     case "com.amazonaws.kms#InvalidGrantIdException":
-      throw await deserializeAws_json1_1InvalidGrantIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantIdExceptionRes(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMarkerExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListKeyPoliciesCommand = async (
+/**
+ * deserializeAws_json1_1ListKeyPoliciesCommand
+ */
+export const de_ListKeyPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKeyPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListKeyPoliciesCommandError(output, context);
+    return de_ListKeyPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListKeyPoliciesResponse(data, context);
+  contents = _json(data);
   const response: ListKeyPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListKeyPoliciesCommandError = async (
+/**
+ * deserializeAws_json1_1ListKeyPoliciesCommandError
+ */
+const de_ListKeyPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKeyPoliciesCommandOutput> => {
@@ -2758,48 +2886,53 @@ const deserializeAws_json1_1ListKeyPoliciesCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListKeysCommand = async (
+/**
+ * deserializeAws_json1_1ListKeysCommand
+ */
+export const de_ListKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListKeysCommandError(output, context);
+    return de_ListKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListKeysResponse(data, context);
+  contents = _json(data);
   const response: ListKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListKeysCommandError = async (
+/**
+ * deserializeAws_json1_1ListKeysCommandError
+ */
+const de_ListKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKeysCommandOutput> => {
@@ -2811,42 +2944,47 @@ const deserializeAws_json1_1ListKeysCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMarkerExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListResourceTagsCommand = async (
+/**
+ * deserializeAws_json1_1ListResourceTagsCommand
+ */
+export const de_ListResourceTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResourceTagsCommandError(output, context);
+    return de_ListResourceTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourceTagsResponse(data, context);
+  contents = _json(data);
   const response: ListResourceTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListResourceTagsCommandError = async (
+/**
+ * deserializeAws_json1_1ListResourceTagsCommandError
+ */
+const de_ListResourceTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceTagsCommandOutput> => {
@@ -2858,45 +2996,50 @@ const deserializeAws_json1_1ListResourceTagsCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMarkerExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListRetirableGrantsCommand = async (
+/**
+ * deserializeAws_json1_1ListRetirableGrantsCommand
+ */
+export const de_ListRetirableGrantsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRetirableGrantsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListRetirableGrantsCommandError(output, context);
+    return de_ListRetirableGrantsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGrantsResponse(data, context);
+  contents = de_ListGrantsResponse(data, context);
   const response: ListRetirableGrantsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListRetirableGrantsCommandError = async (
+/**
+ * deserializeAws_json1_1ListRetirableGrantsCommandError
+ */
+const de_ListRetirableGrantsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRetirableGrantsCommandOutput> => {
@@ -2908,45 +3051,50 @@ const deserializeAws_json1_1ListRetirableGrantsCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMarkerExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutKeyPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutKeyPolicyCommand
+ */
+export const de_PutKeyPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutKeyPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutKeyPolicyCommandError(output, context);
+    return de_PutKeyPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutKeyPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutKeyPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutKeyPolicyCommandError
+ */
+const de_PutKeyPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutKeyPolicyCommandOutput> => {
@@ -2958,57 +3106,62 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.kms#MalformedPolicyDocumentException":
-      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ReEncryptCommand = async (
+/**
+ * deserializeAws_json1_1ReEncryptCommand
+ */
+export const de_ReEncryptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReEncryptCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ReEncryptCommandError(output, context);
+    return de_ReEncryptCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ReEncryptResponse(data, context);
+  contents = de_ReEncryptResponse(data, context);
   const response: ReEncryptCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ReEncryptCommandError = async (
+/**
+ * deserializeAws_json1_1ReEncryptCommandError
+ */
+const de_ReEncryptCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReEncryptCommandOutput> => {
@@ -3020,63 +3173,68 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "IncorrectKeyException":
     case "com.amazonaws.kms#IncorrectKeyException":
-      throw await deserializeAws_json1_1IncorrectKeyExceptionResponse(parsedOutput, context);
+      throw await de_IncorrectKeyExceptionRes(parsedOutput, context);
     case "InvalidCiphertextException":
     case "com.amazonaws.kms#InvalidCiphertextException":
-      throw await deserializeAws_json1_1InvalidCiphertextExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCiphertextExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ReplicateKeyCommand = async (
+/**
+ * deserializeAws_json1_1ReplicateKeyCommand
+ */
+export const de_ReplicateKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReplicateKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ReplicateKeyCommandError(output, context);
+    return de_ReplicateKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ReplicateKeyResponse(data, context);
+  contents = de_ReplicateKeyResponse(data, context);
   const response: ReplicateKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ReplicateKeyCommandError = async (
+/**
+ * deserializeAws_json1_1ReplicateKeyCommandError
+ */
+const de_ReplicateKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReplicateKeyCommandOutput> => {
@@ -3088,60 +3246,65 @@ const deserializeAws_json1_1ReplicateKeyCommandError = async (
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.kms#AlreadyExistsException":
-      throw await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.kms#MalformedPolicyDocumentException":
-      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TagException":
     case "com.amazonaws.kms#TagException":
-      throw await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context);
+      throw await de_TagExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RetireGrantCommand = async (
+/**
+ * deserializeAws_json1_1RetireGrantCommand
+ */
+export const de_RetireGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetireGrantCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RetireGrantCommandError(output, context);
+    return de_RetireGrantCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RetireGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RetireGrantCommandError = async (
+/**
+ * deserializeAws_json1_1RetireGrantCommandError
+ */
+const de_RetireGrantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetireGrantCommandOutput> => {
@@ -3153,51 +3316,56 @@ const deserializeAws_json1_1RetireGrantCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidGrantIdException":
     case "com.amazonaws.kms#InvalidGrantIdException":
-      throw await deserializeAws_json1_1InvalidGrantIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantIdExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RevokeGrantCommand = async (
+/**
+ * deserializeAws_json1_1RevokeGrantCommand
+ */
+export const de_RevokeGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeGrantCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RevokeGrantCommandError(output, context);
+    return de_RevokeGrantCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RevokeGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RevokeGrantCommandError = async (
+/**
+ * deserializeAws_json1_1RevokeGrantCommandError
+ */
+const de_RevokeGrantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeGrantCommandOutput> => {
@@ -3209,51 +3377,56 @@ const deserializeAws_json1_1RevokeGrantCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidGrantIdException":
     case "com.amazonaws.kms#InvalidGrantIdException":
-      throw await deserializeAws_json1_1InvalidGrantIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantIdExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ScheduleKeyDeletionCommand = async (
+/**
+ * deserializeAws_json1_1ScheduleKeyDeletionCommand
+ */
+export const de_ScheduleKeyDeletionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ScheduleKeyDeletionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ScheduleKeyDeletionCommandError(output, context);
+    return de_ScheduleKeyDeletionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ScheduleKeyDeletionResponse(data, context);
+  contents = de_ScheduleKeyDeletionResponse(data, context);
   const response: ScheduleKeyDeletionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ScheduleKeyDeletionCommandError = async (
+/**
+ * deserializeAws_json1_1ScheduleKeyDeletionCommandError
+ */
+const de_ScheduleKeyDeletionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ScheduleKeyDeletionCommandOutput> => {
@@ -3265,51 +3438,50 @@ const deserializeAws_json1_1ScheduleKeyDeletionCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1SignCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SignCommandOutput> => {
+/**
+ * deserializeAws_json1_1SignCommand
+ */
+export const de_SignCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<SignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SignCommandError(output, context);
+    return de_SignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SignResponse(data, context);
+  contents = de_SignResponse(data, context);
   const response: SignCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1SignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SignCommandOutput> => {
+/**
+ * deserializeAws_json1_1SignCommandError
+ */
+const de_SignCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<SignCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3318,54 +3490,59 @@ const deserializeAws_json1_1SignCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -3377,48 +3554,53 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TagException":
     case "com.amazonaws.kms#TagException":
-      throw await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context);
+      throw await de_TagExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -3430,45 +3612,50 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TagException":
     case "com.amazonaws.kms#TagException":
-      throw await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context);
+      throw await de_TagExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateAliasCommand = async (
+/**
+ * deserializeAws_json1_1UpdateAliasCommand
+ */
+export const de_UpdateAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateAliasCommandError(output, context);
+    return de_UpdateAliasCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateAliasCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateAliasCommandError
+ */
+const de_UpdateAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAliasCommandOutput> => {
@@ -3480,48 +3667,53 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateCustomKeyStoreCommand = async (
+/**
+ * deserializeAws_json1_1UpdateCustomKeyStoreCommand
+ */
+export const de_UpdateCustomKeyStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCustomKeyStoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateCustomKeyStoreCommandError(output, context);
+    return de_UpdateCustomKeyStoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateCustomKeyStoreResponse(data, context);
+  contents = _json(data);
   const response: UpdateCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateCustomKeyStoreCommandError
+ */
+const de_UpdateCustomKeyStoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCustomKeyStoreCommandOutput> => {
@@ -3533,87 +3725,86 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
     case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
-      throw await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_CloudHsmClusterInvalidConfigurationExceptionRes(parsedOutput, context);
     case "CloudHsmClusterNotActiveException":
     case "com.amazonaws.kms#CloudHsmClusterNotActiveException":
-      throw await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(parsedOutput, context);
+      throw await de_CloudHsmClusterNotActiveExceptionRes(parsedOutput, context);
     case "CloudHsmClusterNotFoundException":
     case "com.amazonaws.kms#CloudHsmClusterNotFoundException":
-      throw await deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_CloudHsmClusterNotFoundExceptionRes(parsedOutput, context);
     case "CloudHsmClusterNotRelatedException":
     case "com.amazonaws.kms#CloudHsmClusterNotRelatedException":
-      throw await deserializeAws_json1_1CloudHsmClusterNotRelatedExceptionResponse(parsedOutput, context);
+      throw await de_CloudHsmClusterNotRelatedExceptionRes(parsedOutput, context);
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreInvalidStateExceptionRes(parsedOutput, context);
     case "CustomKeyStoreNameInUseException":
     case "com.amazonaws.kms#CustomKeyStoreNameInUseException":
-      throw await deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreNameInUseExceptionRes(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_CustomKeyStoreNotFoundExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "XksProxyIncorrectAuthenticationCredentialException":
     case "com.amazonaws.kms#XksProxyIncorrectAuthenticationCredentialException":
-      throw await deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_XksProxyIncorrectAuthenticationCredentialExceptionRes(parsedOutput, context);
     case "XksProxyInvalidConfigurationException":
     case "com.amazonaws.kms#XksProxyInvalidConfigurationException":
-      throw await deserializeAws_json1_1XksProxyInvalidConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyInvalidConfigurationExceptionRes(parsedOutput, context);
     case "XksProxyInvalidResponseException":
     case "com.amazonaws.kms#XksProxyInvalidResponseException":
-      throw await deserializeAws_json1_1XksProxyInvalidResponseExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyInvalidResponseExceptionRes(parsedOutput, context);
     case "XksProxyUriEndpointInUseException":
     case "com.amazonaws.kms#XksProxyUriEndpointInUseException":
-      throw await deserializeAws_json1_1XksProxyUriEndpointInUseExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyUriEndpointInUseExceptionRes(parsedOutput, context);
     case "XksProxyUriInUseException":
     case "com.amazonaws.kms#XksProxyUriInUseException":
-      throw await deserializeAws_json1_1XksProxyUriInUseExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyUriInUseExceptionRes(parsedOutput, context);
     case "XksProxyUriUnreachableException":
     case "com.amazonaws.kms#XksProxyUriUnreachableException":
-      throw await deserializeAws_json1_1XksProxyUriUnreachableExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyUriUnreachableExceptionRes(parsedOutput, context);
     case "XksProxyVpcEndpointServiceInUseException":
     case "com.amazonaws.kms#XksProxyVpcEndpointServiceInUseException":
-      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInUseExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyVpcEndpointServiceInUseExceptionRes(parsedOutput, context);
     case "XksProxyVpcEndpointServiceInvalidConfigurationException":
     case "com.amazonaws.kms#XksProxyVpcEndpointServiceInvalidConfigurationException":
-      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_XksProxyVpcEndpointServiceInvalidConfigurationExceptionRes(parsedOutput, context);
     case "XksProxyVpcEndpointServiceNotFoundException":
     case "com.amazonaws.kms#XksProxyVpcEndpointServiceNotFoundException":
-      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_XksProxyVpcEndpointServiceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateKeyDescriptionCommand = async (
+/**
+ * deserializeAws_json1_1UpdateKeyDescriptionCommand
+ */
+export const de_UpdateKeyDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateKeyDescriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateKeyDescriptionCommandError(output, context);
+    return de_UpdateKeyDescriptionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateKeyDescriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateKeyDescriptionCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateKeyDescriptionCommandError
+ */
+const de_UpdateKeyDescriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateKeyDescriptionCommandOutput> => {
@@ -3625,45 +3816,50 @@ const deserializeAws_json1_1UpdateKeyDescriptionCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdatePrimaryRegionCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePrimaryRegionCommand
+ */
+export const de_UpdatePrimaryRegionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePrimaryRegionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePrimaryRegionCommandError(output, context);
+    return de_UpdatePrimaryRegionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdatePrimaryRegionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdatePrimaryRegionCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePrimaryRegionCommandError
+ */
+const de_UpdatePrimaryRegionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePrimaryRegionCommandOutput> => {
@@ -3675,54 +3871,56 @@ const deserializeAws_json1_1UpdatePrimaryRegionCommandError = async (
   switch (errorCode) {
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1VerifyCommand = async (
+/**
+ * deserializeAws_json1_1VerifyCommand
+ */
+export const de_VerifyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1VerifyCommandError(output, context);
+    return de_VerifyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VerifyResponse(data, context);
+  contents = _json(data);
   const response: VerifyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1VerifyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyCommandOutput> => {
+/**
+ * deserializeAws_json1_1VerifyCommandError
+ */
+const de_VerifyCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<VerifyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3731,60 +3929,65 @@ const deserializeAws_json1_1VerifyCommandError = async (
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_DependencyTimeoutExceptionRes(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidSignatureException":
     case "com.amazonaws.kms#KMSInvalidSignatureException":
-      throw await deserializeAws_json1_1KMSInvalidSignatureExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidSignatureExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1VerifyMacCommand = async (
+/**
+ * deserializeAws_json1_1VerifyMacCommand
+ */
+export const de_VerifyMacCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyMacCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1VerifyMacCommandError(output, context);
+    return de_VerifyMacCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VerifyMacResponse(data, context);
+  contents = _json(data);
   const response: VerifyMacCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1VerifyMacCommandError = async (
+/**
+ * deserializeAws_json1_1VerifyMacCommandError
+ */
+const de_VerifyMacCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyMacCommandOutput> => {
@@ -3796,45 +3999,47 @@ const deserializeAws_json1_1VerifyMacCommandError = async (
   switch (errorCode) {
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
+      throw await de_DisabledExceptionRes(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGrantTokenExceptionRes(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyUsageExceptionRes(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+      throw await de_KMSInternalExceptionRes(parsedOutput, context);
     case "KMSInvalidMacException":
     case "com.amazonaws.kms#KMSInvalidMacException":
-      throw await deserializeAws_json1_1KMSInvalidMacExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidMacExceptionRes(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_KeyUnavailableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AlreadyExistsExceptionRes
+ */
+const de_AlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3842,12 +4047,15 @@ const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CloudHsmClusterInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CloudHsmClusterInUseExceptionRes
+ */
+const de_CloudHsmClusterInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CloudHsmClusterInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudHsmClusterInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CloudHsmClusterInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3855,12 +4063,15 @@ const deserializeAws_json1_1CloudHsmClusterInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionRes
+ */
+const de_CloudHsmClusterInvalidConfigurationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CloudHsmClusterInvalidConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudHsmClusterInvalidConfigurationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CloudHsmClusterInvalidConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3868,12 +4079,15 @@ const deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CloudHsmClusterNotActiveExceptionRes
+ */
+const de_CloudHsmClusterNotActiveExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CloudHsmClusterNotActiveException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudHsmClusterNotActiveException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CloudHsmClusterNotActiveException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3881,12 +4095,15 @@ const deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CloudHsmClusterNotFoundExceptionRes
+ */
+const de_CloudHsmClusterNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CloudHsmClusterNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudHsmClusterNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CloudHsmClusterNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3894,12 +4111,15 @@ const deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CloudHsmClusterNotRelatedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CloudHsmClusterNotRelatedExceptionRes
+ */
+const de_CloudHsmClusterNotRelatedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CloudHsmClusterNotRelatedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudHsmClusterNotRelatedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CloudHsmClusterNotRelatedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3907,12 +4127,15 @@ const deserializeAws_json1_1CloudHsmClusterNotRelatedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CustomKeyStoreHasCMKsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CustomKeyStoreHasCMKsExceptionRes
+ */
+const de_CustomKeyStoreHasCMKsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CustomKeyStoreHasCMKsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CustomKeyStoreHasCMKsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CustomKeyStoreHasCMKsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3920,12 +4143,15 @@ const deserializeAws_json1_1CustomKeyStoreHasCMKsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionRes
+ */
+const de_CustomKeyStoreInvalidStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CustomKeyStoreInvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CustomKeyStoreInvalidStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CustomKeyStoreInvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3933,12 +4159,15 @@ const deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CustomKeyStoreNameInUseExceptionRes
+ */
+const de_CustomKeyStoreNameInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CustomKeyStoreNameInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CustomKeyStoreNameInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CustomKeyStoreNameInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3946,12 +4175,15 @@ const deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CustomKeyStoreNotFoundExceptionRes
+ */
+const de_CustomKeyStoreNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CustomKeyStoreNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CustomKeyStoreNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new CustomKeyStoreNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3959,12 +4191,15 @@ const deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DependencyTimeoutExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DependencyTimeoutExceptionRes
+ */
+const de_DependencyTimeoutExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DependencyTimeoutException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DependencyTimeoutException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DependencyTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3972,12 +4207,12 @@ const deserializeAws_json1_1DependencyTimeoutExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DisabledExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<DisabledException> => {
+/**
+ * deserializeAws_json1_1DisabledExceptionRes
+ */
+const de_DisabledExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<DisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DisabledException(body, context);
+  const deserialized: any = _json(body);
   const exception = new DisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3985,12 +4220,15 @@ const deserializeAws_json1_1DisabledExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ExpiredImportTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ExpiredImportTokenExceptionRes
+ */
+const de_ExpiredImportTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ExpiredImportTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ExpiredImportTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ExpiredImportTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3998,12 +4236,15 @@ const deserializeAws_json1_1ExpiredImportTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1IncorrectKeyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1IncorrectKeyExceptionRes
+ */
+const de_IncorrectKeyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IncorrectKeyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IncorrectKeyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IncorrectKeyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4011,12 +4252,15 @@ const deserializeAws_json1_1IncorrectKeyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1IncorrectKeyMaterialExceptionResponse = async (
+/**
+ * deserializeAws_json1_1IncorrectKeyMaterialExceptionRes
+ */
+const de_IncorrectKeyMaterialExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IncorrectKeyMaterialException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IncorrectKeyMaterialException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IncorrectKeyMaterialException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4024,12 +4268,15 @@ const deserializeAws_json1_1IncorrectKeyMaterialExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1IncorrectTrustAnchorExceptionResponse = async (
+/**
+ * deserializeAws_json1_1IncorrectTrustAnchorExceptionRes
+ */
+const de_IncorrectTrustAnchorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IncorrectTrustAnchorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IncorrectTrustAnchorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new IncorrectTrustAnchorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4037,12 +4284,15 @@ const deserializeAws_json1_1IncorrectTrustAnchorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidAliasNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidAliasNameExceptionRes
+ */
+const de_InvalidAliasNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAliasNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidAliasNameException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidAliasNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4050,12 +4300,12 @@ const deserializeAws_json1_1InvalidAliasNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidArnExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidArnException> => {
+/**
+ * deserializeAws_json1_1InvalidArnExceptionRes
+ */
+const de_InvalidArnExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidArnException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4063,12 +4313,15 @@ const deserializeAws_json1_1InvalidArnExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidCiphertextExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidCiphertextExceptionRes
+ */
+const de_InvalidCiphertextExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCiphertextException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidCiphertextException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidCiphertextException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4076,12 +4329,15 @@ const deserializeAws_json1_1InvalidCiphertextExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidGrantIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidGrantIdExceptionRes
+ */
+const de_InvalidGrantIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidGrantIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidGrantIdException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidGrantIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4089,12 +4345,15 @@ const deserializeAws_json1_1InvalidGrantIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidGrantTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidGrantTokenExceptionRes
+ */
+const de_InvalidGrantTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidGrantTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidGrantTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidGrantTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4102,12 +4361,15 @@ const deserializeAws_json1_1InvalidGrantTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidImportTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidImportTokenExceptionRes
+ */
+const de_InvalidImportTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidImportTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidImportTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidImportTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4115,12 +4377,15 @@ const deserializeAws_json1_1InvalidImportTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidKeyUsageExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidKeyUsageExceptionRes
+ */
+const de_InvalidKeyUsageExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidKeyUsageException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidKeyUsageException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidKeyUsageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4128,12 +4393,15 @@ const deserializeAws_json1_1InvalidKeyUsageExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidMarkerExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidMarkerExceptionRes
+ */
+const de_InvalidMarkerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidMarkerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidMarkerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidMarkerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4141,12 +4409,15 @@ const deserializeAws_json1_1InvalidMarkerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1KeyUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_json1_1KeyUnavailableExceptionRes
+ */
+const de_KeyUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KeyUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1KeyUnavailableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KeyUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4154,12 +4425,15 @@ const deserializeAws_json1_1KeyUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1KMSInternalExceptionResponse = async (
+/**
+ * deserializeAws_json1_1KMSInternalExceptionRes
+ */
+const de_KMSInternalExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KMSInternalException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1KMSInternalException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KMSInternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4167,12 +4441,15 @@ const deserializeAws_json1_1KMSInternalExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1KMSInvalidMacExceptionResponse = async (
+/**
+ * deserializeAws_json1_1KMSInvalidMacExceptionRes
+ */
+const de_KMSInvalidMacExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KMSInvalidMacException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1KMSInvalidMacException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KMSInvalidMacException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4180,12 +4457,15 @@ const deserializeAws_json1_1KMSInvalidMacExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1KMSInvalidSignatureExceptionResponse = async (
+/**
+ * deserializeAws_json1_1KMSInvalidSignatureExceptionRes
+ */
+const de_KMSInvalidSignatureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KMSInvalidSignatureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1KMSInvalidSignatureException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KMSInvalidSignatureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4193,12 +4473,15 @@ const deserializeAws_json1_1KMSInvalidSignatureExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1KMSInvalidStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1KMSInvalidStateExceptionRes
+ */
+const de_KMSInvalidStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KMSInvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1KMSInvalidStateException(body, context);
+  const deserialized: any = _json(body);
   const exception = new KMSInvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4206,12 +4489,15 @@ const deserializeAws_json1_1KMSInvalidStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4219,12 +4505,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MalformedPolicyDocumentExceptionRes
+ */
+const de_MalformedPolicyDocumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MalformedPolicyDocumentException(body, context);
+  const deserialized: any = _json(body);
   const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4232,12 +4521,12 @@ const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_json1_1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4245,12 +4534,12 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TagException> => {
+/**
+ * deserializeAws_json1_1TagExceptionRes
+ */
+const de_TagExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<TagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4258,12 +4547,15 @@ const deserializeAws_json1_1TagExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedOperationExceptionRes
+ */
+const de_UnsupportedOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4271,12 +4563,15 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksKeyAlreadyInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksKeyAlreadyInUseExceptionRes
+ */
+const de_XksKeyAlreadyInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksKeyAlreadyInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksKeyAlreadyInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new XksKeyAlreadyInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4284,12 +4579,15 @@ const deserializeAws_json1_1XksKeyAlreadyInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksKeyInvalidConfigurationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksKeyInvalidConfigurationExceptionRes
+ */
+const de_XksKeyInvalidConfigurationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksKeyInvalidConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksKeyInvalidConfigurationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new XksKeyInvalidConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4297,12 +4595,15 @@ const deserializeAws_json1_1XksKeyInvalidConfigurationExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksKeyNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksKeyNotFoundExceptionRes
+ */
+const de_XksKeyNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksKeyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksKeyNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new XksKeyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4310,12 +4611,15 @@ const deserializeAws_json1_1XksKeyNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialExceptionRes
+ */
+const de_XksProxyIncorrectAuthenticationCredentialExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksProxyIncorrectAuthenticationCredentialException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialException(body, context);
+  const deserialized: any = _json(body);
   const exception = new XksProxyIncorrectAuthenticationCredentialException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4323,12 +4627,15 @@ const deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialExceptionRe
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksProxyInvalidConfigurationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksProxyInvalidConfigurationExceptionRes
+ */
+const de_XksProxyInvalidConfigurationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksProxyInvalidConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksProxyInvalidConfigurationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new XksProxyInvalidConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4336,12 +4643,15 @@ const deserializeAws_json1_1XksProxyInvalidConfigurationExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksProxyInvalidResponseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksProxyInvalidResponseExceptionRes
+ */
+const de_XksProxyInvalidResponseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksProxyInvalidResponseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksProxyInvalidResponseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new XksProxyInvalidResponseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4349,12 +4659,15 @@ const deserializeAws_json1_1XksProxyInvalidResponseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksProxyUriEndpointInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksProxyUriEndpointInUseExceptionRes
+ */
+const de_XksProxyUriEndpointInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksProxyUriEndpointInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksProxyUriEndpointInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new XksProxyUriEndpointInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4362,12 +4675,15 @@ const deserializeAws_json1_1XksProxyUriEndpointInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksProxyUriInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksProxyUriInUseExceptionRes
+ */
+const de_XksProxyUriInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksProxyUriInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksProxyUriInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new XksProxyUriInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4375,12 +4691,15 @@ const deserializeAws_json1_1XksProxyUriInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksProxyUriUnreachableExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksProxyUriUnreachableExceptionRes
+ */
+const de_XksProxyUriUnreachableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksProxyUriUnreachableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksProxyUriUnreachableException(body, context);
+  const deserialized: any = _json(body);
   const exception = new XksProxyUriUnreachableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4388,12 +4707,15 @@ const deserializeAws_json1_1XksProxyUriUnreachableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksProxyVpcEndpointServiceInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksProxyVpcEndpointServiceInUseExceptionRes
+ */
+const de_XksProxyVpcEndpointServiceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksProxyVpcEndpointServiceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksProxyVpcEndpointServiceInUseException(body, context);
+  const deserialized: any = _json(body);
   const exception = new XksProxyVpcEndpointServiceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4401,15 +4723,15 @@ const deserializeAws_json1_1XksProxyVpcEndpointServiceInUseExceptionResponse = a
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationExceptionRes
+ */
+const de_XksProxyVpcEndpointServiceInvalidConfigurationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksProxyVpcEndpointServiceInvalidConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationException(
-    body,
-    context
-  );
+  const deserialized: any = _json(body);
   const exception = new XksProxyVpcEndpointServiceInvalidConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4417,12 +4739,15 @@ const deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationExcept
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundExceptionRes
+ */
+const de_XksProxyVpcEndpointServiceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<XksProxyVpcEndpointServiceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new XksProxyVpcEndpointServiceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4430,1641 +4755,700 @@ const deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundExceptionResponse 
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1CancelKeyDeletionRequest = (
-  input: CancelKeyDeletionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
+// se_CancelKeyDeletionRequest omitted.
+
+// se_ConnectCustomKeyStoreRequest omitted.
+
+// se_CreateAliasRequest omitted.
+
+// se_CreateCustomKeyStoreRequest omitted.
+
+// se_CreateGrantRequest omitted.
+
+// se_CreateKeyRequest omitted.
+
+/**
+ * serializeAws_json1_1DecryptRequest
+ */
+const se_DecryptRequest = (input: DecryptRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CiphertextBlob: context.base64Encoder,
+    EncryptionAlgorithm: [],
+    EncryptionContext: _json,
+    GrantTokens: _json,
+    KeyId: [],
+  });
 };
 
-const serializeAws_json1_1ConnectCustomKeyStoreRequest = (
-  input: ConnectCustomKeyStoreRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CustomKeyStoreId != null && { CustomKeyStoreId: input.CustomKeyStoreId }),
-  };
+// se_DeleteAliasRequest omitted.
+
+// se_DeleteCustomKeyStoreRequest omitted.
+
+// se_DeleteImportedKeyMaterialRequest omitted.
+
+// se_DescribeCustomKeyStoresRequest omitted.
+
+// se_DescribeKeyRequest omitted.
+
+// se_DisableKeyRequest omitted.
+
+// se_DisableKeyRotationRequest omitted.
+
+// se_DisconnectCustomKeyStoreRequest omitted.
+
+// se_EnableKeyRequest omitted.
+
+// se_EnableKeyRotationRequest omitted.
+
+// se_EncryptionContextType omitted.
+
+/**
+ * serializeAws_json1_1EncryptRequest
+ */
+const se_EncryptRequest = (input: EncryptRequest, context: __SerdeContext): any => {
+  return take(input, {
+    EncryptionAlgorithm: [],
+    EncryptionContext: _json,
+    GrantTokens: _json,
+    KeyId: [],
+    Plaintext: context.base64Encoder,
+  });
 };
 
-const serializeAws_json1_1CreateAliasRequest = (input: CreateAliasRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AliasName != null && { AliasName: input.AliasName }),
-    ...(input.TargetKeyId != null && { TargetKeyId: input.TargetKeyId }),
-  };
+// se_GenerateDataKeyPairRequest omitted.
+
+// se_GenerateDataKeyPairWithoutPlaintextRequest omitted.
+
+// se_GenerateDataKeyRequest omitted.
+
+// se_GenerateDataKeyWithoutPlaintextRequest omitted.
+
+/**
+ * serializeAws_json1_1GenerateMacRequest
+ */
+const se_GenerateMacRequest = (input: GenerateMacRequest, context: __SerdeContext): any => {
+  return take(input, {
+    GrantTokens: _json,
+    KeyId: [],
+    MacAlgorithm: [],
+    Message: context.base64Encoder,
+  });
 };
 
-const serializeAws_json1_1CreateCustomKeyStoreRequest = (
-  input: CreateCustomKeyStoreRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CloudHsmClusterId != null && { CloudHsmClusterId: input.CloudHsmClusterId }),
-    ...(input.CustomKeyStoreName != null && { CustomKeyStoreName: input.CustomKeyStoreName }),
-    ...(input.CustomKeyStoreType != null && { CustomKeyStoreType: input.CustomKeyStoreType }),
-    ...(input.KeyStorePassword != null && { KeyStorePassword: input.KeyStorePassword }),
-    ...(input.TrustAnchorCertificate != null && { TrustAnchorCertificate: input.TrustAnchorCertificate }),
-    ...(input.XksProxyAuthenticationCredential != null && {
-      XksProxyAuthenticationCredential: serializeAws_json1_1XksProxyAuthenticationCredentialType(
-        input.XksProxyAuthenticationCredential,
-        context
-      ),
-    }),
-    ...(input.XksProxyConnectivity != null && { XksProxyConnectivity: input.XksProxyConnectivity }),
-    ...(input.XksProxyUriEndpoint != null && { XksProxyUriEndpoint: input.XksProxyUriEndpoint }),
-    ...(input.XksProxyUriPath != null && { XksProxyUriPath: input.XksProxyUriPath }),
-    ...(input.XksProxyVpcEndpointServiceName != null && {
-      XksProxyVpcEndpointServiceName: input.XksProxyVpcEndpointServiceName,
-    }),
-  };
+// se_GenerateRandomRequest omitted.
+
+// se_GetKeyPolicyRequest omitted.
+
+// se_GetKeyRotationStatusRequest omitted.
+
+// se_GetParametersForImportRequest omitted.
+
+// se_GetPublicKeyRequest omitted.
+
+// se_GrantConstraints omitted.
+
+// se_GrantOperationList omitted.
+
+// se_GrantTokenList omitted.
+
+/**
+ * serializeAws_json1_1ImportKeyMaterialRequest
+ */
+const se_ImportKeyMaterialRequest = (input: ImportKeyMaterialRequest, context: __SerdeContext): any => {
+  return take(input, {
+    EncryptedKeyMaterial: context.base64Encoder,
+    ExpirationModel: [],
+    ImportToken: context.base64Encoder,
+    KeyId: [],
+    ValidTo: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_json1_1CreateGrantRequest = (input: CreateGrantRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Constraints != null && { Constraints: serializeAws_json1_1GrantConstraints(input.Constraints, context) }),
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.GranteePrincipal != null && { GranteePrincipal: input.GranteePrincipal }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.Operations != null && { Operations: serializeAws_json1_1GrantOperationList(input.Operations, context) }),
-    ...(input.RetiringPrincipal != null && { RetiringPrincipal: input.RetiringPrincipal }),
-  };
+// se_ListAliasesRequest omitted.
+
+// se_ListGrantsRequest omitted.
+
+// se_ListKeyPoliciesRequest omitted.
+
+// se_ListKeysRequest omitted.
+
+// se_ListResourceTagsRequest omitted.
+
+// se_ListRetirableGrantsRequest omitted.
+
+// se_PutKeyPolicyRequest omitted.
+
+/**
+ * serializeAws_json1_1ReEncryptRequest
+ */
+const se_ReEncryptRequest = (input: ReEncryptRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CiphertextBlob: context.base64Encoder,
+    DestinationEncryptionAlgorithm: [],
+    DestinationEncryptionContext: _json,
+    DestinationKeyId: [],
+    GrantTokens: _json,
+    SourceEncryptionAlgorithm: [],
+    SourceEncryptionContext: _json,
+    SourceKeyId: [],
+  });
 };
 
-const serializeAws_json1_1CreateKeyRequest = (input: CreateKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.BypassPolicyLockoutSafetyCheck != null && {
-      BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
-    }),
-    ...(input.CustomKeyStoreId != null && { CustomKeyStoreId: input.CustomKeyStoreId }),
-    ...(input.CustomerMasterKeySpec != null && { CustomerMasterKeySpec: input.CustomerMasterKeySpec }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.KeySpec != null && { KeySpec: input.KeySpec }),
-    ...(input.KeyUsage != null && { KeyUsage: input.KeyUsage }),
-    ...(input.MultiRegion != null && { MultiRegion: input.MultiRegion }),
-    ...(input.Origin != null && { Origin: input.Origin }),
-    ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.XksKeyId != null && { XksKeyId: input.XksKeyId }),
-  };
+// se_ReplicateKeyRequest omitted.
+
+// se_RetireGrantRequest omitted.
+
+// se_RevokeGrantRequest omitted.
+
+// se_ScheduleKeyDeletionRequest omitted.
+
+/**
+ * serializeAws_json1_1SignRequest
+ */
+const se_SignRequest = (input: SignRequest, context: __SerdeContext): any => {
+  return take(input, {
+    GrantTokens: _json,
+    KeyId: [],
+    Message: context.base64Encoder,
+    MessageType: [],
+    SigningAlgorithm: [],
+  });
 };
 
-const serializeAws_json1_1DecryptRequest = (input: DecryptRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CiphertextBlob != null && { CiphertextBlob: context.base64Encoder(input.CiphertextBlob) }),
-    ...(input.EncryptionAlgorithm != null && { EncryptionAlgorithm: input.EncryptionAlgorithm }),
-    ...(input.EncryptionContext != null && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_UntagResourceRequest omitted.
+
+// se_UpdateAliasRequest omitted.
+
+// se_UpdateCustomKeyStoreRequest omitted.
+
+// se_UpdateKeyDescriptionRequest omitted.
+
+// se_UpdatePrimaryRegionRequest omitted.
+
+/**
+ * serializeAws_json1_1VerifyMacRequest
+ */
+const se_VerifyMacRequest = (input: VerifyMacRequest, context: __SerdeContext): any => {
+  return take(input, {
+    GrantTokens: _json,
+    KeyId: [],
+    Mac: context.base64Encoder,
+    MacAlgorithm: [],
+    Message: context.base64Encoder,
+  });
 };
 
-const serializeAws_json1_1DeleteAliasRequest = (input: DeleteAliasRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AliasName != null && { AliasName: input.AliasName }),
-  };
+/**
+ * serializeAws_json1_1VerifyRequest
+ */
+const se_VerifyRequest = (input: VerifyRequest, context: __SerdeContext): any => {
+  return take(input, {
+    GrantTokens: _json,
+    KeyId: [],
+    Message: context.base64Encoder,
+    MessageType: [],
+    Signature: context.base64Encoder,
+    SigningAlgorithm: [],
+  });
 };
 
-const serializeAws_json1_1DeleteCustomKeyStoreRequest = (
-  input: DeleteCustomKeyStoreRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CustomKeyStoreId != null && { CustomKeyStoreId: input.CustomKeyStoreId }),
-  };
-};
+// se_XksProxyAuthenticationCredentialType omitted.
 
-const serializeAws_json1_1DeleteImportedKeyMaterialRequest = (
-  input: DeleteImportedKeyMaterialRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
-};
-
-const serializeAws_json1_1DescribeCustomKeyStoresRequest = (
-  input: DescribeCustomKeyStoresRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CustomKeyStoreId != null && { CustomKeyStoreId: input.CustomKeyStoreId }),
-    ...(input.CustomKeyStoreName != null && { CustomKeyStoreName: input.CustomKeyStoreName }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-  };
-};
-
-const serializeAws_json1_1DescribeKeyRequest = (input: DescribeKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
-};
-
-const serializeAws_json1_1DisableKeyRequest = (input: DisableKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
-};
-
-const serializeAws_json1_1DisableKeyRotationRequest = (
-  input: DisableKeyRotationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
-};
-
-const serializeAws_json1_1DisconnectCustomKeyStoreRequest = (
-  input: DisconnectCustomKeyStoreRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CustomKeyStoreId != null && { CustomKeyStoreId: input.CustomKeyStoreId }),
-  };
-};
-
-const serializeAws_json1_1EnableKeyRequest = (input: EnableKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
-};
-
-const serializeAws_json1_1EnableKeyRotationRequest = (
-  input: EnableKeyRotationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
-};
-
-const serializeAws_json1_1EncryptionContextType = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
-
-const serializeAws_json1_1EncryptRequest = (input: EncryptRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionAlgorithm != null && { EncryptionAlgorithm: input.EncryptionAlgorithm }),
-    ...(input.EncryptionContext != null && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Plaintext != null && { Plaintext: context.base64Encoder(input.Plaintext) }),
-  };
-};
-
-const serializeAws_json1_1GenerateDataKeyPairRequest = (
-  input: GenerateDataKeyPairRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EncryptionContext != null && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.KeyPairSpec != null && { KeyPairSpec: input.KeyPairSpec }),
-  };
-};
-
-const serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextRequest = (
-  input: GenerateDataKeyPairWithoutPlaintextRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EncryptionContext != null && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.KeyPairSpec != null && { KeyPairSpec: input.KeyPairSpec }),
-  };
-};
-
-const serializeAws_json1_1GenerateDataKeyRequest = (input: GenerateDataKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionContext != null && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.KeySpec != null && { KeySpec: input.KeySpec }),
-    ...(input.NumberOfBytes != null && { NumberOfBytes: input.NumberOfBytes }),
-  };
-};
-
-const serializeAws_json1_1GenerateDataKeyWithoutPlaintextRequest = (
-  input: GenerateDataKeyWithoutPlaintextRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EncryptionContext != null && {
-      EncryptionContext: serializeAws_json1_1EncryptionContextType(input.EncryptionContext, context),
-    }),
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.KeySpec != null && { KeySpec: input.KeySpec }),
-    ...(input.NumberOfBytes != null && { NumberOfBytes: input.NumberOfBytes }),
-  };
-};
-
-const serializeAws_json1_1GenerateMacRequest = (input: GenerateMacRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.MacAlgorithm != null && { MacAlgorithm: input.MacAlgorithm }),
-    ...(input.Message != null && { Message: context.base64Encoder(input.Message) }),
-  };
-};
-
-const serializeAws_json1_1GenerateRandomRequest = (input: GenerateRandomRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CustomKeyStoreId != null && { CustomKeyStoreId: input.CustomKeyStoreId }),
-    ...(input.NumberOfBytes != null && { NumberOfBytes: input.NumberOfBytes }),
-  };
-};
-
-const serializeAws_json1_1GetKeyPolicyRequest = (input: GetKeyPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
-  };
-};
-
-const serializeAws_json1_1GetKeyRotationStatusRequest = (
-  input: GetKeyRotationStatusRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
-};
-
-const serializeAws_json1_1GetParametersForImportRequest = (
-  input: GetParametersForImportRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.WrappingAlgorithm != null && { WrappingAlgorithm: input.WrappingAlgorithm }),
-    ...(input.WrappingKeySpec != null && { WrappingKeySpec: input.WrappingKeySpec }),
-  };
-};
-
-const serializeAws_json1_1GetPublicKeyRequest = (input: GetPublicKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
-};
-
-const serializeAws_json1_1GrantConstraints = (input: GrantConstraints, context: __SerdeContext): any => {
-  return {
-    ...(input.EncryptionContextEquals != null && {
-      EncryptionContextEquals: serializeAws_json1_1EncryptionContextType(input.EncryptionContextEquals, context),
-    }),
-    ...(input.EncryptionContextSubset != null && {
-      EncryptionContextSubset: serializeAws_json1_1EncryptionContextType(input.EncryptionContextSubset, context),
-    }),
-  };
-};
-
-const serializeAws_json1_1GrantOperationList = (input: (GrantOperation | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1GrantTokenList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1ImportKeyMaterialRequest = (
-  input: ImportKeyMaterialRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EncryptedKeyMaterial != null && {
-      EncryptedKeyMaterial: context.base64Encoder(input.EncryptedKeyMaterial),
-    }),
-    ...(input.ExpirationModel != null && { ExpirationModel: input.ExpirationModel }),
-    ...(input.ImportToken != null && { ImportToken: context.base64Encoder(input.ImportToken) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.ValidTo != null && { ValidTo: Math.round(input.ValidTo.getTime() / 1000) }),
-  };
-};
-
-const serializeAws_json1_1ListAliasesRequest = (input: ListAliasesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-  };
-};
-
-const serializeAws_json1_1ListGrantsRequest = (input: ListGrantsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantId != null && { GrantId: input.GrantId }),
-    ...(input.GranteePrincipal != null && { GranteePrincipal: input.GranteePrincipal }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-  };
-};
-
-const serializeAws_json1_1ListKeyPoliciesRequest = (input: ListKeyPoliciesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-  };
-};
-
-const serializeAws_json1_1ListKeysRequest = (input: ListKeysRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-  };
-};
-
-const serializeAws_json1_1ListResourceTagsRequest = (input: ListResourceTagsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-  };
-};
-
-const serializeAws_json1_1ListRetirableGrantsRequest = (
-  input: ListRetirableGrantsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.RetiringPrincipal != null && { RetiringPrincipal: input.RetiringPrincipal }),
-  };
-};
-
-const serializeAws_json1_1PutKeyPolicyRequest = (input: PutKeyPolicyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.BypassPolicyLockoutSafetyCheck != null && {
-      BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
-    }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
-  };
-};
-
-const serializeAws_json1_1ReEncryptRequest = (input: ReEncryptRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.CiphertextBlob != null && { CiphertextBlob: context.base64Encoder(input.CiphertextBlob) }),
-    ...(input.DestinationEncryptionAlgorithm != null && {
-      DestinationEncryptionAlgorithm: input.DestinationEncryptionAlgorithm,
-    }),
-    ...(input.DestinationEncryptionContext != null && {
-      DestinationEncryptionContext: serializeAws_json1_1EncryptionContextType(
-        input.DestinationEncryptionContext,
-        context
-      ),
-    }),
-    ...(input.DestinationKeyId != null && { DestinationKeyId: input.DestinationKeyId }),
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.SourceEncryptionAlgorithm != null && { SourceEncryptionAlgorithm: input.SourceEncryptionAlgorithm }),
-    ...(input.SourceEncryptionContext != null && {
-      SourceEncryptionContext: serializeAws_json1_1EncryptionContextType(input.SourceEncryptionContext, context),
-    }),
-    ...(input.SourceKeyId != null && { SourceKeyId: input.SourceKeyId }),
-  };
-};
-
-const serializeAws_json1_1ReplicateKeyRequest = (input: ReplicateKeyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.BypassPolicyLockoutSafetyCheck != null && {
-      BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
-    }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.ReplicaRegion != null && { ReplicaRegion: input.ReplicaRegion }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1RetireGrantRequest = (input: RetireGrantRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantId != null && { GrantId: input.GrantId }),
-    ...(input.GrantToken != null && { GrantToken: input.GrantToken }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
-};
-
-const serializeAws_json1_1RevokeGrantRequest = (input: RevokeGrantRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantId != null && { GrantId: input.GrantId }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
-};
-
-const serializeAws_json1_1ScheduleKeyDeletionRequest = (
-  input: ScheduleKeyDeletionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.PendingWindowInDays != null && { PendingWindowInDays: input.PendingWindowInDays }),
-  };
-};
-
-const serializeAws_json1_1SignRequest = (input: SignRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Message != null && { Message: context.base64Encoder(input.Message) }),
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-    ...(input.SigningAlgorithm != null && { SigningAlgorithm: input.SigningAlgorithm }),
-  };
-};
-
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.TagKey != null && { TagKey: input.TagKey }),
-    ...(input.TagValue != null && { TagValue: input.TagValue }),
-  };
-};
-
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
-
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
-  };
-};
-
-const serializeAws_json1_1UpdateAliasRequest = (input: UpdateAliasRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AliasName != null && { AliasName: input.AliasName }),
-    ...(input.TargetKeyId != null && { TargetKeyId: input.TargetKeyId }),
-  };
-};
-
-const serializeAws_json1_1UpdateCustomKeyStoreRequest = (
-  input: UpdateCustomKeyStoreRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CloudHsmClusterId != null && { CloudHsmClusterId: input.CloudHsmClusterId }),
-    ...(input.CustomKeyStoreId != null && { CustomKeyStoreId: input.CustomKeyStoreId }),
-    ...(input.KeyStorePassword != null && { KeyStorePassword: input.KeyStorePassword }),
-    ...(input.NewCustomKeyStoreName != null && { NewCustomKeyStoreName: input.NewCustomKeyStoreName }),
-    ...(input.XksProxyAuthenticationCredential != null && {
-      XksProxyAuthenticationCredential: serializeAws_json1_1XksProxyAuthenticationCredentialType(
-        input.XksProxyAuthenticationCredential,
-        context
-      ),
-    }),
-    ...(input.XksProxyConnectivity != null && { XksProxyConnectivity: input.XksProxyConnectivity }),
-    ...(input.XksProxyUriEndpoint != null && { XksProxyUriEndpoint: input.XksProxyUriEndpoint }),
-    ...(input.XksProxyUriPath != null && { XksProxyUriPath: input.XksProxyUriPath }),
-    ...(input.XksProxyVpcEndpointServiceName != null && {
-      XksProxyVpcEndpointServiceName: input.XksProxyVpcEndpointServiceName,
-    }),
-  };
-};
-
-const serializeAws_json1_1UpdateKeyDescriptionRequest = (
-  input: UpdateKeyDescriptionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-  };
-};
-
-const serializeAws_json1_1UpdatePrimaryRegionRequest = (
-  input: UpdatePrimaryRegionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.PrimaryRegion != null && { PrimaryRegion: input.PrimaryRegion }),
-  };
-};
-
-const serializeAws_json1_1VerifyMacRequest = (input: VerifyMacRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Mac != null && { Mac: context.base64Encoder(input.Mac) }),
-    ...(input.MacAlgorithm != null && { MacAlgorithm: input.MacAlgorithm }),
-    ...(input.Message != null && { Message: context.base64Encoder(input.Message) }),
-  };
-};
-
-const serializeAws_json1_1VerifyRequest = (input: VerifyRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.GrantTokens != null && { GrantTokens: serializeAws_json1_1GrantTokenList(input.GrantTokens, context) }),
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Message != null && { Message: context.base64Encoder(input.Message) }),
-    ...(input.MessageType != null && { MessageType: input.MessageType }),
-    ...(input.Signature != null && { Signature: context.base64Encoder(input.Signature) }),
-    ...(input.SigningAlgorithm != null && { SigningAlgorithm: input.SigningAlgorithm }),
-  };
-};
-
-const serializeAws_json1_1XksProxyAuthenticationCredentialType = (
-  input: XksProxyAuthenticationCredentialType,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AccessKeyId != null && { AccessKeyId: input.AccessKeyId }),
-    ...(input.RawSecretAccessKey != null && { RawSecretAccessKey: input.RawSecretAccessKey }),
-  };
-};
-
-const deserializeAws_json1_1AliasList = (output: any, context: __SerdeContext): AliasListEntry[] => {
+/**
+ * deserializeAws_json1_1AliasList
+ */
+const de_AliasList = (output: any, context: __SerdeContext): AliasListEntry[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1AliasListEntry(entry, context);
+      return de_AliasListEntry(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AliasListEntry = (output: any, context: __SerdeContext): AliasListEntry => {
-  return {
-    AliasArn: __expectString(output.AliasArn),
-    AliasName: __expectString(output.AliasName),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    LastUpdatedDate:
-      output.LastUpdatedDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDate)))
-        : undefined,
-    TargetKeyId: __expectString(output.TargetKeyId),
-  } as any;
+/**
+ * deserializeAws_json1_1AliasListEntry
+ */
+const de_AliasListEntry = (output: any, context: __SerdeContext): AliasListEntry => {
+  return take(output, {
+    AliasArn: __expectString,
+    AliasName: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TargetKeyId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_AlreadyExistsException omitted.
+
+// de_CancelKeyDeletionResponse omitted.
+
+// de_CloudHsmClusterInUseException omitted.
+
+// de_CloudHsmClusterInvalidConfigurationException omitted.
+
+// de_CloudHsmClusterNotActiveException omitted.
+
+// de_CloudHsmClusterNotFoundException omitted.
+
+// de_CloudHsmClusterNotRelatedException omitted.
+
+// de_ConnectCustomKeyStoreResponse omitted.
+
+// de_CreateCustomKeyStoreResponse omitted.
+
+// de_CreateGrantResponse omitted.
+
+/**
+ * deserializeAws_json1_1CreateKeyResponse
+ */
+const de_CreateKeyResponse = (output: any, context: __SerdeContext): CreateKeyResponse => {
+  return take(output, {
+    KeyMetadata: (_: any) => de_KeyMetadata(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1CancelKeyDeletionResponse = (
-  output: any,
-  context: __SerdeContext
-): CancelKeyDeletionResponse => {
-  return {
-    KeyId: __expectString(output.KeyId),
-  } as any;
-};
+// de_CustomKeyStoreHasCMKsException omitted.
 
-const deserializeAws_json1_1CloudHsmClusterInUseException = (
-  output: any,
-  context: __SerdeContext
-): CloudHsmClusterInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CustomKeyStoreInvalidStateException omitted.
 
-const deserializeAws_json1_1CloudHsmClusterInvalidConfigurationException = (
-  output: any,
-  context: __SerdeContext
-): CloudHsmClusterInvalidConfigurationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CustomKeyStoreNameInUseException omitted.
 
-const deserializeAws_json1_1CloudHsmClusterNotActiveException = (
-  output: any,
-  context: __SerdeContext
-): CloudHsmClusterNotActiveException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CustomKeyStoreNotFoundException omitted.
 
-const deserializeAws_json1_1CloudHsmClusterNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): CloudHsmClusterNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1CloudHsmClusterNotRelatedException = (
-  output: any,
-  context: __SerdeContext
-): CloudHsmClusterNotRelatedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ConnectCustomKeyStoreResponse = (
-  output: any,
-  context: __SerdeContext
-): ConnectCustomKeyStoreResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1CreateCustomKeyStoreResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateCustomKeyStoreResponse => {
-  return {
-    CustomKeyStoreId: __expectString(output.CustomKeyStoreId),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateGrantResponse = (output: any, context: __SerdeContext): CreateGrantResponse => {
-  return {
-    GrantId: __expectString(output.GrantId),
-    GrantToken: __expectString(output.GrantToken),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateKeyResponse = (output: any, context: __SerdeContext): CreateKeyResponse => {
-  return {
-    KeyMetadata:
-      output.KeyMetadata != null ? deserializeAws_json1_1KeyMetadata(output.KeyMetadata, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CustomKeyStoreHasCMKsException = (
-  output: any,
-  context: __SerdeContext
-): CustomKeyStoreHasCMKsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1CustomKeyStoreInvalidStateException = (
-  output: any,
-  context: __SerdeContext
-): CustomKeyStoreInvalidStateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1CustomKeyStoreNameInUseException = (
-  output: any,
-  context: __SerdeContext
-): CustomKeyStoreNameInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1CustomKeyStoreNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): CustomKeyStoreNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1CustomKeyStoresList = (
-  output: any,
-  context: __SerdeContext
-): CustomKeyStoresListEntry[] => {
+/**
+ * deserializeAws_json1_1CustomKeyStoresList
+ */
+const de_CustomKeyStoresList = (output: any, context: __SerdeContext): CustomKeyStoresListEntry[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CustomKeyStoresListEntry(entry, context);
+      return de_CustomKeyStoresListEntry(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CustomKeyStoresListEntry = (
-  output: any,
-  context: __SerdeContext
-): CustomKeyStoresListEntry => {
-  return {
-    CloudHsmClusterId: __expectString(output.CloudHsmClusterId),
-    ConnectionErrorCode: __expectString(output.ConnectionErrorCode),
-    ConnectionState: __expectString(output.ConnectionState),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    CustomKeyStoreId: __expectString(output.CustomKeyStoreId),
-    CustomKeyStoreName: __expectString(output.CustomKeyStoreName),
-    CustomKeyStoreType: __expectString(output.CustomKeyStoreType),
-    TrustAnchorCertificate: __expectString(output.TrustAnchorCertificate),
-    XksProxyConfiguration:
-      output.XksProxyConfiguration != null
-        ? deserializeAws_json1_1XksProxyConfigurationType(output.XksProxyConfiguration, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1CustomKeyStoresListEntry
+ */
+const de_CustomKeyStoresListEntry = (output: any, context: __SerdeContext): CustomKeyStoresListEntry => {
+  return take(output, {
+    CloudHsmClusterId: __expectString,
+    ConnectionErrorCode: __expectString,
+    ConnectionState: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CustomKeyStoreId: __expectString,
+    CustomKeyStoreName: __expectString,
+    CustomKeyStoreType: __expectString,
+    TrustAnchorCertificate: __expectString,
+    XksProxyConfiguration: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1DecryptResponse = (output: any, context: __SerdeContext): DecryptResponse => {
-  return {
-    EncryptionAlgorithm: __expectString(output.EncryptionAlgorithm),
-    KeyId: __expectString(output.KeyId),
-    Plaintext: output.Plaintext != null ? context.base64Decoder(output.Plaintext) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DecryptResponse
+ */
+const de_DecryptResponse = (output: any, context: __SerdeContext): DecryptResponse => {
+  return take(output, {
+    EncryptionAlgorithm: __expectString,
+    KeyId: __expectString,
+    Plaintext: context.base64Decoder,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteCustomKeyStoreResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteCustomKeyStoreResponse => {
-  return {} as any;
+// de_DeleteCustomKeyStoreResponse omitted.
+
+// de_DependencyTimeoutException omitted.
+
+/**
+ * deserializeAws_json1_1DescribeCustomKeyStoresResponse
+ */
+const de_DescribeCustomKeyStoresResponse = (output: any, context: __SerdeContext): DescribeCustomKeyStoresResponse => {
+  return take(output, {
+    CustomKeyStores: (_: any) => de_CustomKeyStoresList(_, context),
+    NextMarker: __expectString,
+    Truncated: __expectBoolean,
+  }) as any;
 };
 
-const deserializeAws_json1_1DependencyTimeoutException = (
-  output: any,
-  context: __SerdeContext
-): DependencyTimeoutException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeKeyResponse
+ */
+const de_DescribeKeyResponse = (output: any, context: __SerdeContext): DescribeKeyResponse => {
+  return take(output, {
+    KeyMetadata: (_: any) => de_KeyMetadata(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeCustomKeyStoresResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeCustomKeyStoresResponse => {
-  return {
-    CustomKeyStores:
-      output.CustomKeyStores != null
-        ? deserializeAws_json1_1CustomKeyStoresList(output.CustomKeyStores, context)
-        : undefined,
-    NextMarker: __expectString(output.NextMarker),
-    Truncated: __expectBoolean(output.Truncated),
-  } as any;
+// de_DisabledException omitted.
+
+// de_DisconnectCustomKeyStoreResponse omitted.
+
+// de_EncryptionAlgorithmSpecList omitted.
+
+// de_EncryptionContextType omitted.
+
+/**
+ * deserializeAws_json1_1EncryptResponse
+ */
+const de_EncryptResponse = (output: any, context: __SerdeContext): EncryptResponse => {
+  return take(output, {
+    CiphertextBlob: context.base64Decoder,
+    EncryptionAlgorithm: __expectString,
+    KeyId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeKeyResponse = (output: any, context: __SerdeContext): DescribeKeyResponse => {
-  return {
-    KeyMetadata:
-      output.KeyMetadata != null ? deserializeAws_json1_1KeyMetadata(output.KeyMetadata, context) : undefined,
-  } as any;
+// de_ExpiredImportTokenException omitted.
+
+/**
+ * deserializeAws_json1_1GenerateDataKeyPairResponse
+ */
+const de_GenerateDataKeyPairResponse = (output: any, context: __SerdeContext): GenerateDataKeyPairResponse => {
+  return take(output, {
+    KeyId: __expectString,
+    KeyPairSpec: __expectString,
+    PrivateKeyCiphertextBlob: context.base64Decoder,
+    PrivateKeyPlaintext: context.base64Decoder,
+    PublicKey: context.base64Decoder,
+  }) as any;
 };
 
-const deserializeAws_json1_1DisabledException = (output: any, context: __SerdeContext): DisabledException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1DisconnectCustomKeyStoreResponse = (
-  output: any,
-  context: __SerdeContext
-): DisconnectCustomKeyStoreResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1EncryptionAlgorithmSpecList = (
-  output: any,
-  context: __SerdeContext
-): (EncryptionAlgorithmSpec | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1EncryptionContextType = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_json1_1EncryptResponse = (output: any, context: __SerdeContext): EncryptResponse => {
-  return {
-    CiphertextBlob: output.CiphertextBlob != null ? context.base64Decoder(output.CiphertextBlob) : undefined,
-    EncryptionAlgorithm: __expectString(output.EncryptionAlgorithm),
-    KeyId: __expectString(output.KeyId),
-  } as any;
-};
-
-const deserializeAws_json1_1ExpiredImportTokenException = (
-  output: any,
-  context: __SerdeContext
-): ExpiredImportTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1GenerateDataKeyPairResponse = (
-  output: any,
-  context: __SerdeContext
-): GenerateDataKeyPairResponse => {
-  return {
-    KeyId: __expectString(output.KeyId),
-    KeyPairSpec: __expectString(output.KeyPairSpec),
-    PrivateKeyCiphertextBlob:
-      output.PrivateKeyCiphertextBlob != null ? context.base64Decoder(output.PrivateKeyCiphertextBlob) : undefined,
-    PrivateKeyPlaintext:
-      output.PrivateKeyPlaintext != null ? context.base64Decoder(output.PrivateKeyPlaintext) : undefined,
-    PublicKey: output.PublicKey != null ? context.base64Decoder(output.PublicKey) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextResponse = (
+/**
+ * deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextResponse
+ */
+const de_GenerateDataKeyPairWithoutPlaintextResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateDataKeyPairWithoutPlaintextResponse => {
-  return {
-    KeyId: __expectString(output.KeyId),
-    KeyPairSpec: __expectString(output.KeyPairSpec),
-    PrivateKeyCiphertextBlob:
-      output.PrivateKeyCiphertextBlob != null ? context.base64Decoder(output.PrivateKeyCiphertextBlob) : undefined,
-    PublicKey: output.PublicKey != null ? context.base64Decoder(output.PublicKey) : undefined,
-  } as any;
+  return take(output, {
+    KeyId: __expectString,
+    KeyPairSpec: __expectString,
+    PrivateKeyCiphertextBlob: context.base64Decoder,
+    PublicKey: context.base64Decoder,
+  }) as any;
 };
 
-const deserializeAws_json1_1GenerateDataKeyResponse = (
-  output: any,
-  context: __SerdeContext
-): GenerateDataKeyResponse => {
-  return {
-    CiphertextBlob: output.CiphertextBlob != null ? context.base64Decoder(output.CiphertextBlob) : undefined,
-    KeyId: __expectString(output.KeyId),
-    Plaintext: output.Plaintext != null ? context.base64Decoder(output.Plaintext) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1GenerateDataKeyResponse
+ */
+const de_GenerateDataKeyResponse = (output: any, context: __SerdeContext): GenerateDataKeyResponse => {
+  return take(output, {
+    CiphertextBlob: context.base64Decoder,
+    KeyId: __expectString,
+    Plaintext: context.base64Decoder,
+  }) as any;
 };
 
-const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextResponse = (
+/**
+ * deserializeAws_json1_1GenerateDataKeyWithoutPlaintextResponse
+ */
+const de_GenerateDataKeyWithoutPlaintextResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateDataKeyWithoutPlaintextResponse => {
-  return {
-    CiphertextBlob: output.CiphertextBlob != null ? context.base64Decoder(output.CiphertextBlob) : undefined,
-    KeyId: __expectString(output.KeyId),
-  } as any;
+  return take(output, {
+    CiphertextBlob: context.base64Decoder,
+    KeyId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GenerateMacResponse = (output: any, context: __SerdeContext): GenerateMacResponse => {
-  return {
-    KeyId: __expectString(output.KeyId),
-    Mac: output.Mac != null ? context.base64Decoder(output.Mac) : undefined,
-    MacAlgorithm: __expectString(output.MacAlgorithm),
-  } as any;
+/**
+ * deserializeAws_json1_1GenerateMacResponse
+ */
+const de_GenerateMacResponse = (output: any, context: __SerdeContext): GenerateMacResponse => {
+  return take(output, {
+    KeyId: __expectString,
+    Mac: context.base64Decoder,
+    MacAlgorithm: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GenerateRandomResponse = (output: any, context: __SerdeContext): GenerateRandomResponse => {
-  return {
-    Plaintext: output.Plaintext != null ? context.base64Decoder(output.Plaintext) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1GenerateRandomResponse
+ */
+const de_GenerateRandomResponse = (output: any, context: __SerdeContext): GenerateRandomResponse => {
+  return take(output, {
+    Plaintext: context.base64Decoder,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetKeyPolicyResponse = (output: any, context: __SerdeContext): GetKeyPolicyResponse => {
-  return {
-    Policy: __expectString(output.Policy),
-  } as any;
+// de_GetKeyPolicyResponse omitted.
+
+// de_GetKeyRotationStatusResponse omitted.
+
+/**
+ * deserializeAws_json1_1GetParametersForImportResponse
+ */
+const de_GetParametersForImportResponse = (output: any, context: __SerdeContext): GetParametersForImportResponse => {
+  return take(output, {
+    ImportToken: context.base64Decoder,
+    KeyId: __expectString,
+    ParametersValidTo: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PublicKey: context.base64Decoder,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetKeyRotationStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): GetKeyRotationStatusResponse => {
-  return {
-    KeyRotationEnabled: __expectBoolean(output.KeyRotationEnabled),
-  } as any;
+/**
+ * deserializeAws_json1_1GetPublicKeyResponse
+ */
+const de_GetPublicKeyResponse = (output: any, context: __SerdeContext): GetPublicKeyResponse => {
+  return take(output, {
+    CustomerMasterKeySpec: __expectString,
+    EncryptionAlgorithms: _json,
+    KeyId: __expectString,
+    KeySpec: __expectString,
+    KeyUsage: __expectString,
+    PublicKey: context.base64Decoder,
+    SigningAlgorithms: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetParametersForImportResponse = (
-  output: any,
-  context: __SerdeContext
-): GetParametersForImportResponse => {
-  return {
-    ImportToken: output.ImportToken != null ? context.base64Decoder(output.ImportToken) : undefined,
-    KeyId: __expectString(output.KeyId),
-    ParametersValidTo:
-      output.ParametersValidTo != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ParametersValidTo)))
-        : undefined,
-    PublicKey: output.PublicKey != null ? context.base64Decoder(output.PublicKey) : undefined,
-  } as any;
-};
+// de_GrantConstraints omitted.
 
-const deserializeAws_json1_1GetPublicKeyResponse = (output: any, context: __SerdeContext): GetPublicKeyResponse => {
-  return {
-    CustomerMasterKeySpec: __expectString(output.CustomerMasterKeySpec),
-    EncryptionAlgorithms:
-      output.EncryptionAlgorithms != null
-        ? deserializeAws_json1_1EncryptionAlgorithmSpecList(output.EncryptionAlgorithms, context)
-        : undefined,
-    KeyId: __expectString(output.KeyId),
-    KeySpec: __expectString(output.KeySpec),
-    KeyUsage: __expectString(output.KeyUsage),
-    PublicKey: output.PublicKey != null ? context.base64Decoder(output.PublicKey) : undefined,
-    SigningAlgorithms:
-      output.SigningAlgorithms != null
-        ? deserializeAws_json1_1SigningAlgorithmSpecList(output.SigningAlgorithms, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1GrantConstraints = (output: any, context: __SerdeContext): GrantConstraints => {
-  return {
-    EncryptionContextEquals:
-      output.EncryptionContextEquals != null
-        ? deserializeAws_json1_1EncryptionContextType(output.EncryptionContextEquals, context)
-        : undefined,
-    EncryptionContextSubset:
-      output.EncryptionContextSubset != null
-        ? deserializeAws_json1_1EncryptionContextType(output.EncryptionContextSubset, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1GrantList = (output: any, context: __SerdeContext): GrantListEntry[] => {
+/**
+ * deserializeAws_json1_1GrantList
+ */
+const de_GrantList = (output: any, context: __SerdeContext): GrantListEntry[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1GrantListEntry(entry, context);
+      return de_GrantListEntry(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GrantListEntry = (output: any, context: __SerdeContext): GrantListEntry => {
-  return {
-    Constraints:
-      output.Constraints != null ? deserializeAws_json1_1GrantConstraints(output.Constraints, context) : undefined,
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    GrantId: __expectString(output.GrantId),
-    GranteePrincipal: __expectString(output.GranteePrincipal),
-    IssuingAccount: __expectString(output.IssuingAccount),
-    KeyId: __expectString(output.KeyId),
-    Name: __expectString(output.Name),
-    Operations:
-      output.Operations != null ? deserializeAws_json1_1GrantOperationList(output.Operations, context) : undefined,
-    RetiringPrincipal: __expectString(output.RetiringPrincipal),
-  } as any;
+/**
+ * deserializeAws_json1_1GrantListEntry
+ */
+const de_GrantListEntry = (output: any, context: __SerdeContext): GrantListEntry => {
+  return take(output, {
+    Constraints: _json,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    GrantId: __expectString,
+    GranteePrincipal: __expectString,
+    IssuingAccount: __expectString,
+    KeyId: __expectString,
+    Name: __expectString,
+    Operations: _json,
+    RetiringPrincipal: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GrantOperationList = (
-  output: any,
-  context: __SerdeContext
-): (GrantOperation | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
+// de_GrantOperationList omitted.
+
+// de_ImportKeyMaterialResponse omitted.
+
+// de_IncorrectKeyException omitted.
+
+// de_IncorrectKeyMaterialException omitted.
+
+// de_IncorrectTrustAnchorException omitted.
+
+// de_InvalidAliasNameException omitted.
+
+// de_InvalidArnException omitted.
+
+// de_InvalidCiphertextException omitted.
+
+// de_InvalidGrantIdException omitted.
+
+// de_InvalidGrantTokenException omitted.
+
+// de_InvalidImportTokenException omitted.
+
+// de_InvalidKeyUsageException omitted.
+
+// de_InvalidMarkerException omitted.
+
+// de_KeyList omitted.
+
+// de_KeyListEntry omitted.
+
+/**
+ * deserializeAws_json1_1KeyMetadata
+ */
+const de_KeyMetadata = (output: any, context: __SerdeContext): KeyMetadata => {
+  return take(output, {
+    AWSAccountId: __expectString,
+    Arn: __expectString,
+    CloudHsmClusterId: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CustomKeyStoreId: __expectString,
+    CustomerMasterKeySpec: __expectString,
+    DeletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Enabled: __expectBoolean,
+    EncryptionAlgorithms: _json,
+    ExpirationModel: __expectString,
+    KeyId: __expectString,
+    KeyManager: __expectString,
+    KeySpec: __expectString,
+    KeyState: __expectString,
+    KeyUsage: __expectString,
+    MacAlgorithms: _json,
+    MultiRegion: __expectBoolean,
+    MultiRegionConfiguration: _json,
+    Origin: __expectString,
+    PendingDeletionWindowInDays: __expectInt32,
+    SigningAlgorithms: _json,
+    ValidTo: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    XksKeyConfiguration: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1ImportKeyMaterialResponse = (
-  output: any,
-  context: __SerdeContext
-): ImportKeyMaterialResponse => {
-  return {} as any;
+// de_KeyUnavailableException omitted.
+
+// de_KMSInternalException omitted.
+
+// de_KMSInvalidMacException omitted.
+
+// de_KMSInvalidSignatureException omitted.
+
+// de_KMSInvalidStateException omitted.
+
+// de_LimitExceededException omitted.
+
+/**
+ * deserializeAws_json1_1ListAliasesResponse
+ */
+const de_ListAliasesResponse = (output: any, context: __SerdeContext): ListAliasesResponse => {
+  return take(output, {
+    Aliases: (_: any) => de_AliasList(_, context),
+    NextMarker: __expectString,
+    Truncated: __expectBoolean,
+  }) as any;
 };
 
-const deserializeAws_json1_1IncorrectKeyException = (output: any, context: __SerdeContext): IncorrectKeyException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+/**
+ * deserializeAws_json1_1ListGrantsResponse
+ */
+const de_ListGrantsResponse = (output: any, context: __SerdeContext): ListGrantsResponse => {
+  return take(output, {
+    Grants: (_: any) => de_GrantList(_, context),
+    NextMarker: __expectString,
+    Truncated: __expectBoolean,
+  }) as any;
 };
 
-const deserializeAws_json1_1IncorrectKeyMaterialException = (
-  output: any,
-  context: __SerdeContext
-): IncorrectKeyMaterialException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_ListKeyPoliciesResponse omitted.
+
+// de_ListKeysResponse omitted.
+
+// de_ListResourceTagsResponse omitted.
+
+// de_MacAlgorithmSpecList omitted.
+
+// de_MalformedPolicyDocumentException omitted.
+
+// de_MultiRegionConfiguration omitted.
+
+// de_MultiRegionKey omitted.
+
+// de_MultiRegionKeyList omitted.
+
+// de_NotFoundException omitted.
+
+// de_PolicyNameList omitted.
+
+/**
+ * deserializeAws_json1_1ReEncryptResponse
+ */
+const de_ReEncryptResponse = (output: any, context: __SerdeContext): ReEncryptResponse => {
+  return take(output, {
+    CiphertextBlob: context.base64Decoder,
+    DestinationEncryptionAlgorithm: __expectString,
+    KeyId: __expectString,
+    SourceEncryptionAlgorithm: __expectString,
+    SourceKeyId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1IncorrectTrustAnchorException = (
-  output: any,
-  context: __SerdeContext
-): IncorrectTrustAnchorException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+/**
+ * deserializeAws_json1_1ReplicateKeyResponse
+ */
+const de_ReplicateKeyResponse = (output: any, context: __SerdeContext): ReplicateKeyResponse => {
+  return take(output, {
+    ReplicaKeyMetadata: (_: any) => de_KeyMetadata(_, context),
+    ReplicaPolicy: __expectString,
+    ReplicaTags: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1InvalidAliasNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidAliasNameException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+/**
+ * deserializeAws_json1_1ScheduleKeyDeletionResponse
+ */
+const de_ScheduleKeyDeletionResponse = (output: any, context: __SerdeContext): ScheduleKeyDeletionResponse => {
+  return take(output, {
+    DeletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    KeyId: __expectString,
+    KeyState: __expectString,
+    PendingWindowInDays: __expectInt32,
+  }) as any;
 };
 
-const deserializeAws_json1_1InvalidArnException = (output: any, context: __SerdeContext): InvalidArnException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_SigningAlgorithmSpecList omitted.
+
+/**
+ * deserializeAws_json1_1SignResponse
+ */
+const de_SignResponse = (output: any, context: __SerdeContext): SignResponse => {
+  return take(output, {
+    KeyId: __expectString,
+    Signature: context.base64Decoder,
+    SigningAlgorithm: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1InvalidCiphertextException = (
-  output: any,
-  context: __SerdeContext
-): InvalidCiphertextException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_Tag omitted.
 
-const deserializeAws_json1_1InvalidGrantIdException = (
-  output: any,
-  context: __SerdeContext
-): InvalidGrantIdException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TagException omitted.
 
-const deserializeAws_json1_1InvalidGrantTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidGrantTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TagList omitted.
 
-const deserializeAws_json1_1InvalidImportTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidImportTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UnsupportedOperationException omitted.
 
-const deserializeAws_json1_1InvalidKeyUsageException = (
-  output: any,
-  context: __SerdeContext
-): InvalidKeyUsageException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UpdateCustomKeyStoreResponse omitted.
 
-const deserializeAws_json1_1InvalidMarkerException = (output: any, context: __SerdeContext): InvalidMarkerException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_VerifyMacResponse omitted.
 
-const deserializeAws_json1_1KeyList = (output: any, context: __SerdeContext): KeyListEntry[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1KeyListEntry(entry, context);
-    });
-  return retVal;
-};
+// de_VerifyResponse omitted.
 
-const deserializeAws_json1_1KeyListEntry = (output: any, context: __SerdeContext): KeyListEntry => {
-  return {
-    KeyArn: __expectString(output.KeyArn),
-    KeyId: __expectString(output.KeyId),
-  } as any;
-};
+// de_XksKeyAlreadyInUseException omitted.
 
-const deserializeAws_json1_1KeyMetadata = (output: any, context: __SerdeContext): KeyMetadata => {
-  return {
-    AWSAccountId: __expectString(output.AWSAccountId),
-    Arn: __expectString(output.Arn),
-    CloudHsmClusterId: __expectString(output.CloudHsmClusterId),
-    CreationDate:
-      output.CreationDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    CustomKeyStoreId: __expectString(output.CustomKeyStoreId),
-    CustomerMasterKeySpec: __expectString(output.CustomerMasterKeySpec),
-    DeletionDate:
-      output.DeletionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletionDate)))
-        : undefined,
-    Description: __expectString(output.Description),
-    Enabled: __expectBoolean(output.Enabled),
-    EncryptionAlgorithms:
-      output.EncryptionAlgorithms != null
-        ? deserializeAws_json1_1EncryptionAlgorithmSpecList(output.EncryptionAlgorithms, context)
-        : undefined,
-    ExpirationModel: __expectString(output.ExpirationModel),
-    KeyId: __expectString(output.KeyId),
-    KeyManager: __expectString(output.KeyManager),
-    KeySpec: __expectString(output.KeySpec),
-    KeyState: __expectString(output.KeyState),
-    KeyUsage: __expectString(output.KeyUsage),
-    MacAlgorithms:
-      output.MacAlgorithms != null
-        ? deserializeAws_json1_1MacAlgorithmSpecList(output.MacAlgorithms, context)
-        : undefined,
-    MultiRegion: __expectBoolean(output.MultiRegion),
-    MultiRegionConfiguration:
-      output.MultiRegionConfiguration != null
-        ? deserializeAws_json1_1MultiRegionConfiguration(output.MultiRegionConfiguration, context)
-        : undefined,
-    Origin: __expectString(output.Origin),
-    PendingDeletionWindowInDays: __expectInt32(output.PendingDeletionWindowInDays),
-    SigningAlgorithms:
-      output.SigningAlgorithms != null
-        ? deserializeAws_json1_1SigningAlgorithmSpecList(output.SigningAlgorithms, context)
-        : undefined,
-    ValidTo:
-      output.ValidTo != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ValidTo))) : undefined,
-    XksKeyConfiguration:
-      output.XksKeyConfiguration != null
-        ? deserializeAws_json1_1XksKeyConfigurationType(output.XksKeyConfiguration, context)
-        : undefined,
-  } as any;
-};
+// de_XksKeyConfigurationType omitted.
 
-const deserializeAws_json1_1KeyUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): KeyUnavailableException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_XksKeyInvalidConfigurationException omitted.
 
-const deserializeAws_json1_1KMSInternalException = (output: any, context: __SerdeContext): KMSInternalException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_XksKeyNotFoundException omitted.
 
-const deserializeAws_json1_1KMSInvalidMacException = (output: any, context: __SerdeContext): KMSInvalidMacException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_XksProxyConfigurationType omitted.
 
-const deserializeAws_json1_1KMSInvalidSignatureException = (
-  output: any,
-  context: __SerdeContext
-): KMSInvalidSignatureException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_XksProxyIncorrectAuthenticationCredentialException omitted.
 
-const deserializeAws_json1_1KMSInvalidStateException = (
-  output: any,
-  context: __SerdeContext
-): KMSInvalidStateException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_XksProxyInvalidConfigurationException omitted.
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_XksProxyInvalidResponseException omitted.
 
-const deserializeAws_json1_1ListAliasesResponse = (output: any, context: __SerdeContext): ListAliasesResponse => {
-  return {
-    Aliases: output.Aliases != null ? deserializeAws_json1_1AliasList(output.Aliases, context) : undefined,
-    NextMarker: __expectString(output.NextMarker),
-    Truncated: __expectBoolean(output.Truncated),
-  } as any;
-};
+// de_XksProxyUriEndpointInUseException omitted.
 
-const deserializeAws_json1_1ListGrantsResponse = (output: any, context: __SerdeContext): ListGrantsResponse => {
-  return {
-    Grants: output.Grants != null ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
-    NextMarker: __expectString(output.NextMarker),
-    Truncated: __expectBoolean(output.Truncated),
-  } as any;
-};
+// de_XksProxyUriInUseException omitted.
 
-const deserializeAws_json1_1ListKeyPoliciesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListKeyPoliciesResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    PolicyNames:
-      output.PolicyNames != null ? deserializeAws_json1_1PolicyNameList(output.PolicyNames, context) : undefined,
-    Truncated: __expectBoolean(output.Truncated),
-  } as any;
-};
+// de_XksProxyUriUnreachableException omitted.
 
-const deserializeAws_json1_1ListKeysResponse = (output: any, context: __SerdeContext): ListKeysResponse => {
-  return {
-    Keys: output.Keys != null ? deserializeAws_json1_1KeyList(output.Keys, context) : undefined,
-    NextMarker: __expectString(output.NextMarker),
-    Truncated: __expectBoolean(output.Truncated),
-  } as any;
-};
+// de_XksProxyVpcEndpointServiceInUseException omitted.
 
-const deserializeAws_json1_1ListResourceTagsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListResourceTagsResponse => {
-  return {
-    NextMarker: __expectString(output.NextMarker),
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
-    Truncated: __expectBoolean(output.Truncated),
-  } as any;
-};
+// de_XksProxyVpcEndpointServiceInvalidConfigurationException omitted.
 
-const deserializeAws_json1_1MacAlgorithmSpecList = (
-  output: any,
-  context: __SerdeContext
-): (MacAlgorithmSpec | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1MalformedPolicyDocumentException = (
-  output: any,
-  context: __SerdeContext
-): MalformedPolicyDocumentException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1MultiRegionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MultiRegionConfiguration => {
-  return {
-    MultiRegionKeyType: __expectString(output.MultiRegionKeyType),
-    PrimaryKey:
-      output.PrimaryKey != null ? deserializeAws_json1_1MultiRegionKey(output.PrimaryKey, context) : undefined,
-    ReplicaKeys:
-      output.ReplicaKeys != null ? deserializeAws_json1_1MultiRegionKeyList(output.ReplicaKeys, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1MultiRegionKey = (output: any, context: __SerdeContext): MultiRegionKey => {
-  return {
-    Arn: __expectString(output.Arn),
-    Region: __expectString(output.Region),
-  } as any;
-};
-
-const deserializeAws_json1_1MultiRegionKeyList = (output: any, context: __SerdeContext): MultiRegionKey[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1MultiRegionKey(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1PolicyNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ReEncryptResponse = (output: any, context: __SerdeContext): ReEncryptResponse => {
-  return {
-    CiphertextBlob: output.CiphertextBlob != null ? context.base64Decoder(output.CiphertextBlob) : undefined,
-    DestinationEncryptionAlgorithm: __expectString(output.DestinationEncryptionAlgorithm),
-    KeyId: __expectString(output.KeyId),
-    SourceEncryptionAlgorithm: __expectString(output.SourceEncryptionAlgorithm),
-    SourceKeyId: __expectString(output.SourceKeyId),
-  } as any;
-};
-
-const deserializeAws_json1_1ReplicateKeyResponse = (output: any, context: __SerdeContext): ReplicateKeyResponse => {
-  return {
-    ReplicaKeyMetadata:
-      output.ReplicaKeyMetadata != null
-        ? deserializeAws_json1_1KeyMetadata(output.ReplicaKeyMetadata, context)
-        : undefined,
-    ReplicaPolicy: __expectString(output.ReplicaPolicy),
-    ReplicaTags: output.ReplicaTags != null ? deserializeAws_json1_1TagList(output.ReplicaTags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ScheduleKeyDeletionResponse = (
-  output: any,
-  context: __SerdeContext
-): ScheduleKeyDeletionResponse => {
-  return {
-    DeletionDate:
-      output.DeletionDate != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletionDate)))
-        : undefined,
-    KeyId: __expectString(output.KeyId),
-    KeyState: __expectString(output.KeyState),
-    PendingWindowInDays: __expectInt32(output.PendingWindowInDays),
-  } as any;
-};
-
-const deserializeAws_json1_1SigningAlgorithmSpecList = (
-  output: any,
-  context: __SerdeContext
-): (SigningAlgorithmSpec | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1SignResponse = (output: any, context: __SerdeContext): SignResponse => {
-  return {
-    KeyId: __expectString(output.KeyId),
-    Signature: output.Signature != null ? context.base64Decoder(output.Signature) : undefined,
-    SigningAlgorithm: __expectString(output.SigningAlgorithm),
-  } as any;
-};
-
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    TagKey: __expectString(output.TagKey),
-    TagValue: __expectString(output.TagValue),
-  } as any;
-};
-
-const deserializeAws_json1_1TagException = (output: any, context: __SerdeContext): TagException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1UnsupportedOperationException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedOperationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateCustomKeyStoreResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateCustomKeyStoreResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1VerifyMacResponse = (output: any, context: __SerdeContext): VerifyMacResponse => {
-  return {
-    KeyId: __expectString(output.KeyId),
-    MacAlgorithm: __expectString(output.MacAlgorithm),
-    MacValid: __expectBoolean(output.MacValid),
-  } as any;
-};
-
-const deserializeAws_json1_1VerifyResponse = (output: any, context: __SerdeContext): VerifyResponse => {
-  return {
-    KeyId: __expectString(output.KeyId),
-    SignatureValid: __expectBoolean(output.SignatureValid),
-    SigningAlgorithm: __expectString(output.SigningAlgorithm),
-  } as any;
-};
-
-const deserializeAws_json1_1XksKeyAlreadyInUseException = (
-  output: any,
-  context: __SerdeContext
-): XksKeyAlreadyInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1XksKeyConfigurationType = (
-  output: any,
-  context: __SerdeContext
-): XksKeyConfigurationType => {
-  return {
-    Id: __expectString(output.Id),
-  } as any;
-};
-
-const deserializeAws_json1_1XksKeyInvalidConfigurationException = (
-  output: any,
-  context: __SerdeContext
-): XksKeyInvalidConfigurationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1XksKeyNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): XksKeyNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1XksProxyConfigurationType = (
-  output: any,
-  context: __SerdeContext
-): XksProxyConfigurationType => {
-  return {
-    AccessKeyId: __expectString(output.AccessKeyId),
-    Connectivity: __expectString(output.Connectivity),
-    UriEndpoint: __expectString(output.UriEndpoint),
-    UriPath: __expectString(output.UriPath),
-    VpcEndpointServiceName: __expectString(output.VpcEndpointServiceName),
-  } as any;
-};
-
-const deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialException = (
-  output: any,
-  context: __SerdeContext
-): XksProxyIncorrectAuthenticationCredentialException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1XksProxyInvalidConfigurationException = (
-  output: any,
-  context: __SerdeContext
-): XksProxyInvalidConfigurationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1XksProxyInvalidResponseException = (
-  output: any,
-  context: __SerdeContext
-): XksProxyInvalidResponseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1XksProxyUriEndpointInUseException = (
-  output: any,
-  context: __SerdeContext
-): XksProxyUriEndpointInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1XksProxyUriInUseException = (
-  output: any,
-  context: __SerdeContext
-): XksProxyUriInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1XksProxyUriUnreachableException = (
-  output: any,
-  context: __SerdeContext
-): XksProxyUriUnreachableException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1XksProxyVpcEndpointServiceInUseException = (
-  output: any,
-  context: __SerdeContext
-): XksProxyVpcEndpointServiceInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationException = (
-  output: any,
-  context: __SerdeContext
-): XksProxyVpcEndpointServiceInvalidConfigurationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): XksProxyVpcEndpointServiceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_XksProxyVpcEndpointServiceNotFoundException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -6086,6 +5470,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -6110,6 +5495,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `TrentService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

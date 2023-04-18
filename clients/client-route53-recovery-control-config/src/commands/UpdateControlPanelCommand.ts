@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateControlPanelRequest,
-  UpdateControlPanelRequestFilterSensitiveLog,
-  UpdateControlPanelResponse,
-  UpdateControlPanelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateControlPanelCommand,
-  serializeAws_restJson1UpdateControlPanelCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateControlPanelRequest, UpdateControlPanelResponse } from "../models/models_0";
+import { de_UpdateControlPanelCommand, se_UpdateControlPanelCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateControlPanelCommand}.
+ */
 export interface UpdateControlPanelCommandInput extends UpdateControlPanelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateControlPanelCommand}.
+ */
 export interface UpdateControlPanelCommandOutput extends UpdateControlPanelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a control panel. The only update you can make to a control panel is to change the name of the control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,38 @@ export interface UpdateControlPanelCommandOutput extends UpdateControlPanelRespo
  * import { Route53RecoveryControlConfigClient, UpdateControlPanelCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, UpdateControlPanelCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // UpdateControlPanelRequest
+ *   ControlPanelArn: "STRING_VALUE", // required
+ *   ControlPanelName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateControlPanelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateControlPanelCommandInput - {@link UpdateControlPanelCommandInput}
+ * @returns {@link UpdateControlPanelCommandOutput}
  * @see {@link UpdateControlPanelCommandInput} for command's `input` shape.
  * @see {@link UpdateControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>403 response - You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>409 response - ConflictException. You might be using a predefined variable.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ *
  *
  */
 export class UpdateControlPanelCommand extends $Command<
@@ -66,6 +94,9 @@ export class UpdateControlPanelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateControlPanelCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +125,8 @@ export class UpdateControlPanelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateControlPanelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateControlPanelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +136,18 @@ export class UpdateControlPanelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateControlPanelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateControlPanelCommand(input, context);
+    return se_UpdateControlPanelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateControlPanelCommandOutput> {
-    return deserializeAws_restJson1UpdateControlPanelCommand(output, context);
+    return de_UpdateControlPanelCommand(output, context);
   }
 
   // Start section: command_body_extra

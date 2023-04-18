@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  DisconnectPlayerRequest,
-  DisconnectPlayerRequestFilterSensitiveLog,
-  DisconnectPlayerResult,
-  DisconnectPlayerResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisconnectPlayerCommand,
-  serializeAws_restJson1DisconnectPlayerCommand,
-} from "../protocols/Aws_restJson1";
+import { DisconnectPlayerRequest, DisconnectPlayerResult } from "../models/models_0";
+import { de_DisconnectPlayerCommand, se_DisconnectPlayerCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisconnectPlayerCommand}.
+ */
 export interface DisconnectPlayerCommandInput extends DisconnectPlayerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisconnectPlayerCommand}.
+ */
 export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects a player from the game runtime.</p>
  *          <p>
  *       If a player has multiple connections, this operation attempts to close all of them.
@@ -39,13 +42,36 @@ export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, _
  * import { GameSparksClient, DisconnectPlayerCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, DisconnectPlayerCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // DisconnectPlayerRequest
+ *   PlayerId: "STRING_VALUE", // required
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ * };
  * const command = new DisconnectPlayerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectPlayerCommandInput - {@link DisconnectPlayerCommandInput}
+ * @returns {@link DisconnectPlayerCommandOutput}
  * @see {@link DisconnectPlayerCommandInput} for command's `input` shape.
  * @see {@link DisconnectPlayerCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request throughput limit was exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the parameters in the request is invalid.</p>
+ *
  *
  */
 export class DisconnectPlayerCommand extends $Command<
@@ -65,6 +91,9 @@ export class DisconnectPlayerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectPlayerCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +122,8 @@ export class DisconnectPlayerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectPlayerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisconnectPlayerResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +133,18 @@ export class DisconnectPlayerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectPlayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisconnectPlayerCommand(input, context);
+    return se_DisconnectPlayerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectPlayerCommandOutput> {
-    return deserializeAws_restJson1DisconnectPlayerCommand(output, context);
+    return de_DisconnectPlayerCommand(output, context);
   }
 
   // Start section: command_body_extra

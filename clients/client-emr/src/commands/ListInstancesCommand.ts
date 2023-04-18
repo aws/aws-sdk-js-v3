@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ListInstancesInput,
-  ListInstancesInputFilterSensitiveLog,
-  ListInstancesOutput,
-  ListInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListInstancesCommand,
-  serializeAws_json1_1ListInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListInstancesInput, ListInstancesOutput } from "../models/models_0";
+import { de_ListInstancesCommand, se_ListInstancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListInstancesCommand}.
+ */
 export interface ListInstancesCommandInput extends ListInstancesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListInstancesCommand}.
+ */
 export interface ListInstancesCommandOutput extends ListInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information for all active EC2 instances and EC2 instances terminated in the
  *          last 30 days, up to a maximum of 2,000. EC2 instances in any of the following states are
  *          considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.</p>
@@ -38,13 +41,36 @@ export interface ListInstancesCommandOutput extends ListInstancesOutput, __Metad
  * import { EMRClient, ListInstancesCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListInstancesCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ListInstancesInput
+ *   ClusterId: "STRING_VALUE", // required
+ *   InstanceGroupId: "STRING_VALUE",
+ *   InstanceGroupTypes: [ // InstanceGroupTypeList
+ *     "MASTER" || "CORE" || "TASK",
+ *   ],
+ *   InstanceFleetId: "STRING_VALUE",
+ *   InstanceFleetType: "MASTER" || "CORE" || "TASK",
+ *   InstanceStates: [ // InstanceStateList
+ *     "AWAITING_FULFILLMENT" || "PROVISIONING" || "BOOTSTRAPPING" || "RUNNING" || "TERMINATED",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
+ * @returns {@link ListInstancesCommandOutput}
  * @see {@link ListInstancesCommandInput} for command's `input` shape.
  * @see {@link ListInstancesCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class ListInstancesCommand extends $Command<
@@ -64,6 +90,9 @@ export class ListInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +119,8 @@ export class ListInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +130,18 @@ export class ListInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInstancesCommand(input, context);
+    return se_ListInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstancesCommandOutput> {
-    return deserializeAws_json1_1ListInstancesCommand(output, context);
+    return de_ListInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

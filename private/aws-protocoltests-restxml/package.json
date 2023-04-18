@@ -1,11 +1,10 @@
 {
   "name": "@aws-sdk/aws-protocoltests-restxml",
   "description": "@aws-sdk/aws-protocoltests-restxml client",
-  "version": "3.235.0",
+  "version": "3.315.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:docs": "typedoc",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -18,8 +17,8 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@aws-crypto/sha256-browser": "2.0.0",
-    "@aws-crypto/sha256-js": "2.0.0",
+    "@aws-crypto/sha256-browser": "3.0.0",
+    "@aws-crypto/sha256-js": "3.0.0",
     "@aws-sdk/config-resolver": "*",
     "@aws-sdk/fetch-http-handler": "*",
     "@aws-sdk/hash-node": "*",
@@ -47,12 +46,11 @@
     "@aws-sdk/util-retry": "*",
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
-    "@aws-sdk/util-utf8-browser": "*",
-    "@aws-sdk/util-utf8-node": "*",
+    "@aws-sdk/util-utf8": "*",
     "@aws-sdk/xml-builder": "*",
     "entities": "2.2.0",
-    "fast-xml-parser": "4.0.11",
-    "tslib": "^2.3.1",
+    "fast-xml-parser": "4.1.2",
+    "tslib": "^2.5.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -63,13 +61,8 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
-    "typescript": "~4.6.2"
-  },
-  "overrides": {
-    "typedoc": {
-      "typescript": "~4.6.2"
-    }
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -82,7 +75,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "author": {
     "name": "AWS SDK for JavaScript Team",

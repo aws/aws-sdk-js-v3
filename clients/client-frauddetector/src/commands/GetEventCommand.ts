@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetEventRequest,
-  GetEventRequestFilterSensitiveLog,
-  GetEventResult,
-  GetEventResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetEventCommand, serializeAws_json1_1GetEventCommand } from "../protocols/Aws_json1_1";
+import { GetEventRequest, GetEventResult, GetEventResultFilterSensitiveLog } from "../models/models_0";
+import { de_GetEventCommand, se_GetEventCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEventCommand}.
+ */
 export interface GetEventCommandInput extends GetEventRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEventCommand}.
+ */
 export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details of events stored with Amazon Fraud Detector. This action does not retrieve prediction results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +39,35 @@ export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer 
  * import { FraudDetectorClient, GetEventCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetEventCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetEventRequest
+ *   eventId: "STRING_VALUE", // required
+ *   eventTypeName: "STRING_VALUE", // required
+ * };
  * const command = new GetEventCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventCommandInput - {@link GetEventCommandInput}
+ * @returns {@link GetEventCommandOutput}
  * @see {@link GetEventCommandInput} for command's `input` shape.
  * @see {@link GetEventCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class GetEventCommand extends $Command<
@@ -59,6 +87,9 @@ export class GetEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,7 +116,7 @@ export class GetEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEventResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -96,12 +127,18 @@ export class GetEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEventCommand(input, context);
+    return se_GetEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventCommandOutput> {
-    return deserializeAws_json1_1GetEventCommand(output, context);
+    return de_GetEventCommand(output, context);
   }
 
   // Start section: command_body_extra

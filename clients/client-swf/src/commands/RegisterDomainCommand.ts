@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterDomainInput, RegisterDomainInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0RegisterDomainCommand,
-  serializeAws_json1_0RegisterDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { RegisterDomainInput } from "../models/models_0";
+import { de_RegisterDomainCommand, se_RegisterDomainCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RegisterDomainCommand}.
+ */
 export interface RegisterDomainCommandInput extends RegisterDomainInput {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterDomainCommand}.
+ */
 export interface RegisterDomainCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new domain.</p>
  *          <p>
  *             <b>Access Control</b>
@@ -54,13 +62,39 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  * import { SWFClient, RegisterDomainCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RegisterDomainCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // RegisterDomainInput
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   workflowExecutionRetentionPeriodInDays: "STRING_VALUE", // required
+ *   tags: [ // ResourceTagList
+ *     { // ResourceTag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new RegisterDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterDomainCommandInput - {@link RegisterDomainCommandInput}
+ * @returns {@link RegisterDomainCommandOutput}
  * @see {@link RegisterDomainCommandInput} for command's `input` shape.
  * @see {@link RegisterDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link DomainAlreadyExistsFault} (client fault)
+ *  <p>Returned if the domain already exists. You may get this fault if you are registering a domain that is either already registered or deprecated, or if you undeprecate a domain that is currently registered.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link TooManyTagsFault} (client fault)
+ *  <p>You've exceeded the number of tags allowed for a domain.</p>
+ *
  *
  */
 export class RegisterDomainCommand extends $Command<
@@ -80,6 +114,9 @@ export class RegisterDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +145,8 @@ export class RegisterDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterDomainInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +156,18 @@ export class RegisterDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RegisterDomainCommand(input, context);
+    return se_RegisterDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterDomainCommandOutput> {
-    return deserializeAws_json1_0RegisterDomainCommand(output, context);
+    return de_RegisterDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

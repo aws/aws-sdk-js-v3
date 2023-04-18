@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { OpsWorksCMServiceException as __BaseException } from "./OpsWorksCMServiceException";
 
 /**
+ * @public
  * <p>Stores account attributes.
  *     </p>
  */
@@ -44,6 +45,7 @@ export interface AccountAttribute {
 }
 
 /**
+ * @public
  * <p>A name and value pair that is specific to the engine of the server.
  *     </p>
  */
@@ -61,6 +63,9 @@ export interface EngineAttribute {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateNodeRequest {
   /**
    * <p>The name of the server with which to associate the node.
@@ -108,6 +113,9 @@ export interface AssociateNodeRequest {
   EngineAttributes: EngineAttribute[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateNodeResponse {
   /**
    * <p>Contains a token which can be passed to the <code>DescribeNodeAssociationStatus</code> API call to get the status of the association request.
@@ -117,6 +125,7 @@ export interface AssociateNodeResponse {
 }
 
 /**
+ * @public
  * <p>The resource is in a state that does not allow you to perform a specified action.
  *     </p>
  */
@@ -144,6 +153,7 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource does not exist, or access was denied.
  *     </p>
  */
@@ -170,6 +180,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of the provided request parameters are not valid.
  *     </p>
  */
@@ -195,19 +206,38 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum BackupType {
-  AUTOMATED = "AUTOMATED",
-  MANUAL = "MANUAL",
-}
-
-export enum BackupStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  OK = "OK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BackupType = {
+  AUTOMATED: "AUTOMATED",
+  MANUAL: "MANUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type BackupType = (typeof BackupType)[keyof typeof BackupType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BackupStatus = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupStatus = (typeof BackupStatus)[keyof typeof BackupStatus];
+
+/**
+ * @public
  * <p>Describes a single backup.
  *     </p>
  */
@@ -385,6 +415,7 @@ export interface Backup {
 }
 
 /**
+ * @public
  * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate
  *       or AWS OpsWorks for Puppet Enterprise server. Leading and trailing white spaces are trimmed from both the key and value.
  *       A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.</p>
@@ -405,6 +436,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupRequest {
   /**
    * <p>The name of the server that you want to back up.
@@ -444,6 +478,9 @@ export interface CreateBackupRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupResponse {
   /**
    * <p>Backup created by request.</p>
@@ -452,6 +489,7 @@ export interface CreateBackupResponse {
 }
 
 /**
+ * @public
  * <p>The limit of servers or backups has been reached.
  *     </p>
  */
@@ -477,6 +515,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateServerRequest {
   /**
    * <p>
@@ -751,28 +792,47 @@ export interface CreateServerRequest {
   BackupId?: string;
 }
 
-export enum MaintenanceStatus {
-  FAILED = "FAILED",
-  SUCCESS = "SUCCESS",
-}
-
-export enum ServerStatus {
-  BACKING_UP = "BACKING_UP",
-  CONNECTION_LOST = "CONNECTION_LOST",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  HEALTHY = "HEALTHY",
-  MODIFYING = "MODIFYING",
-  RESTORING = "RESTORING",
-  RUNNING = "RUNNING",
-  SETUP = "SETUP",
-  TERMINATED = "TERMINATED",
-  UNDER_MAINTENANCE = "UNDER_MAINTENANCE",
-  UNHEALTHY = "UNHEALTHY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceStatus = {
+  FAILED: "FAILED",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type MaintenanceStatus = (typeof MaintenanceStatus)[keyof typeof MaintenanceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServerStatus = {
+  BACKING_UP: "BACKING_UP",
+  CONNECTION_LOST: "CONNECTION_LOST",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  HEALTHY: "HEALTHY",
+  MODIFYING: "MODIFYING",
+  RESTORING: "RESTORING",
+  RUNNING: "RUNNING",
+  SETUP: "SETUP",
+  TERMINATED: "TERMINATED",
+  UNDER_MAINTENANCE: "UNDER_MAINTENANCE",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type ServerStatus = (typeof ServerStatus)[keyof typeof ServerStatus];
+
+/**
+ * @public
  * <p>Describes a configuration management server.
  *     </p>
  */
@@ -970,6 +1030,9 @@ export interface Server {
   ServerArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateServerResponse {
   /**
    * <p>The server that is created by the request.
@@ -979,6 +1042,7 @@ export interface CreateServerResponse {
 }
 
 /**
+ * @public
  * <p>The requested resource cannot be created because it already exists.
  *     </p>
  */
@@ -1004,6 +1068,9 @@ export class ResourceAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupRequest {
   /**
    * <p>The ID of the backup to delete. Run the DescribeBackups command to get a list of backup IDs.
@@ -1013,8 +1080,14 @@ export interface DeleteBackupRequest {
   BackupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteServerRequest {
   /**
    * <p>The ID of the server to delete.</p>
@@ -1022,10 +1095,19 @@ export interface DeleteServerRequest {
   ServerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServerResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeAccountAttributesRequest {}
 
+/**
+ * @public
+ */
 export interface DescribeAccountAttributesResponse {
   /**
    * <p>
@@ -1035,6 +1117,9 @@ export interface DescribeAccountAttributesResponse {
   Attributes?: AccountAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupsRequest {
   /**
    * <p>Describes a single backup.
@@ -1059,6 +1144,9 @@ export interface DescribeBackupsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupsResponse {
   /**
    * <p>Contains the response to a <code>DescribeBackups</code> request.
@@ -1073,6 +1161,7 @@ export interface DescribeBackupsResponse {
 }
 
 /**
+ * @public
  * <p>This occurs when the provided nextToken is not valid.
  *     </p>
  */
@@ -1098,6 +1187,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventsRequest {
   /**
    * <p>The name of the server for which you want to view events.</p>
@@ -1127,6 +1219,7 @@ export interface DescribeEventsRequest {
 }
 
 /**
+ * @public
  * <p>An event that is related to the server, such as the start of maintenance or backup.
  *     </p>
  */
@@ -1154,6 +1247,9 @@ export interface ServerEvent {
   LogUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventsResponse {
   /**
    * <p>Contains the response to a <code>DescribeEvents</code> request.
@@ -1174,6 +1270,9 @@ export interface DescribeEventsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNodeAssociationStatusRequest {
   /**
    * <p>The token returned in either the AssociateNodeResponse or the DisassociateNodeResponse.
@@ -1188,12 +1287,24 @@ export interface DescribeNodeAssociationStatusRequest {
   ServerName: string | undefined;
 }
 
-export enum NodeAssociationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeAssociationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
 
+/**
+ * @public
+ */
+export type NodeAssociationStatus = (typeof NodeAssociationStatus)[keyof typeof NodeAssociationStatus];
+
+/**
+ * @public
+ */
 export interface DescribeNodeAssociationStatusResponse {
   /**
    * <p>The status of the association or disassociation request.
@@ -1229,6 +1340,9 @@ export interface DescribeNodeAssociationStatusResponse {
   EngineAttributes?: EngineAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeServersRequest {
   /**
    * <p>Describes the server with the specified ServerName.</p>
@@ -1248,6 +1362,9 @@ export interface DescribeServersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServersResponse {
   /**
    * <p>Contains the response to a <code>DescribeServers</code> request.</p>
@@ -1282,6 +1399,9 @@ export interface DescribeServersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateNodeRequest {
   /**
    * <p>The name of the server from which to disassociate the node.
@@ -1314,6 +1434,9 @@ export interface DisassociateNodeRequest {
   EngineAttributes?: EngineAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface DisassociateNodeResponse {
   /**
    * <p>Contains a token which can be passed to the
@@ -1324,6 +1447,9 @@ export interface DisassociateNodeResponse {
   NodeAssociationStatusToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ExportServerEngineAttributeRequest {
   /**
    * <p>The name of the export attribute. Currently, the supported export attribute is <code>Userdata</code>.
@@ -1367,6 +1493,9 @@ export interface ExportServerEngineAttributeRequest {
   InputAttributes?: EngineAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface ExportServerEngineAttributeResponse {
   /**
    * <p>The requested engine attribute pair with attribute name and value.</p>
@@ -1379,6 +1508,9 @@ export interface ExportServerEngineAttributeResponse {
   ServerName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server for which you want to show applied tags. For example,
@@ -1406,6 +1538,9 @@ export interface ListTagsForResourceRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Tags that have been applied to the resource.</p>
@@ -1418,6 +1553,9 @@ export interface ListTagsForResourceResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RestoreServerRequest {
   /**
    * <p> The ID of the backup that you want to use to restore a server.
@@ -1447,6 +1585,9 @@ export interface RestoreServerRequest {
   KeyPair?: string;
 }
 
+/**
+ * @public
+ */
 export interface RestoreServerResponse {
   /**
    * <p>Describes a configuration management server.
@@ -1455,6 +1596,9 @@ export interface RestoreServerResponse {
   Server?: Server;
 }
 
+/**
+ * @public
+ */
 export interface StartMaintenanceRequest {
   /**
    * <p>The name of the server on which to run maintenance.
@@ -1480,6 +1624,9 @@ export interface StartMaintenanceRequest {
   EngineAttributes?: EngineAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface StartMaintenanceResponse {
   /**
    * <p>Contains the response to a <code>StartMaintenance</code> request.
@@ -1488,6 +1635,9 @@ export interface StartMaintenanceResponse {
   Server?: Server;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of a resource to which you want to apply tags. For example,
@@ -1520,8 +1670,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of a resource from which you want to remove tags. For example,
@@ -1535,8 +1691,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateServerRequest {
   /**
    * <p>Setting DisableAutomatedBackup to <code>true</code> disables automated or scheduled backups. Automated backups are enabled by default.
@@ -1579,6 +1741,9 @@ export interface UpdateServerRequest {
   PreferredBackupWindow?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServerResponse {
   /**
    * <p>Contains the response to a <code>UpdateServer</code> request.
@@ -1587,6 +1752,9 @@ export interface UpdateServerResponse {
   Server?: Server;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServerEngineAttributesRequest {
   /**
    * <p>The name of the server to update.
@@ -1607,6 +1775,9 @@ export interface UpdateServerEngineAttributesRequest {
   AttributeValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServerEngineAttributesResponse {
   /**
    * <p>Contains the response to an <code>UpdateServerEngineAttributes</code> request.
@@ -1614,13 +1785,6 @@ export interface UpdateServerEngineAttributesResponse {
    */
   Server?: Server;
 }
-
-/**
- * @internal
- */
-export const AccountAttributeFilterSensitiveLog = (obj: AccountAttribute): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -1638,41 +1802,6 @@ export const AssociateNodeRequestFilterSensitiveLog = (obj: AssociateNodeRequest
   ...(obj.EngineAttributes && {
     EngineAttributes: obj.EngineAttributes.map((item) => EngineAttributeFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const AssociateNodeResponseFilterSensitiveLog = (obj: AssociateNodeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackupFilterSensitiveLog = (obj: Backup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackupRequestFilterSensitiveLog = (obj: CreateBackupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackupResponseFilterSensitiveLog = (obj: CreateBackupResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -1707,92 +1836,6 @@ export const CreateServerResponseFilterSensitiveLog = (obj: CreateServerResponse
 /**
  * @internal
  */
-export const DeleteBackupRequestFilterSensitiveLog = (obj: DeleteBackupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackupResponseFilterSensitiveLog = (obj: DeleteBackupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServerRequestFilterSensitiveLog = (obj: DeleteServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServerResponseFilterSensitiveLog = (obj: DeleteServerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountAttributesRequestFilterSensitiveLog = (obj: DescribeAccountAttributesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountAttributesResponseFilterSensitiveLog = (obj: DescribeAccountAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBackupsRequestFilterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBackupsResponseFilterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsRequestFilterSensitiveLog = (obj: DescribeEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerEventFilterSensitiveLog = (obj: ServerEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsResponseFilterSensitiveLog = (obj: DescribeEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNodeAssociationStatusRequestFilterSensitiveLog = (
-  obj: DescribeNodeAssociationStatusRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeNodeAssociationStatusResponseFilterSensitiveLog = (
   obj: DescribeNodeAssociationStatusResponse
 ): any => ({
@@ -1800,13 +1843,6 @@ export const DescribeNodeAssociationStatusResponseFilterSensitiveLog = (
   ...(obj.EngineAttributes && {
     EngineAttributes: obj.EngineAttributes.map((item) => EngineAttributeFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const DescribeServersRequestFilterSensitiveLog = (obj: DescribeServersRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1829,13 +1865,6 @@ export const DisassociateNodeRequestFilterSensitiveLog = (obj: DisassociateNodeR
 /**
  * @internal
  */
-export const DisassociateNodeResponseFilterSensitiveLog = (obj: DisassociateNodeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ExportServerEngineAttributeRequestFilterSensitiveLog = (obj: ExportServerEngineAttributeRequest): any => ({
   ...obj,
   ...(obj.InputAttributes && {
@@ -1851,27 +1880,6 @@ export const ExportServerEngineAttributeResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.EngineAttribute && { EngineAttribute: EngineAttributeFilterSensitiveLog(obj.EngineAttribute) }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreServerRequestFilterSensitiveLog = (obj: RestoreServerRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1903,53 +1911,9 @@ export const StartMaintenanceResponseFilterSensitiveLog = (obj: StartMaintenance
 /**
  * @internal
  */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServerRequestFilterSensitiveLog = (obj: UpdateServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateServerResponseFilterSensitiveLog = (obj: UpdateServerResponse): any => ({
   ...obj,
   ...(obj.Server && { Server: ServerFilterSensitiveLog(obj.Server) }),
-});
-
-/**
- * @internal
- */
-export const UpdateServerEngineAttributesRequestFilterSensitiveLog = (
-  obj: UpdateServerEngineAttributesRequest
-): any => ({
-  ...obj,
 });
 
 /**

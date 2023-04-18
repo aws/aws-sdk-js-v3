@@ -6,12 +6,11 @@ import {
   ListPipelinesCommandInput,
   ListPipelinesCommandOutput,
 } from "../commands/ListPipelinesCommand";
-import { DataPipeline } from "../DataPipeline";
 import { DataPipelineClient } from "../DataPipelineClient";
 import { DataPipelinePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DataPipelineClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPipelinesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DataPipeline,
-  input: ListPipelinesCommandInput,
-  ...args: any
-): Promise<ListPipelinesCommandOutput> => {
-  // @ts-ignore
-  return await client.listPipelines(input, ...args);
-};
 export async function* paginateListPipelines(
   config: DataPipelinePaginationConfiguration,
   input: ListPipelinesCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListPipelines(
   let page: ListPipelinesCommandOutput;
   while (hasNext) {
     input.marker = token;
-    if (config.client instanceof DataPipeline) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DataPipelineClient) {
+    if (config.client instanceof DataPipelineClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DataPipeline | DataPipelineClient");

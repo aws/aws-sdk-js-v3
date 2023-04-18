@@ -13,36 +13,51 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeHubRequest,
-  DescribeHubRequestFilterSensitiveLog,
-  DescribeHubResponse,
-  DescribeHubResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeHubCommand,
-  serializeAws_json1_1DescribeHubCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeHubRequest, DescribeHubResponse } from "../models/models_2";
+import { de_DescribeHubCommand, se_DescribeHubCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeHubCommand}.
+ */
 export interface DescribeHubCommandInput extends DescribeHubRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeHubCommand}.
+ */
 export interface DescribeHubCommandOutput extends DescribeHubResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe a hub.</p>
+ *          <note>
+ *             <p>Hub APIs are only callable through SageMaker Studio.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DescribeHubCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeHubCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeHubRequest
+ *   HubName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHubCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHubCommandInput - {@link DescribeHubCommandInput}
+ * @returns {@link DescribeHubCommandOutput}
  * @see {@link DescribeHubCommandInput} for command's `input` shape.
  * @see {@link DescribeHubCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeHubCommand extends $Command<
@@ -62,6 +77,9 @@ export class DescribeHubCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHubCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class DescribeHubCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHubRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHubResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class DescribeHubCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHubCommand(input, context);
+    return se_DescribeHubCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHubCommandOutput> {
-    return deserializeAws_json1_1DescribeHubCommand(output, context);
+    return de_DescribeHubCommand(output, context);
   }
 
   // Start section: command_body_extra

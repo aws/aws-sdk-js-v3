@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeOutboundConnectionsRequest,
-  DescribeOutboundConnectionsRequestFilterSensitiveLog,
-  DescribeOutboundConnectionsResponse,
-  DescribeOutboundConnectionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeOutboundConnectionsRequest, DescribeOutboundConnectionsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  deserializeAws_restJson1DescribeOutboundConnectionsCommand,
-  serializeAws_restJson1DescribeOutboundConnectionsCommand,
+  de_DescribeOutboundConnectionsCommand,
+  se_DescribeOutboundConnectionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeOutboundConnectionsCommand}.
+ */
 export interface DescribeOutboundConnectionsCommandInput extends DescribeOutboundConnectionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeOutboundConnectionsCommand}.
+ */
 export interface DescribeOutboundConnectionsCommandOutput
   extends DescribeOutboundConnectionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the outbound cross-cluster connections for a local (source) Amazon OpenSearch
  *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -40,13 +46,34 @@ export interface DescribeOutboundConnectionsCommandOutput
  * import { OpenSearchClient, DescribeOutboundConnectionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeOutboundConnectionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DescribeOutboundConnectionsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeOutboundConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOutboundConnectionsCommandInput - {@link DescribeOutboundConnectionsCommandInput}
+ * @returns {@link DescribeOutboundConnectionsCommandOutput}
  * @see {@link DescribeOutboundConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOutboundConnectionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>The request processing has failed because you provided an invalid pagination token.</p>
+ *
  *
  */
 export class DescribeOutboundConnectionsCommand extends $Command<
@@ -66,6 +93,9 @@ export class DescribeOutboundConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOutboundConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +124,8 @@ export class DescribeOutboundConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOutboundConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOutboundConnectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +135,21 @@ export class DescribeOutboundConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOutboundConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOutboundConnectionsCommand(input, context);
+    return se_DescribeOutboundConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOutboundConnectionsCommandOutput> {
-    return deserializeAws_restJson1DescribeOutboundConnectionsCommand(output, context);
+    return de_DescribeOutboundConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  UpdateLFTagRequest,
-  UpdateLFTagRequestFilterSensitiveLog,
-  UpdateLFTagResponse,
-  UpdateLFTagResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLFTagCommand,
-  serializeAws_restJson1UpdateLFTagCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateLFTagRequest, UpdateLFTagResponse } from "../models/models_0";
+import { de_UpdateLFTagCommand, se_UpdateLFTagCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateLFTagCommand}.
+ */
 export interface UpdateLFTagCommandInput extends UpdateLFTagRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateLFTagCommand}.
+ */
 export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the list of possible values for the specified LF-tag key. If the LF-tag does not exist, the operation throws an EntityNotFoundException. The values in the delete key values will be deleted from list of possible values. If any value in the delete key values is attached to a resource, then API errors out with a 400 Exception - "Update not allowed". Untag the attribute before deleting the LF-tag key's value. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __Metadat
  * import { LakeFormationClient, UpdateLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, UpdateLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // UpdateLFTagRequest
+ *   CatalogId: "STRING_VALUE",
+ *   TagKey: "STRING_VALUE", // required
+ *   TagValuesToDelete: [ // TagValueList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValuesToAdd: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateLFTagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLFTagCommandInput - {@link UpdateLFTagCommandInput}
+ * @returns {@link UpdateLFTagCommandOutput}
  * @see {@link UpdateLFTagCommandInput} for command's `input` shape.
  * @see {@link UpdateLFTagCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class UpdateLFTagCommand extends $Command<
@@ -62,6 +96,9 @@ export class UpdateLFTagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLFTagCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +125,8 @@ export class UpdateLFTagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLFTagRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLFTagResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +136,18 @@ export class UpdateLFTagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLFTagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLFTagCommand(input, context);
+    return se_UpdateLFTagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLFTagCommandOutput> {
-    return deserializeAws_restJson1UpdateLFTagCommand(output, context);
+    return de_UpdateLFTagCommand(output, context);
   }
 
   // Start section: command_body_extra

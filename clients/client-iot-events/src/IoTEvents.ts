@@ -114,12 +114,14 @@ import { UpdateInputCommand, UpdateInputCommandInput, UpdateInputCommandOutput }
 import { IoTEventsClient } from "./IoTEventsClient";
 
 /**
+ * @public
  * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, and
  *       triggers actions when such events occur. You can use AWS IoT Events API operations to create, read,
  *       update, and delete inputs and detector models, and to list their versions.</p>
  */
 export class IoTEvents extends IoTEventsClient {
   /**
+   * @public
    * <p>Creates an alarm model to monitor an AWS IoT Events input attribute. You can use the alarm to get
    *       notified when the value is outside a specified range. For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html">Create an
    *         alarm model</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
@@ -154,6 +156,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Creates a detector model.</p>
    */
   public createDetectorModel(
@@ -186,6 +189,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Creates an input.</p>
    */
   public createInput(args: CreateInputCommandInput, options?: __HttpHandlerOptions): Promise<CreateInputCommandOutput>;
@@ -212,6 +216,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Deletes an alarm model. Any alarm instances that were created based on this alarm model
    *       are also deleted. This action can't be undone.</p>
    */
@@ -245,6 +250,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a detector model. Any active instances of the detector model are also
    *       deleted.</p>
    */
@@ -278,6 +284,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Deletes an input.</p>
    */
   public deleteInput(args: DeleteInputCommandInput, options?: __HttpHandlerOptions): Promise<DeleteInputCommandOutput>;
@@ -304,6 +311,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves information about an alarm model. If you don't specify a value for the
    *         <code>alarmModelVersion</code> parameter, the latest version is returned.</p>
    */
@@ -337,6 +345,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Describes a detector model. If the <code>version</code> parameter is not specified,
    *       information about the latest version is returned.</p>
    */
@@ -370,6 +379,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves runtime information about a detector model analysis.</p>
    *          <note>
    *             <p>After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.</p>
@@ -405,6 +415,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Describes an input.</p>
    */
   public describeInput(
@@ -437,6 +448,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the current settings of the AWS IoT Events logging options.</p>
    */
   public describeLoggingOptions(
@@ -469,6 +481,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves one or more analysis results of the detector model.</p>
    *          <note>
    *             <p>After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.</p>
@@ -504,6 +517,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists the alarm models that you created. The operation returns only the metadata
    *       associated with each alarm model.</p>
    */
@@ -537,6 +551,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists all the versions of an alarm model. The operation returns only the metadata
    *       associated with each alarm model version.</p>
    */
@@ -570,6 +585,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists the detector models you have created. Only the metadata associated with each
    *       detector model is returned.</p>
    */
@@ -603,6 +619,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists all the versions of a detector model. Only the metadata associated with each
    *       detector model version is returned.</p>
    */
@@ -636,6 +653,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>
    *       Lists one or more input routings.
    *     </p>
@@ -670,6 +688,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists the inputs you have created.</p>
    */
   public listInputs(args: ListInputsCommandInput, options?: __HttpHandlerOptions): Promise<ListInputsCommandOutput>;
@@ -696,6 +715,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags (metadata) you have assigned to the resource.</p>
    */
   public listTagsForResource(
@@ -728,6 +748,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Sets or updates the AWS IoT Events logging options.</p>
    *          <p>If you update the value of any <code>loggingOptions</code> field, it takes up to one
    *       minute for the change to take effect. If you change the policy attached to the role you
@@ -764,6 +785,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Performs an analysis of your detector model. For more information,
    *       see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html">Troubleshooting a detector model</a>
    *       in the <i>AWS IoT Events Developer Guide</i>.</p>
@@ -798,6 +820,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used to
    *       manage a resource.</p>
    */
@@ -825,6 +848,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Removes the given tags (metadata) from the resource.</p>
    */
   public untagResource(
@@ -857,6 +881,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Updates an alarm model. Any alarms that were created based on the previous version are
    *       deleted and then created again as new data arrives.</p>
    */
@@ -890,6 +915,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Updates a detector model. Detectors (instances) spawned by the previous version are
    *       deleted and then re-created as new inputs arrive.</p>
    */
@@ -923,6 +949,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * @public
    * <p>Updates an input.</p>
    */
   public updateInput(args: UpdateInputCommandInput, options?: __HttpHandlerOptions): Promise<UpdateInputCommandOutput>;

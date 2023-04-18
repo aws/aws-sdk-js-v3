@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  DBEngineVersionMessage,
-  DBEngineVersionMessageFilterSensitiveLog,
-  DescribeDBEngineVersionsMessage,
-  DescribeDBEngineVersionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBEngineVersionsCommand,
-  serializeAws_queryDescribeDBEngineVersionsCommand,
-} from "../protocols/Aws_query";
+import { DBEngineVersionMessage, DescribeDBEngineVersionsMessage } from "../models/models_0";
+import { de_DescribeDBEngineVersionsCommand, se_DescribeDBEngineVersionsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDBEngineVersionsCommand}.
+ */
 export interface DescribeDBEngineVersionsCommandInput extends DescribeDBEngineVersionsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDBEngineVersionsCommand}.
+ */
 export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available engines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * import { DocDBClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DescribeDBEngineVersionsMessage
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   DBParameterGroupFamily: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   DefaultOnly: true || false,
+ *   ListSupportedCharacterSets: true || false,
+ *   ListSupportedTimezones: true || false,
+ * };
  * const command = new DescribeDBEngineVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBEngineVersionsCommandInput - {@link DescribeDBEngineVersionsCommandInput}
+ * @returns {@link DescribeDBEngineVersionsCommandOutput}
  * @see {@link DescribeDBEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
  *
  */
 export class DescribeDBEngineVersionsCommand extends $Command<
@@ -62,6 +86,9 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBEngineVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class DescribeDBEngineVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBEngineVersionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBEngineVersionMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBEngineVersionsCommand(input, context);
+    return se_DescribeDBEngineVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBEngineVersionsCommandOutput> {
-    return deserializeAws_queryDescribeDBEngineVersionsCommand(output, context);
+    return de_DescribeDBEngineVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

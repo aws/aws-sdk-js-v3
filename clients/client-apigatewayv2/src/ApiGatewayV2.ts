@@ -256,10 +256,12 @@ import {
 } from "./commands/UpdateVpcLinkCommand";
 
 /**
+ * @public
  * <p>Amazon API Gateway V2</p>
  */
 export class ApiGatewayV2 extends ApiGatewayV2Client {
   /**
+   * @public
    * <p>Creates an Api resource.</p>
    */
   public createApi(args: CreateApiCommandInput, options?: __HttpHandlerOptions): Promise<CreateApiCommandOutput>;
@@ -286,6 +288,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates an API mapping.</p>
    */
   public createApiMapping(
@@ -318,6 +321,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates an Authorizer for an API.</p>
    */
   public createAuthorizer(
@@ -350,6 +354,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Deployment for an API.</p>
    */
   public createDeployment(
@@ -382,6 +387,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a domain name.</p>
    */
   public createDomainName(
@@ -414,6 +420,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates an Integration.</p>
    */
   public createIntegration(
@@ -446,6 +453,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates an IntegrationResponses.</p>
    */
   public createIntegrationResponse(
@@ -478,6 +486,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Model for an API.</p>
    */
   public createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
@@ -504,6 +513,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Route for an API.</p>
    */
   public createRoute(args: CreateRouteCommandInput, options?: __HttpHandlerOptions): Promise<CreateRouteCommandOutput>;
@@ -530,6 +540,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a RouteResponse for a Route.</p>
    */
   public createRouteResponse(
@@ -562,6 +573,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a Stage for an API.</p>
    */
   public createStage(args: CreateStageCommandInput, options?: __HttpHandlerOptions): Promise<CreateStageCommandOutput>;
@@ -588,6 +600,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a VPC link.</p>
    */
   public createVpcLink(
@@ -620,6 +633,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the AccessLogSettings for a Stage. To disable access logging for a Stage, delete its AccessLogSettings.</p>
    */
   public deleteAccessLogSettings(
@@ -652,6 +666,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an Api resource.</p>
    */
   public deleteApi(args: DeleteApiCommandInput, options?: __HttpHandlerOptions): Promise<DeleteApiCommandOutput>;
@@ -678,6 +693,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an API mapping.</p>
    */
   public deleteApiMapping(
@@ -710,6 +726,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an Authorizer.</p>
    */
   public deleteAuthorizer(
@@ -742,6 +759,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a CORS configuration.</p>
    */
   public deleteCorsConfiguration(
@@ -774,6 +792,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a Deployment.</p>
    */
   public deleteDeployment(
@@ -806,6 +825,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a domain name.</p>
    */
   public deleteDomainName(
@@ -838,6 +858,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an Integration.</p>
    */
   public deleteIntegration(
@@ -870,6 +891,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an IntegrationResponses.</p>
    */
   public deleteIntegrationResponse(
@@ -902,6 +924,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a Model.</p>
    */
   public deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
@@ -928,6 +951,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a Route.</p>
    */
   public deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
@@ -954,6 +978,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a route request parameter.</p>
    */
   public deleteRouteRequestParameter(
@@ -986,6 +1011,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a RouteResponse.</p>
    */
   public deleteRouteResponse(
@@ -1018,6 +1044,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes the RouteSettings for a stage.</p>
    */
   public deleteRouteSettings(
@@ -1050,6 +1077,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a Stage.</p>
    */
   public deleteStage(args: DeleteStageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStageCommandOutput>;
@@ -1076,6 +1104,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a VPC link.</p>
    */
   public deleteVpcLink(
@@ -1107,6 +1136,9 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
     }
   }
 
+  /**
+   * @public
+   */
   public exportApi(args: ExportApiCommandInput, options?: __HttpHandlerOptions): Promise<ExportApiCommandOutput>;
   public exportApi(args: ExportApiCommandInput, cb: (err: any, data?: ExportApiCommandOutput) => void): void;
   public exportApi(
@@ -1131,6 +1163,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets an Api resource.</p>
    */
   public getApi(args: GetApiCommandInput, options?: __HttpHandlerOptions): Promise<GetApiCommandOutput>;
@@ -1157,6 +1190,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets an API mapping.</p>
    */
   public getApiMapping(
@@ -1189,6 +1223,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets API mappings.</p>
    */
   public getApiMappings(
@@ -1221,6 +1256,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets a collection of Api resources.</p>
    */
   public getApis(args: GetApisCommandInput, options?: __HttpHandlerOptions): Promise<GetApisCommandOutput>;
@@ -1247,6 +1283,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets an Authorizer.</p>
    */
   public getAuthorizer(
@@ -1279,6 +1316,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets the Authorizers for an API.</p>
    */
   public getAuthorizers(
@@ -1311,6 +1349,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets a Deployment.</p>
    */
   public getDeployment(
@@ -1343,6 +1382,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets the Deployments for an API.</p>
    */
   public getDeployments(
@@ -1375,6 +1415,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets a domain name.</p>
    */
   public getDomainName(
@@ -1407,6 +1448,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets the domain names for an AWS account.</p>
    */
   public getDomainNames(
@@ -1439,6 +1481,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets an Integration.</p>
    */
   public getIntegration(
@@ -1471,6 +1514,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets an IntegrationResponses.</p>
    */
   public getIntegrationResponse(
@@ -1503,6 +1547,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets the IntegrationResponses for an Integration.</p>
    */
   public getIntegrationResponses(
@@ -1535,6 +1580,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets the Integrations for an API.</p>
    */
   public getIntegrations(
@@ -1567,6 +1613,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets a Model.</p>
    */
   public getModel(args: GetModelCommandInput, options?: __HttpHandlerOptions): Promise<GetModelCommandOutput>;
@@ -1593,6 +1640,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets the Models for an API.</p>
    */
   public getModels(args: GetModelsCommandInput, options?: __HttpHandlerOptions): Promise<GetModelsCommandOutput>;
@@ -1619,6 +1667,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets a model template.</p>
    */
   public getModelTemplate(
@@ -1651,6 +1700,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets a Route.</p>
    */
   public getRoute(args: GetRouteCommandInput, options?: __HttpHandlerOptions): Promise<GetRouteCommandOutput>;
@@ -1677,6 +1727,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets a RouteResponse.</p>
    */
   public getRouteResponse(
@@ -1709,6 +1760,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets the RouteResponses for a Route.</p>
    */
   public getRouteResponses(
@@ -1741,6 +1793,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets the Routes for an API.</p>
    */
   public getRoutes(args: GetRoutesCommandInput, options?: __HttpHandlerOptions): Promise<GetRoutesCommandOutput>;
@@ -1767,6 +1820,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets a Stage.</p>
    */
   public getStage(args: GetStageCommandInput, options?: __HttpHandlerOptions): Promise<GetStageCommandOutput>;
@@ -1793,6 +1847,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets the Stages for an API.</p>
    */
   public getStages(args: GetStagesCommandInput, options?: __HttpHandlerOptions): Promise<GetStagesCommandOutput>;
@@ -1819,6 +1874,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets a collection of Tag resources.</p>
    */
   public getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
@@ -1845,6 +1901,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets a VPC link.</p>
    */
   public getVpcLink(args: GetVpcLinkCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcLinkCommandOutput>;
@@ -1871,6 +1928,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Gets a collection of VPC links.</p>
    */
   public getVpcLinks(args: GetVpcLinksCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcLinksCommandOutput>;
@@ -1897,6 +1955,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Imports an API.</p>
    */
   public importApi(args: ImportApiCommandInput, options?: __HttpHandlerOptions): Promise<ImportApiCommandOutput>;
@@ -1923,6 +1982,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Puts an Api resource.</p>
    */
   public reimportApi(args: ReimportApiCommandInput, options?: __HttpHandlerOptions): Promise<ReimportApiCommandOutput>;
@@ -1949,6 +2009,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Resets all authorizer cache entries on a stage. Supported only for HTTP APIs.</p>
    */
   public resetAuthorizersCache(
@@ -1981,6 +2042,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a new Tag resource to represent a tag.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2007,6 +2069,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes a Tag.</p>
    */
   public untagResource(
@@ -2039,6 +2102,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Updates an Api resource.</p>
    */
   public updateApi(args: UpdateApiCommandInput, options?: __HttpHandlerOptions): Promise<UpdateApiCommandOutput>;
@@ -2065,6 +2129,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>The API mapping.</p>
    */
   public updateApiMapping(
@@ -2097,6 +2162,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Updates an Authorizer.</p>
    */
   public updateAuthorizer(
@@ -2129,6 +2195,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Updates a Deployment.</p>
    */
   public updateDeployment(
@@ -2161,6 +2228,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Updates a domain name.</p>
    */
   public updateDomainName(
@@ -2193,6 +2261,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Updates an Integration.</p>
    */
   public updateIntegration(
@@ -2225,6 +2294,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Updates an IntegrationResponses.</p>
    */
   public updateIntegrationResponse(
@@ -2257,6 +2327,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Updates a Model.</p>
    */
   public updateModel(args: UpdateModelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateModelCommandOutput>;
@@ -2283,6 +2354,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Updates a Route.</p>
    */
   public updateRoute(args: UpdateRouteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRouteCommandOutput>;
@@ -2309,6 +2381,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Updates a RouteResponse.</p>
    */
   public updateRouteResponse(
@@ -2341,6 +2414,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Updates a Stage.</p>
    */
   public updateStage(args: UpdateStageCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStageCommandOutput>;
@@ -2367,6 +2441,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * @public
    * <p>Updates a VPC link.</p>
    */
   public updateVpcLink(

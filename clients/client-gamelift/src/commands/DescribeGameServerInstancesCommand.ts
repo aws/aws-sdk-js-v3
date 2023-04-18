@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeGameServerInstancesInput,
-  DescribeGameServerInstancesInputFilterSensitiveLog,
-  DescribeGameServerInstancesOutput,
-  DescribeGameServerInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGameServerInstancesCommand,
-  serializeAws_json1_1DescribeGameServerInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeGameServerInstancesInput, DescribeGameServerInstancesOutput } from "../models/models_0";
+import { de_DescribeGameServerInstancesCommand, se_DescribeGameServerInstancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeGameServerInstancesCommand}.
+ */
 export interface DescribeGameServerInstancesCommandInput extends DescribeGameServerInstancesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeGameServerInstancesCommand}.
+ */
 export interface DescribeGameServerInstancesCommandOutput extends DescribeGameServerInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -58,13 +61,38 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  * import { GameLiftClient, DescribeGameServerInstancesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameServerInstancesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeGameServerInstancesInput
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   InstanceIds: [ // GameServerInstanceIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeGameServerInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGameServerInstancesCommandInput - {@link DescribeGameServerInstancesCommandInput}
+ * @returns {@link DescribeGameServerInstancesCommandOutput}
  * @see {@link DescribeGameServerInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeGameServerInstancesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class DescribeGameServerInstancesCommand extends $Command<
@@ -84,6 +112,9 @@ export class DescribeGameServerInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGameServerInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +143,8 @@ export class DescribeGameServerInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGameServerInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGameServerInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +154,21 @@ export class DescribeGameServerInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGameServerInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameServerInstancesCommand(input, context);
+    return se_DescribeGameServerInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGameServerInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeGameServerInstancesCommand(output, context);
+    return de_DescribeGameServerInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

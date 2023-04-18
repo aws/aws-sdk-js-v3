@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetHITRequest,
-  GetHITRequestFilterSensitiveLog,
-  GetHITResponse,
-  GetHITResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetHITRequest, GetHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { deserializeAws_json1_1GetHITCommand, serializeAws_json1_1GetHITCommand } from "../protocols/Aws_json1_1";
+import { de_GetHITCommand, se_GetHITCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetHITCommand}.
+ */
 export interface GetHITCommandInput extends GetHITRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetHITCommand}.
+ */
 export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>GetHIT</code> operation retrieves the details of the specified HIT.
  *         </p>
@@ -35,13 +41,25 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  * import { MTurkClient, GetHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // GetHITRequest
+ *   HITId: "STRING_VALUE", // required
+ * };
  * const command = new GetHITCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHITCommandInput - {@link GetHITCommandInput}
+ * @returns {@link GetHITCommandOutput}
  * @see {@link GetHITCommandInput} for command's `input` shape.
  * @see {@link GetHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOutput, MTurkClientResolvedConfig> {
@@ -57,6 +75,9 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,8 +104,8 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHITRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHITResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +115,18 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetHITCommand(input, context);
+    return se_GetHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHITCommandOutput> {
-    return deserializeAws_json1_1GetHITCommand(output, context);
+    return de_GetHITCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -85,6 +85,7 @@ import {
 import { RUMClient } from "./RUMClient";
 
 /**
+ * @public
  * <p>With Amazon CloudWatch RUM, you can perform real-user monitoring to collect client-side data about
  *        your web application performance from actual user sessions in real time. The data collected includes page load
  *        times, client-side errors, and user behavior. When you view this data, you can see it all aggregated together and
@@ -96,22 +97,40 @@ import { RUMClient } from "./RUMClient";
  */
 export class RUM extends RUMClient {
   /**
-   * <p>Specifies the extended metrics that you want a CloudWatch RUM app monitor to send to a destination. Valid
+   * @public
+   * <p>Specifies the extended metrics and custom metrics that you want a CloudWatch RUM app monitor to send to a destination. Valid
    *          destinations include CloudWatch and Evidently.</p>
    *          <p>By default, RUM app monitors send some metrics to CloudWatch. These default metrics
    *          are listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-metrics.html">CloudWatch metrics that you can collect
    *             with CloudWatch RUM</a>.</p>
-   *          <p>If you also send extended metrics, you can send metrics to Evidently as well as CloudWatch, and you can also
-   *          optionally
-   *          send the metrics with additional dimensions. The valid dimension names for the additional dimensions are
+   *          <p>In addition to these default metrics, you can choose to send extended metrics or custom metrics or both.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Extended metrics enable you to send metrics with additional dimensions not included
+   *             in the default metrics. You can also send extended metrics to Evidently as well as CloudWatch.
+   *         The valid dimension names for the additional dimensions for extended metrics are
    *          <code>BrowserName</code>, <code>CountryCode</code>, <code>DeviceType</code>,
    *          <code>FileType</code>, <code>OSName</code>, and <code>PageId</code>. For more information, see
    *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html">
    *             Extended metrics that you can send to CloudWatch and CloudWatch Evidently</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Custom metrics are metrics that you define. You can send custom metrics to CloudWatch or
+   *             to CloudWatch Evidently or to both. With custom metrics,
+   *             you can use any metric name and namespace, and to derive the metrics you can use any custom events, built-in events,
+   *             custom attributes, or default attributes. </p>
+   *                <p>You can't send custom metrics to the <code>AWS/RUM</code> namespace. You must send custom metrics to a
+   *                custom namespace that you define. The namespace that you use can't start with <code>AWS/</code>.
+   *                CloudWatch RUM prepends <code>RUM/CustomMetrics/</code> to the custom namespace that you define,
+   *                so the final namespace for your metrics in CloudWatch is
+   *          <code>RUM/CustomMetrics/<i>your-custom-namespace</i>
+   *                   </code>.</p>
+   *             </li>
+   *          </ul>
    *          <p>The maximum number of metric definitions that you can specify in one
    *          <code>BatchCreateRumMetricDefinitions</code> operation is 200.</p>
    *          <p>The maximum number of metric definitions that one destination can contain is 2000.</p>
-   *          <p>Extended metrics sent are charged as CloudWatch custom metrics. Each combination of additional dimension name and dimension
+   *          <p>Extended metrics sent to CloudWatch and RUM custom metrics are charged as CloudWatch custom metrics. Each combination of additional dimension name and dimension
    *          value counts as a custom metric. For more information, see
    *          <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
    *          <p>You must have
@@ -150,6 +169,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified metrics from being sent to an extended metrics destination.</p>
    *          <p>If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code> operations are not valid,
    *          those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still
@@ -187,6 +207,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the list of metrics and dimensions that a RUM app monitor is sending to a single destination.</p>
    */
   public batchGetRumMetricDefinitions(
@@ -219,6 +240,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Creates a Amazon CloudWatch RUM app monitor, which collects telemetry data from your application and sends that
    *       data to RUM. The data includes performance and reliability information such as page load time, client-side errors,
    *       and user behavior.</p>
@@ -259,6 +281,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Deletes an existing app monitor. This immediately stops the collection of data.</p>
    */
   public deleteAppMonitor(
@@ -291,6 +314,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops
    *          sending extended metrics to that destination.</p>
    */
@@ -324,6 +348,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the complete configuration information for one app monitor.</p>
    */
   public getAppMonitor(
@@ -356,6 +381,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the raw performance events that RUM has collected from your web application,
    *          so that you can do your own processing or analysis of this data.</p>
    */
@@ -389,6 +415,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the Amazon CloudWatch RUM app monitors in the account.</p>
    */
   public listAppMonitors(
@@ -421,6 +448,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of destinations that you have created to receive RUM extended metrics,
    *          for the specified app monitor.</p>
    *          <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html">AddRumMetrics</a>.</p>
@@ -455,6 +483,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Displays the tags associated with a CloudWatch RUM resource.</p>
    */
   public listTagsForResource(
@@ -487,6 +516,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Sends telemetry events about your application performance and user behavior to CloudWatch RUM. The code
    *       snippet that RUM generates for you to add to your application includes <code>PutRumEvents</code> operations to
    *       send this data to RUM.</p>
@@ -519,9 +549,10 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a destination to receive extended metrics from CloudWatch RUM. You can send
    *          extended metrics to CloudWatch or to a CloudWatch Evidently experiment.</p>
-   *          <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrics.html">AddRumMetrics</a>.</p>
+   *          <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html">BatchCreateRumMetricDefinitions</a>.</p>
    */
   public putRumMetricsDestination(
     args: PutRumMetricsDestinationCommandInput,
@@ -553,6 +584,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch RUM resource. Currently,
    *        the only resources that
    *        can be tagged app monitors.</p>
@@ -592,6 +624,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified resource.</p>
    */
   public untagResource(
@@ -624,6 +657,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Updates the configuration of an existing app monitor. When you use this operation, only the parts of the app monitor
    *          configuration that you specify in this operation are changed. For any parameters that you omit, the existing
    *          values are kept.</p>
@@ -666,6 +700,7 @@ export class RUM extends RUMClient {
   }
 
   /**
+   * @public
    * <p>Modifies one existing metric definition for CloudWatch RUM extended metrics. For
    *          more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html">BatchCreateRumMetricsDefinitions</a>.</p>
    */

@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListSecretsCommand, ListSecretsCommandInput, ListSecretsCommandOutput } from "../commands/ListSecretsCommand";
-import { SecretsManager } from "../SecretsManager";
 import { SecretsManagerClient } from "../SecretsManagerClient";
 import { SecretsManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecretsManagerClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSecretsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SecretsManager,
-  input: ListSecretsCommandInput,
-  ...args: any
-): Promise<ListSecretsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSecrets(input, ...args);
-};
 export async function* paginateListSecrets(
   config: SecretsManagerPaginationConfiguration,
   input: ListSecretsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListSecrets(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SecretsManager) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecretsManagerClient) {
+    if (config.client instanceof SecretsManagerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecretsManager | SecretsManagerClient");

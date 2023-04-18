@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  Concurrency,
-  ConcurrencyFilterSensitiveLog,
-  PutFunctionConcurrencyRequest,
-  PutFunctionConcurrencyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutFunctionConcurrencyCommand,
-  serializeAws_restJson1PutFunctionConcurrencyCommand,
-} from "../protocols/Aws_restJson1";
+import { Concurrency, PutFunctionConcurrencyRequest } from "../models/models_0";
+import { de_PutFunctionConcurrencyCommand, se_PutFunctionConcurrencyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutFunctionConcurrencyCommand}.
+ */
 export interface PutFunctionConcurrencyCommandInput extends PutFunctionConcurrencyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutFunctionConcurrencyCommand}.
+ */
 export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the maximum number of simultaneous executions for a function, and reserves capacity for that concurrency
  *       level.</p>
  *          <p>Concurrency settings apply to the function as a whole, including all published versions and the unpublished
@@ -44,13 +47,35 @@ export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __Meta
  * import { LambdaClient, PutFunctionConcurrencyCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PutFunctionConcurrencyCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // PutFunctionConcurrencyRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   ReservedConcurrentExecutions: Number("int"), // required
+ * };
  * const command = new PutFunctionConcurrencyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutFunctionConcurrencyCommandInput - {@link PutFunctionConcurrencyCommandInput}
+ * @returns {@link PutFunctionConcurrencyCommandOutput}
  * @see {@link PutFunctionConcurrencyCommandInput} for command's `input` shape.
  * @see {@link PutFunctionConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>The resource already exists, or another operation is in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
  *
  */
 export class PutFunctionConcurrencyCommand extends $Command<
@@ -70,6 +95,9 @@ export class PutFunctionConcurrencyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutFunctionConcurrencyCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +126,8 @@ export class PutFunctionConcurrencyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFunctionConcurrencyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConcurrencyFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +137,18 @@ export class PutFunctionConcurrencyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutFunctionConcurrencyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutFunctionConcurrencyCommand(input, context);
+    return se_PutFunctionConcurrencyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFunctionConcurrencyCommandOutput> {
-    return deserializeAws_restJson1PutFunctionConcurrencyCommand(output, context);
+    return de_PutFunctionConcurrencyCommand(output, context);
   }
 
   // Start section: command_body_extra

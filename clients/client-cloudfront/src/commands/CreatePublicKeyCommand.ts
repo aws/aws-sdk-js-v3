@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  CreatePublicKeyRequest,
-  CreatePublicKeyRequestFilterSensitiveLog,
-  CreatePublicKeyResult,
-  CreatePublicKeyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreatePublicKeyCommand,
-  serializeAws_restXmlCreatePublicKeyCommand,
-} from "../protocols/Aws_restXml";
+import { CreatePublicKeyRequest, CreatePublicKeyResult } from "../models/models_0";
+import { de_CreatePublicKeyCommand, se_CreatePublicKeyCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link CreatePublicKeyCommand}.
+ */
 export interface CreatePublicKeyCommandInput extends CreatePublicKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePublicKeyCommand}.
+ */
 export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads a public key to CloudFront that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __M
  * import { CloudFrontClient, CreatePublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreatePublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreatePublicKeyRequest
+ *   PublicKeyConfig: { // PublicKeyConfig
+ *     CallerReference: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     EncodedKey: "STRING_VALUE", // required
+ *     Comment: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePublicKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePublicKeyCommandInput - {@link CreatePublicKeyCommandInput}
+ * @returns {@link CreatePublicKeyCommandOutput}
  * @see {@link CreatePublicKeyCommandInput} for command's `input` shape.
  * @see {@link CreatePublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link PublicKeyAlreadyExists} (client fault)
+ *  <p>The specified public key already exists.</p>
+ *
+ * @throws {@link TooManyPublicKeys} (client fault)
+ *  <p>The maximum number of public keys for field-level encryption have been created. To
+ * 			create a new public key, delete one of the existing keys.</p>
+ *
  *
  */
 export class CreatePublicKeyCommand extends $Command<
@@ -62,6 +86,9 @@ export class CreatePublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class CreatePublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePublicKeyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class CreatePublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreatePublicKeyCommand(input, context);
+    return se_CreatePublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePublicKeyCommandOutput> {
-    return deserializeAws_restXmlCreatePublicKeyCommand(output, context);
+    return de_CreatePublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,17 +23,24 @@ import {
   AdminSetUserPasswordRequest,
   AdminSetUserPasswordRequestFilterSensitiveLog,
   AdminSetUserPasswordResponse,
-  AdminSetUserPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminSetUserPasswordCommand,
-  serializeAws_json1_1AdminSetUserPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminSetUserPasswordCommand, se_AdminSetUserPasswordCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AdminSetUserPasswordCommand}.
+ */
 export interface AdminSetUserPasswordCommandInput extends AdminSetUserPasswordRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AdminSetUserPasswordCommand}.
+ */
 export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified user's password in a user pool as an administrator. Works on any
  *             user. </p>
  *         <p>The password can be temporary or permanent. If it is temporary, the user status enters
@@ -50,13 +57,46 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  * import { CognitoIdentityProviderClient, AdminSetUserPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminSetUserPasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminSetUserPasswordRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ *   Permanent: true || false,
+ * };
  * const command = new AdminSetUserPasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminSetUserPasswordCommandInput - {@link AdminSetUserPasswordCommandInput}
+ * @returns {@link AdminSetUserPasswordCommandOutput}
  * @see {@link AdminSetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link AdminSetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link InvalidPasswordException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
  *
  */
 export class AdminSetUserPasswordCommand extends $Command<
@@ -76,6 +116,9 @@ export class AdminSetUserPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminSetUserPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +149,7 @@ export class AdminSetUserPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminSetUserPasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminSetUserPasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +159,18 @@ export class AdminSetUserPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminSetUserPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminSetUserPasswordCommand(input, context);
+    return se_AdminSetUserPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminSetUserPasswordCommandOutput> {
-    return deserializeAws_json1_1AdminSetUserPasswordCommand(output, context);
+    return de_AdminSetUserPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

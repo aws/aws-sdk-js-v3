@@ -16,22 +16,28 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import {
   CreateWorkspaceApiKeyRequest,
-  CreateWorkspaceApiKeyRequestFilterSensitiveLog,
   CreateWorkspaceApiKeyResponse,
   CreateWorkspaceApiKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkspaceApiKeyCommand,
-  serializeAws_restJson1CreateWorkspaceApiKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWorkspaceApiKeyCommand, se_CreateWorkspaceApiKeyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateWorkspaceApiKeyCommand}.
+ */
 export interface CreateWorkspaceApiKeyCommandInput extends CreateWorkspaceApiKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateWorkspaceApiKeyCommand}.
+ */
 export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Grafana API key for the workspace.  This key can be used to
- *             authenticate requests sent to the workspace's HTTP API.
- *             See <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
+ * @public
+ * <p>Creates a Grafana API key for the workspace. This key can be used to authenticate
+ *             requests sent to the workspace's HTTP API. See <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
  *             for available APIs and example requests.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +45,43 @@ export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKe
  * import { GrafanaClient, CreateWorkspaceApiKeyCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, CreateWorkspaceApiKeyCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // CreateWorkspaceApiKeyRequest
+ *   keyName: "STRING_VALUE", // required
+ *   keyRole: "STRING_VALUE", // required
+ *   secondsToLive: Number("int"), // required
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new CreateWorkspaceApiKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkspaceApiKeyCommandInput - {@link CreateWorkspaceApiKeyCommandInput}
+ * @returns {@link CreateWorkspaceApiKeyCommandOutput}
  * @see {@link CreateWorkspaceApiKeyCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceApiKeyCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A resource was in an inconsistent state during an update or a deletion.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class CreateWorkspaceApiKeyCommand extends $Command<
@@ -65,6 +101,9 @@ export class CreateWorkspaceApiKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkspaceApiKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +132,7 @@ export class CreateWorkspaceApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkspaceApiKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateWorkspaceApiKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -104,12 +143,18 @@ export class CreateWorkspaceApiKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkspaceApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkspaceApiKeyCommand(input, context);
+    return se_CreateWorkspaceApiKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspaceApiKeyCommandOutput> {
-    return deserializeAws_restJson1CreateWorkspaceApiKeyCommand(output, context);
+    return de_CreateWorkspaceApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

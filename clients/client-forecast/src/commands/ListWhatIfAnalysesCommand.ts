@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  ListWhatIfAnalysesRequest,
-  ListWhatIfAnalysesRequestFilterSensitiveLog,
-  ListWhatIfAnalysesResponse,
-  ListWhatIfAnalysesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListWhatIfAnalysesCommand,
-  serializeAws_json1_1ListWhatIfAnalysesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListWhatIfAnalysesRequest, ListWhatIfAnalysesResponse } from "../models/models_0";
+import { de_ListWhatIfAnalysesCommand, se_ListWhatIfAnalysesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListWhatIfAnalysesCommand}.
+ */
 export interface ListWhatIfAnalysesCommandInput extends ListWhatIfAnalysesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListWhatIfAnalysesCommand}.
+ */
 export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of what-if analyses created using the <a>CreateWhatIfAnalysis</a> operation. For each what-if analysis, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if analysis ARN with the <a>DescribeWhatIfAnalysis</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesRespo
  * import { ForecastClient, ListWhatIfAnalysesCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListWhatIfAnalysesCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // ListWhatIfAnalysesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Condition: "IS" || "IS_NOT", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListWhatIfAnalysesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWhatIfAnalysesCommandInput - {@link ListWhatIfAnalysesCommandInput}
+ * @returns {@link ListWhatIfAnalysesCommandOutput}
  * @see {@link ListWhatIfAnalysesCommandInput} for command's `input` shape.
  * @see {@link ListWhatIfAnalysesCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
  *
  */
 export class ListWhatIfAnalysesCommand extends $Command<
@@ -62,6 +86,9 @@ export class ListWhatIfAnalysesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWhatIfAnalysesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class ListWhatIfAnalysesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWhatIfAnalysesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWhatIfAnalysesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class ListWhatIfAnalysesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWhatIfAnalysesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWhatIfAnalysesCommand(input, context);
+    return se_ListWhatIfAnalysesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWhatIfAnalysesCommandOutput> {
-    return deserializeAws_json1_1ListWhatIfAnalysesCommand(output, context);
+    return de_ListWhatIfAnalysesCommand(output, context);
   }
 
   // Start section: command_body_extra

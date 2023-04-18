@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ExportJournalToS3Request,
-  ExportJournalToS3RequestFilterSensitiveLog,
-  ExportJournalToS3Response,
-  ExportJournalToS3ResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportJournalToS3Command,
-  serializeAws_restJson1ExportJournalToS3Command,
-} from "../protocols/Aws_restJson1";
+import { ExportJournalToS3Request, ExportJournalToS3Response } from "../models/models_0";
+import { de_ExportJournalToS3Command, se_ExportJournalToS3Command } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ExportJournalToS3Command}.
+ */
 export interface ExportJournalToS3CommandInput extends ExportJournalToS3Request {}
+/**
+ * @public
+ *
+ * The output of {@link ExportJournalToS3Command}.
+ */
 export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports journal contents within a date and time range from a ledger into a specified
  *          Amazon Simple Storage Service (Amazon S3) bucket. A journal export job can write the data objects in either the text
  *          or binary representation of Amazon Ion format, or in <i>JSON Lines</i> text
@@ -50,13 +53,37 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  * import { QLDBClient, ExportJournalToS3Command } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ExportJournalToS3Command } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // ExportJournalToS3Request
+ *   Name: "STRING_VALUE", // required
+ *   InclusiveStartTime: new Date("TIMESTAMP"), // required
+ *   ExclusiveEndTime: new Date("TIMESTAMP"), // required
+ *   S3ExportConfiguration: { // S3ExportConfiguration
+ *     Bucket: "STRING_VALUE", // required
+ *     Prefix: "STRING_VALUE", // required
+ *     EncryptionConfiguration: { // S3EncryptionConfiguration
+ *       ObjectEncryptionType: "STRING_VALUE", // required
+ *       KmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   OutputFormat: "STRING_VALUE",
+ * };
  * const command = new ExportJournalToS3Command(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportJournalToS3CommandInput - {@link ExportJournalToS3CommandInput}
+ * @returns {@link ExportJournalToS3CommandOutput}
  * @see {@link ExportJournalToS3CommandInput} for command's `input` shape.
  * @see {@link ExportJournalToS3CommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ResourcePreconditionNotMetException} (client fault)
+ *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
+ *
  *
  */
 export class ExportJournalToS3Command extends $Command<
@@ -76,6 +103,9 @@ export class ExportJournalToS3Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportJournalToS3CommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +134,8 @@ export class ExportJournalToS3Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportJournalToS3RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportJournalToS3ResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +145,18 @@ export class ExportJournalToS3Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportJournalToS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportJournalToS3Command(input, context);
+    return se_ExportJournalToS3Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportJournalToS3CommandOutput> {
-    return deserializeAws_restJson1ExportJournalToS3Command(output, context);
+    return de_ExportJournalToS3Command(output, context);
   }
 
   // Start section: command_body_extra

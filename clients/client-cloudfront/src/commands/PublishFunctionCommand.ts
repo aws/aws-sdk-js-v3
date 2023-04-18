@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  PublishFunctionRequest,
-  PublishFunctionRequestFilterSensitiveLog,
-  PublishFunctionResult,
-  PublishFunctionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlPublishFunctionCommand,
-  serializeAws_restXmlPublishFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { PublishFunctionRequest, PublishFunctionResult } from "../models/models_1";
+import { de_PublishFunctionCommand, se_PublishFunctionCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link PublishFunctionCommand}.
+ */
 export interface PublishFunctionCommandInput extends PublishFunctionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PublishFunctionCommand}.
+ */
 export interface PublishFunctionCommandOutput extends PublishFunctionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes a CloudFront function by copying the function code from the
  * 				<code>DEVELOPMENT</code> stage to <code>LIVE</code>. This automatically updates all
  * 			cache behaviors that are using this function to use the newly published copy in the
@@ -45,13 +48,36 @@ export interface PublishFunctionCommandOutput extends PublishFunctionResult, __M
  * import { CloudFrontClient, PublishFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, PublishFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // PublishFunctionRequest
+ *   Name: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE", // required
+ * };
  * const command = new PublishFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishFunctionCommandInput - {@link PublishFunctionCommandInput}
+ * @returns {@link PublishFunctionCommandOutput}
  * @see {@link PublishFunctionCommandInput} for command's `input` shape.
  * @see {@link PublishFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchFunctionExists} (client fault)
+ *  <p>The function does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
+ *
  *
  */
 export class PublishFunctionCommand extends $Command<
@@ -71,6 +97,9 @@ export class PublishFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +128,8 @@ export class PublishFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishFunctionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +139,18 @@ export class PublishFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPublishFunctionCommand(input, context);
+    return se_PublishFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishFunctionCommandOutput> {
-    return deserializeAws_restXmlPublishFunctionCommand(output, context);
+    return de_PublishFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

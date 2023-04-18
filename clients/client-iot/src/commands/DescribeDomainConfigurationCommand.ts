@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DescribeDomainConfigurationRequest, DescribeDomainConfigurationResponse } from "../models/models_1";
 import {
-  DescribeDomainConfigurationRequest,
-  DescribeDomainConfigurationRequestFilterSensitiveLog,
-  DescribeDomainConfigurationResponse,
-  DescribeDomainConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeDomainConfigurationCommand,
-  serializeAws_restJson1DescribeDomainConfigurationCommand,
+  de_DescribeDomainConfigurationCommand,
+  se_DescribeDomainConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDomainConfigurationCommand}.
+ */
 export interface DescribeDomainConfigurationCommandInput extends DescribeDomainConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDomainConfigurationCommand}.
+ */
 export interface DescribeDomainConfigurationCommandOutput
   extends DescribeDomainConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets summary information about a domain configuration.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDomainConfiguration</a> action.</p>
  * @example
@@ -39,13 +45,37 @@ export interface DescribeDomainConfigurationCommandOutput
  * import { IoTClient, DescribeDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeDomainConfigurationRequest
+ *   domainConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDomainConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainConfigurationCommandInput - {@link DescribeDomainConfigurationCommandInput}
+ * @returns {@link DescribeDomainConfigurationCommandOutput}
  * @see {@link DescribeDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class DescribeDomainConfigurationCommand extends $Command<
@@ -65,6 +95,9 @@ export class DescribeDomainConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +126,8 @@ export class DescribeDomainConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +137,21 @@ export class DescribeDomainConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDomainConfigurationCommand(input, context);
+    return se_DescribeDomainConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeDomainConfigurationCommand(output, context);
+    return de_DescribeDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

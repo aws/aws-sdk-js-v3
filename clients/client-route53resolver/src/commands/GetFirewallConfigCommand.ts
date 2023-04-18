@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetFirewallConfigRequest,
-  GetFirewallConfigRequestFilterSensitiveLog,
-  GetFirewallConfigResponse,
-  GetFirewallConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFirewallConfigCommand,
-  serializeAws_json1_1GetFirewallConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { GetFirewallConfigRequest, GetFirewallConfigResponse } from "../models/models_0";
+import { de_GetFirewallConfigCommand, se_GetFirewallConfigCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetFirewallConfigCommand}.
+ */
 export interface GetFirewallConfigCommandInput extends GetFirewallConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFirewallConfigCommand}.
+ */
 export interface GetFirewallConfigCommandOutput extends GetFirewallConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configuration of the firewall behavior provided by DNS Firewall for a
  * 			single VPC from Amazon Virtual Private Cloud (Amazon VPC). </p>
  * @example
@@ -37,13 +40,35 @@ export interface GetFirewallConfigCommandOutput extends GetFirewallConfigRespons
  * import { Route53ResolverClient, GetFirewallConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetFirewallConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // GetFirewallConfigRequest
+ *   ResourceId: "STRING_VALUE", // required
+ * };
  * const command = new GetFirewallConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFirewallConfigCommandInput - {@link GetFirewallConfigCommandInput}
+ * @returns {@link GetFirewallConfigCommandOutput}
  * @see {@link GetFirewallConfigCommandInput} for command's `input` shape.
  * @see {@link GetFirewallConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
  *
  */
 export class GetFirewallConfigCommand extends $Command<
@@ -63,6 +88,9 @@ export class GetFirewallConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFirewallConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class GetFirewallConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFirewallConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFirewallConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class GetFirewallConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFirewallConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFirewallConfigCommand(input, context);
+    return se_GetFirewallConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFirewallConfigCommandOutput> {
-    return deserializeAws_json1_1GetFirewallConfigCommand(output, context);
+    return de_GetFirewallConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

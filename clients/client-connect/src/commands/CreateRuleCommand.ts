@@ -14,37 +14,109 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateRuleRequest,
-  CreateRuleRequestFilterSensitiveLog,
-  CreateRuleResponse,
-  CreateRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRuleCommand,
-  serializeAws_restJson1CreateRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRuleRequest, CreateRuleResponse } from "../models/models_0";
+import { de_CreateRuleCommand, se_CreateRuleCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateRuleCommand}.
+ */
 export interface CreateRuleCommandInput extends CreateRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateRuleCommand}.
+ */
 export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a rule for the specified Amazon Connect instance.</p>
- *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
- *   </p>
+ *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
+ *    code conditions for the rule. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, CreateRuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateRuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateRuleRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   TriggerEventSource: { // RuleTriggerEventSource
+ *     EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate", // required
+ *     IntegrationAssociationId: "STRING_VALUE",
+ *   },
+ *   Function: "STRING_VALUE", // required
+ *   Actions: [ // RuleActions // required
+ *     { // RuleAction
+ *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION", // required
+ *       TaskAction: { // TaskActionDefinition
+ *         Name: "STRING_VALUE", // required
+ *         Description: "STRING_VALUE",
+ *         ContactFlowId: "STRING_VALUE", // required
+ *         References: { // ContactReferences
+ *           "<keys>": { // Reference
+ *             Value: "STRING_VALUE", // required
+ *             Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *           },
+ *         },
+ *       },
+ *       EventBridgeAction: { // EventBridgeActionDefinition
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       AssignContactCategoryAction: {},
+ *       SendNotificationAction: { // SendNotificationActionDefinition
+ *         DeliveryMethod: "EMAIL", // required
+ *         Subject: "STRING_VALUE",
+ *         Content: "STRING_VALUE", // required
+ *         ContentType: "PLAIN_TEXT", // required
+ *         Recipient: { // NotificationRecipientType
+ *           UserTags: { // UserTagMap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           UserIds: [ // UserIdList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   PublishStatus: "DRAFT" || "PUBLISHED", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
+ * @returns {@link CreateRuleCommandOutput}
  * @see {@link CreateRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>A resource already has that name.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class CreateRuleCommand extends $Command<
@@ -64,6 +136,9 @@ export class CreateRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +165,8 @@ export class CreateRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +176,18 @@ export class CreateRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRuleCommand(input, context);
+    return se_CreateRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleCommandOutput> {
-    return deserializeAws_restJson1CreateRuleCommand(output, context);
+    return de_CreateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

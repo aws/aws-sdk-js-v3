@@ -16,22 +16,31 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
   DeleteDirectConnectGatewayAssociationProposalRequest,
-  DeleteDirectConnectGatewayAssociationProposalRequestFilterSensitiveLog,
   DeleteDirectConnectGatewayAssociationProposalResult,
-  DeleteDirectConnectGatewayAssociationProposalResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand,
-  serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand,
+  de_DeleteDirectConnectGatewayAssociationProposalCommand,
+  se_DeleteDirectConnectGatewayAssociationProposalCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteDirectConnectGatewayAssociationProposalCommand}.
+ */
 export interface DeleteDirectConnectGatewayAssociationProposalCommandInput
   extends DeleteDirectConnectGatewayAssociationProposalRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDirectConnectGatewayAssociationProposalCommand}.
+ */
 export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
   extends DeleteDirectConnectGatewayAssociationProposalResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the association proposal request between the specified Direct Connect gateway and virtual private gateway or transit gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,25 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
  * import { DirectConnectClient, DeleteDirectConnectGatewayAssociationProposalCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteDirectConnectGatewayAssociationProposalCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DeleteDirectConnectGatewayAssociationProposalRequest
+ *   proposalId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDirectConnectGatewayAssociationProposalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDirectConnectGatewayAssociationProposalCommandInput - {@link DeleteDirectConnectGatewayAssociationProposalCommandInput}
+ * @returns {@link DeleteDirectConnectGatewayAssociationProposalCommandOutput}
  * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Command<
@@ -65,6 +86,9 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectConnectGatewayAssociationProposalCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +123,8 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDirectConnectGatewayAssociationProposalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDirectConnectGatewayAssociationProposalResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +134,24 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDirectConnectGatewayAssociationProposalCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand(input, context);
+    return se_DeleteDirectConnectGatewayAssociationProposalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> {
-    return deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand(output, context);
+    return de_DeleteDirectConnectGatewayAssociationProposalCommand(output, context);
   }
 
   // Start section: command_body_extra

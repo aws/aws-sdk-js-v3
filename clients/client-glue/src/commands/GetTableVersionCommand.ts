@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetTableVersionRequest,
-  GetTableVersionRequestFilterSensitiveLog,
-  GetTableVersionResponse,
-  GetTableVersionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetTableVersionCommand,
-  serializeAws_json1_1GetTableVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetTableVersionRequest, GetTableVersionResponse } from "../models/models_1";
+import { de_GetTableVersionCommand, se_GetTableVersionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTableVersionCommand}.
+ */
 export interface GetTableVersionCommandInput extends GetTableVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTableVersionCommand}.
+ */
 export interface GetTableVersionCommandOutput extends GetTableVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a specified version of a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * import { GlueClient, GetTableVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTableVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetTableVersionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ * };
  * const command = new GetTableVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableVersionCommandInput - {@link GetTableVersionCommandInput}
+ * @returns {@link GetTableVersionCommandOutput}
  * @see {@link GetTableVersionCommandInput} for command's `input` shape.
  * @see {@link GetTableVersionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetTableVersionCommand extends $Command<
@@ -62,6 +89,9 @@ export class GetTableVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class GetTableVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTableVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTableVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class GetTableVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTableVersionCommand(input, context);
+    return se_GetTableVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableVersionCommandOutput> {
-    return deserializeAws_json1_1GetTableVersionCommand(output, context);
+    return de_GetTableVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

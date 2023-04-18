@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  GetCorsPolicyInput,
-  GetCorsPolicyInputFilterSensitiveLog,
-  GetCorsPolicyOutput,
-  GetCorsPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCorsPolicyCommand,
-  serializeAws_json1_1GetCorsPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCorsPolicyInput, GetCorsPolicyOutput } from "../models/models_0";
+import { de_GetCorsPolicyCommand, se_GetCorsPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCorsPolicyCommand}.
+ */
 export interface GetCorsPolicyCommandInput extends GetCorsPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetCorsPolicyCommand}.
+ */
 export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the cross-origin resource sharing (CORS) configuration information that is
  *          set for the container.</p>
  *          <p>To use this operation, you must have permission to perform the
@@ -40,13 +43,32 @@ export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __Metad
  * import { MediaStoreClient, GetCorsPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, GetCorsPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = { // GetCorsPolicyInput
+ *   ContainerName: "STRING_VALUE", // required
+ * };
  * const command = new GetCorsPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCorsPolicyCommandInput - {@link GetCorsPolicyCommandInput}
+ * @returns {@link GetCorsPolicyCommandOutput}
  * @see {@link GetCorsPolicyCommandInput} for command's `input` shape.
  * @see {@link GetCorsPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
+ *
+ * @throws {@link ContainerInUseException} (client fault)
+ *  <p>The container that you specified in the request already exists or is being
+ *          updated.</p>
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * @throws {@link CorsPolicyNotFoundException} (client fault)
+ *  <p>The CORS policy that you specified in the request does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
  *
  */
 export class GetCorsPolicyCommand extends $Command<
@@ -66,6 +88,9 @@ export class GetCorsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCorsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +117,8 @@ export class GetCorsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCorsPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCorsPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +128,18 @@ export class GetCorsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCorsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCorsPolicyCommand(input, context);
+    return se_GetCorsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCorsPolicyCommandOutput> {
-    return deserializeAws_json1_1GetCorsPolicyCommand(output, context);
+    return de_GetCorsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

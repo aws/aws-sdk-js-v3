@@ -23,17 +23,24 @@ import {
   AdminUpdateUserAttributesRequest,
   AdminUpdateUserAttributesRequestFilterSensitiveLog,
   AdminUpdateUserAttributesResponse,
-  AdminUpdateUserAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminUpdateUserAttributesCommand,
-  serializeAws_json1_1AdminUpdateUserAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminUpdateUserAttributesCommand, se_AdminUpdateUserAttributesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AdminUpdateUserAttributesCommand}.
+ */
 export interface AdminUpdateUserAttributesCommandInput extends AdminUpdateUserAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AdminUpdateUserAttributesCommand}.
+ */
 export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified user's attributes, including developer attributes, as an
  *             administrator. Works on any user.</p>
  *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
@@ -66,13 +73,82 @@ export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserA
  * import { CognitoIdentityProviderClient, AdminUpdateUserAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminUpdateUserAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminUpdateUserAttributesRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   UserAttributes: [ // AttributeListType // required
+ *     { // AttributeType
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new AdminUpdateUserAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminUpdateUserAttributesCommandInput - {@link AdminUpdateUserAttributesCommandInput}
+ * @returns {@link AdminUpdateUserAttributesCommandOutput}
  * @see {@link AdminUpdateUserAttributesCommandInput} for command's `input` shape.
  * @see {@link AdminUpdateUserAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link AliasExistsException} (client fault)
+ *  <p>This exception is thrown when a user tries to confirm the account with an email
+ *             address or phone number that has already been supplied as an alias for a different
+ *             user profile. This exception indicates that an account with this email address or phone
+ *             already exists in a user pool that you've configured to use email address or phone
+ *             number as a sign-in alias.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidEmailRoleAccessPolicyException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
+ *             status code: 400.</p>
+ *
+ * @throws {@link InvalidLambdaResponseException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link InvalidSmsRoleAccessPolicyException} (client fault)
+ *  <p>This exception is returned when the role provided for SMS configuration doesn't have
+ *             permission to publish using Amazon SNS.</p>
+ *
+ * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
+ *  <p>This exception is thrown when the trust relationship is not valid for the role
+ *             provided for SMS configuration. This can happen if you don't trust
+ *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *             not match what is provided in the SMS configuration for the user pool.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UnexpectedLambdaException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
+ *             Lambda.</p>
+ *
+ * @throws {@link UserLambdaValidationException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
+ *             with the Lambda service.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
  *
  */
 export class AdminUpdateUserAttributesCommand extends $Command<
@@ -92,6 +168,9 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminUpdateUserAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,7 +201,7 @@ export class AdminUpdateUserAttributesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminUpdateUserAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminUpdateUserAttributesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +211,21 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminUpdateUserAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminUpdateUserAttributesCommand(input, context);
+    return se_AdminUpdateUserAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminUpdateUserAttributesCommandOutput> {
-    return deserializeAws_json1_1AdminUpdateUserAttributesCommand(output, context);
+    return de_AdminUpdateUserAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

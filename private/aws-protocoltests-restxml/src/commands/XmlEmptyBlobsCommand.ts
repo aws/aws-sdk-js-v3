@@ -12,17 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlBlobsInputOutput, XmlBlobsInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlXmlEmptyBlobsCommand,
-  serializeAws_restXmlXmlEmptyBlobsCommand,
-} from "../protocols/Aws_restXml";
+import { XmlBlobsInputOutput } from "../models/models_0";
+import { de_XmlEmptyBlobsCommand, se_XmlEmptyBlobsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link XmlEmptyBlobsCommand}.
+ */
 export interface XmlEmptyBlobsCommandInput extends XmlBlobsInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link XmlEmptyBlobsCommand}.
+ */
 export interface XmlEmptyBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Blobs are base64 encoded
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -30,13 +38,19 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsInputOutput, __Metad
  * import { RestXmlProtocolClient, XmlEmptyBlobsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEmptyBlobsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = { // XmlBlobsInputOutput
+ *   data: "BLOB_VALUE",
+ * };
  * const command = new XmlEmptyBlobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlEmptyBlobsCommandInput - {@link XmlEmptyBlobsCommandInput}
+ * @returns {@link XmlEmptyBlobsCommandOutput}
  * @see {@link XmlEmptyBlobsCommandInput} for command's `input` shape.
  * @see {@link XmlEmptyBlobsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
+ *
  *
  */
 export class XmlEmptyBlobsCommand extends $Command<
@@ -47,6 +61,9 @@ export class XmlEmptyBlobsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlEmptyBlobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,8 +89,8 @@ export class XmlEmptyBlobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlBlobsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlBlobsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +100,18 @@ export class XmlEmptyBlobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlEmptyBlobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlEmptyBlobsCommand(input, context);
+    return se_XmlEmptyBlobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyBlobsCommandOutput> {
-    return deserializeAws_restXmlXmlEmptyBlobsCommand(output, context);
+    return de_XmlEmptyBlobsCommand(output, context);
   }
 
   // Start section: command_body_extra

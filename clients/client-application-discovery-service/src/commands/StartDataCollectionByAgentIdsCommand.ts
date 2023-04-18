@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
+import { StartDataCollectionByAgentIdsRequest, StartDataCollectionByAgentIdsResponse } from "../models/models_0";
 import {
-  StartDataCollectionByAgentIdsRequest,
-  StartDataCollectionByAgentIdsRequestFilterSensitiveLog,
-  StartDataCollectionByAgentIdsResponse,
-  StartDataCollectionByAgentIdsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartDataCollectionByAgentIdsCommand,
-  serializeAws_json1_1StartDataCollectionByAgentIdsCommand,
+  de_StartDataCollectionByAgentIdsCommand,
+  se_StartDataCollectionByAgentIdsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartDataCollectionByAgentIdsCommand}.
+ */
 export interface StartDataCollectionByAgentIdsCommandInput extends StartDataCollectionByAgentIdsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartDataCollectionByAgentIdsCommand}.
+ */
 export interface StartDataCollectionByAgentIdsCommandOutput
   extends StartDataCollectionByAgentIdsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Instructs the specified agents or connectors to start collecting data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +48,38 @@ export interface StartDataCollectionByAgentIdsCommandOutput
  * import { ApplicationDiscoveryServiceClient, StartDataCollectionByAgentIdsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StartDataCollectionByAgentIdsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // StartDataCollectionByAgentIdsRequest
+ *   agentIds: [ // AgentIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartDataCollectionByAgentIdsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDataCollectionByAgentIdsCommandInput - {@link StartDataCollectionByAgentIdsCommandInput}
+ * @returns {@link StartDataCollectionByAgentIdsCommandOutput}
  * @see {@link StartDataCollectionByAgentIdsCommandInput} for command's `input` shape.
  * @see {@link StartDataCollectionByAgentIdsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *       policy associated with this account.</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of one or more parameters are either invalid or out of range. Verify the
+ *       parameter values and try again.</p>
+ *
+ * @throws {@link ServerInternalErrorException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
  *
  */
 export class StartDataCollectionByAgentIdsCommand extends $Command<
@@ -68,6 +99,9 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDataCollectionByAgentIdsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +130,8 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDataCollectionByAgentIdsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDataCollectionByAgentIdsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,15 +141,21 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDataCollectionByAgentIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDataCollectionByAgentIdsCommand(input, context);
+    return se_StartDataCollectionByAgentIdsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDataCollectionByAgentIdsCommandOutput> {
-    return deserializeAws_json1_1StartDataCollectionByAgentIdsCommand(output, context);
+    return de_StartDataCollectionByAgentIdsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,31 +13,34 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeHsmConfigurationsMessage,
-  DescribeHsmConfigurationsMessageFilterSensitiveLog,
-  HsmConfigurationMessage,
-  HsmConfigurationMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeHsmConfigurationsCommand,
-  serializeAws_queryDescribeHsmConfigurationsCommand,
-} from "../protocols/Aws_query";
+import { DescribeHsmConfigurationsMessage, HsmConfigurationMessage } from "../models/models_1";
+import { de_DescribeHsmConfigurationsCommand, se_DescribeHsmConfigurationsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeHsmConfigurationsCommand}.
+ */
 export interface DescribeHsmConfigurationsCommandInput extends DescribeHsmConfigurationsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeHsmConfigurationsCommand}.
+ */
 export interface DescribeHsmConfigurationsCommandOutput extends HsmConfigurationMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified Amazon Redshift HSM configuration. If no
  *             configuration ID is specified, returns information about all the HSM configurations
  *             owned by your Amazon Web Services account.</p>
- *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+ *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
  *             all HSM connections that match any combination of the specified keys and values. For
  *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
  *                 <code>admin</code> and <code>test</code> for tag values, all HSM connections that
  *             have any combination of those values are returned.</p>
- *         <p>If both tag keys and values are omitted from the request, HSM connections are
+ *          <p>If both tag keys and values are omitted from the request, HSM connections are
  *             returned regardless of whether they have tag keys or values associated with
  *             them.</p>
  * @example
@@ -46,13 +49,33 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  * import { RedshiftClient, DescribeHsmConfigurationsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeHsmConfigurationsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeHsmConfigurationsMessage
+ *   HsmConfigurationIdentifier: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   TagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [ // TagValueList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeHsmConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHsmConfigurationsCommandInput - {@link DescribeHsmConfigurationsCommandInput}
+ * @returns {@link DescribeHsmConfigurationsCommandOutput}
  * @see {@link DescribeHsmConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeHsmConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link HsmConfigurationNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
  *
  */
 export class DescribeHsmConfigurationsCommand extends $Command<
@@ -72,6 +95,9 @@ export class DescribeHsmConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHsmConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +126,8 @@ export class DescribeHsmConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHsmConfigurationsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: HsmConfigurationMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +137,21 @@ export class DescribeHsmConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHsmConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeHsmConfigurationsCommand(input, context);
+    return se_DescribeHsmConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHsmConfigurationsCommandOutput> {
-    return deserializeAws_queryDescribeHsmConfigurationsCommand(output, context);
+    return de_DescribeHsmConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

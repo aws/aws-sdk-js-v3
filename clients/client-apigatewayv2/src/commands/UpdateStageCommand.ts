@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  UpdateStageRequest,
-  UpdateStageRequestFilterSensitiveLog,
-  UpdateStageResponse,
-  UpdateStageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateStageCommand,
-  serializeAws_restJson1UpdateStageCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateStageRequest, UpdateStageResponse } from "../models/models_0";
+import { de_UpdateStageCommand, se_UpdateStageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateStageCommand}.
+ */
 export interface UpdateStageCommandInput extends UpdateStageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateStageCommand}.
+ */
 export interface UpdateStageCommandOutput extends UpdateStageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a Stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,59 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * import { ApiGatewayV2Client, UpdateStageCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateStageCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // UpdateStageRequest
+ *   AccessLogSettings: { // AccessLogSettings
+ *     DestinationArn: "STRING_VALUE",
+ *     Format: "STRING_VALUE",
+ *   },
+ *   ApiId: "STRING_VALUE", // required
+ *   AutoDeploy: true || false,
+ *   ClientCertificateId: "STRING_VALUE",
+ *   DefaultRouteSettings: { // RouteSettings
+ *     DataTraceEnabled: true || false,
+ *     DetailedMetricsEnabled: true || false,
+ *     LoggingLevel: "STRING_VALUE",
+ *     ThrottlingBurstLimit: Number("int"),
+ *     ThrottlingRateLimit: Number("double"),
+ *   },
+ *   DeploymentId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RouteSettings: { // RouteSettingsMap
+ *     "<keys>": {
+ *       DataTraceEnabled: true || false,
+ *       DetailedMetricsEnabled: true || false,
+ *       LoggingLevel: "STRING_VALUE",
+ *       ThrottlingBurstLimit: Number("int"),
+ *       ThrottlingRateLimit: Number("double"),
+ *     },
+ *   },
+ *   StageName: "STRING_VALUE", // required
+ *   StageVariables: { // StageVariablesMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateStageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStageCommandInput - {@link UpdateStageCommandInput}
+ * @returns {@link UpdateStageCommandOutput}
  * @see {@link UpdateStageCommandInput} for command's `input` shape.
  * @see {@link UpdateStageCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class UpdateStageCommand extends $Command<
@@ -62,6 +111,9 @@ export class UpdateStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +140,8 @@ export class UpdateStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +151,18 @@ export class UpdateStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateStageCommand(input, context);
+    return se_UpdateStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStageCommandOutput> {
-    return deserializeAws_restJson1UpdateStageCommand(output, context);
+    return de_UpdateStageCommand(output, context);
   }
 
   // Start section: command_body_extra

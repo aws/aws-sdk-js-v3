@@ -16,19 +16,26 @@ import {
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
 import {
   DescribeProjectRequest,
-  DescribeProjectRequestFilterSensitiveLog,
   DescribeProjectResult,
   DescribeProjectResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProjectCommand,
-  serializeAws_json1_1DescribeProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeProjectCommand, se_DescribeProjectCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeProjectCommand}.
+ */
 export interface DescribeProjectCommandInput extends DescribeProjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProjectCommand}.
+ */
 export interface DescribeProjectCommandOutput extends DescribeProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a project and its resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,35 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  * import { CodeStarClient, DescribeProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, DescribeProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // DescribeProjectRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
+ * @returns {@link DescribeProjectCommandOutput}
  * @see {@link DescribeProjectCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (server fault)
+ *  <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ *
+ * @throws {@link InvalidServiceRoleException} (client fault)
+ *  <p>The service role is not valid.</p>
+ *
+ * @throws {@link ProjectConfigurationException} (client fault)
+ *  <p>Project configuration information is required but not specified.</p>
+ *
+ * @throws {@link ProjectNotFoundException} (client fault)
+ *  <p>The specified AWS CodeStar project was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
  *
  */
 export class DescribeProjectCommand extends $Command<
@@ -62,6 +91,9 @@ export class DescribeProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +122,7 @@ export class DescribeProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProjectRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeProjectResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +133,18 @@ export class DescribeProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProjectCommand(input, context);
+    return se_DescribeProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProjectCommandOutput> {
-    return deserializeAws_json1_1DescribeProjectCommand(output, context);
+    return de_DescribeProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

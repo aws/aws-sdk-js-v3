@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateDomainConfigurationRequest,
-  CreateDomainConfigurationRequestFilterSensitiveLog,
-  CreateDomainConfigurationResponse,
-  CreateDomainConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDomainConfigurationCommand,
-  serializeAws_restJson1CreateDomainConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDomainConfigurationRequest, CreateDomainConfigurationResponse } from "../models/models_0";
+import { de_CreateDomainConfigurationCommand, se_CreateDomainConfigurationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDomainConfigurationCommand}.
+ */
 export interface CreateDomainConfigurationCommandInput extends CreateDomainConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDomainConfigurationCommand}.
+ */
 export interface CreateDomainConfigurationCommandOutput extends CreateDomainConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a domain configuration.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDomainConfiguration</a> action.</p>
  * @example
@@ -37,13 +40,59 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  * import { IoTClient, CreateDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateDomainConfigurationRequest
+ *   domainConfigurationName: "STRING_VALUE", // required
+ *   domainName: "STRING_VALUE",
+ *   serverCertificateArns: [ // ServerCertificateArns
+ *     "STRING_VALUE",
+ *   ],
+ *   validationCertificateArn: "STRING_VALUE",
+ *   authorizerConfig: { // AuthorizerConfig
+ *     defaultAuthorizerName: "STRING_VALUE",
+ *     allowAuthorizerOverride: true || false,
+ *   },
+ *   serviceType: "DATA" || "CREDENTIAL_PROVIDER" || "JOBS",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDomainConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainConfigurationCommandInput - {@link CreateDomainConfigurationCommandInput}
+ * @returns {@link CreateDomainConfigurationCommandOutput}
  * @see {@link CreateDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateDomainConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link CertificateValidationException} (client fault)
+ *  <p>The certificate is invalid.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource already exists.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class CreateDomainConfigurationCommand extends $Command<
@@ -63,6 +112,9 @@ export class CreateDomainConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +143,8 @@ export class CreateDomainConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +154,21 @@ export class CreateDomainConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDomainConfigurationCommand(input, context);
+    return se_CreateDomainConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateDomainConfigurationCommand(output, context);
+    return de_CreateDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

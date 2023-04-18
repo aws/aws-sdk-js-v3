@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  DescribeEventCategoriesMessage,
-  DescribeEventCategoriesMessageFilterSensitiveLog,
-  EventCategoriesMessage,
-  EventCategoriesMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEventCategoriesCommand,
-  serializeAws_queryDescribeEventCategoriesCommand,
-} from "../protocols/Aws_query";
+import { DescribeEventCategoriesMessage, EventCategoriesMessage } from "../models/models_0";
+import { de_DescribeEventCategoriesCommand, se_DescribeEventCategoriesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEventCategoriesCommand}.
+ */
 export interface DescribeEventCategoriesCommandInput extends DescribeEventCategoriesMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEventCategoriesCommand}.
+ */
 export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays a list of categories for all event source types, or, if specified, for a
  *             specified source type. </p>
  * @example
@@ -37,13 +40,27 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * import { DocDBClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DescribeEventCategoriesMessage
+ *   SourceType: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribeEventCategoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
+ * @returns {@link DescribeEventCategoriesCommandOutput}
  * @see {@link DescribeEventCategoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
  *
  */
 export class DescribeEventCategoriesCommand extends $Command<
@@ -63,6 +80,9 @@ export class DescribeEventCategoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventCategoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +111,8 @@ export class DescribeEventCategoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventCategoriesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EventCategoriesMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +122,18 @@ export class DescribeEventCategoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventCategoriesCommand(input, context);
+    return se_DescribeEventCategoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventCategoriesCommandOutput> {
-    return deserializeAws_queryDescribeEventCategoriesCommand(output, context);
+    return de_DescribeEventCategoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

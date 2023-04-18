@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ScalarTrustAnchorRequest,
-  ScalarTrustAnchorRequestFilterSensitiveLog,
-  TrustAnchorDetailResponse,
-  TrustAnchorDetailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableTrustAnchorCommand,
-  serializeAws_restJson1DisableTrustAnchorCommand,
-} from "../protocols/Aws_restJson1";
+import { ScalarTrustAnchorRequest, TrustAnchorDetailResponse } from "../models/models_0";
+import { de_DisableTrustAnchorCommand, se_DisableTrustAnchorCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableTrustAnchorCommand}.
+ */
 export interface DisableTrustAnchorCommandInput extends ScalarTrustAnchorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableTrustAnchorCommand}.
+ */
 export interface DisableTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables a trust anchor. When disabled, <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> requests specifying this trust anchor are unauthorized.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -40,13 +43,25 @@ export interface DisableTrustAnchorCommandOutput extends TrustAnchorDetailRespon
  * import { RolesAnywhereClient, DisableTrustAnchorCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, DisableTrustAnchorCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ScalarTrustAnchorRequest
+ *   trustAnchorId: "STRING_VALUE", // required
+ * };
  * const command = new DisableTrustAnchorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableTrustAnchorCommandInput - {@link DisableTrustAnchorCommandInput}
+ * @returns {@link DisableTrustAnchorCommandOutput}
  * @see {@link DisableTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link DisableTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class DisableTrustAnchorCommand extends $Command<
@@ -66,6 +81,9 @@ export class DisableTrustAnchorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableTrustAnchorCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +112,8 @@ export class DisableTrustAnchorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarTrustAnchorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TrustAnchorDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +123,18 @@ export class DisableTrustAnchorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableTrustAnchorCommand(input, context);
+    return se_DisableTrustAnchorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableTrustAnchorCommandOutput> {
-    return deserializeAws_restJson1DisableTrustAnchorCommand(output, context);
+    return de_DisableTrustAnchorCommand(output, context);
   }
 
   // Start section: command_body_extra

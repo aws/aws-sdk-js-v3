@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetDifferencesInput,
-  GetDifferencesInputFilterSensitiveLog,
-  GetDifferencesOutput,
-  GetDifferencesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDifferencesCommand,
-  serializeAws_json1_1GetDifferencesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDifferencesInput, GetDifferencesOutput } from "../models/models_0";
+import { de_GetDifferencesCommand, se_GetDifferencesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDifferencesCommand}.
+ */
 export interface GetDifferencesCommandInput extends GetDifferencesInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetDifferencesCommand}.
+ */
 export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the differences in a valid commit specifier (such as a
  *             branch, tag, HEAD, commit ID, or other fully qualified reference). Results can be
  *             limited to a specified path.</p>
@@ -38,13 +41,79 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  * import { CodeCommitClient, GetDifferencesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetDifferencesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetDifferencesInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   beforeCommitSpecifier: "STRING_VALUE",
+ *   afterCommitSpecifier: "STRING_VALUE", // required
+ *   beforePath: "STRING_VALUE",
+ *   afterPath: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetDifferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDifferencesCommandInput - {@link GetDifferencesCommandInput}
+ * @returns {@link GetDifferencesCommandOutput}
  * @see {@link GetDifferencesCommandInput} for command's `input` shape.
  * @see {@link GetDifferencesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link CommitDoesNotExistException} (client fault)
+ *  <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ *
+ * @throws {@link CommitRequiredException} (client fault)
+ *  <p>A commit was not specified.</p>
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidCommitException} (client fault)
+ *  <p>The specified commit is not valid.</p>
+ *
+ * @throws {@link InvalidCommitIdException} (client fault)
+ *  <p>The specified commit ID is not valid.</p>
+ *
+ * @throws {@link InvalidContinuationTokenException} (client fault)
+ *  <p>The specified continuation token is not valid.</p>
+ *
+ * @throws {@link InvalidMaxResultsException} (client fault)
+ *  <p>The specified number of maximum results is not valid.</p>
+ *
+ * @throws {@link InvalidPathException} (client fault)
+ *  <p>The specified path is not valid.</p>
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link PathDoesNotExistException} (client fault)
+ *  <p>The specified path does not exist.</p>
+ *
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
+ *
+ * @throws {@link RepositoryNameRequiredException} (client fault)
+ *  <p>A repository name is required, but was not specified.</p>
+ *
  *
  */
 export class GetDifferencesCommand extends $Command<
@@ -64,6 +133,9 @@ export class GetDifferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDifferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +164,8 @@ export class GetDifferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDifferencesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDifferencesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +175,18 @@ export class GetDifferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDifferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDifferencesCommand(input, context);
+    return se_GetDifferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDifferencesCommandOutput> {
-    return deserializeAws_json1_1GetDifferencesCommand(output, context);
+    return de_GetDifferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

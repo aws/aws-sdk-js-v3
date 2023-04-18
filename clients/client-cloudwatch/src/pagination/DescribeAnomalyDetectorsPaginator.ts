@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudWatch } from "../CloudWatch";
 import { CloudWatchClient } from "../CloudWatchClient";
 import {
   DescribeAnomalyDetectorsCommand,
@@ -11,7 +10,7 @@ import {
 import { CloudWatchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudWatchClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeAnomalyDetectorsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudWatch,
-  input: DescribeAnomalyDetectorsCommandInput,
-  ...args: any
-): Promise<DescribeAnomalyDetectorsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeAnomalyDetectors(input, ...args);
-};
 export async function* paginateDescribeAnomalyDetectors(
   config: CloudWatchPaginationConfiguration,
   input: DescribeAnomalyDetectorsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeAnomalyDetectors(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CloudWatch) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudWatchClient) {
+    if (config.client instanceof CloudWatchClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudWatch | CloudWatchClient");

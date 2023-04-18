@@ -1,11 +1,15 @@
 import { Client } from "./client";
 
 /**
+ * @public
+ *
  * Expected type definition of a paginator.
  */
 export type Paginator<T> = AsyncGenerator<T, T, unknown>;
 
 /**
+ * @public
+ *
  * Expected paginator configuration passed to an operation. Services will extend
  * this interface definition and may type client further.
  */

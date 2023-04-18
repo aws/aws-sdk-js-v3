@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  GetNamespaceDeletionStatusRequest,
-  GetNamespaceDeletionStatusRequestFilterSensitiveLog,
-  GetNamespaceDeletionStatusResponse,
-  GetNamespaceDeletionStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNamespaceDeletionStatusCommand,
-  serializeAws_json1_1GetNamespaceDeletionStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { GetNamespaceDeletionStatusRequest, GetNamespaceDeletionStatusResponse } from "../models/models_0";
+import { de_GetNamespaceDeletionStatusCommand, se_GetNamespaceDeletionStatusCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetNamespaceDeletionStatusCommand}.
+ */
 export interface GetNamespaceDeletionStatusCommandInput extends GetNamespaceDeletionStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetNamespaceDeletionStatusCommand}.
+ */
 export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDeletionStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets the status of a namespace deletion task.</p>
@@ -38,13 +41,26 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
  * import { IoTThingsGraphClient, GetNamespaceDeletionStatusCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetNamespaceDeletionStatusCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {};
  * const command = new GetNamespaceDeletionStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNamespaceDeletionStatusCommandInput - {@link GetNamespaceDeletionStatusCommandInput}
+ * @returns {@link GetNamespaceDeletionStatusCommandOutput}
  * @see {@link GetNamespaceDeletionStatusCommandInput} for command's `input` shape.
  * @see {@link GetNamespaceDeletionStatusCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class GetNamespaceDeletionStatusCommand extends $Command<
@@ -64,6 +80,9 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNamespaceDeletionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +111,8 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNamespaceDeletionStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNamespaceDeletionStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +122,21 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNamespaceDeletionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNamespaceDeletionStatusCommand(input, context);
+    return se_GetNamespaceDeletionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNamespaceDeletionStatusCommandOutput> {
-    return deserializeAws_json1_1GetNamespaceDeletionStatusCommand(output, context);
+    return de_GetNamespaceDeletionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagServerCertificateRequest, UntagServerCertificateRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryUntagServerCertificateCommand,
-  serializeAws_queryUntagServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { UntagServerCertificateRequest } from "../models/models_1";
+import { de_UntagServerCertificateCommand, se_UntagServerCertificateCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link UntagServerCertificateCommand}.
+ */
 export interface UntagServerCertificateCommandInput extends UntagServerCertificateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UntagServerCertificateCommand}.
+ */
 export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the IAM server certificate.
  *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -40,13 +48,38 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UntagServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UntagServerCertificateRequest
+ *   ServerCertificateName: "STRING_VALUE", // required
+ *   TagKeys: [ // tagKeyListType // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagServerCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagServerCertificateCommandInput - {@link UntagServerCertificateCommandInput}
+ * @returns {@link UntagServerCertificateCommandOutput}
  * @see {@link UntagServerCertificateCommandInput} for command's `input` shape.
  * @see {@link UntagServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class UntagServerCertificateCommand extends $Command<
@@ -66,6 +99,9 @@ export class UntagServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +130,8 @@ export class UntagServerCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagServerCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +141,18 @@ export class UntagServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagServerCertificateCommand(input, context);
+    return se_UntagServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagServerCertificateCommandOutput> {
-    return deserializeAws_queryUntagServerCertificateCommand(output, context);
+    return de_UntagServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

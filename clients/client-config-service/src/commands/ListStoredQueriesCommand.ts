@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  ListStoredQueriesRequest,
-  ListStoredQueriesRequestFilterSensitiveLog,
-  ListStoredQueriesResponse,
-  ListStoredQueriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListStoredQueriesCommand,
-  serializeAws_json1_1ListStoredQueriesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListStoredQueriesRequest, ListStoredQueriesResponse } from "../models/models_0";
+import { de_ListStoredQueriesCommand, se_ListStoredQueriesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListStoredQueriesCommand}.
+ */
 export interface ListStoredQueriesCommandInput extends ListStoredQueriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListStoredQueriesCommand}.
+ */
 export interface ListStoredQueriesCommandOutput extends ListStoredQueriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the stored queries for a single Amazon Web Services account and a single Amazon Web Services Region. The default is 100. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface ListStoredQueriesCommandOutput extends ListStoredQueriesRespons
  * import { ConfigServiceClient, ListStoredQueriesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, ListStoredQueriesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // ListStoredQueriesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListStoredQueriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStoredQueriesCommandInput - {@link ListStoredQueriesCommandInput}
+ * @returns {@link ListStoredQueriesCommandOutput}
  * @see {@link ListStoredQueriesCommandInput} for command's `input` shape.
  * @see {@link ListStoredQueriesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is not valid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *
  *
  */
 export class ListStoredQueriesCommand extends $Command<
@@ -62,6 +82,9 @@ export class ListStoredQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStoredQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class ListStoredQueriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStoredQueriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStoredQueriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class ListStoredQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStoredQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStoredQueriesCommand(input, context);
+    return se_ListStoredQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStoredQueriesCommandOutput> {
-    return deserializeAws_json1_1ListStoredQueriesCommand(output, context);
+    return de_ListStoredQueriesCommand(output, context);
   }
 
   // Start section: command_body_extra

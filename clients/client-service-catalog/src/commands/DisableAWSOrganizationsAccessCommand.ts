@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DisableAWSOrganizationsAccessInput, DisableAWSOrganizationsAccessOutput } from "../models/models_0";
 import {
-  DisableAWSOrganizationsAccessInput,
-  DisableAWSOrganizationsAccessInputFilterSensitiveLog,
-  DisableAWSOrganizationsAccessOutput,
-  DisableAWSOrganizationsAccessOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableAWSOrganizationsAccessCommand,
-  serializeAws_json1_1DisableAWSOrganizationsAccessCommand,
+  de_DisableAWSOrganizationsAccessCommand,
+  se_DisableAWSOrganizationsAccessCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableAWSOrganizationsAccessCommand}.
+ */
 export interface DisableAWSOrganizationsAccessCommandInput extends DisableAWSOrganizationsAccessInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisableAWSOrganizationsAccessCommand}.
+ */
 export interface DisableAWSOrganizationsAccessCommandOutput
   extends DisableAWSOrganizationsAccessOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disable portfolio sharing through the Organizations service. This command will not
  *          delete your current shares, but prevents you from creating new shares throughout your
  *          organization. Current shares are not kept in sync with your organization structure if the structure
@@ -50,13 +56,27 @@ export interface DisableAWSOrganizationsAccessCommandOutput
  * import { ServiceCatalogClient, DisableAWSOrganizationsAccessCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisableAWSOrganizationsAccessCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {};
  * const command = new DisableAWSOrganizationsAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableAWSOrganizationsAccessCommandInput - {@link DisableAWSOrganizationsAccessCommandInput}
+ * @returns {@link DisableAWSOrganizationsAccessCommandOutput}
  * @see {@link DisableAWSOrganizationsAccessCommandInput} for command's `input` shape.
  * @see {@link DisableAWSOrganizationsAccessCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>An attempt was made to modify a resource that is in a state that is not valid.
+ *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DisableAWSOrganizationsAccessCommand extends $Command<
@@ -76,6 +96,9 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableAWSOrganizationsAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +127,8 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableAWSOrganizationsAccessInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableAWSOrganizationsAccessOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,15 +138,21 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableAWSOrganizationsAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableAWSOrganizationsAccessCommand(input, context);
+    return se_DisableAWSOrganizationsAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableAWSOrganizationsAccessCommandOutput> {
-    return deserializeAws_json1_1DisableAWSOrganizationsAccessCommand(output, context);
+    return de_DisableAWSOrganizationsAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

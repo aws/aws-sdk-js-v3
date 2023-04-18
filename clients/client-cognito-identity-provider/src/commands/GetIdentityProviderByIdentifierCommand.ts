@@ -19,23 +19,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
+import { GetIdentityProviderByIdentifierRequest, GetIdentityProviderByIdentifierResponse } from "../models/models_0";
 import {
-  GetIdentityProviderByIdentifierRequest,
-  GetIdentityProviderByIdentifierRequestFilterSensitiveLog,
-  GetIdentityProviderByIdentifierResponse,
-  GetIdentityProviderByIdentifierResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetIdentityProviderByIdentifierCommand,
-  serializeAws_json1_1GetIdentityProviderByIdentifierCommand,
+  de_GetIdentityProviderByIdentifierCommand,
+  se_GetIdentityProviderByIdentifierCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIdentityProviderByIdentifierCommand}.
+ */
 export interface GetIdentityProviderByIdentifierCommandInput extends GetIdentityProviderByIdentifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIdentityProviderByIdentifierCommand}.
+ */
 export interface GetIdentityProviderByIdentifierCommandOutput
   extends GetIdentityProviderByIdentifierResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified IdP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,13 +49,38 @@ export interface GetIdentityProviderByIdentifierCommandOutput
  * import { CognitoIdentityProviderClient, GetIdentityProviderByIdentifierCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetIdentityProviderByIdentifierCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // GetIdentityProviderByIdentifierRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   IdpIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetIdentityProviderByIdentifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityProviderByIdentifierCommandInput - {@link GetIdentityProviderByIdentifierCommandInput}
+ * @returns {@link GetIdentityProviderByIdentifierCommandOutput}
  * @see {@link GetIdentityProviderByIdentifierCommandInput} for command's `input` shape.
  * @see {@link GetIdentityProviderByIdentifierCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class GetIdentityProviderByIdentifierCommand extends $Command<
@@ -69,6 +100,9 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityProviderByIdentifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +132,8 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityProviderByIdentifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityProviderByIdentifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +143,24 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetIdentityProviderByIdentifierCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetIdentityProviderByIdentifierCommand(input, context);
+    return se_GetIdentityProviderByIdentifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityProviderByIdentifierCommandOutput> {
-    return deserializeAws_json1_1GetIdentityProviderByIdentifierCommand(output, context);
+    return de_GetIdentityProviderByIdentifierCommand(output, context);
   }
 
   // Start section: command_body_extra

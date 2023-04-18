@@ -6,12 +6,11 @@ import {
   ListComponentProvisionedResourcesCommandInput,
   ListComponentProvisionedResourcesCommandOutput,
 } from "../commands/ListComponentProvisionedResourcesCommand";
-import { Proton } from "../Proton";
 import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ProtonClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListComponentProvisionedResourcesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Proton,
-  input: ListComponentProvisionedResourcesCommandInput,
-  ...args: any
-): Promise<ListComponentProvisionedResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listComponentProvisionedResources(input, ...args);
-};
 export async function* paginateListComponentProvisionedResources(
   config: ProtonPaginationConfiguration,
   input: ListComponentProvisionedResourcesCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListComponentProvisionedResources(
   let page: ListComponentProvisionedResourcesCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof Proton) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ProtonClient) {
+    if (config.client instanceof ProtonClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Proton | ProtonClient");

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListProtectedResourcesInput,
-  ListProtectedResourcesInputFilterSensitiveLog,
-  ListProtectedResourcesOutput,
-  ListProtectedResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProtectedResourcesCommand,
-  serializeAws_restJson1ListProtectedResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProtectedResourcesInput, ListProtectedResourcesOutput } from "../models/models_0";
+import { de_ListProtectedResourcesCommand, se_ListProtectedResourcesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListProtectedResourcesCommand}.
+ */
 export interface ListProtectedResourcesCommandInput extends ListProtectedResourcesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListProtectedResourcesCommand}.
+ */
 export interface ListProtectedResourcesCommandOutput extends ListProtectedResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of resources successfully backed up by Backup, including
  *          the time the resource was saved, an Amazon Resource Name (ARN) of the resource, and a
  *          resource type.</p>
@@ -38,13 +41,27 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  * import { BackupClient, ListProtectedResourcesCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListProtectedResourcesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListProtectedResourcesInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListProtectedResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProtectedResourcesCommandInput - {@link ListProtectedResourcesCommandInput}
+ * @returns {@link ListProtectedResourcesCommandOutput}
  * @see {@link ListProtectedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListProtectedResourcesCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class ListProtectedResourcesCommand extends $Command<
@@ -64,6 +81,9 @@ export class ListProtectedResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProtectedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +112,8 @@ export class ListProtectedResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProtectedResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProtectedResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +123,18 @@ export class ListProtectedResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProtectedResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProtectedResourcesCommand(input, context);
+    return se_ListProtectedResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectedResourcesCommandOutput> {
-    return deserializeAws_restJson1ListProtectedResourcesCommand(output, context);
+    return de_ListProtectedResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

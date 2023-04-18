@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeVocabularyRequest,
-  DescribeVocabularyRequestFilterSensitiveLog,
-  DescribeVocabularyResponse,
-  DescribeVocabularyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeVocabularyCommand,
-  serializeAws_restJson1DescribeVocabularyCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeVocabularyRequest, DescribeVocabularyResponse } from "../models/models_0";
+import { de_DescribeVocabularyCommand, se_DescribeVocabularyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVocabularyCommand}.
+ */
 export interface DescribeVocabularyCommandInput extends DescribeVocabularyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVocabularyCommand}.
+ */
 export interface DescribeVocabularyCommandOutput extends DescribeVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified vocabulary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DescribeVocabularyCommandOutput extends DescribeVocabularyRespo
  * import { ConnectClient, DescribeVocabularyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeVocabularyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeVocabularyRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   VocabularyId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeVocabularyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVocabularyCommandInput - {@link DescribeVocabularyCommandInput}
+ * @returns {@link DescribeVocabularyCommandOutput}
  * @see {@link DescribeVocabularyCommandInput} for command's `input` shape.
  * @see {@link DescribeVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class DescribeVocabularyCommand extends $Command<
@@ -62,6 +87,9 @@ export class DescribeVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class DescribeVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVocabularyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class DescribeVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVocabularyCommand(input, context);
+    return se_DescribeVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVocabularyCommandOutput> {
-    return deserializeAws_restJson1DescribeVocabularyCommand(output, context);
+    return de_DescribeVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

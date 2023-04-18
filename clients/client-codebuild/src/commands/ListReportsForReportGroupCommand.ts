@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  ListReportsForReportGroupInput,
-  ListReportsForReportGroupInputFilterSensitiveLog,
-  ListReportsForReportGroupOutput,
-  ListReportsForReportGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListReportsForReportGroupCommand,
-  serializeAws_json1_1ListReportsForReportGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { ListReportsForReportGroupInput, ListReportsForReportGroupOutput } from "../models/models_0";
+import { de_ListReportsForReportGroupCommand, se_ListReportsForReportGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListReportsForReportGroupCommand}.
+ */
 export interface ListReportsForReportGroupCommandInput extends ListReportsForReportGroupInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListReportsForReportGroupCommand}.
+ */
 export interface ListReportsForReportGroupCommandOutput extends ListReportsForReportGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.
  *     </p>
@@ -38,13 +41,31 @@ export interface ListReportsForReportGroupCommandOutput extends ListReportsForRe
  * import { CodeBuildClient, ListReportsForReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListReportsForReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // ListReportsForReportGroupInput
+ *   reportGroupArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   sortOrder: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: { // ReportFilter
+ *     status: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListReportsForReportGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReportsForReportGroupCommandInput - {@link ListReportsForReportGroupCommandInput}
+ * @returns {@link ListReportsForReportGroupCommandOutput}
  * @see {@link ListReportsForReportGroupCommandInput} for command's `input` shape.
  * @see {@link ListReportsForReportGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
  *
  */
 export class ListReportsForReportGroupCommand extends $Command<
@@ -64,6 +85,9 @@ export class ListReportsForReportGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReportsForReportGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +116,8 @@ export class ListReportsForReportGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReportsForReportGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReportsForReportGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +127,21 @@ export class ListReportsForReportGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReportsForReportGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReportsForReportGroupCommand(input, context);
+    return se_ListReportsForReportGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReportsForReportGroupCommandOutput> {
-    return deserializeAws_json1_1ListReportsForReportGroupCommand(output, context);
+    return de_ListReportsForReportGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

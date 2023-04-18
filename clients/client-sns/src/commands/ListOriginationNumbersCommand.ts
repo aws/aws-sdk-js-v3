@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOriginationNumbersRequest,
-  ListOriginationNumbersRequestFilterSensitiveLog,
-  ListOriginationNumbersResult,
-  ListOriginationNumbersResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListOriginationNumbersCommand,
-  serializeAws_queryListOriginationNumbersCommand,
-} from "../protocols/Aws_query";
+import { ListOriginationNumbersRequest, ListOriginationNumbersResult } from "../models/models_0";
+import { de_ListOriginationNumbersCommand, se_ListOriginationNumbersCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListOriginationNumbersCommand}.
+ */
 export interface ListOriginationNumbersCommandInput extends ListOriginationNumbersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListOriginationNumbersCommand}.
+ */
 export interface ListOriginationNumbersCommandOutput extends ListOriginationNumbersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the calling Amazon Web Services account's dedicated origination numbers and their metadata.
  *             For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer
  *             Guide</i>.</p>
@@ -38,13 +41,36 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  * import { SNSClient, ListOriginationNumbersCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListOriginationNumbersCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // ListOriginationNumbersRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListOriginationNumbersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOriginationNumbersCommandInput - {@link ListOriginationNumbersCommandInput}
+ * @returns {@link ListOriginationNumbersCommandOutput}
  * @see {@link ListOriginationNumbersCommandInput} for command's `input` shape.
  * @see {@link ListOriginationNumbersCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a parameter in the request is invalid.</p>
+ *
  *
  */
 export class ListOriginationNumbersCommand extends $Command<
@@ -64,6 +90,9 @@ export class ListOriginationNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOriginationNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class ListOriginationNumbersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOriginationNumbersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOriginationNumbersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +132,18 @@ export class ListOriginationNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOriginationNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListOriginationNumbersCommand(input, context);
+    return se_ListOriginationNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOriginationNumbersCommandOutput> {
-    return deserializeAws_queryListOriginationNumbersCommand(output, context);
+    return de_ListOriginationNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

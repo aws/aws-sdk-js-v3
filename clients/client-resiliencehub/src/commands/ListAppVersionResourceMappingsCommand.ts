@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListAppVersionResourceMappingsRequest, ListAppVersionResourceMappingsResponse } from "../models/models_0";
 import {
-  ListAppVersionResourceMappingsRequest,
-  ListAppVersionResourceMappingsRequestFilterSensitiveLog,
-  ListAppVersionResourceMappingsResponse,
-  ListAppVersionResourceMappingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppVersionResourceMappingsCommand,
-  serializeAws_restJson1ListAppVersionResourceMappingsCommand,
+  de_ListAppVersionResourceMappingsCommand,
+  se_ListAppVersionResourceMappingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAppVersionResourceMappingsCommand}.
+ */
 export interface ListAppVersionResourceMappingsCommandInput extends ListAppVersionResourceMappingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAppVersionResourceMappingsCommand}.
+ */
 export interface ListAppVersionResourceMappingsCommandOutput
   extends ListAppVersionResourceMappingsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists how the resources in an application version are mapped/sourced from. Mappings can be
  *       physical resource identifiers, CloudFormation stacks, resource-groups, or an application registry
  *       app.</p>
@@ -40,13 +46,40 @@ export interface ListAppVersionResourceMappingsCommandOutput
  * import { ResiliencehubClient, ListAppVersionResourceMappingsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppVersionResourceMappingsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListAppVersionResourceMappingsRequest
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAppVersionResourceMappingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppVersionResourceMappingsCommandInput - {@link ListAppVersionResourceMappingsCommandInput}
+ * @returns {@link ListAppVersionResourceMappingsCommandOutput}
  * @see {@link ListAppVersionResourceMappingsCommandInput} for command's `input` shape.
  * @see {@link ListAppVersionResourceMappingsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation. The user or role that is
+ *       making the request must have at least one IAM permissions policy attached that grants the
+ *       required permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
+ *       service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception occurs when the specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>This exception occurs when a request is not valid.</p>
+ *
  *
  */
 export class ListAppVersionResourceMappingsCommand extends $Command<
@@ -66,6 +99,9 @@ export class ListAppVersionResourceMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppVersionResourceMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +130,8 @@ export class ListAppVersionResourceMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppVersionResourceMappingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppVersionResourceMappingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +141,24 @@ export class ListAppVersionResourceMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAppVersionResourceMappingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppVersionResourceMappingsCommand(input, context);
+    return se_ListAppVersionResourceMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAppVersionResourceMappingsCommandOutput> {
-    return deserializeAws_restJson1ListAppVersionResourceMappingsCommand(output, context);
+    return de_ListAppVersionResourceMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

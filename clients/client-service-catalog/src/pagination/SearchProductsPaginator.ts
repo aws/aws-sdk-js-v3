@@ -6,12 +6,11 @@ import {
   SearchProductsCommandInput,
   SearchProductsCommandOutput,
 } from "../commands/SearchProductsCommand";
-import { ServiceCatalog } from "../ServiceCatalog";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceCatalogClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new SearchProductsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ServiceCatalog,
-  input: SearchProductsCommandInput,
-  ...args: any
-): Promise<SearchProductsCommandOutput> => {
-  // @ts-ignore
-  return await client.searchProducts(input, ...args);
-};
 export async function* paginateSearchProducts(
   config: ServiceCatalogPaginationConfiguration,
   input: SearchProductsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateSearchProducts(
   while (hasNext) {
     input.PageToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof ServiceCatalog) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceCatalogClient) {
+    if (config.client instanceof ServiceCatalogClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceCatalog | ServiceCatalogClient");

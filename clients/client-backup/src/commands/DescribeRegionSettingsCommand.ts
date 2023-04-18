@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  DescribeRegionSettingsInput,
-  DescribeRegionSettingsInputFilterSensitiveLog,
-  DescribeRegionSettingsOutput,
-  DescribeRegionSettingsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRegionSettingsCommand,
-  serializeAws_restJson1DescribeRegionSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRegionSettingsInput, DescribeRegionSettingsOutput } from "../models/models_0";
+import { de_DescribeRegionSettingsCommand, se_DescribeRegionSettingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeRegionSettingsCommand}.
+ */
 export interface DescribeRegionSettingsCommandInput extends DescribeRegionSettingsInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRegionSettingsCommand}.
+ */
 export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current service opt-in settings for the Region. If service opt-in is enabled
  *          for a service, Backup tries to protect that service's resources in this Region,
  *          when the resource is included in an on-demand backup or scheduled backup plan. Otherwise,
@@ -40,13 +43,20 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * import { BackupClient, DescribeRegionSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeRegionSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {};
  * const command = new DescribeRegionSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRegionSettingsCommandInput - {@link DescribeRegionSettingsCommandInput}
+ * @returns {@link DescribeRegionSettingsCommandOutput}
  * @see {@link DescribeRegionSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeRegionSettingsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class DescribeRegionSettingsCommand extends $Command<
@@ -66,6 +76,9 @@ export class DescribeRegionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRegionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +107,8 @@ export class DescribeRegionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRegionSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRegionSettingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +118,18 @@ export class DescribeRegionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRegionSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRegionSettingsCommand(input, context);
+    return se_DescribeRegionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegionSettingsCommandOutput> {
-    return deserializeAws_restJson1DescribeRegionSettingsCommand(output, context);
+    return de_DescribeRegionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

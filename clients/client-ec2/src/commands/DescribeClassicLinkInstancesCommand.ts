@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeClassicLinkInstancesRequest,
-  DescribeClassicLinkInstancesRequestFilterSensitiveLog,
-  DescribeClassicLinkInstancesResult,
-  DescribeClassicLinkInstancesResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeClassicLinkInstancesCommand,
-  serializeAws_ec2DescribeClassicLinkInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeClassicLinkInstancesRequest, DescribeClassicLinkInstancesResult } from "../models/models_3";
+import { de_DescribeClassicLinkInstancesCommand, se_DescribeClassicLinkInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeClassicLinkInstancesCommand}.
+ */
 export interface DescribeClassicLinkInstancesCommandInput extends DescribeClassicLinkInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeClassicLinkInstancesCommand}.
+ */
 export interface DescribeClassicLinkInstancesCommandOutput
   extends DescribeClassicLinkInstancesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your linked EC2-Classic instances. This request only returns
  * 			information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
  * 			use this request to return information about other instances.</p>
@@ -43,13 +46,32 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * import { EC2Client, DescribeClassicLinkInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeClassicLinkInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeClassicLinkInstancesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   InstanceIds: [ // InstanceIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeClassicLinkInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClassicLinkInstancesCommandInput - {@link DescribeClassicLinkInstancesCommandInput}
+ * @returns {@link DescribeClassicLinkInstancesCommandOutput}
  * @see {@link DescribeClassicLinkInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeClassicLinkInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeClassicLinkInstancesCommand extends $Command<
@@ -69,6 +91,9 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClassicLinkInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +122,8 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClassicLinkInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClassicLinkInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +133,21 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClassicLinkInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeClassicLinkInstancesCommand(input, context);
+    return se_DescribeClassicLinkInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClassicLinkInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeClassicLinkInstancesCommand(output, context);
+    return de_DescribeClassicLinkInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

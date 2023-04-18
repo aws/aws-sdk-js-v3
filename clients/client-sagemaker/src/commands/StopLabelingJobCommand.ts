@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopLabelingJobRequest, StopLabelingJobRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopLabelingJobCommand,
-  serializeAws_json1_1StopLabelingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopLabelingJobRequest } from "../models/models_3";
+import { de_StopLabelingJobCommand, se_StopLabelingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link StopLabelingJobCommand}.
+ */
 export interface StopLabelingJobCommandInput extends StopLabelingJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopLabelingJobCommand}.
+ */
 export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results
  *             obtained before the job is stopped are placed in the Amazon S3 output bucket.</p>
  * @example
@@ -32,13 +40,22 @@ export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopLabelingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopLabelingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopLabelingJobRequest
+ *   LabelingJobName: "STRING_VALUE", // required
+ * };
  * const command = new StopLabelingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopLabelingJobCommandInput - {@link StopLabelingJobCommandInput}
+ * @returns {@link StopLabelingJobCommandOutput}
  * @see {@link StopLabelingJobCommandInput} for command's `input` shape.
  * @see {@link StopLabelingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class StopLabelingJobCommand extends $Command<
@@ -58,6 +75,9 @@ export class StopLabelingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopLabelingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +106,8 @@ export class StopLabelingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopLabelingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +117,18 @@ export class StopLabelingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopLabelingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopLabelingJobCommand(input, context);
+    return se_StopLabelingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopLabelingJobCommandOutput> {
-    return deserializeAws_json1_1StopLabelingJobCommand(output, context);
+    return de_StopLabelingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

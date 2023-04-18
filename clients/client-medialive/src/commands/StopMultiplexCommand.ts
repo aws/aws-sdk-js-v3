@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  StopMultiplexRequest,
-  StopMultiplexRequestFilterSensitiveLog,
-  StopMultiplexResponse,
-  StopMultiplexResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1StopMultiplexCommand,
-  serializeAws_restJson1StopMultiplexCommand,
-} from "../protocols/Aws_restJson1";
+import { StopMultiplexRequest, StopMultiplexResponse } from "../models/models_2";
+import { de_StopMultiplexCommand, se_StopMultiplexCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopMultiplexCommand}.
+ */
 export interface StopMultiplexCommandInput extends StopMultiplexRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopMultiplexCommand}.
+ */
 export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Stops a running multiplex. If the multiplex isn't running, this action has no effect.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __Met
  * import { MediaLiveClient, StopMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StopMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // StopMultiplexRequest
+ *   MultiplexId: "STRING_VALUE", // required
+ * };
  * const command = new StopMultiplexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopMultiplexCommandInput - {@link StopMultiplexCommandInput}
+ * @returns {@link StopMultiplexCommandOutput}
  * @see {@link StopMultiplexCommandInput} for command's `input` shape.
  * @see {@link StopMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Placeholder documentation for ConflictException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class StopMultiplexCommand extends $Command<
@@ -62,6 +95,9 @@ export class StopMultiplexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopMultiplexCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +124,8 @@ export class StopMultiplexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMultiplexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopMultiplexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +135,18 @@ export class StopMultiplexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopMultiplexCommand(input, context);
+    return se_StopMultiplexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMultiplexCommandOutput> {
-    return deserializeAws_restJson1StopMultiplexCommand(output, context);
+    return de_StopMultiplexCommand(output, context);
   }
 
   // Start section: command_body_extra

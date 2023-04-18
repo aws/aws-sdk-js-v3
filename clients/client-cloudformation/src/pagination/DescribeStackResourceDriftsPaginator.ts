@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudFormation } from "../CloudFormation";
 import { CloudFormationClient } from "../CloudFormationClient";
 import {
   DescribeStackResourceDriftsCommand,
@@ -11,7 +10,7 @@ import {
 import { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudFormationClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeStackResourceDriftsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudFormation,
-  input: DescribeStackResourceDriftsCommandInput,
-  ...args: any
-): Promise<DescribeStackResourceDriftsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeStackResourceDrifts(input, ...args);
-};
 export async function* paginateDescribeStackResourceDrifts(
   config: CloudFormationPaginationConfiguration,
   input: DescribeStackResourceDriftsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeStackResourceDrifts(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CloudFormation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudFormationClient) {
+    if (config.client instanceof CloudFormationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");

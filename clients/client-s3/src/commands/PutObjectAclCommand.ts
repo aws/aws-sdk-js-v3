@@ -14,39 +14,43 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutObjectAclOutput,
-  PutObjectAclOutputFilterSensitiveLog,
-  PutObjectAclRequest,
-  PutObjectAclRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutObjectAclCommand,
-  serializeAws_restXmlPutObjectAclCommand,
-} from "../protocols/Aws_restXml";
+import { PutObjectAclOutput, PutObjectAclRequest } from "../models/models_0";
+import { de_PutObjectAclCommand, se_PutObjectAclCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link PutObjectAclCommand}.
+ */
 export interface PutObjectAclCommandInput extends PutObjectAclRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutObjectAclCommand}.
+ */
 export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions
  *          for a new or existing object in an S3 bucket. You must have <code>WRITE_ACP</code>
  *          permission to set the ACL of an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#permissions">What
  *             permissions can I grant?</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
- *          <p>Depending on your application needs, you can choose to set
- *          the ACL on an object using either the request body or the headers. For example, if you have
- *          an existing application that updates a bucket ACL using the request body, you can continue
- *          to use that approach. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>Depending on your application needs, you can choose to set the ACL on an object using
+ *          either the request body or the headers. For example, if you have an existing application
+ *          that updates a bucket ACL using the request body, you can continue to use that approach.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>
+ *          in the <i>Amazon S3 User Guide</i>.</p>
  *          <important>
- *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled and no longer affect permissions.
- *             You must use policies to grant access to your bucket and the objects in it. Requests to set ACLs or update ACLs fail and
- *             return the <code>AccessControlListNotSupported</code> error code. Requests to read ACLs are still supported.
- *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object ownership</a>
- *             in the <i>Amazon S3 User Guide</i>.</p>
+ *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs
+ *             are disabled and no longer affect permissions. You must use policies to grant access to
+ *             your bucket and the objects in it. Requests to set ACLs or update ACLs fail and return
+ *             the <code>AccessControlListNotSupported</code> error code. Requests to read ACLs are
+ *             still supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object
+ *                ownership</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          </important>
- *
  *          <p>
  *             <b>Access Permissions</b>
  *          </p>
@@ -57,7 +61,8 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                a set of predefined ACLs, known as canned ACLs. Each canned ACL has a predefined set
  *                of grantees and permissions. Specify the canned ACL name as the value of
  *                   <code>x-amz-ac</code>l. If you use this header, you cannot use other access
- *                control-specific headers in your request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
+ *                control-specific headers in your request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
+ *                   ACL</a>.</p>
  *             </li>
  *             <li>
  *                <p>Specify access permissions explicitly with the <code>x-amz-grant-read</code>,
@@ -66,15 +71,15 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                specify explicit access permissions and grantees (Amazon Web Services accounts or Amazon S3 groups) who
  *                will receive the permission. If you use these ACL-specific headers, you cannot use
  *                   <code>x-amz-acl</code> header to set a canned ACL. These parameters map to the set
- *                of permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL)
- *                Overview</a>.</p>
- *
+ *                of permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control
+ *                   List (ACL) Overview</a>.</p>
  *                <p>You specify each grantee as a type=value pair, where the type is one of the
  *                following:</p>
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <code>id</code> – if the value specified is the canonical user ID of an Amazon Web Services account</p>
+ *                         <code>id</code> – if the value specified is the canonical user ID of an
+ *                      Amazon Web Services account</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -124,7 +129,6 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                   <code>x-amz-grant-read: emailAddress="xyz@amazon.com",
  *                   emailAddress="abc@amazon.com" </code>
  *                </p>
- *
  *             </li>
  *          </ul>
  *          <p>You can use either a canned ACL or specify access permissions explicitly. You cannot do
@@ -218,13 +222,67 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * import { S3Client, PutObjectAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutObjectAclRequest
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *   AccessControlPolicy: { // AccessControlPolicy
+ *     Grants: [ // Grants
+ *       { // Grant
+ *         Grantee: { // Grantee
+ *           DisplayName: "STRING_VALUE",
+ *           EmailAddress: "STRING_VALUE",
+ *           ID: "STRING_VALUE",
+ *           URI: "STRING_VALUE",
+ *           Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *         },
+ *         Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *       },
+ *     ],
+ *     Owner: { // Owner
+ *       DisplayName: "STRING_VALUE",
+ *       ID: "STRING_VALUE",
+ *     },
+ *   },
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWrite: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   Key: "STRING_VALUE", // required
+ *   RequestPayer: "requester",
+ *   VersionId: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutObjectAclCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectAclCommandInput - {@link PutObjectAclCommandInput}
+ * @returns {@link PutObjectAclCommandOutput}
  * @see {@link PutObjectAclCommandInput} for command's `input` shape.
  * @see {@link PutObjectAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ * @throws {@link NoSuchKey} (client fault)
+ *  <p>The specified key does not exist.</p>
+ *
+ *
+ * @example To grant permissions using object ACL
+ * ```javascript
+ * // The following example adds grants to an object ACL. The first permission grants user1 and user2 FULL_CONTROL and the AllUsers group READ permission.
+ * const input = {
+ *   "AccessControlPolicy": {},
+ *   "Bucket": "examplebucket",
+ *   "GrantFullControl": "emailaddress=user1@example.com,emailaddress=user2@example.com",
+ *   "GrantRead": "uri=http://acs.amazonaws.com/groups/global/AllUsers",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new PutObjectAclCommand(input);
+ * await client.send(command);
+ * // example id: to-grant-permissions-using-object-acl-1481835549285
+ * ```
  *
  */
 export class PutObjectAclCommand extends $Command<
@@ -250,6 +308,9 @@ export class PutObjectAclCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -283,8 +344,8 @@ export class PutObjectAclCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutObjectAclRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectAclOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -294,12 +355,18 @@ export class PutObjectAclCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutObjectAclCommand(input, context);
+    return se_PutObjectAclCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectAclCommandOutput> {
-    return deserializeAws_restXmlPutObjectAclCommand(output, context);
+    return de_PutObjectAclCommand(output, context);
   }
 
   // Start section: command_body_extra

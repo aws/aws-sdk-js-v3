@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeMatchmakingInput,
-  DescribeMatchmakingInputFilterSensitiveLog,
-  DescribeMatchmakingOutput,
-  DescribeMatchmakingOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMatchmakingCommand,
-  serializeAws_json1_1DescribeMatchmakingCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeMatchmakingInput, DescribeMatchmakingOutput } from "../models/models_0";
+import { de_DescribeMatchmakingCommand, se_DescribeMatchmakingCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMatchmakingCommand}.
+ */
 export interface DescribeMatchmakingCommandInput extends DescribeMatchmakingInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMatchmakingCommand}.
+ */
 export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket
  *             information, including--after a successful match is made--connection information for the
  *             resulting new game session. </p>
@@ -57,13 +60,32 @@ export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOut
  * import { GameLiftClient, DescribeMatchmakingCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeMatchmakingCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeMatchmakingInput
+ *   TicketIds: [ // MatchmakingIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeMatchmakingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMatchmakingCommandInput - {@link DescribeMatchmakingCommandInput}
+ * @returns {@link DescribeMatchmakingCommandOutput}
  * @see {@link DescribeMatchmakingCommandInput} for command's `input` shape.
  * @see {@link DescribeMatchmakingCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  *
  */
 export class DescribeMatchmakingCommand extends $Command<
@@ -83,6 +105,9 @@ export class DescribeMatchmakingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMatchmakingCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +136,8 @@ export class DescribeMatchmakingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMatchmakingInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMatchmakingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +147,18 @@ export class DescribeMatchmakingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMatchmakingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMatchmakingCommand(input, context);
+    return se_DescribeMatchmakingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMatchmakingCommandOutput> {
-    return deserializeAws_json1_1DescribeMatchmakingCommand(output, context);
+    return de_DescribeMatchmakingCommand(output, context);
   }
 
   // Start section: command_body_extra

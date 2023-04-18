@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRoutingControlStateRequest,
-  UpdateRoutingControlStateRequestFilterSensitiveLog,
-  UpdateRoutingControlStateResponse,
-  UpdateRoutingControlStateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateRoutingControlStateCommand,
-  serializeAws_json1_0UpdateRoutingControlStateCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateRoutingControlStateRequest, UpdateRoutingControlStateResponse } from "../models/models_0";
+import { de_UpdateRoutingControlStateCommand, se_UpdateRoutingControlStateCommand } from "../protocols/Aws_json1_0";
 import {
   Route53RecoveryClusterClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryClusterClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateRoutingControlStateCommand}.
+ */
 export interface UpdateRoutingControlStateCommandInput extends UpdateRoutingControlStateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateRoutingControlStateCommand}.
+ */
 export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingControlStateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Set the state of the routing control to reroute traffic. You can set the value to be On or
  * 			Off. When the state is On, traffic flows to a cell. When the state is Off, traffic does not
  * 			flow.</p>
@@ -73,13 +76,44 @@ export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingCon
  * import { Route53RecoveryClusterClient, UpdateRoutingControlStateCommand } from "@aws-sdk/client-route53-recovery-cluster"; // ES Modules import
  * // const { Route53RecoveryClusterClient, UpdateRoutingControlStateCommand } = require("@aws-sdk/client-route53-recovery-cluster"); // CommonJS import
  * const client = new Route53RecoveryClusterClient(config);
+ * const input = { // UpdateRoutingControlStateRequest
+ *   RoutingControlArn: "STRING_VALUE", // required
+ *   RoutingControlState: "STRING_VALUE", // required
+ *   SafetyRulesToOverride: [ // Arns
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateRoutingControlStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingControlStateCommandInput - {@link UpdateRoutingControlStateCommandInput}
+ * @returns {@link UpdateRoutingControlStateCommandOutput}
  * @see {@link UpdateRoutingControlStateCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingControlStateCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict with this request. Try again.</p>
+ *
+ * @throws {@link EndpointTemporarilyUnavailableException} (server fault)
+ *  <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an unexpected error during processing of the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a routing control or control panel that was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was a validation error on the request.</p>
+ *
  *
  */
 export class UpdateRoutingControlStateCommand extends $Command<
@@ -99,6 +133,9 @@ export class UpdateRoutingControlStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingControlStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +164,8 @@ export class UpdateRoutingControlStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoutingControlStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRoutingControlStateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +175,21 @@ export class UpdateRoutingControlStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoutingControlStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateRoutingControlStateCommand(input, context);
+    return se_UpdateRoutingControlStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRoutingControlStateCommandOutput> {
-    return deserializeAws_json1_0UpdateRoutingControlStateCommand(output, context);
+    return de_UpdateRoutingControlStateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteRouteSettingsRequest, DeleteRouteSettingsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRouteSettingsCommand,
-  serializeAws_restJson1DeleteRouteSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRouteSettingsRequest } from "../models/models_0";
+import { de_DeleteRouteSettingsCommand, se_DeleteRouteSettingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRouteSettingsCommand}.
+ */
 export interface DeleteRouteSettingsCommandInput extends DeleteRouteSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRouteSettingsCommand}.
+ */
 export interface DeleteRouteSettingsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the RouteSettings for a stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,27 @@ export interface DeleteRouteSettingsCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteRouteSettingsCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteRouteSettingsCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // DeleteRouteSettingsRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   RouteKey: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRouteSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRouteSettingsCommandInput - {@link DeleteRouteSettingsCommandInput}
+ * @returns {@link DeleteRouteSettingsCommandOutput}
  * @see {@link DeleteRouteSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteSettingsCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class DeleteRouteSettingsCommand extends $Command<
@@ -57,6 +79,9 @@ export class DeleteRouteSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRouteSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +110,8 @@ export class DeleteRouteSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRouteSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +121,18 @@ export class DeleteRouteSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRouteSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRouteSettingsCommand(input, context);
+    return se_DeleteRouteSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteSettingsCommandOutput> {
-    return deserializeAws_restJson1DeleteRouteSettingsCommand(output, context);
+    return de_DeleteRouteSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

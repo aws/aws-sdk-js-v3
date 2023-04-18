@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFiltersRequest,
-  ListFiltersRequestFilterSensitiveLog,
-  ListFiltersResponse,
-  ListFiltersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListFiltersRequest, ListFiltersResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListFiltersCommand,
-  serializeAws_json1_1ListFiltersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListFiltersCommand, se_ListFiltersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFiltersCommand}.
+ */
 export interface ListFiltersCommandInput extends ListFiltersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFiltersCommand}.
+ */
 export interface ListFiltersCommandOutput extends ListFiltersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all filters that belong to a given dataset group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * import { PersonalizeClient, ListFiltersCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListFiltersCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListFiltersRequest
+ *   datasetGroupArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListFiltersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFiltersCommandInput - {@link ListFiltersCommandInput}
+ * @returns {@link ListFiltersCommandOutput}
  * @see {@link ListFiltersCommandInput} for command's `input` shape.
  * @see {@link ListFiltersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid.</p>
+ *
  *
  */
 export class ListFiltersCommand extends $Command<
@@ -62,6 +79,9 @@ export class ListFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +108,8 @@ export class ListFiltersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFiltersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFiltersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +119,18 @@ export class ListFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFiltersCommand(input, context);
+    return se_ListFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFiltersCommandOutput> {
-    return deserializeAws_json1_1ListFiltersCommand(output, context);
+    return de_ListFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

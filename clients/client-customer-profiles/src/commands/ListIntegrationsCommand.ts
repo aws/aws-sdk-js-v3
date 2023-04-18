@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  ListIntegrationsRequest,
-  ListIntegrationsRequestFilterSensitiveLog,
-  ListIntegrationsResponse,
-  ListIntegrationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIntegrationsCommand,
-  serializeAws_restJson1ListIntegrationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListIntegrationsRequest, ListIntegrationsResponse } from "../models/models_0";
+import { de_ListIntegrationsCommand, se_ListIntegrationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListIntegrationsCommand}.
+ */
 export interface ListIntegrationsCommandInput extends ListIntegrationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListIntegrationsCommand}.
+ */
 export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the integrations in your domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse,
  * import { CustomerProfilesClient, ListIntegrationsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListIntegrationsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // ListIntegrationsRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   IncludeHidden: true || false,
+ * };
  * const command = new ListIntegrationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIntegrationsCommandInput - {@link ListIntegrationsCommandInput}
+ * @returns {@link ListIntegrationsCommandOutput}
  * @see {@link ListIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListIntegrationsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the maximum number of requests.</p>
+ *
  *
  */
 export class ListIntegrationsCommand extends $Command<
@@ -62,6 +89,9 @@ export class ListIntegrationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIntegrationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class ListIntegrationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIntegrationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIntegrationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class ListIntegrationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIntegrationsCommand(input, context);
+    return se_ListIntegrationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIntegrationsCommandOutput> {
-    return deserializeAws_restJson1ListIntegrationsCommand(output, context);
+    return de_ListIntegrationsCommand(output, context);
   }
 
   // Start section: command_body_extra

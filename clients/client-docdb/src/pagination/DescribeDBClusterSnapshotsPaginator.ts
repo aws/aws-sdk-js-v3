@@ -6,12 +6,11 @@ import {
   DescribeDBClusterSnapshotsCommandInput,
   DescribeDBClusterSnapshotsCommandOutput,
 } from "../commands/DescribeDBClusterSnapshotsCommand";
-import { DocDB } from "../DocDB";
 import { DocDBClient } from "../DocDBClient";
 import { DocDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DocDBClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeDBClusterSnapshotsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DocDB,
-  input: DescribeDBClusterSnapshotsCommandInput,
-  ...args: any
-): Promise<DescribeDBClusterSnapshotsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeDBClusterSnapshots(input, ...args);
-};
 export async function* paginateDescribeDBClusterSnapshots(
   config: DocDBPaginationConfiguration,
   input: DescribeDBClusterSnapshotsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeDBClusterSnapshots(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DocDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DocDBClient) {
+    if (config.client instanceof DocDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DocDB | DocDBClient");

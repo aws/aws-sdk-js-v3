@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSessionTokenRequest,
-  GetSessionTokenRequestFilterSensitiveLog,
-  GetSessionTokenResponse,
-  GetSessionTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetSessionTokenCommand,
-  serializeAws_queryGetSessionTokenCommand,
-} from "../protocols/Aws_query";
+import { GetSessionTokenRequest, GetSessionTokenResponse } from "../models/models_0";
+import { de_GetSessionTokenCommand, se_GetSessionTokenCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetSessionTokenCommand}.
+ */
 export interface GetSessionTokenCommandInput extends GetSessionTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetSessionTokenCommand}.
+ */
 export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary credentials for an Amazon Web Services account or IAM user. The
  *          credentials consist of an access key ID, a secret access key, and a security token.
  *          Typically, you use <code>GetSessionToken</code> if you want to use MFA to protect
@@ -95,13 +98,51 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  * import { STSClient, GetSessionTokenCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetSessionTokenCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = { // GetSessionTokenRequest
+ *   DurationSeconds: Number("int"),
+ *   SerialNumber: "STRING_VALUE",
+ *   TokenCode: "STRING_VALUE",
+ * };
  * const command = new GetSessionTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionTokenCommandInput - {@link GetSessionTokenCommandInput}
+ * @returns {@link GetSessionTokenCommandOutput}
  * @see {@link GetSessionTokenCommandInput} for command's `input` shape.
  * @see {@link GetSessionTokenCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
+ *
+ * @throws {@link RegionDisabledException} (client fault)
+ *  <p>STS is not activated in the requested region for the account that is being asked to
+ *             generate credentials. The account administrator must use the IAM console to activate STS
+ *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
+ *                     Guide</i>.</p>
+ *
+ *
+ * @example To get temporary credentials for an IAM user or an AWS account
+ * ```javascript
+ * //
+ * const input = {
+ *   "DurationSeconds": 3600,
+ *   "SerialNumber": "YourMFASerialNumber",
+ *   "TokenCode": "123456"
+ * };
+ * const command = new GetSessionTokenCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Credentials": {
+ *     "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+ *     "Expiration": "2011-07-11T19:55:29.611Z",
+ *     "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
+ *     "SessionToken": "AQoEXAMPLEH4aoAH0gNCAPyJxz4BlCFFxWNE1OPTgk5TthT+FvwqnKwRcOIfrRh3c/LTo6UDdyJwOOvEVPvLXCrrrUtdnniCEXAMPLE/IvU1dYUg2RVAJBanLiHb4IgRmpRV3zrkuWJOgQs8IZZaIv2BXIa2R4OlgkBN9bkUDNCJiBeb/AXlzBBko7b15fjrBs2+cTQtpZ3CYWFXG8C5zqx37wnOE49mRl/+OtkIKGO7fAE"
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-temporary-credentials-for-an-iam-user-or-an-aws-account-1480540814038
+ * ```
  *
  */
 export class GetSessionTokenCommand extends $Command<
@@ -122,6 +163,9 @@ export class GetSessionTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,8 +195,8 @@ export class GetSessionTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSessionTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,12 +206,18 @@ export class GetSessionTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSessionTokenCommand(input, context);
+    return se_GetSessionTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionTokenCommandOutput> {
-    return deserializeAws_queryGetSessionTokenCommand(output, context);
+    return de_GetSessionTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  GetDeploymentInstanceInput,
-  GetDeploymentInstanceInputFilterSensitiveLog,
-  GetDeploymentInstanceOutput,
-  GetDeploymentInstanceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDeploymentInstanceCommand,
-  serializeAws_json1_1GetDeploymentInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDeploymentInstanceInput, GetDeploymentInstanceOutput } from "../models/models_0";
+import { de_GetDeploymentInstanceCommand, se_GetDeploymentInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetDeploymentInstanceCommand}.
+ */
 export interface GetDeploymentInstanceCommandInput extends GetDeploymentInstanceInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetDeploymentInstanceCommand}.
+ */
 export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Gets information about an instance as part of a deployment.</p>
@@ -38,13 +41,42 @@ export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanc
  * import { CodeDeployClient, GetDeploymentInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetDeploymentInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // GetDeploymentInstanceInput
+ *   deploymentId: "STRING_VALUE", // required
+ *   instanceId: "STRING_VALUE", // required
+ * };
  * const command = new GetDeploymentInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentInstanceCommandInput - {@link GetDeploymentInstanceCommandInput}
+ * @returns {@link GetDeploymentInstanceCommandOutput}
  * @see {@link GetDeploymentInstanceCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
+ *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link InstanceDoesNotExistException} (client fault)
+ *  <p>The specified instance does not exist in the deployment group.</p>
+ *
+ * @throws {@link InstanceIdRequiredException} (client fault)
+ *  <p>The instance ID was not specified.</p>
+ *
+ * @throws {@link InvalidComputePlatformException} (client fault)
+ *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
  *
  */
 export class GetDeploymentInstanceCommand extends $Command<
@@ -64,6 +96,9 @@ export class GetDeploymentInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +127,8 @@ export class GetDeploymentInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeploymentInstanceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeploymentInstanceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +138,18 @@ export class GetDeploymentInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDeploymentInstanceCommand(input, context);
+    return se_GetDeploymentInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentInstanceCommandOutput> {
-    return deserializeAws_json1_1GetDeploymentInstanceCommand(output, context);
+    return de_GetDeploymentInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

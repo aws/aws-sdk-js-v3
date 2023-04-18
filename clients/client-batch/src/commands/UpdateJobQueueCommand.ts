@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  UpdateJobQueueRequest,
-  UpdateJobQueueRequestFilterSensitiveLog,
-  UpdateJobQueueResponse,
-  UpdateJobQueueResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateJobQueueCommand,
-  serializeAws_restJson1UpdateJobQueueCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateJobQueueRequest, UpdateJobQueueResponse } from "../models/models_0";
+import { de_UpdateJobQueueCommand, se_UpdateJobQueueCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateJobQueueCommand}.
+ */
 export interface UpdateJobQueueCommandInput extends UpdateJobQueueRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateJobQueueCommand}.
+ */
 export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a job queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,54 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  * import { BatchClient, UpdateJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, UpdateJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // UpdateJobQueueRequest
+ *   jobQueue: "STRING_VALUE", // required
+ *   state: "ENABLED" || "DISABLED",
+ *   schedulingPolicyArn: "STRING_VALUE",
+ *   priority: Number("int"),
+ *   computeEnvironmentOrder: [ // ComputeEnvironmentOrders
+ *     { // ComputeEnvironmentOrder
+ *       order: Number("int"), // required
+ *       computeEnvironment: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateJobQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobQueueCommandInput - {@link UpdateJobQueueCommandInput}
+ * @returns {@link UpdateJobQueueCommandOutput}
  * @see {@link UpdateJobQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateJobQueueCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
+ *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
+ *    that's not valid.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ *
+ * @example To update a job queue
+ * ```javascript
+ * // This example disables a job queue so that it can be deleted.
+ * const input = {
+ *   "jobQueue": "GPGPU",
+ *   "state": "DISABLED"
+ * };
+ * const command = new UpdateJobQueueCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "jobQueueArn": "arn:aws:batch:us-east-1:012345678910:job-queue/GPGPU",
+ *   "jobQueueName": "GPGPU"
+ * }
+ * *\/
+ * // example id: to-update-a-job-queue-1481154806981
+ * ```
  *
  */
 export class UpdateJobQueueCommand extends $Command<
@@ -62,6 +106,9 @@ export class UpdateJobQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +137,8 @@ export class UpdateJobQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobQueueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +148,18 @@ export class UpdateJobQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateJobQueueCommand(input, context);
+    return se_UpdateJobQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobQueueCommandOutput> {
-    return deserializeAws_restJson1UpdateJobQueueCommand(output, context);
+    return de_UpdateJobQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

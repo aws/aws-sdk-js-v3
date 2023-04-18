@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateReadinessCheckRequest,
-  CreateReadinessCheckRequestFilterSensitiveLog,
-  CreateReadinessCheckResponse,
-  CreateReadinessCheckResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateReadinessCheckCommand,
-  serializeAws_restJson1CreateReadinessCheckCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateReadinessCheckRequest, CreateReadinessCheckResponse } from "../models/models_0";
+import { de_CreateReadinessCheckCommand, se_CreateReadinessCheckCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateReadinessCheckCommand}.
+ */
 export interface CreateReadinessCheckCommandInput extends CreateReadinessCheckRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateReadinessCheckCommand}.
+ */
 export interface CreateReadinessCheckCommandOutput extends CreateReadinessCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a readiness check in an account. A readiness check monitors a resource set in your application, such as a set of Amazon Aurora instances, that Application Recovery Controller is auditing recovery readiness for. The audits run once every minute on every resource that's associated with a readiness check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,38 @@ export interface CreateReadinessCheckCommandOutput extends CreateReadinessCheckR
  * import { Route53RecoveryReadinessClient, CreateReadinessCheckCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, CreateReadinessCheckCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // CreateReadinessCheckRequest
+ *   ReadinessCheckName: "STRING_VALUE", // required
+ *   ResourceSetName: "STRING_VALUE", // required
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateReadinessCheckCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReadinessCheckCommandInput - {@link CreateReadinessCheckCommandInput}
+ * @returns {@link CreateReadinessCheckCommandOutput}
  * @see {@link CreateReadinessCheckCommandInput} for command's `input` shape.
  * @see {@link CreateReadinessCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  User does not have sufficient access to perform this action.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Updating or deleting a resource can cause an inconsistent state.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Request was denied due to request throttling.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class CreateReadinessCheckCommand extends $Command<
@@ -66,6 +94,9 @@ export class CreateReadinessCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReadinessCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +125,8 @@ export class CreateReadinessCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReadinessCheckRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReadinessCheckResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +136,18 @@ export class CreateReadinessCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReadinessCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateReadinessCheckCommand(input, context);
+    return se_CreateReadinessCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReadinessCheckCommandOutput> {
-    return deserializeAws_restJson1CreateReadinessCheckCommand(output, context);
+    return de_CreateReadinessCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

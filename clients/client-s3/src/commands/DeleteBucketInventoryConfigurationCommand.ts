@@ -13,27 +13,35 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteBucketInventoryConfigurationRequest } from "../models/models_0";
 import {
-  DeleteBucketInventoryConfigurationRequest,
-  DeleteBucketInventoryConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand,
-  serializeAws_restXmlDeleteBucketInventoryConfigurationCommand,
+  de_DeleteBucketInventoryConfigurationCommand,
+  se_DeleteBucketInventoryConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteBucketInventoryConfigurationCommand}.
+ */
 export interface DeleteBucketInventoryConfigurationCommandInput extends DeleteBucketInventoryConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBucketInventoryConfigurationCommand}.
+ */
 export interface DeleteBucketInventoryConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an inventory configuration (identified by the inventory ID) from the
  *          bucket.</p>
  *          <p>To use this operation, you must have permissions to perform the
  *             <code>s3:PutInventoryConfiguration</code> action. The bucket owner has this permission
  *          by default. The bucket owner can grant this permission to others. For more information
- *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a>.</p>
+ *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+ *             Access Permissions to Your Amazon S3 Resources</a>.</p>
  *          <p>For information about the Amazon S3 inventory feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon S3 Inventory</a>.</p>
  *          <p>Operations related to <code>DeleteBucketInventoryConfiguration</code> include: </p>
  *          <ul>
@@ -59,13 +67,21 @@ export interface DeleteBucketInventoryConfigurationCommandOutput extends __Metad
  * import { S3Client, DeleteBucketInventoryConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketInventoryConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeleteBucketInventoryConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteBucketInventoryConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketInventoryConfigurationCommandInput - {@link DeleteBucketInventoryConfigurationCommandInput}
+ * @returns {@link DeleteBucketInventoryConfigurationCommandOutput}
  * @see {@link DeleteBucketInventoryConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketInventoryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
  *
  */
 export class DeleteBucketInventoryConfigurationCommand extends $Command<
@@ -91,6 +107,9 @@ export class DeleteBucketInventoryConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketInventoryConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +138,8 @@ export class DeleteBucketInventoryConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketInventoryConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +149,24 @@ export class DeleteBucketInventoryConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteBucketInventoryConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketInventoryConfigurationCommand(input, context);
+    return se_DeleteBucketInventoryConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketInventoryConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand(output, context);
+    return de_DeleteBucketInventoryConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

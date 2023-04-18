@@ -14,24 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  CreateUpdatedImageRequest,
-  CreateUpdatedImageRequestFilterSensitiveLog,
-  CreateUpdatedImageResult,
-  CreateUpdatedImageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateUpdatedImageCommand,
-  serializeAws_json1_1CreateUpdatedImageCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateUpdatedImageRequest, CreateUpdatedImageResult } from "../models/models_0";
+import { de_CreateUpdatedImageCommand, se_CreateUpdatedImageCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateUpdatedImageCommand}.
+ */
 export interface CreateUpdatedImageCommandInput extends CreateUpdatedImageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateUpdatedImageCommand}.
+ */
 export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new image with the latest Windows operating system updates, driver updates, and AppStream 2.0 agent software.</p>
- *
- *         <p>For more information, see the "Update an Image by Using
+ *          <p>For more information, see the "Update an Image by Using
  *             Managed AppStream 2.0 Image Updates" section in <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html">Administer Your AppStream 2.0 Images</a>, in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +41,47 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * import { AppStreamClient, CreateUpdatedImageCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateUpdatedImageCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // CreateUpdatedImageRequest
+ *   existingImageName: "STRING_VALUE", // required
+ *   newImageName: "STRING_VALUE", // required
+ *   newImageDescription: "STRING_VALUE",
+ *   newImageDisplayName: "STRING_VALUE",
+ *   newImageTags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   dryRun: true || false,
+ * };
  * const command = new CreateUpdatedImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUpdatedImageCommandInput - {@link CreateUpdatedImageCommandInput}
+ * @returns {@link CreateUpdatedImageCommandOutput}
  * @see {@link CreateUpdatedImageCommandInput} for command's `input` shape.
  * @see {@link CreateUpdatedImageCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link IncompatibleImageException} (client fault)
+ *  <p>The image can't be updated because it's not compatible for updates.</p>
+ *
+ * @throws {@link InvalidAccountStatusException} (client fault)
+ *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class CreateUpdatedImageCommand extends $Command<
@@ -65,6 +101,9 @@ export class CreateUpdatedImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUpdatedImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +132,8 @@ export class CreateUpdatedImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUpdatedImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUpdatedImageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +143,18 @@ export class CreateUpdatedImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUpdatedImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUpdatedImageCommand(input, context);
+    return se_CreateUpdatedImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUpdatedImageCommandOutput> {
-    return deserializeAws_json1_1CreateUpdatedImageCommand(output, context);
+    return de_CreateUpdatedImageCommand(output, context);
   }
 
   // Start section: command_body_extra

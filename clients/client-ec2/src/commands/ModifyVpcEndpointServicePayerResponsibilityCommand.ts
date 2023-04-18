@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyVpcEndpointServicePayerResponsibilityRequest,
-  ModifyVpcEndpointServicePayerResponsibilityRequestFilterSensitiveLog,
   ModifyVpcEndpointServicePayerResponsibilityResult,
-  ModifyVpcEndpointServicePayerResponsibilityResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand,
-  serializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand,
+  de_ModifyVpcEndpointServicePayerResponsibilityCommand,
+  se_ModifyVpcEndpointServicePayerResponsibilityCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyVpcEndpointServicePayerResponsibilityCommand}.
+ */
 export interface ModifyVpcEndpointServicePayerResponsibilityCommandInput
   extends ModifyVpcEndpointServicePayerResponsibilityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyVpcEndpointServicePayerResponsibilityCommand}.
+ */
 export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput
   extends ModifyVpcEndpointServicePayerResponsibilityResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the payer responsibility for your VPC endpoint service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,21 @@ export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput
  * import { EC2Client, ModifyVpcEndpointServicePayerResponsibilityCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcEndpointServicePayerResponsibilityCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVpcEndpointServicePayerResponsibilityRequest
+ *   DryRun: true || false,
+ *   ServiceId: "STRING_VALUE", // required
+ *   PayerResponsibility: "ServiceOwner", // required
+ * };
  * const command = new ModifyVpcEndpointServicePayerResponsibilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcEndpointServicePayerResponsibilityCommandInput - {@link ModifyVpcEndpointServicePayerResponsibilityCommandInput}
+ * @returns {@link ModifyVpcEndpointServicePayerResponsibilityCommandOutput}
  * @see {@link ModifyVpcEndpointServicePayerResponsibilityCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointServicePayerResponsibilityCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command<
@@ -65,6 +82,9 @@ export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcEndpointServicePayerResponsibilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +119,8 @@ export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpcEndpointServicePayerResponsibilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpcEndpointServicePayerResponsibilityResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +130,24 @@ export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVpcEndpointServicePayerResponsibilityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand(input, context);
+    return se_ModifyVpcEndpointServicePayerResponsibilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcEndpointServicePayerResponsibilityCommandOutput> {
-    return deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand(output, context);
+    return de_ModifyVpcEndpointServicePayerResponsibilityCommand(output, context);
   }
 
   // Start section: command_body_extra

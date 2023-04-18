@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ActivityTask,
-  ActivityTaskFilterSensitiveLog,
-  PollForActivityTaskInput,
-  PollForActivityTaskInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0PollForActivityTaskCommand,
-  serializeAws_json1_0PollForActivityTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { ActivityTask, PollForActivityTaskInput } from "../models/models_0";
+import { de_PollForActivityTaskCommand, se_PollForActivityTaskCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link PollForActivityTaskCommand}.
+ */
 export interface PollForActivityTaskCommandInput extends PollForActivityTaskInput {}
+/**
+ * @public
+ *
+ * The output of {@link PollForActivityTaskCommand}.
+ */
 export interface PollForActivityTaskCommandOutput extends ActivityTask, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by workers to get an <a>ActivityTask</a> from the specified activity
  *         <code>taskList</code>. This initiates a long poll, where the service holds the HTTP
  *       connection open and responds as soon as a task becomes available. The maximum time the service
@@ -71,13 +74,32 @@ export interface PollForActivityTaskCommandOutput extends ActivityTask, __Metada
  * import { SWFClient, PollForActivityTaskCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, PollForActivityTaskCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // PollForActivityTaskInput
+ *   domain: "STRING_VALUE", // required
+ *   taskList: { // TaskList
+ *     name: "STRING_VALUE", // required
+ *   },
+ *   identity: "STRING_VALUE",
+ * };
  * const command = new PollForActivityTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PollForActivityTaskCommandInput - {@link PollForActivityTaskCommandInput}
+ * @returns {@link PollForActivityTaskCommandOutput}
  * @see {@link PollForActivityTaskCommandInput} for command's `input` shape.
  * @see {@link PollForActivityTaskCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
  *
  */
 export class PollForActivityTaskCommand extends $Command<
@@ -97,6 +119,9 @@ export class PollForActivityTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PollForActivityTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +150,8 @@ export class PollForActivityTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PollForActivityTaskInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivityTaskFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +161,18 @@ export class PollForActivityTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PollForActivityTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PollForActivityTaskCommand(input, context);
+    return se_PollForActivityTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForActivityTaskCommandOutput> {
-    return deserializeAws_json1_0PollForActivityTaskCommand(output, context);
+    return de_PollForActivityTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

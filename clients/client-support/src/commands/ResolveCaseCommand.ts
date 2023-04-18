@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ResolveCaseRequest,
-  ResolveCaseRequestFilterSensitiveLog,
-  ResolveCaseResponse,
-  ResolveCaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ResolveCaseCommand,
-  serializeAws_json1_1ResolveCaseCommand,
-} from "../protocols/Aws_json1_1";
+import { ResolveCaseRequest, ResolveCaseResponse } from "../models/models_0";
+import { de_ResolveCaseCommand, se_ResolveCaseCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ResolveCaseCommand}.
+ */
 export interface ResolveCaseCommandInput extends ResolveCaseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ResolveCaseCommand}.
+ */
 export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resolves a support case. This operation takes a <code>caseId</code> and returns the
  *             initial and final state of the case.</p>
  *          <note>
@@ -51,13 +54,25 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  * import { SupportClient, ResolveCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, ResolveCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // ResolveCaseRequest
+ *   caseId: "STRING_VALUE",
+ * };
  * const command = new ResolveCaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResolveCaseCommandInput - {@link ResolveCaseCommandInput}
+ * @returns {@link ResolveCaseCommandOutput}
  * @see {@link ResolveCaseCommandInput} for command's `input` shape.
  * @see {@link ResolveCaseCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
+ *
+ * @throws {@link CaseIdNotFound} (client fault)
+ *  <p>The requested <code>caseId</code> couldn't be located.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
  *
  */
 export class ResolveCaseCommand extends $Command<
@@ -77,6 +92,9 @@ export class ResolveCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +121,8 @@ export class ResolveCaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResolveCaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResolveCaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +132,18 @@ export class ResolveCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResolveCaseCommand(input, context);
+    return se_ResolveCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveCaseCommandOutput> {
-    return deserializeAws_json1_1ResolveCaseCommand(output, context);
+    return de_ResolveCaseCommand(output, context);
   }
 
   // Start section: command_body_extra

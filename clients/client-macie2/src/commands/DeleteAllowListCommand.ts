@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  DeleteAllowListRequest,
-  DeleteAllowListRequestFilterSensitiveLog,
-  DeleteAllowListResponse,
-  DeleteAllowListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAllowListCommand,
-  serializeAws_restJson1DeleteAllowListCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAllowListRequest, DeleteAllowListResponse } from "../models/models_0";
+import { de_DeleteAllowListCommand, se_DeleteAllowListCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAllowListCommand}.
+ */
 export interface DeleteAllowListCommandInput extends DeleteAllowListRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAllowListCommand}.
+ */
 export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an allow list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,35 @@ export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, _
  * import { Macie2Client, DeleteAllowListCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DeleteAllowListCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // DeleteAllowListRequest
+ *   id: "STRING_VALUE", // required
+ *   ignoreJobChecks: "STRING_VALUE",
+ * };
  * const command = new DeleteAllowListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAllowListCommandInput - {@link DeleteAllowListCommandInput}
+ * @returns {@link DeleteAllowListCommandOutput}
  * @see {@link DeleteAllowListCommandInput} for command's `input` shape.
  * @see {@link DeleteAllowListCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class DeleteAllowListCommand extends $Command<
@@ -62,6 +87,9 @@ export class DeleteAllowListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAllowListCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +118,8 @@ export class DeleteAllowListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAllowListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAllowListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +129,18 @@ export class DeleteAllowListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAllowListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAllowListCommand(input, context);
+    return se_DeleteAllowListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAllowListCommandOutput> {
-    return deserializeAws_restJson1DeleteAllowListCommand(output, context);
+    return de_DeleteAllowListCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SESServiceException as __BaseException } from "./SESServiceException";
 
 /**
+ * @public
  * <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
  *         <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
  */
@@ -24,6 +25,7 @@ export class AccountSendingPausedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>When included in a receipt rule, this action adds a header to the received
  *             email.</p>
  *         <p>For information about adding a header using a receipt rule, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html">Amazon SES
@@ -44,6 +46,7 @@ export interface AddHeaderAction {
 }
 
 /**
+ * @public
  * <p>Indicates that a resource could not be created because of a naming conflict.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -69,12 +72,22 @@ export class AlreadyExistsException extends __BaseException {
   }
 }
 
-export enum BehaviorOnMXFailure {
-  RejectMessage = "RejectMessage",
-  UseDefaultValue = "UseDefaultValue",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BehaviorOnMXFailure = {
+  RejectMessage: "RejectMessage",
+  UseDefaultValue: "UseDefaultValue",
+} as const;
 
 /**
+ * @public
+ */
+export type BehaviorOnMXFailure = (typeof BehaviorOnMXFailure)[keyof typeof BehaviorOnMXFailure];
+
+/**
+ * @public
  * <p>Represents textual data, plus an optional character set specification.</p>
  *         <p>By default, the text must be 7-bit ASCII, due to the constraints of the SMTP protocol.
  *             If the text must contain any other characters, then you must also specify a character
@@ -93,6 +106,7 @@ export interface Content {
 }
 
 /**
+ * @public
  * <p>Represents the body of the message. You can specify text, HTML, or both. If you use
  *             both, then the message should display correctly in the widest variety of email
  *             clients.</p>
@@ -113,6 +127,7 @@ export interface Body {
 }
 
 /**
+ * @public
  * <p>When included in a receipt rule, this action rejects the received email by returning a
  *             bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service
  *             (Amazon SNS).</p>
@@ -151,24 +166,43 @@ export interface BounceAction {
   Sender: string | undefined;
 }
 
-export enum BounceType {
-  ContentRejected = "ContentRejected",
-  DoesNotExist = "DoesNotExist",
-  ExceededQuota = "ExceededQuota",
-  MessageTooLarge = "MessageTooLarge",
-  TemporaryFailure = "TemporaryFailure",
-  Undefined = "Undefined",
-}
-
-export enum DsnAction {
-  DELAYED = "delayed",
-  DELIVERED = "delivered",
-  EXPANDED = "expanded",
-  FAILED = "failed",
-  RELAYED = "relayed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BounceType = {
+  ContentRejected: "ContentRejected",
+  DoesNotExist: "DoesNotExist",
+  ExceededQuota: "ExceededQuota",
+  MessageTooLarge: "MessageTooLarge",
+  TemporaryFailure: "TemporaryFailure",
+  Undefined: "Undefined",
+} as const;
 
 /**
+ * @public
+ */
+export type BounceType = (typeof BounceType)[keyof typeof BounceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DsnAction = {
+  DELAYED: "delayed",
+  DELIVERED: "delivered",
+  EXPANDED: "expanded",
+  FAILED: "failed",
+  RELAYED: "relayed",
+} as const;
+
+/**
+ * @public
+ */
+export type DsnAction = (typeof DsnAction)[keyof typeof DsnAction];
+
+/**
+ * @public
  * <p>Additional X-headers to include in the Delivery Status Notification (DSN) when an
  *             email that Amazon SES receives on your behalf bounces.</p>
  *         <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES
@@ -189,6 +223,7 @@ export interface ExtensionField {
 }
 
 /**
+ * @public
  * <p>Recipient-related information to include in the Delivery Status Notification (DSN)
  *             when an email that Amazon SES receives on your behalf bounces.</p>
  *         <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES
@@ -247,6 +282,7 @@ export interface RecipientDsnFields {
 }
 
 /**
+ * @public
  * <p>Recipient-related information to include in the Delivery Status Notification (DSN)
  *             when an email that Amazon SES receives on your behalf bounces.</p>
  *         <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES
@@ -282,6 +318,7 @@ export interface BouncedRecipientInfo {
 }
 
 /**
+ * @public
  * <p>Represents the destination of the message, consisting of To:, CC:, and BCC:
  *             fields.</p>
  *         <note>
@@ -311,6 +348,7 @@ export interface Destination {
 }
 
 /**
+ * @public
  * <p>Contains the name and value of a tag that you can provide to <code>SendEmail</code> or
  *                 <code>SendRawEmail</code> to apply to an email.</p>
  *         <p>Message tags, which you use with configuration sets, enable you to publish email
@@ -347,6 +385,7 @@ export interface MessageTag {
 }
 
 /**
+ * @public
  * <p>An array that contains one or more Destinations, as well as the tags and replacement
  *             data associated with each of those Destinations.</p>
  */
@@ -380,24 +419,34 @@ export interface BulkEmailDestination {
   ReplacementTemplateData?: string;
 }
 
-export enum BulkEmailStatus {
-  AccountDailyQuotaExceeded = "AccountDailyQuotaExceeded",
-  AccountSendingPaused = "AccountSendingPaused",
-  AccountSuspended = "AccountSuspended",
-  AccountThrottled = "AccountThrottled",
-  ConfigurationSetDoesNotExist = "ConfigurationSetDoesNotExist",
-  ConfigurationSetSendingPaused = "ConfigurationSetSendingPaused",
-  Failed = "Failed",
-  InvalidParameterValue = "InvalidParameterValue",
-  InvalidSendingPoolName = "InvalidSendingPoolName",
-  MailFromDomainNotVerified = "MailFromDomainNotVerified",
-  MessageRejected = "MessageRejected",
-  Success = "Success",
-  TemplateDoesNotExist = "TemplateDoesNotExist",
-  TransientFailure = "TransientFailure",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BulkEmailStatus = {
+  AccountDailyQuotaExceeded: "AccountDailyQuotaExceeded",
+  AccountSendingPaused: "AccountSendingPaused",
+  AccountSuspended: "AccountSuspended",
+  AccountThrottled: "AccountThrottled",
+  ConfigurationSetDoesNotExist: "ConfigurationSetDoesNotExist",
+  ConfigurationSetSendingPaused: "ConfigurationSetSendingPaused",
+  Failed: "Failed",
+  InvalidParameterValue: "InvalidParameterValue",
+  InvalidSendingPoolName: "InvalidSendingPoolName",
+  MailFromDomainNotVerified: "MailFromDomainNotVerified",
+  MessageRejected: "MessageRejected",
+  Success: "Success",
+  TemplateDoesNotExist: "TemplateDoesNotExist",
+  TransientFailure: "TransientFailure",
+} as const;
 
 /**
+ * @public
+ */
+export type BulkEmailStatus = (typeof BulkEmailStatus)[keyof typeof BulkEmailStatus];
+
+/**
+ * @public
  * <p>An object that contains the response from the <code>SendBulkTemplatedEmail</code>
  *             operation.</p>
  */
@@ -498,6 +547,7 @@ export interface BulkEmailDestinationStatus {
 }
 
 /**
+ * @public
  * <p>Indicates that the delete operation could not be completed.</p>
  */
 export class CannotDeleteException extends __BaseException {
@@ -524,6 +574,7 @@ export class CannotDeleteException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a request to create a receipt rule set by cloning an existing one. You use
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
@@ -552,11 +603,13 @@ export interface CloneReceiptRuleSetRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CloneReceiptRuleSetResponse {}
 
 /**
+ * @public
  * <p>Indicates that a resource could not be created because of service limits. For a list
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
@@ -578,6 +631,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the provided receipt rule set does not exist.</p>
  */
 export class RuleSetDoesNotExistException extends __BaseException {
@@ -602,13 +656,23 @@ export class RuleSetDoesNotExistException extends __BaseException {
   }
 }
 
-export enum DimensionValueSource {
-  EMAIL_HEADER = "emailHeader",
-  LINK_TAG = "linkTag",
-  MESSAGE_TAG = "messageTag",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DimensionValueSource = {
+  EMAIL_HEADER: "emailHeader",
+  LINK_TAG: "linkTag",
+  MESSAGE_TAG: "messageTag",
+} as const;
 
 /**
+ * @public
+ */
+export type DimensionValueSource = (typeof DimensionValueSource)[keyof typeof DimensionValueSource];
+
+/**
+ * @public
  * <p>Contains the dimension configuration to use when you publish email sending events to
  *             Amazon CloudWatch.</p>
  *         <p>For information about publishing email sending events to Amazon CloudWatch, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
@@ -656,6 +720,7 @@ export interface CloudWatchDimensionConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains information associated with an Amazon CloudWatch event destination to which email
  *             sending events are published.</p>
  *         <p>Event destinations, such as Amazon CloudWatch, are associated with configuration sets, which
@@ -672,6 +737,7 @@ export interface CloudWatchDestination {
 }
 
 /**
+ * @public
  * <p>The name of the configuration set.</p>
  *         <p>Configuration sets let you create groups of rules that you can apply to the emails you
  *             send using Amazon SES. For more information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-configuration-sets.html">Using Amazon SES Configuration Sets</a> in the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/">Amazon SES Developer Guide</a>.</p>
@@ -694,6 +760,7 @@ export interface ConfigurationSet {
 }
 
 /**
+ * @public
  * <p>Indicates that the configuration set could not be created because of a naming
  *             conflict.</p>
  */
@@ -719,14 +786,24 @@ export class ConfigurationSetAlreadyExistsException extends __BaseException {
   }
 }
 
-export enum ConfigurationSetAttribute {
-  DELIVERY_OPTIONS = "deliveryOptions",
-  EVENT_DESTINATIONS = "eventDestinations",
-  REPUTATION_OPTIONS = "reputationOptions",
-  TRACKING_OPTIONS = "trackingOptions",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationSetAttribute = {
+  DELIVERY_OPTIONS: "deliveryOptions",
+  EVENT_DESTINATIONS: "eventDestinations",
+  REPUTATION_OPTIONS: "reputationOptions",
+  TRACKING_OPTIONS: "trackingOptions",
+} as const;
 
 /**
+ * @public
+ */
+export type ConfigurationSetAttribute = (typeof ConfigurationSetAttribute)[keyof typeof ConfigurationSetAttribute];
+
+/**
+ * @public
  * <p>Indicates that the configuration set does not exist.</p>
  */
 export class ConfigurationSetDoesNotExistException extends __BaseException {
@@ -752,6 +829,7 @@ export class ConfigurationSetDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that email sending is disabled for the configuration set.</p>
  *         <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
  */
@@ -778,6 +856,7 @@ export class ConfigurationSetSendingPausedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a request to create a configuration set. Configuration sets enable you to
  *             publish email sending events. For information about using configuration sets, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -791,11 +870,13 @@ export interface CreateConfigurationSetRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateConfigurationSetResponse {}
 
 /**
+ * @public
  * <p>Indicates that the configuration set is invalid. See the error message for
  *             details.</p>
  */
@@ -816,6 +897,7 @@ export class InvalidConfigurationSetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event
  *             destination.</p>
  *         <p>Event destinations, such as Amazon Kinesis Firehose, are associated with configuration sets, which enable
@@ -836,18 +918,28 @@ export interface KinesisFirehoseDestination {
   DeliveryStreamARN: string | undefined;
 }
 
-export enum EventType {
-  BOUNCE = "bounce",
-  CLICK = "click",
-  COMPLAINT = "complaint",
-  DELIVERY = "delivery",
-  OPEN = "open",
-  REJECT = "reject",
-  RENDERING_FAILURE = "renderingFailure",
-  SEND = "send",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  BOUNCE: "bounce",
+  CLICK: "click",
+  COMPLAINT: "complaint",
+  DELIVERY: "delivery",
+  OPEN: "open",
+  REJECT: "reject",
+  RENDERING_FAILURE: "renderingFailure",
+  SEND: "send",
+} as const;
 
 /**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
  * <p>Contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.</p>
  *         <p>Event destinations, such as Amazon SNS, are associated with configuration sets, which
  *             enable you to publish email sending events. For information about using configuration
@@ -864,6 +956,7 @@ export interface SNSDestination {
 }
 
 /**
+ * @public
  * <p>Contains information about the event destination that the specified email sending
  *             events will be published to.</p>
  *         <note>
@@ -923,6 +1016,7 @@ export interface EventDestination {
 }
 
 /**
+ * @public
  * <p>Represents a request to create a configuration set event destination. A configuration
  *             set event destination, which can be either Amazon CloudWatch or Amazon Kinesis Firehose, describes an AWS service
  *             in which Amazon SES publishes the email sending events associated with a configuration set.
@@ -944,11 +1038,13 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateConfigurationSetEventDestinationResponse {}
 
 /**
+ * @public
  * <p>Indicates that the event destination could not be created because of a naming
  *             conflict.</p>
  */
@@ -981,6 +1077,7 @@ export class EventDestinationAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for
  *             details.</p>
  */
@@ -1013,6 +1110,7 @@ export class InvalidCloudWatchDestinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error
  *             message for details.</p>
  */
@@ -1045,6 +1143,7 @@ export class InvalidFirehoseDestinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
  *             invalid. See the error message for details.</p>
  */
@@ -1077,6 +1176,7 @@ export class InvalidSNSDestinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A domain that is used to redirect email recipients to an Amazon SES-operated domain. This
  *             domain captures open and click events generated by Amazon SES emails.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring
@@ -1092,6 +1192,7 @@ export interface TrackingOptions {
 }
 
 /**
+ * @public
  * <p>Represents a request to create an open and click tracking option object in a
  *             configuration set. </p>
  */
@@ -1113,11 +1214,13 @@ export interface CreateConfigurationSetTrackingOptionsRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateConfigurationSetTrackingOptionsResponse {}
 
 /**
+ * @public
  * <p>Indicates that the custom domain to be used for open and click tracking redirects is
  *             invalid. This error appears most often in the following situations:</p>
  *         <ul>
@@ -1147,6 +1250,7 @@ export class InvalidTrackingOptionsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the configuration set you specified already contains a TrackingOptions
  *             object.</p>
  */
@@ -1174,6 +1278,7 @@ export class TrackingOptionsAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a request to create a custom verification email template.</p>
  */
 export interface CreateCustomVerificationEmailTemplateRequest {
@@ -1214,6 +1319,7 @@ export interface CreateCustomVerificationEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Indicates that custom verification email template provided content is invalid.</p>
  */
 export class CustomVerificationEmailInvalidContentException extends __BaseException {
@@ -1233,6 +1339,7 @@ export class CustomVerificationEmailInvalidContentException extends __BaseExcept
 }
 
 /**
+ * @public
  * <p>Indicates that a custom verification email template with the name you specified
  *             already exists.</p>
  */
@@ -1261,6 +1368,7 @@ export class CustomVerificationEmailTemplateAlreadyExistsException extends __Bas
 }
 
 /**
+ * @public
  * <p>Indicates that the sender address specified for a custom verification email is not
  *             verified, and is therefore not eligible to send the custom verification email. </p>
  */
@@ -1287,12 +1395,22 @@ export class FromEmailAddressNotVerifiedException extends __BaseException {
   }
 }
 
-export enum ReceiptFilterPolicy {
-  Allow = "Allow",
-  Block = "Block",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReceiptFilterPolicy = {
+  Allow: "Allow",
+  Block: "Block",
+} as const;
 
 /**
+ * @public
+ */
+export type ReceiptFilterPolicy = (typeof ReceiptFilterPolicy)[keyof typeof ReceiptFilterPolicy];
+
+/**
+ * @public
  * <p>A receipt IP address filter enables you to specify whether to accept or reject mail
  *             originating from an IP address or range of IP addresses.</p>
  *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
@@ -1314,6 +1432,7 @@ export interface ReceiptIpFilter {
 }
 
 /**
+ * @public
  * <p>A receipt IP address filter enables you to specify whether to accept or reject mail
  *             originating from an IP address or range of IP addresses.</p>
  *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
@@ -1344,6 +1463,7 @@ export interface ReceiptFilter {
 }
 
 /**
+ * @public
  * <p>Represents a request to create a new IP address filter. You use IP address filters
  *             when you receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
@@ -1356,13 +1476,18 @@ export interface CreateReceiptFilterRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateReceiptFilterResponse {}
 
+/**
+ * @public
+ */
 export type InvocationType = "Event" | "RequestResponse";
 
 /**
+ * @public
  * <p>When included in a receipt rule, this action calls an AWS Lambda function and,
  *             optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p>
  *         <p>To enable Amazon SES to call your AWS Lambda function or to publish to an Amazon SNS topic of
@@ -1405,6 +1530,7 @@ export interface LambdaAction {
 }
 
 /**
+ * @public
  * <p>When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service
  *             (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p>
  *         <p>To enable Amazon SES to write emails to your Amazon S3 bucket, use an AWS KMS key to encrypt
@@ -1474,12 +1600,22 @@ export interface S3Action {
   KmsKeyArn?: string;
 }
 
-export enum SNSActionEncoding {
-  Base64 = "Base64",
-  UTF8 = "UTF-8",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SNSActionEncoding = {
+  Base64: "Base64",
+  UTF8: "UTF-8",
+} as const;
 
 /**
+ * @public
+ */
+export type SNSActionEncoding = (typeof SNSActionEncoding)[keyof typeof SNSActionEncoding];
+
+/**
+ * @public
  * <p>When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service
  *             (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS
  *             notifications. Amazon SNS notifications for all other actions simply provide information
@@ -1515,11 +1651,21 @@ export interface SNSAction {
   Encoding?: SNSActionEncoding | string;
 }
 
-export enum StopScope {
-  RULE_SET = "RuleSet",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StopScope = {
+  RULE_SET: "RuleSet",
+} as const;
 
 /**
+ * @public
+ */
+export type StopScope = (typeof StopScope)[keyof typeof StopScope];
+
+/**
+ * @public
  * <p>When included in a receipt rule, this action terminates the evaluation of the receipt
  *             rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p>
  *         <p>For information about setting a stop action in a receipt rule, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-stop.html">Amazon SES Developer
@@ -1541,6 +1687,7 @@ export interface StopAction {
 }
 
 /**
+ * @public
  * <p>When included in a receipt rule, this action calls Amazon WorkMail and, optionally,
  *             publishes a notification to Amazon Simple Notification Service (Amazon SNS). You will typically not use this action
  *             directly because Amazon WorkMail adds the rule automatically during its setup
@@ -1568,6 +1715,7 @@ export interface WorkmailAction {
 }
 
 /**
+ * @public
  * <p>An action that Amazon SES can take when it receives an email on behalf of one or more email
  *             addresses or domains that you own. An instance of this data type can represent only one
  *             action.</p>
@@ -1615,12 +1763,22 @@ export interface ReceiptAction {
   SNSAction?: SNSAction;
 }
 
-export enum TlsPolicy {
-  Optional = "Optional",
-  Require = "Require",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TlsPolicy = {
+  Optional: "Optional",
+  Require: "Require",
+} as const;
 
 /**
+ * @public
+ */
+export type TlsPolicy = (typeof TlsPolicy)[keyof typeof TlsPolicy];
+
+/**
+ * @public
  * <p>Receipt rules enable you to specify which actions Amazon SES should take when it receives
  *             mail on behalf of one or more email addresses or domains that you own.</p>
  *         <p>Each receipt rule defines a set of email addresses or domains that it applies to. If
@@ -1682,6 +1840,7 @@ export interface ReceiptRule {
 }
 
 /**
+ * @public
  * <p>Represents a request to create a receipt rule. You use receipt rules to receive email
  *             with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -1707,11 +1866,13 @@ export interface CreateReceiptRuleRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateReceiptRuleResponse {}
 
 /**
+ * @public
  * <p>Indicates that the provided AWS Lambda function is invalid, or that Amazon SES could
  *             not execute the provided function, possibly due to permissions issues. For information
  *             about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
@@ -1740,6 +1901,7 @@ export class InvalidLambdaFunctionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the provided Amazon S3 bucket or AWS KMS encryption key is invalid, or
  *             that Amazon SES could not publish to the bucket, possibly due to permissions issues. For
  *             information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
@@ -1768,6 +1930,7 @@ export class InvalidS3ConfigurationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not
  *             publish to the topic, possibly due to permissions issues. For information about giving
  *             permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
@@ -1796,6 +1959,7 @@ export class InvalidSnsTopicException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the provided receipt rule does not exist.</p>
  */
 export class RuleDoesNotExistException extends __BaseException {
@@ -1821,6 +1985,7 @@ export class RuleDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a request to create an empty receipt rule set. You use receipt rule sets to
  *             receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -1845,11 +2010,13 @@ export interface CreateReceiptRuleSetRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateReceiptRuleSetResponse {}
 
 /**
+ * @public
  * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
  *             part.</p>
  */
@@ -1879,6 +2046,7 @@ export interface Template {
 }
 
 /**
+ * @public
  * <p>Represents a request to create an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
@@ -1890,9 +2058,13 @@ export interface CreateTemplateRequest {
   Template: Template | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateResponse {}
 
 /**
+ * @public
  * <p>Indicates that the template that you specified could not be rendered. This issue may
  *             occur when a template refers to a partial that does not exist.</p>
  */
@@ -1914,14 +2086,24 @@ export class InvalidTemplateException extends __BaseException {
   }
 }
 
-export enum CustomMailFromStatus {
-  Failed = "Failed",
-  Pending = "Pending",
-  Success = "Success",
-  TemporaryFailure = "TemporaryFailure",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomMailFromStatus = {
+  Failed: "Failed",
+  Pending: "Pending",
+  Success: "Success",
+  TemporaryFailure: "TemporaryFailure",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomMailFromStatus = (typeof CustomMailFromStatus)[keyof typeof CustomMailFromStatus];
+
+/**
+ * @public
  * <p>Contains information about a custom verification email template.</p>
  */
 export interface CustomVerificationEmailTemplate {
@@ -1954,6 +2136,7 @@ export interface CustomVerificationEmailTemplate {
 }
 
 /**
+ * @public
  * <p>Indicates that a custom verification email template with the name you specified does
  *             not exist.</p>
  */
@@ -1981,6 +2164,7 @@ export class CustomVerificationEmailTemplateDoesNotExistException extends __Base
 }
 
 /**
+ * @public
  * <p>Represents a request to delete a configuration set. Configuration sets enable you to
  *             publish email sending events. For information about using configuration sets, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -1994,11 +2178,13 @@ export interface DeleteConfigurationSetRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteConfigurationSetResponse {}
 
 /**
+ * @public
  * <p>Represents a request to delete a configuration set event destination. Configuration
  *             set event destinations are associated with configuration sets, which enable you to
  *             publish email sending events. For information about using configuration sets, see the
@@ -2018,11 +2204,13 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteConfigurationSetEventDestinationResponse {}
 
 /**
+ * @public
  * <p>Indicates that the event destination does not exist.</p>
  */
 export class EventDestinationDoesNotExistException extends __BaseException {
@@ -2054,6 +2242,7 @@ export class EventDestinationDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a request to delete open and click tracking options in a configuration set.
  *         </p>
  */
@@ -2066,11 +2255,13 @@ export interface DeleteConfigurationSetTrackingOptionsRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteConfigurationSetTrackingOptionsResponse {}
 
 /**
+ * @public
  * <p>Indicates that the TrackingOptions object you specified does not exist.</p>
  */
 export class TrackingOptionsDoesNotExistException extends __BaseException {
@@ -2097,6 +2288,7 @@ export class TrackingOptionsDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a request to delete an existing custom verification email template.</p>
  */
 export interface DeleteCustomVerificationEmailTemplateRequest {
@@ -2107,6 +2299,7 @@ export interface DeleteCustomVerificationEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Represents a request to delete one of your Amazon SES identities (an email address or
  *             domain).</p>
  */
@@ -2118,11 +2311,13 @@ export interface DeleteIdentityRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteIdentityResponse {}
 
 /**
+ * @public
  * <p>Represents a request to delete a sending authorization policy for an identity. Sending
  *             authorization is an Amazon SES feature that enables you to authorize other senders to use
  *             your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
@@ -2145,11 +2340,13 @@ export interface DeleteIdentityPolicyRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteIdentityPolicyResponse {}
 
 /**
+ * @public
  * <p>Represents a request to delete an IP address filter. You use IP address filters when
  *             you receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -2162,11 +2359,13 @@ export interface DeleteReceiptFilterRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteReceiptFilterResponse {}
 
 /**
+ * @public
  * <p>Represents a request to delete a receipt rule. You use receipt rules to receive email
  *             with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -2184,11 +2383,13 @@ export interface DeleteReceiptRuleRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteReceiptRuleResponse {}
 
 /**
+ * @public
  * <p>Represents a request to delete a receipt rule set and all of the receipt rules it
  *             contains. You use receipt rule sets to receive email with Amazon SES. For more information,
  *             see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
@@ -2202,11 +2403,13 @@ export interface DeleteReceiptRuleSetRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteReceiptRuleSetResponse {}
 
 /**
+ * @public
  * <p>Represents a request to delete an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
@@ -2217,9 +2420,13 @@ export interface DeleteTemplateRequest {
   TemplateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTemplateResponse {}
 
 /**
+ * @public
  * <p>Represents a request to delete an email address from the list of email addresses you
  *             have attempted to verify under your AWS account.</p>
  */
@@ -2231,6 +2438,7 @@ export interface DeleteVerifiedEmailAddressRequest {
 }
 
 /**
+ * @public
  * <p>Specifies whether messages that use the configuration set are required to use
  *             Transport Layer Security (TLS).</p>
  */
@@ -2245,6 +2453,7 @@ export interface DeliveryOptions {
 }
 
 /**
+ * @public
  * <p>Represents a request to return the metadata and receipt rules for the receipt rule set
  *             that is currently active. You use receipt rule sets to receive email with Amazon SES. For
  *             more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
@@ -2253,6 +2462,7 @@ export interface DeliveryOptions {
 export interface DescribeActiveReceiptRuleSetRequest {}
 
 /**
+ * @public
  * <p>Information about a receipt rule set.</p>
  *         <p>A receipt rule set is a collection of rules that specify what Amazon SES should do with
  *             mail it receives on behalf of your account's verified domains.</p>
@@ -2284,6 +2494,7 @@ export interface ReceiptRuleSetMetadata {
 }
 
 /**
+ * @public
  * <p>Represents the metadata and receipt rules for the receipt rule set that is currently
  *             active.</p>
  */
@@ -2301,6 +2512,7 @@ export interface DescribeActiveReceiptRuleSetResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to return the details of a configuration set. Configuration sets
  *             enable you to publish email sending events. For information about using configuration
  *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -2319,6 +2531,7 @@ export interface DescribeConfigurationSetRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about the reputation settings for a configuration set.</p>
  */
 export interface ReputationOptions {
@@ -2353,6 +2566,7 @@ export interface ReputationOptions {
 }
 
 /**
+ * @public
  * <p>Represents the details of a configuration set. Configuration sets enable you to
  *             publish email sending events. For information about using configuration sets, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -2388,6 +2602,7 @@ export interface DescribeConfigurationSetResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to return the details of a receipt rule. You use receipt rules to
  *             receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -2405,6 +2620,7 @@ export interface DescribeReceiptRuleRequest {
 }
 
 /**
+ * @public
  * <p>Represents the details of a receipt rule.</p>
  */
 export interface DescribeReceiptRuleResponse {
@@ -2416,6 +2632,7 @@ export interface DescribeReceiptRuleResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to return the details of a receipt rule set. You use receipt rule
  *             sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
@@ -2427,6 +2644,7 @@ export interface DescribeReceiptRuleSetRequest {
 }
 
 /**
+ * @public
  * <p>Represents the details of the specified receipt rule set.</p>
  */
 export interface DescribeReceiptRuleSetResponse {
@@ -2442,9 +2660,13 @@ export interface DescribeReceiptRuleSetResponse {
   Rules?: ReceiptRule[];
 }
 
+/**
+ * @public
+ */
 export type VerificationStatus = "Failed" | "NotStarted" | "Pending" | "Success" | "TemporaryFailure";
 
 /**
+ * @public
  * <p>Represents the DKIM attributes of a verified email address or a domain.</p>
  */
 export interface IdentityDkimAttributes {
@@ -2475,6 +2697,7 @@ export interface IdentityDkimAttributes {
 }
 
 /**
+ * @public
  * <p>Represents a request to return the email sending status for your Amazon SES account in the
  *             current AWS Region.</p>
  */
@@ -2487,6 +2710,7 @@ export interface GetAccountSendingEnabledResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to retrieve an existing custom verification email
  *             template.</p>
  */
@@ -2498,6 +2722,7 @@ export interface GetCustomVerificationEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>The content of the custom verification email template.</p>
  */
 export interface GetCustomVerificationEmailTemplateResponse {
@@ -2535,6 +2760,7 @@ export interface GetCustomVerificationEmailTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request for the status of Amazon SES Easy DKIM signing for an identity. For
  *             domain identities, this request also returns the DKIM tokens that are required for Easy
  *             DKIM signing, and whether Amazon SES successfully verified that these tokens were published.
@@ -2548,6 +2774,7 @@ export interface GetIdentityDkimAttributesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the status of Amazon SES Easy DKIM signing for an identity. For domain
  *             identities, this response also contains the DKIM tokens that are required for Easy DKIM
  *             signing, and whether Amazon SES successfully verified that these tokens were
@@ -2561,6 +2788,7 @@ export interface GetIdentityDkimAttributesResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of
  *             identities. For information about using a custom MAIL FROM domain, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -2573,6 +2801,7 @@ export interface GetIdentityMailFromDomainAttributesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the custom MAIL FROM domain attributes of a verified identity (email
  *             address or domain).</p>
  */
@@ -2605,6 +2834,7 @@ export interface IdentityMailFromDomainAttributes {
 }
 
 /**
+ * @public
  * <p>Represents the custom MAIL FROM attributes for a list of identities.</p>
  */
 export interface GetIdentityMailFromDomainAttributesResponse {
@@ -2615,6 +2845,7 @@ export interface GetIdentityMailFromDomainAttributesResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to return the notification attributes for a list of identities
  *             you verified with Amazon SES. For information about Amazon SES notifications, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -2630,6 +2861,7 @@ export interface GetIdentityNotificationAttributesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the notification attributes of an identity, including whether an identity
  *             has Amazon Simple Notification Service (Amazon SNS) topics set for bounce, complaint, and/or delivery notifications,
  *             and whether feedback forwarding is enabled for bounce and complaint
@@ -2689,6 +2921,7 @@ export interface IdentityNotificationAttributes {
 }
 
 /**
+ * @public
  * <p>Represents the notification attributes for a list of identities.</p>
  */
 export interface GetIdentityNotificationAttributesResponse {
@@ -2699,6 +2932,7 @@ export interface GetIdentityNotificationAttributesResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to return the requested sending authorization policies for an
  *             identity. Sending authorization is an Amazon SES feature that enables you to authorize other
  *             senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
@@ -2723,6 +2957,7 @@ export interface GetIdentityPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the requested sending authorization policies.</p>
  */
 export interface GetIdentityPoliciesResponse {
@@ -2733,6 +2968,7 @@ export interface GetIdentityPoliciesResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to return the Amazon SES verification status of a list of identities.
  *             For domain identities, this request also returns the verification token. For information
  *             about verifying identities with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer
@@ -2746,6 +2982,7 @@ export interface GetIdentityVerificationAttributesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the verification attributes of a single identity.</p>
  */
 export interface IdentityVerificationAttributes {
@@ -2763,6 +3000,7 @@ export interface IdentityVerificationAttributes {
 }
 
 /**
+ * @public
  * <p>The Amazon SES verification status of a list of identities. For domain identities, this
  *             response also contains the verification token.</p>
  */
@@ -2774,6 +3012,7 @@ export interface GetIdentityVerificationAttributesResponse {
 }
 
 /**
+ * @public
  * <p>Represents your Amazon SES daily sending quota, maximum send rate, and the number of emails
  *             you have sent in the last 24 hours.</p>
  */
@@ -2801,6 +3040,7 @@ export interface GetSendQuotaResponse {
 }
 
 /**
+ * @public
  * <p>Represents sending statistics data. Each <code>SendDataPoint</code> contains
  *             statistics for a 15-minute period of sending activity. </p>
  */
@@ -2832,6 +3072,7 @@ export interface SendDataPoint {
 }
 
 /**
+ * @public
  * <p>Represents a list of data points. This list contains aggregated data from the previous
  *             two weeks of your sending activity with Amazon SES.</p>
  */
@@ -2842,6 +3083,9 @@ export interface GetSendStatisticsResponse {
   SendDataPoints?: SendDataPoint[];
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateRequest {
   /**
    * <p>The name of the template you want to retrieve.</p>
@@ -2849,6 +3093,9 @@ export interface GetTemplateRequest {
   TemplateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateResponse {
   /**
    * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
@@ -2858,6 +3105,7 @@ export interface GetTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  */
@@ -2879,9 +3127,13 @@ export class TemplateDoesNotExistException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type IdentityType = "Domain" | "EmailAddress";
 
 /**
+ * @public
  * <p>Indicates that provided delivery option is invalid.</p>
  */
 export class InvalidDeliveryOptionsException extends __BaseException {
@@ -2901,6 +3153,7 @@ export class InvalidDeliveryOptionsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the provided policy is invalid. Check the error stack for more
  *             information about what caused the error.</p>
  */
@@ -2921,6 +3174,7 @@ export class InvalidPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that one or more of the replacement values you provided is invalid. This
  *             error may occur when the TemplateData object contains invalid JSON.</p>
  */
@@ -2943,6 +3197,7 @@ export class InvalidRenderingParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a request to list the configuration sets associated with your AWS account.
  *             Configuration sets enable you to publish email sending events. For information about
  *             using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -2962,6 +3217,7 @@ export interface ListConfigurationSetsRequest {
 }
 
 /**
+ * @public
  * <p>A list of configuration sets associated with your AWS account. Configuration sets
  *             enable you to publish email sending events. For information about using configuration
  *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -2982,6 +3238,7 @@ export interface ListConfigurationSetsResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to list the existing custom verification email templates for your
  *             account.</p>
  *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom
@@ -3005,6 +3262,7 @@ export interface ListCustomVerificationEmailTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>A paginated list of custom verification email templates.</p>
  */
 export interface ListCustomVerificationEmailTemplatesResponse {
@@ -3023,6 +3281,7 @@ export interface ListCustomVerificationEmailTemplatesResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to return a list of all identities (email addresses and domains)
  *             that you have attempted to verify under your AWS account, regardless of verification
  *             status.</p>
@@ -3047,6 +3306,7 @@ export interface ListIdentitiesRequest {
 }
 
 /**
+ * @public
  * <p>A list of all identities that you have attempted to verify under your AWS account,
  *             regardless of verification status.</p>
  */
@@ -3063,6 +3323,7 @@ export interface ListIdentitiesResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to return a list of sending authorization policies that are
  *             attached to an identity. Sending authorization is an Amazon SES feature that enables you to
  *             authorize other senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
@@ -3079,6 +3340,7 @@ export interface ListIdentityPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>A list of names of sending authorization policies that apply to an identity.</p>
  */
 export interface ListIdentityPoliciesResponse {
@@ -3089,6 +3351,7 @@ export interface ListIdentityPoliciesResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to list the IP address filters that exist under your AWS account.
  *             You use IP address filters when you receive email with Amazon SES. For more information, see
  *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
@@ -3097,6 +3360,7 @@ export interface ListIdentityPoliciesResponse {
 export interface ListReceiptFiltersRequest {}
 
 /**
+ * @public
  * <p>A list of IP address filters that exist under your AWS account.</p>
  */
 export interface ListReceiptFiltersResponse {
@@ -3108,6 +3372,7 @@ export interface ListReceiptFiltersResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to list the receipt rule sets that exist under your AWS account.
  *             You use receipt rule sets to receive email with Amazon SES. For more information, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
@@ -3122,6 +3387,7 @@ export interface ListReceiptRuleSetsRequest {
 }
 
 /**
+ * @public
  * <p>A list of receipt rule sets that exist under your AWS account.</p>
  */
 export interface ListReceiptRuleSetsResponse {
@@ -3139,6 +3405,9 @@ export interface ListReceiptRuleSetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplatesRequest {
   /**
    * <p>A token returned from a previous call to <code>ListTemplates</code> to indicate the
@@ -3155,6 +3424,7 @@ export interface ListTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about an email template.</p>
  */
 export interface TemplateMetadata {
@@ -3169,6 +3439,9 @@ export interface TemplateMetadata {
   CreatedTimestamp?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplatesResponse {
   /**
    * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
@@ -3185,6 +3458,7 @@ export interface ListTemplatesResponse {
 }
 
 /**
+ * @public
  * <p>A list of email addresses that you have verified with Amazon SES under your AWS
  *             account.</p>
  */
@@ -3196,6 +3470,7 @@ export interface ListVerifiedEmailAddressesResponse {
 }
 
 /**
+ * @public
  * <p> Indicates that the message could not be sent because Amazon SES could not read the MX
  *             record required to use the specified MAIL FROM domain. For information about editing the
  *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
@@ -3218,6 +3493,7 @@ export class MailFromDomainNotVerifiedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the message to be sent, composed of a subject and a body.</p>
  */
 export interface Message {
@@ -3234,6 +3510,7 @@ export interface Message {
 }
 
 /**
+ * @public
  * <p>Message-related information to include in the Delivery Status Notification (DSN) when
  *             an email that Amazon SES receives on your behalf bounces.</p>
  *         <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES
@@ -3260,6 +3537,7 @@ export interface MessageDsn {
 }
 
 /**
+ * @public
  * <p>Indicates that the action failed, and the message could not be sent. Check the error
  *             stack for more information about what caused the error.</p>
  */
@@ -3280,6 +3558,7 @@ export class MessageRejected extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that one or more of the replacement values for the specified template was
  *             not specified. Ensure that the TemplateData object contains references to all of the
  *             replacement tags in the specified template.</p>
@@ -3302,9 +3581,13 @@ export class MissingRenderingAttributeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type NotificationType = "Bounce" | "Complaint" | "Delivery";
 
 /**
+ * @public
  * <p>Indicates that the account has not been granted production access.</p>
  */
 export class ProductionAccessNotGrantedException extends __BaseException {
@@ -3324,6 +3607,7 @@ export class ProductionAccessNotGrantedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A request to modify the delivery options for a configuration set.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsRequest {
@@ -3341,12 +3625,14 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
 }
 
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsResponse {}
 
 /**
+ * @public
  * <p>Represents a request to add or update a sending authorization policy for an identity.
  *             Sending authorization is an Amazon SES feature that enables you to authorize other senders to
  *             use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
@@ -3378,11 +3664,13 @@ export interface PutIdentityPolicyRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface PutIdentityPolicyResponse {}
 
 /**
+ * @public
  * <p>Represents the raw data of the message.</p>
  */
 export interface RawMessage {
@@ -3407,6 +3695,7 @@ export interface RawMessage {
 }
 
 /**
+ * @public
  * <p>Represents a request to reorder the receipt rules within a receipt rule set. You use
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
@@ -3424,11 +3713,13 @@ export interface ReorderReceiptRuleSetRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface ReorderReceiptRuleSetResponse {}
 
 /**
+ * @public
  * <p>Represents a request to send a bounce message to the sender of an email you received
  *             through Amazon SES.</p>
  */
@@ -3473,6 +3764,7 @@ export interface SendBounceRequest {
 }
 
 /**
+ * @public
  * <p>Represents a unique message ID.</p>
  */
 export interface SendBounceResponse {
@@ -3483,6 +3775,7 @@ export interface SendBounceResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to send a templated email to multiple destinations using Amazon SES.
  *             For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -3598,6 +3891,9 @@ export interface SendBulkTemplatedEmailRequest {
   Destinations: BulkEmailDestination[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendBulkTemplatedEmailResponse {
   /**
    * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
@@ -3607,6 +3903,7 @@ export interface SendBulkTemplatedEmailResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to send a custom verification email to a specified
  *             recipient.</p>
  */
@@ -3629,6 +3926,7 @@ export interface SendCustomVerificationEmailRequest {
 }
 
 /**
+ * @public
  * <p>The response received when attempting to send the custom verification email.</p>
  */
 export interface SendCustomVerificationEmailResponse {
@@ -3640,6 +3938,7 @@ export interface SendCustomVerificationEmailResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to send a single formatted email using Amazon SES. For more
  *             information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -3740,6 +4039,7 @@ export interface SendEmailRequest {
 }
 
 /**
+ * @public
  * <p>Represents a unique message ID.</p>
  */
 export interface SendEmailResponse {
@@ -3750,6 +4050,7 @@ export interface SendEmailResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to send a single raw email using Amazon SES. For more information, see
  *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>.</p>
  */
@@ -3892,6 +4193,7 @@ export interface SendRawEmailRequest {
 }
 
 /**
+ * @public
  * <p>Represents a unique message ID.</p>
  */
 export interface SendRawEmailResponse {
@@ -3903,6 +4205,7 @@ export interface SendRawEmailResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to send a templated email using Amazon SES. For more information, see
  *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -4015,6 +4318,9 @@ export interface SendTemplatedEmailRequest {
   TemplateData: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendTemplatedEmailResponse {
   /**
    * <p>The unique message identifier returned from the <code>SendTemplatedEmail</code>
@@ -4024,6 +4330,7 @@ export interface SendTemplatedEmailResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to set a receipt rule set as the active receipt rule set. You use
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
@@ -4036,11 +4343,13 @@ export interface SetActiveReceiptRuleSetRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetActiveReceiptRuleSetResponse {}
 
 /**
+ * @public
  * <p>Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For
  *             more information about setting up Easy DKIM, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
  */
@@ -4058,11 +4367,13 @@ export interface SetIdentityDkimEnabledRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityDkimEnabledResponse {}
 
 /**
+ * @public
  * <p>Represents a request to enable or disable whether Amazon SES forwards you bounce and
  *             complaint notifications through email. For information about email feedback forwarding,
  *             see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-email.html">Amazon SES Developer
@@ -4088,11 +4399,13 @@ export interface SetIdentityFeedbackForwardingEnabledRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityFeedbackForwardingEnabledResponse {}
 
 /**
+ * @public
  * <p>Represents a request to set whether Amazon SES includes the original email headers in the
  *             Amazon SNS notifications of a specified type. For information about notifications, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon SES Developer
@@ -4122,11 +4435,13 @@ export interface SetIdentityHeadersInNotificationsEnabledRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityHeadersInNotificationsEnabledResponse {}
 
 /**
+ * @public
  * <p>Represents a request to enable or disable the Amazon SES custom MAIL FROM domain setup for
  *             a verified identity. For information about using a custom MAIL FROM domain, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES
@@ -4163,11 +4478,13 @@ export interface SetIdentityMailFromDomainRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityMailFromDomainResponse {}
 
 /**
+ * @public
  * <p>Represents a request to specify the Amazon SNS topic to which Amazon SES will publish bounce,
  *             complaint, or delivery notifications for emails sent with that identity as the Source.
  *             For information about Amazon SES notifications, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon SES Developer
@@ -4201,11 +4518,13 @@ export interface SetIdentityNotificationTopicRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityNotificationTopicResponse {}
 
 /**
+ * @public
  * <p>Represents a request to set the position of a receipt rule in a receipt rule set. You
  *             use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
@@ -4227,10 +4546,14 @@ export interface SetReceiptRulePositionRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetReceiptRulePositionResponse {}
 
+/**
+ * @public
+ */
 export interface TestRenderTemplateRequest {
   /**
    * <p>The name of the template that you want to render.</p>
@@ -4245,6 +4568,9 @@ export interface TestRenderTemplateRequest {
   TemplateData: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TestRenderTemplateResponse {
   /**
    * <p>The complete MIME message rendered by applying the data in the TemplateData parameter
@@ -4254,6 +4580,7 @@ export interface TestRenderTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to enable or disable the email sending capabilities for your
  *             entire Amazon SES account.</p>
  */
@@ -4266,6 +4593,7 @@ export interface UpdateAccountSendingEnabledRequest {
 }
 
 /**
+ * @public
  * <p>Represents a request to update the event destination of a configuration set.
  *             Configuration sets enable you to publish email sending events. For information about
  *             using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -4286,11 +4614,13 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface UpdateConfigurationSetEventDestinationResponse {}
 
 /**
+ * @public
  * <p>Represents a request to modify the reputation metric publishing settings for a
  *             configuration set.</p>
  */
@@ -4308,6 +4638,7 @@ export interface UpdateConfigurationSetReputationMetricsEnabledRequest {
 }
 
 /**
+ * @public
  * <p>Represents a request to enable or disable the email sending capabilities for a
  *             specific configuration set.</p>
  */
@@ -4325,6 +4656,7 @@ export interface UpdateConfigurationSetSendingEnabledRequest {
 }
 
 /**
+ * @public
  * <p>Represents a request to update the tracking options for a configuration set. </p>
  */
 export interface UpdateConfigurationSetTrackingOptionsRequest {
@@ -4345,11 +4677,13 @@ export interface UpdateConfigurationSetTrackingOptionsRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface UpdateConfigurationSetTrackingOptionsResponse {}
 
 /**
+ * @public
  * <p>Represents a request to update an existing custom verification email template.</p>
  */
 export interface UpdateCustomVerificationEmailTemplateRequest {
@@ -4390,6 +4724,7 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Represents a request to update a receipt rule. You use receipt rules to receive email
  *             with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -4407,10 +4742,14 @@ export interface UpdateReceiptRuleRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface UpdateReceiptRuleResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateTemplateRequest {
   /**
    * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
@@ -4419,9 +4758,13 @@ export interface UpdateTemplateRequest {
   Template: Template | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTemplateResponse {}
 
 /**
+ * @public
  * <p>Represents a request to generate the CNAME records needed to set up Easy DKIM with
  *             Amazon SES. For more information about setting up Easy DKIM, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -4434,6 +4777,7 @@ export interface VerifyDomainDkimRequest {
 }
 
 /**
+ * @public
  * <p>Returns CNAME records that you must publish to the DNS server of your domain to set up
  *             Easy DKIM with Amazon SES.</p>
  */
@@ -4453,6 +4797,7 @@ export interface VerifyDomainDkimResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to begin Amazon SES domain verification and to generate the TXT
  *             records that you must publish to the DNS server of your domain to complete the
  *             verification. For information about domain verification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html">Amazon SES
@@ -4466,6 +4811,7 @@ export interface VerifyDomainIdentityRequest {
 }
 
 /**
+ * @public
  * <p>Returns a TXT record that you must publish to the DNS server of your domain to
  *             complete domain verification with Amazon SES.</p>
  */
@@ -4483,6 +4829,7 @@ export interface VerifyDomainIdentityResponse {
 }
 
 /**
+ * @public
  * <p>Represents a request to begin email address verification with Amazon SES. For information
  *             about email address verification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -4495,6 +4842,7 @@ export interface VerifyEmailAddressRequest {
 }
 
 /**
+ * @public
  * <p>Represents a request to begin email address verification with Amazon SES. For information
  *             about email address verification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -4507,1279 +4855,7 @@ export interface VerifyEmailIdentityRequest {
 }
 
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface VerifyEmailIdentityResponse {}
-
-/**
- * @internal
- */
-export const AddHeaderActionFilterSensitiveLog = (obj: AddHeaderAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContentFilterSensitiveLog = (obj: Content): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BodyFilterSensitiveLog = (obj: Body): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BounceActionFilterSensitiveLog = (obj: BounceAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtensionFieldFilterSensitiveLog = (obj: ExtensionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecipientDsnFieldsFilterSensitiveLog = (obj: RecipientDsnFields): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BouncedRecipientInfoFilterSensitiveLog = (obj: BouncedRecipientInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MessageTagFilterSensitiveLog = (obj: MessageTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BulkEmailDestinationFilterSensitiveLog = (obj: BulkEmailDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BulkEmailDestinationStatusFilterSensitiveLog = (obj: BulkEmailDestinationStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloneReceiptRuleSetRequestFilterSensitiveLog = (obj: CloneReceiptRuleSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloneReceiptRuleSetResponseFilterSensitiveLog = (obj: CloneReceiptRuleSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchDimensionConfigurationFilterSensitiveLog = (obj: CloudWatchDimensionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchDestinationFilterSensitiveLog = (obj: CloudWatchDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationSetFilterSensitiveLog = (obj: ConfigurationSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationSetRequestFilterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationSetResponseFilterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KinesisFirehoseDestinationFilterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SNSDestinationFilterSensitiveLog = (obj: SNSDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventDestinationFilterSensitiveLog = (obj: EventDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationSetEventDestinationRequestFilterSensitiveLog = (
-  obj: CreateConfigurationSetEventDestinationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationSetEventDestinationResponseFilterSensitiveLog = (
-  obj: CreateConfigurationSetEventDestinationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrackingOptionsFilterSensitiveLog = (obj: TrackingOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationSetTrackingOptionsRequestFilterSensitiveLog = (
-  obj: CreateConfigurationSetTrackingOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationSetTrackingOptionsResponseFilterSensitiveLog = (
-  obj: CreateConfigurationSetTrackingOptionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomVerificationEmailTemplateRequestFilterSensitiveLog = (
-  obj: CreateCustomVerificationEmailTemplateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReceiptIpFilterFilterSensitiveLog = (obj: ReceiptIpFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReceiptFilterFilterSensitiveLog = (obj: ReceiptFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReceiptFilterRequestFilterSensitiveLog = (obj: CreateReceiptFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReceiptFilterResponseFilterSensitiveLog = (obj: CreateReceiptFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaActionFilterSensitiveLog = (obj: LambdaAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ActionFilterSensitiveLog = (obj: S3Action): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SNSActionFilterSensitiveLog = (obj: SNSAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopActionFilterSensitiveLog = (obj: StopAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkmailActionFilterSensitiveLog = (obj: WorkmailAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReceiptActionFilterSensitiveLog = (obj: ReceiptAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReceiptRuleFilterSensitiveLog = (obj: ReceiptRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReceiptRuleRequestFilterSensitiveLog = (obj: CreateReceiptRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReceiptRuleResponseFilterSensitiveLog = (obj: CreateReceiptRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReceiptRuleSetRequestFilterSensitiveLog = (obj: CreateReceiptRuleSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReceiptRuleSetResponseFilterSensitiveLog = (obj: CreateReceiptRuleSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateFilterSensitiveLog = (obj: Template): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTemplateRequestFilterSensitiveLog = (obj: CreateTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTemplateResponseFilterSensitiveLog = (obj: CreateTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomVerificationEmailTemplateFilterSensitiveLog = (obj: CustomVerificationEmailTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationSetRequestFilterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationSetResponseFilterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationSetEventDestinationRequestFilterSensitiveLog = (
-  obj: DeleteConfigurationSetEventDestinationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationSetEventDestinationResponseFilterSensitiveLog = (
-  obj: DeleteConfigurationSetEventDestinationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationSetTrackingOptionsRequestFilterSensitiveLog = (
-  obj: DeleteConfigurationSetTrackingOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationSetTrackingOptionsResponseFilterSensitiveLog = (
-  obj: DeleteConfigurationSetTrackingOptionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomVerificationEmailTemplateRequestFilterSensitiveLog = (
-  obj: DeleteCustomVerificationEmailTemplateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIdentityRequestFilterSensitiveLog = (obj: DeleteIdentityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIdentityResponseFilterSensitiveLog = (obj: DeleteIdentityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIdentityPolicyRequestFilterSensitiveLog = (obj: DeleteIdentityPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIdentityPolicyResponseFilterSensitiveLog = (obj: DeleteIdentityPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReceiptFilterRequestFilterSensitiveLog = (obj: DeleteReceiptFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReceiptFilterResponseFilterSensitiveLog = (obj: DeleteReceiptFilterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReceiptRuleRequestFilterSensitiveLog = (obj: DeleteReceiptRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReceiptRuleResponseFilterSensitiveLog = (obj: DeleteReceiptRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReceiptRuleSetRequestFilterSensitiveLog = (obj: DeleteReceiptRuleSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReceiptRuleSetResponseFilterSensitiveLog = (obj: DeleteReceiptRuleSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTemplateRequestFilterSensitiveLog = (obj: DeleteTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTemplateResponseFilterSensitiveLog = (obj: DeleteTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVerifiedEmailAddressRequestFilterSensitiveLog = (obj: DeleteVerifiedEmailAddressRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeliveryOptionsFilterSensitiveLog = (obj: DeliveryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActiveReceiptRuleSetRequestFilterSensitiveLog = (
-  obj: DescribeActiveReceiptRuleSetRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReceiptRuleSetMetadataFilterSensitiveLog = (obj: ReceiptRuleSetMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActiveReceiptRuleSetResponseFilterSensitiveLog = (
-  obj: DescribeActiveReceiptRuleSetResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationSetRequestFilterSensitiveLog = (obj: DescribeConfigurationSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReputationOptionsFilterSensitiveLog = (obj: ReputationOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationSetResponseFilterSensitiveLog = (obj: DescribeConfigurationSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReceiptRuleRequestFilterSensitiveLog = (obj: DescribeReceiptRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReceiptRuleResponseFilterSensitiveLog = (obj: DescribeReceiptRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReceiptRuleSetRequestFilterSensitiveLog = (obj: DescribeReceiptRuleSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReceiptRuleSetResponseFilterSensitiveLog = (obj: DescribeReceiptRuleSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityDkimAttributesFilterSensitiveLog = (obj: IdentityDkimAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountSendingEnabledResponseFilterSensitiveLog = (obj: GetAccountSendingEnabledResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCustomVerificationEmailTemplateRequestFilterSensitiveLog = (
-  obj: GetCustomVerificationEmailTemplateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCustomVerificationEmailTemplateResponseFilterSensitiveLog = (
-  obj: GetCustomVerificationEmailTemplateResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityDkimAttributesRequestFilterSensitiveLog = (obj: GetIdentityDkimAttributesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityDkimAttributesResponseFilterSensitiveLog = (obj: GetIdentityDkimAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityMailFromDomainAttributesRequestFilterSensitiveLog = (
-  obj: GetIdentityMailFromDomainAttributesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityMailFromDomainAttributesFilterSensitiveLog = (obj: IdentityMailFromDomainAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityMailFromDomainAttributesResponseFilterSensitiveLog = (
-  obj: GetIdentityMailFromDomainAttributesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityNotificationAttributesRequestFilterSensitiveLog = (
-  obj: GetIdentityNotificationAttributesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityNotificationAttributesFilterSensitiveLog = (obj: IdentityNotificationAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityNotificationAttributesResponseFilterSensitiveLog = (
-  obj: GetIdentityNotificationAttributesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityPoliciesRequestFilterSensitiveLog = (obj: GetIdentityPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityPoliciesResponseFilterSensitiveLog = (obj: GetIdentityPoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityVerificationAttributesRequestFilterSensitiveLog = (
-  obj: GetIdentityVerificationAttributesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityVerificationAttributesFilterSensitiveLog = (obj: IdentityVerificationAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityVerificationAttributesResponseFilterSensitiveLog = (
-  obj: GetIdentityVerificationAttributesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSendQuotaResponseFilterSensitiveLog = (obj: GetSendQuotaResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendDataPointFilterSensitiveLog = (obj: SendDataPoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSendStatisticsResponseFilterSensitiveLog = (obj: GetSendStatisticsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateRequestFilterSensitiveLog = (obj: GetTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateResponseFilterSensitiveLog = (obj: GetTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationSetsRequestFilterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationSetsResponseFilterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomVerificationEmailTemplatesRequestFilterSensitiveLog = (
-  obj: ListCustomVerificationEmailTemplatesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomVerificationEmailTemplatesResponseFilterSensitiveLog = (
-  obj: ListCustomVerificationEmailTemplatesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentitiesRequestFilterSensitiveLog = (obj: ListIdentitiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentitiesResponseFilterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentityPoliciesRequestFilterSensitiveLog = (obj: ListIdentityPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentityPoliciesResponseFilterSensitiveLog = (obj: ListIdentityPoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReceiptFiltersRequestFilterSensitiveLog = (obj: ListReceiptFiltersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReceiptFiltersResponseFilterSensitiveLog = (obj: ListReceiptFiltersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReceiptRuleSetsRequestFilterSensitiveLog = (obj: ListReceiptRuleSetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReceiptRuleSetsResponseFilterSensitiveLog = (obj: ListReceiptRuleSetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTemplatesRequestFilterSensitiveLog = (obj: ListTemplatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateMetadataFilterSensitiveLog = (obj: TemplateMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTemplatesResponseFilterSensitiveLog = (obj: ListTemplatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVerifiedEmailAddressesResponseFilterSensitiveLog = (obj: ListVerifiedEmailAddressesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MessageFilterSensitiveLog = (obj: Message): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MessageDsnFilterSensitiveLog = (obj: MessageDsn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConfigurationSetDeliveryOptionsRequestFilterSensitiveLog = (
-  obj: PutConfigurationSetDeliveryOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConfigurationSetDeliveryOptionsResponseFilterSensitiveLog = (
-  obj: PutConfigurationSetDeliveryOptionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutIdentityPolicyRequestFilterSensitiveLog = (obj: PutIdentityPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutIdentityPolicyResponseFilterSensitiveLog = (obj: PutIdentityPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RawMessageFilterSensitiveLog = (obj: RawMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReorderReceiptRuleSetRequestFilterSensitiveLog = (obj: ReorderReceiptRuleSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReorderReceiptRuleSetResponseFilterSensitiveLog = (obj: ReorderReceiptRuleSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendBounceRequestFilterSensitiveLog = (obj: SendBounceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendBounceResponseFilterSensitiveLog = (obj: SendBounceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendBulkTemplatedEmailRequestFilterSensitiveLog = (obj: SendBulkTemplatedEmailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendBulkTemplatedEmailResponseFilterSensitiveLog = (obj: SendBulkTemplatedEmailResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendCustomVerificationEmailRequestFilterSensitiveLog = (obj: SendCustomVerificationEmailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendCustomVerificationEmailResponseFilterSensitiveLog = (
-  obj: SendCustomVerificationEmailResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendEmailRequestFilterSensitiveLog = (obj: SendEmailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendEmailResponseFilterSensitiveLog = (obj: SendEmailResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendRawEmailRequestFilterSensitiveLog = (obj: SendRawEmailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendRawEmailResponseFilterSensitiveLog = (obj: SendRawEmailResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendTemplatedEmailRequestFilterSensitiveLog = (obj: SendTemplatedEmailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendTemplatedEmailResponseFilterSensitiveLog = (obj: SendTemplatedEmailResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetActiveReceiptRuleSetRequestFilterSensitiveLog = (obj: SetActiveReceiptRuleSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetActiveReceiptRuleSetResponseFilterSensitiveLog = (obj: SetActiveReceiptRuleSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityDkimEnabledRequestFilterSensitiveLog = (obj: SetIdentityDkimEnabledRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityDkimEnabledResponseFilterSensitiveLog = (obj: SetIdentityDkimEnabledResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityFeedbackForwardingEnabledRequestFilterSensitiveLog = (
-  obj: SetIdentityFeedbackForwardingEnabledRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityFeedbackForwardingEnabledResponseFilterSensitiveLog = (
-  obj: SetIdentityFeedbackForwardingEnabledResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityHeadersInNotificationsEnabledRequestFilterSensitiveLog = (
-  obj: SetIdentityHeadersInNotificationsEnabledRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityHeadersInNotificationsEnabledResponseFilterSensitiveLog = (
-  obj: SetIdentityHeadersInNotificationsEnabledResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityMailFromDomainRequestFilterSensitiveLog = (obj: SetIdentityMailFromDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityMailFromDomainResponseFilterSensitiveLog = (obj: SetIdentityMailFromDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityNotificationTopicRequestFilterSensitiveLog = (
-  obj: SetIdentityNotificationTopicRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityNotificationTopicResponseFilterSensitiveLog = (
-  obj: SetIdentityNotificationTopicResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetReceiptRulePositionRequestFilterSensitiveLog = (obj: SetReceiptRulePositionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetReceiptRulePositionResponseFilterSensitiveLog = (obj: SetReceiptRulePositionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestRenderTemplateRequestFilterSensitiveLog = (obj: TestRenderTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestRenderTemplateResponseFilterSensitiveLog = (obj: TestRenderTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAccountSendingEnabledRequestFilterSensitiveLog = (obj: UpdateAccountSendingEnabledRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog = (
-  obj: UpdateConfigurationSetEventDestinationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog = (
-  obj: UpdateConfigurationSetEventDestinationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationSetReputationMetricsEnabledRequestFilterSensitiveLog = (
-  obj: UpdateConfigurationSetReputationMetricsEnabledRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationSetSendingEnabledRequestFilterSensitiveLog = (
-  obj: UpdateConfigurationSetSendingEnabledRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationSetTrackingOptionsRequestFilterSensitiveLog = (
-  obj: UpdateConfigurationSetTrackingOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationSetTrackingOptionsResponseFilterSensitiveLog = (
-  obj: UpdateConfigurationSetTrackingOptionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCustomVerificationEmailTemplateRequestFilterSensitiveLog = (
-  obj: UpdateCustomVerificationEmailTemplateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateReceiptRuleRequestFilterSensitiveLog = (obj: UpdateReceiptRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateReceiptRuleResponseFilterSensitiveLog = (obj: UpdateReceiptRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTemplateRequestFilterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTemplateResponseFilterSensitiveLog = (obj: UpdateTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifyDomainDkimRequestFilterSensitiveLog = (obj: VerifyDomainDkimRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifyDomainDkimResponseFilterSensitiveLog = (obj: VerifyDomainDkimResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifyDomainIdentityRequestFilterSensitiveLog = (obj: VerifyDomainIdentityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifyDomainIdentityResponseFilterSensitiveLog = (obj: VerifyDomainIdentityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifyEmailAddressRequestFilterSensitiveLog = (obj: VerifyEmailAddressRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifyEmailIdentityRequestFilterSensitiveLog = (obj: VerifyEmailIdentityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VerifyEmailIdentityResponseFilterSensitiveLog = (obj: VerifyEmailIdentityResponse): any => ({
-  ...obj,
-});

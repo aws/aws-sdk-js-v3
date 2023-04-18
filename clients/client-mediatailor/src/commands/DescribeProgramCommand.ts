@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  DescribeProgramRequest,
-  DescribeProgramRequestFilterSensitiveLog,
-  DescribeProgramResponse,
-  DescribeProgramResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeProgramCommand,
-  serializeAws_restJson1DescribeProgramCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeProgramRequest, DescribeProgramResponse } from "../models/models_0";
+import { de_DescribeProgramCommand, se_DescribeProgramCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeProgramCommand}.
+ */
 export interface DescribeProgramCommandInput extends DescribeProgramRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProgramCommand}.
+ */
 export interface DescribeProgramCommandOutput extends DescribeProgramResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working with programs</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,20 @@ export interface DescribeProgramCommandOutput extends DescribeProgramResponse, _
  * import { MediaTailorClient, DescribeProgramCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DescribeProgramCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // DescribeProgramRequest
+ *   ChannelName: "STRING_VALUE", // required
+ *   ProgramName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProgramCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProgramCommandInput - {@link DescribeProgramCommandInput}
+ * @returns {@link DescribeProgramCommandOutput}
  * @see {@link DescribeProgramCommandInput} for command's `input` shape.
  * @see {@link DescribeProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
  *
  */
 export class DescribeProgramCommand extends $Command<
@@ -62,6 +72,9 @@ export class DescribeProgramCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProgramCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +103,8 @@ export class DescribeProgramCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProgramRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProgramResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +114,18 @@ export class DescribeProgramCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProgramCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeProgramCommand(input, context);
+    return se_DescribeProgramCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProgramCommandOutput> {
-    return deserializeAws_restJson1DescribeProgramCommand(output, context);
+    return de_DescribeProgramCommand(output, context);
   }
 
   // Start section: command_body_extra

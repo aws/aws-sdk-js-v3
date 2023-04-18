@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { DeletePartnerEventSourceRequest, DeletePartnerEventSourceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePartnerEventSourceCommand,
-  serializeAws_json1_1DeletePartnerEventSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePartnerEventSourceRequest } from "../models/models_0";
+import { de_DeletePartnerEventSourceCommand, se_DeletePartnerEventSourceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeletePartnerEventSourceCommand}.
+ */
 export interface DeletePartnerEventSourceCommandInput extends DeletePartnerEventSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePartnerEventSourceCommand}.
+ */
 export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation is used by SaaS partners to delete a partner event source. This operation
  *       is not used by Amazon Web Services customers.</p>
  *          <p>When you delete an event source, the status of the corresponding partner event bus in the
@@ -35,13 +43,29 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * import { EventBridgeClient, DeletePartnerEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeletePartnerEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // DeletePartnerEventSourceRequest
+ *   Name: "STRING_VALUE", // required
+ *   Account: "STRING_VALUE", // required
+ * };
  * const command = new DeletePartnerEventSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePartnerEventSourceCommandInput - {@link DeletePartnerEventSourceCommandInput}
+ * @returns {@link DeletePartnerEventSourceCommandOutput}
  * @see {@link DeletePartnerEventSourceCommandInput} for command's `input` shape.
  * @see {@link DeletePartnerEventSourceCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link OperationDisabledException} (client fault)
+ *  <p>The operation you are attempting is not available in this region.</p>
+ *
  *
  */
 export class DeletePartnerEventSourceCommand extends $Command<
@@ -61,6 +85,9 @@ export class DeletePartnerEventSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePartnerEventSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +116,8 @@ export class DeletePartnerEventSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePartnerEventSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +127,18 @@ export class DeletePartnerEventSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePartnerEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePartnerEventSourceCommand(input, context);
+    return se_DeletePartnerEventSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePartnerEventSourceCommandOutput> {
-    return deserializeAws_json1_1DeletePartnerEventSourceCommand(output, context);
+    return de_DeletePartnerEventSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

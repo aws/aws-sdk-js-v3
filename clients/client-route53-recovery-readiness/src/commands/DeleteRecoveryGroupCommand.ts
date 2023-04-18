@@ -13,21 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteRecoveryGroupRequest, DeleteRecoveryGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRecoveryGroupCommand,
-  serializeAws_restJson1DeleteRecoveryGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRecoveryGroupRequest } from "../models/models_0";
+import { de_DeleteRecoveryGroupCommand, se_DeleteRecoveryGroupCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteRecoveryGroupCommand}.
+ */
 export interface DeleteRecoveryGroupCommandInput extends DeleteRecoveryGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRecoveryGroupCommand}.
+ */
 export interface DeleteRecoveryGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a recovery group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +43,34 @@ export interface DeleteRecoveryGroupCommandOutput extends __MetadataBearer {}
  * import { Route53RecoveryReadinessClient, DeleteRecoveryGroupCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, DeleteRecoveryGroupCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // DeleteRecoveryGroupRequest
+ *   RecoveryGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRecoveryGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecoveryGroupCommandInput - {@link DeleteRecoveryGroupCommandInput}
+ * @returns {@link DeleteRecoveryGroupCommandOutput}
  * @see {@link DeleteRecoveryGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteRecoveryGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  User does not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  The requested resource does not exist.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Request was denied due to request throttling.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  The input fails to satisfy the constraints specified by an AWS service.
+ *
  *
  */
 export class DeleteRecoveryGroupCommand extends $Command<
@@ -61,6 +90,9 @@ export class DeleteRecoveryGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecoveryGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +121,8 @@ export class DeleteRecoveryGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecoveryGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +132,18 @@ export class DeleteRecoveryGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecoveryGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecoveryGroupCommand(input, context);
+    return se_DeleteRecoveryGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecoveryGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteRecoveryGroupCommand(output, context);
+    return de_DeleteRecoveryGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

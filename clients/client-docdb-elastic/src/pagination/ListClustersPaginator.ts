@@ -6,12 +6,11 @@ import {
   ListClustersCommandInput,
   ListClustersCommandOutput,
 } from "../commands/ListClustersCommand";
-import { DocDBElastic } from "../DocDBElastic";
 import { DocDBElasticClient } from "../DocDBElasticClient";
 import { DocDBElasticPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DocDBElasticClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListClustersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DocDBElastic,
-  input: ListClustersCommandInput,
-  ...args: any
-): Promise<ListClustersCommandOutput> => {
-  // @ts-ignore
-  return await client.listClusters(input, ...args);
-};
 export async function* paginateListClusters(
   config: DocDBElasticPaginationConfiguration,
   input: ListClustersCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListClusters(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof DocDBElastic) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DocDBElasticClient) {
+    if (config.client instanceof DocDBElasticClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DocDBElastic | DocDBElasticClient");

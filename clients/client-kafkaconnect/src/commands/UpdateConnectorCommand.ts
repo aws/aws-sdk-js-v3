@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  UpdateConnectorRequest,
-  UpdateConnectorRequestFilterSensitiveLog,
-  UpdateConnectorResponse,
-  UpdateConnectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConnectorCommand,
-  serializeAws_restJson1UpdateConnectorCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateConnectorRequest, UpdateConnectorResponse } from "../models/models_0";
+import { de_UpdateConnectorCommand, se_UpdateConnectorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateConnectorCommand}.
+ */
 export interface UpdateConnectorCommandInput extends UpdateConnectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateConnectorCommand}.
+ */
 export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,64 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * import { KafkaConnectClient, UpdateConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, UpdateConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
+ * const input = { // UpdateConnectorRequest
+ *   capacity: { // CapacityUpdate
+ *     autoScaling: { // AutoScalingUpdate
+ *       maxWorkerCount: Number("int"), // required
+ *       mcuCount: Number("int"), // required
+ *       minWorkerCount: Number("int"), // required
+ *       scaleInPolicy: { // ScaleInPolicyUpdate
+ *         cpuUtilizationPercentage: Number("int"), // required
+ *       },
+ *       scaleOutPolicy: { // ScaleOutPolicyUpdate
+ *         cpuUtilizationPercentage: Number("int"), // required
+ *       },
+ *     },
+ *     provisionedCapacity: { // ProvisionedCapacityUpdate
+ *       mcuCount: Number("int"), // required
+ *       workerCount: Number("int"), // required
+ *     },
+ *   },
+ *   connectorArn: "STRING_VALUE", // required
+ *   currentVersion: "STRING_VALUE", // required
+ * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectorCommandInput - {@link UpdateConnectorCommandInput}
+ * @returns {@link UpdateConnectorCommandOutput}
  * @see {@link UpdateConnectorCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then
+ *          retry it.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your
+ *          request.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might
+ *          resolve the issue.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request
+ *          and then retry it.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might
+ *          resolve the issue.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
+ *          validated.</p>
+ *
  *
  */
 export class UpdateConnectorCommand extends $Command<
@@ -62,6 +116,9 @@ export class UpdateConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +147,8 @@ export class UpdateConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +158,18 @@ export class UpdateConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConnectorCommand(input, context);
+    return se_UpdateConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectorCommandOutput> {
-    return deserializeAws_restJson1UpdateConnectorCommand(output, context);
+    return de_UpdateConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

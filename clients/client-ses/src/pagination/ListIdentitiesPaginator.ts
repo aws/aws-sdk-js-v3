@@ -6,12 +6,11 @@ import {
   ListIdentitiesCommandInput,
   ListIdentitiesCommandOutput,
 } from "../commands/ListIdentitiesCommand";
-import { SES } from "../SES";
 import { SESClient } from "../SESClient";
 import { SESPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SESClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListIdentitiesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SES,
-  input: ListIdentitiesCommandInput,
-  ...args: any
-): Promise<ListIdentitiesCommandOutput> => {
-  // @ts-ignore
-  return await client.listIdentities(input, ...args);
-};
 export async function* paginateListIdentities(
   config: SESPaginationConfiguration,
   input: ListIdentitiesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListIdentities(
   while (hasNext) {
     input.NextToken = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof SES) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SESClient) {
+    if (config.client instanceof SESClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SES | SESClient");

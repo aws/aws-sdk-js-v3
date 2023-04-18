@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCommandInvocationsRequest,
-  ListCommandInvocationsRequestFilterSensitiveLog,
-  ListCommandInvocationsResult,
-  ListCommandInvocationsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListCommandInvocationsCommand,
-  serializeAws_json1_1ListCommandInvocationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCommandInvocationsRequest, ListCommandInvocationsResult } from "../models/models_1";
+import { de_ListCommandInvocationsCommand, se_ListCommandInvocationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListCommandInvocationsCommand}.
+ */
 export interface ListCommandInvocationsCommandInput extends ListCommandInvocationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCommandInvocationsCommand}.
+ */
 export interface ListCommandInvocationsCommandOutput extends ListCommandInvocationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>An invocation is copy of a command sent to a specific managed node. A command can apply to
  *    one or more managed nodes. A command invocation applies to one managed node. For example, if a
  *    user runs <code>SendCommand</code> against three managed nodes, then a command invocation is
@@ -40,13 +43,61 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  * import { SSMClient, ListCommandInvocationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListCommandInvocationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListCommandInvocationsRequest
+ *   CommandId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // CommandFilterList
+ *     { // CommandFilter
+ *       key: "InvokedAfter" || "InvokedBefore" || "Status" || "ExecutionStage" || "DocumentName", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Details: true || false,
+ * };
  * const command = new ListCommandInvocationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCommandInvocationsCommandInput - {@link ListCommandInvocationsCommandInput}
+ * @returns {@link ListCommandInvocationsCommandOutput}
  * @see {@link ListCommandInvocationsCommandInput} for command's `input` shape.
  * @see {@link ListCommandInvocationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidCommandId} (client fault)
+ *  <p>The specified command ID isn't valid. Verify the ID and try again.</p>
+ *
+ * @throws {@link InvalidFilterKey} (client fault)
+ *  <p>The specified key isn't valid.</p>
+ *
+ * @throws {@link InvalidInstanceId} (client fault)
+ *  <p>The following problems can cause this exception:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You don't have permission to access the managed node.</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon Web Services Systems Manager Agent(SSM Agent) isn't running. Verify that SSM Agent is
+ *      running.</p>
+ *             </li>
+ *             <li>
+ *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
+ *             </li>
+ *             <li>
+ *                <p>The managed node isn't in valid state. Valid states are: <code>Running</code>,
+ *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
+ *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
  *
  */
 export class ListCommandInvocationsCommand extends $Command<
@@ -66,6 +117,9 @@ export class ListCommandInvocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCommandInvocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +148,8 @@ export class ListCommandInvocationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCommandInvocationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCommandInvocationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +159,18 @@ export class ListCommandInvocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCommandInvocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCommandInvocationsCommand(input, context);
+    return se_ListCommandInvocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCommandInvocationsCommandOutput> {
-    return deserializeAws_json1_1ListCommandInvocationsCommand(output, context);
+    return de_ListCommandInvocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

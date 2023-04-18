@@ -3,15 +3,22 @@ import { EchoServiceServiceException as __BaseException } from "./EchoServiceSer
 
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
 
+/**
+ * @public
+ */
 export interface EchoInput {
   string?: string;
 }
 
+/**
+ * @public
+ */
 export interface EchoOutput {
   string?: string;
 }
 
 /**
+ * @public
  * For some reason, this service does not like palindromes!
  */
 export class PalindromeException extends __BaseException {
@@ -30,38 +37,16 @@ export class PalindromeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface LengthInput {
   string: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface LengthOutput {
   length?: number;
 }
-
-/**
- * @internal
- */
-export const EchoInputFilterSensitiveLog = (obj: EchoInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EchoOutputFilterSensitiveLog = (obj: EchoOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LengthInputFilterSensitiveLog = (obj: LengthInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LengthOutputFilterSensitiveLog = (obj: LengthOutput): any => ({
-  ...obj,
-});

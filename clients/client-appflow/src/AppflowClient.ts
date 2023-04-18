@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -108,6 +110,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateConnectorProfileCommandInput
   | CreateFlowCommandInput
@@ -133,6 +138,9 @@ export type ServiceInputTypes =
   | UpdateConnectorRegistrationCommandInput
   | UpdateFlowCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateConnectorProfileCommandOutput
   | CreateFlowCommandOutput
@@ -158,6 +166,9 @@ export type ServiceOutputTypes =
   | UpdateConnectorRegistrationCommandOutput
   | UpdateFlowCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -165,11 +176,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -226,19 +237,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -249,12 +251,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -274,11 +270,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AppflowClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -289,10 +303,15 @@ type AppflowClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AppflowClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AppflowClient class constructor that set the region, credentials and other options.
  */
 export interface AppflowClientConfig extends AppflowClientConfigType {}
 
+/**
+ * @public
+ */
 type AppflowClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -303,11 +322,14 @@ type AppflowClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AppflowClient class. This is resolved and normalized from the {@link AppflowClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AppflowClient class. This is resolved and normalized from the {@link AppflowClientConfig | constructor configuration interface}.
  */
 export interface AppflowClientResolvedConfig extends AppflowClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Welcome to the Amazon AppFlow API reference. This guide is for developers who need
  *       detailed information about the Amazon AppFlow API operations, data types, and errors. </p>
  *          <p>Amazon AppFlow is a fully managed integration service that enables you to securely
@@ -317,8 +339,7 @@ export interface AppflowClientResolvedConfig extends AppflowClientResolvedConfig
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Operations.html">Actions</a>: An alphabetical list of all Amazon AppFlow API
- *           operations.</p>
+ *                   <a href="https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Operations.html">Actions</a>: An alphabetical list of all Amazon AppFlow API operations.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -335,7 +356,8 @@ export interface AppflowClientResolvedConfig extends AppflowClientResolvedConfig
  *             errors</a>: Client and server errors that all operations can return.</p>
  *             </li>
  *          </ul>
- *          <p>If you're new to Amazon AppFlow, we recommend that you review the <a href="https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html">Amazon AppFlow User Guide</a>.</p>
+ *          <p>If you're new to Amazon AppFlow, we recommend that you review the <a href="https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html">Amazon AppFlow
+ *         User Guide</a>.</p>
  *          <p>Amazon AppFlow API users can use vendor-specific mechanisms for OAuth, and include
  *       applicable OAuth attributes (such as <code>auth-code</code> and <code>redirecturi</code>) with
  *       the connector-specific <code>ConnectorProfileProperties</code> when creating a new connector

@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  CreateReplicationTaskMessage,
-  CreateReplicationTaskMessageFilterSensitiveLog,
-  CreateReplicationTaskResponse,
-  CreateReplicationTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateReplicationTaskCommand,
-  serializeAws_json1_1CreateReplicationTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateReplicationTaskMessage, CreateReplicationTaskResponse } from "../models/models_0";
+import { de_CreateReplicationTaskCommand, se_CreateReplicationTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateReplicationTaskCommand}.
+ */
 export interface CreateReplicationTaskCommandInput extends CreateReplicationTaskMessage {}
+/**
+ * @public
+ *
+ * The output of {@link CreateReplicationTaskCommand}.
+ */
 export interface CreateReplicationTaskCommandOutput extends CreateReplicationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a replication task using the specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,96 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
  * import { DatabaseMigrationServiceClient, CreateReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // CreateReplicationTaskMessage
+ *   ReplicationTaskIdentifier: "STRING_VALUE", // required
+ *   SourceEndpointArn: "STRING_VALUE", // required
+ *   TargetEndpointArn: "STRING_VALUE", // required
+ *   ReplicationInstanceArn: "STRING_VALUE", // required
+ *   MigrationType: "full-load" || "cdc" || "full-load-and-cdc", // required
+ *   TableMappings: "STRING_VALUE", // required
+ *   ReplicationTaskSettings: "STRING_VALUE",
+ *   CdcStartTime: new Date("TIMESTAMP"),
+ *   CdcStartPosition: "STRING_VALUE",
+ *   CdcStopPosition: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   TaskData: "STRING_VALUE",
+ *   ResourceIdentifier: "STRING_VALUE",
+ * };
  * const command = new CreateReplicationTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationTaskCommandInput - {@link CreateReplicationTaskCommandInput}
+ * @returns {@link CreateReplicationTaskCommandOutput}
  * @see {@link CreateReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>DMS cannot access the KMS key.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsFault} (client fault)
+ *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ResourceQuotaExceededFault} (client fault)
+ *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ *
+ * @example Create replication task
+ * ```javascript
+ * // Creates a replication task using the specified parameters.
+ * const input = {
+ *   "CdcStartTime": "2016-12-14T18:25:43Z",
+ *   "MigrationType": "full-load",
+ *   "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *   "ReplicationTaskIdentifier": "task1",
+ *   "ReplicationTaskSettings": "",
+ *   "SourceEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+ *   "TableMappings": "file://mappingfile.json",
+ *   "Tags": [
+ *     {
+ *       "Key": "Acount",
+ *       "Value": "24352226"
+ *     }
+ *   ],
+ *   "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+ * };
+ * const command = new CreateReplicationTaskCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReplicationTask": {
+ *     "MigrationType": "full-load",
+ *     "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *     "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:task:OEAMB3NXSTZ6LFYZFEPPBBXPYM",
+ *     "ReplicationTaskCreationDate": "2016-12-14T18:25:43Z",
+ *     "ReplicationTaskIdentifier": "task1",
+ *     "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":true,\"LobChunkSize\":64,\"LimitedSizeLobMode\":false,\"LobMaxSize\":0},\"FullLoadSettings\":{\"FullLoadEnabled\":true,\"ApplyChangesEnabled\":false,\"TargetTablePrepMode\":\"DROP_AND_CREATE\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"ResumeEnabled\":false,\"ResumeMinTableSize\":100000,\"ResumeOnlyClusteredPKTables\":true,\"MaxFullLoadSubTasks\":8,\"TransactionConsistencyTimeout\":600,\"CommitRate\":10000},\"Logging\":{\"EnableLogging\":false}}",
+ *     "SourceEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+ *     "Status": "creating",
+ *     "TableMappings": "file://mappingfile.json",
+ *     "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+ *   }
+ * }
+ * *\/
+ * // example id: create-replication-task-1481747646288
+ * ```
  *
  */
 export class CreateReplicationTaskCommand extends $Command<
@@ -66,6 +152,9 @@ export class CreateReplicationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +183,8 @@ export class CreateReplicationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationTaskMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReplicationTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +194,18 @@ export class CreateReplicationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateReplicationTaskCommand(input, context);
+    return se_CreateReplicationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationTaskCommandOutput> {
-    return deserializeAws_json1_1CreateReplicationTaskCommand(output, context);
+    return de_CreateReplicationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

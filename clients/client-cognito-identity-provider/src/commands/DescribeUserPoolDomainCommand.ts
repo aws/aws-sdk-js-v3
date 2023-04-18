@@ -19,21 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  DescribeUserPoolDomainRequest,
-  DescribeUserPoolDomainRequestFilterSensitiveLog,
-  DescribeUserPoolDomainResponse,
-  DescribeUserPoolDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeUserPoolDomainCommand,
-  serializeAws_json1_1DescribeUserPoolDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeUserPoolDomainRequest, DescribeUserPoolDomainResponse } from "../models/models_0";
+import { de_DescribeUserPoolDomainCommand, se_DescribeUserPoolDomainCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeUserPoolDomainCommand}.
+ */
 export interface DescribeUserPoolDomainCommandInput extends DescribeUserPoolDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeUserPoolDomainCommand}.
+ */
 export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,13 +44,33 @@ export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDom
  * import { CognitoIdentityProviderClient, DescribeUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DescribeUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // DescribeUserPoolDomainRequest
+ *   Domain: "STRING_VALUE", // required
+ * };
  * const command = new DescribeUserPoolDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserPoolDomainCommandInput - {@link DescribeUserPoolDomainCommandInput}
+ * @returns {@link DescribeUserPoolDomainCommandOutput}
  * @see {@link DescribeUserPoolDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeUserPoolDomainCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
  *
  */
 export class DescribeUserPoolDomainCommand extends $Command<
@@ -67,6 +90,9 @@ export class DescribeUserPoolDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserPoolDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +122,8 @@ export class DescribeUserPoolDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserPoolDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserPoolDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +133,18 @@ export class DescribeUserPoolDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserPoolDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserPoolDomainCommand(input, context);
+    return se_DescribeUserPoolDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserPoolDomainCommandOutput> {
-    return deserializeAws_json1_1DescribeUserPoolDomainCommand(output, context);
+    return de_DescribeUserPoolDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

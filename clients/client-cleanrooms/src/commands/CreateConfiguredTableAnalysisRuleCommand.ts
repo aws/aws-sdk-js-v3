@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import { CreateConfiguredTableAnalysisRuleInput, CreateConfiguredTableAnalysisRuleOutput } from "../models/models_0";
 import {
-  CreateConfiguredTableAnalysisRuleInput,
-  CreateConfiguredTableAnalysisRuleInputFilterSensitiveLog,
-  CreateConfiguredTableAnalysisRuleOutput,
-  CreateConfiguredTableAnalysisRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateConfiguredTableAnalysisRuleCommand,
-  serializeAws_restJson1CreateConfiguredTableAnalysisRuleCommand,
+  de_CreateConfiguredTableAnalysisRuleCommand,
+  se_CreateConfiguredTableAnalysisRuleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateConfiguredTableAnalysisRuleCommand}.
+ */
 export interface CreateConfiguredTableAnalysisRuleCommandInput extends CreateConfiguredTableAnalysisRuleInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateConfiguredTableAnalysisRuleCommand}.
+ */
 export interface CreateConfiguredTableAnalysisRuleCommandOutput
   extends CreateConfiguredTableAnalysisRuleOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new analysis rule for a configured table. Currently, only one analysis rule
  *          can be created for a given configured table.</p>
  * @example
@@ -39,13 +45,77 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * import { CleanRoomsClient, CreateConfiguredTableAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreateConfiguredTableAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // CreateConfiguredTableAnalysisRuleInput
+ *   configuredTableIdentifier: "STRING_VALUE", // required
+ *   analysisRuleType: "AGGREGATION" || "LIST", // required
+ *   analysisRulePolicy: { // ConfiguredTableAnalysisRulePolicy Union: only one key present
+ *     v1: { // ConfiguredTableAnalysisRulePolicyV1 Union: only one key present
+ *       list: { // AnalysisRuleList
+ *         joinColumns: [ // AnalysisRuleColumnList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         listColumns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       aggregation: { // AnalysisRuleAggregation
+ *         aggregateColumns: [ // AggregateColumnList // required
+ *           { // AggregateColumn
+ *             columnNames: [ // AnalysisRuleColumnNameList // required
+ *               "STRING_VALUE",
+ *             ],
+ *             function: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         joinColumns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         joinRequired: "STRING_VALUE",
+ *         dimensionColumns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         scalarFunctions: [ // ScalarFunctionsList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         outputConstraints: [ // AggregationConstraints // required
+ *           { // AggregationConstraint
+ *             columnName: "STRING_VALUE", // required
+ *             minimum: Number("int"), // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreateConfiguredTableAnalysisRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfiguredTableAnalysisRuleCommandInput - {@link CreateConfiguredTableAnalysisRuleCommandInput}
+ * @returns {@link CreateConfiguredTableAnalysisRuleCommandOutput}
  * @see {@link CreateConfiguredTableAnalysisRuleCommandInput} for command's `input` shape.
  * @see {@link CreateConfiguredTableAnalysisRuleCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Caller does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error during processing of request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource which does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the specified constraints.</p>
+ *
  *
  */
 export class CreateConfiguredTableAnalysisRuleCommand extends $Command<
@@ -65,6 +135,9 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfiguredTableAnalysisRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +166,8 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfiguredTableAnalysisRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfiguredTableAnalysisRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +177,24 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateConfiguredTableAnalysisRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConfiguredTableAnalysisRuleCommand(input, context);
+    return se_CreateConfiguredTableAnalysisRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfiguredTableAnalysisRuleCommandOutput> {
-    return deserializeAws_restJson1CreateConfiguredTableAnalysisRuleCommand(output, context);
+    return de_CreateConfiguredTableAnalysisRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

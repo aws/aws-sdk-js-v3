@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  ModifyEventSubscriptionMessage,
-  ModifyEventSubscriptionMessageFilterSensitiveLog,
-  ModifyEventSubscriptionResult,
-  ModifyEventSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyEventSubscriptionCommand,
-  serializeAws_queryModifyEventSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/models_0";
+import { de_ModifyEventSubscriptionCommand, se_ModifyEventSubscriptionCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyEventSubscriptionCommand}.
+ */
 export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscriptionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyEventSubscriptionCommand}.
+ */
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing Amazon DocumentDB event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * import { DocDBClient, ModifyEventSubscriptionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyEventSubscriptionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // ModifyEventSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SnsTopicArn: "STRING_VALUE",
+ *   SourceType: "STRING_VALUE",
+ *   EventCategories: [ // EventCategoriesList
+ *     "STRING_VALUE",
+ *   ],
+ *   Enabled: true || false,
+ * };
  * const command = new ModifyEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyEventSubscriptionCommandInput - {@link ModifyEventSubscriptionCommandInput}
+ * @returns {@link ModifyEventSubscriptionCommandOutput}
  * @see {@link ModifyEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
+ * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
+ *  <p>You have reached the maximum number of event subscriptions. </p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>Amazon SNS has responded that there is a problem with the specified topic. </p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>You do not have permission to publish to the SNS topic Amazon Resource Name (ARN). </p>
+ *
+ * @throws {@link SNSTopicArnNotFoundFault} (client fault)
+ *  <p>The SNS topic Amazon Resource Name (ARN) does not exist. </p>
+ *
+ * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
+ *  <p>The provided category does not exist. </p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The subscription name does not exist. </p>
+ *
  *
  */
 export class ModifyEventSubscriptionCommand extends $Command<
@@ -62,6 +95,9 @@ export class ModifyEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class ModifyEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyEventSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyEventSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class ModifyEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyEventSubscriptionCommand(input, context);
+    return se_ModifyEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEventSubscriptionCommandOutput> {
-    return deserializeAws_queryModifyEventSubscriptionCommand(output, context);
+    return de_ModifyEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

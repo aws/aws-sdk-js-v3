@@ -15,22 +15,32 @@ import {
 
 import {
   ListFraudsterRegistrationJobsRequest,
-  ListFraudsterRegistrationJobsRequestFilterSensitiveLog,
   ListFraudsterRegistrationJobsResponse,
   ListFraudsterRegistrationJobsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0ListFraudsterRegistrationJobsCommand,
-  serializeAws_json1_0ListFraudsterRegistrationJobsCommand,
+  de_ListFraudsterRegistrationJobsCommand,
+  se_ListFraudsterRegistrationJobsCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFraudsterRegistrationJobsCommand}.
+ */
 export interface ListFraudsterRegistrationJobsCommandInput extends ListFraudsterRegistrationJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFraudsterRegistrationJobsCommand}.
+ */
 export interface ListFraudsterRegistrationJobsCommandOutput
   extends ListFraudsterRegistrationJobsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the fraudster registration jobs in the domain with the given
  *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
  *             fraudster registration jobs in the given domain. </p>
@@ -40,13 +50,43 @@ export interface ListFraudsterRegistrationJobsCommandOutput
  * import { VoiceIDClient, ListFraudsterRegistrationJobsCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, ListFraudsterRegistrationJobsCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = { // ListFraudsterRegistrationJobsRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   JobStatus: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFraudsterRegistrationJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFraudsterRegistrationJobsCommandInput - {@link ListFraudsterRegistrationJobsCommandInput}
+ * @returns {@link ListFraudsterRegistrationJobsCommandOutput}
  * @see {@link ListFraudsterRegistrationJobsCommandInput} for command's `input` shape.
  * @see {@link ListFraudsterRegistrationJobsCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. Check the error message
+ *             and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed due to an unknown error on the server side.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error
+ *             message for more details.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Please slow down your request rate.
+ *             Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas">
+ *                 Amazon Connect Voice ID Service API throttling quotas </a> and try your
+ *             request again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed one or more validations; check the error message for more
+ *             details.</p>
+ *
  *
  */
 export class ListFraudsterRegistrationJobsCommand extends $Command<
@@ -66,6 +106,9 @@ export class ListFraudsterRegistrationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFraudsterRegistrationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +137,7 @@ export class ListFraudsterRegistrationJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFraudsterRegistrationJobsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListFraudsterRegistrationJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,15 +148,21 @@ export class ListFraudsterRegistrationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFraudsterRegistrationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListFraudsterRegistrationJobsCommand(input, context);
+    return se_ListFraudsterRegistrationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFraudsterRegistrationJobsCommandOutput> {
-    return deserializeAws_json1_0ListFraudsterRegistrationJobsCommand(output, context);
+    return de_ListFraudsterRegistrationJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

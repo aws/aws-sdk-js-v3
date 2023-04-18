@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateExperimentRequest,
-  CreateExperimentRequestFilterSensitiveLog,
-  CreateExperimentResponse,
-  CreateExperimentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateExperimentCommand,
-  serializeAws_json1_1CreateExperimentCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateExperimentRequest, CreateExperimentResponse } from "../models/models_1";
+import { de_CreateExperimentCommand, se_CreateExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateExperimentCommand}.
+ */
 export interface CreateExperimentCommandInput extends CreateExperimentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateExperimentCommand}.
+ */
 export interface CreateExperimentCommandOutput extends CreateExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a SageMaker <i>experiment</i>. An experiment is a collection of
  *         <i>trials</i> that are observed, compared and evaluated as a group. A trial is
  *       a set of steps, called <i>trial components</i>, that produce a machine learning
@@ -56,13 +59,31 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  * import { SageMakerClient, CreateExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateExperimentRequest
+ *   ExperimentName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExperimentCommandInput - {@link CreateExperimentCommandInput}
+ * @returns {@link CreateExperimentCommandOutput}
  * @see {@link CreateExperimentCommandInput} for command's `input` shape.
  * @see {@link CreateExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
  *
  */
 export class CreateExperimentCommand extends $Command<
@@ -82,6 +103,9 @@ export class CreateExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +134,8 @@ export class CreateExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +145,18 @@ export class CreateExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateExperimentCommand(input, context);
+    return se_CreateExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExperimentCommandOutput> {
-    return deserializeAws_json1_1CreateExperimentCommand(output, context);
+    return de_CreateExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListTunnelsCommand, ListTunnelsCommandInput, ListTunnelsCommandOutput } from "../commands/ListTunnelsCommand";
-import { IoTSecureTunneling } from "../IoTSecureTunneling";
 import { IoTSecureTunnelingClient } from "../IoTSecureTunnelingClient";
 import { IoTSecureTunnelingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTSecureTunnelingClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTunnelsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTSecureTunneling,
-  input: ListTunnelsCommandInput,
-  ...args: any
-): Promise<ListTunnelsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTunnels(input, ...args);
-};
 export async function* paginateListTunnels(
   config: IoTSecureTunnelingPaginationConfiguration,
   input: ListTunnelsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListTunnels(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTSecureTunneling) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTSecureTunnelingClient) {
+    if (config.client instanceof IoTSecureTunnelingClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTSecureTunneling | IoTSecureTunnelingClient");

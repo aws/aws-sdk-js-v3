@@ -3,13 +3,24 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { ElasticLoadBalancingV2ServiceException as __BaseException } from "./ElasticLoadBalancingV2ServiceException";
 
-export enum AuthenticateCognitoActionConditionalBehaviorEnum {
-  ALLOW = "allow",
-  AUTHENTICATE = "authenticate",
-  DENY = "deny",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticateCognitoActionConditionalBehaviorEnum = {
+  ALLOW: "allow",
+  AUTHENTICATE: "authenticate",
+  DENY: "deny",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthenticateCognitoActionConditionalBehaviorEnum =
+  (typeof AuthenticateCognitoActionConditionalBehaviorEnum)[keyof typeof AuthenticateCognitoActionConditionalBehaviorEnum];
+
+/**
+ * @public
  * <p>Request parameters to use when integrating with Amazon Cognito to authenticate
  *       users.</p>
  */
@@ -73,13 +84,24 @@ export interface AuthenticateCognitoActionConfig {
   OnUnauthenticatedRequest?: AuthenticateCognitoActionConditionalBehaviorEnum | string;
 }
 
-export enum AuthenticateOidcActionConditionalBehaviorEnum {
-  ALLOW = "allow",
-  AUTHENTICATE = "authenticate",
-  DENY = "deny",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticateOidcActionConditionalBehaviorEnum = {
+  ALLOW: "allow",
+  AUTHENTICATE: "authenticate",
+  DENY: "deny",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthenticateOidcActionConditionalBehaviorEnum =
+  (typeof AuthenticateOidcActionConditionalBehaviorEnum)[keyof typeof AuthenticateOidcActionConditionalBehaviorEnum];
+
+/**
+ * @public
  * <p>Request parameters when using an identity provider (IdP) that is compliant with OpenID
  *       Connect (OIDC) to authenticate users.</p>
  */
@@ -171,6 +193,7 @@ export interface AuthenticateOidcActionConfig {
 }
 
 /**
+ * @public
  * <p>Information about an action that returns a custom HTTP response.</p>
  */
 export interface FixedResponseActionConfig {
@@ -193,6 +216,7 @@ export interface FixedResponseActionConfig {
 }
 
 /**
+ * @public
  * <p>Information about how traffic will be distributed between multiple target groups in a
  *       forward rule.</p>
  */
@@ -209,6 +233,7 @@ export interface TargetGroupTuple {
 }
 
 /**
+ * @public
  * <p>Information about the target group stickiness for a rule.</p>
  */
 export interface TargetGroupStickinessConfig {
@@ -225,6 +250,7 @@ export interface TargetGroupStickinessConfig {
 }
 
 /**
+ * @public
  * <p>Information about a forward action.</p>
  */
 export interface ForwardActionConfig {
@@ -240,12 +266,23 @@ export interface ForwardActionConfig {
   TargetGroupStickinessConfig?: TargetGroupStickinessConfig;
 }
 
-export enum RedirectActionStatusCodeEnum {
-  HTTP_301 = "HTTP_301",
-  HTTP_302 = "HTTP_302",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RedirectActionStatusCodeEnum = {
+  HTTP_301: "HTTP_301",
+  HTTP_302: "HTTP_302",
+} as const;
 
 /**
+ * @public
+ */
+export type RedirectActionStatusCodeEnum =
+  (typeof RedirectActionStatusCodeEnum)[keyof typeof RedirectActionStatusCodeEnum];
+
+/**
+ * @public
  * <p>Information about a redirect action.</p>
  *          <p>A URI consists of the following components: protocol://hostname:port/path?query. You must
  *       modify at least one of the following components to avoid a redirect loop: protocol, hostname,
@@ -253,45 +290,45 @@ export enum RedirectActionStatusCodeEnum {
  *          <p>You can reuse URI components using the following reserved keywords:</p>
  *          <ul>
  *             <li>
- *                <p>#{protocol}</p>
+ *                <p>#\{protocol\}</p>
  *             </li>
  *             <li>
- *                <p>#{host}</p>
+ *                <p>#\{host\}</p>
  *             </li>
  *             <li>
- *                <p>#{port}</p>
+ *                <p>#\{port\}</p>
  *             </li>
  *             <li>
- *                <p>#{path} (the leading "/" is removed)</p>
+ *                <p>#\{path\} (the leading "/" is removed)</p>
  *             </li>
  *             <li>
- *                <p>#{query}</p>
+ *                <p>#\{query\}</p>
  *             </li>
  *          </ul>
- *          <p>For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}",
- *       or the query to "#{query}&value=xyz".</p>
+ *          <p>For example, you can change the path to "/new/#\{path\}", the hostname to "example.#\{host\}",
+ *       or the query to "#\{query\}&value=xyz".</p>
  */
 export interface RedirectActionConfig {
   /**
-   * <p>The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP,
+   * <p>The protocol. You can specify HTTP, HTTPS, or #\{protocol\}. You can redirect HTTP to HTTP,
    *       HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.</p>
    */
   Protocol?: string;
 
   /**
-   * <p>The port. You can specify a value from 1 to 65535 or #{port}.</p>
+   * <p>The port. You can specify a value from 1 to 65535 or #\{port\}.</p>
    */
   Port?: string;
 
   /**
    * <p>The hostname. This component is not percent-encoded. The hostname can contain
-   *       #{host}.</p>
+   *       #\{host\}.</p>
    */
   Host?: string;
 
   /**
    * <p>The absolute path, starting with the leading "/". This component is not percent-encoded.
-   *       The path can contain #{host}, #{path}, and #{port}.</p>
+   *       The path can contain #\{host\}, #\{path\}, and #\{port\}.</p>
    */
   Path?: string;
 
@@ -309,15 +346,25 @@ export interface RedirectActionConfig {
   StatusCode: RedirectActionStatusCodeEnum | string | undefined;
 }
 
-export enum ActionTypeEnum {
-  AUTHENTICATE_COGNITO = "authenticate-cognito",
-  AUTHENTICATE_OIDC = "authenticate-oidc",
-  FIXED_RESPONSE = "fixed-response",
-  FORWARD = "forward",
-  REDIRECT = "redirect",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionTypeEnum = {
+  AUTHENTICATE_COGNITO: "authenticate-cognito",
+  AUTHENTICATE_OIDC: "authenticate-oidc",
+  FIXED_RESPONSE: "fixed-response",
+  FORWARD: "forward",
+  REDIRECT: "redirect",
+} as const;
 
 /**
+ * @public
+ */
+export type ActionTypeEnum = (typeof ActionTypeEnum)[keyof typeof ActionTypeEnum];
+
+/**
+ * @public
  * <p>Information about an action.</p>
  *          <p>Each rule must include exactly one of the following types of actions:
  *       <code>forward</code>, <code>fixed-response</code>, or <code>redirect</code>, and it must be
@@ -378,6 +425,7 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>Information about an SSL server certificate.</p>
  */
 export interface Certificate {
@@ -394,6 +442,9 @@ export interface Certificate {
   IsDefault?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AddListenerCertificatesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -408,6 +459,9 @@ export interface AddListenerCertificatesInput {
   Certificates: Certificate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddListenerCertificatesOutput {
   /**
    * <p>Information about the certificates in the certificate list.</p>
@@ -416,6 +470,7 @@ export interface AddListenerCertificatesOutput {
 }
 
 /**
+ * @public
  * <p>The specified certificate does not exist.</p>
  */
 export class CertificateNotFoundException extends __BaseException {
@@ -437,6 +492,7 @@ export class CertificateNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified listener does not exist.</p>
  */
 export class ListenerNotFoundException extends __BaseException {
@@ -458,6 +514,7 @@ export class ListenerNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of certificates per load balancer.</p>
  */
 export class TooManyCertificatesException extends __BaseException {
@@ -479,6 +536,7 @@ export class TooManyCertificatesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a tag.</p>
  */
 export interface Tag {
@@ -493,6 +551,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -505,9 +566,13 @@ export interface AddTagsInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsOutput {}
 
 /**
+ * @public
  * <p>A tag key was specified more than once.</p>
  */
 export class DuplicateTagKeysException extends __BaseException {
@@ -529,6 +594,7 @@ export class DuplicateTagKeysException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified load balancer does not exist.</p>
  */
 export class LoadBalancerNotFoundException extends __BaseException {
@@ -550,6 +616,7 @@ export class LoadBalancerNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified rule does not exist.</p>
  */
 export class RuleNotFoundException extends __BaseException {
@@ -571,6 +638,7 @@ export class RuleNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified target group does not exist.</p>
  */
 export class TargetGroupNotFoundException extends __BaseException {
@@ -592,6 +660,7 @@ export class TargetGroupNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of tags per load balancer.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -613,6 +682,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified allocation ID does not exist.</p>
  */
 export class AllocationIdNotFoundException extends __BaseException {
@@ -634,6 +704,7 @@ export class AllocationIdNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified ALPN policy is not supported.</p>
  */
 export class ALPNPolicyNotSupportedException extends __BaseException {
@@ -655,6 +726,7 @@ export class ALPNPolicyNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a static IP address for a load balancer.</p>
  */
 export interface LoadBalancerAddress {
@@ -681,6 +753,7 @@ export interface LoadBalancerAddress {
 }
 
 /**
+ * @public
  * <p>Information about an Availability Zone.</p>
  */
 export interface AvailabilityZone {
@@ -709,6 +782,7 @@ export interface AvailabilityZone {
 }
 
 /**
+ * @public
  * <p>The specified Availability Zone is not supported.</p>
  */
 export class AvailabilityZoneNotSupportedException extends __BaseException {
@@ -730,6 +804,7 @@ export class AvailabilityZoneNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a cipher used in a policy.</p>
  */
 export interface Cipher {
@@ -744,16 +819,28 @@ export interface Cipher {
   Priority?: number;
 }
 
-export enum ProtocolEnum {
-  GENEVE = "GENEVE",
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP",
-  TCP_UDP = "TCP_UDP",
-  TLS = "TLS",
-  UDP = "UDP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProtocolEnum = {
+  GENEVE: "GENEVE",
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  TCP: "TCP",
+  TCP_UDP: "TCP_UDP",
+  TLS: "TLS",
+  UDP: "UDP",
+} as const;
 
+/**
+ * @public
+ */
+export type ProtocolEnum = (typeof ProtocolEnum)[keyof typeof ProtocolEnum];
+
+/**
+ * @public
+ */
 export interface CreateListenerInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -837,6 +924,7 @@ export interface CreateListenerInput {
 }
 
 /**
+ * @public
  * <p>Information about a listener.</p>
  */
 export interface Listener {
@@ -883,6 +971,9 @@ export interface Listener {
   AlpnPolicy?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateListenerOutput {
   /**
    * <p>Information about the listener.</p>
@@ -891,6 +982,7 @@ export interface CreateListenerOutput {
 }
 
 /**
+ * @public
  * <p>A listener with the specified port already exists.</p>
  */
 export class DuplicateListenerException extends __BaseException {
@@ -912,6 +1004,7 @@ export class DuplicateListenerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified configuration is not valid with this protocol.</p>
  */
 export class IncompatibleProtocolsException extends __BaseException {
@@ -933,6 +1026,7 @@ export class IncompatibleProtocolsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested configuration is not valid.</p>
  */
 export class InvalidConfigurationRequestException extends __BaseException {
@@ -954,6 +1048,7 @@ export class InvalidConfigurationRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested action is not valid.</p>
  */
 export class InvalidLoadBalancerActionException extends __BaseException {
@@ -975,6 +1070,7 @@ export class InvalidLoadBalancerActionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified SSL policy does not exist.</p>
  */
 export class SSLPolicyNotFoundException extends __BaseException {
@@ -996,6 +1092,7 @@ export class SSLPolicyNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of load balancers per target group.</p>
  */
 export class TargetGroupAssociationLimitException extends __BaseException {
@@ -1017,6 +1114,7 @@ export class TargetGroupAssociationLimitException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of actions per rule.</p>
  */
 export class TooManyActionsException extends __BaseException {
@@ -1038,6 +1136,7 @@ export class TooManyActionsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of listeners per load balancer.</p>
  */
 export class TooManyListenersException extends __BaseException {
@@ -1059,6 +1158,7 @@ export class TooManyListenersException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of times a target can be registered with a load
  *       balancer.</p>
  */
@@ -1081,6 +1181,7 @@ export class TooManyRegistrationsForTargetIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of targets.</p>
  */
 export class TooManyTargetsException extends __BaseException {
@@ -1102,6 +1203,7 @@ export class TooManyTargetsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of unique target groups per load balancer across
  *       all listeners. If a target group is used by multiple actions for a load balancer, it is
  *       counted as only one use.</p>
@@ -1126,6 +1228,7 @@ export class TooManyUniqueTargetGroupsPerLoadBalancerException extends __BaseExc
 }
 
 /**
+ * @public
  * <p>The specified protocol is not supported.</p>
  */
 export class UnsupportedProtocolException extends __BaseException {
@@ -1146,17 +1249,36 @@ export class UnsupportedProtocolException extends __BaseException {
   }
 }
 
-export enum IpAddressType {
-  DUALSTACK = "dualstack",
-  IPV4 = "ipv4",
-}
-
-export enum LoadBalancerSchemeEnum {
-  INTERNAL = "internal",
-  INTERNET_FACING = "internet-facing",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpAddressType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+} as const;
 
 /**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerSchemeEnum = {
+  INTERNAL: "internal",
+  INTERNET_FACING: "internet-facing",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerSchemeEnum = (typeof LoadBalancerSchemeEnum)[keyof typeof LoadBalancerSchemeEnum];
+
+/**
+ * @public
  * <p>Information about a subnet mapping.</p>
  */
 export interface SubnetMapping {
@@ -1182,12 +1304,24 @@ export interface SubnetMapping {
   IPv6Address?: string;
 }
 
-export enum LoadBalancerTypeEnum {
-  APPLICATION = "application",
-  GATEWAY = "gateway",
-  NETWORK = "network",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerTypeEnum = {
+  APPLICATION: "application",
+  GATEWAY: "gateway",
+  NETWORK: "network",
+} as const;
 
+/**
+ * @public
+ */
+export type LoadBalancerTypeEnum = (typeof LoadBalancerTypeEnum)[keyof typeof LoadBalancerTypeEnum];
+
+/**
+ * @public
+ */
 export interface CreateLoadBalancerInput {
   /**
    * <p>The name of the load balancer.</p>
@@ -1274,14 +1408,24 @@ export interface CreateLoadBalancerInput {
   CustomerOwnedIpv4Pool?: string;
 }
 
-export enum LoadBalancerStateEnum {
-  ACTIVE = "active",
-  ACTIVE_IMPAIRED = "active_impaired",
-  FAILED = "failed",
-  PROVISIONING = "provisioning",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerStateEnum = {
+  ACTIVE: "active",
+  ACTIVE_IMPAIRED: "active_impaired",
+  FAILED: "failed",
+  PROVISIONING: "provisioning",
+} as const;
 
 /**
+ * @public
+ */
+export type LoadBalancerStateEnum = (typeof LoadBalancerStateEnum)[keyof typeof LoadBalancerStateEnum];
+
+/**
+ * @public
  * <p>Information about the state of the load balancer.</p>
  */
 export interface LoadBalancerState {
@@ -1301,6 +1445,7 @@ export interface LoadBalancerState {
 }
 
 /**
+ * @public
  * <p>Information about a load balancer.</p>
  */
 export interface LoadBalancer {
@@ -1379,6 +1524,9 @@ export interface LoadBalancer {
   CustomerOwnedIpv4Pool?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLoadBalancerOutput {
   /**
    * <p>Information about the load balancer.</p>
@@ -1387,6 +1535,7 @@ export interface CreateLoadBalancerOutput {
 }
 
 /**
+ * @public
  * <p>A load balancer with the specified name already exists.</p>
  */
 export class DuplicateLoadBalancerNameException extends __BaseException {
@@ -1408,6 +1557,7 @@ export class DuplicateLoadBalancerNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested scheme is not valid.</p>
  */
 export class InvalidSchemeException extends __BaseException {
@@ -1429,6 +1579,7 @@ export class InvalidSchemeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified security group does not exist.</p>
  */
 export class InvalidSecurityGroupException extends __BaseException {
@@ -1450,6 +1601,7 @@ export class InvalidSecurityGroupException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified subnet is out of available addresses.</p>
  */
 export class InvalidSubnetException extends __BaseException {
@@ -1471,6 +1623,7 @@ export class InvalidSubnetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This operation is not allowed.</p>
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -1492,6 +1645,7 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specified resource is in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -1513,6 +1667,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified subnet does not exist.</p>
  */
 export class SubnetNotFoundException extends __BaseException {
@@ -1534,6 +1689,7 @@ export class SubnetNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of load balancers for your Amazon Web Services
  *       account.</p>
  */
@@ -1556,6 +1712,7 @@ export class TooManyLoadBalancersException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a host header condition.</p>
  */
 export interface HostHeaderConditionConfig {
@@ -1570,6 +1727,7 @@ export interface HostHeaderConditionConfig {
 }
 
 /**
+ * @public
  * <p>Information about an HTTP header condition.</p>
  *          <p>There is a set of standard HTTP header fields. You can also define custom HTTP header
  *       fields.</p>
@@ -1598,6 +1756,7 @@ export interface HttpHeaderConditionConfig {
 }
 
 /**
+ * @public
  * <p>Information about an HTTP method condition.</p>
  *          <p>HTTP defines a set of request methods, also referred to as HTTP verbs. For more
  *       information, see the <a href="https://www.iana.org/assignments/http-methods/http-methods.xhtml">HTTP Method
@@ -1616,6 +1775,7 @@ export interface HttpRequestMethodConditionConfig {
 }
 
 /**
+ * @public
  * <p>Information about a path pattern condition.</p>
  */
 export interface PathPatternConditionConfig {
@@ -1631,6 +1791,7 @@ export interface PathPatternConditionConfig {
 }
 
 /**
+ * @public
  * <p>Information about a key/value pair.</p>
  */
 export interface QueryStringKeyValuePair {
@@ -1646,6 +1807,7 @@ export interface QueryStringKeyValuePair {
 }
 
 /**
+ * @public
  * <p>Information about a query string condition.</p>
  *          <p>The query string component of a URI starts after the first '?' character and is terminated
  *       by either a '#' character or the end of the URI. A typical query string contains key/value
@@ -1666,6 +1828,7 @@ export interface QueryStringConditionConfig {
 }
 
 /**
+ * @public
  * <p>Information about a source IP condition.</p>
  *          <p>You can use this condition to route based on the IP address of the source that connects to
  *       the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the
@@ -1684,6 +1847,7 @@ export interface SourceIpConditionConfig {
 }
 
 /**
+ * @public
  * <p>Information about a condition for a rule.</p>
  *          <p>Each rule can optionally include up to one of each of the following conditions:
  *         <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and
@@ -1812,6 +1976,9 @@ export interface RuleCondition {
   SourceIpConfig?: SourceIpConditionConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -1840,6 +2007,7 @@ export interface CreateRuleInput {
 }
 
 /**
+ * @public
  * <p>Information about a rule.</p>
  */
 export interface Rule {
@@ -1874,6 +2042,9 @@ export interface Rule {
   IsDefault?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateRuleOutput {
   /**
    * <p>Information about the rule.</p>
@@ -1882,6 +2053,7 @@ export interface CreateRuleOutput {
 }
 
 /**
+ * @public
  * <p>The specified priority is in use.</p>
  */
 export class PriorityInUseException extends __BaseException {
@@ -1903,6 +2075,7 @@ export class PriorityInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of rules per load balancer.</p>
  */
 export class TooManyRulesException extends __BaseException {
@@ -1924,6 +2097,7 @@ export class TooManyRulesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of target groups for your Amazon Web Services
  *       account.</p>
  */
@@ -1945,12 +2119,23 @@ export class TooManyTargetGroupsException extends __BaseException {
   }
 }
 
-export enum TargetGroupIpAddressTypeEnum {
-  IPV4 = "ipv4",
-  IPV6 = "ipv6",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetGroupIpAddressTypeEnum = {
+  IPV4: "ipv4",
+  IPV6: "ipv6",
+} as const;
 
 /**
+ * @public
+ */
+export type TargetGroupIpAddressTypeEnum =
+  (typeof TargetGroupIpAddressTypeEnum)[keyof typeof TargetGroupIpAddressTypeEnum];
+
+/**
+ * @public
  * <p>The codes to use when checking for a successful response from a target. If the protocol
  *       version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes. </p>
  */
@@ -1973,13 +2158,25 @@ export interface Matcher {
   GrpcCode?: string;
 }
 
-export enum TargetTypeEnum {
-  ALB = "alb",
-  INSTANCE = "instance",
-  IP = "ip",
-  LAMBDA = "lambda",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetTypeEnum = {
+  ALB: "alb",
+  INSTANCE: "instance",
+  IP: "ip",
+  LAMBDA: "lambda",
+} as const;
 
+/**
+ * @public
+ */
+export type TargetTypeEnum = (typeof TargetTypeEnum)[keyof typeof TargetTypeEnum];
+
+/**
+ * @public
+ */
 export interface CreateTargetGroupInput {
   /**
    * <p>The name of the target group.</p>
@@ -2071,7 +2268,7 @@ export interface CreateTargetGroupInput {
   /**
    * <p>The number of consecutive health check successes required before considering a target healthy. The range is
    *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups
-   *       with a protocol of GENEVE, the default is 3. If the target type
+   *       with a protocol of GENEVE, the default is 5. If the target type
    *       is <code>lambda</code>, the default is 5.</p>
    */
   HealthyThresholdCount?: number;
@@ -2079,7 +2276,7 @@ export interface CreateTargetGroupInput {
   /**
    * <p>The number of consecutive health check failures required before considering a target unhealthy. The range is
    *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For target groups
-   *       with a protocol of GENEVE, the default is 3. If the target type
+   *       with a protocol of GENEVE, the default is 2. If the target type
    *       is <code>lambda</code>, the default is 5.</p>
    */
   UnhealthyThresholdCount?: number;
@@ -2134,6 +2331,7 @@ export interface CreateTargetGroupInput {
 }
 
 /**
+ * @public
  * <p>Information about a target group.</p>
  */
 export interface TargetGroup {
@@ -2243,6 +2441,9 @@ export interface TargetGroup {
   IpAddressType?: TargetGroupIpAddressTypeEnum | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTargetGroupOutput {
   /**
    * <p>Information about the target group.</p>
@@ -2251,6 +2452,7 @@ export interface CreateTargetGroupOutput {
 }
 
 /**
+ * @public
  * <p>A target group with the specified name already exists.</p>
  */
 export class DuplicateTargetGroupNameException extends __BaseException {
@@ -2271,6 +2473,9 @@ export class DuplicateTargetGroupNameException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteListenerInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -2278,8 +2483,14 @@ export interface DeleteListenerInput {
   ListenerArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteListenerOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteLoadBalancerInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -2287,8 +2498,14 @@ export interface DeleteLoadBalancerInput {
   LoadBalancerArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLoadBalancerOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteRuleInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
@@ -2296,8 +2513,14 @@ export interface DeleteRuleInput {
   RuleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRuleOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteTargetGroupInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -2305,9 +2528,13 @@ export interface DeleteTargetGroupInput {
   TargetGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTargetGroupOutput {}
 
 /**
+ * @public
  * <p>Information about a target.</p>
  */
 export interface TargetDescription {
@@ -2331,28 +2558,26 @@ export interface TargetDescription {
    * <p>An Availability Zone or <code>all</code>. This determines whether the target receives
    *       traffic from the load balancer nodes in the specified Availability Zone or from all enabled
    *       Availability Zones for the load balancer.</p>
-   *
    *          <p>For Application Load Balancer target groups, the specified Availability Zone value is only applicable
    *       when cross-zone load balancing is off. Otherwise the parameter is ignored and treated
    *       as <code>all</code>.</p>
-   *
    *          <p>This parameter is not supported if the target type of the target group is
    *       <code>instance</code> or <code>alb</code>.</p>
-   *
    *          <p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group,
    *       the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside
    *       the VPC, this parameter is required.</p>
-   *
    *          <p>For Application Load Balancer target groups with cross-zone load balancing off, if the target type
    *       is <code>ip</code> and the IP address is outside of the VPC for the target group, this should be an
    *       Availability Zone inside the VPC for the target group.</p>
-   *
    *          <p>If the target type is <code>lambda</code>, this parameter is optional and the only
    *       supported value is <code>all</code>.</p>
    */
   AvailabilityZone?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTargetsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -2366,9 +2591,13 @@ export interface DeregisterTargetsInput {
   Targets: TargetDescription[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTargetsOutput {}
 
 /**
+ * @public
  * <p>The specified target does not exist, is not in the same VPC as the target group, or has an
  *       unsupported instance type.</p>
  */
@@ -2390,6 +2619,9 @@ export class InvalidTargetException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountLimitsInput {
   /**
    * <p>The marker for the next set of results. (You received this marker from a previous
@@ -2404,6 +2636,7 @@ export interface DescribeAccountLimitsInput {
 }
 
 /**
+ * @public
  * <p>Information about an Elastic Load Balancing resource limit for your Amazon Web Services
  *       account.</p>
  */
@@ -2475,6 +2708,9 @@ export interface Limit {
   Max?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountLimitsOutput {
   /**
    * <p>Information about the limits.</p>
@@ -2488,6 +2724,9 @@ export interface DescribeAccountLimitsOutput {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeListenerCertificatesInput {
   /**
    * <p>The Amazon Resource Names (ARN) of the listener.</p>
@@ -2506,6 +2745,9 @@ export interface DescribeListenerCertificatesInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeListenerCertificatesOutput {
   /**
    * <p>Information about the certificates.</p>
@@ -2519,6 +2761,9 @@ export interface DescribeListenerCertificatesOutput {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeListenersInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -2542,6 +2787,9 @@ export interface DescribeListenersInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeListenersOutput {
   /**
    * <p>Information about the listeners.</p>
@@ -2555,6 +2803,9 @@ export interface DescribeListenersOutput {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoadBalancerAttributesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -2563,12 +2814,12 @@ export interface DescribeLoadBalancerAttributesInput {
 }
 
 /**
+ * @public
  * <p>Information about a load balancer attribute.</p>
  */
 export interface LoadBalancerAttribute {
   /**
    * <p>The name of the attribute.</p>
-   *
    *          <p>The following attributes are supported by all load balancers:</p>
    *          <ul>
    *             <li>
@@ -2585,7 +2836,6 @@ export interface LoadBalancerAttribute {
    *           The default for Application Load Balancers is <code>true</code>, and cannot be changed.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported by both Application Load Balancers and Network Load
    *       Balancers:</p>
    *          <ul>
@@ -2615,7 +2865,6 @@ export interface LoadBalancerAttribute {
    *           internal load balancer through an internet gateway.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported by only Application Load Balancers:</p>
    *          <ul>
    *             <li>
@@ -2710,6 +2959,9 @@ export interface LoadBalancerAttribute {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoadBalancerAttributesOutput {
   /**
    * <p>Information about the load balancer attributes.</p>
@@ -2717,6 +2969,9 @@ export interface DescribeLoadBalancerAttributesOutput {
   Attributes?: LoadBalancerAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoadBalancersInput {
   /**
    * <p>The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load
@@ -2741,6 +2996,9 @@ export interface DescribeLoadBalancersInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLoadBalancersOutput {
   /**
    * <p>Information about the load balancers.</p>
@@ -2754,6 +3012,9 @@ export interface DescribeLoadBalancersOutput {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRulesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -2777,6 +3038,9 @@ export interface DescribeRulesInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRulesOutput {
   /**
    * <p>Information about the rules.</p>
@@ -2790,6 +3054,9 @@ export interface DescribeRulesOutput {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSSLPoliciesInput {
   /**
    * <p>The names of the policies.</p>
@@ -2815,6 +3082,7 @@ export interface DescribeSSLPoliciesInput {
 }
 
 /**
+ * @public
  * <p>Information about a policy used for SSL negotiation.</p>
  */
 export interface SslPolicy {
@@ -2839,6 +3107,9 @@ export interface SslPolicy {
   SupportedLoadBalancerTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSSLPoliciesOutput {
   /**
    * <p>Information about the security policies.</p>
@@ -2852,6 +3123,9 @@ export interface DescribeSSLPoliciesOutput {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagsInput {
   /**
    * <p>The Amazon Resource Names (ARN) of the resources. You can specify up to 20 resources in a
@@ -2861,6 +3135,7 @@ export interface DescribeTagsInput {
 }
 
 /**
+ * @public
  * <p>The tags associated with a resource.</p>
  */
 export interface TagDescription {
@@ -2875,6 +3150,9 @@ export interface TagDescription {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTagsOutput {
   /**
    * <p>Information about the tags.</p>
@@ -2882,6 +3160,9 @@ export interface DescribeTagsOutput {
   TagDescriptions?: TagDescription[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTargetGroupAttributesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -2890,12 +3171,12 @@ export interface DescribeTargetGroupAttributesInput {
 }
 
 /**
+ * @public
  * <p>Information about a target group attribute.</p>
  */
 export interface TargetGroupAttribute {
   /**
    * <p>The name of the attribute.</p>
-   *
    *          <p>The following attributes are supported by all load balancers:</p>
    *          <ul>
    *             <li>
@@ -2931,7 +3212,6 @@ export interface TargetGroupAttribute {
    *                </ul>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported by Application Load Balancers and
    *       Network Load Balancers:</p>
    *          <ul>
@@ -2975,7 +3255,6 @@ export interface TargetGroupAttribute {
    *           The default is <code>off</code>.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported only if the load balancer is an Application Load
    *       Balancer and the target is an instance or an IP address:</p>
    *          <ul>
@@ -3015,7 +3294,6 @@ export interface TargetGroupAttribute {
    *           second to 1 week (604800 seconds). The default value is 1 day (86400 seconds). </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attribute is supported only if the load balancer is an Application Load
    *       Balancer and the target is a Lambda function:</p>
    *          <ul>
@@ -3029,7 +3307,6 @@ export interface TargetGroupAttribute {
    *           last value sent by the client.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported only by Network Load Balancers:</p>
    *          <ul>
    *             <li>
@@ -3054,7 +3331,6 @@ export interface TargetGroupAttribute {
    *             <code>false</code>. </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported only by Gateway Load Balancers:</p>
    *          <ul>
    *             <li>
@@ -3087,6 +3363,9 @@ export interface TargetGroupAttribute {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTargetGroupAttributesOutput {
   /**
    * <p>Information about the target group attributes</p>
@@ -3094,6 +3373,9 @@ export interface DescribeTargetGroupAttributesOutput {
   Attributes?: TargetGroupAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTargetGroupsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -3122,6 +3404,9 @@ export interface DescribeTargetGroupsInput {
   PageSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTargetGroupsOutput {
   /**
    * <p>Information about the target groups.</p>
@@ -3135,6 +3420,9 @@ export interface DescribeTargetGroupsOutput {
   NextMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTargetHealthInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -3147,31 +3435,50 @@ export interface DescribeTargetHealthInput {
   Targets?: TargetDescription[];
 }
 
-export enum TargetHealthReasonEnum {
-  DEREGISTRATION_IN_PROGRESS = "Target.DeregistrationInProgress",
-  FAILED_HEALTH_CHECKS = "Target.FailedHealthChecks",
-  HEALTH_CHECK_DISABLED = "Target.HealthCheckDisabled",
-  INITIAL_HEALTH_CHECKING = "Elb.InitialHealthChecking",
-  INTERNAL_ERROR = "Elb.InternalError",
-  INVALID_STATE = "Target.InvalidState",
-  IP_UNUSABLE = "Target.IpUnusable",
-  NOT_IN_USE = "Target.NotInUse",
-  NOT_REGISTERED = "Target.NotRegistered",
-  REGISTRATION_IN_PROGRESS = "Elb.RegistrationInProgress",
-  RESPONSE_CODE_MISMATCH = "Target.ResponseCodeMismatch",
-  TIMEOUT = "Target.Timeout",
-}
-
-export enum TargetHealthStateEnum {
-  DRAINING = "draining",
-  HEALTHY = "healthy",
-  INITIAL = "initial",
-  UNAVAILABLE = "unavailable",
-  UNHEALTHY = "unhealthy",
-  UNUSED = "unused",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetHealthReasonEnum = {
+  DEREGISTRATION_IN_PROGRESS: "Target.DeregistrationInProgress",
+  FAILED_HEALTH_CHECKS: "Target.FailedHealthChecks",
+  HEALTH_CHECK_DISABLED: "Target.HealthCheckDisabled",
+  INITIAL_HEALTH_CHECKING: "Elb.InitialHealthChecking",
+  INTERNAL_ERROR: "Elb.InternalError",
+  INVALID_STATE: "Target.InvalidState",
+  IP_UNUSABLE: "Target.IpUnusable",
+  NOT_IN_USE: "Target.NotInUse",
+  NOT_REGISTERED: "Target.NotRegistered",
+  REGISTRATION_IN_PROGRESS: "Elb.RegistrationInProgress",
+  RESPONSE_CODE_MISMATCH: "Target.ResponseCodeMismatch",
+  TIMEOUT: "Target.Timeout",
+} as const;
 
 /**
+ * @public
+ */
+export type TargetHealthReasonEnum = (typeof TargetHealthReasonEnum)[keyof typeof TargetHealthReasonEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetHealthStateEnum = {
+  DRAINING: "draining",
+  HEALTHY: "healthy",
+  INITIAL: "initial",
+  UNAVAILABLE: "unavailable",
+  UNHEALTHY: "unhealthy",
+  UNUSED: "unused",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetHealthStateEnum = (typeof TargetHealthStateEnum)[keyof typeof TargetHealthStateEnum];
+
+/**
+ * @public
  * <p>Information about the current health of a target.</p>
  */
 export interface TargetHealth {
@@ -3182,9 +3489,7 @@ export interface TargetHealth {
 
   /**
    * <p>The reason code.</p>
-   *
    *          <p>If the target state is <code>healthy</code>, a reason code is not provided.</p>
-   *
    *          <p>If the target state is <code>initial</code>, the reason code can be one of the following
    *       values:</p>
    *          <ul>
@@ -3199,7 +3504,6 @@ export interface TargetHealth {
    *           minimum number of health checks required to determine its health status.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>unhealthy</code>, the reason code can be one of the following
    *       values:</p>
    *          <ul>
@@ -3225,7 +3529,6 @@ export interface TargetHealth {
    *           Applies only to Application Load Balancers.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>unused</code>, the reason code can be one of the following
    *       values:</p>
    *          <ul>
@@ -3250,7 +3553,6 @@ export interface TargetHealth {
    *           balancer.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>draining</code>, the reason code can be the following
    *       value:</p>
    *          <ul>
@@ -3260,7 +3562,6 @@ export interface TargetHealth {
    *           deregistered and the deregistration delay period has not expired.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>unavailable</code>, the reason code can be the following
    *       value:</p>
    *          <ul>
@@ -3286,6 +3587,7 @@ export interface TargetHealth {
 }
 
 /**
+ * @public
  * <p>Information about the health of a target.</p>
  */
 export interface TargetHealthDescription {
@@ -3305,6 +3607,9 @@ export interface TargetHealthDescription {
   TargetHealth?: TargetHealth;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTargetHealthOutput {
   /**
    * <p>Information about the health of the targets.</p>
@@ -3313,6 +3618,7 @@ export interface DescribeTargetHealthOutput {
 }
 
 /**
+ * @public
  * <p>The health of the specified targets could not be retrieved due to an internal
  *       error.</p>
  */
@@ -3334,6 +3640,9 @@ export class HealthUnavailableException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ModifyListenerInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -3410,6 +3719,9 @@ export interface ModifyListenerInput {
   AlpnPolicy?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyListenerOutput {
   /**
    * <p>Information about the modified listener.</p>
@@ -3417,6 +3729,9 @@ export interface ModifyListenerOutput {
   Listeners?: Listener[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyLoadBalancerAttributesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -3429,6 +3744,9 @@ export interface ModifyLoadBalancerAttributesInput {
   Attributes: LoadBalancerAttribute[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyLoadBalancerAttributesOutput {
   /**
    * <p>Information about the load balancer attributes.</p>
@@ -3436,6 +3754,9 @@ export interface ModifyLoadBalancerAttributesOutput {
   Attributes?: LoadBalancerAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyRuleInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
@@ -3453,6 +3774,9 @@ export interface ModifyRuleInput {
   Actions?: Action[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyRuleOutput {
   /**
    * <p>Information about the modified rule.</p>
@@ -3460,6 +3784,9 @@ export interface ModifyRuleOutput {
   Rules?: Rule[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyTargetGroupInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -3526,6 +3853,9 @@ export interface ModifyTargetGroupInput {
   Matcher?: Matcher;
 }
 
+/**
+ * @public
+ */
 export interface ModifyTargetGroupOutput {
   /**
    * <p>Information about the modified target group.</p>
@@ -3533,6 +3863,9 @@ export interface ModifyTargetGroupOutput {
   TargetGroups?: TargetGroup[];
 }
 
+/**
+ * @public
+ */
 export interface ModifyTargetGroupAttributesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -3545,6 +3878,9 @@ export interface ModifyTargetGroupAttributesInput {
   Attributes: TargetGroupAttribute[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyTargetGroupAttributesOutput {
   /**
    * <p>Information about the attributes.</p>
@@ -3552,6 +3888,9 @@ export interface ModifyTargetGroupAttributesOutput {
   Attributes?: TargetGroupAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface RegisterTargetsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -3564,8 +3903,14 @@ export interface RegisterTargetsInput {
   Targets: TargetDescription[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTargetsOutput {}
 
+/**
+ * @public
+ */
 export interface RemoveListenerCertificatesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -3580,8 +3925,14 @@ export interface RemoveListenerCertificatesInput {
   Certificates: Certificate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveListenerCertificatesOutput {}
 
+/**
+ * @public
+ */
 export interface RemoveTagsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3594,8 +3945,14 @@ export interface RemoveTagsInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTagsOutput {}
 
+/**
+ * @public
+ */
 export interface SetIpAddressTypeInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -3611,6 +3968,9 @@ export interface SetIpAddressTypeInput {
   IpAddressType: IpAddressType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetIpAddressTypeOutput {
   /**
    * <p>The IP address type.</p>
@@ -3619,6 +3979,7 @@ export interface SetIpAddressTypeOutput {
 }
 
 /**
+ * @public
  * <p>Information about the priorities for the rules for a listener.</p>
  */
 export interface RulePriorityPair {
@@ -3633,6 +3994,9 @@ export interface RulePriorityPair {
   Priority?: number;
 }
 
+/**
+ * @public
+ */
 export interface SetRulePrioritiesInput {
   /**
    * <p>The rule priorities.</p>
@@ -3640,6 +4004,9 @@ export interface SetRulePrioritiesInput {
   RulePriorities: RulePriorityPair[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetRulePrioritiesOutput {
   /**
    * <p>Information about the rules.</p>
@@ -3647,6 +4014,9 @@ export interface SetRulePrioritiesOutput {
   Rules?: Rule[];
 }
 
+/**
+ * @public
+ */
 export interface SetSecurityGroupsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -3659,6 +4029,9 @@ export interface SetSecurityGroupsInput {
   SecurityGroups: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SetSecurityGroupsOutput {
   /**
    * <p>The IDs of the security groups associated with the load balancer.</p>
@@ -3666,6 +4039,9 @@ export interface SetSecurityGroupsOutput {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface SetSubnetsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -3711,6 +4087,9 @@ export interface SetSubnetsInput {
   IpAddressType?: IpAddressType | string;
 }
 
+/**
+ * @public
+ */
 export interface SetSubnetsOutput {
   /**
    * <p>Information about the subnets.</p>
@@ -3722,744 +4101,3 @@ export interface SetSubnetsOutput {
    */
   IpAddressType?: IpAddressType | string;
 }
-
-/**
- * @internal
- */
-export const AuthenticateCognitoActionConfigFilterSensitiveLog = (obj: AuthenticateCognitoActionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthenticateOidcActionConfigFilterSensitiveLog = (obj: AuthenticateOidcActionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FixedResponseActionConfigFilterSensitiveLog = (obj: FixedResponseActionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetGroupTupleFilterSensitiveLog = (obj: TargetGroupTuple): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetGroupStickinessConfigFilterSensitiveLog = (obj: TargetGroupStickinessConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForwardActionConfigFilterSensitiveLog = (obj: ForwardActionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedirectActionConfigFilterSensitiveLog = (obj: RedirectActionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionFilterSensitiveLog = (obj: Action): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateFilterSensitiveLog = (obj: Certificate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddListenerCertificatesInputFilterSensitiveLog = (obj: AddListenerCertificatesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddListenerCertificatesOutputFilterSensitiveLog = (obj: AddListenerCertificatesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsInputFilterSensitiveLog = (obj: AddTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsOutputFilterSensitiveLog = (obj: AddTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerAddressFilterSensitiveLog = (obj: LoadBalancerAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CipherFilterSensitiveLog = (obj: Cipher): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateListenerInputFilterSensitiveLog = (obj: CreateListenerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListenerFilterSensitiveLog = (obj: Listener): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateListenerOutputFilterSensitiveLog = (obj: CreateListenerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetMappingFilterSensitiveLog = (obj: SubnetMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLoadBalancerInputFilterSensitiveLog = (obj: CreateLoadBalancerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerStateFilterSensitiveLog = (obj: LoadBalancerState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerFilterSensitiveLog = (obj: LoadBalancer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLoadBalancerOutputFilterSensitiveLog = (obj: CreateLoadBalancerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostHeaderConditionConfigFilterSensitiveLog = (obj: HostHeaderConditionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpHeaderConditionConfigFilterSensitiveLog = (obj: HttpHeaderConditionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpRequestMethodConditionConfigFilterSensitiveLog = (obj: HttpRequestMethodConditionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PathPatternConditionConfigFilterSensitiveLog = (obj: PathPatternConditionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryStringKeyValuePairFilterSensitiveLog = (obj: QueryStringKeyValuePair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryStringConditionConfigFilterSensitiveLog = (obj: QueryStringConditionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceIpConditionConfigFilterSensitiveLog = (obj: SourceIpConditionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleConditionFilterSensitiveLog = (obj: RuleCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRuleInputFilterSensitiveLog = (obj: CreateRuleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleFilterSensitiveLog = (obj: Rule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRuleOutputFilterSensitiveLog = (obj: CreateRuleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MatcherFilterSensitiveLog = (obj: Matcher): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTargetGroupInputFilterSensitiveLog = (obj: CreateTargetGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetGroupFilterSensitiveLog = (obj: TargetGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTargetGroupOutputFilterSensitiveLog = (obj: CreateTargetGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteListenerInputFilterSensitiveLog = (obj: DeleteListenerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteListenerOutputFilterSensitiveLog = (obj: DeleteListenerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLoadBalancerInputFilterSensitiveLog = (obj: DeleteLoadBalancerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLoadBalancerOutputFilterSensitiveLog = (obj: DeleteLoadBalancerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRuleInputFilterSensitiveLog = (obj: DeleteRuleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRuleOutputFilterSensitiveLog = (obj: DeleteRuleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTargetGroupInputFilterSensitiveLog = (obj: DeleteTargetGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTargetGroupOutputFilterSensitiveLog = (obj: DeleteTargetGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetDescriptionFilterSensitiveLog = (obj: TargetDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTargetsInputFilterSensitiveLog = (obj: DeregisterTargetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTargetsOutputFilterSensitiveLog = (obj: DeregisterTargetsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountLimitsInputFilterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LimitFilterSensitiveLog = (obj: Limit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountLimitsOutputFilterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeListenerCertificatesInputFilterSensitiveLog = (obj: DescribeListenerCertificatesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeListenerCertificatesOutputFilterSensitiveLog = (obj: DescribeListenerCertificatesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeListenersInputFilterSensitiveLog = (obj: DescribeListenersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeListenersOutputFilterSensitiveLog = (obj: DescribeListenersOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBalancerAttributesInputFilterSensitiveLog = (
-  obj: DescribeLoadBalancerAttributesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerAttributeFilterSensitiveLog = (obj: LoadBalancerAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBalancerAttributesOutputFilterSensitiveLog = (
-  obj: DescribeLoadBalancerAttributesOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBalancersInputFilterSensitiveLog = (obj: DescribeLoadBalancersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoadBalancersOutputFilterSensitiveLog = (obj: DescribeLoadBalancersOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRulesInputFilterSensitiveLog = (obj: DescribeRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRulesOutputFilterSensitiveLog = (obj: DescribeRulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSSLPoliciesInputFilterSensitiveLog = (obj: DescribeSSLPoliciesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SslPolicyFilterSensitiveLog = (obj: SslPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSSLPoliciesOutputFilterSensitiveLog = (obj: DescribeSSLPoliciesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagsInputFilterSensitiveLog = (obj: DescribeTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagDescriptionFilterSensitiveLog = (obj: TagDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagsOutputFilterSensitiveLog = (obj: DescribeTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTargetGroupAttributesInputFilterSensitiveLog = (obj: DescribeTargetGroupAttributesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetGroupAttributeFilterSensitiveLog = (obj: TargetGroupAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTargetGroupAttributesOutputFilterSensitiveLog = (
-  obj: DescribeTargetGroupAttributesOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTargetGroupsInputFilterSensitiveLog = (obj: DescribeTargetGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTargetGroupsOutputFilterSensitiveLog = (obj: DescribeTargetGroupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTargetHealthInputFilterSensitiveLog = (obj: DescribeTargetHealthInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetHealthFilterSensitiveLog = (obj: TargetHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetHealthDescriptionFilterSensitiveLog = (obj: TargetHealthDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTargetHealthOutputFilterSensitiveLog = (obj: DescribeTargetHealthOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyListenerInputFilterSensitiveLog = (obj: ModifyListenerInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyListenerOutputFilterSensitiveLog = (obj: ModifyListenerOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyLoadBalancerAttributesInputFilterSensitiveLog = (obj: ModifyLoadBalancerAttributesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyLoadBalancerAttributesOutputFilterSensitiveLog = (obj: ModifyLoadBalancerAttributesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyRuleInputFilterSensitiveLog = (obj: ModifyRuleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyRuleOutputFilterSensitiveLog = (obj: ModifyRuleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyTargetGroupInputFilterSensitiveLog = (obj: ModifyTargetGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyTargetGroupOutputFilterSensitiveLog = (obj: ModifyTargetGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyTargetGroupAttributesInputFilterSensitiveLog = (obj: ModifyTargetGroupAttributesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyTargetGroupAttributesOutputFilterSensitiveLog = (obj: ModifyTargetGroupAttributesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterTargetsInputFilterSensitiveLog = (obj: RegisterTargetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterTargetsOutputFilterSensitiveLog = (obj: RegisterTargetsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveListenerCertificatesInputFilterSensitiveLog = (obj: RemoveListenerCertificatesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveListenerCertificatesOutputFilterSensitiveLog = (obj: RemoveListenerCertificatesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsInputFilterSensitiveLog = (obj: RemoveTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsOutputFilterSensitiveLog = (obj: RemoveTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIpAddressTypeInputFilterSensitiveLog = (obj: SetIpAddressTypeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIpAddressTypeOutputFilterSensitiveLog = (obj: SetIpAddressTypeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RulePriorityPairFilterSensitiveLog = (obj: RulePriorityPair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetRulePrioritiesInputFilterSensitiveLog = (obj: SetRulePrioritiesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetRulePrioritiesOutputFilterSensitiveLog = (obj: SetRulePrioritiesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetSecurityGroupsInputFilterSensitiveLog = (obj: SetSecurityGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetSecurityGroupsOutputFilterSensitiveLog = (obj: SetSecurityGroupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetSubnetsInputFilterSensitiveLog = (obj: SetSubnetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetSubnetsOutputFilterSensitiveLog = (obj: SetSubnetsOutput): any => ({
-  ...obj,
-});

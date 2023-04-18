@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeCampaignRequest,
-  DescribeCampaignRequestFilterSensitiveLog,
-  DescribeCampaignResponse,
-  DescribeCampaignResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeCampaignCommand,
-  serializeAws_json1_1DescribeCampaignCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCampaignCommand, se_DescribeCampaignCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCampaignCommand}.
+ */
 export interface DescribeCampaignCommandInput extends DescribeCampaignRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCampaignCommand}.
+ */
 export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the given campaign, including its status.</p>
  *          <p>A campaign can be in one of the following states:</p>
  *          <ul>
@@ -48,13 +51,25 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * import { PersonalizeClient, DescribeCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeCampaignRequest
+ *   campaignArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCampaignCommandInput - {@link DescribeCampaignCommandInput}
+ * @returns {@link DescribeCampaignCommandOutput}
  * @see {@link DescribeCampaignCommandInput} for command's `input` shape.
  * @see {@link DescribeCampaignCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
  *
  */
 export class DescribeCampaignCommand extends $Command<
@@ -74,6 +89,9 @@ export class DescribeCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +120,8 @@ export class DescribeCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCampaignResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +131,18 @@ export class DescribeCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCampaignCommand(input, context);
+    return se_DescribeCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCampaignCommandOutput> {
-    return deserializeAws_json1_1DescribeCampaignCommand(output, context);
+    return de_DescribeCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdateRepositoryNameInput, UpdateRepositoryNameInputFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateRepositoryNameCommand,
-  serializeAws_json1_1UpdateRepositoryNameCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateRepositoryNameInput } from "../models/models_1";
+import { de_UpdateRepositoryNameCommand, se_UpdateRepositoryNameCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateRepositoryNameCommand}.
+ */
 export interface UpdateRepositoryNameCommandInput extends UpdateRepositoryNameInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateRepositoryNameCommand}.
+ */
 export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Renames a repository. The repository name must be unique across the calling AWS
  *             account. Repository names are limited to 100 alphanumeric, dash, and underscore
  *             characters, and cannot include certain characters. The suffix .git is prohibited. For
@@ -35,13 +43,38 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  * import { CodeCommitClient, UpdateRepositoryNameCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateRepositoryNameCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // UpdateRepositoryNameInput
+ *   oldName: "STRING_VALUE", // required
+ *   newName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRepositoryNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRepositoryNameCommandInput - {@link UpdateRepositoryNameCommandInput}
+ * @returns {@link UpdateRepositoryNameCommandOutput}
  * @see {@link UpdateRepositoryNameCommandInput} for command's `input` shape.
  * @see {@link UpdateRepositoryNameCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
+ *
+ * @throws {@link RepositoryNameExistsException} (client fault)
+ *  <p>The specified repository name already exists.</p>
+ *
+ * @throws {@link RepositoryNameRequiredException} (client fault)
+ *  <p>A repository name is required, but was not specified.</p>
+ *
  *
  */
 export class UpdateRepositoryNameCommand extends $Command<
@@ -61,6 +94,9 @@ export class UpdateRepositoryNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRepositoryNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +125,8 @@ export class UpdateRepositoryNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRepositoryNameInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +136,18 @@ export class UpdateRepositoryNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRepositoryNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRepositoryNameCommand(input, context);
+    return se_UpdateRepositoryNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRepositoryNameCommandOutput> {
-    return deserializeAws_json1_1UpdateRepositoryNameCommand(output, context);
+    return de_UpdateRepositoryNameCommand(output, context);
   }
 
   // Start section: command_body_extra

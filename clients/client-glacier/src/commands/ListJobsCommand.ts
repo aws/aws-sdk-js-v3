@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  ListJobsInput,
-  ListJobsInputFilterSensitiveLog,
-  ListJobsOutput,
-  ListJobsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListJobsCommand,
-  serializeAws_restJson1ListJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListJobsInput, ListJobsOutput } from "../models/models_0";
+import { de_ListJobsCommand, se_ListJobsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListJobsCommand}.
+ */
 export interface ListJobsCommandInput extends ListJobsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListJobsCommand}.
+ */
 export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists jobs for a vault, including jobs that are in-progress and jobs
  *          that have recently finished. The List Job operation returns a list of these jobs sorted by job initiation
  *          time.</p>
@@ -71,13 +74,81 @@ export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer 
  * import { GlacierClient, ListJobsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListJobsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // ListJobsInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   limit: Number("int"),
+ *   marker: "STRING_VALUE",
+ *   statuscode: "STRING_VALUE",
+ *   completed: "STRING_VALUE",
+ * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobsCommandInput - {@link ListJobsCommandInput}
+ * @returns {@link ListJobsCommandOutput}
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
+ *          exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ *
+ * @example To list jobs for a vault
+ * ```javascript
+ * // The example lists jobs for the vault named my-vault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "my-vault"
+ * };
+ * const command = new ListJobsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "JobList": [
+ *     {
+ *       "Action": "ArchiveRetrieval",
+ *       "ArchiveId": "kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw",
+ *       "ArchiveSHA256TreeHash": "9628195fcdbcbbe76cdde932d4646fa7de5f219fb39823836d81f0cc0e18aa67",
+ *       "ArchiveSizeInBytes": 3145728,
+ *       "Completed": false,
+ *       "CreationDate": "2015-07-17T21:16:13.840Z",
+ *       "JobDescription": "Retrieve archive on 2015-07-17",
+ *       "JobId": "l7IL5-EkXyEY9Ws95fClzIbk2O5uLYaFdAYOi-azsX_Z8V6NH4yERHzars8wTKYQMX6nBDI9cMNHzyZJO59-8N9aHWav",
+ *       "RetrievalByteRange": "0-3145727",
+ *       "SHA256TreeHash": "9628195fcdbcbbe76cdde932d4646fa7de5f219fb39823836d81f0cc0e18aa67",
+ *       "SNSTopic": "arn:aws:sns:us-west-2:0123456789012:my-vault",
+ *       "StatusCode": "InProgress",
+ *       "VaultARN": "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault"
+ *     },
+ *     {
+ *       "Action": "InventoryRetrieval",
+ *       "Completed": false,
+ *       "CreationDate": "2015-07-17T20:23:41.616Z",
+ *       "InventoryRetrievalParameters": {
+ *         "Format": "JSON"
+ *       },
+ *       "JobId": "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW",
+ *       "StatusCode": "InProgress",
+ *       "VaultARN": "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-jobs-for-a-vault-1481920530537
+ * ```
  *
  */
 export class ListJobsCommand extends $Command<
@@ -97,6 +168,9 @@ export class ListJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +197,8 @@ export class ListJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJobsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +208,18 @@ export class ListJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJobsCommand(input, context);
+    return se_ListJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobsCommandOutput> {
-    return deserializeAws_restJson1ListJobsCommand(output, context);
+    return de_ListJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

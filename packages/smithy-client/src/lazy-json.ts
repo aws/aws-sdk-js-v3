@@ -11,6 +11,8 @@ interface StringWrapper {
  * TS 'extends' shim doesn't support extending native types like String.
  * So here we create StringWrapper that duplicate everything from String
  * class including its prototype chain. So we can extend from here.
+ *
+ * @internal
  */
 // @ts-ignore StringWrapper implementation is not a simple constructor
 export const StringWrapper: StringWrapper = function () {
@@ -32,6 +34,9 @@ StringWrapper.prototype = Object.create(String.prototype, {
 });
 Object.setPrototypeOf(StringWrapper, String);
 
+/**
+ * @internal
+ */
 export class LazyJsonString extends StringWrapper {
   deserializeJSON(): any {
     return JSON.parse(super.toString());

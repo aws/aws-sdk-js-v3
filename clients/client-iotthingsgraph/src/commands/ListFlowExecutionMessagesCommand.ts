@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  ListFlowExecutionMessagesRequest,
-  ListFlowExecutionMessagesRequestFilterSensitiveLog,
-  ListFlowExecutionMessagesResponse,
-  ListFlowExecutionMessagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFlowExecutionMessagesCommand,
-  serializeAws_json1_1ListFlowExecutionMessagesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListFlowExecutionMessagesRequest, ListFlowExecutionMessagesResponse } from "../models/models_0";
+import { de_ListFlowExecutionMessagesCommand, se_ListFlowExecutionMessagesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFlowExecutionMessagesCommand}.
+ */
 export interface ListFlowExecutionMessagesCommandInput extends ListFlowExecutionMessagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFlowExecutionMessagesCommand}.
+ */
 export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutionMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Returns a list of objects that contain information about events in a flow execution.</p>
@@ -38,13 +41,33 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  * import { IoTThingsGraphClient, ListFlowExecutionMessagesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, ListFlowExecutionMessagesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // ListFlowExecutionMessagesRequest
+ *   flowExecutionId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListFlowExecutionMessagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFlowExecutionMessagesCommandInput - {@link ListFlowExecutionMessagesCommandInput}
+ * @returns {@link ListFlowExecutionMessagesCommandOutput}
  * @see {@link ListFlowExecutionMessagesCommandInput} for command's `input` shape.
  * @see {@link ListFlowExecutionMessagesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
  *
  */
 export class ListFlowExecutionMessagesCommand extends $Command<
@@ -64,6 +87,9 @@ export class ListFlowExecutionMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFlowExecutionMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +118,8 @@ export class ListFlowExecutionMessagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFlowExecutionMessagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFlowExecutionMessagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +129,21 @@ export class ListFlowExecutionMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFlowExecutionMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFlowExecutionMessagesCommand(input, context);
+    return se_ListFlowExecutionMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFlowExecutionMessagesCommandOutput> {
-    return deserializeAws_json1_1ListFlowExecutionMessagesCommand(output, context);
+    return de_ListFlowExecutionMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

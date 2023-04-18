@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DescribeScalingParametersRequest,
-  DescribeScalingParametersRequestFilterSensitiveLog,
-  DescribeScalingParametersResponse,
-  DescribeScalingParametersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeScalingParametersCommand,
-  serializeAws_queryDescribeScalingParametersCommand,
-} from "../protocols/Aws_query";
+import { DescribeScalingParametersRequest, DescribeScalingParametersResponse } from "../models/models_0";
+import { de_DescribeScalingParametersCommand, se_DescribeScalingParametersCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeScalingParametersCommand}.
+ */
 export interface DescribeScalingParametersCommandInput extends DescribeScalingParametersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeScalingParametersCommand}.
+ */
 export interface DescribeScalingParametersCommandOutput extends DescribeScalingParametersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the scaling parameters configured for a domain. A domain's scaling parameters specify the desired search instance type and replication count. For more information, see   <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html" target="_blank">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface DescribeScalingParametersCommandOutput extends DescribeScalingP
  * import { CloudSearchClient, DescribeScalingParametersCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeScalingParametersCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // DescribeScalingParametersRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeScalingParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingParametersCommandInput - {@link DescribeScalingParametersCommandInput}
+ * @returns {@link DescribeScalingParametersCommandOutput}
  * @see {@link DescribeScalingParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingParametersCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An internal error occurred while processing the request. If this problem persists,
+ *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+ *
  *
  */
 export class DescribeScalingParametersCommand extends $Command<
@@ -62,6 +81,9 @@ export class DescribeScalingParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +112,8 @@ export class DescribeScalingParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScalingParametersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScalingParametersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +123,21 @@ export class DescribeScalingParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeScalingParametersCommand(input, context);
+    return se_DescribeScalingParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingParametersCommandOutput> {
-    return deserializeAws_queryDescribeScalingParametersCommand(output, context);
+    return de_DescribeScalingParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

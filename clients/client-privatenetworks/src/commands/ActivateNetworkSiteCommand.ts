@@ -17,18 +17,25 @@ import {
   ActivateNetworkSiteRequest,
   ActivateNetworkSiteRequestFilterSensitiveLog,
   ActivateNetworkSiteResponse,
-  ActivateNetworkSiteResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ActivateNetworkSiteCommand,
-  serializeAws_restJson1ActivateNetworkSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ActivateNetworkSiteCommand, se_ActivateNetworkSiteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ActivateNetworkSiteCommand}.
+ */
 export interface ActivateNetworkSiteCommandInput extends ActivateNetworkSiteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ActivateNetworkSiteCommand}.
+ */
 export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates the specified network site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,41 @@ export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteRes
  * import { PrivateNetworksClient, ActivateNetworkSiteCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ActivateNetworkSiteCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // ActivateNetworkSiteRequest
+ *   networkSiteArn: "STRING_VALUE", // required
+ *   shippingAddress: { // Address
+ *     city: "STRING_VALUE", // required
+ *     company: "STRING_VALUE",
+ *     country: "STRING_VALUE", // required
+ *     name: "STRING_VALUE", // required
+ *     phoneNumber: "STRING_VALUE",
+ *     postalCode: "STRING_VALUE", // required
+ *     stateOrProvince: "STRING_VALUE", // required
+ *     street1: "STRING_VALUE", // required
+ *     street2: "STRING_VALUE",
+ *     street3: "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new ActivateNetworkSiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateNetworkSiteCommandInput - {@link ActivateNetworkSiteCommandInput}
+ * @returns {@link ActivateNetworkSiteCommandOutput}
  * @see {@link ActivateNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link ActivateNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
  *
  */
 export class ActivateNetworkSiteCommand extends $Command<
@@ -62,6 +97,9 @@ export class ActivateNetworkSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateNetworkSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,7 +129,7 @@ export class ActivateNetworkSiteCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ActivateNetworkSiteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivateNetworkSiteResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +139,18 @@ export class ActivateNetworkSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateNetworkSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ActivateNetworkSiteCommand(input, context);
+    return se_ActivateNetworkSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateNetworkSiteCommandOutput> {
-    return deserializeAws_restJson1ActivateNetworkSiteCommand(output, context);
+    return de_ActivateNetworkSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

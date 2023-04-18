@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteReplicationJobRequest,
-  DeleteReplicationJobRequestFilterSensitiveLog,
-  DeleteReplicationJobResponse,
-  DeleteReplicationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteReplicationJobCommand,
-  serializeAws_json1_1DeleteReplicationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteReplicationJobRequest, DeleteReplicationJobResponse } from "../models/models_0";
+import { de_DeleteReplicationJobCommand, se_DeleteReplicationJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteReplicationJobCommand}.
+ */
 export interface DeleteReplicationJobCommandInput extends DeleteReplicationJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteReplicationJobCommand}.
+ */
 export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified replication job.</p>
- *         <p>After you delete a replication job, there are no further replication runs. Amazon Web Services
+ *          <p>After you delete a replication job, there are no further replication runs. Amazon Web Services
  *             deletes the contents of the Amazon S3 bucket used to store Server Migration Service artifacts. The AMIs created
  *             by the replication runs are not deleted.</p>
  * @example
@@ -39,13 +42,35 @@ export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobR
  * import { SMSClient, DeleteReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // DeleteReplicationJobRequest
+ *   replicationJobId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReplicationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationJobCommandInput - {@link DeleteReplicationJobCommandInput}
+ * @returns {@link DeleteReplicationJobCommandOutput}
  * @see {@link DeleteReplicationJobCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationJobCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link ReplicationJobNotFoundException} (client fault)
+ *  <p>The specified replication job does not exist.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
  *
  */
 export class DeleteReplicationJobCommand extends $Command<
@@ -65,6 +90,9 @@ export class DeleteReplicationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +121,8 @@ export class DeleteReplicationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReplicationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +132,18 @@ export class DeleteReplicationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReplicationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteReplicationJobCommand(input, context);
+    return se_DeleteReplicationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReplicationJobCommandOutput> {
-    return deserializeAws_json1_1DeleteReplicationJobCommand(output, context);
+    return de_DeleteReplicationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

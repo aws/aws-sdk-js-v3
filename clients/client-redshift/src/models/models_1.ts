@@ -29,6 +29,7 @@ import {
 import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeHsmConfigurationsMessage {
@@ -44,9 +45,9 @@ export interface DescribeHsmConfigurationsMessage {
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
    *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -82,6 +83,7 @@ export interface DescribeHsmConfigurationsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface HsmConfigurationMessage {
@@ -101,23 +103,34 @@ export interface HsmConfigurationMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeLoggingStatusMessage {
   /**
    * <p>The identifier of the cluster from which to get the logging status.</p>
-   *         <p>Example: <code>examplecluster</code>
-   *         </p>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
    */
   ClusterIdentifier: string | undefined;
 }
 
-export enum LogDestinationType {
-  CLOUDWATCH = "cloudwatch",
-  S3 = "s3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LogDestinationType = {
+  CLOUDWATCH: "cloudwatch",
+  S3: "s3",
+} as const;
 
 /**
+ * @public
+ */
+export type LogDestinationType = (typeof LogDestinationType)[keyof typeof LogDestinationType];
+
+/**
+ * @public
  * <p>Describes the status of logging for a cluster.</p>
  */
 export interface LoggingStatus {
@@ -158,29 +171,50 @@ export interface LoggingStatus {
   LogDestinationType?: LogDestinationType | string;
 
   /**
-   * <p>The collection of exported log types. Log types include the connection log, user log and user activity log.</p>
+   * <p>The collection of exported log types. Possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and
+   *             <code>userlog</code>.</p>
    */
   LogExports?: string[];
 }
 
-export enum NodeConfigurationOptionsFilterName {
-  ESTIMATED_DISK_UTILIZATION_PERCENT = "EstimatedDiskUtilizationPercent",
-  MODE = "Mode",
-  NODE_TYPE = "NodeType",
-  NUM_NODES = "NumberOfNodes",
-}
-
-export enum OperatorType {
-  BETWEEN = "between",
-  EQ = "eq",
-  GE = "ge",
-  GT = "gt",
-  IN = "in",
-  LE = "le",
-  LT = "lt",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeConfigurationOptionsFilterName = {
+  ESTIMATED_DISK_UTILIZATION_PERCENT: "EstimatedDiskUtilizationPercent",
+  MODE: "Mode",
+  NODE_TYPE: "NodeType",
+  NUM_NODES: "NumberOfNodes",
+} as const;
 
 /**
+ * @public
+ */
+export type NodeConfigurationOptionsFilterName =
+  (typeof NodeConfigurationOptionsFilterName)[keyof typeof NodeConfigurationOptionsFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperatorType = {
+  BETWEEN: "between",
+  EQ: "eq",
+  GE: "ge",
+  GT: "gt",
+  IN: "in",
+  LE: "le",
+  LT: "lt",
+} as const;
+
+/**
+ * @public
+ */
+export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
+
+/**
+ * @public
  * <p>A set of elements to filter the returned node configurations.</p>
  */
 export interface NodeConfigurationOptionsFilter {
@@ -207,6 +241,9 @@ export interface NodeConfigurationOptionsFilter {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeNodeConfigurationOptionsMessage {
   /**
    * <p>The action type to evaluate for possible node configurations.
@@ -259,19 +296,29 @@ export interface DescribeNodeConfigurationOptionsMessage {
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
    *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>500</code>
-   *         </p>
-   *         <p>Constraints: minimum 100, maximum 500.</p>
+   *          <p>Default: <code>500</code>
+   *          </p>
+   *          <p>Constraints: minimum 100, maximum 500.</p>
    */
   MaxRecords?: number;
 }
 
-export enum Mode {
-  HIGH_PERFORMANCE = "high-performance",
-  STANDARD = "standard",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Mode = {
+  HIGH_PERFORMANCE: "high-performance",
+  STANDARD: "standard",
+} as const;
 
 /**
+ * @public
+ */
+export type Mode = (typeof Mode)[keyof typeof Mode];
+
+/**
+ * @public
  * <p>A list of node configurations.</p>
  */
 export interface NodeConfigurationOption {
@@ -296,6 +343,9 @@ export interface NodeConfigurationOption {
   Mode?: Mode | string;
 }
 
+/**
+ * @public
+ */
 export interface NodeConfigurationOptionsMessage {
   /**
    * <p>A list of valid node configurations.</p>
@@ -313,14 +363,15 @@ export interface NodeConfigurationOptionsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeOrderableClusterOptionsMessage {
   /**
    * <p>The version filter value. Specify this parameter to show only the available
    *             offerings matching the specified version.</p>
-   *         <p>Default: All versions.</p>
-   *         <p>Constraints: Must be one of the version returned from <a>DescribeClusterVersions</a>.</p>
+   *          <p>Default: All versions.</p>
+   *          <p>Constraints: Must be one of the version returned from <a>DescribeClusterVersions</a>.</p>
    */
   ClusterVersion?: string;
 
@@ -335,9 +386,9 @@ export interface DescribeOrderableClusterOptionsMessage {
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
    *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -353,6 +404,7 @@ export interface DescribeOrderableClusterOptionsMessage {
 }
 
 /**
+ * @public
  * <p>Describes an orderable cluster option.</p>
  */
 export interface OrderableClusterOption {
@@ -378,6 +430,7 @@ export interface OrderableClusterOption {
 }
 
 /**
+ * @public
  * <p>Contains the output from the <a>DescribeOrderableClusterOptions</a>
  *             action. </p>
  */
@@ -398,6 +451,9 @@ export interface OrderableClusterOptionsMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePartnersInputMessage {
   /**
    * <p>The Amazon Web Services account ID that owns the cluster.</p>
@@ -420,14 +476,24 @@ export interface DescribePartnersInputMessage {
   PartnerName?: string;
 }
 
-export enum PartnerIntegrationStatus {
-  Active = "Active",
-  ConnectionFailure = "ConnectionFailure",
-  Inactive = "Inactive",
-  RuntimeFailure = "RuntimeFailure",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PartnerIntegrationStatus = {
+  Active: "Active",
+  ConnectionFailure: "ConnectionFailure",
+  Inactive: "Inactive",
+  RuntimeFailure: "RuntimeFailure",
+} as const;
 
 /**
+ * @public
+ */
+export type PartnerIntegrationStatus = (typeof PartnerIntegrationStatus)[keyof typeof PartnerIntegrationStatus];
+
+/**
+ * @public
  * <p>Describes a partner integration.</p>
  */
 export interface PartnerIntegrationInfo {
@@ -462,6 +528,9 @@ export interface PartnerIntegrationInfo {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribePartnersOutputMessage {
   /**
    * <p>A list of partner integrations.</p>
@@ -469,6 +538,9 @@ export interface DescribePartnersOutputMessage {
   PartnerIntegrationInfoList?: PartnerIntegrationInfo[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeReservedNodeExchangeStatusInputMessage {
   /**
    * <p>The identifier of the source reserved node in a reserved-node exchange request.</p>
@@ -498,6 +570,9 @@ export interface DescribeReservedNodeExchangeStatusInputMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReservedNodeExchangeStatusOutputMessage {
   /**
    * <p>The details of the reserved-node exchange request, including the status, request
@@ -512,6 +587,7 @@ export interface DescribeReservedNodeExchangeStatusOutputMessage {
 }
 
 /**
+ * @public
  * <p>The reserved-node exchange status wasn't found.</p>
  */
 export class ReservedNodeExchangeNotFoundFault extends __BaseException {
@@ -531,6 +607,7 @@ export class ReservedNodeExchangeNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReservedNodeOfferingsMessage {
@@ -544,9 +621,9 @@ export interface DescribeReservedNodeOfferingsMessage {
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
    *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -562,6 +639,7 @@ export interface DescribeReservedNodeOfferingsMessage {
 }
 
 /**
+ * @public
  * <p>Describes a reserved node offering.</p>
  */
 export interface ReservedNodeOffering {
@@ -617,6 +695,7 @@ export interface ReservedNodeOffering {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ReservedNodeOfferingsMessage {
@@ -636,6 +715,7 @@ export interface ReservedNodeOfferingsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeReservedNodesMessage {
@@ -649,9 +729,9 @@ export interface DescribeReservedNodesMessage {
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
    *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -667,6 +747,7 @@ export interface DescribeReservedNodesMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ReservedNodesMessage {
@@ -686,24 +767,35 @@ export interface ReservedNodesMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeResizeMessage {
   /**
    * <p>The unique identifier of a cluster whose resize progress you are requesting. This
    *             parameter is case-sensitive.</p>
-   *         <p>By default, resize operations for all clusters defined for an Amazon Web Services account are
+   *          <p>By default, resize operations for all clusters defined for an Amazon Web Services account are
    *             returned.</p>
    */
   ClusterIdentifier: string | undefined;
 }
 
-export enum ScheduledActionFilterName {
-  CLUSTER_IDENTIFIER = "cluster-identifier",
-  IAM_ROLE = "iam-role",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledActionFilterName = {
+  CLUSTER_IDENTIFIER: "cluster-identifier",
+  IAM_ROLE: "iam-role",
+} as const;
 
 /**
+ * @public
+ */
+export type ScheduledActionFilterName = (typeof ScheduledActionFilterName)[keyof typeof ScheduledActionFilterName];
+
+/**
+ * @public
  * <p>A set of elements to filter the returned scheduled actions. </p>
  */
 export interface ScheduledActionFilter {
@@ -718,12 +810,24 @@ export interface ScheduledActionFilter {
   Values: string[] | undefined;
 }
 
-export enum ScheduledActionTypeValues {
-  PAUSE_CLUSTER = "PauseCluster",
-  RESIZE_CLUSTER = "ResizeCluster",
-  RESUME_CLUSTER = "ResumeCluster",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledActionTypeValues = {
+  PAUSE_CLUSTER: "PauseCluster",
+  RESIZE_CLUSTER: "ResizeCluster",
+  RESUME_CLUSTER: "ResumeCluster",
+} as const;
 
+/**
+ * @public
+ */
+export type ScheduledActionTypeValues = (typeof ScheduledActionTypeValues)[keyof typeof ScheduledActionTypeValues];
+
+/**
+ * @public
+ */
 export interface DescribeScheduledActionsMessage {
   /**
    * <p>The name of the scheduled action to retrieve. </p>
@@ -773,13 +877,16 @@ export interface DescribeScheduledActionsMessage {
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
    *             set of records by retrying the command with the returned marker value. </p>
-   *             <p>Default: <code>100</code>
-   *             </p>
-   *             <p>Constraints: minimum 20, maximum 100.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 }
 
+/**
+ * @public
+ */
 export interface ScheduledActionsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -798,6 +905,7 @@ export interface ScheduledActionsMessage {
 }
 
 /**
+ * @public
  * <p>The result of the <code>DescribeSnapshotCopyGrants</code> action.</p>
  */
 export interface DescribeSnapshotCopyGrantsMessage {
@@ -811,9 +919,9 @@ export interface DescribeSnapshotCopyGrantsMessage {
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
    *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -824,7 +932,7 @@ export interface DescribeSnapshotCopyGrantsMessage {
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
-   *         <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
+   *          <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
    */
   Marker?: string;
 
@@ -848,6 +956,7 @@ export interface DescribeSnapshotCopyGrantsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface SnapshotCopyGrantMessage {
@@ -858,7 +967,7 @@ export interface SnapshotCopyGrantMessage {
    *                 <code>Marker</code> field of the response. You can retrieve the next set of response
    *             records by providing the returned marker value in the <code>Marker</code> parameter and
    *             retrying the request. </p>
-   *         <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
+   *          <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
    */
   Marker?: string;
 
@@ -868,6 +977,9 @@ export interface SnapshotCopyGrantMessage {
   SnapshotCopyGrants?: SnapshotCopyGrant[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotSchedulesMessage {
   /**
    * <p>The unique identifier for the cluster whose snapshot schedules you want to
@@ -909,6 +1021,9 @@ export interface DescribeSnapshotSchedulesMessage {
   MaxRecords?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotSchedulesOutputMessage {
   /**
    * <p>A list of SnapshotSchedules.</p>
@@ -926,6 +1041,7 @@ export interface DescribeSnapshotSchedulesOutputMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeTableRestoreStatusMessage {
@@ -959,6 +1075,7 @@ export interface DescribeTableRestoreStatusMessage {
 }
 
 /**
+ * @public
  * <p>The specified <code>TableRestoreRequestId</code> value was not found.</p>
  */
 export class TableRestoreNotFoundFault extends __BaseException {
@@ -977,15 +1094,25 @@ export class TableRestoreNotFoundFault extends __BaseException {
   }
 }
 
-export enum TableRestoreStatusType {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TableRestoreStatusType = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type TableRestoreStatusType = (typeof TableRestoreStatusType)[keyof typeof TableRestoreStatusType];
+
+/**
+ * @public
  * <p>Describes the status of a <a>RestoreTableFromClusterSnapshot</a>
  *             operation.</p>
  */
@@ -997,9 +1124,9 @@ export interface TableRestoreStatus {
 
   /**
    * <p>A value that describes the current state of the table restore request.</p>
-   *         <p>Valid Values: <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>,
+   *          <p>Valid Values: <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>,
    *                 <code>PENDING</code>, <code>IN_PROGRESS</code>
-   *         </p>
+   *          </p>
    */
   Status?: TableRestoreStatusType | string;
 
@@ -1069,6 +1196,7 @@ export interface TableRestoreStatus {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface TableRestoreStatusMessage {
@@ -1084,6 +1212,7 @@ export interface TableRestoreStatusMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeTagsMessage {
@@ -1095,39 +1224,39 @@ export interface DescribeTagsMessage {
 
   /**
    * <p>The type of resource with which you want to view tags. Valid resource types are: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Cluster</p>
+   *                <p>Cluster</p>
    *             </li>
    *             <li>
-   *                 <p>CIDR/IP</p>
+   *                <p>CIDR/IP</p>
    *             </li>
    *             <li>
-   *                 <p>EC2 security group</p>
+   *                <p>EC2 security group</p>
    *             </li>
    *             <li>
-   *                 <p>Snapshot</p>
+   *                <p>Snapshot</p>
    *             </li>
    *             <li>
-   *                 <p>Cluster security group</p>
+   *                <p>Cluster security group</p>
    *             </li>
    *             <li>
-   *                 <p>Subnet group</p>
+   *                <p>Subnet group</p>
    *             </li>
    *             <li>
-   *                 <p>HSM connection</p>
+   *                <p>HSM connection</p>
    *             </li>
    *             <li>
-   *                 <p>HSM certificate</p>
+   *                <p>HSM certificate</p>
    *             </li>
    *             <li>
-   *                 <p>Parameter group</p>
+   *                <p>Parameter group</p>
    *             </li>
    *             <li>
-   *                 <p>Snapshot copy grant</p>
+   *                <p>Snapshot copy grant</p>
    *             </li>
    *          </ul>
-   *         <p>For more information about Amazon Redshift resource types and constructing ARNs, go to
+   *          <p>For more information about Amazon Redshift resource types and constructing ARNs, go to
    *                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions">Specifying Policy Elements: Actions, Effects, Resources, and Principals</a> in
    *             the Amazon Redshift Cluster Management Guide. </p>
    */
@@ -1171,6 +1300,7 @@ export interface DescribeTagsMessage {
 }
 
 /**
+ * @public
  * <p>A tag and its associated resource.</p>
  */
 export interface TaggedResource {
@@ -1187,36 +1317,36 @@ export interface TaggedResource {
 
   /**
    * <p>The type of resource with which the tag is associated. Valid resource types are: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Cluster</p>
+   *                <p>Cluster</p>
    *             </li>
    *             <li>
-   *                 <p>CIDR/IP</p>
+   *                <p>CIDR/IP</p>
    *             </li>
    *             <li>
-   *                 <p>EC2 security group</p>
+   *                <p>EC2 security group</p>
    *             </li>
    *             <li>
-   *                 <p>Snapshot</p>
+   *                <p>Snapshot</p>
    *             </li>
    *             <li>
-   *                 <p>Cluster security group</p>
+   *                <p>Cluster security group</p>
    *             </li>
    *             <li>
-   *                 <p>Subnet group</p>
+   *                <p>Subnet group</p>
    *             </li>
    *             <li>
-   *                 <p>HSM connection</p>
+   *                <p>HSM connection</p>
    *             </li>
    *             <li>
-   *                 <p>HSM certificate</p>
+   *                <p>HSM certificate</p>
    *             </li>
    *             <li>
-   *                 <p>Parameter group</p>
+   *                <p>Parameter group</p>
    *             </li>
    *          </ul>
-   *         <p>For more information about Amazon Redshift resource types and constructing ARNs, go to
+   *          <p>For more information about Amazon Redshift resource types and constructing ARNs, go to
    *                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions">Constructing an Amazon Redshift Amazon Resource Name (ARN)</a> in the
    *             Amazon Redshift Cluster Management Guide. </p>
    */
@@ -1224,6 +1354,7 @@ export interface TaggedResource {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface TaggedResourceListMessage {
@@ -1242,6 +1373,9 @@ export interface TaggedResourceListMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsageLimitsMessage {
   /**
    * <p>The identifier of the usage limit to describe.</p>
@@ -1263,9 +1397,9 @@ export interface DescribeUsageLimitsMessage {
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
    *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -1300,6 +1434,9 @@ export interface DescribeUsageLimitsMessage {
   TagValues?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UsageLimitList {
   /**
    * <p>Contains the output from the <a>DescribeUsageLimits</a>
@@ -1318,30 +1455,35 @@ export interface UsageLimitList {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DisableLoggingMessage {
   /**
    * <p>The identifier of the cluster on which logging is to be stopped.</p>
-   *         <p>Example: <code>examplecluster</code>
-   *         </p>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
    */
   ClusterIdentifier: string | undefined;
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DisableSnapshotCopyMessage {
   /**
    * <p>The unique identifier of the source cluster that you want to disable copying of
    *             snapshots to a destination region.</p>
-   *         <p>Constraints: Must be the valid name of an existing cluster that has cross-region
+   *          <p>Constraints: Must be the valid name of an existing cluster that has cross-region
    *             snapshot copy enabled.</p>
    */
   ClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableSnapshotCopyResult {
   /**
    * <p>Describes a cluster.</p>
@@ -1350,6 +1492,7 @@ export interface DisableSnapshotCopyResult {
 }
 
 /**
+ * @public
  * <p>The cluster already has cross-region snapshot copy disabled.</p>
  */
 export class SnapshotCopyAlreadyDisabledFault extends __BaseException {
@@ -1368,6 +1511,9 @@ export class SnapshotCopyAlreadyDisabledFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDataShareConsumerMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the datashare to remove association for. </p>
@@ -1393,25 +1539,26 @@ export interface DisassociateDataShareConsumerMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface EnableLoggingMessage {
   /**
    * <p>The identifier of the cluster on which logging is to be started.</p>
-   *         <p>Example: <code>examplecluster</code>
-   *         </p>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
    */
   ClusterIdentifier: string | undefined;
 
   /**
    * <p>The name of an existing S3 bucket where the log files are to be stored.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be in the same region as the cluster</p>
+   *                <p>Must be in the same region as the cluster</p>
    *             </li>
    *             <li>
-   *                 <p>The cluster must have read bucket and put object permissions</p>
+   *                <p>The cluster must have read bucket and put object permissions</p>
    *             </li>
    *          </ul>
    */
@@ -1419,30 +1566,30 @@ export interface EnableLoggingMessage {
 
   /**
    * <p>The prefix applied to the log file names.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Cannot exceed 512 characters</p>
+   *                <p>Cannot exceed 512 characters</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash
+   *                <p>Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash
    *                     (\), or control characters. The hexadecimal codes for invalid characters are: </p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>x00 to x20</p>
-   *                     </li>
+   *                      <p>x00 to x20</p>
+   *                   </li>
    *                   <li>
-   *                         <p>x22</p>
-   *                     </li>
+   *                      <p>x22</p>
+   *                   </li>
    *                   <li>
-   *                         <p>x27</p>
-   *                     </li>
+   *                      <p>x27</p>
+   *                   </li>
    *                   <li>
-   *                         <p>x5c</p>
-   *                     </li>
+   *                      <p>x5c</p>
+   *                   </li>
    *                   <li>
-   *                         <p>x7f or larger</p>
-   *                     </li>
+   *                      <p>x7f or larger</p>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
@@ -1455,12 +1602,13 @@ export interface EnableLoggingMessage {
   LogDestinationType?: LogDestinationType | string;
 
   /**
-   * <p>The collection of exported log types. Log types include the connection log, user log and user activity log.</p>
+   * <p>The collection of exported log types. Possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and <code>userlog</code>.</p>
    */
   LogExports?: string[];
 }
 
 /**
+ * @public
  * <p>The cluster does not have read bucket or put object permissions on the S3 bucket
  *             specified when enabling logging.</p>
  */
@@ -1481,6 +1629,7 @@ export class InsufficientS3BucketPolicyFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The S3 bucket name is invalid. For more information about naming rules, go to
  *                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket
  *                 Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3)
@@ -1503,6 +1652,7 @@ export class InvalidS3BucketNameFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The string specified for the logging S3 key prefix does not comply with the
  *             documented constraints.</p>
  */
@@ -1523,19 +1673,20 @@ export class InvalidS3KeyPrefixFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface EnableSnapshotCopyMessage {
   /**
    * <p>The unique identifier of the source cluster to copy snapshots from.</p>
-   *         <p>Constraints: Must be the valid name of an existing cluster that does not already
+   *          <p>Constraints: Must be the valid name of an existing cluster that does not already
    *             have cross-region snapshot copy enabled.</p>
    */
   ClusterIdentifier: string | undefined;
 
   /**
    * <p>The destination Amazon Web Services Region that you want to copy snapshots to.</p>
-   *         <p>Constraints: Must be the name of a valid Amazon Web Services Region. For more information, see
+   *          <p>Constraints: Must be the name of a valid Amazon Web Services Region. For more information, see
    *                 <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.
    *         </p>
    */
@@ -1544,8 +1695,8 @@ export interface EnableSnapshotCopyMessage {
   /**
    * <p>The number of days to retain automated snapshots in the destination region after
    *             they are copied from the source region.</p>
-   *         <p>Default: 7.</p>
-   *         <p>Constraints: Must be at least 1 and no more than 35.</p>
+   *          <p>Default: 7.</p>
+   *          <p>Constraints: Must be at least 1 and no more than 35.</p>
    */
   RetentionPeriod?: number;
 
@@ -1559,11 +1710,14 @@ export interface EnableSnapshotCopyMessage {
    * <p>The number of days to retain newly copied snapshots in the destination Amazon Web Services Region
    *             after they are copied from the source Amazon Web Services Region. If the value is -1, the manual
    *             snapshot is retained indefinitely. </p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
    */
   ManualSnapshotRetentionPeriod?: number;
 }
 
+/**
+ * @public
+ */
 export interface EnableSnapshotCopyResult {
   /**
    * <p>Describes a cluster.</p>
@@ -1572,6 +1726,7 @@ export interface EnableSnapshotCopyResult {
 }
 
 /**
+ * @public
  * <p>The specified options are incompatible.</p>
  */
 export class IncompatibleOrderableOptions extends __BaseException {
@@ -1591,6 +1746,7 @@ export class IncompatibleOrderableOptions extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The cluster already has cross-region snapshot copy enabled.</p>
  */
 export class SnapshotCopyAlreadyEnabledFault extends __BaseException {
@@ -1610,6 +1766,7 @@ export class SnapshotCopyAlreadyEnabledFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified region is incorrect or does not exist.</p>
  */
 export class UnknownSnapshotCopyRegionFault extends __BaseException {
@@ -1629,6 +1786,7 @@ export class UnknownSnapshotCopyRegionFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The authorization for this endpoint can't be found.</p>
  */
 export class EndpointAuthorizationNotFoundFault extends __BaseException {
@@ -1648,6 +1806,7 @@ export class EndpointAuthorizationNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request parameters to get cluster credentials.</p>
  */
 export interface GetClusterCredentialsMessage {
@@ -1660,26 +1819,26 @@ export interface GetClusterCredentialsMessage {
    *             doesn't exist and <code>Autocreate</code> is <code>False</code>, then the command
    *             succeeds but the connection attempt will fail because the user doesn't exist in the
    *             database.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">CREATE USER</a> in the Amazon
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">CREATE USER</a> in the Amazon
    *             Redshift Database Developer Guide. </p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be
+   *                <p>Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be
    *                         <code>PUBLIC</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain uppercase or lowercase letters, numbers, underscore, plus sign, period
+   *                <p>Must contain uppercase or lowercase letters, numbers, underscore, plus sign, period
    *                     (dot), at symbol (@), or hyphen.</p>
    *             </li>
    *             <li>
-   *                 <p>First character must be a letter.</p>
+   *                <p>First character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Must not contain a colon ( : ) or slash ( / ). </p>
+   *                <p>Must not contain a colon ( : ) or slash ( / ). </p>
    *             </li>
    *             <li>
-   *                 <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
+   *                <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
    *                     Redshift Database Developer Guide.</p>
    *             </li>
    *          </ul>
@@ -1690,23 +1849,23 @@ export interface GetClusterCredentialsMessage {
    * <p>The name of a database that <code>DbUser</code> is authorized to log on to. If
    *                 <code>DbName</code> is not specified, <code>DbUser</code> can log on to any existing
    *             database.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be 1 to 64 alphanumeric characters or hyphens</p>
+   *                <p>Must be 1 to 64 alphanumeric characters or hyphens</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain uppercase or lowercase letters, numbers, underscore, plus sign, period
+   *                <p>Must contain uppercase or lowercase letters, numbers, underscore, plus sign, period
    *                     (dot), at symbol (@), or hyphen.</p>
    *             </li>
    *             <li>
-   *                 <p>First character must be a letter.</p>
+   *                <p>First character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Must not contain a colon ( : ) or slash ( / ). </p>
+   *                <p>Must not contain a colon ( : ) or slash ( / ). </p>
    *             </li>
    *             <li>
-   *                 <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
+   *                <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
    *                     Redshift Database Developer Guide.</p>
    *             </li>
    *          </ul>
@@ -1721,8 +1880,8 @@ export interface GetClusterCredentialsMessage {
 
   /**
    * <p>The number of seconds until the returned temporary password expires.</p>
-   *         <p>Constraint: minimum 900, maximum 3600.</p>
-   *         <p>Default: 900</p>
+   *          <p>Constraint: minimum 900, maximum 3600.</p>
+   *          <p>Default: 900</p>
    */
   DurationSeconds?: number;
 
@@ -1737,23 +1896,23 @@ export interface GetClusterCredentialsMessage {
    *                 <code>DbUser</code> will join for the current session, in addition to any group
    *             memberships for an existing user. If not specified, a new user is added only to
    *             PUBLIC.</p>
-   *         <p>Database group name constraints</p>
-   *         <ul>
+   *          <p>Database group name constraints</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be 1 to 64 alphanumeric characters or hyphens</p>
+   *                <p>Must be 1 to 64 alphanumeric characters or hyphens</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain only lowercase letters, numbers, underscore, plus sign, period
+   *                <p>Must contain only lowercase letters, numbers, underscore, plus sign, period
    *                     (dot), at symbol (@), or hyphen.</p>
    *             </li>
    *             <li>
-   *                 <p>First character must be a letter.</p>
+   *                <p>First character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Must not contain a colon ( : ) or slash ( / ). </p>
+   *                <p>Must not contain a colon ( : ) or slash ( / ). </p>
    *             </li>
    *             <li>
-   *                 <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
+   *                <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
    *                     Redshift Database Developer Guide.</p>
    *             </li>
    *          </ul>
@@ -1761,6 +1920,9 @@ export interface GetClusterCredentialsMessage {
   DbGroups?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetClusterCredentialsWithIAMMessage {
   /**
    * <p>The name of the database for which you are requesting credentials.
@@ -1777,16 +1939,29 @@ export interface GetClusterCredentialsWithIAMMessage {
 
   /**
    * <p>The number of seconds until the returned temporary password expires.</p>
-   *         <p>Range: 900-3600. Default: 900.</p>
+   *          <p>Range: 900-3600. Default: 900.</p>
    */
   DurationSeconds?: number;
 }
 
-export enum ReservedNodeExchangeActionType {
-  RESIZE_CLUSTER = "resize-cluster",
-  RESTORE_CLUSTER = "restore-cluster",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReservedNodeExchangeActionType = {
+  RESIZE_CLUSTER: "resize-cluster",
+  RESTORE_CLUSTER: "restore-cluster",
+} as const;
 
+/**
+ * @public
+ */
+export type ReservedNodeExchangeActionType =
+  (typeof ReservedNodeExchangeActionType)[keyof typeof ReservedNodeExchangeActionType];
+
+/**
+ * @public
+ */
 export interface GetReservedNodeExchangeConfigurationOptionsInputMessage {
   /**
    * <p>The action type of the reserved-node configuration. The action type can be an exchange initiated from either a snapshot or a resize.</p>
@@ -1822,6 +1997,7 @@ export interface GetReservedNodeExchangeConfigurationOptionsInputMessage {
 }
 
 /**
+ * @public
  * <p>Details for a reserved-node exchange. Examples include the node type for a
  *             reserved node, the price for a node, the node's state, and other details.</p>
  */
@@ -1843,6 +2019,9 @@ export interface ReservedNodeConfigurationOption {
   TargetReservedNodeOffering?: ReservedNodeOffering;
 }
 
+/**
+ * @public
+ */
 export interface GetReservedNodeExchangeConfigurationOptionsOutputMessage {
   /**
    * <p>A pagination token provided by a previous <code>GetReservedNodeExchangeConfigurationOptions</code> request.</p>
@@ -1859,6 +2038,7 @@ export interface GetReservedNodeExchangeConfigurationOptionsOutputMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface GetReservedNodeExchangeOfferingsInputMessage {
@@ -1881,6 +2061,9 @@ export interface GetReservedNodeExchangeOfferingsInputMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetReservedNodeExchangeOfferingsOutputMessage {
   /**
    * <p>An optional parameter that specifies the starting point for returning a set of
@@ -1899,6 +2082,7 @@ export interface GetReservedNodeExchangeOfferingsOutputMessage {
 }
 
 /**
+ * @public
  * <p>You have exceeded the allowed number of table restore requests. Wait for your
  *             current table restore requests to complete before making a new request.</p>
  */
@@ -1919,6 +2103,7 @@ export class InProgressTableRestoreQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The restore is invalid.</p>
  */
 export class InvalidRestoreFault extends __BaseException {
@@ -1938,6 +2123,7 @@ export class InvalidRestoreFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The value specified for the <code>sourceDatabaseName</code>,
  *                 <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a
  *             combination of these, doesn't exist in the snapshot.</p>
@@ -1958,6 +2144,9 @@ export class InvalidTableRestoreArgumentFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ModifyAquaInputMessage {
   /**
    * <p>The identifier of the cluster to be modified.</p>
@@ -1970,6 +2159,9 @@ export interface ModifyAquaInputMessage {
   AquaConfigurationStatus?: AquaConfigurationStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyAquaOutputMessage {
   /**
    * <p>This parameter is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator). </p>
@@ -1977,6 +2169,9 @@ export interface ModifyAquaOutputMessage {
   AquaConfiguration?: AquaConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface ModifyAuthenticationProfileMessage {
   /**
    * <p>The name of the authentication profile to replace.</p>
@@ -1990,6 +2185,9 @@ export interface ModifyAuthenticationProfileMessage {
   AuthenticationProfileContent: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyAuthenticationProfileResult {
   /**
    * <p>The name of the authentication profile that was replaced.</p>
@@ -2003,36 +2201,36 @@ export interface ModifyAuthenticationProfileResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyClusterMessage {
   /**
    * <p>The unique identifier of the cluster to be modified.</p>
-   *         <p>Example: <code>examplecluster</code>
-   *         </p>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
    */
   ClusterIdentifier: string | undefined;
 
   /**
    * <p>The new cluster type.</p>
-   *         <p>When you submit your cluster resize request, your existing cluster goes into a
+   *          <p>When you submit your cluster resize request, your existing cluster goes into a
    *             read-only mode. After Amazon Redshift provisions a new cluster based on your resize
    *             requirements, there will be outage for a period while the old cluster is deleted and
    *             your connection is switched to the new cluster. You can use <a>DescribeResize</a> to track the progress of the resize request. </p>
-   *         <p>Valid Values: <code> multi-node | single-node </code>
-   *         </p>
+   *          <p>Valid Values: <code> multi-node | single-node </code>
+   *          </p>
    */
   ClusterType?: string;
 
   /**
    * <p>The new node type of the cluster. If you specify a new node type, you must also
    *             specify the number of nodes parameter.</p>
-   *         <p>
+   *          <p>
    * For more information about resizing clusters, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing Clusters in Amazon Redshift</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *         <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |
+   *          <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |
    *             <code>dc1.large</code> | <code>dc1.8xlarge</code> |
    *             <code>dc2.large</code> | <code>dc2.8xlarge</code> |
    *             <code>ra3.xlplus</code> |  <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
@@ -2043,30 +2241,29 @@ export interface ModifyClusterMessage {
   /**
    * <p>The new number of nodes of the cluster. If you specify a new number of nodes, you
    *             must also specify the node type parameter.</p>
-   *         <p>
+   *          <p>
    * For more information about resizing clusters, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing Clusters in Amazon Redshift</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *         <p>Valid Values: Integer greater than <code>0</code>.</p>
+   *          <p>Valid Values: Integer greater than <code>0</code>.</p>
    */
   NumberOfNodes?: number;
 
   /**
    * <p>A list of cluster security groups to be authorized on this cluster. This change is
    *             asynchronously applied as soon as possible.</p>
-   *         <p>Security groups currently associated with the cluster, and not in the list of
+   *          <p>Security groups currently associated with the cluster, and not in the list of
    *             groups to apply, will be revoked from the cluster.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be 1 to 255 alphanumeric characters or hyphens</p>
+   *                <p>Must be 1 to 255 alphanumeric characters or hyphens</p>
    *             </li>
    *             <li>
-   *                 <p>First character must be a letter</p>
+   *                <p>First character must be a letter</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
    *             </li>
    *          </ul>
    */
@@ -2083,28 +2280,28 @@ export interface ModifyClusterMessage {
    *             as soon as possible. Between the time of the request and the completion of the request,
    *             the <code>MasterUserPassword</code> element exists in the
    *                 <code>PendingModifiedValues</code> element of the operation response. </p>
-   *         <note>
+   *          <note>
    *             <p>Operations never return the password, so this operation provides a way to
-   *                 regain access to the admin user account for a cluster if the password is
+   *                 regain access to the admin user for a cluster if the password is
    *                 lost.</p>
-   *         </note>
-   *         <p>Default: Uses existing setting.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          </note>
+   *          <p>Default: Uses existing setting.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be between 8 and 64 characters in length.</p>
+   *                <p>Must be between 8 and 64 characters in length.</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain at least one uppercase letter.</p>
+   *                <p>Must contain at least one uppercase letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain at least one lowercase letter.</p>
+   *                <p>Must contain at least one lowercase letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain one number.</p>
+   *                <p>Must contain one number.</p>
    *             </li>
    *             <li>
-   *                 <p>Can be any printable ASCII character (ASCII code 33-126) except <code>'</code>
+   *                <p>Can be any printable ASCII character (ASCII code 33-126) except <code>'</code>
    *                     (single quote), <code>"</code> (double quote), <code>\</code>, <code>/</code>, or <code>@</code>.</p>
    *             </li>
    *          </ul>
@@ -2114,8 +2311,8 @@ export interface ModifyClusterMessage {
   /**
    * <p>The name of the cluster parameter group to apply to this cluster. This change is
    *             applied only after the cluster is rebooted. To reboot a cluster use <a>RebootCluster</a>. </p>
-   *         <p>Default: Uses existing setting.</p>
-   *         <p>Constraints: The cluster parameter group must be in the same parameter group family
+   *          <p>Default: Uses existing setting.</p>
+   *          <p>Constraints: The cluster parameter group must be in the same parameter group family
    *             that matches the cluster version.</p>
    */
   ClusterParameterGroupName?: string;
@@ -2124,13 +2321,12 @@ export interface ModifyClusterMessage {
    * <p>The number of days that automated snapshots are retained. If the value is 0,
    *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
    *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
-   *         <p>If you decrease the automated snapshot retention period from its current value,
+   *          <p>If you decrease the automated snapshot retention period from its current value,
    *             existing automated snapshots that fall outside of the new retention period will be
    *             immediately deleted.</p>
-   *
-   *         <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>
-   *         <p>Default: Uses existing setting.</p>
-   *         <p>Constraints: Must be a value from 0 to 35.</p>
+   *          <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>
+   *          <p>Default: Uses existing setting.</p>
+   *          <p>Constraints: Must be a value from 0 to 35.</p>
    */
   AutomatedSnapshotRetentionPeriod?: number;
 
@@ -2138,8 +2334,8 @@ export interface ModifyClusterMessage {
    * <p>The default for number of days that a newly created manual snapshot is retained. If
    *             the value is -1, the manual snapshot is retained indefinitely. This value doesn't
    *             retroactively change the retention periods of existing manual snapshots.</p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
-   *         <p>The default value is -1.</p>
+   *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   *          <p>The default value is -1.</p>
    */
   ManualSnapshotRetentionPeriod?: number;
 
@@ -2147,36 +2343,36 @@ export interface ModifyClusterMessage {
    * <p>The weekly time range (in UTC) during which system maintenance can occur, if
    *             necessary. If system maintenance is necessary during the window, it may result in an
    *             outage.</p>
-   *         <p>This maintenance window change is made immediately. If the new maintenance window
+   *          <p>This maintenance window change is made immediately. If the new maintenance window
    *             indicates the current time, there must be at least 120 minutes between the current time
    *             and end of the window in order to ensure that pending changes are applied.</p>
-   *         <p>Default: Uses existing setting.</p>
-   *         <p>Format: ddd:hh24:mi-ddd:hh24:mi, for example
+   *          <p>Default: Uses existing setting.</p>
+   *          <p>Format: ddd:hh24:mi-ddd:hh24:mi, for example
    *             <code>wed:07:30-wed:08:00</code>.</p>
-   *         <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
-   *         <p>Constraints: Must be at least 30 minutes.</p>
+   *          <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+   *          <p>Constraints: Must be at least 30 minutes.</p>
    */
   PreferredMaintenanceWindow?: string;
 
   /**
    * <p>The new version number of the Amazon Redshift engine to upgrade to.</p>
-   *         <p>For major version upgrades, if a non-default cluster parameter group is currently
+   *          <p>For major version upgrades, if a non-default cluster parameter group is currently
    *             in use, a new cluster parameter group in the cluster parameter group family for the new
    *             version must be specified. The new cluster parameter group can be the default for that
    *             cluster parameter group family.
    * For more information about parameters and parameter groups, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *         <p>Example: <code>1.0</code>
-   *         </p>
+   *          <p>Example: <code>1.0</code>
+   *          </p>
    */
   ClusterVersion?: string;
 
   /**
    * <p>If <code>true</code>, major version upgrades will be applied automatically to the
    *             cluster during the maintenance window. </p>
-   *         <p>Default: <code>false</code>
-   *         </p>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
   AllowVersionUpgrade?: boolean;
 
@@ -2212,9 +2408,8 @@ export interface ModifyClusterMessage {
    *                <p>Must be unique for all clusters within an Amazon Web Services account.</p>
    *             </li>
    *          </ul>
-   *
-   *             <p>Example: <code>examplecluster</code>
-   *         </p>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
    */
   NewClusterIdentifier?: string;
 
@@ -2226,7 +2421,7 @@ export interface ModifyClusterMessage {
 
   /**
    * <p>The Elastic IP (EIP) address for the cluster.</p>
-   *         <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
+   *          <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
    *             through an Internet gateway. For more information about provisioning clusters in
    *             EC2-VPC, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
    *                 Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>
@@ -2238,8 +2433,8 @@ export interface ModifyClusterMessage {
    *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
    *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
    *             the Amazon Redshift Cluster Management Guide.</p>
-   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
-   *         <p>Default: false</p>
+   *          <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
+   *          <p>Default: false</p>
    */
   EnhancedVpcRouting?: boolean;
 
@@ -2258,7 +2453,7 @@ export interface ModifyClusterMessage {
    *             provide a value for the <code>KmsKeyId</code> parameter, we encrypt the cluster
    *             with the provided <code>KmsKeyId</code>. If you don't provide a <code>KmsKeyId</code>,
    *             we encrypt with the default key. </p>
-   *             <p>If the value is not encrypted (false), then the cluster is decrypted. </p>
+   *          <p>If the value is not encrypted (false), then the cluster is decrypted. </p>
    */
   Encrypted?: boolean;
 
@@ -2284,6 +2479,9 @@ export interface ModifyClusterMessage {
   Port?: number;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterResult {
   /**
    * <p>Describes a cluster.</p>
@@ -2292,6 +2490,7 @@ export interface ModifyClusterResult {
 }
 
 /**
+ * @public
  * <p>The number of tables in the cluster exceeds the limit for the requested new cluster
  *             node type. </p>
  */
@@ -2312,6 +2511,7 @@ export class TableLimitExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A request option was specified that is not supported.</p>
  */
 export class UnsupportedOptionFault extends __BaseException {
@@ -2330,11 +2530,14 @@ export class UnsupportedOptionFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterDbRevisionMessage {
   /**
    * <p>The unique identifier of a cluster whose database revision you want to modify. </p>
-   *         <p>Example: <code>examplecluster</code>
-   *         </p>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
    */
   ClusterIdentifier: string | undefined;
 
@@ -2345,6 +2548,9 @@ export interface ModifyClusterDbRevisionMessage {
   RevisionTarget: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterDbRevisionResult {
   /**
    * <p>Describes a cluster.</p>
@@ -2353,6 +2559,7 @@ export interface ModifyClusterDbRevisionResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyClusterIamRolesMessage {
@@ -2379,6 +2586,9 @@ export interface ModifyClusterIamRolesMessage {
   DefaultIamRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterIamRolesResult {
   /**
    * <p>Describes a cluster.</p>
@@ -2386,6 +2596,9 @@ export interface ModifyClusterIamRolesResult {
   Cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterMaintenanceMessage {
   /**
    * <p>A unique identifier for the cluster.</p>
@@ -2420,6 +2633,9 @@ export interface ModifyClusterMaintenanceMessage {
   DeferMaintenanceDuration?: number;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterMaintenanceResult {
   /**
    * <p>Describes a cluster.</p>
@@ -2428,6 +2644,7 @@ export interface ModifyClusterMaintenanceResult {
 }
 
 /**
+ * @public
  * <p>Describes a modify cluster parameter group operation. </p>
  */
 export interface ModifyClusterParameterGroupMessage {
@@ -2439,14 +2656,17 @@ export interface ModifyClusterParameterGroupMessage {
   /**
    * <p>An array of parameters to be modified. A maximum of 20 parameters can be modified
    *             in a single request.</p>
-   *         <p>For each parameter to be modified, you must supply at least the parameter name and
+   *          <p>For each parameter to be modified, you must supply at least the parameter name and
    *             parameter value; other name-value pairs of the parameter are optional.</p>
-   *         <p>For the workload management (WLM) configuration, you must supply all the name-value
+   *          <p>For the workload management (WLM) configuration, you must supply all the name-value
    *             pairs in the wlm_json_configuration parameter.</p>
    */
   Parameters: Parameter[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterSnapshotMessage {
   /**
    * <p>The identifier of the snapshot whose setting you want to modify.</p>
@@ -2456,9 +2676,9 @@ export interface ModifyClusterSnapshotMessage {
   /**
    * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
    *             snapshot is retained indefinitely.</p>
-   *         <p>If the manual snapshot falls outside of the new retention period, you can specify the
+   *          <p>If the manual snapshot falls outside of the new retention period, you can specify the
    *             force option to immediately delete the snapshot.</p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
    */
   ManualSnapshotRetentionPeriod?: number;
 
@@ -2469,6 +2689,9 @@ export interface ModifyClusterSnapshotMessage {
   Force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterSnapshotResult {
   /**
    * <p>Describes a snapshot.</p>
@@ -2476,6 +2699,9 @@ export interface ModifyClusterSnapshotResult {
   Snapshot?: Snapshot;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterSnapshotScheduleMessage {
   /**
    * <p>A unique identifier for the cluster whose snapshot schedule you want to modify.
@@ -2497,6 +2723,7 @@ export interface ModifyClusterSnapshotScheduleMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyClusterSubnetGroupMessage {
@@ -2517,6 +2744,9 @@ export interface ModifyClusterSubnetGroupMessage {
   SubnetIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ModifyClusterSubnetGroupResult {
   /**
    * <p>Describes a subnet group.</p>
@@ -2525,6 +2755,7 @@ export interface ModifyClusterSubnetGroupResult {
 }
 
 /**
+ * @public
  * <p>A specified subnet is already in use by another cluster.</p>
  */
 export class SubnetAlreadyInUse extends __BaseException {
@@ -2543,6 +2774,9 @@ export class SubnetAlreadyInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ModifyEndpointAccessMessage {
   /**
    * <p>The endpoint to be modified.</p>
@@ -2556,6 +2790,7 @@ export interface ModifyEndpointAccessMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifyEventSubscriptionMessage {
@@ -2575,7 +2810,7 @@ export interface ModifyEventSubscriptionMessage {
    *             be notified of events generated by a cluster, you would set this parameter to cluster.
    *             If this value is not specified, events are returned for all Amazon Redshift objects in your
    *             Amazon Web Services account. You must specify a source type in order to specify source IDs.</p>
-   *         <p>Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.</p>
+   *          <p>Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.</p>
    */
   SourceType?: string;
 
@@ -2585,22 +2820,22 @@ export interface ModifyEventSubscriptionMessage {
    *             subscription will return only events generated by the specified objects. If not
    *             specified, then events are returned for all objects within the source type
    *             specified.</p>
-   *         <p>Example: my-cluster-1, my-cluster-2</p>
-   *         <p>Example: my-snapshot-20131010</p>
+   *          <p>Example: my-cluster-1, my-cluster-2</p>
+   *          <p>Example: my-snapshot-20131010</p>
    */
   SourceIds?: string[];
 
   /**
    * <p>Specifies the Amazon Redshift event categories to be published by the event notification
    *             subscription.</p>
-   *         <p>Values: configuration, management, monitoring, security, pending</p>
+   *          <p>Values: configuration, management, monitoring, security, pending</p>
    */
   EventCategories?: string[];
 
   /**
    * <p>Specifies the Amazon Redshift event severity to be published by the event notification
    *             subscription.</p>
-   *         <p>Values: ERROR, INFO</p>
+   *          <p>Values: ERROR, INFO</p>
    */
   Severity?: string;
 
@@ -2611,6 +2846,9 @@ export interface ModifyEventSubscriptionMessage {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifyEventSubscriptionResult {
   /**
    * <p>Describes event subscriptions.</p>
@@ -2618,6 +2856,9 @@ export interface ModifyEventSubscriptionResult {
   EventSubscription?: EventSubscription;
 }
 
+/**
+ * @public
+ */
 export interface ModifyScheduledActionMessage {
   /**
    * <p>The name of the scheduled action to modify. </p>
@@ -2666,13 +2907,14 @@ export interface ModifyScheduledActionMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ModifySnapshotCopyRetentionPeriodMessage {
   /**
    * <p>The unique identifier of the cluster for which you want to change the retention
    *             period for either automated or manual snapshots that are copied to a destination Amazon Web Services Region.</p>
-   *         <p>Constraints: Must be the valid name of an existing cluster that has cross-region
+   *          <p>Constraints: Must be the valid name of an existing cluster that has cross-region
    *             snapshot copy enabled.</p>
    */
   ClusterIdentifier: string | undefined;
@@ -2680,17 +2922,17 @@ export interface ModifySnapshotCopyRetentionPeriodMessage {
   /**
    * <p>The number of days to retain automated snapshots in the destination Amazon Web Services Region
    *             after they are copied from the source Amazon Web Services Region.</p>
-   *         <p>By default, this only changes the retention period of copied automated snapshots. </p>
-   *         <p>If you decrease the retention period for automated snapshots that are copied to a
+   *          <p>By default, this only changes the retention period of copied automated snapshots. </p>
+   *          <p>If you decrease the retention period for automated snapshots that are copied to a
    *             destination Amazon Web Services Region, Amazon Redshift deletes any existing automated snapshots that were
    *             copied to the destination Amazon Web Services Region and that fall outside of the new retention
    *             period.</p>
-   *         <p>Constraints: Must be at least 1 and no more than 35 for automated snapshots. </p>
-   *         <p>If you specify the <code>manual</code> option, only newly copied manual snapshots will
+   *          <p>Constraints: Must be at least 1 and no more than 35 for automated snapshots. </p>
+   *          <p>If you specify the <code>manual</code> option, only newly copied manual snapshots will
    *             have the new retention period. </p>
-   *         <p>If you specify the value of -1 newly copied manual snapshots are retained
+   *          <p>If you specify the value of -1 newly copied manual snapshots are retained
    *             indefinitely.</p>
-   *         <p>Constraints: The number of days must be either -1 or an integer between 1 and 3,653
+   *          <p>Constraints: The number of days must be either -1 or an integer between 1 and 3,653
    *             for manual snapshots.</p>
    */
   RetentionPeriod: number | undefined;
@@ -2702,6 +2944,9 @@ export interface ModifySnapshotCopyRetentionPeriodMessage {
   Manual?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ModifySnapshotCopyRetentionPeriodResult {
   /**
    * <p>Describes a cluster.</p>
@@ -2710,6 +2955,7 @@ export interface ModifySnapshotCopyRetentionPeriodResult {
 }
 
 /**
+ * @public
  * <p>Cross-region snapshot copy was temporarily disabled. Try your request
  *             again.</p>
  */
@@ -2729,6 +2975,9 @@ export class SnapshotCopyDisabledFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ModifySnapshotScheduleMessage {
   /**
    * <p>A unique alphanumeric identifier of the schedule to modify.</p>
@@ -2743,6 +2992,7 @@ export interface ModifySnapshotScheduleMessage {
 }
 
 /**
+ * @public
  * <p>The specified snapshot schedule is already being updated.</p>
  */
 export class SnapshotScheduleUpdateInProgressFault extends __BaseException {
@@ -2761,6 +3011,9 @@ export class SnapshotScheduleUpdateInProgressFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ModifyUsageLimitMessage {
   /**
    * <p>The identifier of the usage limit to modify.</p>
@@ -2780,6 +3033,9 @@ export interface ModifyUsageLimitMessage {
   BreachAction?: UsageLimitBreachAction | string;
 }
 
+/**
+ * @public
+ */
 export interface PauseClusterResult {
   /**
    * <p>Describes a cluster.</p>
@@ -2788,6 +3044,7 @@ export interface PauseClusterResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface PurchaseReservedNodeOfferingMessage {
@@ -2798,12 +3055,15 @@ export interface PurchaseReservedNodeOfferingMessage {
 
   /**
    * <p>The number of reserved nodes that you want to purchase.</p>
-   *         <p>Default: <code>1</code>
-   *         </p>
+   *          <p>Default: <code>1</code>
+   *          </p>
    */
   NodeCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface PurchaseReservedNodeOfferingResult {
   /**
    * <p>Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
@@ -2813,6 +3073,7 @@ export interface PurchaseReservedNodeOfferingResult {
 }
 
 /**
+ * @public
  * <p>Request would exceed the user's compute node quota.
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
@@ -2835,6 +3096,7 @@ export class ReservedNodeQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RebootClusterMessage {
@@ -2844,6 +3106,9 @@ export interface RebootClusterMessage {
   ClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebootClusterResult {
   /**
    * <p>Describes a cluster.</p>
@@ -2851,6 +3116,9 @@ export interface RebootClusterResult {
   Cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface RejectDataShareMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the datashare to reject.</p>
@@ -2859,6 +3127,7 @@ export interface RejectDataShareMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ResetClusterParameterGroupMessage {
@@ -2870,8 +3139,8 @@ export interface ResetClusterParameterGroupMessage {
   /**
    * <p>If <code>true</code>, all parameters in the specified parameter group will be reset
    *             to their default values. </p>
-   *         <p>Default: <code>true</code>
-   *         </p>
+   *          <p>Default: <code>true</code>
+   *          </p>
    */
   ResetAllParameters?: boolean;
 
@@ -2879,11 +3148,14 @@ export interface ResetClusterParameterGroupMessage {
    * <p>An array of names of parameters to be reset. If
    *                 <i>ResetAllParameters</i> option is not used, then at least one
    *             parameter name must be supplied. </p>
-   *         <p>Constraints: A maximum of 20 parameters can be reset in a single request.</p>
+   *          <p>Constraints: A maximum of 20 parameters can be reset in a single request.</p>
    */
   Parameters?: Parameter[];
 }
 
+/**
+ * @public
+ */
 export interface ResizeClusterResult {
   /**
    * <p>Describes a cluster.</p>
@@ -2892,6 +3164,7 @@ export interface ResizeClusterResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RestoreFromClusterSnapshotMessage {
@@ -2921,51 +3194,51 @@ export interface RestoreFromClusterSnapshotMessage {
 
   /**
    * <p>The name of the snapshot from which to create the new cluster. This parameter isn't
-   *             case sensitive. You can specify this parameter or <code>snapshotArn</code>, but not both.</p>
-   *         <p>Example: <code>my-snapshot-id</code>
-   *         </p>
+   *             case sensitive. You must specify this parameter or <code>snapshotArn</code>, but not both.</p>
+   *          <p>Example: <code>my-snapshot-id</code>
+   *          </p>
    */
   SnapshotIdentifier?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to restore from a cluster. You can specify
+   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to restore from a cluster. You must specify
    *             this parameter or <code>snapshotIdentifier</code>, but not both.</p>
    */
   SnapshotArn?: string;
 
   /**
    * <p>The name of the cluster the source snapshot was created from. This parameter is
-   *             required if your IAM user has a policy containing a snapshot resource element that
+   *             required if your IAM user or role has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
    */
   SnapshotClusterIdentifier?: string;
 
   /**
    * <p>The port number on which the cluster accepts connections.</p>
-   *         <p>Default: The same port as the original cluster.</p>
-   *         <p>Constraints: Must be between <code>1115</code> and <code>65535</code>.</p>
+   *          <p>Default: The same port as the original cluster.</p>
+   *          <p>Constraints: Must be between <code>1115</code> and <code>65535</code>.</p>
    */
   Port?: number;
 
   /**
    * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
-   *         <p>Default: A random, system-chosen Availability Zone.</p>
-   *         <p>Example: <code>us-east-2a</code>
-   *         </p>
+   *          <p>Default: A random, system-chosen Availability Zone.</p>
+   *          <p>Example: <code>us-east-2a</code>
+   *          </p>
    */
   AvailabilityZone?: string;
 
   /**
    * <p>If <code>true</code>, major version upgrades can be applied during the maintenance
    *             window to the Amazon Redshift engine that is running on the cluster. </p>
-   *         <p>Default: <code>true</code>
-   *         </p>
+   *          <p>Default: <code>true</code>
+   *          </p>
    */
   AllowVersionUpgrade?: boolean;
 
   /**
    * <p>The name of the subnet group where you want to cluster restored.</p>
-   *         <p>A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must
+   *          <p>A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must
    *             provide subnet group name where you want the cluster restored.</p>
    */
   ClusterSubnetGroupName?: string;
@@ -3001,19 +3274,19 @@ export interface RestoreFromClusterSnapshotMessage {
 
   /**
    * <p>The name of the parameter group to be associated with this cluster.</p>
-   *         <p>Default: The default Amazon Redshift cluster parameter group. For information about the
+   *          <p>Default: The default Amazon Redshift cluster parameter group. For information about the
    *             default parameter group, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working with Amazon
    *                 Redshift Parameter Groups</a>.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be 1 to 255 alphanumeric characters or hyphens.</p>
+   *                <p>Must be 1 to 255 alphanumeric characters or hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>First character must be a letter.</p>
+   *                <p>First character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
    */
@@ -3021,28 +3294,28 @@ export interface RestoreFromClusterSnapshotMessage {
 
   /**
    * <p>A list of security groups to be associated with this cluster.</p>
-   *         <p>Default: The default cluster security group for Amazon Redshift.</p>
-   *         <p>Cluster security groups only apply to clusters outside of VPCs.</p>
+   *          <p>Default: The default cluster security group for Amazon Redshift.</p>
+   *          <p>Cluster security groups only apply to clusters outside of VPCs.</p>
    */
   ClusterSecurityGroups?: string[];
 
   /**
    * <p>A list of Virtual Private Cloud (VPC) security groups to be associated with the
    *             cluster.</p>
-   *         <p>Default: The default VPC security group is associated with the cluster.</p>
-   *         <p>VPC security groups only apply to clusters in VPCs.</p>
+   *          <p>Default: The default VPC security group is associated with the cluster.</p>
+   *          <p>VPC security groups only apply to clusters in VPCs.</p>
    */
   VpcSecurityGroupIds?: string[];
 
   /**
    * <p>The weekly time range (in UTC) during which automated cluster maintenance can
    *             occur.</p>
-   *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
-   *         </p>
-   *         <p> Default: The value selected for the cluster from which the snapshot was taken. For
+   *          <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   *          </p>
+   *          <p> Default: The value selected for the cluster from which the snapshot was taken. For
    *             more information about the time blocks for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide. </p>
-   *         <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
-   *         <p>Constraints: Minimum 30-minute window.</p>
+   *          <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+   *          <p>Constraints: Minimum 30-minute window.</p>
    */
   PreferredMaintenanceWindow?: string;
 
@@ -3050,11 +3323,10 @@ export interface RestoreFromClusterSnapshotMessage {
    * <p>The number of days that automated snapshots are retained. If the value is 0,
    *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
    *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
-   *
-   *         <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>
-   *         <p>Default: The value selected for the cluster from which the snapshot was
+   *          <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>
+   *          <p>Default: The value selected for the cluster from which the snapshot was
    *             taken.</p>
-   *         <p>Constraints: Must be a value from 0 to 35.</p>
+   *          <p>Constraints: Must be a value from 0 to 35.</p>
    */
   AutomatedSnapshotRetentionPeriod?: number;
 
@@ -3062,7 +3334,7 @@ export interface RestoreFromClusterSnapshotMessage {
    * <p>The default number of days to retain a manual snapshot. If the value is -1, the
    *             snapshot is retained indefinitely. This setting doesn't change the retention period
    *             of existing snapshots.</p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
    */
   ManualSnapshotRetentionPeriod?: number;
 
@@ -3078,7 +3350,7 @@ export interface RestoreFromClusterSnapshotMessage {
 
   /**
    * <p>The node type that the restored cluster will be provisioned with.</p>
-   *         <p>Default: The node type of the cluster from which the snapshot was taken. You can
+   *          <p>Default: The node type of the cluster from which the snapshot was taken. You can
    *             modify this if you are using any DS node type. In that case, you can choose to restore
    *             into another DS node type of the same size. For example, you can restore ds1.8xlarge
    *             into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have a DC instance type, you
@@ -3096,8 +3368,8 @@ export interface RestoreFromClusterSnapshotMessage {
    *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
    *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
    *             the Amazon Redshift Cluster Management Guide.</p>
-   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
-   *         <p>Default: false</p>
+   *          <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
+   *          <p>Default: false</p>
    */
   EnhancedVpcRouting?: boolean;
 
@@ -3110,7 +3382,7 @@ export interface RestoreFromClusterSnapshotMessage {
    * <p>A list of Identity and Access Management (IAM) roles that can be used by the
    *             cluster to access other Amazon Web Services services. You must supply the IAM roles in their Amazon
    *             Resource Name (ARN) format. </p>
-   *         <p>The maximum number of IAM roles that you can associate is subject to a quota.
+   *          <p>The maximum number of IAM roles that you can associate is subject to a quota.
    *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas and limits</a>
    *             in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
@@ -3168,6 +3440,9 @@ export interface RestoreFromClusterSnapshotMessage {
   Encrypted?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RestoreFromClusterSnapshotResult {
   /**
    * <p>Describes a cluster.</p>
@@ -3176,6 +3451,7 @@ export interface RestoreFromClusterSnapshotResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RestoreTableFromClusterSnapshotMessage {
@@ -3231,6 +3507,9 @@ export interface RestoreTableFromClusterSnapshotMessage {
   EnableCaseSensitiveIdentifier?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableFromClusterSnapshotResult {
   /**
    * <p>Describes the status of a <a>RestoreTableFromClusterSnapshot</a>
@@ -3239,6 +3518,9 @@ export interface RestoreTableFromClusterSnapshotResult {
   TableRestoreStatus?: TableRestoreStatus;
 }
 
+/**
+ * @public
+ */
 export interface ResumeClusterResult {
   /**
    * <p>Describes a cluster.</p>
@@ -3247,6 +3529,7 @@ export interface ResumeClusterResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RevokeClusterSecurityGroupIngressMessage {
@@ -3276,12 +3559,15 @@ export interface RevokeClusterSecurityGroupIngressMessage {
    *             acceptable value. If <code>EC2SecurityGroupOwnerId</code> is specified,
    *                 <code>EC2SecurityGroupName</code> must also be provided. and <code>CIDRIP</code>
    *             cannot be provided. </p>
-   *         <p>Example: <code>111122223333</code>
-   *         </p>
+   *          <p>Example: <code>111122223333</code>
+   *          </p>
    */
   EC2SecurityGroupOwnerId?: string;
 }
 
+/**
+ * @public
+ */
 export interface RevokeClusterSecurityGroupIngressResult {
   /**
    * <p>Describes a security group.</p>
@@ -3289,6 +3575,9 @@ export interface RevokeClusterSecurityGroupIngressResult {
   ClusterSecurityGroup?: ClusterSecurityGroup;
 }
 
+/**
+ * @public
+ */
 export interface RevokeEndpointAccessMessage {
   /**
    * <p>The cluster to revoke access from.</p>
@@ -3313,6 +3602,7 @@ export interface RevokeEndpointAccessMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RevokeSnapshotAccessMessage {
@@ -3328,7 +3618,7 @@ export interface RevokeSnapshotAccessMessage {
 
   /**
    * <p>The identifier of the cluster the snapshot was created from. This parameter is
-   *             required if your IAM user has a policy containing a snapshot resource element that
+   *             required if your IAM user or role has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
    */
   SnapshotClusterIdentifier?: string;
@@ -3340,6 +3630,9 @@ export interface RevokeSnapshotAccessMessage {
   AccountWithRestoreAccess: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RevokeSnapshotAccessResult {
   /**
    * <p>Describes a snapshot.</p>
@@ -3348,18 +3641,22 @@ export interface RevokeSnapshotAccessResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface RotateEncryptionKeyMessage {
   /**
    * <p>The unique identifier of the cluster that you want to rotate the encryption keys
    *             for.</p>
-   *         <p>Constraints: Must be the name of valid cluster that has encryption
+   *          <p>Constraints: Must be the name of valid cluster that has encryption
    *             enabled.</p>
    */
   ClusterIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RotateEncryptionKeyResult {
   /**
    * <p>Describes a cluster.</p>
@@ -3367,6 +3664,9 @@ export interface RotateEncryptionKeyResult {
   Cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePartnerStatusInputMessage {
   /**
    * <p>The Amazon Web Services account ID that owns the cluster.</p>
@@ -3398,729 +3698,3 @@ export interface UpdatePartnerStatusInputMessage {
    */
   StatusMessage?: string;
 }
-
-/**
- * @internal
- */
-export const DescribeHsmConfigurationsMessageFilterSensitiveLog = (obj: DescribeHsmConfigurationsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HsmConfigurationMessageFilterSensitiveLog = (obj: HsmConfigurationMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoggingStatusMessageFilterSensitiveLog = (obj: DescribeLoggingStatusMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingStatusFilterSensitiveLog = (obj: LoggingStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeConfigurationOptionsFilterFilterSensitiveLog = (obj: NodeConfigurationOptionsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNodeConfigurationOptionsMessageFilterSensitiveLog = (
-  obj: DescribeNodeConfigurationOptionsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeConfigurationOptionFilterSensitiveLog = (obj: NodeConfigurationOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeConfigurationOptionsMessageFilterSensitiveLog = (obj: NodeConfigurationOptionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrderableClusterOptionsMessageFilterSensitiveLog = (
-  obj: DescribeOrderableClusterOptionsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OrderableClusterOptionFilterSensitiveLog = (obj: OrderableClusterOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OrderableClusterOptionsMessageFilterSensitiveLog = (obj: OrderableClusterOptionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePartnersInputMessageFilterSensitiveLog = (obj: DescribePartnersInputMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartnerIntegrationInfoFilterSensitiveLog = (obj: PartnerIntegrationInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePartnersOutputMessageFilterSensitiveLog = (obj: DescribePartnersOutputMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedNodeExchangeStatusInputMessageFilterSensitiveLog = (
-  obj: DescribeReservedNodeExchangeStatusInputMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedNodeExchangeStatusOutputMessageFilterSensitiveLog = (
-  obj: DescribeReservedNodeExchangeStatusOutputMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedNodeOfferingsMessageFilterSensitiveLog = (
-  obj: DescribeReservedNodeOfferingsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedNodeOfferingFilterSensitiveLog = (obj: ReservedNodeOffering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedNodeOfferingsMessageFilterSensitiveLog = (obj: ReservedNodeOfferingsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedNodesMessageFilterSensitiveLog = (obj: DescribeReservedNodesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedNodesMessageFilterSensitiveLog = (obj: ReservedNodesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeResizeMessageFilterSensitiveLog = (obj: DescribeResizeMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledActionFilterFilterSensitiveLog = (obj: ScheduledActionFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduledActionsMessageFilterSensitiveLog = (obj: DescribeScheduledActionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledActionsMessageFilterSensitiveLog = (obj: ScheduledActionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotCopyGrantsMessageFilterSensitiveLog = (obj: DescribeSnapshotCopyGrantsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotCopyGrantMessageFilterSensitiveLog = (obj: SnapshotCopyGrantMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotSchedulesMessageFilterSensitiveLog = (obj: DescribeSnapshotSchedulesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotSchedulesOutputMessageFilterSensitiveLog = (
-  obj: DescribeSnapshotSchedulesOutputMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTableRestoreStatusMessageFilterSensitiveLog = (obj: DescribeTableRestoreStatusMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableRestoreStatusFilterSensitiveLog = (obj: TableRestoreStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableRestoreStatusMessageFilterSensitiveLog = (obj: TableRestoreStatusMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTagsMessageFilterSensitiveLog = (obj: DescribeTagsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaggedResourceFilterSensitiveLog = (obj: TaggedResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaggedResourceListMessageFilterSensitiveLog = (obj: TaggedResourceListMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUsageLimitsMessageFilterSensitiveLog = (obj: DescribeUsageLimitsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UsageLimitListFilterSensitiveLog = (obj: UsageLimitList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableLoggingMessageFilterSensitiveLog = (obj: DisableLoggingMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableSnapshotCopyMessageFilterSensitiveLog = (obj: DisableSnapshotCopyMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableSnapshotCopyResultFilterSensitiveLog = (obj: DisableSnapshotCopyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateDataShareConsumerMessageFilterSensitiveLog = (
-  obj: DisassociateDataShareConsumerMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableLoggingMessageFilterSensitiveLog = (obj: EnableLoggingMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSnapshotCopyMessageFilterSensitiveLog = (obj: EnableSnapshotCopyMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSnapshotCopyResultFilterSensitiveLog = (obj: EnableSnapshotCopyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetClusterCredentialsMessageFilterSensitiveLog = (obj: GetClusterCredentialsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetClusterCredentialsWithIAMMessageFilterSensitiveLog = (
-  obj: GetClusterCredentialsWithIAMMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservedNodeExchangeConfigurationOptionsInputMessageFilterSensitiveLog = (
-  obj: GetReservedNodeExchangeConfigurationOptionsInputMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedNodeConfigurationOptionFilterSensitiveLog = (obj: ReservedNodeConfigurationOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservedNodeExchangeConfigurationOptionsOutputMessageFilterSensitiveLog = (
-  obj: GetReservedNodeExchangeConfigurationOptionsOutputMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservedNodeExchangeOfferingsInputMessageFilterSensitiveLog = (
-  obj: GetReservedNodeExchangeOfferingsInputMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReservedNodeExchangeOfferingsOutputMessageFilterSensitiveLog = (
-  obj: GetReservedNodeExchangeOfferingsOutputMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyAquaInputMessageFilterSensitiveLog = (obj: ModifyAquaInputMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyAquaOutputMessageFilterSensitiveLog = (obj: ModifyAquaOutputMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyAuthenticationProfileMessageFilterSensitiveLog = (obj: ModifyAuthenticationProfileMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyAuthenticationProfileResultFilterSensitiveLog = (obj: ModifyAuthenticationProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterMessageFilterSensitiveLog = (obj: ModifyClusterMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterResultFilterSensitiveLog = (obj: ModifyClusterResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterDbRevisionMessageFilterSensitiveLog = (obj: ModifyClusterDbRevisionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterDbRevisionResultFilterSensitiveLog = (obj: ModifyClusterDbRevisionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterIamRolesMessageFilterSensitiveLog = (obj: ModifyClusterIamRolesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterIamRolesResultFilterSensitiveLog = (obj: ModifyClusterIamRolesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterMaintenanceMessageFilterSensitiveLog = (obj: ModifyClusterMaintenanceMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterMaintenanceResultFilterSensitiveLog = (obj: ModifyClusterMaintenanceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterParameterGroupMessageFilterSensitiveLog = (obj: ModifyClusterParameterGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterSnapshotMessageFilterSensitiveLog = (obj: ModifyClusterSnapshotMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterSnapshotResultFilterSensitiveLog = (obj: ModifyClusterSnapshotResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterSnapshotScheduleMessageFilterSensitiveLog = (
-  obj: ModifyClusterSnapshotScheduleMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterSubnetGroupMessageFilterSensitiveLog = (obj: ModifyClusterSubnetGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyClusterSubnetGroupResultFilterSensitiveLog = (obj: ModifyClusterSubnetGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyEndpointAccessMessageFilterSensitiveLog = (obj: ModifyEndpointAccessMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyEventSubscriptionMessageFilterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyEventSubscriptionResultFilterSensitiveLog = (obj: ModifyEventSubscriptionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyScheduledActionMessageFilterSensitiveLog = (obj: ModifyScheduledActionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifySnapshotCopyRetentionPeriodMessageFilterSensitiveLog = (
-  obj: ModifySnapshotCopyRetentionPeriodMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog = (
-  obj: ModifySnapshotCopyRetentionPeriodResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifySnapshotScheduleMessageFilterSensitiveLog = (obj: ModifySnapshotScheduleMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyUsageLimitMessageFilterSensitiveLog = (obj: ModifyUsageLimitMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PauseClusterResultFilterSensitiveLog = (obj: PauseClusterResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseReservedNodeOfferingMessageFilterSensitiveLog = (
-  obj: PurchaseReservedNodeOfferingMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseReservedNodeOfferingResultFilterSensitiveLog = (obj: PurchaseReservedNodeOfferingResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootClusterMessageFilterSensitiveLog = (obj: RebootClusterMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootClusterResultFilterSensitiveLog = (obj: RebootClusterResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectDataShareMessageFilterSensitiveLog = (obj: RejectDataShareMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResetClusterParameterGroupMessageFilterSensitiveLog = (obj: ResetClusterParameterGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResizeClusterResultFilterSensitiveLog = (obj: ResizeClusterResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreFromClusterSnapshotMessageFilterSensitiveLog = (obj: RestoreFromClusterSnapshotMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreFromClusterSnapshotResultFilterSensitiveLog = (obj: RestoreFromClusterSnapshotResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreTableFromClusterSnapshotMessageFilterSensitiveLog = (
-  obj: RestoreTableFromClusterSnapshotMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreTableFromClusterSnapshotResultFilterSensitiveLog = (
-  obj: RestoreTableFromClusterSnapshotResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResumeClusterResultFilterSensitiveLog = (obj: ResumeClusterResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeClusterSecurityGroupIngressMessageFilterSensitiveLog = (
-  obj: RevokeClusterSecurityGroupIngressMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeClusterSecurityGroupIngressResultFilterSensitiveLog = (
-  obj: RevokeClusterSecurityGroupIngressResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeEndpointAccessMessageFilterSensitiveLog = (obj: RevokeEndpointAccessMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeSnapshotAccessMessageFilterSensitiveLog = (obj: RevokeSnapshotAccessMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeSnapshotAccessResultFilterSensitiveLog = (obj: RevokeSnapshotAccessResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RotateEncryptionKeyMessageFilterSensitiveLog = (obj: RotateEncryptionKeyMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RotateEncryptionKeyResultFilterSensitiveLog = (obj: RotateEncryptionKeyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePartnerStatusInputMessageFilterSensitiveLog = (obj: UpdatePartnerStatusInputMessage): any => ({
-  ...obj,
-});

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetInAppTemplateRequest,
-  GetInAppTemplateRequestFilterSensitiveLog,
-  GetInAppTemplateResponse,
-  GetInAppTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetInAppTemplateRequest, GetInAppTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetInAppTemplateCommand,
-  serializeAws_restJson1GetInAppTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetInAppTemplateCommand, se_GetInAppTemplateCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetInAppTemplateCommand}.
+ */
 export interface GetInAppTemplateCommandInput extends GetInAppTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetInAppTemplateCommand}.
+ */
 export interface GetInAppTemplateCommandOutput extends GetInAppTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the content and settings of a message template for messages sent through the in-app channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,41 @@ export interface GetInAppTemplateCommandOutput extends GetInAppTemplateResponse,
  * import { PinpointClient, GetInAppTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetInAppTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetInAppTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new GetInAppTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInAppTemplateCommandInput - {@link GetInAppTemplateCommandInput}
+ * @returns {@link GetInAppTemplateCommandOutput}
  * @see {@link GetInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link GetInAppTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
  *
  */
 export class GetInAppTemplateCommand extends $Command<
@@ -62,6 +93,9 @@ export class GetInAppTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInAppTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +124,8 @@ export class GetInAppTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInAppTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInAppTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +135,18 @@ export class GetInAppTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInAppTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInAppTemplateCommand(input, context);
+    return se_GetInAppTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInAppTemplateCommandOutput> {
-    return deserializeAws_restJson1GetInAppTemplateCommand(output, context);
+    return de_GetInAppTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

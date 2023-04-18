@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  CreateConferenceProviderRequest,
-  CreateConferenceProviderRequestFilterSensitiveLog,
-  CreateConferenceProviderResponse,
-  CreateConferenceProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateConferenceProviderCommand,
-  serializeAws_json1_1CreateConferenceProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateConferenceProviderRequest, CreateConferenceProviderResponse } from "../models/models_0";
+import { de_CreateConferenceProviderCommand, se_CreateConferenceProviderCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateConferenceProviderCommand}.
+ */
 export interface CreateConferenceProviderCommandInput extends CreateConferenceProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateConferenceProviderCommand}.
+ */
 export interface CreateConferenceProviderCommandOutput extends CreateConferenceProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new conference provider under the user's AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,43 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
  * import { AlexaForBusinessClient, CreateConferenceProviderCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateConferenceProviderCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // CreateConferenceProviderRequest
+ *   ConferenceProviderName: "STRING_VALUE", // required
+ *   ConferenceProviderType: "STRING_VALUE", // required
+ *   IPDialIn: { // IPDialIn
+ *     Endpoint: "STRING_VALUE", // required
+ *     CommsProtocol: "STRING_VALUE", // required
+ *   },
+ *   PSTNDialIn: { // PSTNDialIn
+ *     CountryCode: "STRING_VALUE", // required
+ *     PhoneNumber: "STRING_VALUE", // required
+ *     OneClickIdDelay: "STRING_VALUE", // required
+ *     OneClickPinDelay: "STRING_VALUE", // required
+ *   },
+ *   MeetingSetting: { // MeetingSetting
+ *     RequirePin: "STRING_VALUE", // required
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateConferenceProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConferenceProviderCommandInput - {@link CreateConferenceProviderCommandInput}
+ * @returns {@link CreateConferenceProviderCommandOutput}
  * @see {@link CreateConferenceProviderCommandInput} for command's `input` shape.
  * @see {@link CreateConferenceProviderCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource being created already exists.</p>
+ *
  *
  */
 export class CreateConferenceProviderCommand extends $Command<
@@ -62,6 +95,9 @@ export class CreateConferenceProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConferenceProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +126,8 @@ export class CreateConferenceProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConferenceProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConferenceProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +137,18 @@ export class CreateConferenceProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConferenceProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateConferenceProviderCommand(input, context);
+    return se_CreateConferenceProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConferenceProviderCommandOutput> {
-    return deserializeAws_json1_1CreateConferenceProviderCommand(output, context);
+    return de_CreateConferenceProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

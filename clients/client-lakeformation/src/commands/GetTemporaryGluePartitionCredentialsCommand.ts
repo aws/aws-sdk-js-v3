@@ -16,21 +16,30 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import {
   GetTemporaryGluePartitionCredentialsRequest,
-  GetTemporaryGluePartitionCredentialsRequestFilterSensitiveLog,
   GetTemporaryGluePartitionCredentialsResponse,
-  GetTemporaryGluePartitionCredentialsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand,
-  serializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand,
+  de_GetTemporaryGluePartitionCredentialsCommand,
+  se_GetTemporaryGluePartitionCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTemporaryGluePartitionCredentialsCommand}.
+ */
 export interface GetTemporaryGluePartitionCredentialsCommandInput extends GetTemporaryGluePartitionCredentialsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTemporaryGluePartitionCredentialsCommand}.
+ */
 export interface GetTemporaryGluePartitionCredentialsCommandOutput
   extends GetTemporaryGluePartitionCredentialsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is identical to <code>GetTemporaryTableCredentials</code> except that this is used when the target Data Catalog resource is of type Partition.  Lake Formation restricts the permission of the vended credentials with the same scope down policy which restricts access to a single Amazon S3 prefix.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,52 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
  * import { LakeFormationClient, GetTemporaryGluePartitionCredentialsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetTemporaryGluePartitionCredentialsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // GetTemporaryGluePartitionCredentialsRequest
+ *   TableArn: "STRING_VALUE", // required
+ *   Partition: { // PartitionValueList
+ *     Values: [ // ValueStringList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Permissions: [ // PermissionList
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *   ],
+ *   DurationSeconds: Number("int"),
+ *   AuditContext: { // AuditContext
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *   },
+ *   SupportedPermissionTypes: [ // PermissionTypeList // required
+ *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
+ *   ],
+ * };
  * const command = new GetTemporaryGluePartitionCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemporaryGluePartitionCredentialsCommandInput - {@link GetTemporaryGluePartitionCredentialsCommandInput}
+ * @returns {@link GetTemporaryGluePartitionCredentialsCommandOutput}
  * @see {@link GetTemporaryGluePartitionCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetTemporaryGluePartitionCredentialsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link PermissionTypeMismatchException} (client fault)
+ *  <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
+ *
  *
  */
 export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
@@ -64,6 +112,9 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemporaryGluePartitionCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +143,8 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemporaryGluePartitionCredentialsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemporaryGluePartitionCredentialsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +154,24 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTemporaryGluePartitionCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand(input, context);
+    return se_GetTemporaryGluePartitionCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTemporaryGluePartitionCredentialsCommandOutput> {
-    return deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand(output, context);
+    return de_GetTemporaryGluePartitionCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

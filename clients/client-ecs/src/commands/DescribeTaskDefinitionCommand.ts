@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DescribeTaskDefinitionRequest,
-  DescribeTaskDefinitionRequestFilterSensitiveLog,
-  DescribeTaskDefinitionResponse,
-  DescribeTaskDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTaskDefinitionCommand,
-  serializeAws_json1_1DescribeTaskDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTaskDefinitionRequest, DescribeTaskDefinitionResponse } from "../models/models_0";
+import { de_DescribeTaskDefinitionCommand, se_DescribeTaskDefinitionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeTaskDefinitionCommand}.
+ */
 export interface DescribeTaskDefinitionCommandInput extends DescribeTaskDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTaskDefinitionCommand}.
+ */
 export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a task definition. You can specify a <code>family</code> and
  * 				<code>revision</code> to find information about a specific task definition, or you
  * 			can simply specify the family to find the latest <code>ACTIVE</code> revision in that
@@ -43,13 +46,92 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * import { ECSClient, DescribeTaskDefinitionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeTaskDefinitionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DescribeTaskDefinitionRequest
+ *   taskDefinition: "STRING_VALUE", // required
+ *   include: [ // TaskDefinitionFieldList
+ *     "TAGS",
+ *   ],
+ * };
  * const command = new DescribeTaskDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTaskDefinitionCommandInput - {@link DescribeTaskDefinitionCommandInput}
+ * @returns {@link DescribeTaskDefinitionCommandOutput}
  * @see {@link DescribeTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ *
+ * @example To describe a task definition
+ * ```javascript
+ * // This example provides a description of the specified task definition.
+ * const input = {
+ *   "taskDefinition": "hello_world:8"
+ * };
+ * const command = new DescribeTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "taskDefinition": {
+ *     "containerDefinitions": [
+ *       {
+ *         "name": "wordpress",
+ *         "cpu": 10,
+ *         "environment": [],
+ *         "essential": true,
+ *         "image": "wordpress",
+ *         "links": [
+ *           "mysql"
+ *         ],
+ *         "memory": 500,
+ *         "mountPoints": [],
+ *         "portMappings": [
+ *           {
+ *             "containerPort": 80,
+ *             "hostPort": 80
+ *           }
+ *         ],
+ *         "volumesFrom": []
+ *       },
+ *       {
+ *         "name": "mysql",
+ *         "cpu": 10,
+ *         "environment": [
+ *           {
+ *             "name": "MYSQL_ROOT_PASSWORD",
+ *             "value": "password"
+ *           }
+ *         ],
+ *         "essential": true,
+ *         "image": "mysql",
+ *         "memory": 500,
+ *         "mountPoints": [],
+ *         "portMappings": [],
+ *         "volumesFrom": []
+ *       }
+ *     ],
+ *     "family": "hello_world",
+ *     "revision": 8,
+ *     "taskDefinitionArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/hello_world:8",
+ *     "volumes": []
+ *   }
+ * }
+ * *\/
+ * // example id: 4c21eeb1-f1da-4a08-8c44-297fc8d0ea88
+ * ```
  *
  */
 export class DescribeTaskDefinitionCommand extends $Command<
@@ -69,6 +151,9 @@ export class DescribeTaskDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +182,8 @@ export class DescribeTaskDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTaskDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTaskDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +193,18 @@ export class DescribeTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTaskDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTaskDefinitionCommand(input, context);
+    return se_DescribeTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskDefinitionCommandOutput> {
-    return deserializeAws_json1_1DescribeTaskDefinitionCommand(output, context);
+    return de_DescribeTaskDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

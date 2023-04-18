@@ -14,21 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { AllocatePublicVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
 import {
-  AllocatePublicVirtualInterfaceRequest,
-  AllocatePublicVirtualInterfaceRequestFilterSensitiveLog,
-  VirtualInterface,
-  VirtualInterfaceFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand,
-  serializeAws_json1_1AllocatePublicVirtualInterfaceCommand,
+  de_AllocatePublicVirtualInterfaceCommand,
+  se_AllocatePublicVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AllocatePublicVirtualInterfaceCommand}.
+ */
 export interface AllocatePublicVirtualInterfaceCommandInput extends AllocatePublicVirtualInterfaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AllocatePublicVirtualInterfaceCommand}.
+ */
 export interface AllocatePublicVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions a public virtual interface to be owned by the specified Amazon Web Services account.</p>
  *          <p>The owner of a connection calls this function to provision a public virtual interface to be owned by the specified Amazon Web Services account.</p>
  *          <p>Virtual interfaces created using this function must be confirmed by the owner using <a>ConfirmPublicVirtualInterface</a>.
@@ -41,13 +47,52 @@ export interface AllocatePublicVirtualInterfaceCommandOutput extends VirtualInte
  * import { DirectConnectClient, AllocatePublicVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AllocatePublicVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // AllocatePublicVirtualInterfaceRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   ownerAccount: "STRING_VALUE", // required
+ *   newPublicVirtualInterfaceAllocation: { // NewPublicVirtualInterfaceAllocation
+ *     virtualInterfaceName: "STRING_VALUE", // required
+ *     vlan: Number("int"), // required
+ *     asn: Number("int"), // required
+ *     authKey: "STRING_VALUE",
+ *     amazonAddress: "STRING_VALUE",
+ *     customerAddress: "STRING_VALUE",
+ *     addressFamily: "ipv4" || "ipv6",
+ *     routeFilterPrefixes: [ // RouteFilterPrefixList
+ *       { // RouteFilterPrefix
+ *         cidr: "STRING_VALUE",
+ *       },
+ *     ],
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new AllocatePublicVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocatePublicVirtualInterfaceCommandInput - {@link AllocatePublicVirtualInterfaceCommandInput}
+ * @returns {@link AllocatePublicVirtualInterfaceCommandOutput}
  * @see {@link AllocatePublicVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AllocatePublicVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
+ * @throws {@link DuplicateTagKeysException} (client fault)
+ *  <p>A tag key was specified more than once.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have reached the limit on the number of tags that can be assigned.</p>
+ *
  *
  */
 export class AllocatePublicVirtualInterfaceCommand extends $Command<
@@ -67,6 +112,9 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocatePublicVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +143,8 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocatePublicVirtualInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VirtualInterfaceFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +154,24 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AllocatePublicVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocatePublicVirtualInterfaceCommand(input, context);
+    return se_AllocatePublicVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllocatePublicVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand(output, context);
+    return de_AllocatePublicVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

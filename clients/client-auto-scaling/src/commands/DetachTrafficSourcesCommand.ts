@@ -14,39 +14,73 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DetachTrafficSourcesResultType,
-  DetachTrafficSourcesResultTypeFilterSensitiveLog,
-  DetachTrafficSourcesType,
-  DetachTrafficSourcesTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDetachTrafficSourcesCommand,
-  serializeAws_queryDetachTrafficSourcesCommand,
-} from "../protocols/Aws_query";
+import { DetachTrafficSourcesResultType, DetachTrafficSourcesType } from "../models/models_0";
+import { de_DetachTrafficSourcesCommand, se_DetachTrafficSourcesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DetachTrafficSourcesCommand}.
+ */
 export interface DetachTrafficSourcesCommandInput extends DetachTrafficSourcesType {}
+/**
+ * @public
+ *
+ * The output of {@link DetachTrafficSourcesCommand}.
+ */
 export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesResultType, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
- *             Do not use this API for production workloads. This API is also subject to change.</b>
- *          </p>
- *          <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
+ * @public
+ * <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
+ *          <p>When you detach a taffic, it enters the <code>Removing</code> state while
+ *             deregistering the instances in the group. When all instances are deregistered, then you
+ *             can no longer describe the traffic source using the <a>DescribeTrafficSources</a> API call. The instances continue to run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, DetachTrafficSourcesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DetachTrafficSourcesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DetachTrafficSourcesType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   TrafficSources: [ // TrafficSources // required
+ *     { // TrafficSourceIdentifier
+ *       Identifier: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DetachTrafficSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachTrafficSourcesCommandInput - {@link DetachTrafficSourcesCommandInput}
+ * @returns {@link DetachTrafficSourcesCommandOutput}
  * @see {@link DetachTrafficSourcesCommandInput} for command's `input` shape.
  * @see {@link DetachTrafficSourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
+ * @example To detach a target group from an Auto Scaling group
+ * ```javascript
+ * // This example detaches the specified target group from the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "TrafficSources": [
+ *     {
+ *       "Identifier": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *     }
+ *   ]
+ * };
+ * const command = new DetachTrafficSourcesCommand(input);
+ * await client.send(command);
+ * // example id: to-detach-a-target-group-from-an-auto-scaling-group-1680040404169
+ * ```
  *
  */
 export class DetachTrafficSourcesCommand extends $Command<
@@ -66,6 +100,9 @@ export class DetachTrafficSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachTrafficSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +131,8 @@ export class DetachTrafficSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachTrafficSourcesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachTrafficSourcesResultTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +142,18 @@ export class DetachTrafficSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachTrafficSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetachTrafficSourcesCommand(input, context);
+    return se_DetachTrafficSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachTrafficSourcesCommandOutput> {
-    return deserializeAws_queryDetachTrafficSourcesCommand(output, context);
+    return de_DetachTrafficSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  StartMeetingTranscriptionRequest,
-  StartMeetingTranscriptionRequestFilterSensitiveLog,
-  StartMeetingTranscriptionResponse,
-  StartMeetingTranscriptionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1StartMeetingTranscriptionCommand,
-  serializeAws_restJson1StartMeetingTranscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { StartMeetingTranscriptionRequest, StartMeetingTranscriptionResponse } from "../models/models_1";
+import { de_StartMeetingTranscriptionCommand, se_StartMeetingTranscriptionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartMeetingTranscriptionCommand}.
+ */
 export interface StartMeetingTranscriptionCommandInput extends StartMeetingTranscriptionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartMeetingTranscriptionCommand}.
+ */
 export interface StartMeetingTranscriptionCommandOutput extends StartMeetingTranscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts transcription for the specified <code>meetingId</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,69 @@ export interface StartMeetingTranscriptionCommandOutput extends StartMeetingTran
  * import { ChimeClient, StartMeetingTranscriptionCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, StartMeetingTranscriptionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // StartMeetingTranscriptionRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   TranscriptionConfiguration: { // TranscriptionConfiguration
+ *     EngineTranscribeSettings: { // EngineTranscribeSettings
+ *       LanguageCode: "STRING_VALUE", // required
+ *       VocabularyFilterMethod: "STRING_VALUE",
+ *       VocabularyFilterName: "STRING_VALUE",
+ *       VocabularyName: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       EnablePartialResultsStabilization: true || false,
+ *       PartialResultsStability: "STRING_VALUE",
+ *       ContentIdentificationType: "STRING_VALUE",
+ *       ContentRedactionType: "STRING_VALUE",
+ *       PiiEntityTypes: "STRING_VALUE",
+ *       LanguageModelName: "STRING_VALUE",
+ *     },
+ *     EngineTranscribeMedicalSettings: { // EngineTranscribeMedicalSettings
+ *       LanguageCode: "STRING_VALUE", // required
+ *       Specialty: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE", // required
+ *       VocabularyName: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       ContentIdentificationType: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new StartMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMeetingTranscriptionCommandInput - {@link StartMeetingTranscriptionCommandInput}
+ * @returns {@link StartMeetingTranscriptionCommandOutput}
  * @see {@link StartMeetingTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartMeetingTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+ *
  *
  */
 export class StartMeetingTranscriptionCommand extends $Command<
@@ -62,6 +121,9 @@ export class StartMeetingTranscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMeetingTranscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +152,8 @@ export class StartMeetingTranscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMeetingTranscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMeetingTranscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +163,21 @@ export class StartMeetingTranscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMeetingTranscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartMeetingTranscriptionCommand(input, context);
+    return se_StartMeetingTranscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMeetingTranscriptionCommandOutput> {
-    return deserializeAws_restJson1StartMeetingTranscriptionCommand(output, context);
+    return de_StartMeetingTranscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

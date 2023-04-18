@@ -15,22 +15,31 @@ import {
 
 import {
   DescribeValidDBInstanceModificationsMessage,
-  DescribeValidDBInstanceModificationsMessageFilterSensitiveLog,
   DescribeValidDBInstanceModificationsResult,
-  DescribeValidDBInstanceModificationsResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_queryDescribeValidDBInstanceModificationsCommand,
-  serializeAws_queryDescribeValidDBInstanceModificationsCommand,
+  de_DescribeValidDBInstanceModificationsCommand,
+  se_DescribeValidDBInstanceModificationsCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeValidDBInstanceModificationsCommand}.
+ */
 export interface DescribeValidDBInstanceModificationsCommandInput extends DescribeValidDBInstanceModificationsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeValidDBInstanceModificationsCommand}.
+ */
 export interface DescribeValidDBInstanceModificationsCommandOutput
   extends DescribeValidDBInstanceModificationsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications you can make to
  *             your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
@@ -40,13 +49,60 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * import { RDSClient, DescribeValidDBInstanceModificationsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeValidDBInstanceModificationsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeValidDBInstanceModificationsMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeValidDBInstanceModificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeValidDBInstanceModificationsCommandInput - {@link DescribeValidDBInstanceModificationsCommandInput}
+ * @returns {@link DescribeValidDBInstanceModificationsCommandOutput}
  * @see {@link DescribeValidDBInstanceModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeValidDBInstanceModificationsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ *
+ * @example To describe valid modifications for a DB instance
+ * ```javascript
+ * // The following example retrieves details about the valid modifications for the specified DB instance.
+ * const input = {
+ *   "DBInstanceIdentifier": "database-test1"
+ * };
+ * const command = new DescribeValidDBInstanceModificationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ValidDBInstanceModificationsMessage": {
+ *     "Storage": [
+ *       {
+ *         "StorageSize": [
+ *           {
+ *             "From": 20,
+ *             "Step": 1,
+ *             "To": 20
+ *           },
+ *           {
+ *             "From": 22,
+ *             "Step": 1,
+ *             "To": 6144
+ *           }
+ *         ],
+ *         "StorageType": "gp2"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-describe-valid-modifications-for-a-db-instance-1680284230997
+ * ```
  *
  */
 export class DescribeValidDBInstanceModificationsCommand extends $Command<
@@ -66,6 +122,9 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeValidDBInstanceModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +153,8 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeValidDBInstanceModificationsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeValidDBInstanceModificationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +164,24 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeValidDBInstanceModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeValidDBInstanceModificationsCommand(input, context);
+    return se_DescribeValidDBInstanceModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput> {
-    return deserializeAws_queryDescribeValidDBInstanceModificationsCommand(output, context);
+    return de_DescribeValidDBInstanceModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

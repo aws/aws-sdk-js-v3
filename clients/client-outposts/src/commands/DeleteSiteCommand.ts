@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSiteInput,
-  DeleteSiteInputFilterSensitiveLog,
-  DeleteSiteOutput,
-  DeleteSiteOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSiteInput, DeleteSiteOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1DeleteSiteCommand,
-  serializeAws_restJson1DeleteSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSiteCommand, se_DeleteSiteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteSiteCommand}.
+ */
 export interface DeleteSiteCommandInput extends DeleteSiteInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteSiteCommand}.
+ */
 export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBea
  * import { OutpostsClient, DeleteSiteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, DeleteSiteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // DeleteSiteInput
+ *   SiteId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSiteCommandInput - {@link DeleteSiteCommandInput}
+ * @returns {@link DeleteSiteCommandOutput}
  * @see {@link DeleteSiteCommandInput} for command's `input` shape.
  * @see {@link DeleteSiteCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified request is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
  *
  */
 export class DeleteSiteCommand extends $Command<
@@ -62,6 +86,9 @@ export class DeleteSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class DeleteSiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSiteInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSiteOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class DeleteSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSiteCommand(input, context);
+    return se_DeleteSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSiteCommandOutput> {
-    return deserializeAws_restJson1DeleteSiteCommand(output, context);
+    return de_DeleteSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

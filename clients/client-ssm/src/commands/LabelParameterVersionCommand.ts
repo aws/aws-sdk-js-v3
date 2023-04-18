@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  LabelParameterVersionRequest,
-  LabelParameterVersionRequestFilterSensitiveLog,
-  LabelParameterVersionResult,
-  LabelParameterVersionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1LabelParameterVersionCommand,
-  serializeAws_json1_1LabelParameterVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { LabelParameterVersionRequest, LabelParameterVersionResult } from "../models/models_1";
+import { de_LabelParameterVersionCommand, se_LabelParameterVersionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link LabelParameterVersionCommand}.
+ */
 export interface LabelParameterVersionCommandInput extends LabelParameterVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link LabelParameterVersionCommand}.
+ */
 export interface LabelParameterVersionCommandOutput extends LabelParameterVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A parameter label is a user-defined alias to help you manage different versions of a
  *    parameter. When you modify a parameter, Amazon Web Services Systems Manager automatically saves a new version and
  *    increments the version number by one. A label can help you remember the purpose of a parameter
@@ -72,13 +75,39 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  * import { SSMClient, LabelParameterVersionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, LabelParameterVersionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // LabelParameterVersionRequest
+ *   Name: "STRING_VALUE", // required
+ *   ParameterVersion: Number("long"),
+ *   Labels: [ // ParameterLabelList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new LabelParameterVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param LabelParameterVersionCommandInput - {@link LabelParameterVersionCommandInput}
+ * @returns {@link LabelParameterVersionCommandOutput}
  * @see {@link LabelParameterVersionCommandInput} for command's `input` shape.
  * @see {@link LabelParameterVersionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ParameterNotFound} (client fault)
+ *  <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *
+ * @throws {@link ParameterVersionLabelLimitExceeded} (client fault)
+ *  <p>A parameter version can have a maximum of ten labels.</p>
+ *
+ * @throws {@link ParameterVersionNotFound} (client fault)
+ *  <p>The specified parameter version wasn't found. Verify the parameter name and version, and try
+ *    again.</p>
+ *
+ * @throws {@link TooManyUpdates} (client fault)
+ *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
  *
  */
 export class LabelParameterVersionCommand extends $Command<
@@ -98,6 +127,9 @@ export class LabelParameterVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LabelParameterVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +158,8 @@ export class LabelParameterVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LabelParameterVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LabelParameterVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +169,18 @@ export class LabelParameterVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LabelParameterVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1LabelParameterVersionCommand(input, context);
+    return se_LabelParameterVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LabelParameterVersionCommandOutput> {
-    return deserializeAws_json1_1LabelParameterVersionCommand(output, context);
+    return de_LabelParameterVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

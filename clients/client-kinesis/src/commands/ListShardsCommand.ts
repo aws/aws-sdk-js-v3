@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  ListShardsInput,
-  ListShardsInputFilterSensitiveLog,
-  ListShardsOutput,
-  ListShardsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListShardsCommand,
-  serializeAws_json1_1ListShardsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListShardsInput, ListShardsOutput } from "../models/models_0";
+import { de_ListShardsCommand, se_ListShardsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListShardsCommand}.
+ */
 export interface ListShardsCommandInput extends ListShardsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListShardsCommand}.
+ */
 export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the shards in a stream and provides information about each shard. This operation
  *             has a limit of 1000 transactions per second per data stream.</p>
  *          <note>
@@ -50,13 +53,52 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  * import { KinesisClient, ListShardsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, ListShardsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // ListShardsInput
+ *   StreamName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   ExclusiveStartShardId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   StreamCreationTimestamp: new Date("TIMESTAMP"),
+ *   ShardFilter: { // ShardFilter
+ *     Type: "AFTER_SHARD_ID" || "AT_TRIM_HORIZON" || "FROM_TRIM_HORIZON" || "AT_LATEST" || "AT_TIMESTAMP" || "FROM_TIMESTAMP", // required
+ *     ShardId: "STRING_VALUE",
+ *     Timestamp: new Date("TIMESTAMP"),
+ *   },
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new ListShardsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListShardsCommandInput - {@link ListShardsCommandInput}
+ * @returns {@link ListShardsCommandOutput}
  * @see {@link ListShardsCommandInput} for command's `input` shape.
  * @see {@link ListShardsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Specifies that you do not have the permissions required to perform this
+ *             operation.</p>
+ *
+ * @throws {@link ExpiredNextTokenException} (client fault)
+ *  <p>The pagination token passed to the operation is expired.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
+ *             For more information, see the returned message.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is not available for this operation. For successful operation, the
+ *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found. The stream might not be specified
+ *             correctly.</p>
+ *
  *
  */
 export class ListShardsCommand extends $Command<
@@ -78,6 +120,9 @@ export class ListShardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListShardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +149,8 @@ export class ListShardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListShardsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListShardsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +160,18 @@ export class ListShardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListShardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListShardsCommand(input, context);
+    return se_ListShardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListShardsCommandOutput> {
-    return deserializeAws_json1_1ListShardsCommand(output, context);
+    return de_ListShardsCommand(output, context);
   }
 
   // Start section: command_body_extra

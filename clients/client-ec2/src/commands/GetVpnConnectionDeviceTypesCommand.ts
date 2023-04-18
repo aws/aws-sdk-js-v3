@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetVpnConnectionDeviceTypesRequest,
-  GetVpnConnectionDeviceTypesRequestFilterSensitiveLog,
-  GetVpnConnectionDeviceTypesResult,
-  GetVpnConnectionDeviceTypesResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetVpnConnectionDeviceTypesCommand,
-  serializeAws_ec2GetVpnConnectionDeviceTypesCommand,
-} from "../protocols/Aws_ec2";
+import { GetVpnConnectionDeviceTypesRequest, GetVpnConnectionDeviceTypesResult } from "../models/models_5";
+import { de_GetVpnConnectionDeviceTypesCommand, se_GetVpnConnectionDeviceTypesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVpnConnectionDeviceTypesCommand}.
+ */
 export interface GetVpnConnectionDeviceTypesCommandInput extends GetVpnConnectionDeviceTypesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVpnConnectionDeviceTypesCommand}.
+ */
 export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnectionDeviceTypesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtain a list of customer gateway devices for which sample configuration
  *             files can be provided. The request has no additional parameters. You can also see the
  *             list of device types with sample configuration files available under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer gateway
@@ -39,13 +42,21 @@ export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnecti
  * import { EC2Client, GetVpnConnectionDeviceTypesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetVpnConnectionDeviceTypesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetVpnConnectionDeviceTypesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new GetVpnConnectionDeviceTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVpnConnectionDeviceTypesCommandInput - {@link GetVpnConnectionDeviceTypesCommandInput}
+ * @returns {@link GetVpnConnectionDeviceTypesCommandOutput}
  * @see {@link GetVpnConnectionDeviceTypesCommandInput} for command's `input` shape.
  * @see {@link GetVpnConnectionDeviceTypesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class GetVpnConnectionDeviceTypesCommand extends $Command<
@@ -65,6 +76,9 @@ export class GetVpnConnectionDeviceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVpnConnectionDeviceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +107,8 @@ export class GetVpnConnectionDeviceTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVpnConnectionDeviceTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVpnConnectionDeviceTypesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +118,21 @@ export class GetVpnConnectionDeviceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVpnConnectionDeviceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetVpnConnectionDeviceTypesCommand(input, context);
+    return se_GetVpnConnectionDeviceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVpnConnectionDeviceTypesCommandOutput> {
-    return deserializeAws_ec2GetVpnConnectionDeviceTypesCommand(output, context);
+    return de_GetVpnConnectionDeviceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

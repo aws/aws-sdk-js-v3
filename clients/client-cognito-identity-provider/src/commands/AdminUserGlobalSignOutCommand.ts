@@ -23,17 +23,24 @@ import {
   AdminUserGlobalSignOutRequest,
   AdminUserGlobalSignOutRequestFilterSensitiveLog,
   AdminUserGlobalSignOutResponse,
-  AdminUserGlobalSignOutResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminUserGlobalSignOutCommand,
-  serializeAws_json1_1AdminUserGlobalSignOutCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminUserGlobalSignOutCommand, se_AdminUserGlobalSignOutCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AdminUserGlobalSignOutCommand}.
+ */
 export interface AdminUserGlobalSignOutCommandInput extends AdminUserGlobalSignOutRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AdminUserGlobalSignOutCommand}.
+ */
 export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSignOutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Signs out a user from all devices. You must sign <code>AdminUserGlobalSignOut</code> requests
  *             with Amazon Web Services credentials. It also invalidates all refresh tokens that Amazon Cognito has issued to
  *             a user. The user's current access and ID tokens remain valid until they expire. By
@@ -47,13 +54,41 @@ export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSign
  * import { CognitoIdentityProviderClient, AdminUserGlobalSignOutCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminUserGlobalSignOutCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminUserGlobalSignOutRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ * };
  * const command = new AdminUserGlobalSignOutCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminUserGlobalSignOutCommandInput - {@link AdminUserGlobalSignOutCommandInput}
+ * @returns {@link AdminUserGlobalSignOutCommandOutput}
  * @see {@link AdminUserGlobalSignOutCommandInput} for command's `input` shape.
  * @see {@link AdminUserGlobalSignOutCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
  *
  */
 export class AdminUserGlobalSignOutCommand extends $Command<
@@ -73,6 +108,9 @@ export class AdminUserGlobalSignOutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminUserGlobalSignOutCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,7 +141,7 @@ export class AdminUserGlobalSignOutCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminUserGlobalSignOutRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminUserGlobalSignOutResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +151,18 @@ export class AdminUserGlobalSignOutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminUserGlobalSignOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminUserGlobalSignOutCommand(input, context);
+    return se_AdminUserGlobalSignOutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminUserGlobalSignOutCommandOutput> {
-    return deserializeAws_json1_1AdminUserGlobalSignOutCommand(output, context);
+    return de_AdminUserGlobalSignOutCommand(output, context);
   }
 
   // Start section: command_body_extra

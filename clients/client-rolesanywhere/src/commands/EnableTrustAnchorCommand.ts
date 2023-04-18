@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ScalarTrustAnchorRequest,
-  ScalarTrustAnchorRequestFilterSensitiveLog,
-  TrustAnchorDetailResponse,
-  TrustAnchorDetailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1EnableTrustAnchorCommand,
-  serializeAws_restJson1EnableTrustAnchorCommand,
-} from "../protocols/Aws_restJson1";
+import { ScalarTrustAnchorRequest, TrustAnchorDetailResponse } from "../models/models_0";
+import { de_EnableTrustAnchorCommand, se_EnableTrustAnchorCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableTrustAnchorCommand}.
+ */
 export interface EnableTrustAnchorCommandInput extends ScalarTrustAnchorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableTrustAnchorCommand}.
+ */
 export interface EnableTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables a trust anchor. When enabled, certificates in the trust anchor chain are authorized for trust validation. </p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -40,13 +43,25 @@ export interface EnableTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * import { RolesAnywhereClient, EnableTrustAnchorCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, EnableTrustAnchorCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ScalarTrustAnchorRequest
+ *   trustAnchorId: "STRING_VALUE", // required
+ * };
  * const command = new EnableTrustAnchorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableTrustAnchorCommandInput - {@link EnableTrustAnchorCommandInput}
+ * @returns {@link EnableTrustAnchorCommandOutput}
  * @see {@link EnableTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link EnableTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
  *
  */
 export class EnableTrustAnchorCommand extends $Command<
@@ -66,6 +81,9 @@ export class EnableTrustAnchorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableTrustAnchorCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +112,8 @@ export class EnableTrustAnchorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarTrustAnchorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TrustAnchorDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +123,18 @@ export class EnableTrustAnchorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableTrustAnchorCommand(input, context);
+    return se_EnableTrustAnchorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableTrustAnchorCommandOutput> {
-    return deserializeAws_restJson1EnableTrustAnchorCommand(output, context);
+    return de_EnableTrustAnchorCommand(output, context);
   }
 
   // Start section: command_body_extra

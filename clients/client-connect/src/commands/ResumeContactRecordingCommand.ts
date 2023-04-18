@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ResumeContactRecordingRequest,
-  ResumeContactRecordingRequestFilterSensitiveLog,
-  ResumeContactRecordingResponse,
-  ResumeContactRecordingResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ResumeContactRecordingCommand,
-  serializeAws_restJson1ResumeContactRecordingCommand,
-} from "../protocols/Aws_restJson1";
+import { ResumeContactRecordingRequest, ResumeContactRecordingResponse } from "../models/models_1";
+import { de_ResumeContactRecordingCommand, se_ResumeContactRecordingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ResumeContactRecordingCommand}.
+ */
 export interface ResumeContactRecordingCommandInput extends ResumeContactRecordingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ResumeContactRecordingCommand}.
+ */
 export interface ResumeContactRecordingCommandOutput extends ResumeContactRecordingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When a contact is being recorded, and the recording has been suspended using
  *    SuspendContactRecording, this API resumes recording the call.</p>
  *          <p>Only voice recordings are supported at this time.</p>
@@ -38,13 +41,30 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  * import { ConnectClient, ResumeContactRecordingCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ResumeContactRecordingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ResumeContactRecordingRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   InitialContactId: "STRING_VALUE", // required
+ * };
  * const command = new ResumeContactRecordingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeContactRecordingCommandInput - {@link ResumeContactRecordingCommandInput}
+ * @returns {@link ResumeContactRecordingCommandOutput}
  * @see {@link ResumeContactRecordingCommandInput} for command's `input` shape.
  * @see {@link ResumeContactRecordingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class ResumeContactRecordingCommand extends $Command<
@@ -64,6 +84,9 @@ export class ResumeContactRecordingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeContactRecordingCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +115,8 @@ export class ResumeContactRecordingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeContactRecordingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResumeContactRecordingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +126,18 @@ export class ResumeContactRecordingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeContactRecordingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResumeContactRecordingCommand(input, context);
+    return se_ResumeContactRecordingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeContactRecordingCommandOutput> {
-    return deserializeAws_restJson1ResumeContactRecordingCommand(output, context);
+    return de_ResumeContactRecordingCommand(output, context);
   }
 
   // Start section: command_body_extra

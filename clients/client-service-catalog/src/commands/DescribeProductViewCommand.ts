@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeProductViewInput,
-  DescribeProductViewInputFilterSensitiveLog,
-  DescribeProductViewOutput,
-  DescribeProductViewOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProductViewCommand,
-  serializeAws_json1_1DescribeProductViewCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeProductViewInput, DescribeProductViewOutput } from "../models/models_0";
+import { de_DescribeProductViewCommand, se_DescribeProductViewCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeProductViewCommand}.
+ */
 export interface DescribeProductViewCommandInput extends DescribeProductViewInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProductViewCommand}.
+ */
 export interface DescribeProductViewCommandOutput extends DescribeProductViewOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface DescribeProductViewCommandOutput extends DescribeProductViewOut
  * import { ServiceCatalogClient, DescribeProductViewCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProductViewCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeProductViewInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProductViewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProductViewCommandInput - {@link DescribeProductViewCommandInput}
+ * @returns {@link DescribeProductViewCommandOutput}
  * @see {@link DescribeProductViewCommandInput} for command's `input` shape.
  * @see {@link DescribeProductViewCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class DescribeProductViewCommand extends $Command<
@@ -62,6 +78,9 @@ export class DescribeProductViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProductViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class DescribeProductViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProductViewInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProductViewOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class DescribeProductViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProductViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProductViewCommand(input, context);
+    return se_DescribeProductViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProductViewCommandOutput> {
-    return deserializeAws_json1_1DescribeProductViewCommand(output, context);
+    return de_DescribeProductViewCommand(output, context);
   }
 
   // Start section: command_body_extra

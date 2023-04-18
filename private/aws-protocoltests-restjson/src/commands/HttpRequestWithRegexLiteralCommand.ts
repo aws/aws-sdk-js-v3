@@ -12,17 +12,24 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { HttpRequestWithRegexLiteralInput } from "../models/models_0";
 import {
-  HttpRequestWithRegexLiteralInput,
-  HttpRequestWithRegexLiteralInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpRequestWithRegexLiteralCommand,
-  serializeAws_restJson1HttpRequestWithRegexLiteralCommand,
+  de_HttpRequestWithRegexLiteralCommand,
+  se_HttpRequestWithRegexLiteralCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link HttpRequestWithRegexLiteralCommand}.
+ */
 export interface HttpRequestWithRegexLiteralCommandInput extends HttpRequestWithRegexLiteralInput {}
+/**
+ * @public
+ *
+ * The output of {@link HttpRequestWithRegexLiteralCommand}.
+ */
 export interface HttpRequestWithRegexLiteralCommandOutput extends __MetadataBearer {}
 
 export class HttpRequestWithRegexLiteralCommand extends $Command<
@@ -33,6 +40,9 @@ export class HttpRequestWithRegexLiteralCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpRequestWithRegexLiteralCommandInput) {
     // Start section: command_constructor
     super();
@@ -58,8 +68,8 @@ export class HttpRequestWithRegexLiteralCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpRequestWithRegexLiteralInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -69,15 +79,21 @@ export class HttpRequestWithRegexLiteralCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpRequestWithRegexLiteralCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpRequestWithRegexLiteralCommand(input, context);
+    return se_HttpRequestWithRegexLiteralCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithRegexLiteralCommandOutput> {
-    return deserializeAws_restJson1HttpRequestWithRegexLiteralCommand(output, context);
+    return de_HttpRequestWithRegexLiteralCommand(output, context);
   }
 
   // Start section: command_body_extra

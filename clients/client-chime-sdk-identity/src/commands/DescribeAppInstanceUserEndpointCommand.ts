@@ -21,16 +21,27 @@ import {
   DescribeAppInstanceUserEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeAppInstanceUserEndpointCommand,
-  serializeAws_restJson1DescribeAppInstanceUserEndpointCommand,
+  de_DescribeAppInstanceUserEndpointCommand,
+  se_DescribeAppInstanceUserEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAppInstanceUserEndpointCommand}.
+ */
 export interface DescribeAppInstanceUserEndpointCommandInput extends DescribeAppInstanceUserEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAppInstanceUserEndpointCommand}.
+ */
 export interface DescribeAppInstanceUserEndpointCommandOutput
   extends DescribeAppInstanceUserEndpointResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of an <code>AppInstanceUserEndpoint</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +49,38 @@ export interface DescribeAppInstanceUserEndpointCommandOutput
  * import { ChimeSDKIdentityClient, DescribeAppInstanceUserEndpointCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, DescribeAppInstanceUserEndpointCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = { // DescribeAppInstanceUserEndpointRequest
+ *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   EndpointId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAppInstanceUserEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppInstanceUserEndpointCommandInput - {@link DescribeAppInstanceUserEndpointCommandInput}
+ * @returns {@link DescribeAppInstanceUserEndpointCommandOutput}
  * @see {@link DescribeAppInstanceUserEndpointCommandInput} for command's `input` shape.
  * @see {@link DescribeAppInstanceUserEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class DescribeAppInstanceUserEndpointCommand extends $Command<
@@ -64,6 +100,9 @@ export class DescribeAppInstanceUserEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppInstanceUserEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,18 +142,24 @@ export class DescribeAppInstanceUserEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAppInstanceUserEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppInstanceUserEndpointCommand(input, context);
+    return se_DescribeAppInstanceUserEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAppInstanceUserEndpointCommandOutput> {
-    return deserializeAws_restJson1DescribeAppInstanceUserEndpointCommand(output, context);
+    return de_DescribeAppInstanceUserEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCoreNetworkChangeEventsRequest,
-  GetCoreNetworkChangeEventsRequestFilterSensitiveLog,
-  GetCoreNetworkChangeEventsResponse,
-  GetCoreNetworkChangeEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCoreNetworkChangeEventsRequest, GetCoreNetworkChangeEventsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetCoreNetworkChangeEventsCommand,
-  serializeAws_restJson1GetCoreNetworkChangeEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCoreNetworkChangeEventsCommand, se_GetCoreNetworkChangeEventsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetCoreNetworkChangeEventsCommand}.
+ */
 export interface GetCoreNetworkChangeEventsCommandInput extends GetCoreNetworkChangeEventsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCoreNetworkChangeEventsCommand}.
+ */
 export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkChangeEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a core network change event.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkC
  * import { NetworkManagerClient, GetCoreNetworkChangeEventsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetCoreNetworkChangeEventsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetCoreNetworkChangeEventsRequest
+ *   CoreNetworkId: "STRING_VALUE", // required
+ *   PolicyVersionId: Number("int"), // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetCoreNetworkChangeEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCoreNetworkChangeEventsCommandInput - {@link GetCoreNetworkChangeEventsCommandInput}
+ * @returns {@link GetCoreNetworkChangeEventsCommandOutput}
  * @see {@link GetCoreNetworkChangeEventsCommandInput} for command's `input` shape.
  * @see {@link GetCoreNetworkChangeEventsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class GetCoreNetworkChangeEventsCommand extends $Command<
@@ -62,6 +89,9 @@ export class GetCoreNetworkChangeEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCoreNetworkChangeEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class GetCoreNetworkChangeEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCoreNetworkChangeEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCoreNetworkChangeEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +131,21 @@ export class GetCoreNetworkChangeEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCoreNetworkChangeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCoreNetworkChangeEventsCommand(input, context);
+    return se_GetCoreNetworkChangeEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCoreNetworkChangeEventsCommandOutput> {
-    return deserializeAws_restJson1GetCoreNetworkChangeEventsCommand(output, context);
+    return de_GetCoreNetworkChangeEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

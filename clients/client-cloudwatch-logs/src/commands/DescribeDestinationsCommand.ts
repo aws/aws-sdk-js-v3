@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DescribeDestinationsRequest,
-  DescribeDestinationsRequestFilterSensitiveLog,
-  DescribeDestinationsResponse,
-  DescribeDestinationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDestinationsCommand,
-  serializeAws_json1_1DescribeDestinationsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDestinationsRequest, DescribeDestinationsResponse } from "../models/models_0";
+import { de_DescribeDestinationsCommand, se_DescribeDestinationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeDestinationsCommand}.
+ */
 export interface DescribeDestinationsCommandInput extends DescribeDestinationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDestinationsCommand}.
+ */
 export interface DescribeDestinationsCommandOutput extends DescribeDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all your destinations. The results are ASCII-sorted by destination name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface DescribeDestinationsCommandOutput extends DescribeDestinationsR
  * import { CloudWatchLogsClient, DescribeDestinationsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeDestinationsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeDestinationsRequest
+ *   DestinationNamePrefix: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new DescribeDestinationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDestinationsCommandInput - {@link DescribeDestinationsCommandInput}
+ * @returns {@link DescribeDestinationsCommandOutput}
  * @see {@link DescribeDestinationsCommandInput} for command's `input` shape.
  * @see {@link DescribeDestinationsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
  *
  */
 export class DescribeDestinationsCommand extends $Command<
@@ -62,6 +79,9 @@ export class DescribeDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class DescribeDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDestinationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDestinationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class DescribeDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDestinationsCommand(input, context);
+    return se_DescribeDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDestinationsCommandOutput> {
-    return deserializeAws_json1_1DescribeDestinationsCommand(output, context);
+    return de_DescribeDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

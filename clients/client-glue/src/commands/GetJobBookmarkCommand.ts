@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetJobBookmarkRequest,
-  GetJobBookmarkRequestFilterSensitiveLog,
-  GetJobBookmarkResponse,
-  GetJobBookmarkResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetJobBookmarkCommand,
-  serializeAws_json1_1GetJobBookmarkCommand,
-} from "../protocols/Aws_json1_1";
+import { GetJobBookmarkRequest, GetJobBookmarkResponse } from "../models/models_1";
+import { de_GetJobBookmarkCommand, se_GetJobBookmarkCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetJobBookmarkCommand}.
+ */
 export interface GetJobBookmarkCommandInput extends GetJobBookmarkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetJobBookmarkCommand}.
+ */
 export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information on a job bookmark entry.</p>
  *          <p>For more information about enabling and using job bookmarks, see:</p>
  *          <ul>
@@ -54,13 +57,35 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
  * import { GlueClient, GetJobBookmarkCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetJobBookmarkCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetJobBookmarkRequest
+ *   JobName: "STRING_VALUE", // required
+ *   RunId: "STRING_VALUE",
+ * };
  * const command = new GetJobBookmarkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobBookmarkCommandInput - {@link GetJobBookmarkCommandInput}
+ * @returns {@link GetJobBookmarkCommandOutput}
  * @see {@link GetJobBookmarkCommandInput} for command's `input` shape.
  * @see {@link GetJobBookmarkCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A value could not be validated.</p>
+ *
  *
  */
 export class GetJobBookmarkCommand extends $Command<
@@ -80,6 +105,9 @@ export class GetJobBookmarkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobBookmarkCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +136,8 @@ export class GetJobBookmarkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobBookmarkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobBookmarkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +147,18 @@ export class GetJobBookmarkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobBookmarkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobBookmarkCommand(input, context);
+    return se_GetJobBookmarkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobBookmarkCommandOutput> {
-    return deserializeAws_json1_1GetJobBookmarkCommand(output, context);
+    return de_GetJobBookmarkCommand(output, context);
   }
 
   // Start section: command_body_extra

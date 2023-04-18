@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartRouteAnalysisRequest,
-  StartRouteAnalysisRequestFilterSensitiveLog,
-  StartRouteAnalysisResponse,
-  StartRouteAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartRouteAnalysisRequest, StartRouteAnalysisResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1StartRouteAnalysisCommand,
-  serializeAws_restJson1StartRouteAnalysisCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartRouteAnalysisCommand, se_StartRouteAnalysisCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartRouteAnalysisCommand}.
+ */
 export interface StartRouteAnalysisCommandInput extends StartRouteAnalysisRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartRouteAnalysisCommand}.
+ */
 export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts analyzing the routing path between the specified source and destination. For more information,
  *             see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html">Route Analyzer</a>.</p>
  * @example
@@ -37,13 +40,48 @@ export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisRespo
  * import { NetworkManagerClient, StartRouteAnalysisCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, StartRouteAnalysisCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // StartRouteAnalysisRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   Source: { // RouteAnalysisEndpointOptionsSpecification
+ *     TransitGatewayAttachmentArn: "STRING_VALUE",
+ *     IpAddress: "STRING_VALUE",
+ *   },
+ *   Destination: {
+ *     TransitGatewayAttachmentArn: "STRING_VALUE",
+ *     IpAddress: "STRING_VALUE",
+ *   },
+ *   IncludeReturnPath: true || false,
+ *   UseMiddleboxes: true || false,
+ * };
  * const command = new StartRouteAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRouteAnalysisCommandInput - {@link StartRouteAnalysisCommandInput}
+ * @returns {@link StartRouteAnalysisCommandOutput}
  * @see {@link StartRouteAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartRouteAnalysisCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Updating or deleting the resource can
+ *             cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class StartRouteAnalysisCommand extends $Command<
@@ -63,6 +101,9 @@ export class StartRouteAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRouteAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +132,8 @@ export class StartRouteAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRouteAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRouteAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +143,18 @@ export class StartRouteAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRouteAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartRouteAnalysisCommand(input, context);
+    return se_StartRouteAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRouteAnalysisCommandOutput> {
-    return deserializeAws_restJson1StartRouteAnalysisCommand(output, context);
+    return de_StartRouteAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

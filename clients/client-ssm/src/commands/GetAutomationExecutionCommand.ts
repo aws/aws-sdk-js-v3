@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAutomationExecutionRequest,
-  GetAutomationExecutionRequestFilterSensitiveLog,
-  GetAutomationExecutionResult,
-  GetAutomationExecutionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetAutomationExecutionCommand,
-  serializeAws_json1_1GetAutomationExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAutomationExecutionRequest, GetAutomationExecutionResult } from "../models/models_1";
+import { de_GetAutomationExecutionCommand, se_GetAutomationExecutionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAutomationExecutionCommand}.
+ */
 export interface GetAutomationExecutionCommandInput extends GetAutomationExecutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAutomationExecutionCommand}.
+ */
 export interface GetAutomationExecutionCommandOutput extends GetAutomationExecutionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed information about a particular Automation execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * import { SSMClient, GetAutomationExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetAutomationExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetAutomationExecutionRequest
+ *   AutomationExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new GetAutomationExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAutomationExecutionCommandInput - {@link GetAutomationExecutionCommandInput}
+ * @returns {@link GetAutomationExecutionCommandOutput}
  * @see {@link GetAutomationExecutionCommandInput} for command's `input` shape.
  * @see {@link GetAutomationExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link AutomationExecutionNotFoundException} (client fault)
+ *  <p>There is no automation execution information for the requested automation execution
+ *    ID.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
  *
  */
 export class GetAutomationExecutionCommand extends $Command<
@@ -62,6 +78,9 @@ export class GetAutomationExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAutomationExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class GetAutomationExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAutomationExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAutomationExecutionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class GetAutomationExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAutomationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAutomationExecutionCommand(input, context);
+    return se_GetAutomationExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutomationExecutionCommandOutput> {
-    return deserializeAws_json1_1GetAutomationExecutionCommand(output, context);
+    return de_GetAutomationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
-import {
-  ListFHIRDatastoresRequest,
-  ListFHIRDatastoresRequestFilterSensitiveLog,
-  ListFHIRDatastoresResponse,
-  ListFHIRDatastoresResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListFHIRDatastoresCommand,
-  serializeAws_json1_0ListFHIRDatastoresCommand,
-} from "../protocols/Aws_json1_0";
+import { ListFHIRDatastoresRequest, ListFHIRDatastoresResponse } from "../models/models_0";
+import { de_ListFHIRDatastoresCommand, se_ListFHIRDatastoresCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFHIRDatastoresCommand}.
+ */
 export interface ListFHIRDatastoresCommandInput extends ListFHIRDatastoresRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFHIRDatastoresCommand}.
+ */
 export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all FHIR Data Stores that are in the user’s account, regardless of Data Store
  *          status.</p>
  * @example
@@ -37,13 +40,35 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * import { HealthLakeClient, ListFHIRDatastoresCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, ListFHIRDatastoresCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
+ * const input = { // ListFHIRDatastoresRequest
+ *   Filter: { // DatastoreFilter
+ *     DatastoreName: "STRING_VALUE",
+ *     DatastoreStatus: "STRING_VALUE",
+ *     CreatedBefore: new Date("TIMESTAMP"),
+ *     CreatedAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFHIRDatastoresCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFHIRDatastoresCommandInput - {@link ListFHIRDatastoresCommandInput}
+ * @returns {@link ListFHIRDatastoresCommandOutput}
  * @see {@link ListFHIRDatastoresCommandInput} for command's `input` shape.
  * @see {@link ListFHIRDatastoresCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unknown error occurs in the service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input parameter was invalid.</p>
+ *
  *
  */
 export class ListFHIRDatastoresCommand extends $Command<
@@ -63,6 +88,9 @@ export class ListFHIRDatastoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFHIRDatastoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +119,8 @@ export class ListFHIRDatastoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFHIRDatastoresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFHIRDatastoresResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +130,18 @@ export class ListFHIRDatastoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFHIRDatastoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListFHIRDatastoresCommand(input, context);
+    return se_ListFHIRDatastoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFHIRDatastoresCommandOutput> {
-    return deserializeAws_json1_0ListFHIRDatastoresCommand(output, context);
+    return de_ListFHIRDatastoresCommand(output, context);
   }
 
   // Start section: command_body_extra

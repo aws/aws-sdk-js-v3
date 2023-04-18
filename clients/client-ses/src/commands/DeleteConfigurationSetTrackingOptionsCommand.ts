@@ -15,23 +15,32 @@ import {
 
 import {
   DeleteConfigurationSetTrackingOptionsRequest,
-  DeleteConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
   DeleteConfigurationSetTrackingOptionsResponse,
-  DeleteConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommand,
-  serializeAws_queryDeleteConfigurationSetTrackingOptionsCommand,
+  de_DeleteConfigurationSetTrackingOptionsCommand,
+  se_DeleteConfigurationSetTrackingOptionsCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteConfigurationSetTrackingOptionsCommand}.
+ */
 export interface DeleteConfigurationSetTrackingOptionsCommandInput
   extends DeleteConfigurationSetTrackingOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteConfigurationSetTrackingOptionsCommand}.
+ */
 export interface DeleteConfigurationSetTrackingOptionsCommandOutput
   extends DeleteConfigurationSetTrackingOptionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an association between a configuration set and a custom domain for open and
  *             click event tracking.</p>
  *         <p>By default, images and links used for tracking open and click events are hosted on
@@ -48,13 +57,25 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  * import { SESClient, DeleteConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DeleteConfigurationSetTrackingOptionsRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationSetTrackingOptionsCommandInput - {@link DeleteConfigurationSetTrackingOptionsCommandInput}
+ * @returns {@link DeleteConfigurationSetTrackingOptionsCommandOutput}
  * @see {@link DeleteConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * @throws {@link TrackingOptionsDoesNotExistException} (client fault)
+ *  <p>Indicates that the TrackingOptions object you specified does not exist.</p>
+ *
  *
  */
 export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
@@ -74,6 +95,9 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationSetTrackingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +126,8 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +137,24 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteConfigurationSetTrackingOptionsCommand(input, context);
+    return se_DeleteConfigurationSetTrackingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetTrackingOptionsCommandOutput> {
-    return deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommand(output, context);
+    return de_DeleteConfigurationSetTrackingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

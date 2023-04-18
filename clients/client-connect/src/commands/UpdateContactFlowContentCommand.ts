@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactFlowContentRequest, UpdateContactFlowContentRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateContactFlowContentCommand,
-  serializeAws_restJson1UpdateContactFlowContentCommand,
-} from "../protocols/Aws_restJson1";
-
-export interface UpdateContactFlowContentCommandInput extends UpdateContactFlowContentRequest {}
-export interface UpdateContactFlowContentCommandOutput extends __MetadataBearer {}
+import { UpdateContactFlowContentRequest, UpdateContactFlowContentResponse } from "../models/models_1";
+import { de_UpdateContactFlowContentCommand, se_UpdateContactFlowContentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
+ * The input for {@link UpdateContactFlowContentCommand}.
+ */
+export interface UpdateContactFlowContentCommandInput extends UpdateContactFlowContentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateContactFlowContentCommand}.
+ */
+export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlowContentResponse, __MetadataBearer {}
+
+/**
+ * @public
  * <p>Updates the specified flow.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
@@ -33,13 +41,39 @@ export interface UpdateContactFlowContentCommandOutput extends __MetadataBearer 
  * import { ConnectClient, UpdateContactFlowContentCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactFlowContentCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateContactFlowContentRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactFlowId: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE", // required
+ * };
  * const command = new UpdateContactFlowContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactFlowContentCommandInput - {@link UpdateContactFlowContentCommandInput}
+ * @returns {@link UpdateContactFlowContentCommandOutput}
  * @see {@link UpdateContactFlowContentCommandInput} for command's `input` shape.
  * @see {@link UpdateContactFlowContentCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidContactFlowException} (client fault)
+ *  <p>The flow is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class UpdateContactFlowContentCommand extends $Command<
@@ -59,6 +93,9 @@ export class UpdateContactFlowContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactFlowContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +124,8 @@ export class UpdateContactFlowContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContactFlowContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +135,18 @@ export class UpdateContactFlowContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactFlowContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateContactFlowContentCommand(input, context);
+    return se_UpdateContactFlowContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactFlowContentCommandOutput> {
-    return deserializeAws_restJson1UpdateContactFlowContentCommand(output, context);
+    return de_UpdateContactFlowContentCommand(output, context);
   }
 
   // Start section: command_body_extra

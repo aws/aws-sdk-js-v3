@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  UpdateDomainNameRequest,
-  UpdateDomainNameRequestFilterSensitiveLog,
-  UpdateDomainNameResponse,
-  UpdateDomainNameResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDomainNameCommand,
-  serializeAws_restJson1UpdateDomainNameCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDomainNameRequest, UpdateDomainNameResponse } from "../models/models_0";
+import { de_UpdateDomainNameCommand, se_UpdateDomainNameCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDomainNameCommand}.
+ */
 export interface UpdateDomainNameCommandInput extends UpdateDomainNameRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDomainNameCommand}.
+ */
 export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a domain name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,49 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * import { ApiGatewayV2Client, UpdateDomainNameCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateDomainNameCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // UpdateDomainNameRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   DomainNameConfigurations: [ // DomainNameConfigurations
+ *     { // DomainNameConfiguration
+ *       ApiGatewayDomainName: "STRING_VALUE",
+ *       CertificateArn: "STRING_VALUE",
+ *       CertificateName: "STRING_VALUE",
+ *       CertificateUploadDate: new Date("TIMESTAMP"),
+ *       DomainNameStatus: "STRING_VALUE",
+ *       DomainNameStatusMessage: "STRING_VALUE",
+ *       EndpointType: "STRING_VALUE",
+ *       HostedZoneId: "STRING_VALUE",
+ *       SecurityPolicy: "STRING_VALUE",
+ *       OwnershipVerificationCertificateArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   MutualTlsAuthentication: { // MutualTlsAuthenticationInput
+ *     TruststoreUri: "STRING_VALUE",
+ *     TruststoreVersion: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateDomainNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainNameCommandInput - {@link UpdateDomainNameCommandInput}
+ * @returns {@link UpdateDomainNameCommandOutput}
  * @see {@link UpdateDomainNameCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainNameCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class UpdateDomainNameCommand extends $Command<
@@ -62,6 +101,9 @@ export class UpdateDomainNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +132,8 @@ export class UpdateDomainNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainNameResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +143,18 @@ export class UpdateDomainNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDomainNameCommand(input, context);
+    return se_UpdateDomainNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainNameCommandOutput> {
-    return deserializeAws_restJson1UpdateDomainNameCommand(output, context);
+    return de_UpdateDomainNameCommand(output, context);
   }
 
   // Start section: command_body_extra

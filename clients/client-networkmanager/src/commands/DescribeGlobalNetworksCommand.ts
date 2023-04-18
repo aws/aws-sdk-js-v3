@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeGlobalNetworksRequest,
-  DescribeGlobalNetworksRequestFilterSensitiveLog,
-  DescribeGlobalNetworksResponse,
-  DescribeGlobalNetworksResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeGlobalNetworksRequest, DescribeGlobalNetworksResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DescribeGlobalNetworksCommand,
-  serializeAws_restJson1DescribeGlobalNetworksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeGlobalNetworksCommand, se_DescribeGlobalNetworksCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeGlobalNetworksCommand}.
+ */
 export interface DescribeGlobalNetworksCommandInput extends DescribeGlobalNetworksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeGlobalNetworksCommand}.
+ */
 export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetworksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more global networks. By default, all global networks are
  *             described. To describe the objects in your global network, you must use the appropriate
  *                 <code>Get*</code> action. For example, to list the transit gateways in your global
@@ -39,13 +42,38 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  * import { NetworkManagerClient, DescribeGlobalNetworksCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DescribeGlobalNetworksCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // DescribeGlobalNetworksRequest
+ *   GlobalNetworkIds: [ // GlobalNetworkIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeGlobalNetworksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGlobalNetworksCommandInput - {@link DescribeGlobalNetworksCommandInput}
+ * @returns {@link DescribeGlobalNetworksCommandOutput}
  * @see {@link DescribeGlobalNetworksCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalNetworksCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class DescribeGlobalNetworksCommand extends $Command<
@@ -65,6 +93,9 @@ export class DescribeGlobalNetworksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGlobalNetworksCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +124,8 @@ export class DescribeGlobalNetworksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGlobalNetworksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGlobalNetworksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +135,18 @@ export class DescribeGlobalNetworksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGlobalNetworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeGlobalNetworksCommand(input, context);
+    return se_DescribeGlobalNetworksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalNetworksCommandOutput> {
-    return deserializeAws_restJson1DescribeGlobalNetworksCommand(output, context);
+    return de_DescribeGlobalNetworksCommand(output, context);
   }
 
   // Start section: command_body_extra

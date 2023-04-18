@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListBrokersRequest,
-  ListBrokersRequestFilterSensitiveLog,
-  ListBrokersResponse,
-  ListBrokersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListBrokersRequest, ListBrokersResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1ListBrokersCommand,
-  serializeAws_restJson1ListBrokersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBrokersCommand, se_ListBrokersCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBrokersCommand}.
+ */
 export interface ListBrokersCommandInput extends ListBrokersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListBrokersCommand}.
+ */
 export interface ListBrokersCommandOutput extends ListBrokersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all brokers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface ListBrokersCommandOutput extends ListBrokersResponse, __Metadat
  * import { MqClient, ListBrokersCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListBrokersCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = { // ListBrokersRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListBrokersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBrokersCommandInput - {@link ListBrokersCommandInput}
+ * @returns {@link ListBrokersCommandOutput}
  * @see {@link ListBrokersCommandInput} for command's `input` shape.
  * @see {@link ListBrokersCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
  *
  */
 export class ListBrokersCommand extends $Command<
@@ -62,6 +81,9 @@ export class ListBrokersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBrokersCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +110,8 @@ export class ListBrokersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBrokersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBrokersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +121,18 @@ export class ListBrokersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBrokersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBrokersCommand(input, context);
+    return se_ListBrokersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBrokersCommandOutput> {
-    return deserializeAws_restJson1ListBrokersCommand(output, context);
+    return de_ListBrokersCommand(output, context);
   }
 
   // Start section: command_body_extra

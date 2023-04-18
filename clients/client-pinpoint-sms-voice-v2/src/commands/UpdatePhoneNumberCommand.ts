@@ -13,26 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePhoneNumberRequest,
-  UpdatePhoneNumberRequestFilterSensitiveLog,
-  UpdatePhoneNumberResult,
-  UpdatePhoneNumberResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePhoneNumberRequest, UpdatePhoneNumberResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0UpdatePhoneNumberCommand,
-  serializeAws_json1_0UpdatePhoneNumberCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdatePhoneNumberCommand, se_UpdatePhoneNumberCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdatePhoneNumberCommand}.
+ */
 export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdatePhoneNumberCommand}.
+ */
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of an existing origination phone number. You can update the
  *             opt-out list, enable or disable two-way messaging, change the TwoWayChannelArn, enable
  *             or disable self-managed opt-outs, and enable or disable deletion protection.</p>
@@ -44,13 +47,48 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult,
  * import { PinpointSMSVoiceV2Client, UpdatePhoneNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, UpdatePhoneNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // UpdatePhoneNumberRequest
+ *   PhoneNumberId: "STRING_VALUE", // required
+ *   TwoWayEnabled: true || false,
+ *   TwoWayChannelArn: "STRING_VALUE",
+ *   SelfManagedOptOutsEnabled: true || false,
+ *   OptOutListName: "STRING_VALUE",
+ *   DeletionProtectionEnabled: true || false,
+ * };
  * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePhoneNumberCommandInput - {@link UpdatePhoneNumberCommandInput}
+ * @returns {@link UpdatePhoneNumberCommandOutput}
  * @see {@link UpdatePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link UpdatePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because you don't have sufficient permissions to access the
+ *             resource.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform
+ *             more than one operation on the same resource at the same time or it could be that the
+ *             requested action isn't valid for the current state or configuration of the
+ *             resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might
+ *             be able to successfully issue the request again in the future.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource couldn't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An error that occurred because too many requests were sent during a certain amount of
+ *             time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A validation exception for a field.</p>
+ *
  *
  */
 export class UpdatePhoneNumberCommand extends $Command<
@@ -70,6 +108,9 @@ export class UpdatePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +139,8 @@ export class UpdatePhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePhoneNumberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePhoneNumberResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +150,18 @@ export class UpdatePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdatePhoneNumberCommand(input, context);
+    return se_UpdatePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePhoneNumberCommandOutput> {
-    return deserializeAws_json1_0UpdatePhoneNumberCommand(output, context);
+    return de_UpdatePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

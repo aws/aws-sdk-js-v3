@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  CreateEnvironmentRequest,
-  CreateEnvironmentRequestFilterSensitiveLog,
-  Environment,
-  EnvironmentFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEnvironmentCommand,
-  serializeAws_restJson1CreateEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateEnvironmentRequest, Environment } from "../models/models_0";
+import { de_CreateEnvironmentCommand, se_CreateEnvironmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateEnvironmentCommand}.
+ */
 export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEnvironmentCommand}.
+ */
 export interface CreateEnvironmentCommandOutput extends Environment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an environment. For each application, you define one or more environments. An
  *          environment is a deployment group of AppConfig targets, such as applications in a
  *             <code>Beta</code> or <code>Production</code> environment. You can also define
@@ -43,13 +46,59 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  * import { AppConfigClient, CreateEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // CreateEnvironmentRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Monitors: [ // MonitorList
+ *     { // Monitor
+ *       AlarmArn: "STRING_VALUE", // required
+ *       AlarmRoleArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
+ * @returns {@link CreateEnvironmentCommandOutput}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ *
+ * @example To create an environment
+ * ```javascript
+ * // The following create-environment example creates an AWS AppConfig environment named Example-Environment using the application you created using create-application
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "Name": "Example-Environment"
+ * };
+ * const command = new CreateEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationId": "339ohji",
+ *   "Id": "54j1r29",
+ *   "Name": "Example-Environment",
+ *   "State": "READY_FOR_DEPLOYMENT"
+ * }
+ * *\/
+ * // example id: to-create-an-environment-1632265124975
+ * ```
  *
  */
 export class CreateEnvironmentCommand extends $Command<
@@ -69,6 +118,9 @@ export class CreateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +149,8 @@ export class CreateEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnvironmentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +160,18 @@ export class CreateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEnvironmentCommand(input, context);
+    return se_CreateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateEnvironmentCommand(output, context);
+    return de_CreateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

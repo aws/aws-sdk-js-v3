@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  PutKMSEncryptionKeyRequest,
-  PutKMSEncryptionKeyRequestFilterSensitiveLog,
-  PutKMSEncryptionKeyResult,
-  PutKMSEncryptionKeyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutKMSEncryptionKeyCommand,
-  serializeAws_json1_1PutKMSEncryptionKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutKMSEncryptionKeyRequest, PutKMSEncryptionKeyResult } from "../models/models_0";
+import { de_PutKMSEncryptionKeyCommand, se_PutKMSEncryptionKeyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutKMSEncryptionKeyCommand}.
+ */
 export interface PutKMSEncryptionKeyCommandInput extends PutKMSEncryptionKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutKMSEncryptionKeyCommand}.
+ */
 export interface PutKMSEncryptionKeyCommandOutput extends PutKMSEncryptionKeyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies the KMS key to be used to encrypt content in Amazon Fraud Detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface PutKMSEncryptionKeyCommandOutput extends PutKMSEncryptionKeyRes
  * import { FraudDetectorClient, PutKMSEncryptionKeyCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutKMSEncryptionKeyCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // PutKMSEncryptionKeyRequest
+ *   kmsEncryptionKeyArn: "STRING_VALUE", // required
+ * };
  * const command = new PutKMSEncryptionKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutKMSEncryptionKeyCommandInput - {@link PutKMSEncryptionKeyCommandInput}
+ * @returns {@link PutKMSEncryptionKeyCommandOutput}
  * @see {@link PutKMSEncryptionKeyCommandInput} for command's `input` shape.
  * @see {@link PutKMSEncryptionKeyCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An exception indicating there was a conflict during a delete operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class PutKMSEncryptionKeyCommand extends $Command<
@@ -62,6 +89,9 @@ export class PutKMSEncryptionKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutKMSEncryptionKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class PutKMSEncryptionKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutKMSEncryptionKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutKMSEncryptionKeyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class PutKMSEncryptionKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutKMSEncryptionKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutKMSEncryptionKeyCommand(input, context);
+    return se_PutKMSEncryptionKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutKMSEncryptionKeyCommandOutput> {
-    return deserializeAws_json1_1PutKMSEncryptionKeyCommand(output, context);
+    return de_PutKMSEncryptionKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

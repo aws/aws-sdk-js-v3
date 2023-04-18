@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { ListProfileObjectTypeTemplatesRequest, ListProfileObjectTypeTemplatesResponse } from "../models/models_0";
 import {
-  ListProfileObjectTypeTemplatesRequest,
-  ListProfileObjectTypeTemplatesRequestFilterSensitiveLog,
-  ListProfileObjectTypeTemplatesResponse,
-  ListProfileObjectTypeTemplatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProfileObjectTypeTemplatesCommand,
-  serializeAws_restJson1ListProfileObjectTypeTemplatesCommand,
+  de_ListProfileObjectTypeTemplatesCommand,
+  se_ListProfileObjectTypeTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListProfileObjectTypeTemplatesCommand}.
+ */
 export interface ListProfileObjectTypeTemplatesCommandInput extends ListProfileObjectTypeTemplatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListProfileObjectTypeTemplatesCommand}.
+ */
 export interface ListProfileObjectTypeTemplatesCommandOutput
   extends ListProfileObjectTypeTemplatesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the template information for object types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,35 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  * import { CustomerProfilesClient, ListProfileObjectTypeTemplatesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListProfileObjectTypeTemplatesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // ListProfileObjectTypeTemplatesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListProfileObjectTypeTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfileObjectTypeTemplatesCommandInput - {@link ListProfileObjectTypeTemplatesCommandInput}
+ * @returns {@link ListProfileObjectTypeTemplatesCommandOutput}
  * @see {@link ListProfileObjectTypeTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListProfileObjectTypeTemplatesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the maximum number of requests.</p>
+ *
  *
  */
 export class ListProfileObjectTypeTemplatesCommand extends $Command<
@@ -64,6 +92,9 @@ export class ListProfileObjectTypeTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfileObjectTypeTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class ListProfileObjectTypeTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProfileObjectTypeTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProfileObjectTypeTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +134,24 @@ export class ListProfileObjectTypeTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListProfileObjectTypeTemplatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProfileObjectTypeTemplatesCommand(input, context);
+    return se_ListProfileObjectTypeTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProfileObjectTypeTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListProfileObjectTypeTemplatesCommand(output, context);
+    return de_ListProfileObjectTypeTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

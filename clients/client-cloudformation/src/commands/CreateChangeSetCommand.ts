@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  CreateChangeSetInput,
-  CreateChangeSetInputFilterSensitiveLog,
-  CreateChangeSetOutput,
-  CreateChangeSetOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateChangeSetCommand,
-  serializeAws_queryCreateChangeSetCommand,
-} from "../protocols/Aws_query";
+import { CreateChangeSetInput, CreateChangeSetOutput } from "../models/models_0";
+import { de_CreateChangeSetCommand, se_CreateChangeSetCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateChangeSetCommand}.
+ */
 export interface CreateChangeSetCommandInput extends CreateChangeSetInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateChangeSetCommand}.
+ */
 export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a list of changes that will be applied to a stack so that you can review the
  *          changes before executing them. You can create a change set for a stack that doesn't exist
  *          or an existing stack. If you create a change set for a stack that doesn't exist, the change
@@ -56,13 +59,81 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  * import { CloudFormationClient, CreateChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // CreateChangeSetInput
+ *   StackName: "STRING_VALUE", // required
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   UsePreviousTemplate: true || false,
+ *   Parameters: [ // Parameters
+ *     { // Parameter
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Capabilities: [ // Capabilities
+ *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *   ],
+ *   ResourceTypes: [ // ResourceTypes
+ *     "STRING_VALUE",
+ *   ],
+ *   RoleARN: "STRING_VALUE",
+ *   RollbackConfiguration: { // RollbackConfiguration
+ *     RollbackTriggers: [ // RollbackTriggers
+ *       { // RollbackTrigger
+ *         Arn: "STRING_VALUE", // required
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     MonitoringTimeInMinutes: Number("int"),
+ *   },
+ *   NotificationARNs: [ // NotificationARNs
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ChangeSetName: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ChangeSetType: "CREATE" || "UPDATE" || "IMPORT",
+ *   ResourcesToImport: [ // ResourcesToImport
+ *     { // ResourceToImport
+ *       ResourceType: "STRING_VALUE", // required
+ *       LogicalResourceId: "STRING_VALUE", // required
+ *       ResourceIdentifier: { // ResourceIdentifierProperties // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   IncludeNestedStacks: true || false,
+ * };
  * const command = new CreateChangeSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChangeSetCommandInput - {@link CreateChangeSetCommandInput}
+ * @returns {@link CreateChangeSetCommandOutput}
  * @see {@link CreateChangeSetCommandInput} for command's `input` shape.
  * @see {@link CreateChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource with the name requested already exists.</p>
+ *
+ * @throws {@link InsufficientCapabilitiesException} (client fault)
+ *  <p>The template contains resources with capabilities that weren't specified in the
+ *          Capabilities parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The quota for the resource has already been reached.</p>
+ *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
+ *             quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+ *
  *
  */
 export class CreateChangeSetCommand extends $Command<
@@ -82,6 +153,9 @@ export class CreateChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +184,8 @@ export class CreateChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChangeSetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateChangeSetOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +195,18 @@ export class CreateChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateChangeSetCommand(input, context);
+    return se_CreateChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChangeSetCommandOutput> {
-    return deserializeAws_queryCreateChangeSetCommand(output, context);
+    return de_CreateChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

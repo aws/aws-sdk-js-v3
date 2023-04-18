@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  CreateDocumentClassifierRequest,
-  CreateDocumentClassifierRequestFilterSensitiveLog,
-  CreateDocumentClassifierResponse,
-  CreateDocumentClassifierResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDocumentClassifierCommand,
-  serializeAws_json1_1CreateDocumentClassifierCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDocumentClassifierRequest, CreateDocumentClassifierResponse } from "../models/models_0";
+import { de_CreateDocumentClassifierCommand, se_CreateDocumentClassifierCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateDocumentClassifierCommand}.
+ */
 export interface CreateDocumentClassifierCommandInput extends CreateDocumentClassifierRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDocumentClassifierCommand}.
+ */
 export interface CreateDocumentClassifierCommandOutput extends CreateDocumentClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new document classifier that you can use to categorize documents. To create a
  *       classifier, you provide a set of training documents that labeled with the categories that you
  *       want to use. After the classifier is trained you can use it to categorize a set of labeled
@@ -41,13 +44,97 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  * import { ComprehendClient, CreateDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // CreateDocumentClassifierRequest
+ *   DocumentClassifierName: "STRING_VALUE", // required
+ *   VersionName: "STRING_VALUE",
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   InputDataConfig: { // DocumentClassifierInputDataConfig
+ *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
+ *     S3Uri: "STRING_VALUE",
+ *     TestS3Uri: "STRING_VALUE",
+ *     LabelDelimiter: "STRING_VALUE",
+ *     AugmentedManifests: [ // DocumentClassifierAugmentedManifestsList
+ *       { // AugmentedManifestsListItem
+ *         S3Uri: "STRING_VALUE", // required
+ *         Split: "TRAIN" || "TEST",
+ *         AttributeNames: [ // AttributeNamesList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         AnnotationDataS3Uri: "STRING_VALUE",
+ *         SourceDocumentsS3Uri: "STRING_VALUE",
+ *         DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *       },
+ *     ],
+ *   },
+ *   OutputDataConfig: { // DocumentClassifierOutputDataConfig
+ *     S3Uri: "STRING_VALUE",
+ *     KmsKeyId: "STRING_VALUE",
+ *     FlywheelStatsS3Prefix: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ *   VolumeKmsKeyId: "STRING_VALUE",
+ *   VpcConfig: { // VpcConfig
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // Subnets // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Mode: "MULTI_CLASS" || "MULTI_LABEL",
+ *   ModelKmsKeyId: "STRING_VALUE",
+ *   ModelPolicy: "STRING_VALUE",
+ * };
  * const command = new CreateDocumentClassifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDocumentClassifierCommandInput - {@link CreateDocumentClassifierCommandInput}
+ * @returns {@link CreateDocumentClassifierCommandOutput}
  * @see {@link CreateDocumentClassifierCommandInput} for command's `input` shape.
  * @see {@link CreateDocumentClassifierCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link KmsKeyValidationException} (client fault)
+ *  <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
+ *       re-enter it.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource name is already in use. Use a different name and try your request
+ *       again.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The maximum number of resources per account has been exceeded. Review the resources, and
+ *       then try your request again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The request contains more tags than can be associated with a resource (50 tags per
+ *       resource). The maximum number of tags includes both existing tags and those included in your
+ *       current request. </p>
+ *
+ * @throws {@link UnsupportedLanguageException} (client fault)
+ *  <p>Amazon Comprehend can't process the language of the input text. For custom entity
+ *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
+ *       For a list of supported languages,
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
+ *     </p>
+ *
  *
  */
 export class CreateDocumentClassifierCommand extends $Command<
@@ -67,6 +154,9 @@ export class CreateDocumentClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDocumentClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +185,8 @@ export class CreateDocumentClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDocumentClassifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDocumentClassifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +196,18 @@ export class CreateDocumentClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDocumentClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDocumentClassifierCommand(input, context);
+    return se_CreateDocumentClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDocumentClassifierCommandOutput> {
-    return deserializeAws_json1_1CreateDocumentClassifierCommand(output, context);
+    return de_CreateDocumentClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

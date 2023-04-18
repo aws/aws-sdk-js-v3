@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { DeleteAssessmentTargetRequest, DeleteAssessmentTargetRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAssessmentTargetCommand,
-  serializeAws_json1_1DeleteAssessmentTargetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAssessmentTargetRequest } from "../models/models_0";
+import { de_DeleteAssessmentTargetCommand, se_DeleteAssessmentTargetCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAssessmentTargetCommand}.
+ */
 export interface DeleteAssessmentTargetCommandInput extends DeleteAssessmentTargetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAssessmentTargetCommand}.
+ */
 export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the assessment target that is specified by the ARN of the assessment
  *          target.</p>
  * @example
@@ -32,13 +40,51 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, DeleteAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DeleteAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // DeleteAssessmentTargetRequest
+ *   assessmentTargetArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAssessmentTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssessmentTargetCommandInput - {@link DeleteAssessmentTargetCommandInput}
+ * @returns {@link DeleteAssessmentTargetCommandOutput}
  * @see {@link DeleteAssessmentTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentTargetCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link AssessmentRunInProgressException} (client fault)
+ *  <p>You cannot perform a specified action if an assessment run is currently in
+ *          progress.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced an entity that does not exist. The
+ *          error code describes the entity.</p>
+ *
+ * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
+ *  <p>The serice is temporary unavailable.</p>
+ *
+ *
+ * @example Delete assessment target
+ * ```javascript
+ * // Deletes the assessment target that is specified by the ARN of the assessment target.
+ * const input = {
+ *   "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+ * };
+ * const command = new DeleteAssessmentTargetCommand(input);
+ * await client.send(command);
+ * // example id: delete-assessment-target-1481064309029
+ * ```
  *
  */
 export class DeleteAssessmentTargetCommand extends $Command<
@@ -58,6 +104,9 @@ export class DeleteAssessmentTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssessmentTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +135,8 @@ export class DeleteAssessmentTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssessmentTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +146,18 @@ export class DeleteAssessmentTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssessmentTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAssessmentTargetCommand(input, context);
+    return se_DeleteAssessmentTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssessmentTargetCommandOutput> {
-    return deserializeAws_json1_1DeleteAssessmentTargetCommand(output, context);
+    return de_DeleteAssessmentTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

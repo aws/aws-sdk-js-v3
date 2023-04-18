@@ -24,6 +24,7 @@ import {
 import { CostAndUsageReportServiceClient } from "./CostAndUsageReportServiceClient";
 
 /**
+ * @public
  * <p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete
  *         AWS Cost and Usage report definitions.</p>
  *          <p>AWS Cost and Usage reports track the monthly AWS costs and usage
@@ -45,6 +46,7 @@ import { CostAndUsageReportServiceClient } from "./CostAndUsageReportServiceClie
  */
 export class CostAndUsageReportService extends CostAndUsageReportServiceClient {
   /**
+   * @public
    * <p>Deletes the specified report.</p>
    */
   public deleteReportDefinition(
@@ -77,6 +79,7 @@ export class CostAndUsageReportService extends CostAndUsageReportServiceClient {
   }
 
   /**
+   * @public
    * <p>Lists the AWS Cost and Usage reports available to this account.</p>
    */
   public describeReportDefinitions(
@@ -109,6 +112,7 @@ export class CostAndUsageReportService extends CostAndUsageReportServiceClient {
   }
 
   /**
+   * @public
    * <p>Allows you to programatically update your report preferences.</p>
    */
   public modifyReportDefinition(
@@ -141,6 +145,7 @@ export class CostAndUsageReportService extends CostAndUsageReportServiceClient {
   }
 
   /**
+   * @public
    * <p>Creates a new report using the description that you provide.</p>
    */
   public putReportDefinition(

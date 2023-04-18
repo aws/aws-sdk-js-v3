@@ -14,22 +14,95 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { GetUnfilteredPartitionsMetadataRequest, GetUnfilteredPartitionsMetadataResponse } from "../models/models_1";
 import {
-  GetUnfilteredPartitionsMetadataRequest,
-  GetUnfilteredPartitionsMetadataRequestFilterSensitiveLog,
-  GetUnfilteredPartitionsMetadataResponse,
-  GetUnfilteredPartitionsMetadataResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetUnfilteredPartitionsMetadataCommand,
-  serializeAws_json1_1GetUnfilteredPartitionsMetadataCommand,
+  de_GetUnfilteredPartitionsMetadataCommand,
+  se_GetUnfilteredPartitionsMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetUnfilteredPartitionsMetadataCommand}.
+ */
 export interface GetUnfilteredPartitionsMetadataCommandInput extends GetUnfilteredPartitionsMetadataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUnfilteredPartitionsMetadataCommand}.
+ */
 export interface GetUnfilteredPartitionsMetadataCommandOutput
   extends GetUnfilteredPartitionsMetadataResponse,
     __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
+ *           metadata.</p>
+ *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartitions</code>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetUnfilteredPartitionsMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetUnfilteredPartitionsMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const input = { // GetUnfilteredPartitionsMetadataRequest
+ *   CatalogId: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   Expression: "STRING_VALUE",
+ *   AuditContext: { // AuditContext
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *     RequestedColumns: [ // AuditColumnNamesList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllColumnsRequested: true || false,
+ *   },
+ *   SupportedPermissionTypes: [ // PermissionTypeList // required
+ *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Segment: { // Segment
+ *     SegmentNumber: Number("int"), // required
+ *     TotalSegments: Number("int"), // required
+ *   },
+ *   MaxResults: Number("int"),
+ * };
+ * const command = new GetUnfilteredPartitionsMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param GetUnfilteredPartitionsMetadataCommandInput - {@link GetUnfilteredPartitionsMetadataCommandInput}
+ * @returns {@link GetUnfilteredPartitionsMetadataCommandOutput}
+ * @see {@link GetUnfilteredPartitionsMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetUnfilteredPartitionsMetadataCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link PermissionTypeMismatchException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
+ */
 export class GetUnfilteredPartitionsMetadataCommand extends $Command<
   GetUnfilteredPartitionsMetadataCommandInput,
   GetUnfilteredPartitionsMetadataCommandOutput,
@@ -47,6 +120,9 @@ export class GetUnfilteredPartitionsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUnfilteredPartitionsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,8 +151,8 @@ export class GetUnfilteredPartitionsMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUnfilteredPartitionsMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUnfilteredPartitionsMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,18 +162,24 @@ export class GetUnfilteredPartitionsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetUnfilteredPartitionsMetadataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUnfilteredPartitionsMetadataCommand(input, context);
+    return se_GetUnfilteredPartitionsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUnfilteredPartitionsMetadataCommandOutput> {
-    return deserializeAws_json1_1GetUnfilteredPartitionsMetadataCommand(output, context);
+    return de_GetUnfilteredPartitionsMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFirewallRulesRequest,
-  ListFirewallRulesRequestFilterSensitiveLog,
-  ListFirewallRulesResponse,
-  ListFirewallRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFirewallRulesCommand,
-  serializeAws_json1_1ListFirewallRulesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListFirewallRulesRequest, ListFirewallRulesResponse } from "../models/models_0";
+import { de_ListFirewallRulesCommand, se_ListFirewallRulesCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFirewallRulesCommand}.
+ */
 export interface ListFirewallRulesCommandInput extends ListFirewallRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFirewallRulesCommand}.
+ */
 export interface ListFirewallRulesCommandOutput extends ListFirewallRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC. </p>
  *          <p>A single call might return only a partial list of the rules. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -37,13 +40,39 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * import { Route53ResolverClient, ListFirewallRulesCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListFirewallRulesCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // ListFirewallRulesRequest
+ *   FirewallRuleGroupId: "STRING_VALUE", // required
+ *   Priority: Number("int"),
+ *   Action: "ALLOW" || "BLOCK" || "ALERT",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFirewallRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallRulesCommandInput - {@link ListFirewallRulesCommandInput}
+ * @returns {@link ListFirewallRulesCommandOutput}
  * @see {@link ListFirewallRulesCommandInput} for command's `input` shape.
  * @see {@link ListFirewallRulesCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
  *
  */
 export class ListFirewallRulesCommand extends $Command<
@@ -63,6 +92,9 @@ export class ListFirewallRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +123,8 @@ export class ListFirewallRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFirewallRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFirewallRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +134,18 @@ export class ListFirewallRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFirewallRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFirewallRulesCommand(input, context);
+    return se_ListFirewallRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallRulesCommandOutput> {
-    return deserializeAws_json1_1ListFirewallRulesCommand(output, context);
+    return de_ListFirewallRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

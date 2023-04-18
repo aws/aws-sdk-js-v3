@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeCapacityReservationsRequest,
-  DescribeCapacityReservationsRequestFilterSensitiveLog,
-  DescribeCapacityReservationsResult,
-  DescribeCapacityReservationsResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeCapacityReservationsCommand,
-  serializeAws_ec2DescribeCapacityReservationsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeCapacityReservationsRequest, DescribeCapacityReservationsResult } from "../models/models_3";
+import { de_DescribeCapacityReservationsCommand, se_DescribeCapacityReservationsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeCapacityReservationsCommand}.
+ */
 export interface DescribeCapacityReservationsCommandInput extends DescribeCapacityReservationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCapacityReservationsCommand}.
+ */
 export interface DescribeCapacityReservationsCommandOutput
   extends DescribeCapacityReservationsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the
  * 		    	Amazon Web Services Region that you're currently using.</p>
  * @example
@@ -39,13 +42,32 @@ export interface DescribeCapacityReservationsCommandOutput
  * import { EC2Client, DescribeCapacityReservationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeCapacityReservationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeCapacityReservationsRequest
+ *   CapacityReservationIds: [ // CapacityReservationIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeCapacityReservationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCapacityReservationsCommandInput - {@link DescribeCapacityReservationsCommandInput}
+ * @returns {@link DescribeCapacityReservationsCommandOutput}
  * @see {@link DescribeCapacityReservationsCommandInput} for command's `input` shape.
  * @see {@link DescribeCapacityReservationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeCapacityReservationsCommand extends $Command<
@@ -65,6 +87,9 @@ export class DescribeCapacityReservationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCapacityReservationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +118,8 @@ export class DescribeCapacityReservationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCapacityReservationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCapacityReservationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +129,21 @@ export class DescribeCapacityReservationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCapacityReservationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeCapacityReservationsCommand(input, context);
+    return se_DescribeCapacityReservationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCapacityReservationsCommandOutput> {
-    return deserializeAws_ec2DescribeCapacityReservationsCommand(output, context);
+    return de_DescribeCapacityReservationsCommand(output, context);
   }
 
   // Start section: command_body_extra

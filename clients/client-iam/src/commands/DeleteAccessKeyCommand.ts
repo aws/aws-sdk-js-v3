@@ -14,18 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteAccessKeyRequest, DeleteAccessKeyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteAccessKeyCommand,
-  serializeAws_queryDeleteAccessKeyCommand,
-} from "../protocols/Aws_query";
+import { DeleteAccessKeyRequest } from "../models/models_0";
+import { de_DeleteAccessKeyCommand, se_DeleteAccessKeyCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAccessKeyCommand}.
+ */
 export interface DeleteAccessKeyCommandInput extends DeleteAccessKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAccessKeyCommand}.
+ */
 export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the access key pair associated with the specified IAM user.</p>
- *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
+ *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
  *             the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root
  *             user credentials even if the Amazon Web Services account has no associated users.</p>
@@ -35,13 +43,44 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteAccessKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteAccessKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteAccessKeyRequest
+ *   UserName: "STRING_VALUE",
+ *   AccessKeyId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessKeyCommandInput - {@link DeleteAccessKeyCommandInput}
+ * @returns {@link DeleteAccessKeyCommandOutput}
  * @see {@link DeleteAccessKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
+ * @example To delete an access key for an IAM user
+ * ```javascript
+ * // The following command deletes one access key (access key ID and secret access key) assigned to the IAM user named Bob.
+ * const input = {
+ *   "AccessKeyId": "AKIDPMS9RO4H3FEXAMPLE",
+ *   "UserName": "Bob"
+ * };
+ * const command = new DeleteAccessKeyCommand(input);
+ * await client.send(command);
+ * // example id: 61a785a7-d30a-415a-ae18-ab9236e56871
+ * ```
  *
  */
 export class DeleteAccessKeyCommand extends $Command<
@@ -61,6 +100,9 @@ export class DeleteAccessKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +131,8 @@ export class DeleteAccessKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +142,18 @@ export class DeleteAccessKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAccessKeyCommand(input, context);
+    return se_DeleteAccessKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessKeyCommandOutput> {
-    return deserializeAws_queryDeleteAccessKeyCommand(output, context);
+    return de_DeleteAccessKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

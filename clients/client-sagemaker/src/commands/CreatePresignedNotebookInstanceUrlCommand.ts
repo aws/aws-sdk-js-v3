@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreatePresignedNotebookInstanceUrlInput, CreatePresignedNotebookInstanceUrlOutput } from "../models/models_1";
 import {
-  CreatePresignedNotebookInstanceUrlInput,
-  CreatePresignedNotebookInstanceUrlInputFilterSensitiveLog,
-  CreatePresignedNotebookInstanceUrlOutput,
-  CreatePresignedNotebookInstanceUrlOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand,
-  serializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand,
+  de_CreatePresignedNotebookInstanceUrlCommand,
+  se_CreatePresignedNotebookInstanceUrlCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreatePresignedNotebookInstanceUrlCommand}.
+ */
 export interface CreatePresignedNotebookInstanceUrlCommandInput extends CreatePresignedNotebookInstanceUrlInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePresignedNotebookInstanceUrlCommand}.
+ */
 export interface CreatePresignedNotebookInstanceUrlCommandOutput
   extends CreatePresignedNotebookInstanceUrlOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a URL that you can use to connect to the Jupyter server from a notebook
  *             instance. In the SageMaker console, when you choose <code>Open</code> next to a notebook
  *             instance, SageMaker opens a new tab showing the Jupyter server home page from the notebook
@@ -55,13 +61,20 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
  * import { SageMakerClient, CreatePresignedNotebookInstanceUrlCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreatePresignedNotebookInstanceUrlCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreatePresignedNotebookInstanceUrlInput
+ *   NotebookInstanceName: "STRING_VALUE", // required
+ *   SessionExpirationDurationInSeconds: Number("int"),
+ * };
  * const command = new CreatePresignedNotebookInstanceUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePresignedNotebookInstanceUrlCommandInput - {@link CreatePresignedNotebookInstanceUrlCommandInput}
+ * @returns {@link CreatePresignedNotebookInstanceUrlCommandOutput}
  * @see {@link CreatePresignedNotebookInstanceUrlCommandInput} for command's `input` shape.
  * @see {@link CreatePresignedNotebookInstanceUrlCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
@@ -81,6 +94,9 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePresignedNotebookInstanceUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +125,8 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePresignedNotebookInstanceUrlInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePresignedNotebookInstanceUrlOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +136,24 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreatePresignedNotebookInstanceUrlCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand(input, context);
+    return se_CreatePresignedNotebookInstanceUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePresignedNotebookInstanceUrlCommandOutput> {
-    return deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand(output, context);
+    return de_CreatePresignedNotebookInstanceUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

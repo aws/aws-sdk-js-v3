@@ -65,11 +65,13 @@ import {
 import { ElasticTranscoderClient } from "./ElasticTranscoderClient";
 
 /**
+ * @public
  * <fullname>AWS Elastic Transcoder Service</fullname>
  *         <p>The AWS Elastic Transcoder Service.</p>
  */
 export class ElasticTranscoder extends ElasticTranscoderClient {
   /**
+   * @public
    * <p>The CancelJob operation cancels an unfinished job.</p>
    *         <note>
    *             <p>You can only cancel a job that has a status of <code>Submitted</code>. To prevent a
@@ -101,6 +103,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>When you create a job, Elastic Transcoder returns JSON data that includes the values that you specified
    *             plus information about the job that is created.</p>
    *         <p>If you have specified more than one output for your jobs (for example, one output for the
@@ -131,6 +134,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The CreatePipeline operation creates a pipeline with settings that you specify.</p>
    */
   public createPipeline(
@@ -163,6 +167,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The CreatePreset operation creates a preset with settings that you specify.</p>
    *         <important>
    *             <p>Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic Transcoder requirements
@@ -205,6 +210,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The DeletePipeline operation removes a pipeline.</p>
    *         <p> You can only delete a pipeline that has never been used or that is not currently in use
    *             (doesn't contain any active jobs). If the pipeline is currently in use,
@@ -240,6 +246,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The DeletePreset operation removes a preset that you've added in an AWS region.</p>
    *         <note>
    *             <p>You can't delete the default presets that are included with Elastic Transcoder.</p>
@@ -272,6 +279,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The ListJobsByPipeline operation gets a list of the jobs currently in a pipeline.</p>
    *         <p>Elastic Transcoder returns all of the jobs currently in the specified pipeline. The response body contains
    *             one element for each job that satisfies the search criteria.</p>
@@ -306,6 +314,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The ListJobsByStatus operation gets a list of jobs that have a specified status. The response
    *             body contains one element for each job that satisfies the search criteria.</p>
    */
@@ -339,6 +348,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The ListPipelines operation gets a list of the pipelines associated with the current AWS account.</p>
    */
   public listPipelines(
@@ -371,6 +381,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that
    *             you've added in an AWS region.</p>
    */
@@ -398,6 +409,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The ReadJob operation returns detailed information about a job.</p>
    */
   public readJob(args: ReadJobCommandInput, options?: __HttpHandlerOptions): Promise<ReadJobCommandOutput>;
@@ -424,6 +436,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The ReadPipeline operation gets detailed information about a pipeline.</p>
    */
   public readPipeline(
@@ -453,6 +466,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The ReadPreset operation gets detailed information about a preset.</p>
    */
   public readPreset(args: ReadPresetCommandInput, options?: __HttpHandlerOptions): Promise<ReadPresetCommandOutput>;
@@ -479,6 +493,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * @deprecated
    *
    * <p>The TestRole operation tests the IAM role used to create the pipeline.</p>
@@ -512,6 +527,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p> Use the <code>UpdatePipeline</code> operation to update settings for a pipeline.</p>
    *         <important>
    *             <p>When you change pipeline settings, your changes take effect immediately.
@@ -549,6 +565,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.</p>
    *         <p>When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
    */
@@ -582,6 +599,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   }
 
   /**
+   * @public
    * <p>The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline
    *             stops or restarts the processing of jobs.</p>
    *         <p>Changing the pipeline status is useful if you want to cancel one or more jobs. You can't

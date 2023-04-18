@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/core-packages-documentation-generator",
-  "version": "3.208.0",
+  "version": "3.310.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -23,7 +23,7 @@
     "typedocplugin"
   ],
   "dependencies": {
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
@@ -31,10 +31,11 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
-    "typescript": "~4.6.2"
+    "typescript": "~4.9.5"
   },
-  "private": true,
+  "typedoc": {
+    "entryPoint": "src/index.ts"
+  },
   "typesVersions": {
     "<4.0": {
       "dist-types/*": [
@@ -43,7 +44,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/core-packages-documentation-generator",
   "repository": {

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateNetworkAclEntryRequest, CreateNetworkAclEntryRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateNetworkAclEntryCommand,
-  serializeAws_ec2CreateNetworkAclEntryCommand,
-} from "../protocols/Aws_ec2";
+import { CreateNetworkAclEntryRequest } from "../models/models_1";
+import { de_CreateNetworkAclEntryCommand, se_CreateNetworkAclEntryCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateNetworkAclEntryCommand}.
+ */
 export interface CreateNetworkAclEntryCommandInput extends CreateNetworkAclEntryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateNetworkAclEntryCommand}.
+ */
 export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules
  * 		        and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated
  * 		        with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of
@@ -38,13 +46,54 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * import { EC2Client, CreateNetworkAclEntryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateNetworkAclEntryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateNetworkAclEntryRequest
+ *   CidrBlock: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   Egress: true || false, // required
+ *   IcmpTypeCode: { // IcmpTypeCode
+ *     Code: Number("int"),
+ *     Type: Number("int"),
+ *   },
+ *   Ipv6CidrBlock: "STRING_VALUE",
+ *   NetworkAclId: "STRING_VALUE", // required
+ *   PortRange: { // PortRange
+ *     From: Number("int"),
+ *     To: Number("int"),
+ *   },
+ *   Protocol: "STRING_VALUE", // required
+ *   RuleAction: "allow" || "deny", // required
+ *   RuleNumber: Number("int"), // required
+ * };
  * const command = new CreateNetworkAclEntryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkAclEntryCommandInput - {@link CreateNetworkAclEntryCommandInput}
+ * @returns {@link CreateNetworkAclEntryCommandOutput}
  * @see {@link CreateNetworkAclEntryCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To create a network ACL entry
+ * ```javascript
+ * // This example creates an entry for the specified network ACL. The rule allows ingress traffic from anywhere (0.0.0.0/0) on UDP port 53 (DNS) into any associated subnet.
+ * const input = {
+ *   "CidrBlock": "0.0.0.0/0",
+ *   "Egress": false,
+ *   "NetworkAclId": "acl-5fb85d36",
+ *   "PortRange": {
+ *     "From": 53,
+ *     "To": 53
+ *   },
+ *   "Protocol": "17",
+ *   "RuleAction": "allow",
+ *   "RuleNumber": 100
+ * };
+ * const command = new CreateNetworkAclEntryCommand(input);
+ * await client.send(command);
+ * // example id: ec2-create-network-acl-entry-1
+ * ```
  *
  */
 export class CreateNetworkAclEntryCommand extends $Command<
@@ -64,6 +113,9 @@ export class CreateNetworkAclEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkAclEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +144,8 @@ export class CreateNetworkAclEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNetworkAclEntryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +155,18 @@ export class CreateNetworkAclEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkAclEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateNetworkAclEntryCommand(input, context);
+    return se_CreateNetworkAclEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkAclEntryCommandOutput> {
-    return deserializeAws_ec2CreateNetworkAclEntryCommand(output, context);
+    return de_CreateNetworkAclEntryCommand(output, context);
   }
 
   // Start section: command_body_extra

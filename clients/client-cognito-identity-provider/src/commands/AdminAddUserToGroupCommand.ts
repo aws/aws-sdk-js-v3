@@ -20,15 +20,23 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { AdminAddUserToGroupRequest, AdminAddUserToGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminAddUserToGroupCommand,
-  serializeAws_json1_1AdminAddUserToGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminAddUserToGroupCommand, se_AdminAddUserToGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link AdminAddUserToGroupCommand}.
+ */
 export interface AdminAddUserToGroupCommandInput extends AdminAddUserToGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AdminAddUserToGroupCommand}.
+ */
 export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified user to the specified group.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -37,13 +45,42 @@ export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityProviderClient, AdminAddUserToGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminAddUserToGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminAddUserToGroupRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   GroupName: "STRING_VALUE", // required
+ * };
  * const command = new AdminAddUserToGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminAddUserToGroupCommandInput - {@link AdminAddUserToGroupCommandInput}
+ * @returns {@link AdminAddUserToGroupCommandOutput}
  * @see {@link AdminAddUserToGroupCommandInput} for command's `input` shape.
  * @see {@link AdminAddUserToGroupCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
  *
  */
 export class AdminAddUserToGroupCommand extends $Command<
@@ -63,6 +100,9 @@ export class AdminAddUserToGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminAddUserToGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,7 +133,7 @@ export class AdminAddUserToGroupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminAddUserToGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +143,18 @@ export class AdminAddUserToGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminAddUserToGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminAddUserToGroupCommand(input, context);
+    return se_AdminAddUserToGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminAddUserToGroupCommandOutput> {
-    return deserializeAws_json1_1AdminAddUserToGroupCommand(output, context);
+    return de_AdminAddUserToGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

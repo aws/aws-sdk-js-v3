@@ -14,21 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { Connections, DescribeConnectionsOnInterconnectRequest } from "../models/models_0";
 import {
-  Connections,
-  ConnectionsFilterSensitiveLog,
-  DescribeConnectionsOnInterconnectRequest,
-  DescribeConnectionsOnInterconnectRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand,
-  serializeAws_json1_1DescribeConnectionsOnInterconnectCommand,
+  de_DescribeConnectionsOnInterconnectCommand,
+  se_DescribeConnectionsOnInterconnectCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeConnectionsOnInterconnectCommand}.
+ */
 export interface DescribeConnectionsOnInterconnectCommandInput extends DescribeConnectionsOnInterconnectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeConnectionsOnInterconnectCommand}.
+ */
 export interface DescribeConnectionsOnInterconnectCommandOutput extends Connections, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
@@ -42,13 +48,25 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  * import { DirectConnectClient, DescribeConnectionsOnInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeConnectionsOnInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeConnectionsOnInterconnectRequest
+ *   interconnectId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeConnectionsOnInterconnectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionsOnInterconnectCommandInput - {@link DescribeConnectionsOnInterconnectCommandInput}
+ * @returns {@link DescribeConnectionsOnInterconnectCommandOutput}
  * @see {@link DescribeConnectionsOnInterconnectCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionsOnInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DescribeConnectionsOnInterconnectCommand extends $Command<
@@ -68,6 +86,9 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionsOnInterconnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +117,8 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectionsOnInterconnectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectionsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,18 +128,24 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeConnectionsOnInterconnectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionsOnInterconnectCommand(input, context);
+    return se_DescribeConnectionsOnInterconnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConnectionsOnInterconnectCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand(output, context);
+    return de_DescribeConnectionsOnInterconnectCommand(output, context);
   }
 
   // Start section: command_body_extra

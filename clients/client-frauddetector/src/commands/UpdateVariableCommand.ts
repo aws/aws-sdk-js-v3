@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  UpdateVariableRequest,
-  UpdateVariableRequestFilterSensitiveLog,
-  UpdateVariableResult,
-  UpdateVariableResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateVariableCommand,
-  serializeAws_json1_1UpdateVariableCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateVariableRequest, UpdateVariableResult } from "../models/models_0";
+import { de_UpdateVariableCommand, se_UpdateVariableCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateVariableCommand}.
+ */
 export interface UpdateVariableCommandInput extends UpdateVariableRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateVariableCommand}.
+ */
 export interface UpdateVariableCommandOutput extends UpdateVariableResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a variable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,40 @@ export interface UpdateVariableCommandOutput extends UpdateVariableResult, __Met
  * import { FraudDetectorClient, UpdateVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // UpdateVariableRequest
+ *   name: "STRING_VALUE", // required
+ *   defaultValue: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   variableType: "STRING_VALUE",
+ * };
  * const command = new UpdateVariableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVariableCommandInput - {@link UpdateVariableCommandInput}
+ * @returns {@link UpdateVariableCommandOutput}
  * @see {@link UpdateVariableCommandInput} for command's `input` shape.
  * @see {@link UpdateVariableCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An exception indicating there was a conflict during a delete operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception indicating an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An exception indicating a throttling error.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception indicating a specified value is not allowed.</p>
+ *
  *
  */
 export class UpdateVariableCommand extends $Command<
@@ -62,6 +92,9 @@ export class UpdateVariableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVariableCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +123,8 @@ export class UpdateVariableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVariableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVariableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +134,18 @@ export class UpdateVariableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVariableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVariableCommand(input, context);
+    return se_UpdateVariableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVariableCommandOutput> {
-    return deserializeAws_json1_1UpdateVariableCommand(output, context);
+    return de_UpdateVariableCommand(output, context);
   }
 
   // Start section: command_body_extra

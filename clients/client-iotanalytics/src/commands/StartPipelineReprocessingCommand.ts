@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  StartPipelineReprocessingRequest,
-  StartPipelineReprocessingRequestFilterSensitiveLog,
-  StartPipelineReprocessingResponse,
-  StartPipelineReprocessingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartPipelineReprocessingCommand,
-  serializeAws_restJson1StartPipelineReprocessingCommand,
-} from "../protocols/Aws_restJson1";
+import { StartPipelineReprocessingRequest, StartPipelineReprocessingResponse } from "../models/models_0";
+import { de_StartPipelineReprocessingCommand, se_StartPipelineReprocessingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartPipelineReprocessingCommand}.
+ */
 export interface StartPipelineReprocessingCommandInput extends StartPipelineReprocessingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartPipelineReprocessingCommand}.
+ */
 export interface StartPipelineReprocessingCommandOutput extends StartPipelineReprocessingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the reprocessing of raw message data through the pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,44 @@ export interface StartPipelineReprocessingCommandOutput extends StartPipelineRep
  * import { IoTAnalyticsClient, StartPipelineReprocessingCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, StartPipelineReprocessingCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // StartPipelineReprocessingRequest
+ *   pipelineName: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   channelMessages: { // ChannelMessages
+ *     s3Paths: [ // S3PathChannelMessages
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new StartPipelineReprocessingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartPipelineReprocessingCommandInput - {@link StartPipelineReprocessingCommandInput}
+ * @returns {@link StartPipelineReprocessingCommandOutput}
  * @see {@link StartPipelineReprocessingCommandInput} for command's `input` shape.
  * @see {@link StartPipelineReprocessingCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>There was an internal failure.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was not valid.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>A resource with the same name already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource with the specified name could not be found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  *
  */
 export class StartPipelineReprocessingCommand extends $Command<
@@ -62,6 +96,9 @@ export class StartPipelineReprocessingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartPipelineReprocessingCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +127,8 @@ export class StartPipelineReprocessingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartPipelineReprocessingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartPipelineReprocessingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +138,21 @@ export class StartPipelineReprocessingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartPipelineReprocessingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartPipelineReprocessingCommand(input, context);
+    return se_StartPipelineReprocessingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartPipelineReprocessingCommandOutput> {
-    return deserializeAws_restJson1StartPipelineReprocessingCommand(output, context);
+    return de_StartPipelineReprocessingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DeleteTaskRequest,
-  DeleteTaskRequestFilterSensitiveLog,
-  DeleteTaskResponse,
-  DeleteTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTaskCommand,
-  serializeAws_json1_1DeleteTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTaskRequest, DeleteTaskResponse } from "../models/models_0";
+import { de_DeleteTaskCommand, se_DeleteTaskCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteTaskCommand}.
+ */
 export interface DeleteTaskCommandInput extends DeleteTaskRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteTaskCommand}.
+ */
 export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an DataSync task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  * import { DataSyncClient, DeleteTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DeleteTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DeleteTaskRequest
+ *   TaskArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTaskCommandInput - {@link DeleteTaskCommandInput}
+ * @returns {@link DeleteTaskCommandOutput}
  * @see {@link DeleteTaskCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class DeleteTaskCommand extends $Command<
@@ -62,6 +77,9 @@ export class DeleteTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +106,8 @@ export class DeleteTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +117,18 @@ export class DeleteTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTaskCommand(input, context);
+    return se_DeleteTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTaskCommandOutput> {
-    return deserializeAws_json1_1DeleteTaskCommand(output, context);
+    return de_DeleteTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

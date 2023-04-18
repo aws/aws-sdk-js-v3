@@ -6,12 +6,11 @@ import {
   ListScheduledQueriesCommandInput,
   ListScheduledQueriesCommandOutput,
 } from "../commands/ListScheduledQueriesCommand";
-import { TimestreamQuery } from "../TimestreamQuery";
 import { TimestreamQueryClient } from "../TimestreamQueryClient";
 import { TimestreamQueryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TimestreamQueryClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListScheduledQueriesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: TimestreamQuery,
-  input: ListScheduledQueriesCommandInput,
-  ...args: any
-): Promise<ListScheduledQueriesCommandOutput> => {
-  // @ts-ignore
-  return await client.listScheduledQueries(input, ...args);
-};
 export async function* paginateListScheduledQueries(
   config: TimestreamQueryPaginationConfiguration,
   input: ListScheduledQueriesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListScheduledQueries(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof TimestreamQuery) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof TimestreamQueryClient) {
+    if (config.client instanceof TimestreamQueryClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected TimestreamQuery | TimestreamQueryClient");

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteKeyPairRequest,
-  DeleteKeyPairRequestFilterSensitiveLog,
-  DeleteKeyPairResult,
-  DeleteKeyPairResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteKeyPairCommand,
-  serializeAws_json1_1DeleteKeyPairCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteKeyPairRequest, DeleteKeyPairResult } from "../models/models_0";
+import { de_DeleteKeyPairCommand, se_DeleteKeyPairCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteKeyPairCommand}.
+ */
 export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteKeyPairCommand}.
+ */
 export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified key pair by removing the public key from Amazon Lightsail.</p>
  *          <p>You can delete key pairs that were created using the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html">ImportKeyPair</a> and
  *         <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html">CreateKeyPair</a> actions, as well as the Lightsail default key pair. A new default
@@ -43,13 +46,50 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  * import { LightsailClient, DeleteKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteKeyPairRequest
+ *   keyPairName: "STRING_VALUE", // required
+ *   expectedFingerprint: "STRING_VALUE",
+ * };
  * const command = new DeleteKeyPairCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteKeyPairCommandInput - {@link DeleteKeyPairCommandInput}
+ * @returns {@link DeleteKeyPairCommandOutput}
  * @see {@link DeleteKeyPairCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyPairCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link AccountSetupInProgressException} (client fault)
+ *  <p>Lightsail throws this exception when an account is still in the setup in progress
+ *       state.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class DeleteKeyPairCommand extends $Command<
@@ -69,6 +109,9 @@ export class DeleteKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +138,8 @@ export class DeleteKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteKeyPairRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteKeyPairResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +149,18 @@ export class DeleteKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteKeyPairCommand(input, context);
+    return se_DeleteKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyPairCommandOutput> {
-    return deserializeAws_json1_1DeleteKeyPairCommand(output, context);
+    return de_DeleteKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

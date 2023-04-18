@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeHostReservationOfferingsRequest, DescribeHostReservationOfferingsResult } from "../models/models_3";
 import {
-  DescribeHostReservationOfferingsRequest,
-  DescribeHostReservationOfferingsRequestFilterSensitiveLog,
-  DescribeHostReservationOfferingsResult,
-  DescribeHostReservationOfferingsResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeHostReservationOfferingsCommand,
-  serializeAws_ec2DescribeHostReservationOfferingsCommand,
+  de_DescribeHostReservationOfferingsCommand,
+  se_DescribeHostReservationOfferingsCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeHostReservationOfferingsCommand}.
+ */
 export interface DescribeHostReservationOfferingsCommandInput extends DescribeHostReservationOfferingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeHostReservationOfferingsCommand}.
+ */
 export interface DescribeHostReservationOfferingsCommandOutput
   extends DescribeHostReservationOfferingsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Dedicated Host reservations that are available to purchase.</p>
  *          <p>The results describe all of the Dedicated Host reservation offerings, including
  *             offerings that might not match the instance family and Region of your Dedicated Hosts.
@@ -44,13 +50,31 @@ export interface DescribeHostReservationOfferingsCommandOutput
  * import { EC2Client, DescribeHostReservationOfferingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeHostReservationOfferingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeHostReservationOfferingsRequest
+ *   Filter: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxDuration: Number("int"),
+ *   MaxResults: Number("int"),
+ *   MinDuration: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   OfferingId: "STRING_VALUE",
+ * };
  * const command = new DescribeHostReservationOfferingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHostReservationOfferingsCommandInput - {@link DescribeHostReservationOfferingsCommandInput}
+ * @returns {@link DescribeHostReservationOfferingsCommandOutput}
  * @see {@link DescribeHostReservationOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeHostReservationOfferingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DescribeHostReservationOfferingsCommand extends $Command<
@@ -70,6 +94,9 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHostReservationOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +125,8 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHostReservationOfferingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHostReservationOfferingsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +136,24 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeHostReservationOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeHostReservationOfferingsCommand(input, context);
+    return se_DescribeHostReservationOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHostReservationOfferingsCommandOutput> {
-    return deserializeAws_ec2DescribeHostReservationOfferingsCommand(output, context);
+    return de_DescribeHostReservationOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

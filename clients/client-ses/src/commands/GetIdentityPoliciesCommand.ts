@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetIdentityPoliciesRequest,
-  GetIdentityPoliciesRequestFilterSensitiveLog,
-  GetIdentityPoliciesResponse,
-  GetIdentityPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetIdentityPoliciesCommand,
-  serializeAws_queryGetIdentityPoliciesCommand,
-} from "../protocols/Aws_query";
+import { GetIdentityPoliciesRequest, GetIdentityPoliciesResponse } from "../models/models_0";
+import { de_GetIdentityPoliciesCommand, se_GetIdentityPoliciesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIdentityPoliciesCommand}.
+ */
 export interface GetIdentityPoliciesCommandInput extends GetIdentityPoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIdentityPoliciesCommand}.
+ */
 export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the requested sending authorization policies for the given identity (an email
  *             address or a domain). The policies are returned as a map of policy names to policy
  *             contents. You can retrieve a maximum of 20 policies at a time.</p>
@@ -47,13 +50,43 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  * import { SESClient, GetIdentityPoliciesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityPoliciesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // GetIdentityPoliciesRequest
+ *   Identity: "STRING_VALUE", // required
+ *   PolicyNames: [ // PolicyNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetIdentityPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityPoliciesCommandInput - {@link GetIdentityPoliciesCommandInput}
+ * @returns {@link GetIdentityPoliciesCommandOutput}
  * @see {@link GetIdentityPoliciesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example GetIdentityPolicies
+ * ```javascript
+ * // The following example returns a sending authorization policy for an identity:
+ * const input = {
+ *   "Identity": "example.com",
+ *   "PolicyNames": [
+ *     "MyPolicy"
+ *   ]
+ * };
+ * const command = new GetIdentityPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Policies": {
+ *     "MyPolicy": "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Sid\":\"stmt1469123904194\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::123456789012:root\"},\"Action\":[\"ses:SendEmail\",\"ses:SendRawEmail\"],\"Resource\":\"arn:aws:ses:us-east-1:EXAMPLE65304:identity/example.com\"}]}"
+ *   }
+ * }
+ * *\/
+ * // example id: getidentitypolicies-1469123949351
+ * ```
  *
  */
 export class GetIdentityPoliciesCommand extends $Command<
@@ -73,6 +106,9 @@ export class GetIdentityPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +137,8 @@ export class GetIdentityPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +148,18 @@ export class GetIdentityPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIdentityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityPoliciesCommand(input, context);
+    return se_GetIdentityPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdentityPoliciesCommandOutput> {
-    return deserializeAws_queryGetIdentityPoliciesCommand(output, context);
+    return de_GetIdentityPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

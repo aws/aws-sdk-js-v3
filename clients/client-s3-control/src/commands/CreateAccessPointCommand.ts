@@ -14,22 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAccessPointRequest,
-  CreateAccessPointRequestFilterSensitiveLog,
-  CreateAccessPointResult,
-  CreateAccessPointResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateAccessPointCommand,
-  serializeAws_restXmlCreateAccessPointCommand,
-} from "../protocols/Aws_restXml";
+import { CreateAccessPointRequest, CreateAccessPointResult } from "../models/models_0";
+import { de_CreateAccessPointCommand, se_CreateAccessPointCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAccessPointCommand}.
+ */
 export interface CreateAccessPointCommandInput extends CreateAccessPointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAccessPointCommand}.
+ */
 export interface CreateAccessPointCommandOutput extends CreateAccessPointResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an access point and associates it with the specified bucket. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing
  *             Data Access with Amazon S3 Access Points</a> in the
@@ -67,13 +70,31 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  * import { S3ControlClient, CreateAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // CreateAccessPointRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Bucket: "STRING_VALUE", // required
+ *   VpcConfiguration: { // VpcConfiguration
+ *     VpcId: "STRING_VALUE", // required
+ *   },
+ *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
+ *     BlockPublicAcls: true || false,
+ *     IgnorePublicAcls: true || false,
+ *     BlockPublicPolicy: true || false,
+ *     RestrictPublicBuckets: true || false,
+ *   },
+ *   BucketAccountId: "STRING_VALUE",
+ * };
  * const command = new CreateAccessPointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessPointCommandInput - {@link CreateAccessPointCommandInput}
+ * @returns {@link CreateAccessPointCommandOutput}
  * @see {@link CreateAccessPointCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class CreateAccessPointCommand extends $Command<
@@ -97,6 +118,9 @@ export class CreateAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +150,8 @@ export class CreateAccessPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessPointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccessPointResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +161,18 @@ export class CreateAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateAccessPointCommand(input, context);
+    return se_CreateAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPointCommandOutput> {
-    return deserializeAws_restXmlCreateAccessPointCommand(output, context);
+    return de_CreateAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

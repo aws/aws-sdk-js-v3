@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  GetGameSessionLogUrlInput,
-  GetGameSessionLogUrlInputFilterSensitiveLog,
-  GetGameSessionLogUrlOutput,
-  GetGameSessionLogUrlOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetGameSessionLogUrlCommand,
-  serializeAws_json1_1GetGameSessionLogUrlCommand,
-} from "../protocols/Aws_json1_1";
+import { GetGameSessionLogUrlInput, GetGameSessionLogUrlOutput } from "../models/models_0";
+import { de_GetGameSessionLogUrlCommand, se_GetGameSessionLogUrlCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetGameSessionLogUrlCommand}.
+ */
 export interface GetGameSessionLogUrlCommandInput extends GetGameSessionLogUrlInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetGameSessionLogUrlCommand}.
+ */
 export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the location of stored game session logs for a specified game session. When
  *             a game session is terminated, GameLift automatically stores the logs in Amazon S3 and
  *             retains them for 14 days. Use this URL to download the logs.</p>
@@ -46,13 +49,33 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  * import { GameLiftClient, GetGameSessionLogUrlCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, GetGameSessionLogUrlCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // GetGameSessionLogUrlInput
+ *   GameSessionId: "STRING_VALUE", // required
+ * };
  * const command = new GetGameSessionLogUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGameSessionLogUrlCommandInput - {@link GetGameSessionLogUrlCommandInput}
+ * @returns {@link GetGameSessionLogUrlCommandOutput}
  * @see {@link GetGameSessionLogUrlCommandInput} for command's `input` shape.
  * @see {@link GetGameSessionLogUrlCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class GetGameSessionLogUrlCommand extends $Command<
@@ -72,6 +95,9 @@ export class GetGameSessionLogUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGameSessionLogUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +126,8 @@ export class GetGameSessionLogUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGameSessionLogUrlInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGameSessionLogUrlOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +137,18 @@ export class GetGameSessionLogUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGameSessionLogUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetGameSessionLogUrlCommand(input, context);
+    return se_GetGameSessionLogUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGameSessionLogUrlCommandOutput> {
-    return deserializeAws_json1_1GetGameSessionLogUrlCommand(output, context);
+    return de_GetGameSessionLogUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

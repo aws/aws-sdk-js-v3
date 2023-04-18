@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFirewallConfigsRequest,
-  ListFirewallConfigsRequestFilterSensitiveLog,
-  ListFirewallConfigsResponse,
-  ListFirewallConfigsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFirewallConfigsCommand,
-  serializeAws_json1_1ListFirewallConfigsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListFirewallConfigsRequest, ListFirewallConfigsResponse } from "../models/models_0";
+import { de_ListFirewallConfigsCommand, se_ListFirewallConfigsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListFirewallConfigsCommand}.
+ */
 export interface ListFirewallConfigsCommandInput extends ListFirewallConfigsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFirewallConfigsCommand}.
+ */
 export interface ListFirewallConfigsCommandOutput extends ListFirewallConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the firewall configurations that you have defined. DNS Firewall uses the configurations to manage firewall behavior for your VPCs. </p>
  *          <p>A single call might return only a partial list of the configurations. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -37,13 +40,33 @@ export interface ListFirewallConfigsCommandOutput extends ListFirewallConfigsRes
  * import { Route53ResolverClient, ListFirewallConfigsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListFirewallConfigsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // ListFirewallConfigsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFirewallConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallConfigsCommandInput - {@link ListFirewallConfigsCommandInput}
+ * @returns {@link ListFirewallConfigsCommandOutput}
  * @see {@link ListFirewallConfigsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
  *
  */
 export class ListFirewallConfigsCommand extends $Command<
@@ -63,6 +86,9 @@ export class ListFirewallConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +117,8 @@ export class ListFirewallConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFirewallConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFirewallConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +128,18 @@ export class ListFirewallConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFirewallConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFirewallConfigsCommand(input, context);
+    return se_ListFirewallConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallConfigsCommandOutput> {
-    return deserializeAws_json1_1ListFirewallConfigsCommand(output, context);
+    return de_ListFirewallConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

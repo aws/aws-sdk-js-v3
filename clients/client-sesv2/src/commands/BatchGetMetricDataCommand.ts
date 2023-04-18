@@ -13,24 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchGetMetricDataRequest,
-  BatchGetMetricDataRequestFilterSensitiveLog,
-  BatchGetMetricDataResponse,
-  BatchGetMetricDataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetMetricDataCommand,
-  serializeAws_restJson1BatchGetMetricDataCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchGetMetricDataRequest, BatchGetMetricDataResponse } from "../models/models_0";
+import { de_BatchGetMetricDataCommand, se_BatchGetMetricDataCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetMetricDataCommand}.
+ */
 export interface BatchGetMetricDataCommandInput extends BatchGetMetricDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetMetricDataCommand}.
+ */
 export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves batches of metric data collected based on your sending activity.</p>
- *         <p>You can execute this operation no more than 16 times per second,
+ *          <p>You can execute this operation no more than 16 times per second,
  *             and with at most 160 queries from the batches per second (cumulative).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +41,42 @@ export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataRespo
  * import { SESv2Client, BatchGetMetricDataCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, BatchGetMetricDataCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // BatchGetMetricDataRequest
+ *   Queries: [ // BatchGetMetricDataQueries // required
+ *     { // BatchGetMetricDataQuery
+ *       Id: "STRING_VALUE", // required
+ *       Namespace: "VDM", // required
+ *       Metric: "SEND" || "COMPLAINT" || "PERMANENT_BOUNCE" || "TRANSIENT_BOUNCE" || "OPEN" || "CLICK" || "DELIVERY" || "DELIVERY_OPEN" || "DELIVERY_CLICK" || "DELIVERY_COMPLAINT", // required
+ *       Dimensions: { // Dimensions
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       StartDate: new Date("TIMESTAMP"), // required
+ *       EndDate: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ * };
  * const command = new BatchGetMetricDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetMetricDataCommandInput - {@link BatchGetMetricDataCommandInput}
+ * @returns {@link BatchGetMetricDataCommandOutput}
  * @see {@link BatchGetMetricDataCommandInput} for command's `input` shape.
  * @see {@link BatchGetMetricDataCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>The request couldn't be processed because an error occurred with the Amazon SES API v2.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
  *
  */
 export class BatchGetMetricDataCommand extends $Command<
@@ -64,6 +96,9 @@ export class BatchGetMetricDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetMetricDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +127,8 @@ export class BatchGetMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetMetricDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetMetricDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +138,18 @@ export class BatchGetMetricDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetMetricDataCommand(input, context);
+    return se_BatchGetMetricDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetMetricDataCommandOutput> {
-    return deserializeAws_restJson1BatchGetMetricDataCommand(output, context);
+    return de_BatchGetMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

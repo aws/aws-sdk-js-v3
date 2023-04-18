@@ -15,22 +15,31 @@ import {
 
 import {
   GetIdentityMailFromDomainAttributesRequest,
-  GetIdentityMailFromDomainAttributesRequestFilterSensitiveLog,
   GetIdentityMailFromDomainAttributesResponse,
-  GetIdentityMailFromDomainAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGetIdentityMailFromDomainAttributesCommand,
-  serializeAws_queryGetIdentityMailFromDomainAttributesCommand,
+  de_GetIdentityMailFromDomainAttributesCommand,
+  se_GetIdentityMailFromDomainAttributesCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIdentityMailFromDomainAttributesCommand}.
+ */
 export interface GetIdentityMailFromDomainAttributesCommandInput extends GetIdentityMailFromDomainAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIdentityMailFromDomainAttributesCommand}.
+ */
 export interface GetIdentityMailFromDomainAttributesCommandOutput
   extends GetIdentityMailFromDomainAttributesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :
  *             domains).</p>
  *         <p>This operation is throttled at one request per second and can only get custom MAIL
@@ -41,13 +50,45 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * import { SESClient, GetIdentityMailFromDomainAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityMailFromDomainAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // GetIdentityMailFromDomainAttributesRequest
+ *   Identities: [ // IdentityList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetIdentityMailFromDomainAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdentityMailFromDomainAttributesCommandInput - {@link GetIdentityMailFromDomainAttributesCommandInput}
+ * @returns {@link GetIdentityMailFromDomainAttributesCommandOutput}
  * @see {@link GetIdentityMailFromDomainAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityMailFromDomainAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example GetIdentityMailFromDomainAttributes
+ * ```javascript
+ * // The following example returns the custom MAIL FROM attributes for an identity:
+ * const input = {
+ *   "Identities": [
+ *     "example.com"
+ *   ]
+ * };
+ * const command = new GetIdentityMailFromDomainAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "MailFromDomainAttributes": {
+ *     "example.com": {
+ *       "BehaviorOnMXFailure": "UseDefaultValue",
+ *       "MailFromDomain": "bounces.example.com",
+ *       "MailFromDomainStatus": "Success"
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: getidentitymailfromdomainattributes-1469123114860
+ * ```
  *
  */
 export class GetIdentityMailFromDomainAttributesCommand extends $Command<
@@ -67,6 +108,9 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityMailFromDomainAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +139,8 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityMailFromDomainAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityMailFromDomainAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +150,24 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetIdentityMailFromDomainAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityMailFromDomainAttributesCommand(input, context);
+    return se_GetIdentityMailFromDomainAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityMailFromDomainAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityMailFromDomainAttributesCommand(output, context);
+    return de_GetIdentityMailFromDomainAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

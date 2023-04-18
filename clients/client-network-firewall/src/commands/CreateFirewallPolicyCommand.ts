@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateFirewallPolicyRequest,
-  CreateFirewallPolicyRequestFilterSensitiveLog,
-  CreateFirewallPolicyResponse,
-  CreateFirewallPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateFirewallPolicyRequest, CreateFirewallPolicyResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0CreateFirewallPolicyCommand,
-  serializeAws_json1_0CreateFirewallPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateFirewallPolicyCommand, se_CreateFirewallPolicyCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateFirewallPolicyCommand}.
+ */
 export interface CreateFirewallPolicyCommandInput extends CreateFirewallPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateFirewallPolicyCommand}.
+ */
 export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the firewall policy for the firewall according to the specifications. </p>
  *          <p>An Network Firewall firewall policy defines the behavior of a firewall, in a collection of
  *          stateless and stateful rule groups and other settings. You can use one firewall policy for
@@ -39,13 +42,106 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  * import { NetworkFirewallClient, CreateFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, CreateFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // CreateFirewallPolicyRequest
+ *   FirewallPolicyName: "STRING_VALUE", // required
+ *   FirewallPolicy: { // FirewallPolicy
+ *     StatelessRuleGroupReferences: [ // StatelessRuleGroupReferences
+ *       { // StatelessRuleGroupReference
+ *         ResourceArn: "STRING_VALUE", // required
+ *         Priority: Number("int"), // required
+ *       },
+ *     ],
+ *     StatelessDefaultActions: [ // StatelessActions // required
+ *       "STRING_VALUE",
+ *     ],
+ *     StatelessFragmentDefaultActions: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     StatelessCustomActions: [ // CustomActions
+ *       { // CustomAction
+ *         ActionName: "STRING_VALUE", // required
+ *         ActionDefinition: { // ActionDefinition
+ *           PublishMetricAction: { // PublishMetricAction
+ *             Dimensions: [ // Dimensions // required
+ *               { // Dimension
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     StatefulRuleGroupReferences: [ // StatefulRuleGroupReferences
+ *       { // StatefulRuleGroupReference
+ *         ResourceArn: "STRING_VALUE", // required
+ *         Priority: Number("int"),
+ *         Override: { // StatefulRuleGroupOverride
+ *           Action: "DROP_TO_ALERT",
+ *         },
+ *       },
+ *     ],
+ *     StatefulDefaultActions: [ // StatefulActions
+ *       "STRING_VALUE",
+ *     ],
+ *     StatefulEngineOptions: { // StatefulEngineOptions
+ *       RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
+ *       StreamExceptionPolicy: "DROP" || "CONTINUE",
+ *     },
+ *     TLSInspectionConfigurationArn: "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     KeyId: "STRING_VALUE",
+ *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *   },
+ * };
  * const command = new CreateFirewallPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFirewallPolicyCommandInput - {@link CreateFirewallPolicyCommandInput}
+ * @returns {@link CreateFirewallPolicyCommandOutput}
  * @see {@link CreateFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
+ *
+ * @throws {@link InsufficientCapacityException} (server fault)
+ *  <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your
+ *          request later. </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *          system problem. Retry your request. </p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The operation failed because of a problem with your request. Examples include: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified an unsupported parameter name or value.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a property with a value that isn't among the available
+ *                types.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                that isn't valid in the context of the request.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Unable to process the request due to throttling limitations.</p>
+ *
  *
  */
 export class CreateFirewallPolicyCommand extends $Command<
@@ -65,6 +161,9 @@ export class CreateFirewallPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFirewallPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +192,8 @@ export class CreateFirewallPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFirewallPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFirewallPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +203,18 @@ export class CreateFirewallPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFirewallPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateFirewallPolicyCommand(input, context);
+    return se_CreateFirewallPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFirewallPolicyCommandOutput> {
-    return deserializeAws_json1_0CreateFirewallPolicyCommand(output, context);
+    return de_CreateFirewallPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

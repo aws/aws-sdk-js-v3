@@ -7,11 +7,21 @@ import {
   CreateExtendedSourceServerCommandOutput,
 } from "./commands/CreateExtendedSourceServerCommand";
 import {
+  CreateLaunchConfigurationTemplateCommand,
+  CreateLaunchConfigurationTemplateCommandInput,
+  CreateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/CreateLaunchConfigurationTemplateCommand";
+import {
   CreateReplicationConfigurationTemplateCommand,
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
 import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import {
+  DeleteLaunchConfigurationTemplateCommand,
+  DeleteLaunchConfigurationTemplateCommandInput,
+  DeleteLaunchConfigurationTemplateCommandOutput,
+} from "./commands/DeleteLaunchConfigurationTemplateCommand";
 import {
   DeleteRecoveryInstanceCommand,
   DeleteRecoveryInstanceCommandInput,
@@ -37,6 +47,11 @@ import {
   DescribeJobsCommandInput,
   DescribeJobsCommandOutput,
 } from "./commands/DescribeJobsCommand";
+import {
+  DescribeLaunchConfigurationTemplatesCommand,
+  DescribeLaunchConfigurationTemplatesCommandInput,
+  DescribeLaunchConfigurationTemplatesCommandOutput,
+} from "./commands/DescribeLaunchConfigurationTemplatesCommand";
 import {
   DescribeRecoveryInstancesCommand,
   DescribeRecoveryInstancesCommandInput,
@@ -159,6 +174,11 @@ import {
   UpdateLaunchConfigurationCommandOutput,
 } from "./commands/UpdateLaunchConfigurationCommand";
 import {
+  UpdateLaunchConfigurationTemplateCommand,
+  UpdateLaunchConfigurationTemplateCommandInput,
+  UpdateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/UpdateLaunchConfigurationTemplateCommand";
+import {
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
@@ -171,10 +191,12 @@ import {
 import { DrsClient } from "./DrsClient";
 
 /**
+ * @public
  * <p>AWS Elastic Disaster Recovery Service.</p>
  */
 export class Drs extends DrsClient {
   /**
+   * @public
    * <p>Create an extended source server in the target Account based on the source server in staging account.</p>
    */
   public createExtendedSourceServer(
@@ -207,6 +229,40 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
+   * <p>Creates a new Launch Configuration Template.</p>
+   */
+  public createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLaunchConfigurationTemplateCommandOutput>;
+  public createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
+  ): Promise<CreateLaunchConfigurationTemplateCommandOutput> | void {
+    const command = new CreateLaunchConfigurationTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Creates a new ReplicationConfigurationTemplate.</p>
    */
   public createReplicationConfigurationTemplate(
@@ -241,6 +297,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a single Job by ID.</p>
    */
   public deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
@@ -267,6 +324,40 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
+   * <p>Deletes a single Launch Configuration Template by ID.</p>
+   */
+  public deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLaunchConfigurationTemplateCommandOutput>;
+  public deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
+  ): Promise<DeleteLaunchConfigurationTemplateCommandOutput> | void {
+    const command = new DeleteLaunchConfigurationTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Deletes a single Recovery Instance by ID. This deletes the Recovery Instance resource from Elastic Disaster Recovery. The Recovery Instance must be disconnected first in order to delete it.</p>
    */
   public deleteRecoveryInstance(
@@ -299,6 +390,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a single Replication Configuration Template by ID</p>
    */
   public deleteReplicationConfigurationTemplate(
@@ -333,6 +425,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Deletes a single Source Server by ID. The Source Server must be disconnected first.</p>
    */
   public deleteSourceServer(
@@ -365,6 +458,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Retrieves a detailed Job log with pagination.</p>
    */
   public describeJobLogItems(
@@ -397,6 +491,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of Jobs. Use the JobsID and fromDate and toDate filters to limit which jobs are returned. The response is sorted by creationDataTime - latest date first. Jobs are created by the StartRecovery, TerminateRecoveryInstances and StartFailbackLaunch APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are APIs available only to *Support* and only used in response to relevant support tickets.</p>
    */
   public describeJobs(
@@ -426,6 +521,40 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
+   * <p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>
+   */
+  public describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLaunchConfigurationTemplatesCommandOutput>;
+  public describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    cb: (err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void
+  ): void;
+  public describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void
+  ): void;
+  public describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void
+  ): Promise<DescribeLaunchConfigurationTemplatesCommandOutput> | void {
+    const command = new DescribeLaunchConfigurationTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Lists all Recovery Instances or multiple Recovery Instances by ID.</p>
    */
   public describeRecoveryInstances(
@@ -458,6 +587,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Lists all Recovery Snapshots for a single Source Server.</p>
    */
   public describeRecoverySnapshots(
@@ -490,6 +620,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>
    */
   public describeReplicationConfigurationTemplates(
@@ -524,6 +655,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Lists all Source Servers or multiple Source Servers filtered by ID.</p>
    */
   public describeSourceServers(
@@ -556,6 +688,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Disconnect a Recovery Instance from Elastic Disaster Recovery. Data replication is stopped immediately. All AWS resources created by Elastic Disaster Recovery for enabling the replication of the Recovery Instance will be terminated / deleted within 90 minutes. If the agent on the Recovery Instance has not been prevented from communicating with the Elastic Disaster Recovery service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the Recovery Instance will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
    */
   public disconnectRecoveryInstance(
@@ -588,6 +721,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Disconnects a specific Source Server from Elastic Disaster Recovery. Data replication is stopped immediately. All AWS resources created by Elastic Disaster Recovery for enabling the replication of the Source Server will be terminated / deleted within 90 minutes. You cannot disconnect a Source Server if it has a Recovery Instance. If the agent on the Source Server has not been prevented from communicating with the Elastic Disaster Recovery service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
    */
   public disconnectSourceServer(
@@ -620,6 +754,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Lists all Failback ReplicationConfigurations, filtered by Recovery Instance ID.</p>
    */
   public getFailbackReplicationConfiguration(
@@ -652,6 +787,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Gets a LaunchConfiguration, filtered by Source Server IDs.</p>
    */
   public getLaunchConfiguration(
@@ -684,6 +820,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Gets a ReplicationConfiguration, filtered by Source Server ID.</p>
    */
   public getReplicationConfiguration(
@@ -716,6 +853,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Initialize Elastic Disaster Recovery.</p>
    */
   public initializeService(
@@ -748,6 +886,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of source servers on a staging account that are extensible, which means that:
    *             a. The source server is not already extended into this Account.
    *             b. The source server on the Account we’re reading from is not an extension of another source server.
@@ -783,6 +922,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Returns an array of staging accounts for existing extended source servers.</p>
    */
   public listStagingAccounts(
@@ -815,6 +955,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>List all tags for your Elastic Disaster Recovery resources.</p>
    */
   public listTagsForResource(
@@ -847,7 +988,12 @@ export class Drs extends DrsClient {
   }
 
   /**
-   * <p>Causes the data replication initiation sequence to begin immediately upon next Handshake for the specified Source Server ID, regardless of when the previous initiation started. This command will work only if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.</p>
+   * @public
+   * @deprecated
+   *
+   * <p>WARNING: RetryDataReplication is deprecated.
+   *               Causes the data replication initiation sequence to begin immediately upon next Handshake for the specified Source Server ID, regardless of when the previous initiation started. This command will work only if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.
+   *         </p>
    */
   public retryDataReplication(
     args: RetryDataReplicationCommandInput,
@@ -879,6 +1025,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Start replication to origin / target region - applies only to protected instances that originated in EC2.
    *             For recovery instances on target region - starts replication back to origin region.
    *             For failback instances on origin region - starts replication to target region to re-protect them.
@@ -914,6 +1061,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Initiates a Job for launching the machine that is being failed back to from the specified Recovery Instance. This will run conversion on the failback client and will reboot your machine, thus completing the failback process.</p>
    */
   public startFailbackLaunch(
@@ -946,6 +1094,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Launches Recovery Instances for the specified Source Servers. For each Source Server you may choose a point in time snapshot to launch from, or use an on demand snapshot.</p>
    */
   public startRecovery(
@@ -978,6 +1127,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Starts replication for a stopped Source Server. This action would make the Source Server protected again and restart billing for it.</p>
    */
   public startReplication(
@@ -1010,6 +1160,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Stops the failback process for a specified Recovery Instance. This changes the Failback State of the Recovery Instance back to FAILBACK_NOT_STARTED.</p>
    */
   public stopFailback(
@@ -1039,6 +1190,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Stops replication for a Source Server. This action would make the Source Server unprotected, delete its existing snapshots and stop billing for it.</p>
    */
   public stopReplication(
@@ -1071,6 +1223,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Adds or overwrites only the specified tags for the specified Elastic Disaster Recovery resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1097,6 +1250,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Initiates a Job for terminating the EC2 resources associated with the specified Recovery Instances, and then will delete the Recovery Instances from the Elastic Disaster Recovery service.</p>
    */
   public terminateRecoveryInstances(
@@ -1129,6 +1283,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Deletes the specified set of tags from the specified set of Elastic Disaster Recovery resources.</p>
    */
   public untagResource(
@@ -1161,6 +1316,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Allows you to update the failback replication configuration of a Recovery Instance by ID.</p>
    */
   public updateFailbackReplicationConfiguration(
@@ -1195,6 +1351,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Updates a LaunchConfiguration by Source Server ID.</p>
    */
   public updateLaunchConfiguration(
@@ -1227,6 +1384,40 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
+   * <p>Updates an existing Launch Configuration Template by ID.</p>
+   */
+  public updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLaunchConfigurationTemplateCommandOutput>;
+  public updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  public updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
+  ): Promise<UpdateLaunchConfigurationTemplateCommandOutput> | void {
+    const command = new UpdateLaunchConfigurationTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Allows you to update a ReplicationConfiguration by Source Server ID.</p>
    */
   public updateReplicationConfiguration(
@@ -1259,6 +1450,7 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * @public
    * <p>Updates a ReplicationConfigurationTemplate by ID.</p>
    */
   public updateReplicationConfigurationTemplate(

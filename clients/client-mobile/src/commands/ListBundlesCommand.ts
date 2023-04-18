@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import {
-  ListBundlesRequest,
-  ListBundlesRequestFilterSensitiveLog,
-  ListBundlesResult,
-  ListBundlesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBundlesCommand,
-  serializeAws_restJson1ListBundlesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBundlesRequest, ListBundlesResult } from "../models/models_0";
+import { de_ListBundlesCommand, se_ListBundlesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListBundlesCommand}.
+ */
 export interface ListBundlesCommandInput extends ListBundlesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListBundlesCommand}.
+ */
 export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             List all available bundles.
  *         </p>
@@ -38,13 +41,49 @@ export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataB
  * import { MobileClient, ListBundlesCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, ListBundlesCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = { // ListBundlesRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBundlesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBundlesCommandInput - {@link ListBundlesCommandInput}
+ * @returns {@link ListBundlesCommandOutput}
  * @see {@link ListBundlesCommandInput} for command's `input` shape.
  * @see {@link ListBundlesCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>
+ *             The request cannot be processed because some parameter is not valid or the project
+ *             state prevents the operation from being performed.
+ *         </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>
+ *             The service has encountered an unexpected error condition which prevents it from
+ *             servicing the request.
+ *         </p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>
+ *             The service is temporarily unavailable. The request should be retried after some
+ *             time delay.
+ *         </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>
+ *             Too many requests have been received for this AWS account in too short a time. The
+ *             request should be retried after some time delay.
+ *         </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>
+ *             Credentials of the caller are insufficient to authorize the request.
+ *         </p>
+ *
  *
  */
 export class ListBundlesCommand extends $Command<
@@ -64,6 +103,9 @@ export class ListBundlesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBundlesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +132,8 @@ export class ListBundlesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBundlesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBundlesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +143,18 @@ export class ListBundlesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBundlesCommand(input, context);
+    return se_ListBundlesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBundlesCommandOutput> {
-    return deserializeAws_restJson1ListBundlesCommand(output, context);
+    return de_ListBundlesCommand(output, context);
   }
 
   // Start section: command_body_extra

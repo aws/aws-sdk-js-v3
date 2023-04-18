@@ -6,12 +6,11 @@ import {
   ListEndpointsByPlatformApplicationCommandInput,
   ListEndpointsByPlatformApplicationCommandOutput,
 } from "../commands/ListEndpointsByPlatformApplicationCommand";
-import { SNS } from "../SNS";
 import { SNSClient } from "../SNSClient";
 import { SNSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SNSClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEndpointsByPlatformApplicationCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SNS,
-  input: ListEndpointsByPlatformApplicationCommandInput,
-  ...args: any
-): Promise<ListEndpointsByPlatformApplicationCommandOutput> => {
-  // @ts-ignore
-  return await client.listEndpointsByPlatformApplication(input, ...args);
-};
 export async function* paginateListEndpointsByPlatformApplication(
   config: SNSPaginationConfiguration,
   input: ListEndpointsByPlatformApplicationCommandInput,
@@ -43,9 +34,7 @@ export async function* paginateListEndpointsByPlatformApplication(
   let page: ListEndpointsByPlatformApplicationCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof SNS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SNSClient) {
+    if (config.client instanceof SNSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SNS | SNSClient");

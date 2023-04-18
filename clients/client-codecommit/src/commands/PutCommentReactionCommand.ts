@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { PutCommentReactionInput, PutCommentReactionInputFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutCommentReactionCommand,
-  serializeAws_json1_1PutCommentReactionCommand,
-} from "../protocols/Aws_json1_1";
+import { PutCommentReactionInput } from "../models/models_1";
+import { de_PutCommentReactionCommand, se_PutCommentReactionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutCommentReactionCommand}.
+ */
 export interface PutCommentReactionCommandInput extends PutCommentReactionInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutCommentReactionCommand}.
+ */
 export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or
  *         update a reaction for yourself. You cannot add, modify, or delete a reaction for another user.</p>
  * @example
@@ -32,13 +40,42 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * import { CodeCommitClient, PutCommentReactionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PutCommentReactionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // PutCommentReactionInput
+ *   commentId: "STRING_VALUE", // required
+ *   reactionValue: "STRING_VALUE", // required
+ * };
  * const command = new PutCommentReactionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutCommentReactionCommandInput - {@link PutCommentReactionCommandInput}
+ * @returns {@link PutCommentReactionCommandOutput}
  * @see {@link PutCommentReactionCommandInput} for command's `input` shape.
  * @see {@link PutCommentReactionCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link CommentDeletedException} (client fault)
+ *  <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ *
+ * @throws {@link CommentDoesNotExistException} (client fault)
+ *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
+ *             then try again.</p>
+ *
+ * @throws {@link CommentIdRequiredException} (client fault)
+ *  <p>The comment ID is missing or null. A comment ID is required.</p>
+ *
+ * @throws {@link InvalidCommentIdException} (client fault)
+ *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ *
+ * @throws {@link InvalidReactionValueException} (client fault)
+ *  <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit User Guide</a>.</p>
+ *
+ * @throws {@link ReactionLimitExceededException} (client fault)
+ *  <p>The number of reactions has been exceeded. Reactions are limited to one reaction per user for each individual comment ID.</p>
+ *
+ * @throws {@link ReactionValueRequiredException} (client fault)
+ *  <p>A reaction value is required. </p>
+ *
  *
  */
 export class PutCommentReactionCommand extends $Command<
@@ -58,6 +95,9 @@ export class PutCommentReactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutCommentReactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +126,8 @@ export class PutCommentReactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutCommentReactionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +137,18 @@ export class PutCommentReactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutCommentReactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutCommentReactionCommand(input, context);
+    return se_PutCommentReactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCommentReactionCommandOutput> {
-    return deserializeAws_json1_1PutCommentReactionCommand(output, context);
+    return de_PutCommentReactionCommand(output, context);
   }
 
   // Start section: command_body_extra

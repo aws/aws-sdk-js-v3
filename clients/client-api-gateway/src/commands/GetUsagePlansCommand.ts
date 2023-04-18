@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetUsagePlansRequest,
-  GetUsagePlansRequestFilterSensitiveLog,
-  UsagePlans,
-  UsagePlansFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUsagePlansCommand,
-  serializeAws_restJson1GetUsagePlansCommand,
-} from "../protocols/Aws_restJson1";
+import { GetUsagePlansRequest, UsagePlans } from "../models/models_0";
+import { de_GetUsagePlansCommand, se_GetUsagePlansCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetUsagePlansCommand}.
+ */
 export interface GetUsagePlansCommandInput extends GetUsagePlansRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUsagePlansCommand}.
+ */
 export interface GetUsagePlansCommandOutput extends UsagePlans, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets all the usage plans of the caller's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface GetUsagePlansCommandOutput extends UsagePlans, __MetadataBearer
  * import { APIGatewayClient, GetUsagePlansCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetUsagePlansCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetUsagePlansRequest
+ *   position: "STRING_VALUE",
+ *   keyId: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new GetUsagePlansCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUsagePlansCommandInput - {@link GetUsagePlansCommandInput}
+ * @returns {@link GetUsagePlansCommandOutput}
  * @see {@link GetUsagePlansCommandInput} for command's `input` shape.
  * @see {@link GetUsagePlansCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
  *
  */
 export class GetUsagePlansCommand extends $Command<
@@ -62,6 +85,9 @@ export class GetUsagePlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUsagePlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +114,8 @@ export class GetUsagePlansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUsagePlansRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UsagePlansFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +125,18 @@ export class GetUsagePlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUsagePlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUsagePlansCommand(input, context);
+    return se_GetUsagePlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsagePlansCommandOutput> {
-    return deserializeAws_restJson1GetUsagePlansCommand(output, context);
+    return de_GetUsagePlansCommand(output, context);
   }
 
   // Start section: command_body_extra

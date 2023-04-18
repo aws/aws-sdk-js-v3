@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteApiMappingRequest, DeleteApiMappingRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteApiMappingCommand,
-  serializeAws_restJson1DeleteApiMappingCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteApiMappingRequest } from "../models/models_0";
+import { de_DeleteApiMappingCommand, se_DeleteApiMappingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteApiMappingCommand}.
+ */
 export interface DeleteApiMappingCommandInput extends DeleteApiMappingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteApiMappingCommand}.
+ */
 export interface DeleteApiMappingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an API mapping.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,29 @@ export interface DeleteApiMappingCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteApiMappingCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteApiMappingCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // DeleteApiMappingRequest
+ *   ApiMappingId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApiMappingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApiMappingCommandInput - {@link DeleteApiMappingCommandInput}
+ * @returns {@link DeleteApiMappingCommandOutput}
  * @see {@link DeleteApiMappingCommandInput} for command's `input` shape.
  * @see {@link DeleteApiMappingCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
  *
  */
 export class DeleteApiMappingCommand extends $Command<
@@ -57,6 +81,9 @@ export class DeleteApiMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApiMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +112,8 @@ export class DeleteApiMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApiMappingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +123,18 @@ export class DeleteApiMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApiMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApiMappingCommand(input, context);
+    return se_DeleteApiMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApiMappingCommandOutput> {
-    return deserializeAws_restJson1DeleteApiMappingCommand(output, context);
+    return de_DeleteApiMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

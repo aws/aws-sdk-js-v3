@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  BatchStartRequest,
-  BatchStartRequestFilterSensitiveLog,
-  BatchStartResponse,
-  BatchStartResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchStartCommand,
-  serializeAws_restJson1BatchStartCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchStartRequest, BatchStartResponse } from "../models/models_1";
+import { de_BatchStartCommand, se_BatchStartCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchStartCommand}.
+ */
 export interface BatchStartCommandInput extends BatchStartRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchStartCommand}.
+ */
 export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Starts existing resources
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,48 @@ export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataB
  * import { MediaLiveClient, BatchStartCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, BatchStartCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // BatchStartRequest
+ *   ChannelIds: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   MultiplexIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchStartCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchStartCommandInput - {@link BatchStartCommandInput}
+ * @returns {@link BatchStartCommandOutput}
  * @see {@link BatchStartCommandInput} for command's `input` shape.
  * @see {@link BatchStartCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  Placeholder documentation for BadGatewayException
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Placeholder documentation for ConflictException
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  Placeholder documentation for ForbiddenException
+ *
+ * @throws {@link GatewayTimeoutException} (server fault)
+ *  Placeholder documentation for GatewayTimeoutException
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  Placeholder documentation for InternalServerErrorException
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  Placeholder documentation for TooManyRequestsException
+ *
  *
  */
 export class BatchStartCommand extends $Command<
@@ -62,6 +100,9 @@ export class BatchStartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchStartCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +129,8 @@ export class BatchStartCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchStartRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchStartResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +140,18 @@ export class BatchStartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchStartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchStartCommand(input, context);
+    return se_BatchStartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchStartCommandOutput> {
-    return deserializeAws_restJson1BatchStartCommand(output, context);
+    return de_BatchStartCommand(output, context);
   }
 
   // Start section: command_body_extra

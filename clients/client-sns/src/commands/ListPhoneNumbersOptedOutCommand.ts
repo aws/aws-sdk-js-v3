@@ -13,25 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPhoneNumbersOptedOutInput,
-  ListPhoneNumbersOptedOutInputFilterSensitiveLog,
-  ListPhoneNumbersOptedOutResponse,
-  ListPhoneNumbersOptedOutResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListPhoneNumbersOptedOutCommand,
-  serializeAws_queryListPhoneNumbersOptedOutCommand,
-} from "../protocols/Aws_query";
+import { ListPhoneNumbersOptedOutInput, ListPhoneNumbersOptedOutResponse } from "../models/models_0";
+import { de_ListPhoneNumbersOptedOutCommand, se_ListPhoneNumbersOptedOutCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPhoneNumbersOptedOutCommand}.
+ */
 export interface ListPhoneNumbersOptedOutCommandInput extends ListPhoneNumbersOptedOutInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListPhoneNumbersOptedOutCommand}.
+ */
 export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersOptedOutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS
  *             messages to them.</p>
- *         <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
+ *          <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
  *             returns up to 100 phone numbers. If additional phone numbers are available after the
  *             first page of results, then a <code>NextToken</code> string will be returned. To receive
  *             the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the
@@ -43,13 +46,32 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  * import { SNSClient, ListPhoneNumbersOptedOutCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListPhoneNumbersOptedOutCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // ListPhoneNumbersOptedOutInput
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListPhoneNumbersOptedOutCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPhoneNumbersOptedOutCommandInput - {@link ListPhoneNumbersOptedOutCommandInput}
+ * @returns {@link ListPhoneNumbersOptedOutCommandOutput}
  * @see {@link ListPhoneNumbersOptedOutCommandInput} for command's `input` shape.
  * @see {@link ListPhoneNumbersOptedOutCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+ *
  *
  */
 export class ListPhoneNumbersOptedOutCommand extends $Command<
@@ -69,6 +91,9 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPhoneNumbersOptedOutCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +122,8 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPhoneNumbersOptedOutInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPhoneNumbersOptedOutResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +133,18 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPhoneNumbersOptedOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPhoneNumbersOptedOutCommand(input, context);
+    return se_ListPhoneNumbersOptedOutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPhoneNumbersOptedOutCommandOutput> {
-    return deserializeAws_queryListPhoneNumbersOptedOutCommand(output, context);
+    return de_ListPhoneNumbersOptedOutCommand(output, context);
   }
 
   // Start section: command_body_extra

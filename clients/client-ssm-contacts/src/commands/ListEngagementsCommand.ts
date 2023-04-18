@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListEngagementsRequest,
-  ListEngagementsRequestFilterSensitiveLog,
-  ListEngagementsResult,
-  ListEngagementsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEngagementsCommand,
-  serializeAws_json1_1ListEngagementsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEngagementsRequest, ListEngagementsResult } from "../models/models_0";
+import { de_ListEngagementsCommand, se_ListEngagementsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEngagementsCommand}.
+ */
 export interface ListEngagementsCommandInput extends ListEngagementsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEngagementsCommand}.
+ */
 export interface ListEngagementsCommandOutput extends ListEngagementsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all engagements that have happened in an incident.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  * import { SSMContactsClient, ListEngagementsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListEngagementsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // ListEngagementsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   IncidentId: "STRING_VALUE",
+ *   TimeRangeValue: { // TimeRange
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new ListEngagementsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEngagementsCommandInput - {@link ListEngagementsCommandInput}
+ * @returns {@link ListEngagementsCommandOutput}
  * @see {@link ListEngagementsCommandInput} for command's `input` shape.
  * @see {@link ListEngagementsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error occurred while processing the request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
+ *
  *
  */
 export class ListEngagementsCommand extends $Command<
@@ -62,6 +90,9 @@ export class ListEngagementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEngagementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class ListEngagementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEngagementsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEngagementsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class ListEngagementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEngagementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEngagementsCommand(input, context);
+    return se_ListEngagementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEngagementsCommandOutput> {
-    return deserializeAws_json1_1ListEngagementsCommand(output, context);
+    return de_ListEngagementsCommand(output, context);
   }
 
   // Start section: command_body_extra

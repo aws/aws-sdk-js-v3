@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  RetryBuildBatchInput,
-  RetryBuildBatchInputFilterSensitiveLog,
-  RetryBuildBatchOutput,
-  RetryBuildBatchOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RetryBuildBatchCommand,
-  serializeAws_json1_1RetryBuildBatchCommand,
-} from "../protocols/Aws_json1_1";
+import { RetryBuildBatchInput, RetryBuildBatchOutput } from "../models/models_0";
+import { de_RetryBuildBatchCommand, se_RetryBuildBatchCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RetryBuildBatchCommand}.
+ */
 export interface RetryBuildBatchCommandInput extends RetryBuildBatchInput {}
+/**
+ * @public
+ *
+ * The output of {@link RetryBuildBatchCommand}.
+ */
 export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restarts a failed batch build. Only batch builds that have failed can be retried.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,27 @@ export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __M
  * import { CodeBuildClient, RetryBuildBatchCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, RetryBuildBatchCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // RetryBuildBatchInput
+ *   id: "STRING_VALUE",
+ *   idempotencyToken: "STRING_VALUE",
+ *   retryType: "STRING_VALUE",
+ * };
  * const command = new RetryBuildBatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RetryBuildBatchCommandInput - {@link RetryBuildBatchCommandInput}
+ * @returns {@link RetryBuildBatchCommandOutput}
  * @see {@link RetryBuildBatchCommandInput} for command's `input` shape.
  * @see {@link RetryBuildBatchCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
  *
  */
 export class RetryBuildBatchCommand extends $Command<
@@ -62,6 +79,9 @@ export class RetryBuildBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetryBuildBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +110,8 @@ export class RetryBuildBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetryBuildBatchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RetryBuildBatchOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +121,18 @@ export class RetryBuildBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetryBuildBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RetryBuildBatchCommand(input, context);
+    return se_RetryBuildBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryBuildBatchCommandOutput> {
-    return deserializeAws_json1_1RetryBuildBatchCommand(output, context);
+    return de_RetryBuildBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

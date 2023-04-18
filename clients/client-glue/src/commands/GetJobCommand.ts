@@ -14,14 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetJobRequest, GetJobRequestFilterSensitiveLog } from "../models/models_1";
+import { GetJobRequest } from "../models/models_1";
 import { GetJobResponse, GetJobResponseFilterSensitiveLog } from "../models/models_2";
-import { deserializeAws_json1_1GetJobCommand, serializeAws_json1_1GetJobCommand } from "../protocols/Aws_json1_1";
+import { de_GetJobCommand, se_GetJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetJobCommand}.
+ */
 export interface GetJobCommandInput extends GetJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetJobCommand}.
+ */
 export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an existing job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +40,31 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * import { GlueClient, GetJobCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetJobCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetJobRequest
+ *   JobName: "STRING_VALUE", // required
+ * };
  * const command = new GetJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobCommandInput - {@link GetJobCommandInput}
+ * @returns {@link GetJobCommandOutput}
  * @see {@link GetJobCommandInput} for command's `input` shape.
  * @see {@link GetJobCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, GlueClientResolvedConfig> {
@@ -51,6 +80,9 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,7 +109,7 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -88,12 +120,18 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobCommand(input, context);
+    return se_GetJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobCommandOutput> {
-    return deserializeAws_json1_1GetJobCommand(output, context);
+    return de_GetJobCommand(output, context);
   }
 
   // Start section: command_body_extra

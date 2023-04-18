@@ -13,38 +13,57 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteClusterParameterGroupMessage,
-  DeleteClusterParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteClusterParameterGroupCommand,
-  serializeAws_queryDeleteClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteClusterParameterGroupMessage } from "../models/models_0";
+import { de_DeleteClusterParameterGroupCommand, se_DeleteClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteClusterParameterGroupCommand}.
+ */
 export interface DeleteClusterParameterGroupCommandInput extends DeleteClusterParameterGroupMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteClusterParameterGroupCommand}.
+ */
 export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified Amazon Redshift parameter group.</p>
- *         <note>
+ *          <note>
  *             <p>You cannot delete a parameter group if it is associated with a
  *                 cluster.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DeleteClusterParameterGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteClusterParameterGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteClusterParameterGroupMessage
+ *   ParameterGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterParameterGroupCommandInput - {@link DeleteClusterParameterGroupCommandInput}
+ * @returns {@link DeleteClusterParameterGroupCommandOutput}
  * @see {@link DeleteClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * @throws {@link InvalidClusterParameterGroupStateFault} (client fault)
+ *  <p>The cluster parameter group action can not be completed because another task is in
+ *             progress that involves the parameter group. Wait a few moments and try the operation
+ *             again.</p>
+ *
  *
  */
 export class DeleteClusterParameterGroupCommand extends $Command<
@@ -64,6 +83,9 @@ export class DeleteClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +114,8 @@ export class DeleteClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +125,21 @@ export class DeleteClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteClusterParameterGroupCommand(input, context);
+    return se_DeleteClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteClusterParameterGroupCommand(output, context);
+    return de_DeleteClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-flexible-checksums",
-  "version": "3.226.0",
+  "version": "3.310.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -20,18 +20,20 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-crypto/crc32": "2.0.0",
-    "@aws-crypto/crc32c": "2.0.0",
+    "@aws-crypto/crc32": "3.0.0",
+    "@aws-crypto/crc32c": "3.0.0",
     "@aws-sdk/is-array-buffer": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
-    "tslib": "^2.3.1"
+    "@aws-sdk/util-utf8": "*",
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.6.2"
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -44,12 +46,15 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-flexible-checksums",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/middleware-flexible-checksums"
+  },
+  "typedoc": {
+    "entryPoint": "src/index.ts"
   }
 }

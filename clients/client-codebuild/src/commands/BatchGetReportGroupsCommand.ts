@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  BatchGetReportGroupsInput,
-  BatchGetReportGroupsInputFilterSensitiveLog,
-  BatchGetReportGroupsOutput,
-  BatchGetReportGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetReportGroupsCommand,
-  serializeAws_json1_1BatchGetReportGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetReportGroupsInput, BatchGetReportGroupsOutput } from "../models/models_0";
+import { de_BatchGetReportGroupsCommand, se_BatchGetReportGroupsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchGetReportGroupsCommand}.
+ */
 export interface BatchGetReportGroupsCommandInput extends BatchGetReportGroupsInput {}
+/**
+ * @public
+ *
+ * The output of {@link BatchGetReportGroupsCommand}.
+ */
 export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns an array of report groups.
  *     </p>
@@ -38,13 +41,24 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  * import { CodeBuildClient, BatchGetReportGroupsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchGetReportGroupsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // BatchGetReportGroupsInput
+ *   reportGroupArns: [ // ReportGroupArns // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetReportGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetReportGroupsCommandInput - {@link BatchGetReportGroupsCommandInput}
+ * @returns {@link BatchGetReportGroupsCommandOutput}
  * @see {@link BatchGetReportGroupsCommandInput} for command's `input` shape.
  * @see {@link BatchGetReportGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
  *
  */
 export class BatchGetReportGroupsCommand extends $Command<
@@ -64,6 +78,9 @@ export class BatchGetReportGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetReportGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +109,8 @@ export class BatchGetReportGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetReportGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetReportGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +120,18 @@ export class BatchGetReportGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetReportGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetReportGroupsCommand(input, context);
+    return se_BatchGetReportGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetReportGroupsCommandOutput> {
-    return deserializeAws_json1_1BatchGetReportGroupsCommand(output, context);
+    return de_BatchGetReportGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

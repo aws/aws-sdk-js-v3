@@ -57,12 +57,14 @@ import {
 import { TimestreamQueryClient } from "./TimestreamQueryClient";
 
 /**
+ * @public
  * <fullname>Amazon Timestream Query
  *         </fullname>
  *         <p></p>
  */
 export class TimestreamQuery extends TimestreamQueryClient {
   /**
+   * @public
    * <p> Cancels a query that has been issued. Cancellation is provided only if the query has
    *             not completed running before the cancellation request was issued. Because cancellation
    *             is an idempotent operation, subsequent cancellation requests will return a
@@ -94,6 +96,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p> Create a scheduled query that will be run on your behalf at the configured schedule.
    *             Timestream assumes the execution role provided as part of the
    *                 <code>ScheduledQueryExecutionRoleArn</code> parameter to run the query. You can use
@@ -130,6 +133,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p>Deletes a given scheduled query. This is an irreversible operation. </p>
    */
   public deleteScheduledQuery(
@@ -162,6 +166,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p>DescribeEndpoints returns a list of available endpoints to make Timestream
    *             API calls against. This API is available through both Write and Query.</p>
    *         <p>Because the Timestream SDKs are designed to transparently work with the
@@ -214,6 +219,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p>Provides detailed information about a scheduled query.</p>
    */
   public describeScheduledQuery(
@@ -246,6 +252,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p> You can use this API to run a scheduled query manually. </p>
    */
   public executeScheduledQuery(
@@ -278,6 +285,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p>Gets a list of all scheduled queries in the caller's Amazon account and Region. <code>ListScheduledQueries</code> is eventually consistent. </p>
    */
   public listScheduledQueries(
@@ -310,6 +318,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p>List all tags on a Timestream query resource.</p>
    */
   public listTagsForResource(
@@ -342,6 +351,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p>A synchronous operation that allows you to submit a query with parameters to be stored
    *             by Timestream for later running. Timestream only supports using this operation with the
    *                 <code>PrepareQueryRequest$ValidateOnly</code> set to <code>true</code>. </p>
@@ -373,6 +383,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p>
    *             <code>Query</code> is a synchronous operation that enables you to run a query against
    *             your Amazon Timestream data. <code>Query</code> will time out after 60 seconds.
@@ -429,6 +440,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p>Associate a set of tags with a Timestream resource. You can then activate these
    *             user-defined tags so that they appear on the Billing and Cost Management console for
    *             cost allocation tracking. </p>
@@ -457,6 +469,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p>Removes the association of tags from a Timestream query resource.</p>
    */
   public untagResource(
@@ -489,6 +502,7 @@ export class TimestreamQuery extends TimestreamQueryClient {
   }
 
   /**
+   * @public
    * <p>Update a scheduled query.</p>
    */
   public updateScheduledQuery(

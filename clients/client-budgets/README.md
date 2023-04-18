@@ -245,3 +245,190 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateBudget
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/createbudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createbudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createbudgetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateBudgetAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/createbudgetactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createbudgetactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createbudgetactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateNotification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/createnotificationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createnotificationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createnotificationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateSubscriber
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/createsubscribercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createsubscribercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createsubscribercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBudget
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/deletebudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletebudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletebudgetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBudgetAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/deletebudgetactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletebudgetactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletebudgetactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteNotification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/deletenotificationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletenotificationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletenotificationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSubscriber
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/deletesubscribercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletesubscribercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletesubscribercommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBudget
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBudgetAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBudgetActionHistories
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetactionhistoriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionhistoriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionhistoriescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBudgetActionsForAccount
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetactionsforaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionsforaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionsforaccountcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBudgetActionsForBudget
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetactionsforbudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionsforbudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionsforbudgetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBudgetNotificationsForAccount
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetnotificationsforaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetnotificationsforaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetnotificationsforaccountcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBudgetPerformanceHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetperformancehistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetperformancehistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetperformancehistorycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBudgets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeNotificationsForBudget
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describenotificationsforbudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describenotificationsforbudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describenotificationsforbudgetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSubscribersForNotification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describesubscribersfornotificationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describesubscribersfornotificationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describesubscribersfornotificationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ExecuteBudgetAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/executebudgetactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/executebudgetactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/executebudgetactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBudget
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/updatebudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatebudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatebudgetcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBudgetAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/updatebudgetactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatebudgetactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatebudgetactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateNotification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/updatenotificationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatenotificationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatenotificationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSubscriber
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/updatesubscribercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatesubscribercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatesubscribercommandoutput.html)
+
+</details>

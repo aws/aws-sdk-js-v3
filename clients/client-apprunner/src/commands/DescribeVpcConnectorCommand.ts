@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  DescribeVpcConnectorRequest,
-  DescribeVpcConnectorRequestFilterSensitiveLog,
-  DescribeVpcConnectorResponse,
-  DescribeVpcConnectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeVpcConnectorCommand,
-  serializeAws_json1_0DescribeVpcConnectorCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeVpcConnectorRequest, DescribeVpcConnectorResponse } from "../models/models_0";
+import { de_DescribeVpcConnectorCommand, se_DescribeVpcConnectorCommand } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeVpcConnectorCommand}.
+ */
 export interface DescribeVpcConnectorCommandInput extends DescribeVpcConnectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVpcConnectorCommand}.
+ */
 export interface DescribeVpcConnectorCommandOutput extends DescribeVpcConnectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a description of an App Runner VPC connector resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface DescribeVpcConnectorCommandOutput extends DescribeVpcConnectorR
  * import { AppRunnerClient, DescribeVpcConnectorCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DescribeVpcConnectorCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // DescribeVpcConnectorRequest
+ *   VpcConnectorArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeVpcConnectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcConnectorCommandInput - {@link DescribeVpcConnectorCommandInput}
+ * @returns {@link DescribeVpcConnectorCommandOutput}
  * @see {@link DescribeVpcConnectorCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+ *
  *
  */
 export class DescribeVpcConnectorCommand extends $Command<
@@ -62,6 +80,9 @@ export class DescribeVpcConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DescribeVpcConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class DescribeVpcConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeVpcConnectorCommand(input, context);
+    return se_DescribeVpcConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcConnectorCommandOutput> {
-    return deserializeAws_json1_0DescribeVpcConnectorCommand(output, context);
+    return de_DescribeVpcConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

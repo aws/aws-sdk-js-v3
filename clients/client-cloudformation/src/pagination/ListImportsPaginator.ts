@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { CloudFormation } from "../CloudFormation";
 import { CloudFormationClient } from "../CloudFormationClient";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
 import { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudFormationClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListImportsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudFormation,
-  input: ListImportsCommandInput,
-  ...args: any
-): Promise<ListImportsCommandOutput> => {
-  // @ts-ignore
-  return await client.listImports(input, ...args);
-};
 export async function* paginateListImports(
   config: CloudFormationPaginationConfiguration,
   input: ListImportsCommandInput,
@@ -39,9 +30,7 @@ export async function* paginateListImports(
   let page: ListImportsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof CloudFormation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudFormationClient) {
+    if (config.client instanceof CloudFormationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");

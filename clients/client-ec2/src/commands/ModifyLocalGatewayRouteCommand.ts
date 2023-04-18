@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyLocalGatewayRouteRequest,
-  ModifyLocalGatewayRouteRequestFilterSensitiveLog,
-  ModifyLocalGatewayRouteResult,
-  ModifyLocalGatewayRouteResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyLocalGatewayRouteCommand,
-  serializeAws_ec2ModifyLocalGatewayRouteCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyLocalGatewayRouteRequest, ModifyLocalGatewayRouteResult } from "../models/models_6";
+import { de_ModifyLocalGatewayRouteCommand, se_ModifyLocalGatewayRouteCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyLocalGatewayRouteCommand}.
+ */
 export interface ModifyLocalGatewayRouteCommandInput extends ModifyLocalGatewayRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyLocalGatewayRouteCommand}.
+ */
 export interface ModifyLocalGatewayRouteCommandOutput extends ModifyLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified local gateway route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,24 @@ export interface ModifyLocalGatewayRouteCommandOutput extends ModifyLocalGateway
  * import { EC2Client, ModifyLocalGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyLocalGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyLocalGatewayRouteRequest
+ *   DestinationCidrBlock: "STRING_VALUE",
+ *   LocalGatewayRouteTableId: "STRING_VALUE", // required
+ *   LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
+ *   NetworkInterfaceId: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   DestinationPrefixListId: "STRING_VALUE",
+ * };
  * const command = new ModifyLocalGatewayRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyLocalGatewayRouteCommandInput - {@link ModifyLocalGatewayRouteCommandInput}
+ * @returns {@link ModifyLocalGatewayRouteCommandOutput}
  * @see {@link ModifyLocalGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link ModifyLocalGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class ModifyLocalGatewayRouteCommand extends $Command<
@@ -62,6 +76,9 @@ export class ModifyLocalGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyLocalGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +107,8 @@ export class ModifyLocalGatewayRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyLocalGatewayRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyLocalGatewayRouteResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +118,18 @@ export class ModifyLocalGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyLocalGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyLocalGatewayRouteCommand(input, context);
+    return se_ModifyLocalGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyLocalGatewayRouteCommandOutput> {
-    return deserializeAws_ec2ModifyLocalGatewayRouteCommand(output, context);
+    return de_ModifyLocalGatewayRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

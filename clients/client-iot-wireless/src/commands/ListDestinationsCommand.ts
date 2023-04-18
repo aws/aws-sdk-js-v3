@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  ListDestinationsRequest,
-  ListDestinationsRequestFilterSensitiveLog,
-  ListDestinationsResponse,
-  ListDestinationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDestinationsCommand,
-  serializeAws_restJson1ListDestinationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDestinationsRequest, ListDestinationsResponse } from "../models/models_0";
+import { de_ListDestinationsCommand, se_ListDestinationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDestinationsCommand}.
+ */
 export interface ListDestinationsCommandInput extends ListDestinationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDestinationsCommand}.
+ */
 export interface ListDestinationsCommandOutput extends ListDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the destinations registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,32 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  * import { IoTWirelessClient, ListDestinationsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListDestinationsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListDestinationsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDestinationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDestinationsCommandInput - {@link ListDestinationsCommandInput}
+ * @returns {@link ListDestinationsCommandOutput}
  * @see {@link ListDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListDestinationsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class ListDestinationsCommand extends $Command<
@@ -62,6 +84,9 @@ export class ListDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +115,8 @@ export class ListDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDestinationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDestinationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +126,18 @@ export class ListDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDestinationsCommand(input, context);
+    return se_ListDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDestinationsCommandOutput> {
-    return deserializeAws_restJson1ListDestinationsCommand(output, context);
+    return de_ListDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

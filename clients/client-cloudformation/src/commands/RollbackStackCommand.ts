@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  RollbackStackInput,
-  RollbackStackInputFilterSensitiveLog,
-  RollbackStackOutput,
-  RollbackStackOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryRollbackStackCommand,
-  serializeAws_queryRollbackStackCommand,
-} from "../protocols/Aws_query";
+import { RollbackStackInput, RollbackStackOutput } from "../models/models_0";
+import { de_RollbackStackCommand, se_RollbackStackCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RollbackStackCommand}.
+ */
 export interface RollbackStackCommandInput extends RollbackStackInput {}
+/**
+ * @public
+ *
+ * The output of {@link RollbackStackCommand}.
+ */
 export interface RollbackStackCommandOutput extends RollbackStackOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When specifying <code>RollbackStack</code>, you preserve the state of previously
  *          provisioned resources when an operation fails. You can check the status of the stack
  *          through the <a>DescribeStacks</a> operation.</p>
@@ -70,13 +73,24 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * import { CloudFormationClient, RollbackStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, RollbackStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // RollbackStackInput
+ *   StackName: "STRING_VALUE", // required
+ *   RoleARN: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new RollbackStackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RollbackStackCommandInput - {@link RollbackStackCommandInput}
+ * @returns {@link RollbackStackCommandOutput}
  * @see {@link RollbackStackCommandInput} for command's `input` shape.
  * @see {@link RollbackStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link TokenAlreadyExistsException} (client fault)
+ *  <p>A client request token already exists.</p>
+ *
  *
  */
 export class RollbackStackCommand extends $Command<
@@ -96,6 +110,9 @@ export class RollbackStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RollbackStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +139,8 @@ export class RollbackStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RollbackStackInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RollbackStackOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +150,18 @@ export class RollbackStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RollbackStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRollbackStackCommand(input, context);
+    return se_RollbackStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RollbackStackCommandOutput> {
-    return deserializeAws_queryRollbackStackCommand(output, context);
+    return de_RollbackStackCommand(output, context);
   }
 
   // Start section: command_body_extra

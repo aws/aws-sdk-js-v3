@@ -13,17 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteMonitoringScheduleRequest, DeleteMonitoringScheduleRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteMonitoringScheduleCommand,
-  serializeAws_json1_1DeleteMonitoringScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteMonitoringScheduleRequest } from "../models/models_1";
+import { de_DeleteMonitoringScheduleCommand, se_DeleteMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteMonitoringScheduleCommand}.
+ */
 export interface DeleteMonitoringScheduleCommandInput extends DeleteMonitoringScheduleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMonitoringScheduleCommand}.
+ */
 export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped.
  *          This does not delete the job execution history of the monitoring schedule. </p>
  * @example
@@ -32,13 +40,22 @@ export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer 
  * import { SageMakerClient, DeleteMonitoringScheduleCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteMonitoringScheduleCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteMonitoringScheduleRequest
+ *   MonitoringScheduleName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMonitoringScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMonitoringScheduleCommandInput - {@link DeleteMonitoringScheduleCommandInput}
+ * @returns {@link DeleteMonitoringScheduleCommandOutput}
  * @see {@link DeleteMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DeleteMonitoringScheduleCommand extends $Command<
@@ -58,6 +75,9 @@ export class DeleteMonitoringScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMonitoringScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +106,8 @@ export class DeleteMonitoringScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMonitoringScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +117,18 @@ export class DeleteMonitoringScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMonitoringScheduleCommand(input, context);
+    return se_DeleteMonitoringScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMonitoringScheduleCommandOutput> {
-    return deserializeAws_json1_1DeleteMonitoringScheduleCommand(output, context);
+    return de_DeleteMonitoringScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,15 +20,23 @@ import {
   QueryTableRowsResult,
   QueryTableRowsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1QueryTableRowsCommand,
-  serializeAws_restJson1QueryTableRowsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_QueryTableRowsCommand, se_QueryTableRowsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link QueryTableRowsCommand}.
+ */
 export interface QueryTableRowsCommandInput extends QueryTableRowsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link QueryTableRowsCommand}.
+ */
 export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The QueryTableRows API allows you to use a filter formula to query for specific rows in a table.
  *         </p>
@@ -38,13 +46,52 @@ export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __Met
  * import { HoneycodeClient, QueryTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, QueryTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = { // QueryTableRowsRequest
+ *   workbookId: "STRING_VALUE", // required
+ *   tableId: "STRING_VALUE", // required
+ *   filterFormula: { // Filter
+ *     formula: "STRING_VALUE", // required
+ *     contextRowId: "STRING_VALUE",
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new QueryTableRowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryTableRowsCommandInput - {@link QueryTableRowsCommandInput}
+ * @returns {@link QueryTableRowsCommandOutput}
  * @see {@link QueryTableRowsCommandInput} for command's `input` shape.
  * @see {@link QueryTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *             You do not have sufficient access to perform this action. Check that the workbook is owned by you and your
+ *             IAM policy allows access to the resource in the request.
+ *         </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There were unexpected errors from the server.</p>
+ *
+ * @throws {@link RequestTimeoutException} (server fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A Workbook, Table, App, Screen or Screen Automation was not found with the given ID.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Remote service is unreachable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Tps(transactions per second) rate reached.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *             Request is invalid. The message in the response contains details on why the request is invalid.
+ *         </p>
+ *
  *
  */
 export class QueryTableRowsCommand extends $Command<
@@ -64,6 +111,9 @@ export class QueryTableRowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryTableRowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,12 +153,18 @@ export class QueryTableRowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1QueryTableRowsCommand(input, context);
+    return se_QueryTableRowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryTableRowsCommandOutput> {
-    return deserializeAws_restJson1QueryTableRowsCommand(output, context);
+    return de_QueryTableRowsCommand(output, context);
   }
 
   // Start section: command_body_extra

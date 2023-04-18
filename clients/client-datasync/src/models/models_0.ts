@@ -3,40 +3,58 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { DataSyncServiceException as __BaseException } from "./DataSyncServiceException";
 
-export enum AgentStatus {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AgentStatus = {
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+} as const;
 
 /**
- * <p>Represents a single entry in a list of agents. <code>AgentListEntry</code> returns an
- *       array that contains a list of agents when the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListAgents.html">ListAgents</a>
- *       operation is
- *       called.</p>
+ * @public
+ */
+export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
+
+/**
+ * @public
+ * <p>Represents a single entry in a list (or array) of DataSync agents when
+ *       you call the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListAgents.html">ListAgents</a> operation.</p>
  */
 export interface AgentListEntry {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * <p>The Amazon Resource Name (ARN) of a DataSync agent.</p>
    */
   AgentArn?: string;
 
   /**
-   * <p>The name of the agent.</p>
+   * <p>The name of an agent.</p>
    */
   Name?: string;
 
   /**
-   * <p>The status of the agent.</p>
+   * <p>The status of an agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/understand-agent-statuses.html">DataSync agent statuses</a>.</p>
    */
   Status?: AgentStatus | string;
 }
 
-export enum Atime {
-  BEST_EFFORT = "BEST_EFFORT",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Atime = {
+  BEST_EFFORT: "BEST_EFFORT",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type Atime = (typeof Atime)[keyof typeof Atime];
+
+/**
+ * @public
  * <p>CancelTaskExecutionRequest</p>
  */
 export interface CancelTaskExecutionRequest {
@@ -46,9 +64,13 @@ export interface CancelTaskExecutionRequest {
   TaskExecutionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelTaskExecutionResponse {}
 
 /**
+ * @public
  * <p>This exception is thrown when an error occurs in the DataSync service.</p>
  */
 export class InternalException extends __BaseException {
@@ -70,6 +92,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the client submits a malformed request.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -93,6 +116,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A key-value pair representing a single tag that's been applied to an Amazon Web Services
  *       resource.</p>
  */
@@ -109,6 +133,7 @@ export interface TagListEntry {
 }
 
 /**
+ * @public
  * <p>CreateAgentRequest</p>
  */
 export interface CreateAgentRequest {
@@ -168,6 +193,7 @@ export interface CreateAgentRequest {
 }
 
 /**
+ * @public
  * <p>CreateAgentResponse</p>
  */
 export interface CreateAgentResponse {
@@ -179,6 +205,7 @@ export interface CreateAgentResponse {
 }
 
 /**
+ * @public
  * <p>The subnet and security groups that DataSync uses to access your Amazon EFS file system.</p>
  */
 export interface Ec2Config {
@@ -207,12 +234,22 @@ export interface Ec2Config {
   SecurityGroupArns: string[] | undefined;
 }
 
-export enum EfsInTransitEncryption {
-  NONE = "NONE",
-  TLS1_2 = "TLS1_2",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EfsInTransitEncryption = {
+  NONE: "NONE",
+  TLS1_2: "TLS1_2",
+} as const;
 
 /**
+ * @public
+ */
+export type EfsInTransitEncryption = (typeof EfsInTransitEncryption)[keyof typeof EfsInTransitEncryption];
+
+/**
+ * @public
  * <p>CreateLocationEfsRequest</p>
  */
 export interface CreateLocationEfsRequest {
@@ -264,6 +301,7 @@ export interface CreateLocationEfsRequest {
 }
 
 /**
+ * @public
  * <p>CreateLocationEfs</p>
  */
 export interface CreateLocationEfsResponse {
@@ -274,6 +312,9 @@ export interface CreateLocationEfsResponse {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxLustreRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the FSx for Lustre file system.</p>
@@ -296,6 +337,9 @@ export interface CreateLocationFsxLustreRequest {
   Tags?: TagListEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxLustreResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Lustre file system location that's
@@ -304,14 +348,24 @@ export interface CreateLocationFsxLustreResponse {
   LocationArn?: string;
 }
 
-export enum NfsVersion {
-  AUTOMATIC = "AUTOMATIC",
-  NFS3 = "NFS3",
-  NFS4_0 = "NFS4_0",
-  NFS4_1 = "NFS4_1",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NfsVersion = {
+  AUTOMATIC: "AUTOMATIC",
+  NFS3: "NFS3",
+  NFS4_0: "NFS4_0",
+  NFS4_1: "NFS4_1",
+} as const;
 
 /**
+ * @public
+ */
+export type NfsVersion = (typeof NfsVersion)[keyof typeof NfsVersion];
+
+/**
+ * @public
  * <p>Specifies how DataSync can access a location using the NFS protocol.</p>
  */
 export interface NfsMountOptions {
@@ -348,6 +402,7 @@ export interface NfsMountOptions {
 }
 
 /**
+ * @public
  * <p>Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP file system.</p>
  */
 export interface FsxProtocolNfs {
@@ -357,24 +412,70 @@ export interface FsxProtocolNfs {
   MountOptions?: NfsMountOptions;
 }
 
-export enum SmbVersion {
-  AUTOMATIC = "AUTOMATIC",
-  SMB2 = "SMB2",
-  SMB3 = "SMB3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SmbVersion = {
+  AUTOMATIC: "AUTOMATIC",
+  SMB1: "SMB1",
+  SMB2: "SMB2",
+  SMB2_0: "SMB2_0",
+  SMB3: "SMB3",
+} as const;
 
 /**
- * <p>Specifies how DataSync can access a location using the SMB protocol.</p>
+ * @public
+ */
+export type SmbVersion = (typeof SmbVersion)[keyof typeof SmbVersion];
+
+/**
+ * @public
+ * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
  */
 export interface SmbMountOptions {
   /**
-   * <p>Specifies the SMB version that you want DataSync to use when mounting your SMB share. If you
-   *       don't specify a version, DataSync defaults to <code>AUTOMATIC</code> and chooses a version based on negotiation with the SMB server.</p>
+   * <p>By default, DataSync automatically chooses an SMB protocol version based on
+   *       negotiation with your SMB file server. You also can configure DataSync to use a
+   *       specific SMB version, but we recommend doing this only if DataSync has trouble
+   *       negotiating with the SMB file server automatically.</p>
+   *          <p>These are the following options for configuring the SMB version:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTOMATIC</code> (default): DataSync and the SMB file server negotiate a
+   *           protocol version that they mutually support. (DataSync supports SMB versions 1.0
+   *           and later.)</p>
+   *                <p>This is the recommended option. If you instead choose a specific version that your
+   *           file server doesn't support, you may get an <code>Operation Not Supported</code>
+   *           error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SMB3</code>: Restricts the protocol negotiation to only SMB version 3.0.2.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SMB2</code>: Restricts the protocol negotiation to only SMB version 2.1.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SMB2_0</code>: Restricts the protocol negotiation to only SMB version 2.0.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SMB1</code>: Restricts the protocol negotiation to only SMB version 1.0.</p>
+   *                <note>
+   *                   <p>The <code>SMB1</code> option isn't available when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOntap.html">creating an Amazon FSx for NetApp ONTAP location</a>.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
    */
   Version?: SmbVersion | string;
 }
 
 /**
+ * @public
  * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your Amazon FSx for NetApp ONTAP file system. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">Accessing FSx for ONTAP file systems</a>.</p>
  */
 export interface FsxProtocolSmb {
@@ -384,7 +485,7 @@ export interface FsxProtocolSmb {
   Domain?: string;
 
   /**
-   * <p>Specifies how DataSync can access a location using the SMB protocol.</p>
+   * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
    */
   MountOptions?: SmbMountOptions;
 
@@ -435,6 +536,7 @@ export interface FsxProtocolSmb {
 }
 
 /**
+ * @public
  * <p>Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.</p>
  */
 export interface FsxProtocol {
@@ -449,6 +551,9 @@ export interface FsxProtocol {
   SMB?: FsxProtocolSmb;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxOntapRequest {
   /**
    * <p>Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.</p>
@@ -476,14 +581,16 @@ export interface CreateLocationFsxOntapRequest {
   SecurityGroupArns: string[] | undefined;
 
   /**
-   * <p>Specifies the ARN of the storage virtual machine (SVM) on your file system where you're
-   *       copying data to or from.</p>
+   * <p>Specifies the ARN of the storage virtual machine (SVM) in your file system where you want
+   *       to copy data to or from.</p>
    */
   StorageVirtualMachineArn: string | undefined;
 
   /**
-   * <p>Specifies the junction path (also known as a mount point) in the SVM volume where you're
-   *       copying data to or from (for example, <code>/vol1</code>).</p>
+   * <p>Specifies a path to the file share in the SVM where you'll copy your data.</p>
+   *          <p>You can specify a junction path (also known as a mount point), qtree path (for NFS file
+   *       shares), or share name (for SMB file shares). For example, your mount path might be
+   *         <code>/vol1</code>, <code>/vol1/tree1</code>, or <code>/share1</code>.</p>
    *          <note>
    *             <p>Don't specify a junction path in the SVM's root volume. For more
    *         information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing FSx for ONTAP
@@ -498,6 +605,9 @@ export interface CreateLocationFsxOntapRequest {
   Tags?: TagListEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxOntapResponse {
   /**
    * <p>Specifies the ARN of the FSx for ONTAP file system location that you create.</p>
@@ -505,6 +615,9 @@ export interface CreateLocationFsxOntapResponse {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxOpenZfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.</p>
@@ -536,6 +649,9 @@ export interface CreateLocationFsxOpenZfsRequest {
   Tags?: TagListEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxOpenZfsResponse {
   /**
    * <p>The ARN of the FSx for OpenZFS file system location that you created.</p>
@@ -543,6 +659,9 @@ export interface CreateLocationFsxOpenZfsResponse {
   LocationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxWindowsRequest {
   /**
    * <p>Specifies a mount path for your file system using forward slashes. This is where DataSync reads or
@@ -603,6 +722,9 @@ export interface CreateLocationFsxWindowsRequest {
   Password: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationFsxWindowsResponse {
   /**
    * <p>The ARN of the FSx for Windows File Server file system location you created.</p>
@@ -610,12 +732,22 @@ export interface CreateLocationFsxWindowsResponse {
   LocationArn?: string;
 }
 
-export enum HdfsAuthenticationType {
-  KERBEROS = "KERBEROS",
-  SIMPLE = "SIMPLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HdfsAuthenticationType = {
+  KERBEROS: "KERBEROS",
+  SIMPLE: "SIMPLE",
+} as const;
 
 /**
+ * @public
+ */
+export type HdfsAuthenticationType = (typeof HdfsAuthenticationType)[keyof typeof HdfsAuthenticationType];
+
+/**
+ * @public
  * <p>The NameNode of the Hadoop Distributed File System (HDFS). The NameNode manages the file
  *       system's namespace. The NameNode performs operations such as opening, closing, and renaming
  *       files and directories. The NameNode contains the information to map blocks of data to the
@@ -635,21 +767,40 @@ export interface HdfsNameNode {
   Port: number | undefined;
 }
 
-export enum HdfsDataTransferProtection {
-  AUTHENTICATION = "AUTHENTICATION",
-  DISABLED = "DISABLED",
-  INTEGRITY = "INTEGRITY",
-  PRIVACY = "PRIVACY",
-}
-
-export enum HdfsRpcProtection {
-  AUTHENTICATION = "AUTHENTICATION",
-  DISABLED = "DISABLED",
-  INTEGRITY = "INTEGRITY",
-  PRIVACY = "PRIVACY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HdfsDataTransferProtection = {
+  AUTHENTICATION: "AUTHENTICATION",
+  DISABLED: "DISABLED",
+  INTEGRITY: "INTEGRITY",
+  PRIVACY: "PRIVACY",
+} as const;
 
 /**
+ * @public
+ */
+export type HdfsDataTransferProtection = (typeof HdfsDataTransferProtection)[keyof typeof HdfsDataTransferProtection];
+
+/**
+ * @public
+ * @enum
+ */
+export const HdfsRpcProtection = {
+  AUTHENTICATION: "AUTHENTICATION",
+  DISABLED: "DISABLED",
+  INTEGRITY: "INTEGRITY",
+  PRIVACY: "PRIVACY",
+} as const;
+
+/**
+ * @public
+ */
+export type HdfsRpcProtection = (typeof HdfsRpcProtection)[keyof typeof HdfsRpcProtection];
+
+/**
+ * @public
  * <p>The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC)
  *       and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS)
  *       cluster.</p>
@@ -670,6 +821,9 @@ export interface QopConfiguration {
   DataTransferProtection?: HdfsDataTransferProtection | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationHdfsRequest {
   /**
    * <p>A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write
@@ -772,6 +926,9 @@ export interface CreateLocationHdfsRequest {
   Tags?: TagListEntry[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLocationHdfsResponse {
   /**
    * <p>The ARN of the source HDFS cluster location that's created. </p>
@@ -780,6 +937,7 @@ export interface CreateLocationHdfsResponse {
 }
 
 /**
+ * @public
  * <p>A list of Amazon Resource Names (ARNs) of agents to use for a Network File System (NFS)
  *       location.</p>
  */
@@ -791,6 +949,7 @@ export interface OnPremConfig {
 }
 
 /**
+ * @public
  * <p>CreateLocationNfsRequest</p>
  */
 export interface CreateLocationNfsRequest {
@@ -847,6 +1006,7 @@ export interface CreateLocationNfsRequest {
 }
 
 /**
+ * @public
  * <p>CreateLocationNfsResponse</p>
  */
 export interface CreateLocationNfsResponse {
@@ -857,12 +1017,23 @@ export interface CreateLocationNfsResponse {
   LocationArn?: string;
 }
 
-export enum ObjectStorageServerProtocol {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ObjectStorageServerProtocol = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+} as const;
 
 /**
+ * @public
+ */
+export type ObjectStorageServerProtocol =
+  (typeof ObjectStorageServerProtocol)[keyof typeof ObjectStorageServerProtocol];
+
+/**
+ * @public
  * <p>CreateLocationObjectStorageRequest</p>
  */
 export interface CreateLocationObjectStorageRequest {
@@ -922,6 +1093,7 @@ export interface CreateLocationObjectStorageRequest {
 }
 
 /**
+ * @public
  * <p>CreateLocationObjectStorageResponse</p>
  */
 export interface CreateLocationObjectStorageResponse {
@@ -932,6 +1104,7 @@ export interface CreateLocationObjectStorageResponse {
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role used to access
  *       an Amazon S3 bucket.</p>
  *          <p>For detailed information about using such a role, see Creating a Location for
@@ -944,18 +1117,28 @@ export interface S3Config {
   BucketAccessRoleArn: string | undefined;
 }
 
-export enum S3StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  GLACIER_INSTANT_RETRIEVAL = "GLACIER_INSTANT_RETRIEVAL",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  OUTPOSTS = "OUTPOSTS",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const S3StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_INSTANT_RETRIEVAL: "GLACIER_INSTANT_RETRIEVAL",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  OUTPOSTS: "OUTPOSTS",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+} as const;
 
 /**
+ * @public
+ */
+export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
+
+/**
+ * @public
  * <p>CreateLocationS3Request</p>
  */
 export interface CreateLocationS3Request {
@@ -1004,6 +1187,7 @@ export interface CreateLocationS3Request {
 }
 
 /**
+ * @public
  * <p>CreateLocationS3Response</p>
  */
 export interface CreateLocationS3Response {
@@ -1015,92 +1199,95 @@ export interface CreateLocationS3Response {
 }
 
 /**
+ * @public
  * <p>CreateLocationSmbRequest</p>
  */
 export interface CreateLocationSmbRequest {
   /**
-   * <p>The subdirectory in the SMB file system that is used to read data from the SMB source
-   *       location or write data to the SMB destination. The SMB path should be a path that's
-   *       exported by the SMB server, or a subdirectory of that path. The path should be such that it
-   *       can be mounted by other SMB clients in your network.</p>
-   *          <note>
-   *             <p>
-   *                <code>Subdirectory</code> must be specified with forward slashes. For example,
-   *           <code>/path/to/folder</code>.</p>
-   *          </note>
-   *          <p>To transfer all the data in the folder you specified, DataSync needs to have permissions
-   *       to mount the SMB share, as well as to access all the data in that share. To ensure this,
-   *       either ensure that the user/password specified belongs to the user who can mount the share,
-   *       and who has the appropriate permissions for all of the files and directories that you want
-   *       DataSync to access, or use credentials of a member of the Backup Operators group to mount
-   *       the share. Doing either enables the agent to access the data. For the agent to access
-   *       directories, you must additionally enable all execute access.</p>
+   * <p>Specifies the name of the share exported by your SMB file server where DataSync
+   *       will read or write data. You can include a subdirectory in the share path (for example,
+   *         <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network can
+   *       also mount this path.</p>
+   *          <p>To copy all data in the specified subdirectory, DataSync must be able to mount
+   *       the SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   Subdirectory: string | undefined;
 
   /**
-   * <p>The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name
-   *       of the SMB server. An agent that is installed on-premises uses this hostname to mount the SMB
-   *       server in a network.</p>
+   * <p>Specifies the Domain Name Service (DNS) name or IP address of the SMB file server that
+   *       your DataSync agent will mount.</p>
    *          <note>
-   *             <p>This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.</p>
+   *             <p>You can't specify an IP version 6 (IPv6) address.</p>
    *          </note>
    */
   ServerHostname: string | undefined;
 
   /**
-   * <p>The user who can mount the share, has the permissions to access files and folders in the
-   *       SMB share.</p>
-   *          <p>For information about choosing a user name that ensures sufficient permissions to files,
-   *       folders, and metadata, see the <a href="create-smb-location.html#SMBuser">User setting</a> for SMB locations.</p>
+   * <p>Specifies the user name that can mount your SMB file server and has permission to access
+   *       the files and folders involved in your transfer.</p>
+   *          <p>For information about choosing a user with the right level of access for your transfer,
+   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   User: string | undefined;
 
   /**
-   * <p>The name of the Windows domain that the SMB server belongs to.</p>
+   * <p>Specifies the Windows domain name that your SMB file server belongs to. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   Domain?: string;
 
   /**
-   * <p>The password of the user who can mount the share, has the permissions to access files and
-   *       folders in the SMB share.</p>
+   * <p>Specifies the password of the user who can mount your SMB file server and has permission
+   *       to access the files and folders involved in your transfer.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   Password: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB)
-   *       location. </p>
+   * <p>Specifies the DataSync agent (or agents) which you want to connect to your SMB
+   *       file server. You specify an agent by using its Amazon Resource Name (ARN).</p>
    */
   AgentArns: string[] | undefined;
 
   /**
-   * <p>The mount options used by DataSync to access the SMB server.</p>
+   * <p>Specifies the version of the SMB protocol that DataSync uses to access your SMB
+   *       file server.</p>
    */
   MountOptions?: SmbMountOptions;
 
   /**
-   * <p>The key-value pair that represents the tag that you want to add to the location. The value
-   *       can be an empty string. We recommend using tags to name your resources.</p>
+   * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We
+   *       recommend creating at least a name tag for your location.</p>
    */
   Tags?: TagListEntry[];
 }
 
 /**
+ * @public
  * <p>CreateLocationSmbResponse</p>
  */
 export interface CreateLocationSmbResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source SMB file system location that is
-   *       created.</p>
+   * <p>The ARN of the SMB location that you created.</p>
    */
   LocationArn?: string;
 }
 
-export enum FilterType {
-  SIMPLE_PATTERN = "SIMPLE_PATTERN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FilterType = {
+  SIMPLE_PATTERN: "SIMPLE_PATTERN",
+} as const;
 
 /**
+ * @public
+ */
+export type FilterType = (typeof FilterType)[keyof typeof FilterType];
+
+/**
+ * @public
  * <p>Specifies which files, folders, and objects to include or exclude when transferring files
  *       from source to destination.</p>
  */
@@ -1121,79 +1308,198 @@ export interface FilterRule {
   Value?: string;
 }
 
-export enum Gid {
-  BOTH = "BOTH",
-  INT_VALUE = "INT_VALUE",
-  NAME = "NAME",
-  NONE = "NONE",
-}
-
-export enum LogLevel {
-  BASIC = "BASIC",
-  OFF = "OFF",
-  TRANSFER = "TRANSFER",
-}
-
-export enum Mtime {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
-
-export enum ObjectTags {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
-
-export enum OverwriteMode {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-}
-
-export enum PosixPermissions {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
-
-export enum PreserveDeletedFiles {
-  PRESERVE = "PRESERVE",
-  REMOVE = "REMOVE",
-}
-
-export enum PreserveDevices {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
-
-export enum SmbSecurityDescriptorCopyFlags {
-  NONE = "NONE",
-  OWNER_DACL = "OWNER_DACL",
-  OWNER_DACL_SACL = "OWNER_DACL_SACL",
-}
-
-export enum TaskQueueing {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum TransferMode {
-  ALL = "ALL",
-  CHANGED = "CHANGED",
-}
-
-export enum Uid {
-  BOTH = "BOTH",
-  INT_VALUE = "INT_VALUE",
-  NAME = "NAME",
-  NONE = "NONE",
-}
-
-export enum VerifyMode {
-  NONE = "NONE",
-  ONLY_FILES_TRANSFERRED = "ONLY_FILES_TRANSFERRED",
-  POINT_IN_TIME_CONSISTENT = "POINT_IN_TIME_CONSISTENT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Gid = {
+  BOTH: "BOTH",
+  INT_VALUE: "INT_VALUE",
+  NAME: "NAME",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type Gid = (typeof Gid)[keyof typeof Gid];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogLevel = {
+  BASIC: "BASIC",
+  OFF: "OFF",
+  TRANSFER: "TRANSFER",
+} as const;
+
+/**
+ * @public
+ */
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mtime = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+} as const;
+
+/**
+ * @public
+ */
+export type Mtime = (typeof Mtime)[keyof typeof Mtime];
+
+/**
+ * @public
+ * @enum
+ */
+export const ObjectTags = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ObjectTags = (typeof ObjectTags)[keyof typeof ObjectTags];
+
+/**
+ * @public
+ * @enum
+ */
+export const OverwriteMode = {
+  ALWAYS: "ALWAYS",
+  NEVER: "NEVER",
+} as const;
+
+/**
+ * @public
+ */
+export type OverwriteMode = (typeof OverwriteMode)[keyof typeof OverwriteMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PosixPermissions = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+} as const;
+
+/**
+ * @public
+ */
+export type PosixPermissions = (typeof PosixPermissions)[keyof typeof PosixPermissions];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreserveDeletedFiles = {
+  PRESERVE: "PRESERVE",
+  REMOVE: "REMOVE",
+} as const;
+
+/**
+ * @public
+ */
+export type PreserveDeletedFiles = (typeof PreserveDeletedFiles)[keyof typeof PreserveDeletedFiles];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreserveDevices = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+} as const;
+
+/**
+ * @public
+ */
+export type PreserveDevices = (typeof PreserveDevices)[keyof typeof PreserveDevices];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmbSecurityDescriptorCopyFlags = {
+  NONE: "NONE",
+  OWNER_DACL: "OWNER_DACL",
+  OWNER_DACL_SACL: "OWNER_DACL_SACL",
+} as const;
+
+/**
+ * @public
+ */
+export type SmbSecurityDescriptorCopyFlags =
+  (typeof SmbSecurityDescriptorCopyFlags)[keyof typeof SmbSecurityDescriptorCopyFlags];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskQueueing = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskQueueing = (typeof TaskQueueing)[keyof typeof TaskQueueing];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransferMode = {
+  ALL: "ALL",
+  CHANGED: "CHANGED",
+} as const;
+
+/**
+ * @public
+ */
+export type TransferMode = (typeof TransferMode)[keyof typeof TransferMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Uid = {
+  BOTH: "BOTH",
+  INT_VALUE: "INT_VALUE",
+  NAME: "NAME",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Uid = (typeof Uid)[keyof typeof Uid];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerifyMode = {
+  NONE: "NONE",
+  ONLY_FILES_TRANSFERRED: "ONLY_FILES_TRANSFERRED",
+  POINT_IN_TIME_CONSISTENT: "POINT_IN_TIME_CONSISTENT",
+} as const;
+
+/**
+ * @public
+ */
+export type VerifyMode = (typeof VerifyMode)[keyof typeof VerifyMode];
+
+/**
+ * @public
  * <p>Configures your DataSync task settings. These options include how DataSync handles files, objects, and their associated metadata. You also can specify how
  *         DataSync verifies data integrity, set bandwidth limits for your task, among other
  *       options.</p>
@@ -1237,7 +1543,7 @@ export interface Options {
    *       those changes. </p>
    *          <p>Some storage classes have specific behaviors that can affect your Amazon S3
    *       storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
-   *         when working with Amazon S3 storage classes in DataSync </a>.</p>
+   *         when working with Amazon S3 storage classes in DataSync</a>.</p>
    */
   OverwriteMode?: OverwriteMode | string;
 
@@ -1313,7 +1619,7 @@ export interface Options {
    *       should be preserved. This option can affect your Amazon S3 storage cost. If your task
    *       deletes objects, you might incur minimum storage duration charges for certain storage classes.
    *       For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
-   *         when working with Amazon S3 storage classes in DataSync </a>.</p>
+   *         when working with Amazon S3 storage classes in DataSync</a>.</p>
    *          <p>Default value: <code>PRESERVE</code>
    *          </p>
    *          <p>
@@ -1321,6 +1627,10 @@ export interface Options {
    *          <p>
    *             <code>REMOVE</code>: Delete destination files that aren’t present in the
    *       source.</p>
+   *          <note>
+   *             <p>If you set this parameter to <code>REMOVE</code>, you can't set
+   *           <code>TransferMode</code> to <code>ALL</code>. When you transfer all data, DataSync doesn't scan your destination location and doesn't know what to delete.</p>
+   *          </note>
    */
   PreserveDeletedFiles?: PreserveDeletedFiles | string;
 
@@ -1455,6 +1765,7 @@ export interface Options {
 }
 
 /**
+ * @public
  * <p>Specifies the schedule you want your task to use for repeated executions. For more
  *       information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a>.</p>
  */
@@ -1467,6 +1778,7 @@ export interface TaskSchedule {
 }
 
 /**
+ * @public
  * <p>CreateTaskRequest</p>
  */
 export interface CreateTaskRequest {
@@ -1527,6 +1839,7 @@ export interface CreateTaskRequest {
 }
 
 /**
+ * @public
  * <p>CreateTaskResponse</p>
  */
 export interface CreateTaskResponse {
@@ -1537,6 +1850,7 @@ export interface CreateTaskResponse {
 }
 
 /**
+ * @public
  * <p>DeleteAgentRequest</p>
  */
 export interface DeleteAgentRequest {
@@ -1547,9 +1861,13 @@ export interface DeleteAgentRequest {
   AgentArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAgentResponse {}
 
 /**
+ * @public
  * <p>DeleteLocation</p>
  */
 export interface DeleteLocationRequest {
@@ -1559,9 +1877,13 @@ export interface DeleteLocationRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLocationResponse {}
 
 /**
+ * @public
  * <p>DeleteTask</p>
  */
 export interface DeleteTaskRequest {
@@ -1571,25 +1893,39 @@ export interface DeleteTaskRequest {
   TaskArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTaskResponse {}
 
 /**
+ * @public
  * <p>DescribeAgent</p>
  */
 export interface DescribeAgentRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent to describe.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent to describe.</p>
    */
   AgentArn: string | undefined;
 }
 
-export enum EndpointType {
-  FIPS = "FIPS",
-  PRIVATE_LINK = "PRIVATE_LINK",
-  PUBLIC = "PUBLIC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndpointType = {
+  FIPS: "FIPS",
+  PRIVATE_LINK: "PRIVATE_LINK",
+  PUBLIC: "PUBLIC",
+} as const;
 
 /**
+ * @public
+ */
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+/**
+ * @public
  * <p>The VPC endpoint, subnet, and security group that an agent uses to access IP addresses in
  *       a VPC (Virtual Private Cloud).</p>
  */
@@ -1622,11 +1958,12 @@ export interface PrivateLinkConfig {
 }
 
 /**
+ * @public
  * <p>DescribeAgentResponse</p>
  */
 export interface DescribeAgentResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * <p>The ARN of the agent.</p>
    */
   AgentArn?: string;
 
@@ -1667,6 +2004,7 @@ export interface DescribeAgentResponse {
 }
 
 /**
+ * @public
  * <p>DescribeLocationEfsRequest</p>
  */
 export interface DescribeLocationEfsRequest {
@@ -1677,6 +2015,7 @@ export interface DescribeLocationEfsRequest {
 }
 
 /**
+ * @public
  * <p>DescribeLocationEfsResponse</p>
  */
 export interface DescribeLocationEfsResponse {
@@ -1717,6 +2056,9 @@ export interface DescribeLocationEfsResponse {
   InTransitEncryption?: EfsInTransitEncryption | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxLustreRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Lustre location to describe. </p>
@@ -1724,6 +2066,9 @@ export interface DescribeLocationFsxLustreRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxLustreResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Lustre location that was described.</p>
@@ -1746,6 +2091,9 @@ export interface DescribeLocationFsxLustreResponse {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxOntapRequest {
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the FSx for ONTAP file system location that you want information about.</p>
@@ -1753,6 +2101,9 @@ export interface DescribeLocationFsxOntapRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxOntapResponse {
   /**
    * <p>The time that the location was created.</p>
@@ -1791,6 +2142,9 @@ export interface DescribeLocationFsxOntapResponse {
   FsxFilesystemArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxOpenZfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for OpenZFS location to describe.</p>
@@ -1798,6 +2152,9 @@ export interface DescribeLocationFsxOpenZfsRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxOpenZfsResponse {
   /**
    * <p>The ARN of the FSx for OpenZFS location that was described.</p>
@@ -1830,6 +2187,9 @@ export interface DescribeLocationFsxOpenZfsResponse {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxWindowsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server location to
@@ -1838,6 +2198,9 @@ export interface DescribeLocationFsxWindowsRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationFsxWindowsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server location that was
@@ -1873,6 +2236,9 @@ export interface DescribeLocationFsxWindowsResponse {
   Domain?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationHdfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the HDFS cluster location to describe.</p>
@@ -1880,6 +2246,9 @@ export interface DescribeLocationHdfsRequest {
   LocationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLocationHdfsResponse {
   /**
    * <p>The ARN of the HDFS cluster location.</p>
@@ -1948,6 +2317,7 @@ export interface DescribeLocationHdfsResponse {
 }
 
 /**
+ * @public
  * <p>DescribeLocationNfsRequest</p>
  */
 export interface DescribeLocationNfsRequest {
@@ -1958,6 +2328,7 @@ export interface DescribeLocationNfsRequest {
 }
 
 /**
+ * @public
  * <p>DescribeLocationNfsResponse</p>
  */
 export interface DescribeLocationNfsResponse {
@@ -1989,6 +2360,7 @@ export interface DescribeLocationNfsResponse {
 }
 
 /**
+ * @public
  * <p>DescribeLocationObjectStorageRequest</p>
  */
 export interface DescribeLocationObjectStorageRequest {
@@ -1999,6 +2371,7 @@ export interface DescribeLocationObjectStorageRequest {
 }
 
 /**
+ * @public
  * <p>DescribeLocationObjectStorageResponse</p>
  */
 export interface DescribeLocationObjectStorageResponse {
@@ -2046,6 +2419,7 @@ export interface DescribeLocationObjectStorageResponse {
 }
 
 /**
+ * @public
  * <p>DescribeLocationS3Request</p>
  */
 export interface DescribeLocationS3Request {
@@ -2056,6 +2430,7 @@ export interface DescribeLocationS3Request {
 }
 
 /**
+ * @public
  * <p>DescribeLocationS3Response</p>
  */
 export interface DescribeLocationS3Response {
@@ -2099,6 +2474,7 @@ export interface DescribeLocationS3Response {
 }
 
 /**
+ * @public
  * <p>DescribeLocationSmbRequest</p>
  */
 export interface DescribeLocationSmbRequest {
@@ -2109,6 +2485,7 @@ export interface DescribeLocationSmbRequest {
 }
 
 /**
+ * @public
  * <p>DescribeLocationSmbResponse</p>
  */
 export interface DescribeLocationSmbResponse {
@@ -2151,6 +2528,7 @@ export interface DescribeLocationSmbResponse {
 }
 
 /**
+ * @public
  * <p>DescribeTaskRequest</p>
  */
 export interface DescribeTaskRequest {
@@ -2160,15 +2538,25 @@ export interface DescribeTaskRequest {
   TaskArn: string | undefined;
 }
 
-export enum TaskStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
+
+/**
+ * @public
  * <p>DescribeTaskResponse</p>
  */
 export interface DescribeTaskResponse {
@@ -2262,6 +2650,7 @@ export interface DescribeTaskResponse {
 }
 
 /**
+ * @public
  * <p>DescribeTaskExecutionRequest</p>
  */
 export interface DescribeTaskExecutionRequest {
@@ -2271,13 +2660,23 @@ export interface DescribeTaskExecutionRequest {
   TaskExecutionArn: string | undefined;
 }
 
-export enum PhaseStatus {
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PhaseStatus = {
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type PhaseStatus = (typeof PhaseStatus)[keyof typeof PhaseStatus];
+
+/**
+ * @public
  * <p>Describes the detailed result of a <code>TaskExecution</code> operation. This result
  *       includes the time in milliseconds spent in each phase, the status of the task execution, and
  *       the errors encountered.</p>
@@ -2334,17 +2733,27 @@ export interface TaskExecutionResultDetail {
   ErrorDetail?: string;
 }
 
-export enum TaskExecutionStatus {
-  ERROR = "ERROR",
-  LAUNCHING = "LAUNCHING",
-  PREPARING = "PREPARING",
-  QUEUED = "QUEUED",
-  SUCCESS = "SUCCESS",
-  TRANSFERRING = "TRANSFERRING",
-  VERIFYING = "VERIFYING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskExecutionStatus = {
+  ERROR: "ERROR",
+  LAUNCHING: "LAUNCHING",
+  PREPARING: "PREPARING",
+  QUEUED: "QUEUED",
+  SUCCESS: "SUCCESS",
+  TRANSFERRING: "TRANSFERRING",
+  VERIFYING: "VERIFYING",
+} as const;
 
 /**
+ * @public
+ */
+export type TaskExecutionStatus = (typeof TaskExecutionStatus)[keyof typeof TaskExecutionStatus];
+
+/**
+ * @public
  * <p>DescribeTaskExecutionResponse</p>
  */
 export interface DescribeTaskExecutionResponse {
@@ -2444,57 +2853,80 @@ export interface DescribeTaskExecutionResponse {
 }
 
 /**
+ * @public
  * <p>ListAgentsRequest</p>
  */
 export interface ListAgentsRequest {
   /**
-   * <p>The maximum number of agents to list.</p>
+   * <p>Specifies the maximum number of DataSync agents to list in a response. By
+   *       default, a response shows a maximum of 100 agents.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>An opaque string that indicates the position at which to begin the next list of
-   *       agents.</p>
+   * <p>Specifies an opaque string that indicates the position to begin the next list of
+   *       results in the response.</p>
    */
   NextToken?: string;
 }
 
 /**
+ * @public
  * <p>ListAgentsResponse</p>
  */
 export interface ListAgentsResponse {
   /**
-   * <p>A list of agents in your account.</p>
+   * <p>A list of DataSync agents in your Amazon Web Services account in the Amazon Web Services Region specified in the request. The list is ordered by the agents' Amazon
+   *       Resource Names (ARNs).</p>
    */
   Agents?: AgentListEntry[];
 
   /**
-   * <p>An opaque string that indicates the position at which to begin returning the next list
-   *       of agents.</p>
+   * <p>The opaque string that indicates the position to begin the next list of results in the
+   *       response.</p>
    */
   NextToken?: string;
 }
 
-export enum LocationFilterName {
-  CreationTime = "CreationTime",
-  LocationType = "LocationType",
-  LocationUri = "LocationUri",
-}
-
-export enum Operator {
-  BEGINS_WITH = "BeginsWith",
-  CONTAINS = "Contains",
-  EQ = "Equals",
-  GE = "GreaterThanOrEqual",
-  GT = "GreaterThan",
-  IN = "In",
-  LE = "LessThanOrEqual",
-  LT = "LessThan",
-  NE = "NotEquals",
-  NOT_CONTAINS = "NotContains",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LocationFilterName = {
+  CreationTime: "CreationTime",
+  LocationType: "LocationType",
+  LocationUri: "LocationUri",
+} as const;
 
 /**
+ * @public
+ */
+export type LocationFilterName = (typeof LocationFilterName)[keyof typeof LocationFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const Operator = {
+  BEGINS_WITH: "BeginsWith",
+  CONTAINS: "Contains",
+  EQ: "Equals",
+  GE: "GreaterThanOrEqual",
+  GT: "GreaterThan",
+  IN: "In",
+  LE: "LessThanOrEqual",
+  LT: "LessThan",
+  NE: "NotEquals",
+  NOT_CONTAINS: "NotContains",
+} as const;
+
+/**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
+
+/**
+ * @public
  * <p>Narrow down the list of resources returned by <code>ListLocations</code>. For example, to
  *       see all your Amazon S3 locations, create a filter using <code>"Name":
  *         "LocationType"</code>, <code>"Operator": "Equals"</code>, and <code>"Values":
@@ -2523,6 +2955,7 @@ export interface LocationFilter {
 }
 
 /**
+ * @public
  * <p>ListLocationsRequest</p>
  */
 export interface ListLocationsRequest {
@@ -2546,6 +2979,7 @@ export interface ListLocationsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a single entry in a list of locations. <code>LocationListEntry</code>
  *       returns an array that contains a list of locations when the
  *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html">ListLocations</a>
@@ -2580,6 +3014,7 @@ export interface LocationListEntry {
 }
 
 /**
+ * @public
  * <p>ListLocationsResponse</p>
  */
 export interface ListLocationsResponse {
@@ -2596,6 +3031,7 @@ export interface ListLocationsResponse {
 }
 
 /**
+ * @public
  * <p>ListTagsForResourceRequest</p>
  */
 export interface ListTagsForResourceRequest {
@@ -2616,6 +3052,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>ListTagsForResourceResponse</p>
  */
 export interface ListTagsForResourceResponse {
@@ -2631,6 +3068,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>ListTaskExecutions</p>
  */
 export interface ListTaskExecutionsRequest {
@@ -2652,6 +3090,7 @@ export interface ListTaskExecutionsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a single entry in a list of task executions.
  *         <code>TaskExecutionListEntry</code> returns an array that contains a list of specific
  *       invocations of a task when the
@@ -2671,6 +3110,7 @@ export interface TaskExecutionListEntry {
 }
 
 /**
+ * @public
  * <p>ListTaskExecutionsResponse</p>
  */
 export interface ListTaskExecutionsResponse {
@@ -2686,12 +3126,22 @@ export interface ListTaskExecutionsResponse {
   NextToken?: string;
 }
 
-export enum TaskFilterName {
-  CreationTime = "CreationTime",
-  LocationId = "LocationId",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskFilterName = {
+  CreationTime: "CreationTime",
+  LocationId: "LocationId",
+} as const;
 
 /**
+ * @public
+ */
+export type TaskFilterName = (typeof TaskFilterName)[keyof typeof TaskFilterName];
+
+/**
+ * @public
  * <p>You can use API filters to narrow down the list of resources returned by <code>ListTasks</code>.
  *       For example, to retrieve all tasks on a source location, you can use <code>ListTasks</code>
  *       with filter name <code>LocationId</code> and <code>Operator Equals</code> with the ARN for the
@@ -2719,6 +3169,7 @@ export interface TaskFilter {
 }
 
 /**
+ * @public
  * <p>ListTasksRequest</p>
  */
 export interface ListTasksRequest {
@@ -2743,6 +3194,7 @@ export interface ListTasksRequest {
 }
 
 /**
+ * @public
  * <p>Represents a single entry in a list of tasks. <code>TaskListEntry</code> returns an
  *       array that contains a list of tasks when the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTasks.html">ListTasks</a> operation is called.
  *       A task includes the source and destination file systems to sync and the options to use for the
@@ -2766,6 +3218,7 @@ export interface TaskListEntry {
 }
 
 /**
+ * @public
  * <p>ListTasksResponse</p>
  */
 export interface ListTasksResponse {
@@ -2782,6 +3235,7 @@ export interface ListTasksResponse {
 }
 
 /**
+ * @public
  * <p>StartTaskExecutionRequest</p>
  */
 export interface StartTaskExecutionRequest {
@@ -2823,6 +3277,7 @@ export interface StartTaskExecutionRequest {
 }
 
 /**
+ * @public
  * <p>StartTaskExecutionResponse</p>
  */
 export interface StartTaskExecutionResponse {
@@ -2833,6 +3288,7 @@ export interface StartTaskExecutionResponse {
 }
 
 /**
+ * @public
  * <p>TagResourceRequest</p>
  */
 export interface TagResourceRequest {
@@ -2847,9 +3303,13 @@ export interface TagResourceRequest {
   Tags: TagListEntry[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>UntagResourceRequest</p>
  */
 export interface UntagResourceRequest {
@@ -2864,9 +3324,13 @@ export interface UntagResourceRequest {
   Keys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>UpdateAgentRequest</p>
  */
 export interface UpdateAgentRequest {
@@ -2881,8 +3345,14 @@ export interface UpdateAgentRequest {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAgentResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLocationHdfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the source HDFS cluster location.</p>
@@ -2961,8 +3431,14 @@ export interface UpdateLocationHdfsRequest {
   AgentArns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateLocationHdfsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLocationNfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the NFS location to update.</p>
@@ -3002,8 +3478,14 @@ export interface UpdateLocationNfsRequest {
   MountOptions?: NfsMountOptions;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLocationNfsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLocationObjectStorageRequest {
   /**
    * <p>Specifies the ARN of the object storage system location that you're updating.</p>
@@ -3056,8 +3538,14 @@ export interface UpdateLocationObjectStorageRequest {
   ServerCertificate?: Uint8Array;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLocationObjectStorageResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateLocationSmbRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the SMB location to update.</p>
@@ -3116,14 +3604,18 @@ export interface UpdateLocationSmbRequest {
   AgentArns?: string[];
 
   /**
-   * <p>Specifies how DataSync can access a location using the SMB protocol.</p>
+   * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
    */
   MountOptions?: SmbMountOptions;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLocationSmbResponse {}
 
 /**
+ * @public
  * <p>UpdateTaskResponse</p>
  */
 export interface UpdateTaskRequest {
@@ -3171,8 +3663,14 @@ export interface UpdateTaskRequest {
   Includes?: FilterRule[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTaskResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateTaskExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the specific task execution that is being updated. </p>
@@ -3189,105 +3687,10 @@ export interface UpdateTaskExecutionRequest {
   Options: Options | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTaskExecutionResponse {}
-
-/**
- * @internal
- */
-export const AgentListEntryFilterSensitiveLog = (obj: AgentListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelTaskExecutionRequestFilterSensitiveLog = (obj: CancelTaskExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelTaskExecutionResponseFilterSensitiveLog = (obj: CancelTaskExecutionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagListEntryFilterSensitiveLog = (obj: TagListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAgentRequestFilterSensitiveLog = (obj: CreateAgentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAgentResponseFilterSensitiveLog = (obj: CreateAgentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ec2ConfigFilterSensitiveLog = (obj: Ec2Config): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationEfsRequestFilterSensitiveLog = (obj: CreateLocationEfsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationEfsResponseFilterSensitiveLog = (obj: CreateLocationEfsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationFsxLustreRequestFilterSensitiveLog = (obj: CreateLocationFsxLustreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationFsxLustreResponseFilterSensitiveLog = (obj: CreateLocationFsxLustreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NfsMountOptionsFilterSensitiveLog = (obj: NfsMountOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FsxProtocolNfsFilterSensitiveLog = (obj: FsxProtocolNfs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SmbMountOptionsFilterSensitiveLog = (obj: SmbMountOptions): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -3316,23 +3719,9 @@ export const CreateLocationFsxOntapRequestFilterSensitiveLog = (obj: CreateLocat
 /**
  * @internal
  */
-export const CreateLocationFsxOntapResponseFilterSensitiveLog = (obj: CreateLocationFsxOntapResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateLocationFsxOpenZfsRequestFilterSensitiveLog = (obj: CreateLocationFsxOpenZfsRequest): any => ({
   ...obj,
   ...(obj.Protocol && { Protocol: FsxProtocolFilterSensitiveLog(obj.Protocol) }),
-});
-
-/**
- * @internal
- */
-export const CreateLocationFsxOpenZfsResponseFilterSensitiveLog = (obj: CreateLocationFsxOpenZfsResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3346,95 +3735,9 @@ export const CreateLocationFsxWindowsRequestFilterSensitiveLog = (obj: CreateLoc
 /**
  * @internal
  */
-export const CreateLocationFsxWindowsResponseFilterSensitiveLog = (obj: CreateLocationFsxWindowsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HdfsNameNodeFilterSensitiveLog = (obj: HdfsNameNode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QopConfigurationFilterSensitiveLog = (obj: QopConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationHdfsRequestFilterSensitiveLog = (obj: CreateLocationHdfsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationHdfsResponseFilterSensitiveLog = (obj: CreateLocationHdfsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OnPremConfigFilterSensitiveLog = (obj: OnPremConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationNfsRequestFilterSensitiveLog = (obj: CreateLocationNfsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationNfsResponseFilterSensitiveLog = (obj: CreateLocationNfsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateLocationObjectStorageRequestFilterSensitiveLog = (obj: CreateLocationObjectStorageRequest): any => ({
   ...obj,
   ...(obj.SecretKey && { SecretKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateLocationObjectStorageResponseFilterSensitiveLog = (
-  obj: CreateLocationObjectStorageResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ConfigFilterSensitiveLog = (obj: S3Config): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationS3RequestFilterSensitiveLog = (obj: CreateLocationS3Request): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocationS3ResponseFilterSensitiveLog = (obj: CreateLocationS3Response): any => ({
-  ...obj,
 });
 
 /**
@@ -3448,156 +3751,9 @@ export const CreateLocationSmbRequestFilterSensitiveLog = (obj: CreateLocationSm
 /**
  * @internal
  */
-export const CreateLocationSmbResponseFilterSensitiveLog = (obj: CreateLocationSmbResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterRuleFilterSensitiveLog = (obj: FilterRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OptionsFilterSensitiveLog = (obj: Options): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskScheduleFilterSensitiveLog = (obj: TaskSchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTaskRequestFilterSensitiveLog = (obj: CreateTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTaskResponseFilterSensitiveLog = (obj: CreateTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAgentRequestFilterSensitiveLog = (obj: DeleteAgentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAgentResponseFilterSensitiveLog = (obj: DeleteAgentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLocationRequestFilterSensitiveLog = (obj: DeleteLocationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLocationResponseFilterSensitiveLog = (obj: DeleteLocationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTaskRequestFilterSensitiveLog = (obj: DeleteTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTaskResponseFilterSensitiveLog = (obj: DeleteTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAgentRequestFilterSensitiveLog = (obj: DescribeAgentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrivateLinkConfigFilterSensitiveLog = (obj: PrivateLinkConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAgentResponseFilterSensitiveLog = (obj: DescribeAgentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationEfsRequestFilterSensitiveLog = (obj: DescribeLocationEfsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationEfsResponseFilterSensitiveLog = (obj: DescribeLocationEfsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationFsxLustreRequestFilterSensitiveLog = (obj: DescribeLocationFsxLustreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationFsxLustreResponseFilterSensitiveLog = (obj: DescribeLocationFsxLustreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationFsxOntapRequestFilterSensitiveLog = (obj: DescribeLocationFsxOntapRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeLocationFsxOntapResponseFilterSensitiveLog = (obj: DescribeLocationFsxOntapResponse): any => ({
   ...obj,
   ...(obj.Protocol && { Protocol: FsxProtocolFilterSensitiveLog(obj.Protocol) }),
-});
-
-/**
- * @internal
- */
-export const DescribeLocationFsxOpenZfsRequestFilterSensitiveLog = (obj: DescribeLocationFsxOpenZfsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3611,318 +3767,6 @@ export const DescribeLocationFsxOpenZfsResponseFilterSensitiveLog = (obj: Descri
 /**
  * @internal
  */
-export const DescribeLocationFsxWindowsRequestFilterSensitiveLog = (obj: DescribeLocationFsxWindowsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationFsxWindowsResponseFilterSensitiveLog = (obj: DescribeLocationFsxWindowsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationHdfsRequestFilterSensitiveLog = (obj: DescribeLocationHdfsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationHdfsResponseFilterSensitiveLog = (obj: DescribeLocationHdfsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationNfsRequestFilterSensitiveLog = (obj: DescribeLocationNfsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationNfsResponseFilterSensitiveLog = (obj: DescribeLocationNfsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationObjectStorageRequestFilterSensitiveLog = (
-  obj: DescribeLocationObjectStorageRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationObjectStorageResponseFilterSensitiveLog = (
-  obj: DescribeLocationObjectStorageResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationS3RequestFilterSensitiveLog = (obj: DescribeLocationS3Request): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationS3ResponseFilterSensitiveLog = (obj: DescribeLocationS3Response): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationSmbRequestFilterSensitiveLog = (obj: DescribeLocationSmbRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLocationSmbResponseFilterSensitiveLog = (obj: DescribeLocationSmbResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTaskRequestFilterSensitiveLog = (obj: DescribeTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTaskResponseFilterSensitiveLog = (obj: DescribeTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTaskExecutionRequestFilterSensitiveLog = (obj: DescribeTaskExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskExecutionResultDetailFilterSensitiveLog = (obj: TaskExecutionResultDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTaskExecutionResponseFilterSensitiveLog = (obj: DescribeTaskExecutionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAgentsRequestFilterSensitiveLog = (obj: ListAgentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAgentsResponseFilterSensitiveLog = (obj: ListAgentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationFilterFilterSensitiveLog = (obj: LocationFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLocationsRequestFilterSensitiveLog = (obj: ListLocationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationListEntryFilterSensitiveLog = (obj: LocationListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLocationsResponseFilterSensitiveLog = (obj: ListLocationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTaskExecutionsRequestFilterSensitiveLog = (obj: ListTaskExecutionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskExecutionListEntryFilterSensitiveLog = (obj: TaskExecutionListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTaskExecutionsResponseFilterSensitiveLog = (obj: ListTaskExecutionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskFilterFilterSensitiveLog = (obj: TaskFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTasksRequestFilterSensitiveLog = (obj: ListTasksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskListEntryFilterSensitiveLog = (obj: TaskListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTasksResponseFilterSensitiveLog = (obj: ListTasksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTaskExecutionRequestFilterSensitiveLog = (obj: StartTaskExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTaskExecutionResponseFilterSensitiveLog = (obj: StartTaskExecutionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAgentRequestFilterSensitiveLog = (obj: UpdateAgentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAgentResponseFilterSensitiveLog = (obj: UpdateAgentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLocationHdfsRequestFilterSensitiveLog = (obj: UpdateLocationHdfsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLocationHdfsResponseFilterSensitiveLog = (obj: UpdateLocationHdfsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLocationNfsRequestFilterSensitiveLog = (obj: UpdateLocationNfsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLocationNfsResponseFilterSensitiveLog = (obj: UpdateLocationNfsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateLocationObjectStorageRequestFilterSensitiveLog = (obj: UpdateLocationObjectStorageRequest): any => ({
   ...obj,
   ...(obj.SecretKey && { SecretKey: SENSITIVE_STRING }),
@@ -3931,51 +3775,7 @@ export const UpdateLocationObjectStorageRequestFilterSensitiveLog = (obj: Update
 /**
  * @internal
  */
-export const UpdateLocationObjectStorageResponseFilterSensitiveLog = (
-  obj: UpdateLocationObjectStorageResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateLocationSmbRequestFilterSensitiveLog = (obj: UpdateLocationSmbRequest): any => ({
   ...obj,
   ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateLocationSmbResponseFilterSensitiveLog = (obj: UpdateLocationSmbResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTaskRequestFilterSensitiveLog = (obj: UpdateTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTaskResponseFilterSensitiveLog = (obj: UpdateTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTaskExecutionRequestFilterSensitiveLog = (obj: UpdateTaskExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTaskExecutionResponseFilterSensitiveLog = (obj: UpdateTaskExecutionResponse): any => ({
-  ...obj,
 });

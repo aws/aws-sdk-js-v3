@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  SearchDevicesRequest,
-  SearchDevicesRequestFilterSensitiveLog,
-  SearchDevicesResponse,
-  SearchDevicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchDevicesCommand,
-  serializeAws_json1_1SearchDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchDevicesRequest, SearchDevicesResponse } from "../models/models_0";
+import { de_SearchDevicesCommand, se_SearchDevicesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SearchDevicesCommand}.
+ */
 export interface SearchDevicesCommandInput extends SearchDevicesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SearchDevicesCommand}.
+ */
 export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches devices and lists the ones that meet a set of filter criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * import { AlexaForBusinessClient, SearchDevicesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SearchDevicesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // SearchDevicesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SortCriteria: [ // SortList
+ *     { // Sort
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SearchDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchDevicesCommandInput - {@link SearchDevicesCommandInput}
+ * @returns {@link SearchDevicesCommandOutput}
  * @see {@link SearchDevicesCommandInput} for command's `input` shape.
  * @see {@link SearchDevicesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
  *
  */
 export class SearchDevicesCommand extends $Command<
@@ -62,6 +86,9 @@ export class SearchDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +115,8 @@ export class SearchDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchDevicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +126,18 @@ export class SearchDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchDevicesCommand(input, context);
+    return se_SearchDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDevicesCommandOutput> {
-    return deserializeAws_json1_1SearchDevicesCommand(output, context);
+    return de_SearchDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

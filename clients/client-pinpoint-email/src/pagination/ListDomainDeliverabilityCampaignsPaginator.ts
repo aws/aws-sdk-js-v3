@@ -6,12 +6,11 @@ import {
   ListDomainDeliverabilityCampaignsCommandInput,
   ListDomainDeliverabilityCampaignsCommandOutput,
 } from "../commands/ListDomainDeliverabilityCampaignsCommand";
-import { PinpointEmail } from "../PinpointEmail";
 import { PinpointEmailClient } from "../PinpointEmailClient";
 import { PinpointEmailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PinpointEmailClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDomainDeliverabilityCampaignsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: PinpointEmail,
-  input: ListDomainDeliverabilityCampaignsCommandInput,
-  ...args: any
-): Promise<ListDomainDeliverabilityCampaignsCommandOutput> => {
-  // @ts-ignore
-  return await client.listDomainDeliverabilityCampaigns(input, ...args);
-};
 export async function* paginateListDomainDeliverabilityCampaigns(
   config: PinpointEmailPaginationConfiguration,
   input: ListDomainDeliverabilityCampaignsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListDomainDeliverabilityCampaigns(
   while (hasNext) {
     input.NextToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof PinpointEmail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PinpointEmailClient) {
+    if (config.client instanceof PinpointEmailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected PinpointEmail | PinpointEmailClient");

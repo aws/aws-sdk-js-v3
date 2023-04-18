@@ -16,19 +16,26 @@ import {
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import {
   DescribeLocationFsxOntapRequest,
-  DescribeLocationFsxOntapRequestFilterSensitiveLog,
   DescribeLocationFsxOntapResponse,
   DescribeLocationFsxOntapResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLocationFsxOntapCommand,
-  serializeAws_json1_1DescribeLocationFsxOntapCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLocationFsxOntapCommand, se_DescribeLocationFsxOntapCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLocationFsxOntapCommand}.
+ */
 export interface DescribeLocationFsxOntapCommandInput extends DescribeLocationFsxOntapRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLocationFsxOntapCommand}.
+ */
 export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationFsxOntapResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
  *          <note>
  *             <p>If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
@@ -40,13 +47,25 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
  * import { DataSyncClient, DescribeLocationFsxOntapCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationFsxOntapCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DescribeLocationFsxOntapRequest
+ *   LocationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLocationFsxOntapCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationFsxOntapCommandInput - {@link DescribeLocationFsxOntapCommandInput}
+ * @returns {@link DescribeLocationFsxOntapCommandOutput}
  * @see {@link DescribeLocationFsxOntapCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationFsxOntapCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class DescribeLocationFsxOntapCommand extends $Command<
@@ -66,6 +85,9 @@ export class DescribeLocationFsxOntapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationFsxOntapCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,7 +116,7 @@ export class DescribeLocationFsxOntapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationFsxOntapRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeLocationFsxOntapResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -105,12 +127,18 @@ export class DescribeLocationFsxOntapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationFsxOntapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationFsxOntapCommand(input, context);
+    return se_DescribeLocationFsxOntapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationFsxOntapCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationFsxOntapCommand(output, context);
+    return de_DescribeLocationFsxOntapCommand(output, context);
   }
 
   // Start section: command_body_extra

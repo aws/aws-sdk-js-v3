@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEnvironmentInput,
-  GetEnvironmentInputFilterSensitiveLog,
-  GetEnvironmentOutput,
-  GetEnvironmentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetEnvironmentCommand,
-  serializeAws_json1_0GetEnvironmentCommand,
-} from "../protocols/Aws_json1_0";
+import { GetEnvironmentInput, GetEnvironmentOutput, GetEnvironmentOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEnvironmentCommand}.
+ */
 export interface GetEnvironmentCommandInput extends GetEnvironmentInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetEnvironmentCommand}.
+ */
 export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed data for an environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * import { ProtonClient, GetEnvironmentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetEnvironmentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // GetEnvironmentInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnvironmentCommandInput - {@link GetEnvironmentCommandInput}
+ * @returns {@link GetEnvironmentCommandOutput}
  * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed to register with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
  *
  */
 export class GetEnvironmentCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +117,7 @@ export class GetEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEnvironmentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +128,18 @@ export class GetEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEnvironmentCommand(input, context);
+    return se_GetEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnvironmentCommandOutput> {
-    return deserializeAws_json1_0GetEnvironmentCommand(output, context);
+    return de_GetEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

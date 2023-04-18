@@ -14,20 +14,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteBucketLifecycleConfigurationRequest } from "../models/models_0";
 import {
-  DeleteBucketLifecycleConfigurationRequest,
-  DeleteBucketLifecycleConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketLifecycleConfigurationCommand,
-  serializeAws_restXmlDeleteBucketLifecycleConfigurationCommand,
+  de_DeleteBucketLifecycleConfigurationCommand,
+  se_DeleteBucketLifecycleConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteBucketLifecycleConfigurationCommand}.
+ */
 export interface DeleteBucketLifecycleConfigurationCommandInput extends DeleteBucketLifecycleConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBucketLifecycleConfigurationCommand}.
+ */
 export interface DeleteBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action deletes an Amazon S3 on Outposts bucket's lifecycle configuration. To delete
  *             an S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -43,7 +51,6 @@ export interface DeleteBucketLifecycleConfigurationCommandOutput extends __Metad
  *          owner has this permission and the Outposts bucket owner can grant this permission to
  *          others.</p>
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html#API_control_DeleteBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
- *
  *          <p>For more information about object expiration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions">Elements to Describe Lifecycle Actions</a>.</p>
  *          <p>Related actions include:</p>
  *          <ul>
@@ -64,13 +71,20 @@ export interface DeleteBucketLifecycleConfigurationCommandOutput extends __Metad
  * import { S3ControlClient, DeleteBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // DeleteBucketLifecycleConfigurationRequest
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketLifecycleConfigurationCommandInput - {@link DeleteBucketLifecycleConfigurationCommandInput}
+ * @returns {@link DeleteBucketLifecycleConfigurationCommandOutput}
  * @see {@link DeleteBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class DeleteBucketLifecycleConfigurationCommand extends $Command<
@@ -94,6 +108,9 @@ export class DeleteBucketLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +140,8 @@ export class DeleteBucketLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketLifecycleConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +151,24 @@ export class DeleteBucketLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketLifecycleConfigurationCommand(input, context);
+    return se_DeleteBucketLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketLifecycleConfigurationCommand(output, context);
+    return de_DeleteBucketLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

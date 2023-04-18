@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  CreateAddonRequest,
-  CreateAddonRequestFilterSensitiveLog,
-  CreateAddonResponse,
-  CreateAddonResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAddonCommand,
-  serializeAws_restJson1CreateAddonCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAddonRequest, CreateAddonResponse } from "../models/models_0";
+import { de_CreateAddonCommand, se_CreateAddonCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAddonCommand}.
+ */
 export interface CreateAddonCommandInput extends CreateAddonRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAddonCommand}.
+ */
 export interface CreateAddonCommandOutput extends CreateAddonResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon EKS add-on.</p>
  *          <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management
  *             of common operational software for Amazon EKS clusters. For more information,
@@ -39,13 +42,53 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  * import { EKSClient, CreateAddonCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateAddonCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // CreateAddonRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   addonName: "STRING_VALUE", // required
+ *   addonVersion: "STRING_VALUE",
+ *   serviceAccountRoleArn: "STRING_VALUE",
+ *   resolveConflicts: "OVERWRITE" || "NONE" || "PRESERVE",
+ *   clientRequestToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   configurationValues: "STRING_VALUE",
+ * };
  * const command = new CreateAddonCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAddonCommandInput - {@link CreateAddonCommandInput}
+ * @returns {@link CreateAddonCommandOutput}
  * @see {@link CreateAddonCommandInput} for command's `input` shape.
  * @see {@link CreateAddonCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
+ *             and the associated operations.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found. You can view your available clusters with
+ *                 <a>ListClusters</a>. You can view your available managed node groups with
+ *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
+ *             Region-specific.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
  *
  */
 export class CreateAddonCommand extends $Command<
@@ -65,6 +108,9 @@ export class CreateAddonCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAddonCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +137,8 @@ export class CreateAddonCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAddonRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAddonResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +148,18 @@ export class CreateAddonCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAddonCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAddonCommand(input, context);
+    return se_CreateAddonCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAddonCommandOutput> {
-    return deserializeAws_restJson1CreateAddonCommand(output, context);
+    return de_CreateAddonCommand(output, context);
   }
 
   // Start section: command_body_extra

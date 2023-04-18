@@ -6,12 +6,11 @@ import {
   ListEnvironmentsCommandInput,
   ListEnvironmentsCommandOutput,
 } from "../commands/ListEnvironmentsCommand";
-import { MWAA } from "../MWAA";
 import { MWAAClient } from "../MWAAClient";
 import { MWAAPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MWAAClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEnvironmentsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MWAA,
-  input: ListEnvironmentsCommandInput,
-  ...args: any
-): Promise<ListEnvironmentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listEnvironments(input, ...args);
-};
 export async function* paginateListEnvironments(
   config: MWAAPaginationConfiguration,
   input: ListEnvironmentsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListEnvironments(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MWAA) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MWAAClient) {
+    if (config.client instanceof MWAAClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MWAA | MWAAClient");

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import {
-  PutPipelineDefinitionInput,
-  PutPipelineDefinitionInputFilterSensitiveLog,
-  PutPipelineDefinitionOutput,
-  PutPipelineDefinitionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutPipelineDefinitionCommand,
-  serializeAws_json1_1PutPipelineDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { PutPipelineDefinitionInput, PutPipelineDefinitionOutput } from "../models/models_0";
+import { de_PutPipelineDefinitionCommand, se_PutPipelineDefinitionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutPipelineDefinitionCommand}.
+ */
 export interface PutPipelineDefinitionCommandInput extends PutPipelineDefinitionInput {}
+/**
+ * @public
+ *
+ * The output of {@link PutPipelineDefinitionCommand}.
+ */
 export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds tasks, schedules, and preconditions to the specified pipeline. You can use <code>PutPipelineDefinition</code> to populate a new pipeline.</p>
  *         <p>
  *             <code>PutPipelineDefinition</code> also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one
@@ -59,47 +62,47 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"pipelineId": "df-0937003356ZJEXAMPLE",
+ * \{"pipelineId": "df-0937003356ZJEXAMPLE",
  *  "pipelineObjects":
  *   [
- *    {"id": "Default",
+ *    \{"id": "Default",
  *      "name": "Default",
  *      "fields":
  *       [
- *         {"key": "workerGroup",
- *          "stringValue": "workerGroup"}
+ *         \{"key": "workerGroup",
+ *          "stringValue": "workerGroup"\}
  *       ]
- *     },
- *     {"id": "Schedule",
+ *     \},
+ *     \{"id": "Schedule",
  *      "name": "Schedule",
  *      "fields":
  *       [
- *        {"key": "startDateTime",
- *          "stringValue": "2012-12-12T00:00:00"},
- *         {"key": "type",
- *          "stringValue": "Schedule"},
- *         {"key": "period",
- *          "stringValue": "1 hour"},
- *         {"key": "endDateTime",
- *          "stringValue": "2012-12-21T18:00:00"}
+ *        \{"key": "startDateTime",
+ *          "stringValue": "2012-12-12T00:00:00"\},
+ *         \{"key": "type",
+ *          "stringValue": "Schedule"\},
+ *         \{"key": "period",
+ *          "stringValue": "1 hour"\},
+ *         \{"key": "endDateTime",
+ *          "stringValue": "2012-12-21T18:00:00"\}
  *       ]
- *     },
- *     {"id": "SayHello",
+ *     \},
+ *     \{"id": "SayHello",
  *      "name": "SayHello",
  *      "fields":
  *       [
- *         {"key": "type",
- *          "stringValue": "ShellCommandActivity"},
- *         {"key": "command",
- *          "stringValue": "echo hello"},
- *         {"key": "parent",
- *          "refValue": "Default"},
- *         {"key": "schedule",
- *          "refValue": "Schedule"}
+ *         \{"key": "type",
+ *          "stringValue": "ShellCommandActivity"\},
+ *         \{"key": "command",
+ *          "stringValue": "echo hello"\},
+ *         \{"key": "parent",
+ *          "refValue": "Default"\},
+ *         \{"key": "schedule",
+ *          "refValue": "Schedule"\}
  *       ]
- *     }
+ *     \}
  *   ]
- * }
+ * \}
  *
  *             </request>
  *             <response>
@@ -110,7 +113,7 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * Content-Length: 18
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {"errored": false}
+ * \{"errored": false\}
  *
  *
  *             </response>
@@ -130,48 +133,48 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"pipelineId": "df-06372391ZG65EXAMPLE",
+ * \{"pipelineId": "df-06372391ZG65EXAMPLE",
  *  "pipelineObjects":
  *   [
- *     {"id": "Default",
+ *     \{"id": "Default",
  *      "name": "Default",
  *      "fields":
  *       [
- *         {"key": "workerGroup",
- *          "stringValue": ""}
+ *         \{"key": "workerGroup",
+ *          "stringValue": ""\}
  *       ]
- *     },
- *     {"id": "Schedule",
+ *     \},
+ *     \{"id": "Schedule",
  *      "name": "Schedule",
  *      "fields":
  *       [
- *        {"key": "startDateTime",
- *          "stringValue": "2012-09-25T17:00:00"},
- *         {"key": "type",
- *          "stringValue": "Schedule"},
- *         {"key": "period",
- *          "stringValue": "1 hour"},
- *         {"key": "endDateTime",
- *          "stringValue": "2012-09-25T18:00:00"}
+ *        \{"key": "startDateTime",
+ *          "stringValue": "2012-09-25T17:00:00"\},
+ *         \{"key": "type",
+ *          "stringValue": "Schedule"\},
+ *         \{"key": "period",
+ *          "stringValue": "1 hour"\},
+ *         \{"key": "endDateTime",
+ *          "stringValue": "2012-09-25T18:00:00"\}
  *       ]
- *     },
- *     {"id": "SayHello",
+ *     \},
+ *     \{"id": "SayHello",
  *      "name": "SayHello",
  *      "fields":
  *       [
- *         {"key": "type",
- *          "stringValue": "ShellCommandActivity"},
- *         {"key": "command",
- *          "stringValue": "echo hello"},
- *         {"key": "parent",
- *          "refValue": "Default"},
- *         {"key": "schedule",
- *          "refValue": "Schedule"}
+ *         \{"key": "type",
+ *          "stringValue": "ShellCommandActivity"\},
+ *         \{"key": "command",
+ *          "stringValue": "echo hello"\},
+ *         \{"key": "parent",
+ *          "refValue": "Default"\},
+ *         \{"key": "schedule",
+ *          "refValue": "Schedule"\}
  *
  *       ]
- *     }
+ *     \}
  *   ]
- * }
+ * \}
  *
  *                 </request>
  *                 <response>
@@ -182,8 +185,8 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * Content-Length: 18
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {"__type": "com.amazon.setl.webservice#InvalidRequestException",
- *  "message": "Pipeline definition has errors: Could not save the pipeline definition due to FATAL errors: [com.amazon.setl.webservice.ValidationError@108d7ea9] Please call Validate to validate your pipeline"}
+ * \{"__type": "com.amazon.setl.webservice#InvalidRequestException",
+ *  "message": "Pipeline definition has errors: Could not save the pipeline definition due to FATAL errors: [com.amazon.setl.webservice.ValidationError@108d7ea9] Please call Validate to validate your pipeline"\}
  *
  *
  *                 </response>
@@ -195,13 +198,61 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * import { DataPipelineClient, PutPipelineDefinitionCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, PutPipelineDefinitionCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = { // PutPipelineDefinitionInput
+ *   pipelineId: "STRING_VALUE", // required
+ *   pipelineObjects: [ // PipelineObjectList // required
+ *     { // PipelineObject
+ *       id: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       fields: [ // fieldList // required
+ *         { // Field
+ *           key: "STRING_VALUE", // required
+ *           stringValue: "STRING_VALUE",
+ *           refValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   parameterObjects: [ // ParameterObjectList
+ *     { // ParameterObject
+ *       id: "STRING_VALUE", // required
+ *       attributes: [ // ParameterAttributeList // required
+ *         { // ParameterAttribute
+ *           key: "STRING_VALUE", // required
+ *           stringValue: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   parameterValues: [ // ParameterValueList
+ *     { // ParameterValue
+ *       id: "STRING_VALUE", // required
+ *       stringValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutPipelineDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPipelineDefinitionCommandInput - {@link PutPipelineDefinitionCommandInput}
+ * @returns {@link PutPipelineDefinitionCommandOutput}
  * @see {@link PutPipelineDefinitionCommandInput} for command's `input` shape.
  * @see {@link PutPipelineDefinitionCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * @throws {@link PipelineDeletedException} (client fault)
+ *  <p>The specified pipeline has been deleted.</p>
+ *
+ * @throws {@link PipelineNotFoundException} (client fault)
+ *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+ *
  *
  */
 export class PutPipelineDefinitionCommand extends $Command<
@@ -221,6 +272,9 @@ export class PutPipelineDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPipelineDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -249,8 +303,8 @@ export class PutPipelineDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPipelineDefinitionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPipelineDefinitionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -260,12 +314,18 @@ export class PutPipelineDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPipelineDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutPipelineDefinitionCommand(input, context);
+    return se_PutPipelineDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPipelineDefinitionCommandOutput> {
-    return deserializeAws_json1_1PutPipelineDefinitionCommand(output, context);
+    return de_PutPipelineDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

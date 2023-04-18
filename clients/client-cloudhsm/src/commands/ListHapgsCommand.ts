@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  ListHapgsRequest,
-  ListHapgsRequestFilterSensitiveLog,
-  ListHapgsResponse,
-  ListHapgsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ListHapgsCommand, serializeAws_json1_1ListHapgsCommand } from "../protocols/Aws_json1_1";
+import { ListHapgsRequest, ListHapgsResponse } from "../models/models_0";
+import { de_ListHapgsCommand, se_ListHapgsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListHapgsCommand}.
+ */
 export interface ListHapgsCommandInput extends ListHapgsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListHapgsCommand}.
+ */
 export interface ListHapgsCommandOutput extends ListHapgsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -47,13 +53,28 @@ export interface ListHapgsCommandOutput extends ListHapgsResponse, __MetadataBea
  * import { CloudHSMClient, ListHapgsCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ListHapgsCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // ListHapgsRequest
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListHapgsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHapgsCommandInput - {@link ListHapgsCommandInput}
+ * @returns {@link ListHapgsCommandOutput}
  * @see {@link ListHapgsCommandInput} for command's `input` shape.
  * @see {@link ListHapgsCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
+ *
+ * @throws {@link CloudHsmInternalException} (server fault)
+ *  <p>Indicates that an internal error occurred.</p>
+ *
+ * @throws {@link CloudHsmServiceException} (client fault)
+ *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that one or more of the request parameters are not valid.</p>
+ *
  *
  */
 export class ListHapgsCommand extends $Command<
@@ -73,6 +94,9 @@ export class ListHapgsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHapgsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +123,8 @@ export class ListHapgsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHapgsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHapgsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +134,18 @@ export class ListHapgsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHapgsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHapgsCommand(input, context);
+    return se_ListHapgsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHapgsCommandOutput> {
-    return deserializeAws_json1_1ListHapgsCommand(output, context);
+    return de_ListHapgsCommand(output, context);
   }
 
   // Start section: command_body_extra

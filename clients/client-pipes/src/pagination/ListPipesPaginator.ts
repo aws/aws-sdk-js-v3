@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListPipesCommand, ListPipesCommandInput, ListPipesCommandOutput } from "../commands/ListPipesCommand";
-import { Pipes } from "../Pipes";
 import { PipesClient } from "../PipesClient";
 import { PipesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PipesClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPipesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Pipes,
-  input: ListPipesCommandInput,
-  ...args: any
-): Promise<ListPipesCommandOutput> => {
-  // @ts-ignore
-  return await client.listPipes(input, ...args);
-};
 export async function* paginateListPipes(
   config: PipesPaginationConfiguration,
   input: ListPipesCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListPipes(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof Pipes) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof PipesClient) {
+    if (config.client instanceof PipesClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Pipes | PipesClient");

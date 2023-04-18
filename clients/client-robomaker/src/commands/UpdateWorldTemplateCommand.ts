@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateWorldTemplateRequest,
-  UpdateWorldTemplateRequestFilterSensitiveLog,
-  UpdateWorldTemplateResponse,
-  UpdateWorldTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorldTemplateCommand,
-  serializeAws_restJson1UpdateWorldTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateWorldTemplateRequest, UpdateWorldTemplateResponse } from "../models/models_0";
+import { de_UpdateWorldTemplateCommand, se_UpdateWorldTemplateCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateWorldTemplateCommand}.
+ */
 export interface UpdateWorldTemplateCommandInput extends UpdateWorldTemplateRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateWorldTemplateCommand}.
+ */
 export interface UpdateWorldTemplateCommandOutput extends UpdateWorldTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a world template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,38 @@ export interface UpdateWorldTemplateCommandOutput extends UpdateWorldTemplateRes
  * import { RoboMakerClient, UpdateWorldTemplateCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, UpdateWorldTemplateCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // UpdateWorldTemplateRequest
+ *   template: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   templateBody: "STRING_VALUE",
+ *   templateLocation: { // TemplateLocation
+ *     s3Bucket: "STRING_VALUE", // required
+ *     s3Key: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateWorldTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorldTemplateCommandInput - {@link UpdateWorldTemplateCommandInput}
+ * @returns {@link UpdateWorldTemplateCommandOutput}
  * @see {@link UpdateWorldTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateWorldTemplateCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class UpdateWorldTemplateCommand extends $Command<
@@ -62,6 +90,9 @@ export class UpdateWorldTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorldTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class UpdateWorldTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorldTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorldTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class UpdateWorldTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorldTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorldTemplateCommand(input, context);
+    return se_UpdateWorldTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorldTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateWorldTemplateCommand(output, context);
+    return de_UpdateWorldTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

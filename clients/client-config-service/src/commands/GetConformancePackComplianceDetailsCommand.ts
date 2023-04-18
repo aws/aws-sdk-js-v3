@@ -16,21 +16,30 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   GetConformancePackComplianceDetailsRequest,
-  GetConformancePackComplianceDetailsRequestFilterSensitiveLog,
   GetConformancePackComplianceDetailsResponse,
-  GetConformancePackComplianceDetailsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetConformancePackComplianceDetailsCommand,
-  serializeAws_json1_1GetConformancePackComplianceDetailsCommand,
+  de_GetConformancePackComplianceDetailsCommand,
+  se_GetConformancePackComplianceDetailsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetConformancePackComplianceDetailsCommand}.
+ */
 export interface GetConformancePackComplianceDetailsCommandInput extends GetConformancePackComplianceDetailsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetConformancePackComplianceDetailsCommand}.
+ */
 export interface GetConformancePackComplianceDetailsCommandOutput
   extends GetConformancePackComplianceDetailsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns compliance details of a conformance pack for all Amazon Web Services resources that are monitered by conformance pack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +47,49 @@ export interface GetConformancePackComplianceDetailsCommandOutput
  * import { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetConformancePackComplianceDetailsRequest
+ *   ConformancePackName: "STRING_VALUE", // required
+ *   Filters: { // ConformancePackEvaluationFilters
+ *     ConfigRuleNames: [ // ConformancePackConfigRuleNames
+ *       "STRING_VALUE",
+ *     ],
+ *     ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
+ *     ResourceType: "STRING_VALUE",
+ *     ResourceIds: [ // ConformancePackComplianceResourceIds
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetConformancePackComplianceDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConformancePackComplianceDetailsCommandInput - {@link GetConformancePackComplianceDetailsCommandInput}
+ * @returns {@link GetConformancePackComplianceDetailsCommandOutput}
  * @see {@link GetConformancePackComplianceDetailsCommandInput} for command's `input` shape.
  * @see {@link GetConformancePackComplianceDetailsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidLimitException} (client fault)
+ *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is not valid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are not valid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
+ * @throws {@link NoSuchConfigRuleInConformancePackException} (client fault)
+ *  <p>Config rule that you passed in the filter does not exist.</p>
+ *
+ * @throws {@link NoSuchConformancePackException} (client fault)
+ *  <p>You specified one or more conformance packs that do not exist.</p>
+ *
  *
  */
 export class GetConformancePackComplianceDetailsCommand extends $Command<
@@ -64,6 +109,9 @@ export class GetConformancePackComplianceDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConformancePackComplianceDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +140,8 @@ export class GetConformancePackComplianceDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConformancePackComplianceDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConformancePackComplianceDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +151,24 @@ export class GetConformancePackComplianceDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetConformancePackComplianceDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetConformancePackComplianceDetailsCommand(input, context);
+    return se_GetConformancePackComplianceDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConformancePackComplianceDetailsCommandOutput> {
-    return deserializeAws_json1_1GetConformancePackComplianceDetailsCommand(output, context);
+    return de_GetConformancePackComplianceDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

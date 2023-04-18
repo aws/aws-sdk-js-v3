@@ -13,18 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetInventoryResult, GetInventoryResultFilterSensitiveLog } from "../models/models_1";
-import { GetInventoryRequest, GetInventoryRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_json1_1GetInventoryCommand,
-  serializeAws_json1_1GetInventoryCommand,
-} from "../protocols/Aws_json1_1";
+import { GetInventoryResult } from "../models/models_1";
+import { GetInventoryRequest } from "../models/models_2";
+import { de_GetInventoryCommand, se_GetInventoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetInventoryCommand}.
+ */
 export interface GetInventoryCommandInput extends GetInventoryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetInventoryCommand}.
+ */
 export interface GetInventoryCommandOutput extends GetInventoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Query inventory information. This includes managed node status, such as <code>Stopped</code>
  *    or <code>Terminated</code>.</p>
  * @example
@@ -33,13 +41,88 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * import { SSMClient, GetInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetInventoryRequest
+ *   Filters: [ // InventoryFilterList
+ *     { // InventoryFilter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // InventoryFilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *     },
+ *   ],
+ *   Aggregators: [ // InventoryAggregatorList
+ *     { // InventoryAggregator
+ *       Expression: "STRING_VALUE",
+ *       Aggregators: [
+ *         {
+ *           Expression: "STRING_VALUE",
+ *           Aggregators: "<InventoryAggregatorList>",
+ *           Groups: [ // InventoryGroupList
+ *             { // InventoryGroup
+ *               Name: "STRING_VALUE", // required
+ *               Filters: [ // required
+ *                 {
+ *                   Key: "STRING_VALUE", // required
+ *                   Values: [ // required
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       Groups: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Filters: "<InventoryFilterList>", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ResultAttributes: [ // ResultAttributeList
+ *     { // ResultAttribute
+ *       TypeName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetInventoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInventoryCommandInput - {@link GetInventoryCommandInput}
+ * @returns {@link GetInventoryCommandOutput}
  * @see {@link GetInventoryCommandInput} for command's `input` shape.
  * @see {@link GetInventoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidAggregatorException} (client fault)
+ *  <p>The specified aggregator isn't valid for inventory groups. Verify that the aggregator uses a
+ *    valid inventory type such as <code>AWS:Application</code> or
+ *    <code>AWS:InstanceInformation</code>.</p>
+ *
+ * @throws {@link InvalidFilter} (client fault)
+ *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *
+ * @throws {@link InvalidInventoryGroupException} (client fault)
+ *  <p>The specified inventory group isn't valid.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link InvalidResultAttributeException} (client fault)
+ *  <p>The specified inventory item result attribute isn't valid.</p>
+ *
+ * @throws {@link InvalidTypeNameException} (client fault)
+ *  <p>The parameter type name isn't valid.</p>
+ *
  *
  */
 export class GetInventoryCommand extends $Command<
@@ -59,6 +142,9 @@ export class GetInventoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInventoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +171,8 @@ export class GetInventoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInventoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInventoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +182,18 @@ export class GetInventoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInventoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInventoryCommand(input, context);
+    return se_GetInventoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInventoryCommandOutput> {
-    return deserializeAws_json1_1GetInventoryCommand(output, context);
+    return de_GetInventoryCommand(output, context);
   }
 
   // Start section: command_body_extra

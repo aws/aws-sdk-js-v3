@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ListPlatformBranchesRequest,
-  ListPlatformBranchesRequestFilterSensitiveLog,
-  ListPlatformBranchesResult,
-  ListPlatformBranchesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListPlatformBranchesCommand,
-  serializeAws_queryListPlatformBranchesCommand,
-} from "../protocols/Aws_query";
+import { ListPlatformBranchesRequest, ListPlatformBranchesResult } from "../models/models_0";
+import { de_ListPlatformBranchesCommand, se_ListPlatformBranchesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPlatformBranchesCommand}.
+ */
 export interface ListPlatformBranchesCommandInput extends ListPlatformBranchesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPlatformBranchesCommand}.
+ */
 export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the platform branches available for your account in an AWS Region. Provides
  *       summary information about each platform branch.</p>
  *          <p>For definitions of platform branch and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
@@ -39,13 +42,29 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  * import { ElasticBeanstalkClient, ListPlatformBranchesCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ListPlatformBranchesCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // ListPlatformBranchesRequest
+ *   Filters: [ // SearchFilters
+ *     { // SearchFilter
+ *       Attribute: "STRING_VALUE",
+ *       Operator: "STRING_VALUE",
+ *       Values: [ // SearchFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPlatformBranchesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlatformBranchesCommandInput - {@link ListPlatformBranchesCommandInput}
+ * @returns {@link ListPlatformBranchesCommandOutput}
  * @see {@link ListPlatformBranchesCommandInput} for command's `input` shape.
  * @see {@link ListPlatformBranchesCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
  *
  */
 export class ListPlatformBranchesCommand extends $Command<
@@ -65,6 +84,9 @@ export class ListPlatformBranchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlatformBranchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +115,8 @@ export class ListPlatformBranchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlatformBranchesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPlatformBranchesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +126,18 @@ export class ListPlatformBranchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlatformBranchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPlatformBranchesCommand(input, context);
+    return se_ListPlatformBranchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformBranchesCommandOutput> {
-    return deserializeAws_queryListPlatformBranchesCommand(output, context);
+    return de_ListPlatformBranchesCommand(output, context);
   }
 
   // Start section: command_body_extra

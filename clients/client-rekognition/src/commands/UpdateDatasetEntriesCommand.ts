@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDatasetEntriesRequest,
-  UpdateDatasetEntriesRequestFilterSensitiveLog,
-  UpdateDatasetEntriesResponse,
-  UpdateDatasetEntriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDatasetEntriesCommand,
-  serializeAws_json1_1UpdateDatasetEntriesCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDatasetEntriesRequest, UpdateDatasetEntriesResponse } from "../models/models_0";
+import { de_UpdateDatasetEntriesCommand, se_UpdateDatasetEntriesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateDatasetEntriesCommand}.
+ */
 export interface UpdateDatasetEntriesCommandInput extends UpdateDatasetEntriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDatasetEntriesCommand}.
+ */
 export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates one or more entries (images) in a dataset. An entry is a JSON Line which contains the
  *       information for a single image,  including
  *       the image location, assigned labels, and object location bounding boxes.  For more information,
@@ -57,13 +60,50 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * import { RekognitionClient, UpdateDatasetEntriesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, UpdateDatasetEntriesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // UpdateDatasetEntriesRequest
+ *   DatasetArn: "STRING_VALUE", // required
+ *   Changes: { // DatasetChanges
+ *     GroundTruth: "BLOB_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateDatasetEntriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatasetEntriesCommandInput - {@link UpdateDatasetEntriesCommandInput}
+ * @returns {@link UpdateDatasetEntriesCommandOutput}
  * @see {@link UpdateDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetEntriesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
+ *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
+ *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is already being used.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class UpdateDatasetEntriesCommand extends $Command<
@@ -83,6 +123,9 @@ export class UpdateDatasetEntriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatasetEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +154,8 @@ export class UpdateDatasetEntriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatasetEntriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatasetEntriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +165,18 @@ export class UpdateDatasetEntriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatasetEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDatasetEntriesCommand(input, context);
+    return se_UpdateDatasetEntriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasetEntriesCommandOutput> {
-    return deserializeAws_json1_1UpdateDatasetEntriesCommand(output, context);
+    return de_UpdateDatasetEntriesCommand(output, context);
   }
 
   // Start section: command_body_extra

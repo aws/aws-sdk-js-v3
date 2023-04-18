@@ -6,12 +6,11 @@ import {
   ListOpsMetadataCommandInput,
   ListOpsMetadataCommandOutput,
 } from "../commands/ListOpsMetadataCommand";
-import { SSM } from "../SSM";
 import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSMClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListOpsMetadataCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SSM,
-  input: ListOpsMetadataCommandInput,
-  ...args: any
-): Promise<ListOpsMetadataCommandOutput> => {
-  // @ts-ignore
-  return await client.listOpsMetadata(input, ...args);
-};
 export async function* paginateListOpsMetadata(
   config: SSMPaginationConfiguration,
   input: ListOpsMetadataCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListOpsMetadata(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMClient) {
+    if (config.client instanceof SSMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSM | SSMClient");

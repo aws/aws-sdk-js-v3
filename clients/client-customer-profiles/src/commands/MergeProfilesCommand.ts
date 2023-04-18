@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  MergeProfilesRequest,
-  MergeProfilesRequestFilterSensitiveLog,
-  MergeProfilesResponse,
-  MergeProfilesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1MergeProfilesCommand,
-  serializeAws_restJson1MergeProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { MergeProfilesRequest, MergeProfilesResponse } from "../models/models_0";
+import { de_MergeProfilesCommand, se_MergeProfilesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link MergeProfilesCommand}.
+ */
 export interface MergeProfilesCommandInput extends MergeProfilesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link MergeProfilesCommand}.
+ */
 export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs an AWS Lambda job that does the following:</p>
  *          <ol>
  *             <li>
@@ -78,13 +81,60 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * import { CustomerProfilesClient, MergeProfilesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, MergeProfilesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // MergeProfilesRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   MainProfileId: "STRING_VALUE", // required
+ *   ProfileIdsToBeMerged: [ // ProfileIdToBeMergedList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   FieldSourceProfileIds: { // FieldSourceProfileIds
+ *     AccountNumber: "STRING_VALUE",
+ *     AdditionalInformation: "STRING_VALUE",
+ *     PartyType: "STRING_VALUE",
+ *     BusinessName: "STRING_VALUE",
+ *     FirstName: "STRING_VALUE",
+ *     MiddleName: "STRING_VALUE",
+ *     LastName: "STRING_VALUE",
+ *     BirthDate: "STRING_VALUE",
+ *     Gender: "STRING_VALUE",
+ *     PhoneNumber: "STRING_VALUE",
+ *     MobilePhoneNumber: "STRING_VALUE",
+ *     HomePhoneNumber: "STRING_VALUE",
+ *     BusinessPhoneNumber: "STRING_VALUE",
+ *     EmailAddress: "STRING_VALUE",
+ *     PersonalEmailAddress: "STRING_VALUE",
+ *     BusinessEmailAddress: "STRING_VALUE",
+ *     Address: "STRING_VALUE",
+ *     ShippingAddress: "STRING_VALUE",
+ *     MailingAddress: "STRING_VALUE",
+ *     BillingAddress: "STRING_VALUE",
+ *     Attributes: { // AttributeSourceIdMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new MergeProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MergeProfilesCommandInput - {@link MergeProfilesCommandInput}
+ * @returns {@link MergeProfilesCommandOutput}
  * @see {@link MergeProfilesCommandInput} for command's `input` shape.
  * @see {@link MergeProfilesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the maximum number of requests.</p>
+ *
  *
  */
 export class MergeProfilesCommand extends $Command<
@@ -104,6 +154,9 @@ export class MergeProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergeProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +183,8 @@ export class MergeProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergeProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MergeProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +194,18 @@ export class MergeProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergeProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MergeProfilesCommand(input, context);
+    return se_MergeProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeProfilesCommandOutput> {
-    return deserializeAws_restJson1MergeProfilesCommand(output, context);
+    return de_MergeProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

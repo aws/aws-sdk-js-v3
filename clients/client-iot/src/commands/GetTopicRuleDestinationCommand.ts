@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetTopicRuleDestinationRequest,
-  GetTopicRuleDestinationRequestFilterSensitiveLog,
-  GetTopicRuleDestinationResponse,
-  GetTopicRuleDestinationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetTopicRuleDestinationCommand,
-  serializeAws_restJson1GetTopicRuleDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTopicRuleDestinationRequest, GetTopicRuleDestinationResponse } from "../models/models_1";
+import { de_GetTopicRuleDestinationCommand, se_GetTopicRuleDestinationCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetTopicRuleDestinationCommand}.
+ */
 export interface GetTopicRuleDestinationCommandInput extends GetTopicRuleDestinationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTopicRuleDestinationCommand}.
+ */
 export interface GetTopicRuleDestinationCommandOutput extends GetTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a topic rule destination.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRuleDestination</a> action.</p>
  * @example
@@ -37,13 +40,31 @@ export interface GetTopicRuleDestinationCommandOutput extends GetTopicRuleDestin
  * import { IoTClient, GetTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // GetTopicRuleDestinationRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTopicRuleDestinationCommandInput - {@link GetTopicRuleDestinationCommandInput}
+ * @returns {@link GetTopicRuleDestinationCommandOutput}
  * @see {@link GetTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link GetTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class GetTopicRuleDestinationCommand extends $Command<
@@ -63,6 +84,9 @@ export class GetTopicRuleDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTopicRuleDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +115,8 @@ export class GetTopicRuleDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTopicRuleDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTopicRuleDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +126,18 @@ export class GetTopicRuleDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTopicRuleDestinationCommand(input, context);
+    return se_GetTopicRuleDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1GetTopicRuleDestinationCommand(output, context);
+    return de_GetTopicRuleDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

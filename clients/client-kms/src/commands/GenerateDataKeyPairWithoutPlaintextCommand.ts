@@ -16,21 +16,30 @@ import {
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   GenerateDataKeyPairWithoutPlaintextRequest,
-  GenerateDataKeyPairWithoutPlaintextRequestFilterSensitiveLog,
   GenerateDataKeyPairWithoutPlaintextResponse,
-  GenerateDataKeyPairWithoutPlaintextResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand,
-  serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand,
+  de_GenerateDataKeyPairWithoutPlaintextCommand,
+  se_GenerateDataKeyPairWithoutPlaintextCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GenerateDataKeyPairWithoutPlaintextCommand}.
+ */
 export interface GenerateDataKeyPairWithoutPlaintextCommandInput extends GenerateDataKeyPairWithoutPlaintextRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GenerateDataKeyPairWithoutPlaintextCommand}.
+ */
 export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
   extends GenerateDataKeyPairWithoutPlaintextResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
  *       a plaintext public key and a copy of the private key that is encrypted under the symmetric
  *       encryption KMS key you specify. Unlike <a>GenerateDataKeyPair</a>, this operation
@@ -51,7 +60,6 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *       request. The bytes in the key are not related to the caller or KMS key that is used to encrypt
  *       the private key. The public key is a DER-encoded X.509 SubjectPublicKeyInfo, as specified in
  *         <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</p>
- *
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
@@ -62,7 +70,6 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKeyPairWithoutPlaintext</a> (key
  *       policy)</p>
@@ -102,13 +109,111 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  * import { KMSClient, GenerateDataKeyPairWithoutPlaintextCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateDataKeyPairWithoutPlaintextCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // GenerateDataKeyPairWithoutPlaintextRequest
+ *   EncryptionContext: { // EncryptionContextType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KeyId: "STRING_VALUE", // required
+ *   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2", // required
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GenerateDataKeyPairWithoutPlaintextCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateDataKeyPairWithoutPlaintextCommandInput - {@link GenerateDataKeyPairWithoutPlaintextCommandInput}
+ * @returns {@link GenerateDataKeyPairWithoutPlaintextCommandOutput}
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link DisabledException} (client fault)
+ *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link InvalidGrantTokenException} (client fault)
+ *  <p>The request was rejected because the specified grant token is not valid.</p>
+ *
+ * @throws {@link InvalidKeyUsageException} (client fault)
+ *  <p>The request was rejected for one of the following reasons: </p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API
+ *           operation.</p>
+ *             </li>
+ *             <li>
+ *                <p>The encryption algorithm or signing algorithm specified for the operation is
+ *           incompatible with the type of key material in the KMS key <code>(KeySpec</code>).</p>
+ *             </li>
+ *          </ul>
+ *          <p>For encrypting, decrypting, re-encrypting, and generating data keys, the
+ *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
+ *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
+ *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
+ *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
+ *         <a>DescribeKey</a> operation.</p>
+ *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
+ *         <a>DescribeKey</a> operation.</p>
+ *
+ * @throws {@link KeyUnavailableException} (server fault)
+ *  <p>The request was rejected because the specified KMS key was not available. You can retry
+ *       the request.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified
+ *       resource is not valid for this operation.</p>
+ *
+ *
+ * @example To generate an asymmetric data key pair without a plaintext key
+ * ```javascript
+ * // This example returns an asymmetric elliptic curve (ECC) data key pair. The private key is encrypted under the symmetric encryption KMS key that you specify. This operation doesn't return a plaintext (unencrypted) private key.
+ * const input = {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "KeyPairSpec": "ECC_NIST_P521"
+ * };
+ * const command = new GenerateDataKeyPairWithoutPlaintextCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "KeyPairSpec": "ECC_NIST_P521",
+ *   "PrivateKeyCiphertextBlob": "<binary data>",
+ *   "PublicKey": "<binary data>"
+ * }
+ * *\/
+ * // example id: to-generate-an-asymmetric-data-key-pair-without-a-plaintext-key-1628620971564
+ * ```
  *
  */
 export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
@@ -128,6 +233,9 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateDataKeyPairWithoutPlaintextCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,8 +264,8 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateDataKeyPairWithoutPlaintextRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateDataKeyPairWithoutPlaintextResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -167,18 +275,24 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateDataKeyPairWithoutPlaintextCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand(input, context);
+    return se_GenerateDataKeyPairWithoutPlaintextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput> {
-    return deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand(output, context);
+    return de_GenerateDataKeyPairWithoutPlaintextCommand(output, context);
   }
 
   // Start section: command_body_extra

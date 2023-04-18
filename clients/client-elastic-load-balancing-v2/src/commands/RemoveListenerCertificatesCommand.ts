@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  RemoveListenerCertificatesInput,
-  RemoveListenerCertificatesInputFilterSensitiveLog,
-  RemoveListenerCertificatesOutput,
-  RemoveListenerCertificatesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryRemoveListenerCertificatesCommand,
-  serializeAws_queryRemoveListenerCertificatesCommand,
-} from "../protocols/Aws_query";
+import { RemoveListenerCertificatesInput, RemoveListenerCertificatesOutput } from "../models/models_0";
+import { de_RemoveListenerCertificatesCommand, se_RemoveListenerCertificatesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link RemoveListenerCertificatesCommand}.
+ */
 export interface RemoveListenerCertificatesCommandInput extends RemoveListenerCertificatesInput {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveListenerCertificatesCommand}.
+ */
 export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerCertificatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS
  *       listener.</p>
  * @example
@@ -41,13 +44,31 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  * import { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // RemoveListenerCertificatesInput
+ *   ListenerArn: "STRING_VALUE", // required
+ *   Certificates: [ // CertificateList // required
+ *     { // Certificate
+ *       CertificateArn: "STRING_VALUE",
+ *       IsDefault: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new RemoveListenerCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveListenerCertificatesCommandInput - {@link RemoveListenerCertificatesCommandInput}
+ * @returns {@link RemoveListenerCertificatesCommandOutput}
  * @see {@link RemoveListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link RemoveListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The specified listener does not exist.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
  *
  */
 export class RemoveListenerCertificatesCommand extends $Command<
@@ -67,6 +88,9 @@ export class RemoveListenerCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveListenerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +119,8 @@ export class RemoveListenerCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveListenerCertificatesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveListenerCertificatesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,15 +130,21 @@ export class RemoveListenerCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveListenerCertificatesCommand(input, context);
+    return se_RemoveListenerCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveListenerCertificatesCommandOutput> {
-    return deserializeAws_queryRemoveListenerCertificatesCommand(output, context);
+    return de_RemoveListenerCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

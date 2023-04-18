@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -153,6 +155,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelKeyDeletionCommandInput
   | ConnectCustomKeyStoreCommandInput
@@ -205,6 +210,9 @@ export type ServiceInputTypes =
   | VerifyCommandInput
   | VerifyMacCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelKeyDeletionCommandOutput
   | ConnectCustomKeyStoreCommandOutput
@@ -257,6 +265,9 @@ export type ServiceOutputTypes =
   | VerifyCommandOutput
   | VerifyMacCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -264,11 +275,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -325,19 +336,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -348,12 +350,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -373,11 +369,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type KMSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -388,10 +402,15 @@ type KMSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of KMSClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of KMSClient class constructor that set the region, credentials and other options.
  */
 export interface KMSClientConfig extends KMSClientConfigType {}
 
+/**
+ * @public
+ */
 type KMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -402,11 +421,14 @@ type KMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of KMSClient class. This is resolved and normalized from the {@link KMSClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of KMSClient class. This is resolved and normalized from the {@link KMSClientConfig | constructor configuration interface}.
  */
 export interface KMSClientResolvedConfig extends KMSClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Key Management Service</fullname>
  *          <p>Key Management Service (KMS) is an encryption and key management web service. This guide describes
  *       the KMS operations that you can call programmatically. For general information about KMS,
@@ -436,12 +458,12 @@ export interface KMSClientResolvedConfig extends KMSClientResolvedConfigType {}
  *          <p>
  *             <b>Signing Requests</b>
  *          </p>
- *          <p>Requests must be signed by using an access key ID and a secret access key. We strongly
- *       recommend that you <i>do not</i> use your Amazon Web Services account (root) access key ID and
- *       secret access key for everyday work with KMS. Instead, use the access key ID and secret
- *       access key for an IAM user. You can also use the Amazon Web Services Security Token Service to generate
- *       temporary security credentials that you can use to sign requests.</p>
- *          <p>All KMS operations require <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
+ *          <p>Requests must be signed using an access key ID and a secret access key. We strongly
+ *       recommend that you do not use your Amazon Web Services account root access key ID and secret access key for
+ *       everyday work. You can use the access key ID and secret access key for an IAM user or you
+ *       can use the Security Token Service (STS) to generate temporary security credentials and use those to sign
+ *       requests. </p>
+ *          <p>All KMS requests must be signed with <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
  *          <p>
  *             <b>Logging API Requests</b>
  *          </p>

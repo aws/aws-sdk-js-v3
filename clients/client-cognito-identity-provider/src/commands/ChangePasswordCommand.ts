@@ -22,17 +22,24 @@ import {
   ChangePasswordRequest,
   ChangePasswordRequestFilterSensitiveLog,
   ChangePasswordResponse,
-  ChangePasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ChangePasswordCommand,
-  serializeAws_json1_1ChangePasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ChangePasswordCommand, se_ChangePasswordCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ChangePasswordCommand}.
+ */
 export interface ChangePasswordCommandInput extends ChangePasswordRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ChangePasswordCommand}.
+ */
 export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the password for a specified user in a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +47,58 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  * import { CognitoIdentityProviderClient, ChangePasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ChangePasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ChangePasswordRequest
+ *   PreviousPassword: "STRING_VALUE", // required
+ *   ProposedPassword: "STRING_VALUE", // required
+ *   AccessToken: "STRING_VALUE", // required
+ * };
  * const command = new ChangePasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangePasswordCommandInput - {@link ChangePasswordCommandInput}
+ * @returns {@link ChangePasswordCommandOutput}
  * @see {@link ChangePasswordCommandInput} for command's `input` shape.
  * @see {@link ChangePasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link InvalidPasswordException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
+ *             resource.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link PasswordResetRequiredException} (client fault)
+ *  <p>This exception is thrown when a password reset is required.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UserNotConfirmedException} (client fault)
+ *  <p>This exception is thrown when a user isn't confirmed successfully.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
  *
  */
 export class ChangePasswordCommand extends $Command<
@@ -66,6 +118,9 @@ export class ChangePasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangePasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +150,7 @@ export class ChangePasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ChangePasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ChangePasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +160,18 @@ export class ChangePasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangePasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ChangePasswordCommand(input, context);
+    return se_ChangePasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangePasswordCommandOutput> {
-    return deserializeAws_json1_1ChangePasswordCommand(output, context);
+    return de_ChangePasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,23 +15,32 @@ import {
 
 import {
   DescribeMaintenanceWindowExecutionTasksRequest,
-  DescribeMaintenanceWindowExecutionTasksRequestFilterSensitiveLog,
   DescribeMaintenanceWindowExecutionTasksResult,
-  DescribeMaintenanceWindowExecutionTasksResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommand,
+  de_DescribeMaintenanceWindowExecutionTasksCommand,
+  se_DescribeMaintenanceWindowExecutionTasksCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeMaintenanceWindowExecutionTasksCommand}.
+ */
 export interface DescribeMaintenanceWindowExecutionTasksCommandInput
   extends DescribeMaintenanceWindowExecutionTasksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMaintenanceWindowExecutionTasksCommand}.
+ */
 export interface DescribeMaintenanceWindowExecutionTasksCommandOutput
   extends DescribeMaintenanceWindowExecutionTasksResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a given maintenance window execution, lists the tasks that were run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,38 @@ export interface DescribeMaintenanceWindowExecutionTasksCommandOutput
  * import { SSMClient, DescribeMaintenanceWindowExecutionTasksCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowExecutionTasksCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeMaintenanceWindowExecutionTasksRequest
+ *   WindowExecutionId: "STRING_VALUE", // required
+ *   Filters: [ // MaintenanceWindowFilterList
+ *     { // MaintenanceWindowFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // MaintenanceWindowFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMaintenanceWindowExecutionTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowExecutionTasksCommandInput - {@link DescribeMaintenanceWindowExecutionTasksCommandInput}
+ * @returns {@link DescribeMaintenanceWindowExecutionTasksCommandOutput}
  * @see {@link DescribeMaintenanceWindowExecutionTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowExecutionTasksCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DoesNotExistException} (client fault)
+ *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
+ *    baseline, doesn't exist.</p>
+ *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
  *
  */
 export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command<
@@ -65,6 +99,9 @@ export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowExecutionTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +136,8 @@ export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowExecutionTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMaintenanceWindowExecutionTasksResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +147,24 @@ export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMaintenanceWindowExecutionTasksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommand(input, context);
+    return se_DescribeMaintenanceWindowExecutionTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommand(output, context);
+    return de_DescribeMaintenanceWindowExecutionTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

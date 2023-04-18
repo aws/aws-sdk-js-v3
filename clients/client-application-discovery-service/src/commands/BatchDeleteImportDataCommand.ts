@@ -18,24 +18,26 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  BatchDeleteImportDataRequest,
-  BatchDeleteImportDataRequestFilterSensitiveLog,
-  BatchDeleteImportDataResponse,
-  BatchDeleteImportDataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteImportDataCommand,
-  serializeAws_json1_1BatchDeleteImportDataCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchDeleteImportDataRequest, BatchDeleteImportDataResponse } from "../models/models_0";
+import { de_BatchDeleteImportDataCommand, se_BatchDeleteImportDataCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link BatchDeleteImportDataCommand}.
+ */
 export interface BatchDeleteImportDataCommandInput extends BatchDeleteImportDataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchDeleteImportDataCommand}.
+ */
 export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has
  *       a number of records that can identify servers or applications. </p>
- *
  *          <p>Amazon Web Services Application Discovery Service has built-in matching logic that will identify when
  *       discovered servers match existing entries that you've previously discovered, the information
  *       for the already-existing discovered server is updated. When you delete an import task that
@@ -47,13 +49,38 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  * import { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // BatchDeleteImportDataRequest
+ *   importTaskIds: [ // ToDeleteIdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDeleteImportDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteImportDataCommandInput - {@link BatchDeleteImportDataCommandInput}
+ * @returns {@link BatchDeleteImportDataCommandOutput}
  * @see {@link BatchDeleteImportDataCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteImportDataCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *       policy associated with this account.</p>
+ *
+ * @throws {@link HomeRegionNotSetException} (client fault)
+ *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of one or more parameters are either invalid or out of range. Verify the
+ *       parameter values and try again.</p>
+ *
+ * @throws {@link ServerInternalErrorException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
  *
  */
 export class BatchDeleteImportDataCommand extends $Command<
@@ -73,6 +100,9 @@ export class BatchDeleteImportDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteImportDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +131,8 @@ export class BatchDeleteImportDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteImportDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteImportDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +142,18 @@ export class BatchDeleteImportDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteImportDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteImportDataCommand(input, context);
+    return se_BatchDeleteImportDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteImportDataCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteImportDataCommand(output, context);
+    return de_BatchDeleteImportDataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -5,6 +5,9 @@ import { AwsCredentialIdentity, Provider } from "@aws-sdk/types";
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { resolveLogins } from "./resolveLogins";
 
+/**
+ * @internal
+ */
 export interface CognitoIdentityCredentials extends AwsCredentialIdentity {
   /**
    * The Cognito ID returned by the last call to AWS.CognitoIdentity.getOpenIdToken().
@@ -12,9 +15,14 @@ export interface CognitoIdentityCredentials extends AwsCredentialIdentity {
   identityId: string;
 }
 
+/**
+ * @internal
+ */
 export type CognitoIdentityCredentialProvider = Provider<CognitoIdentityCredentials>;
 
 /**
+ * @internal
+ * 
  * Retrieves temporary AWS credentials using Amazon Cognito's
  * `GetCredentialsForIdentity` operation.
  *
@@ -47,6 +55,9 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
   };
 }
 
+/**
+ * @internal
+ */
 export interface FromCognitoIdentityParameters extends CognitoProviderParameters {
   /**
    * The unique identifier for the identity against which credentials will be

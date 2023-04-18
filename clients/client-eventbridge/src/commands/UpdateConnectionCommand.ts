@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  UpdateConnectionRequest,
-  UpdateConnectionRequestFilterSensitiveLog,
-  UpdateConnectionResponse,
-  UpdateConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateConnectionCommand,
-  serializeAws_json1_1UpdateConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateConnectionRequest, UpdateConnectionResponse } from "../models/models_0";
+import { de_UpdateConnectionCommand, se_UpdateConnectionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateConnectionCommand}.
+ */
 export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateConnectionCommand}.
+ */
 export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates settings for a connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,98 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * import { EventBridgeClient, UpdateConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, UpdateConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // UpdateConnectionRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
+ *   AuthParameters: { // UpdateConnectionAuthRequestParameters
+ *     BasicAuthParameters: { // UpdateConnectionBasicAuthRequestParameters
+ *       Username: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *     },
+ *     OAuthParameters: { // UpdateConnectionOAuthRequestParameters
+ *       ClientParameters: { // UpdateConnectionOAuthClientRequestParameters
+ *         ClientID: "STRING_VALUE",
+ *         ClientSecret: "STRING_VALUE",
+ *       },
+ *       AuthorizationEndpoint: "STRING_VALUE",
+ *       HttpMethod: "GET" || "POST" || "PUT",
+ *       OAuthHttpParameters: { // ConnectionHttpParameters
+ *         HeaderParameters: [ // ConnectionHeaderParametersList
+ *           { // ConnectionHeaderParameter
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *         QueryStringParameters: [ // ConnectionQueryStringParametersList
+ *           { // ConnectionQueryStringParameter
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *         BodyParameters: [ // ConnectionBodyParametersList
+ *           { // ConnectionBodyParameter
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     ApiKeyAuthParameters: { // UpdateConnectionApiKeyAuthRequestParameters
+ *       ApiKeyName: "STRING_VALUE",
+ *       ApiKeyValue: "STRING_VALUE",
+ *     },
+ *     InvocationHttpParameters: {
+ *       HeaderParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *       QueryStringParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *       BodyParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectionCommandInput - {@link UpdateConnectionCommandInput}
+ * @returns {@link UpdateConnectionCommandOutput}
  * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request failed because it attempted to create resource beyond the allowed service
+ *       quota.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
  *
  */
 export class UpdateConnectionCommand extends $Command<
@@ -62,6 +150,9 @@ export class UpdateConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +181,8 @@ export class UpdateConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +192,18 @@ export class UpdateConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConnectionCommand(input, context);
+    return se_UpdateConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectionCommandOutput> {
-    return deserializeAws_json1_1UpdateConnectionCommand(output, context);
+    return de_UpdateConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

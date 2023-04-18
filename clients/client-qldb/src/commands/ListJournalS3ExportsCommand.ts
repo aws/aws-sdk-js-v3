@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListJournalS3ExportsRequest,
-  ListJournalS3ExportsRequestFilterSensitiveLog,
-  ListJournalS3ExportsResponse,
-  ListJournalS3ExportsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListJournalS3ExportsCommand,
-  serializeAws_restJson1ListJournalS3ExportsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListJournalS3ExportsRequest, ListJournalS3ExportsResponse } from "../models/models_0";
+import { de_ListJournalS3ExportsCommand, se_ListJournalS3ExportsCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListJournalS3ExportsCommand}.
+ */
 export interface ListJournalS3ExportsCommandInput extends ListJournalS3ExportsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListJournalS3ExportsCommand}.
+ */
 export interface ListJournalS3ExportsCommandOutput extends ListJournalS3ExportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of journal export job descriptions for all ledgers that are associated
  *          with the current Amazon Web Services account and Region.</p>
  *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
@@ -42,13 +45,20 @@ export interface ListJournalS3ExportsCommandOutput extends ListJournalS3ExportsR
  * import { QLDBClient, ListJournalS3ExportsCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ListJournalS3ExportsCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // ListJournalS3ExportsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListJournalS3ExportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJournalS3ExportsCommandInput - {@link ListJournalS3ExportsCommandInput}
+ * @returns {@link ListJournalS3ExportsCommandOutput}
  * @see {@link ListJournalS3ExportsCommandInput} for command's `input` shape.
  * @see {@link ListJournalS3ExportsCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
  *
  */
 export class ListJournalS3ExportsCommand extends $Command<
@@ -68,6 +78,9 @@ export class ListJournalS3ExportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJournalS3ExportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +109,8 @@ export class ListJournalS3ExportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJournalS3ExportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJournalS3ExportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +120,18 @@ export class ListJournalS3ExportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJournalS3ExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJournalS3ExportsCommand(input, context);
+    return se_ListJournalS3ExportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJournalS3ExportsCommandOutput> {
-    return deserializeAws_restJson1ListJournalS3ExportsCommand(output, context);
+    return de_ListJournalS3ExportsCommand(output, context);
   }
 
   // Start section: command_body_extra

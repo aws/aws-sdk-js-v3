@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  UpdateWebhookRequest,
-  UpdateWebhookRequestFilterSensitiveLog,
-  UpdateWebhookResult,
-  UpdateWebhookResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWebhookCommand,
-  serializeAws_restJson1UpdateWebhookCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateWebhookRequest, UpdateWebhookResult } from "../models/models_0";
+import { de_UpdateWebhookCommand, se_UpdateWebhookCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateWebhookCommand}.
+ */
 export interface UpdateWebhookCommandInput extends UpdateWebhookRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateWebhookCommand}.
+ */
 export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a webhook. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __Metad
  * import { AmplifyClient, UpdateWebhookCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, UpdateWebhookCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // UpdateWebhookRequest
+ *   webhookId: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateWebhookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWebhookCommandInput - {@link UpdateWebhookCommandInput}
+ * @returns {@link UpdateWebhookCommandOutput}
  * @see {@link UpdateWebhookCommandInput} for command's `input` shape.
  * @see {@link UpdateWebhookCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link DependentServiceFailureException} (server fault)
+ *  <p> An operation failed because a dependent service threw an exception. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p> An entity was not found during an operation. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
  *
  */
 export class UpdateWebhookCommand extends $Command<
@@ -62,6 +88,9 @@ export class UpdateWebhookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWebhookCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class UpdateWebhookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWebhookRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWebhookResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class UpdateWebhookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWebhookCommand(input, context);
+    return se_UpdateWebhookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWebhookCommandOutput> {
-    return deserializeAws_restJson1UpdateWebhookCommand(output, context);
+    return de_UpdateWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  PutReplicationConfigurationRequest,
-  PutReplicationConfigurationRequestFilterSensitiveLog,
-  PutReplicationConfigurationResponse,
-  PutReplicationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutReplicationConfigurationCommand,
-  serializeAws_json1_1PutReplicationConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { PutReplicationConfigurationRequest, PutReplicationConfigurationResponse } from "../models/models_0";
+import { de_PutReplicationConfigurationCommand, se_PutReplicationConfigurationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutReplicationConfigurationCommand}.
+ */
 export interface PutReplicationConfigurationCommandInput extends PutReplicationConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutReplicationConfigurationCommand}.
+ */
 export interface PutReplicationConfigurationCommandOutput
   extends PutReplicationConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the replication configuration for a registry. The existing
  *             replication configuration for a repository can be retrieved with the <a>DescribeRegistry</a> API action. The first time the
  *             PutReplicationConfiguration API is called, a service-linked IAM role is created in
@@ -48,13 +51,46 @@ export interface PutReplicationConfigurationCommandOutput
  * import { ECRClient, PutReplicationConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutReplicationConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // PutReplicationConfigurationRequest
+ *   replicationConfiguration: { // ReplicationConfiguration
+ *     rules: [ // ReplicationRuleList // required
+ *       { // ReplicationRule
+ *         destinations: [ // ReplicationDestinationList // required
+ *           { // ReplicationDestination
+ *             region: "STRING_VALUE", // required
+ *             registryId: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         repositoryFilters: [ // RepositoryFilterList
+ *           { // RepositoryFilter
+ *             filter: "STRING_VALUE", // required
+ *             filterType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutReplicationConfigurationCommandInput - {@link PutReplicationConfigurationCommandInput}
+ * @returns {@link PutReplicationConfigurationCommandOutput}
  * @see {@link PutReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this request.</p>
+ *
  *
  */
 export class PutReplicationConfigurationCommand extends $Command<
@@ -74,6 +110,9 @@ export class PutReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +141,8 @@ export class PutReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutReplicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutReplicationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +152,21 @@ export class PutReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutReplicationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutReplicationConfigurationCommand(input, context);
+    return se_PutReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutReplicationConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutReplicationConfigurationCommand(output, context);
+    return de_PutReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

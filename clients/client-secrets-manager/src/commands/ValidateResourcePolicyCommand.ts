@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ValidateResourcePolicyRequest,
-  ValidateResourcePolicyRequestFilterSensitiveLog,
-  ValidateResourcePolicyResponse,
-  ValidateResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ValidateResourcePolicyCommand,
-  serializeAws_json1_1ValidateResourcePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { ValidateResourcePolicyRequest, ValidateResourcePolicyResponse } from "../models/models_0";
+import { de_ValidateResourcePolicyCommand, se_ValidateResourcePolicyCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ValidateResourcePolicyCommand}.
+ */
 export interface ValidateResourcePolicyCommandInput extends ValidateResourcePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ValidateResourcePolicyCommand}.
+ */
 export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates that a resource policy does not grant a wide range of principals access to
  *       your secret. A resource-based policy is optional for secrets.</p>
  *          <p>The API performs three checks when validating the policy:</p>
@@ -57,13 +60,68 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * import { SecretsManagerClient, ValidateResourcePolicyCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ValidateResourcePolicyCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // ValidateResourcePolicyRequest
+ *   SecretId: "STRING_VALUE",
+ *   ResourcePolicy: "STRING_VALUE", // required
+ * };
  * const command = new ValidateResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateResourcePolicyCommandInput - {@link ValidateResourcePolicyCommandInput}
+ * @returns {@link ValidateResourcePolicyCommandOutput}
  * @see {@link ValidateResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link ValidateResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The parameter name or value is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>A parameter value is not valid for the current state of the
+ *       resource.</p>
+ *          <p>Possible causes:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The secret is scheduled for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
+ *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
+ *             </li>
+ *             <li>
+ *                <p>The secret is managed by another service, and you must use that service to update it.
+ *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link MalformedPolicyDocumentException} (client fault)
+ *  <p>The resource policy has syntax errors.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ *
+ * @example To validate a resource-based policy to a secret
+ * ```javascript
+ * // The following example shows how to validate a resource-based policy to a secret.
+ * const input = {
+ *   "ResourcePolicy": "{\n\"Version\":\"2012-10-17\",\n\"Statement\":[{\n\"Effect\":\"Allow\",\n\"Principal\":{\n\"AWS\":\"arn:aws:iam::123456789012:root\"\n},\n\"Action\":\"secretsmanager:GetSecretValue\",\n\"Resource\":\"*\"\n}]\n}",
+ *   "SecretId": "MyTestDatabaseSecret"
+ * };
+ * const command = new ValidateResourcePolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PolicyValidationPassed": true,
+ *   "ValidationErrors": []
+ * }
+ * *\/
+ * // example id: to-validate-the-resource-policy-of-a-secret-1524000138629
+ * ```
  *
  */
 export class ValidateResourcePolicyCommand extends $Command<
@@ -83,6 +141,9 @@ export class ValidateResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +172,8 @@ export class ValidateResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +183,18 @@ export class ValidateResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ValidateResourcePolicyCommand(input, context);
+    return se_ValidateResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateResourcePolicyCommandOutput> {
-    return deserializeAws_json1_1ValidateResourcePolicyCommand(output, context);
+    return de_ValidateResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

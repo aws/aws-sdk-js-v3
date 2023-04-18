@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  ListSmartHomeAppliancesRequest,
-  ListSmartHomeAppliancesRequestFilterSensitiveLog,
-  ListSmartHomeAppliancesResponse,
-  ListSmartHomeAppliancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSmartHomeAppliancesCommand,
-  serializeAws_json1_1ListSmartHomeAppliancesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSmartHomeAppliancesRequest, ListSmartHomeAppliancesResponse } from "../models/models_0";
+import { de_ListSmartHomeAppliancesCommand, se_ListSmartHomeAppliancesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSmartHomeAppliancesCommand}.
+ */
 export interface ListSmartHomeAppliancesCommandInput extends ListSmartHomeAppliancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSmartHomeAppliancesCommand}.
+ */
 export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppliancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the smart home appliances associated with a room.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,24 @@ export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppli
  * import { AlexaForBusinessClient, ListSmartHomeAppliancesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListSmartHomeAppliancesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // ListSmartHomeAppliancesRequest
+ *   RoomArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSmartHomeAppliancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSmartHomeAppliancesCommandInput - {@link ListSmartHomeAppliancesCommandInput}
+ * @returns {@link ListSmartHomeAppliancesCommandOutput}
  * @see {@link ListSmartHomeAppliancesCommandInput} for command's `input` shape.
  * @see {@link ListSmartHomeAppliancesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class ListSmartHomeAppliancesCommand extends $Command<
@@ -62,6 +76,9 @@ export class ListSmartHomeAppliancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSmartHomeAppliancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +107,8 @@ export class ListSmartHomeAppliancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSmartHomeAppliancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSmartHomeAppliancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +118,18 @@ export class ListSmartHomeAppliancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSmartHomeAppliancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSmartHomeAppliancesCommand(input, context);
+    return se_ListSmartHomeAppliancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSmartHomeAppliancesCommandOutput> {
-    return deserializeAws_json1_1ListSmartHomeAppliancesCommand(output, context);
+    return de_ListSmartHomeAppliancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  DescribeContactRequest,
-  DescribeContactRequestFilterSensitiveLog,
-  DescribeContactResponse,
-  DescribeContactResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeContactCommand,
-  serializeAws_restJson1DescribeContactCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeContactRequest, DescribeContactResponse } from "../models/models_0";
+import { de_DescribeContactCommand, se_DescribeContactCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeContactCommand}.
+ */
 export interface DescribeContactCommandInput extends DescribeContactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeContactCommand}.
+ */
 export interface DescribeContactCommandOutput extends DescribeContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an existing contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,28 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * import { GroundStationClient, DescribeContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, DescribeContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // DescribeContactRequest
+ *   contactId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContactCommandInput - {@link DescribeContactCommandInput}
+ * @returns {@link DescribeContactCommandOutput}
  * @see {@link DescribeContactCommandInput} for command's `input` shape.
  * @see {@link DescribeContactCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
+ *
+ * @throws {@link DependencyException} (server fault)
+ *  <p>Dependency encountered an error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource was not found.</p>
+ *
  *
  */
 export class DescribeContactCommand extends $Command<
@@ -62,6 +80,9 @@ export class DescribeContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +111,8 @@ export class DescribeContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +122,18 @@ export class DescribeContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeContactCommand(input, context);
+    return se_DescribeContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeContactCommandOutput> {
-    return deserializeAws_restJson1DescribeContactCommand(output, context);
+    return de_DescribeContactCommand(output, context);
   }
 
   // Start section: command_body_extra

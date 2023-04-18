@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import {
-  SubscribeRequest,
-  SubscribeRequestFilterSensitiveLog,
-  SubscribeResult,
-  SubscribeResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SubscribeCommand,
-  serializeAws_restJson1SubscribeCommand,
-} from "../protocols/Aws_restJson1";
+import { SubscribeRequest, SubscribeRequestFilterSensitiveLog, SubscribeResult } from "../models/models_0";
+import { de_SubscribeCommand, se_SubscribeCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SubscribeCommand}.
+ */
 export interface SubscribeCommandInput extends SubscribeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SubscribeCommand}.
+ */
 export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between a notification rule and an Chatbot topic or Chatbot client so that the
  *             associated target can receive notifications when the events described in the rule are
  *             triggered.</p>
@@ -42,13 +45,33 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * import { CodestarNotificationsClient, SubscribeCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, SubscribeCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
+ * const input = { // SubscribeRequest
+ *   Arn: "STRING_VALUE", // required
+ *   Target: { // Target
+ *     TargetType: "STRING_VALUE",
+ *     TargetAddress: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new SubscribeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubscribeCommandInput - {@link SubscribeCommandInput}
+ * @returns {@link SubscribeCommandOutput}
  * @see {@link SubscribeCommandInput} for command's `input` shape.
  * @see {@link SubscribeCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
+ *
+ * @throws {@link ConfigurationException} (client fault)
+ *  <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>AWS CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
  *
  */
 export class SubscribeCommand extends $Command<
@@ -68,6 +91,9 @@ export class SubscribeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubscribeCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +121,7 @@ export class SubscribeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SubscribeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubscribeResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +131,18 @@ export class SubscribeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubscribeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SubscribeCommand(input, context);
+    return se_SubscribeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeCommandOutput> {
-    return deserializeAws_restJson1SubscribeCommand(output, context);
+    return de_SubscribeCommand(output, context);
   }
 
   // Start section: command_body_extra

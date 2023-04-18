@@ -18,17 +18,24 @@ import {
   CreateFunctionRequest,
   CreateFunctionRequestFilterSensitiveLog,
   CreateFunctionResult,
-  CreateFunctionResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateFunctionCommand,
-  serializeAws_restXmlCreateFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateFunctionCommand, se_CreateFunctionCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateFunctionCommand}.
+ */
 export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateFunctionCommand}.
+ */
 export interface CreateFunctionCommandOutput extends CreateFunctionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a CloudFront function.</p>
  *          <p>To create a function, you provide the function code and some configuration information
  * 			about the function. The response contains an Amazon Resource Name (ARN) that uniquely
@@ -46,13 +53,44 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * import { CloudFrontClient, CreateFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateFunctionRequest
+ *   Name: "STRING_VALUE", // required
+ *   FunctionConfig: { // FunctionConfig
+ *     Comment: "STRING_VALUE", // required
+ *     Runtime: "cloudfront-js-1.0", // required
+ *   },
+ *   FunctionCode: "BLOB_VALUE", // required
+ * };
  * const command = new CreateFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFunctionCommandInput - {@link CreateFunctionCommandInput}
+ * @returns {@link CreateFunctionCommandOutput}
  * @see {@link CreateFunctionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link FunctionAlreadyExists} (client fault)
+ *  <p>A function with the same name already exists in this Amazon Web Services account. To create a
+ * 			function, you must provide a unique name. To update an existing function, use
+ * 				<code>UpdateFunction</code>.</p>
+ *
+ * @throws {@link FunctionSizeLimitExceeded} (client fault)
+ *  <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link TooManyFunctions} (client fault)
+ *  <p>You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
+ *
  *
  */
 export class CreateFunctionCommand extends $Command<
@@ -72,6 +110,9 @@ export class CreateFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,7 +142,7 @@ export class CreateFunctionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFunctionResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +152,18 @@ export class CreateFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateFunctionCommand(input, context);
+    return se_CreateFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionCommandOutput> {
-    return deserializeAws_restXmlCreateFunctionCommand(output, context);
+    return de_CreateFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

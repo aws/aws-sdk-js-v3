@@ -16,22 +16,31 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   CancelDataQualityRuleRecommendationRunRequest,
-  CancelDataQualityRuleRecommendationRunRequestFilterSensitiveLog,
   CancelDataQualityRuleRecommendationRunResponse,
-  CancelDataQualityRuleRecommendationRunResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CancelDataQualityRuleRecommendationRunCommand,
-  serializeAws_json1_1CancelDataQualityRuleRecommendationRunCommand,
+  de_CancelDataQualityRuleRecommendationRunCommand,
+  se_CancelDataQualityRuleRecommendationRunCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CancelDataQualityRuleRecommendationRunCommand}.
+ */
 export interface CancelDataQualityRuleRecommendationRunCommandInput
   extends CancelDataQualityRuleRecommendationRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelDataQualityRuleRecommendationRunCommand}.
+ */
 export interface CancelDataQualityRuleRecommendationRunCommandOutput
   extends CancelDataQualityRuleRecommendationRunResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified recommendation run that was being used to generate rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,31 @@ export interface CancelDataQualityRuleRecommendationRunCommandOutput
  * import { GlueClient, CancelDataQualityRuleRecommendationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CancelDataQualityRuleRecommendationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CancelDataQualityRuleRecommendationRunRequest
+ *   RunId: "STRING_VALUE", // required
+ * };
  * const command = new CancelDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelDataQualityRuleRecommendationRunCommandInput - {@link CancelDataQualityRuleRecommendationRunCommandInput}
+ * @returns {@link CancelDataQualityRuleRecommendationRunCommandOutput}
  * @see {@link CancelDataQualityRuleRecommendationRunCommandInput} for command's `input` shape.
  * @see {@link CancelDataQualityRuleRecommendationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class CancelDataQualityRuleRecommendationRunCommand extends $Command<
@@ -65,6 +92,9 @@ export class CancelDataQualityRuleRecommendationRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelDataQualityRuleRecommendationRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +123,8 @@ export class CancelDataQualityRuleRecommendationRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelDataQualityRuleRecommendationRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelDataQualityRuleRecommendationRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +134,24 @@ export class CancelDataQualityRuleRecommendationRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CancelDataQualityRuleRecommendationRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelDataQualityRuleRecommendationRunCommand(input, context);
+    return se_CancelDataQualityRuleRecommendationRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelDataQualityRuleRecommendationRunCommandOutput> {
-    return deserializeAws_json1_1CancelDataQualityRuleRecommendationRunCommand(output, context);
+    return de_CancelDataQualityRuleRecommendationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

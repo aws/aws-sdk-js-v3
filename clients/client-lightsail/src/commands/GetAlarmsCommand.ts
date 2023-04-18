@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetAlarmsRequest,
-  GetAlarmsRequestFilterSensitiveLog,
-  GetAlarmsResult,
-  GetAlarmsResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetAlarmsCommand, serializeAws_json1_1GetAlarmsCommand } from "../protocols/Aws_json1_1";
+import { GetAlarmsRequest, GetAlarmsResult } from "../models/models_0";
+import { de_GetAlarmsCommand, se_GetAlarmsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAlarmsCommand}.
+ */
 export interface GetAlarmsCommandInput extends GetAlarmsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAlarmsCommand}.
+ */
 export interface GetAlarmsCommandOutput extends GetAlarmsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the configured alarms. Specify an alarm name in your request to
  *       return information about a specific alarm, or specify a monitored resource name to return
  *       information about all alarms for a specific resource.</p>
@@ -39,13 +45,47 @@ export interface GetAlarmsCommandOutput extends GetAlarmsResult, __MetadataBeare
  * import { LightsailClient, GetAlarmsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetAlarmsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetAlarmsRequest
+ *   alarmName: "STRING_VALUE",
+ *   pageToken: "STRING_VALUE",
+ *   monitoredResourceName: "STRING_VALUE",
+ * };
  * const command = new GetAlarmsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAlarmsCommandInput - {@link GetAlarmsCommandInput}
+ * @returns {@link GetAlarmsCommandOutput}
  * @see {@link GetAlarmsCommandInput} for command's `input` shape.
  * @see {@link GetAlarmsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class GetAlarmsCommand extends $Command<
@@ -65,6 +105,9 @@ export class GetAlarmsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAlarmsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +134,8 @@ export class GetAlarmsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAlarmsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAlarmsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +145,18 @@ export class GetAlarmsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAlarmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAlarmsCommand(input, context);
+    return se_GetAlarmsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAlarmsCommandOutput> {
-    return deserializeAws_json1_1GetAlarmsCommand(output, context);
+    return de_GetAlarmsCommand(output, context);
   }
 
   // Start section: command_body_extra

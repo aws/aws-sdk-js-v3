@@ -18,19 +18,27 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
+import { DeleteCustomRoutingAcceleratorRequest } from "../models/models_0";
 import {
-  DeleteCustomRoutingAcceleratorRequest,
-  DeleteCustomRoutingAcceleratorRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommand,
-  serializeAws_json1_1DeleteCustomRoutingAcceleratorCommand,
+  de_DeleteCustomRoutingAcceleratorCommand,
+  se_DeleteCustomRoutingAcceleratorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteCustomRoutingAcceleratorCommand}.
+ */
 export interface DeleteCustomRoutingAcceleratorCommandInput extends DeleteCustomRoutingAcceleratorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCustomRoutingAcceleratorCommand}.
+ */
 export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a custom routing accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources
  * 		(listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p>
  *          <important>
@@ -51,13 +59,35 @@ export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataB
  * import { GlobalAcceleratorClient, DeleteCustomRoutingAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DeleteCustomRoutingAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // DeleteCustomRoutingAcceleratorRequest
+ *   AcceleratorArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomRoutingAcceleratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomRoutingAcceleratorCommandInput - {@link DeleteCustomRoutingAcceleratorCommandInput}
+ * @returns {@link DeleteCustomRoutingAcceleratorCommandOutput}
  * @see {@link DeleteCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link AcceleratorNotDisabledException} (client fault)
+ *  <p>The accelerator that you specified could not be disabled.</p>
+ *
+ * @throws {@link AcceleratorNotFoundException} (client fault)
+ *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * @throws {@link AssociatedListenerFoundException} (client fault)
+ *  <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an
+ * 			accelerator before you can delete it.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
  *
  */
 export class DeleteCustomRoutingAcceleratorCommand extends $Command<
@@ -77,6 +107,9 @@ export class DeleteCustomRoutingAcceleratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomRoutingAcceleratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +138,8 @@ export class DeleteCustomRoutingAcceleratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomRoutingAcceleratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +149,24 @@ export class DeleteCustomRoutingAcceleratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteCustomRoutingAcceleratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCustomRoutingAcceleratorCommand(input, context);
+    return se_DeleteCustomRoutingAcceleratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCustomRoutingAcceleratorCommandOutput> {
-    return deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommand(output, context);
+    return de_DeleteCustomRoutingAcceleratorCommand(output, context);
   }
 
   // Start section: command_body_extra

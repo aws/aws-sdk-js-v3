@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  UpdateStorageRequest,
-  UpdateStorageRequestFilterSensitiveLog,
-  UpdateStorageResponse,
-  UpdateStorageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateStorageCommand,
-  serializeAws_restJson1UpdateStorageCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateStorageRequest, UpdateStorageResponse } from "../models/models_0";
+import { de_UpdateStorageCommand, se_UpdateStorageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateStorageCommand}.
+ */
 export interface UpdateStorageCommandInput extends UpdateStorageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateStorageCommand}.
+ */
 export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates cluster broker volume size (or) sets cluster storage mode to TIERED.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,47 @@ export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __Met
  * import { KafkaClient, UpdateStorageCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateStorageCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // UpdateStorageRequest
+ *   ClusterArn: "STRING_VALUE", // required
+ *   CurrentVersion: "STRING_VALUE", // required
+ *   ProvisionedThroughput: { // ProvisionedThroughput
+ *     Enabled: true || false,
+ *     VolumeThroughput: Number("int"),
+ *   },
+ *   StorageMode: "LOCAL" || "TIERED",
+ *   VolumeSizeGB: Number("int"),
+ * };
  * const command = new UpdateStorageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStorageCommandInput - {@link UpdateStorageCommandInput}
+ * @returns {@link UpdateStorageCommandOutput}
  * @see {@link UpdateStorageCommandInput} for command's `input` shape.
  * @see {@link UpdateStorageCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
  *
  */
 export class UpdateStorageCommand extends $Command<
@@ -62,6 +99,9 @@ export class UpdateStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +128,8 @@ export class UpdateStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStorageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStorageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +139,18 @@ export class UpdateStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateStorageCommand(input, context);
+    return se_UpdateStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStorageCommandOutput> {
-    return deserializeAws_restJson1UpdateStorageCommand(output, context);
+    return de_UpdateStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

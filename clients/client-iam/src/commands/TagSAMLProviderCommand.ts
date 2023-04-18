@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagSAMLProviderRequest, TagSAMLProviderRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryTagSAMLProviderCommand,
-  serializeAws_queryTagSAMLProviderCommand,
-} from "../protocols/Aws_query";
+import { TagSAMLProviderRequest } from "../models/models_0";
+import { de_TagSAMLProviderCommand, se_TagSAMLProviderCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link TagSAMLProviderCommand}.
+ */
 export interface TagSAMLProviderCommandInput extends TagSAMLProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagSAMLProviderCommand}.
+ */
 export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to a Security Assertion Markup Language (SAML) identity provider.
  *       For more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based federation </a>.
  *       If a tag with the same key name already exists, then that tag is overwritten with the new
@@ -68,13 +76,45 @@ export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
  * import { IAMClient, TagSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // TagSAMLProviderRequest
+ *   SAMLProviderArn: "STRING_VALUE", // required
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagSAMLProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagSAMLProviderCommandInput - {@link TagSAMLProviderCommandInput}
+ * @returns {@link TagSAMLProviderCommandOutput}
  * @see {@link TagSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link TagSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class TagSAMLProviderCommand extends $Command<
@@ -94,6 +134,9 @@ export class TagSAMLProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagSAMLProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +165,8 @@ export class TagSAMLProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagSAMLProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +176,18 @@ export class TagSAMLProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagSAMLProviderCommand(input, context);
+    return se_TagSAMLProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagSAMLProviderCommandOutput> {
-    return deserializeAws_queryTagSAMLProviderCommand(output, context);
+    return de_TagSAMLProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

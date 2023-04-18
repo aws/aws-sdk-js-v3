@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetAssociatedRoleRequest,
-  GetAssociatedRoleRequestFilterSensitiveLog,
-  GetAssociatedRoleResponse,
-  GetAssociatedRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssociatedRoleCommand,
-  serializeAws_restJson1GetAssociatedRoleCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAssociatedRoleRequest, GetAssociatedRoleResponse } from "../models/models_0";
+import { de_GetAssociatedRoleCommand, se_GetAssociatedRoleCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAssociatedRoleCommand}.
+ */
 export interface GetAssociatedRoleCommandInput extends GetAssociatedRoleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAssociatedRoleCommand}.
+ */
 export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves the role associated with a particular group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleRespons
  * import { GreengrassClient, GetAssociatedRoleCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetAssociatedRoleCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetAssociatedRoleRequest
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetAssociatedRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssociatedRoleCommandInput - {@link GetAssociatedRoleCommandInput}
+ * @returns {@link GetAssociatedRoleCommandOutput}
  * @see {@link GetAssociatedRoleCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedRoleCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  General error information.
+ *
  *
  */
 export class GetAssociatedRoleCommand extends $Command<
@@ -62,6 +77,9 @@ export class GetAssociatedRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssociatedRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class GetAssociatedRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssociatedRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssociatedRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +119,18 @@ export class GetAssociatedRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssociatedRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssociatedRoleCommand(input, context);
+    return se_GetAssociatedRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssociatedRoleCommandOutput> {
-    return deserializeAws_restJson1GetAssociatedRoleCommand(output, context);
+    return de_GetAssociatedRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListByteMatchSetsRequest,
-  ListByteMatchSetsRequestFilterSensitiveLog,
-  ListByteMatchSetsResponse,
-  ListByteMatchSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListByteMatchSetsCommand,
-  serializeAws_json1_1ListByteMatchSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListByteMatchSetsRequest, ListByteMatchSetsResponse } from "../models/models_0";
+import { de_ListByteMatchSetsCommand, se_ListByteMatchSetsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListByteMatchSetsCommand}.
+ */
 export interface ListByteMatchSetsCommandInput extends ListByteMatchSetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListByteMatchSetsCommand}.
+ */
 export interface ListByteMatchSetsCommandOutput extends ListByteMatchSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -44,13 +47,26 @@ export interface ListByteMatchSetsCommandOutput extends ListByteMatchSetsRespons
  * import { WAFClient, ListByteMatchSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListByteMatchSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // ListByteMatchSetsRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListByteMatchSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListByteMatchSetsCommandInput - {@link ListByteMatchSetsCommandInput}
+ * @returns {@link ListByteMatchSetsCommandOutput}
  * @see {@link ListByteMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListByteMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
  *
  */
 export class ListByteMatchSetsCommand extends $Command<
@@ -70,6 +86,9 @@ export class ListByteMatchSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListByteMatchSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +117,8 @@ export class ListByteMatchSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListByteMatchSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListByteMatchSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +128,18 @@ export class ListByteMatchSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListByteMatchSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListByteMatchSetsCommand(input, context);
+    return se_ListByteMatchSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListByteMatchSetsCommandOutput> {
-    return deserializeAws_json1_1ListByteMatchSetsCommand(output, context);
+    return de_ListByteMatchSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

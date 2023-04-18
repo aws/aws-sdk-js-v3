@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  SendEventRequest,
-  SendEventRequestFilterSensitiveLog,
-  SendEventResponse,
-  SendEventResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SendEventCommand,
-  serializeAws_restJson1SendEventCommand,
-} from "../protocols/Aws_restJson1";
+import { SendEventRequest, SendEventResponse } from "../models/models_0";
+import { de_SendEventCommand, se_SendEventCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SendEventCommand}.
+ */
 export interface SendEventCommandInput extends SendEventRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendEventCommand}.
+ */
 export interface SendEventCommandOutput extends SendEventResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an event to a room. Use this within your application’s business logic to send
  *          events to clients of a room; e.g., to notify clients to change the way the chat UI is
  *          rendered.</p>
@@ -38,13 +41,38 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * import { IvschatClient, SendEventCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, SendEventCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = { // SendEventRequest
+ *   roomIdentifier: "STRING_VALUE", // required
+ *   eventName: "STRING_VALUE", // required
+ *   attributes: { // EventAttributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SendEventCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendEventCommandInput - {@link SendEventCommandInput}
+ * @returns {@link SendEventCommandOutput}
  * @see {@link SendEventCommandInput} for command's `input` shape.
  * @see {@link SendEventCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link PendingVerification} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
  *
  */
 export class SendEventCommand extends $Command<
@@ -64,6 +92,9 @@ export class SendEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +121,8 @@ export class SendEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendEventRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendEventResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +132,18 @@ export class SendEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendEventCommand(input, context);
+    return se_SendEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEventCommandOutput> {
-    return deserializeAws_restJson1SendEventCommand(output, context);
+    return de_SendEventCommand(output, context);
   }
 
   // Start section: command_body_extra

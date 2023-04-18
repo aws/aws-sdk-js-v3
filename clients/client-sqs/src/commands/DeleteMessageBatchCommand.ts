@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteMessageBatchRequest,
-  DeleteMessageBatchRequestFilterSensitiveLog,
-  DeleteMessageBatchResult,
-  DeleteMessageBatchResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteMessageBatchCommand,
-  serializeAws_queryDeleteMessageBatchCommand,
-} from "../protocols/Aws_query";
+import { DeleteMessageBatchRequest, DeleteMessageBatchResult } from "../models/models_0";
+import { de_DeleteMessageBatchCommand, se_DeleteMessageBatchCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteMessageBatchCommand}.
+ */
 export interface DeleteMessageBatchCommandInput extends DeleteMessageBatchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMessageBatchCommand}.
+ */
 export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes up to ten messages from the specified queue. This is a batch version of <code>
  *                <a>DeleteMessage</a>.</code> The result of the action on each message is reported individually in the response.</p>
  *          <important>
@@ -47,13 +50,37 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  * import { SQSClient, DeleteMessageBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, DeleteMessageBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // DeleteMessageBatchRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ *   Entries: [ // DeleteMessageBatchRequestEntryList // required
+ *     { // DeleteMessageBatchRequestEntry
+ *       Id: "STRING_VALUE", // required
+ *       ReceiptHandle: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new DeleteMessageBatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMessageBatchCommandInput - {@link DeleteMessageBatchCommandInput}
+ * @returns {@link DeleteMessageBatchCommandOutput}
  * @see {@link DeleteMessageBatchCommandInput} for command's `input` shape.
  * @see {@link DeleteMessageBatchCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link BatchEntryIdsNotDistinct} (client fault)
+ *  <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+ *
+ * @throws {@link EmptyBatchRequest} (client fault)
+ *  <p>The batch request doesn't contain any entries.</p>
+ *
+ * @throws {@link InvalidBatchEntryId} (client fault)
+ *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
+ *
+ * @throws {@link TooManyEntriesInBatchRequest} (client fault)
+ *  <p>The batch request contains more entries than permissible.</p>
+ *
  *
  */
 export class DeleteMessageBatchCommand extends $Command<
@@ -73,6 +100,9 @@ export class DeleteMessageBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMessageBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +131,8 @@ export class DeleteMessageBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMessageBatchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMessageBatchResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +142,18 @@ export class DeleteMessageBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMessageBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteMessageBatchCommand(input, context);
+    return se_DeleteMessageBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMessageBatchCommandOutput> {
-    return deserializeAws_queryDeleteMessageBatchCommand(output, context);
+    return de_DeleteMessageBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

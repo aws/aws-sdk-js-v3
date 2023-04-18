@@ -14,24 +14,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetBucketLifecycleConfigurationRequest, GetBucketLifecycleConfigurationResult } from "../models/models_0";
 import {
-  GetBucketLifecycleConfigurationRequest,
-  GetBucketLifecycleConfigurationRequestFilterSensitiveLog,
-  GetBucketLifecycleConfigurationResult,
-  GetBucketLifecycleConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketLifecycleConfigurationCommand,
-  serializeAws_restXmlGetBucketLifecycleConfigurationCommand,
+  de_GetBucketLifecycleConfigurationCommand,
+  se_GetBucketLifecycleConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetBucketLifecycleConfigurationCommand}.
+ */
 export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLifecycleConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBucketLifecycleConfigurationCommand}.
+ */
 export interface GetBucketLifecycleConfigurationCommandOutput
   extends GetBucketLifecycleConfigurationResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an S3
  *             bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
@@ -41,15 +47,12 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> and for
  *          information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html"> Object Lifecycle
  *             Management</a> in <i>Amazon S3 User Guide</i>.</p>
- *
  *          <p>To use this action, you must have permission to perform the
  *             <code>s3-outposts:GetLifecycleConfiguration</code> action. The Outposts bucket owner
  *          has this permission, by default. The bucket owner can grant this permission to others. For
  *          more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
  *             Access Permissions to Your Amazon S3 Resources</a>.</p>
- *
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
- *
  *          <p>
  *             <code>GetBucketLifecycleConfiguration</code> has the following special error:</p>
  *          <ul>
@@ -89,13 +92,20 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * import { S3ControlClient, GetBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetBucketLifecycleConfigurationRequest
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ * };
  * const command = new GetBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketLifecycleConfigurationCommandInput - {@link GetBucketLifecycleConfigurationCommandInput}
+ * @returns {@link GetBucketLifecycleConfigurationCommandOutput}
  * @see {@link GetBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class GetBucketLifecycleConfigurationCommand extends $Command<
@@ -119,6 +129,9 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +161,8 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketLifecycleConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketLifecycleConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,18 +172,24 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketLifecycleConfigurationCommand(input, context);
+    return se_GetBucketLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketLifecycleConfigurationCommand(output, context);
+    return de_GetBucketLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

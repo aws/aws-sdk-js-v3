@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  PutInvitationConfigurationRequest,
-  PutInvitationConfigurationRequestFilterSensitiveLog,
-  PutInvitationConfigurationResponse,
-  PutInvitationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutInvitationConfigurationCommand,
-  serializeAws_json1_1PutInvitationConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { PutInvitationConfigurationRequest, PutInvitationConfigurationResponse } from "../models/models_0";
+import { de_PutInvitationConfigurationCommand, se_PutInvitationConfigurationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutInvitationConfigurationCommand}.
+ */
 export interface PutInvitationConfigurationCommandInput extends PutInvitationConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutInvitationConfigurationCommand}.
+ */
 export interface PutInvitationConfigurationCommandOutput extends PutInvitationConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures the email template for the user enrollment invitation with the specified
  *          attributes.</p>
  * @example
@@ -37,13 +40,29 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
  * import { AlexaForBusinessClient, PutInvitationConfigurationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, PutInvitationConfigurationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // PutInvitationConfigurationRequest
+ *   OrganizationName: "STRING_VALUE", // required
+ *   ContactEmail: "STRING_VALUE",
+ *   PrivateSkillIds: [ // ShortSkillIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new PutInvitationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutInvitationConfigurationCommandInput - {@link PutInvitationConfigurationCommandInput}
+ * @returns {@link PutInvitationConfigurationCommandOutput}
  * @see {@link PutInvitationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutInvitationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
  *
  */
 export class PutInvitationConfigurationCommand extends $Command<
@@ -63,6 +82,9 @@ export class PutInvitationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutInvitationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +113,8 @@ export class PutInvitationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutInvitationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutInvitationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +124,21 @@ export class PutInvitationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutInvitationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutInvitationConfigurationCommand(input, context);
+    return se_PutInvitationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutInvitationConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutInvitationConfigurationCommand(output, context);
+    return de_PutInvitationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListSlotsCommand, ListSlotsCommandInput, ListSlotsCommandOutput } from "../commands/ListSlotsCommand";
-import { LexModelsV2 } from "../LexModelsV2";
 import { LexModelsV2Client } from "../LexModelsV2Client";
 import { LexModelsV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LexModelsV2Client,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSlotsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LexModelsV2,
-  input: ListSlotsCommandInput,
-  ...args: any
-): Promise<ListSlotsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSlots(input, ...args);
-};
 export async function* paginateListSlots(
   config: LexModelsV2PaginationConfiguration,
   input: ListSlotsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListSlots(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof LexModelsV2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LexModelsV2Client) {
+    if (config.client instanceof LexModelsV2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LexModelsV2 | LexModelsV2Client");

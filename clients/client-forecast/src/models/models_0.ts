@@ -3,14 +3,24 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ForecastServiceException as __BaseException } from "./ForecastServiceException";
 
-export enum Operation {
-  ADD = "ADD",
-  DIVIDE = "DIVIDE",
-  MULTIPLY = "MULTIPLY",
-  SUBTRACT = "SUBTRACT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Operation = {
+  ADD: "ADD",
+  DIVIDE: "DIVIDE",
+  MULTIPLY: "MULTIPLY",
+  SUBTRACT: "SUBTRACT",
+} as const;
 
 /**
+ * @public
+ */
+export type Operation = (typeof Operation)[keyof typeof Operation];
+
+/**
+ * @public
  * <p>Defines the modifications that you are making to an attribute for a what-if forecast. For example, you can use this operation to create a what-if forecast that investigates a 10% off sale on all shoes. To do this, you specify <code>"AttributeName": "shoes"</code>, <code>"Operation": "MULTIPLY"</code>, and <code>"Value": "0.90"</code>. Pair this operation with the <a>TimeSeriesCondition</a> operation within the <a>CreateWhatIfForecastRequest$TimeSeriesTransformations</a> operation to define a subset of attribute items that are modified.</p>
  */
 export interface Action {
@@ -49,19 +59,20 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>Describes an additional dataset. This object is part of the <a>DataConfig</a> object. Forecast supports the Weather Index and Holidays additional datasets.</p>
- *         <p>
+ *          <p>
  *             <b>Weather Index</b>
- *         </p>
- *         <p>The Amazon Forecast Weather Index is a built-in dataset that incorporates historical and
+ *          </p>
+ *          <p>The Amazon Forecast Weather Index is a built-in dataset that incorporates historical and
  *             projected weather information into your model. The Weather Index supplements your
  *             datasets with over two years of historical weather data and up to 14 days of projected
  *             weather data. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/weather.html">Amazon Forecast
  *                 Weather Index</a>.</p>
- *         <p>
+ *          <p>
  *             <b>Holidays</b>
- *         </p>
- *         <p>Holidays is a built-in dataset that incorporates national holiday information into
+ *          </p>
+ *          <p>Holidays is a built-in dataset that incorporates national holiday information into
  *             your model. It provides native support for the holiday calendars of 66 countries. To
  *             view the holiday calendars, refer to the <a href="http://jollyday.sourceforge.net/data.html">Jollyday</a> library. For more
  *             information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/holidays.html">Holidays
@@ -77,216 +88,215 @@ export interface AdditionalDataset {
   /**
    * <p>
    *             <b>Weather Index</b>
-   *         </p>
-   *         <p>To enable the Weather Index, do not specify a value for
+   *          </p>
+   *          <p>To enable the Weather Index, do not specify a value for
    *             <code>Configuration</code>.</p>
-   *         <p>
+   *          <p>
    *             <b>Holidays</b>
    *          </p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Holidays</b>
-   *         </p>
-   *         <p>To enable Holidays, set <code>CountryCode</code> to one of the following two-letter
+   *          </p>
+   *          <p>To enable Holidays, set <code>CountryCode</code> to one of the following two-letter
    *             country codes:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>"AL" - ALBANIA</p>
+   *                <p>"AL" - ALBANIA</p>
    *             </li>
    *             <li>
-   *                 <p>"AR" - ARGENTINA</p>
+   *                <p>"AR" - ARGENTINA</p>
    *             </li>
    *             <li>
-   *                 <p>"AT" - AUSTRIA</p>
+   *                <p>"AT" - AUSTRIA</p>
    *             </li>
    *             <li>
-   *                 <p>"AU" - AUSTRALIA</p>
+   *                <p>"AU" - AUSTRALIA</p>
    *             </li>
    *             <li>
-   *                 <p>"BA" - BOSNIA HERZEGOVINA</p>
+   *                <p>"BA" - BOSNIA HERZEGOVINA</p>
    *             </li>
    *             <li>
-   *                 <p>"BE" - BELGIUM</p>
+   *                <p>"BE" - BELGIUM</p>
    *             </li>
    *             <li>
-   *                 <p>"BG" - BULGARIA</p>
+   *                <p>"BG" - BULGARIA</p>
    *             </li>
    *             <li>
-   *                 <p>"BO" - BOLIVIA</p>
+   *                <p>"BO" - BOLIVIA</p>
    *             </li>
    *             <li>
-   *                 <p>"BR" - BRAZIL</p>
+   *                <p>"BR" - BRAZIL</p>
    *             </li>
    *             <li>
-   *                 <p>"BY" - BELARUS</p>
+   *                <p>"BY" - BELARUS</p>
    *             </li>
    *             <li>
-   *                 <p>"CA" - CANADA</p>
+   *                <p>"CA" - CANADA</p>
    *             </li>
    *             <li>
-   *                 <p>"CL" - CHILE</p>
+   *                <p>"CL" - CHILE</p>
    *             </li>
    *             <li>
-   *                 <p>"CO" - COLOMBIA</p>
+   *                <p>"CO" - COLOMBIA</p>
    *             </li>
    *             <li>
-   *                 <p>"CR" - COSTA RICA</p>
+   *                <p>"CR" - COSTA RICA</p>
    *             </li>
    *             <li>
-   *                 <p>"HR" - CROATIA</p>
+   *                <p>"HR" - CROATIA</p>
    *             </li>
    *             <li>
-   *                 <p>"CZ" - CZECH REPUBLIC</p>
+   *                <p>"CZ" - CZECH REPUBLIC</p>
    *             </li>
    *             <li>
-   *                 <p>"DK" - DENMARK</p>
+   *                <p>"DK" - DENMARK</p>
    *             </li>
    *             <li>
-   *                 <p>"EC" - ECUADOR</p>
+   *                <p>"EC" - ECUADOR</p>
    *             </li>
    *             <li>
-   *                 <p>"EE" - ESTONIA</p>
+   *                <p>"EE" - ESTONIA</p>
    *             </li>
    *             <li>
-   *                 <p>"ET" - ETHIOPIA</p>
+   *                <p>"ET" - ETHIOPIA</p>
    *             </li>
    *             <li>
-   *                 <p>"FI" - FINLAND</p>
+   *                <p>"FI" - FINLAND</p>
    *             </li>
    *             <li>
-   *                 <p>"FR" - FRANCE</p>
+   *                <p>"FR" - FRANCE</p>
    *             </li>
    *             <li>
-   *                 <p>"DE" - GERMANY</p>
+   *                <p>"DE" - GERMANY</p>
    *             </li>
    *             <li>
-   *                 <p>"GR" - GREECE</p>
+   *                <p>"GR" - GREECE</p>
    *             </li>
    *             <li>
-   *                 <p>"HU" - HUNGARY</p>
+   *                <p>"HU" - HUNGARY</p>
    *             </li>
    *             <li>
-   *                 <p>"IS" - ICELAND</p>
+   *                <p>"IS" - ICELAND</p>
    *             </li>
    *             <li>
-   *                 <p>"IN" - INDIA</p>
+   *                <p>"IN" - INDIA</p>
    *             </li>
    *             <li>
-   *                 <p>"IE" - IRELAND</p>
+   *                <p>"IE" - IRELAND</p>
    *             </li>
    *             <li>
-   *                 <p>"IT" - ITALY</p>
+   *                <p>"IT" - ITALY</p>
    *             </li>
    *             <li>
-   *                 <p>"JP" - JAPAN</p>
+   *                <p>"JP" - JAPAN</p>
    *             </li>
    *             <li>
-   *                 <p>"KZ" - KAZAKHSTAN</p>
+   *                <p>"KZ" - KAZAKHSTAN</p>
    *             </li>
    *             <li>
-   *                 <p>"KR" - KOREA</p>
+   *                <p>"KR" - KOREA</p>
    *             </li>
    *             <li>
-   *                 <p>"LV" - LATVIA</p>
+   *                <p>"LV" - LATVIA</p>
    *             </li>
    *             <li>
-   *                 <p>"LI" - LIECHTENSTEIN</p>
+   *                <p>"LI" - LIECHTENSTEIN</p>
    *             </li>
    *             <li>
-   *                 <p>"LT" - LITHUANIA</p>
+   *                <p>"LT" - LITHUANIA</p>
    *             </li>
    *             <li>
-   *                 <p>"LU" - LUXEMBOURG</p>
+   *                <p>"LU" - LUXEMBOURG</p>
    *             </li>
    *             <li>
-   *                 <p>"MK" - MACEDONIA</p>
+   *                <p>"MK" - MACEDONIA</p>
    *             </li>
    *             <li>
-   *                 <p>"MT" - MALTA</p>
+   *                <p>"MT" - MALTA</p>
    *             </li>
    *             <li>
-   *                 <p>"MX" - MEXICO</p>
+   *                <p>"MX" - MEXICO</p>
    *             </li>
    *             <li>
-   *                 <p>"MD" - MOLDOVA</p>
+   *                <p>"MD" - MOLDOVA</p>
    *             </li>
    *             <li>
-   *                 <p>"ME" - MONTENEGRO</p>
+   *                <p>"ME" - MONTENEGRO</p>
    *             </li>
    *             <li>
-   *                 <p>"NL" - NETHERLANDS</p>
+   *                <p>"NL" - NETHERLANDS</p>
    *             </li>
    *             <li>
-   *                 <p>"NZ" - NEW ZEALAND</p>
+   *                <p>"NZ" - NEW ZEALAND</p>
    *             </li>
    *             <li>
-   *                 <p>"NI" - NICARAGUA</p>
+   *                <p>"NI" - NICARAGUA</p>
    *             </li>
    *             <li>
-   *                 <p>"NG" - NIGERIA</p>
+   *                <p>"NG" - NIGERIA</p>
    *             </li>
    *             <li>
-   *                 <p>"NO" - NORWAY</p>
+   *                <p>"NO" - NORWAY</p>
    *             </li>
    *             <li>
-   *                 <p>"PA" - PANAMA</p>
+   *                <p>"PA" - PANAMA</p>
    *             </li>
    *             <li>
-   *                 <p>"PY" - PARAGUAY</p>
+   *                <p>"PY" - PARAGUAY</p>
    *             </li>
    *             <li>
-   *                 <p>"PE" - PERU</p>
+   *                <p>"PE" - PERU</p>
    *             </li>
    *             <li>
-   *                 <p>"PL" - POLAND</p>
+   *                <p>"PL" - POLAND</p>
    *             </li>
    *             <li>
-   *                 <p>"PT" - PORTUGAL</p>
+   *                <p>"PT" - PORTUGAL</p>
    *             </li>
    *             <li>
-   *                 <p>"RO" - ROMANIA</p>
+   *                <p>"RO" - ROMANIA</p>
    *             </li>
    *             <li>
-   *                 <p>"RU" - RUSSIA</p>
+   *                <p>"RU" - RUSSIA</p>
    *             </li>
    *             <li>
-   *                 <p>"RS" - SERBIA</p>
+   *                <p>"RS" - SERBIA</p>
    *             </li>
    *             <li>
-   *                 <p>"SK" - SLOVAKIA</p>
+   *                <p>"SK" - SLOVAKIA</p>
    *             </li>
    *             <li>
-   *                 <p>"SI" - SLOVENIA</p>
+   *                <p>"SI" - SLOVENIA</p>
    *             </li>
    *             <li>
-   *                 <p>"ZA" - SOUTH AFRICA</p>
+   *                <p>"ZA" - SOUTH AFRICA</p>
    *             </li>
    *             <li>
-   *                 <p>"ES" - SPAIN</p>
+   *                <p>"ES" - SPAIN</p>
    *             </li>
    *             <li>
-   *                 <p>"SE" - SWEDEN</p>
+   *                <p>"SE" - SWEDEN</p>
    *             </li>
    *             <li>
-   *                 <p>"CH" - SWITZERLAND</p>
+   *                <p>"CH" - SWITZERLAND</p>
    *             </li>
    *             <li>
-   *                 <p>"UA" - UKRAINE</p>
+   *                <p>"UA" - UKRAINE</p>
    *             </li>
    *             <li>
-   *                 <p>"AE" - UNITED ARAB EMIRATES</p>
+   *                <p>"AE" - UNITED ARAB EMIRATES</p>
    *             </li>
    *             <li>
-   *                 <p>"US" - UNITED STATES</p>
+   *                <p>"US" - UNITED STATES</p>
    *             </li>
    *             <li>
-   *                 <p>"UK" - UNITED KINGDOM</p>
+   *                <p>"UK" - UNITED KINGDOM</p>
    *             </li>
    *             <li>
-   *                 <p>"UY" - URUGUAY</p>
+   *                <p>"UY" - URUGUAY</p>
    *             </li>
    *             <li>
-   *                 <p>"VE" - VENEZUELA</p>
+   *                <p>"VE" - VENEZUELA</p>
    *             </li>
    *          </ul>
    */
@@ -294,21 +304,22 @@ export interface AdditionalDataset {
 }
 
 /**
+ * @public
  * <p>Provides information about the method used to transform attributes.</p>
- *         <p>The following is an example using the RETAIL domain:</p>
- *         <p>
- *             <code>{</code>
- *         </p>
- *         <p>
+ *          <p>The following is an example using the RETAIL domain:</p>
+ *          <p>
+ *             <code>\{</code>
+ *          </p>
+ *          <p>
  *             <code>"AttributeName": "demand",</code>
- *         </p>
- *         <p>
- *             <code>"Transformations": {"aggregation": "sum", "middlefill": "zero", "backfill":
- *                 "zero"}</code>
- *         </p>
- *         <p>
- *             <code>}</code>
- *         </p>
+ *          </p>
+ *          <p>
+ *             <code>"Transformations": \{"aggregation": "sum", "middlefill": "zero", "backfill":
+ *                 "zero"\}</code>
+ *          </p>
+ *          <p>
+ *             <code>\}</code>
+ *          </p>
  */
 export interface AttributeConfig {
   /**
@@ -322,64 +333,63 @@ export interface AttributeConfig {
    * <p>The method parameters (key-value pairs), which are a map of override parameters.
    *             Specify these parameters to override the default values. Related Time Series attributes
    *             do not accept aggregation parameters.</p>
-   *         <p>The following list shows the parameters and their valid values for the "filling"
+   *          <p>The following list shows the parameters and their valid values for the "filling"
    *             featurization method for a <b>Target Time Series</b> dataset.
    *             Default values are bolded.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>aggregation</code>: <b>sum</b>,
    *                         <code>avg</code>, <code>first</code>, <code>min</code>,
    *                     <code>max</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>frontfill</code>: <b>none</b>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>middlefill</code>: <b>zero</b>,
    *                         <code>nan</code> (not a number), <code>value</code>, <code>median</code>,
    *                         <code>mean</code>, <code>min</code>, <code>max</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>backfill</code>: <b>zero</b>,
    *                     <code>nan</code>, <code>value</code>, <code>median</code>, <code>mean</code>,
    *                         <code>min</code>, <code>max</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>The following list shows the parameters and their valid values for a <b>Related Time Series</b> featurization method (there are no
+   *          <p>The following list shows the parameters and their valid values for a <b>Related Time Series</b> featurization method (there are no
    *             defaults):</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>middlefill</code>: <code>zero</code>, <code>value</code>,
    *                         <code>median</code>, <code>mean</code>, <code>min</code>,
    *                     <code>max</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>backfill</code>: <code>zero</code>, <code>value</code>,
    *                         <code>median</code>, <code>mean</code>, <code>min</code>,
    *                     <code>max</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>futurefill</code>: <code>zero</code>, <code>value</code>,
    *                         <code>median</code>, <code>mean</code>, <code>min</code>,
    *                     <code>max</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>To set a filling method to a specific value, set the fill parameter to
+   *          <p>To set a filling method to a specific value, set the fill parameter to
    *                 <code>value</code> and define the value in a corresponding <code>_value</code>
    *             parameter. For example, to set backfilling to a value of 2, include the following:
    *                 <code>"backfill": "value"</code> and <code>"backfill_value":"2"</code>. </p>
@@ -388,6 +398,7 @@ export interface AttributeConfig {
 }
 
 /**
+ * @public
  * <p>The data configuration for your dataset group and any additional datasets.</p>
  */
 export interface DataConfig {
@@ -408,14 +419,15 @@ export interface DataConfig {
 }
 
 /**
- * <p>An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to
+ * @public
+ * <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to
  *       access the key. You can specify this optional object in the
  *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
  */
 export interface EncryptionConfig {
   /**
-   * <p>The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.</p>
-   *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your
+   * <p>The ARN of the IAM role that Amazon Forecast can assume to access the KMS key.</p>
+   *          <p>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role that isn't in your
    *       account, you get an <code>InvalidInputException</code> error.</p>
    */
   RoleArn: string | undefined;
@@ -427,6 +439,7 @@ export interface EncryptionConfig {
 }
 
 /**
+ * @public
  * <p>The configuration details for the predictor monitor.</p>
  */
 export interface MonitorConfig {
@@ -436,15 +449,25 @@ export interface MonitorConfig {
   MonitorName: string | undefined;
 }
 
-export enum OptimizationMetric {
-  AverageWeightedQuantileLoss = "AverageWeightedQuantileLoss",
-  MAPE = "MAPE",
-  MASE = "MASE",
-  RMSE = "RMSE",
-  WAPE = "WAPE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OptimizationMetric = {
+  AverageWeightedQuantileLoss: "AverageWeightedQuantileLoss",
+  MAPE: "MAPE",
+  MASE: "MASE",
+  RMSE: "RMSE",
+  WAPE: "WAPE",
+} as const;
 
 /**
+ * @public
+ */
+export type OptimizationMetric = (typeof OptimizationMetric)[keyof typeof OptimizationMetric];
+
+/**
+ * @public
  * <p>The optional metadata that you apply to a resource to help you categorize and organize
  *       them. Each tag consists of a key and an optional value, both of which you define.</p>
  *          <p>The following basic restrictions apply to tags:</p>
@@ -473,7 +496,7 @@ export enum OptimizationMetric {
  *             </li>
  *             <li>
  *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
- *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+ *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
  *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
  *           its prefix but the key does not, then Forecast considers it to be a user tag and will
  *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -495,37 +518,55 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export enum DayOfWeek {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
-
-export enum Month {
-  APRIL = "APRIL",
-  AUGUST = "AUGUST",
-  DECEMBER = "DECEMBER",
-  FEBRUARY = "FEBRUARY",
-  JANUARY = "JANUARY",
-  JULY = "JULY",
-  JUNE = "JUNE",
-  MARCH = "MARCH",
-  MAY = "MAY",
-  NOVEMBER = "NOVEMBER",
-  OCTOBER = "OCTOBER",
-  SEPTEMBER = "SEPTEMBER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
 
 /**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+/**
+ * @public
+ * @enum
+ */
+export const Month = {
+  APRIL: "APRIL",
+  AUGUST: "AUGUST",
+  DECEMBER: "DECEMBER",
+  FEBRUARY: "FEBRUARY",
+  JANUARY: "JANUARY",
+  JULY: "JULY",
+  JUNE: "JUNE",
+  MARCH: "MARCH",
+  MAY: "MAY",
+  NOVEMBER: "NOVEMBER",
+  OCTOBER: "OCTOBER",
+  SEPTEMBER: "SEPTEMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type Month = (typeof Month)[keyof typeof Month];
+
+/**
+ * @public
  * <p>The time boundary Forecast uses to align and aggregate your data to match your forecast frequency. Provide the unit of time and the time boundary as a key value pair. If you
  *             don't provide a time boundary, Forecast uses a set of <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#default-time-boundaries">Default Time Boundaries</a>.
  *         </p>
- *
- *         <p>For more information about aggregation,
+ *          <p>For more information about aggregation,
  *             see <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html">Data Aggregation for Different Forecast Frequencies</a>.
  *             For more information setting a custom time boundary,
  *             see <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#specifying-time-boundary">Specifying a Time Boundary</a>.
@@ -554,6 +595,9 @@ export interface TimeAlignmentBoundary {
   Hour?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateAutoPredictorRequest {
   /**
    * <p>A unique name for the predictor</p>
@@ -563,11 +607,11 @@ export interface CreateAutoPredictorRequest {
   /**
    * <p>The number of time-steps that the model predicts. The forecast horizon is also called
    *             the prediction length.</p>
-   *         <p>The maximum forecast horizon is the lesser of 500 time-steps or 1/4 of the
+   *          <p>The maximum forecast horizon is the lesser of 500 time-steps or 1/4 of the
    *             TARGET_TIME_SERIES dataset length. If you are retraining an existing AutoPredictor, then
    *             the maximum forecast horizon is the lesser of 500 time-steps or 1/3 of the
    *             TARGET_TIME_SERIES dataset length.</p>
-   *         <p>If you are upgrading to an AutoPredictor or retraining an existing AutoPredictor, you
+   *          <p>If you are upgrading to an AutoPredictor or retraining an existing AutoPredictor, you
    *             cannot update the forecast horizon parameter. You can meet this requirement by providing
    *             longer time-series in the dataset.</p>
    */
@@ -583,7 +627,7 @@ export interface CreateAutoPredictorRequest {
   /**
    * <p>An array of dimension (field) names that specify how to group the generated
    *             forecast.</p>
-   *         <p>For example, if you are generating forecasts for item sales across all your stores,
+   *          <p>For example, if you are generating forecasts for item sales across all your stores,
    *             and your dataset contains a <code>store_id</code> field, you would specify
    *                 <code>store_id</code> as a dimension to group sales forecasts for each store.</p>
    */
@@ -591,12 +635,32 @@ export interface CreateAutoPredictorRequest {
 
   /**
    * <p>The frequency of predictions in a forecast.</p>
-   *         <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30
-   *             minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute).
-   *             For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
-   *         <p>The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset
+   *          <p>Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day), H (Hour), and min (Minute). For example,
+   *         "1D" indicates every day and "15min" indicates every 15 minutes. You cannot specify a value that would overlap with the next larger frequency. That means, for example, you cannot specify a frequency of 60 minutes, because that is equivalent to 1 hour. The valid values for each frequency are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Minute - 1-59</p>
+   *             </li>
+   *             <li>
+   *                <p>Hour - 1-23</p>
+   *             </li>
+   *             <li>
+   *                <p>Day - 1-6</p>
+   *             </li>
+   *             <li>
+   *                <p>Week - 1-4</p>
+   *             </li>
+   *             <li>
+   *                <p>Month - 1-11</p>
+   *             </li>
+   *             <li>
+   *                <p>Year - 1</p>
+   *             </li>
+   *          </ul>
+   *          <p>Thus, if you want every other week forecasts, specify "2W". Or, if you want quarterly forecasts, you specify "3M".</p>
+   *          <p>The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset
    *             frequency.</p>
-   *         <p>When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the
+   *          <p>When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the
    *             RELATED_TIME_SERIES dataset frequency.</p>
    */
   ForecastFrequency?: string;
@@ -607,7 +671,7 @@ export interface CreateAutoPredictorRequest {
   DataConfig?: DataConfig;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to
+   * <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to
    *       access the key. You can specify this optional object in the
    *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
    */
@@ -617,7 +681,7 @@ export interface CreateAutoPredictorRequest {
    * <p>The ARN of the predictor to retrain or upgrade. This parameter is only used when
    *             retraining or upgrading a predictor. When creating a new predictor, do not specify a
    *             value for this parameter.</p>
-   *         <p>When upgrading or retraining a predictor, only specify values for the
+   *          <p>When upgrading or retraining a predictor, only specify values for the
    *                 <code>ReferencePredictorArn</code> and <code>PredictorName</code>. The value for
    *                 <code>PredictorName</code> must be a unique predictor name.</p>
    */
@@ -637,28 +701,28 @@ export interface CreateAutoPredictorRequest {
    * <p>Optional metadata to help you categorize and organize your predictors. Each tag
    *             consists of a key and an optional value, both of which you define. Tag keys and values
    *             are case sensitive.</p>
-   *         <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
-   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                <p>For each resource, each tag key must be unique and each tag key must have one
    *                     value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum number of tags per resource: 50.</p>
+   *                <p>Maximum number of tags per resource: 50.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
    *                     and + - = . _ : / @. If your tagging schema is used across other services and
    *                     resources, the character restrictions of those services also apply. </p>
    *             </li>
    *             <li>
-   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                <p>Key prefixes cannot include any upper or lowercase combination of
    *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
    *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
    *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
@@ -685,6 +749,9 @@ export interface CreateAutoPredictorRequest {
   TimeAlignmentBoundary?: TimeAlignmentBoundary;
 }
 
+/**
+ * @public
+ */
 export interface CreateAutoPredictorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
@@ -693,6 +760,7 @@ export interface CreateAutoPredictorResponse {
 }
 
 /**
+ * @public
  * <p>We can't process the request because it includes an invalid value or a value that exceeds
  *       the valid range.</p>
  */
@@ -715,6 +783,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit on the number of resources per account has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -736,6 +805,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is already a resource with this name. Try again with a different name.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -757,6 +827,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource is in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -778,6 +849,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  */
@@ -799,31 +871,59 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export enum DatasetType {
-  ITEM_METADATA = "ITEM_METADATA",
-  RELATED_TIME_SERIES = "RELATED_TIME_SERIES",
-  TARGET_TIME_SERIES = "TARGET_TIME_SERIES",
-}
-
-export enum Domain {
-  CUSTOM = "CUSTOM",
-  EC2_CAPACITY = "EC2_CAPACITY",
-  INVENTORY_PLANNING = "INVENTORY_PLANNING",
-  METRICS = "METRICS",
-  RETAIL = "RETAIL",
-  WEB_TRAFFIC = "WEB_TRAFFIC",
-  WORK_FORCE = "WORK_FORCE",
-}
-
-export enum AttributeType {
-  FLOAT = "float",
-  GEOLOCATION = "geolocation",
-  INTEGER = "integer",
-  STRING = "string",
-  TIMESTAMP = "timestamp",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DatasetType = {
+  ITEM_METADATA: "ITEM_METADATA",
+  RELATED_TIME_SERIES: "RELATED_TIME_SERIES",
+  TARGET_TIME_SERIES: "TARGET_TIME_SERIES",
+} as const;
 
 /**
+ * @public
+ */
+export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Domain = {
+  CUSTOM: "CUSTOM",
+  EC2_CAPACITY: "EC2_CAPACITY",
+  INVENTORY_PLANNING: "INVENTORY_PLANNING",
+  METRICS: "METRICS",
+  RETAIL: "RETAIL",
+  WEB_TRAFFIC: "WEB_TRAFFIC",
+  WORK_FORCE: "WORK_FORCE",
+} as const;
+
+/**
+ * @public
+ */
+export type Domain = (typeof Domain)[keyof typeof Domain];
+
+/**
+ * @public
+ * @enum
+ */
+export const AttributeType = {
+  FLOAT: "float",
+  GEOLOCATION: "geolocation",
+  INTEGER: "integer",
+  STRING: "string",
+  TIMESTAMP: "timestamp",
+} as const;
+
+/**
+ * @public
+ */
+export type AttributeType = (typeof AttributeType)[keyof typeof AttributeType];
+
+/**
+ * @public
  * <p>An attribute of a schema, which defines a dataset field. A schema attribute is required
  *       for every field in a dataset. The <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_Schema.html">Schema</a> object contains an array of
  *         <code>SchemaAttribute</code> objects.</p>
@@ -842,6 +942,7 @@ export interface SchemaAttribute {
 }
 
 /**
+ * @public
  * <p>Defines the fields of a dataset.</p>
  */
 export interface Schema {
@@ -851,6 +952,9 @@ export interface Schema {
   Attributes?: SchemaAttribute[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetRequest {
   /**
    * <p>A name for the dataset.</p>
@@ -877,9 +981,29 @@ export interface CreateDatasetRequest {
   /**
    * <p>The frequency of data collection. This parameter is required for RELATED_TIME_SERIES
    *       datasets.</p>
-   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
-   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example,
-   *       "D" indicates every day and "15min" indicates every 15 minutes.</p>
+   *          <p>Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day), H (Hour), and min (Minute). For example,
+   *       "1D" indicates every day and "15min" indicates every 15 minutes. You cannot specify a value that would overlap with the next larger frequency. That means, for example, you cannot specify a frequency of 60 minutes, because that is equivalent to 1 hour. The valid values for each frequency are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Minute - 1-59</p>
+   *             </li>
+   *             <li>
+   *                <p>Hour - 1-23</p>
+   *             </li>
+   *             <li>
+   *                <p>Day - 1-6</p>
+   *             </li>
+   *             <li>
+   *                <p>Week - 1-4</p>
+   *             </li>
+   *             <li>
+   *                <p>Month - 1-11</p>
+   *             </li>
+   *             <li>
+   *                <p>Year - 1</p>
+   *             </li>
+   *          </ul>
+   *          <p>Thus, if you want every other week forecasts, specify "2W". Or, if you want quarterly forecasts, you specify "3M".</p>
    */
   DataFrequency?: string;
 
@@ -893,7 +1017,7 @@ export interface CreateDatasetRequest {
   Schema: Schema | undefined;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   * <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access
    *       the key.</p>
    */
   EncryptionConfig?: EncryptionConfig;
@@ -927,7 +1051,7 @@ export interface CreateDatasetRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -938,6 +1062,9 @@ export interface CreateDatasetRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -945,6 +1072,9 @@ export interface CreateDatasetResponse {
   DatasetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetGroupRequest {
   /**
    * <p>A name for the dataset group.</p>
@@ -1000,7 +1130,7 @@ export interface CreateDatasetGroupRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -1011,6 +1141,9 @@ export interface CreateDatasetGroupRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetGroupResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
@@ -1019,8 +1152,9 @@ export interface CreateDatasetGroupResponse {
 }
 
 /**
- * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an AWS Identity and Access Management (IAM) role that
- *       Amazon Forecast can assume to access the file(s). Optionally, includes an AWS Key Management Service (KMS) key. This
+ * @public
+ * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an Identity and Access Management (IAM) role that
+ *       Amazon Forecast can assume to access the file(s). Optionally, includes an Key Management Service (KMS) key. This
  *       object is part of the <a>DataSource</a> object that is submitted in the <a>CreateDatasetImportJob</a> request, and part of the <a>DataDestination</a> object.</p>
  */
 export interface S3Config {
@@ -1030,23 +1164,24 @@ export interface S3Config {
   Path: string | undefined;
 
   /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
+   * <p>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
    *       bucket or files. If you provide a value for the <code>KMSKeyArn</code> key, the role must
    *       allow access to the key.</p>
-   *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your
+   *          <p>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role that isn't in your
    *       account, you get an <code>InvalidInputException</code> error.</p>
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key.</p>
+   * <p>The Amazon Resource Name (ARN) of an Key Management Service (KMS) key.</p>
    */
   KMSKeyArn?: string;
 }
 
 /**
- * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
- *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
+ * @public
+ * <p>The source of your data, an Identity and Access Management (IAM) role that allows Amazon Forecast to
+ *       access the data and, optionally, an Key Management Service (KMS) key.</p>
  */
 export interface DataSource {
   /**
@@ -1056,6 +1191,23 @@ export interface DataSource {
   S3Config: S3Config | undefined;
 }
 
+/**
+ * @public
+ * @enum
+ */
+export const ImportMode = {
+  FULL: "FULL",
+  INCREMENTAL: "INCREMENTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportMode = (typeof ImportMode)[keyof typeof ImportMode];
+
+/**
+ * @public
+ */
 export interface CreateDatasetImportJobRequest {
   /**
    * <p>The name for the dataset import job. We recommend including the current timestamp in the
@@ -1071,9 +1223,9 @@ export interface CreateDatasetImportJobRequest {
   DatasetArn: string | undefined;
 
   /**
-   * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
+   * <p>The location of the training data to import and an Identity and Access Management (IAM) role that Amazon Forecast
    *       can assume to access the data. The training data must be stored in an Amazon S3 bucket.</p>
-   *          <p>If encryption is used, <code>DataSource</code> must include an AWS Key Management Service (KMS) key and the
+   *          <p>If encryption is used, <code>DataSource</code> must include an Key Management Service (KMS) key and the
    *       IAM role must allow Amazon Forecast permission to access the key. The KMS key and IAM role must
    *       match those specified in the <code>EncryptionConfig</code> parameter of the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a>
    *       operation.</p>
@@ -1104,7 +1256,7 @@ export interface CreateDatasetImportJobRequest {
    * <p>A single time zone for every item in your dataset. This option is ideal for datasets
    *             with all timestamps within a single time zone, or if all timestamps are normalized to a
    *             single time zone. </p>
-   *         <p>Refer to the <a href="http://joda-time.sourceforge.net/timezones.html">Joda-Time
+   *          <p>Refer to the <a href="http://joda-time.sourceforge.net/timezones.html">Joda-Time
    *                 API</a> for a complete list of valid time zone names.</p>
    */
   TimeZone?: string;
@@ -1119,13 +1271,13 @@ export interface CreateDatasetImportJobRequest {
   /**
    * <p>The format of the geolocation attribute. The geolocation attribute can be formatted in
    *             one of two ways:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LAT_LONG</code> - the latitude and longitude in decimal format (Example: 47.61_-122.33).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CC_POSTALCODE</code> (US Only) - the country code (US), followed by the 5-digit ZIP code (Example: US_98121).</p>
    *             </li>
    *          </ul>
@@ -1162,7 +1314,7 @@ export interface CreateDatasetImportJobRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -1176,8 +1328,16 @@ export interface CreateDatasetImportJobRequest {
    * <p>The format of the imported data, CSV or PARQUET. The default value is CSV.</p>
    */
   Format?: string;
+
+  /**
+   * <p>Specifies whether the dataset import job is a <code>FULL</code> or <code>INCREMENTAL</code> import. A <code>FULL</code> dataset import replaces all of the existing data with the newly imported data. An <code>INCREMENTAL</code> import appends the imported data to the existing data.</p>
+   */
+  ImportMode?: ImportMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatasetImportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
@@ -1185,24 +1345,43 @@ export interface CreateDatasetImportJobResponse {
   DatasetImportJobArn?: string;
 }
 
-export enum TimePointGranularity {
-  ALL = "ALL",
-  SPECIFIC = "SPECIFIC",
-}
-
-export enum TimeSeriesGranularity {
-  ALL = "ALL",
-  SPECIFIC = "SPECIFIC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TimePointGranularity = {
+  ALL: "ALL",
+  SPECIFIC: "SPECIFIC",
+} as const;
 
 /**
+ * @public
+ */
+export type TimePointGranularity = (typeof TimePointGranularity)[keyof typeof TimePointGranularity];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimeSeriesGranularity = {
+  ALL: "ALL",
+  SPECIFIC: "SPECIFIC",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeSeriesGranularity = (typeof TimeSeriesGranularity)[keyof typeof TimeSeriesGranularity];
+
+/**
+ * @public
  * <p>The ExplainabilityConfig data type defines the number of time series and time points
  *             included in <a>CreateExplainability</a>.</p>
- *         <p>If you provide a predictor ARN for <code>ResourceArn</code>, you must set both
+ *          <p>If you provide a predictor ARN for <code>ResourceArn</code>, you must set both
  *                 <code>TimePointGranularity</code> and <code>TimeSeriesGranularity</code> to “ALL”.
  *             When creating Predictor Explainability, Amazon Forecast considers all time series and
  *             time points.</p>
- *         <p>If you provide a forecast ARN for <code>ResourceArn</code>, you can set
+ *          <p>If you provide a forecast ARN for <code>ResourceArn</code>, you can set
  *                 <code>TimePointGranularity</code> and <code>TimeSeriesGranularity</code> to either
  *             “ALL” or “Specific”.</p>
  */
@@ -1211,7 +1390,7 @@ export interface ExplainabilityConfig {
    * <p>To create an Explainability for all time series in your datasets, use
    *             <code>ALL</code>. To create an Explainability for specific time series in your datasets,
    *             use <code>SPECIFIC</code>.</p>
-   *         <p>Specify time series by uploading a CSV or Parquet file to an Amazon S3 bucket and set the location
+   *          <p>Specify time series by uploading a CSV or Parquet file to an Amazon S3 bucket and set the location
    *             within the <a>DataDestination</a> data type.</p>
    */
   TimeSeriesGranularity: TimeSeriesGranularity | string | undefined;
@@ -1220,12 +1399,15 @@ export interface ExplainabilityConfig {
    * <p>To create an Explainability for all time points in your forecast horizon, use
    *                 <code>ALL</code>. To create an Explainability for specific time points in your
    *             forecast horizon, use <code>SPECIFIC</code>.</p>
-   *         <p>Specify time points with the <code>StartDateTime</code> and <code>EndDateTime</code>
+   *          <p>Specify time points with the <code>StartDateTime</code> and <code>EndDateTime</code>
    *             parameters within the <a>CreateExplainability</a> operation.</p>
    */
   TimePointGranularity: TimePointGranularity | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExplainabilityRequest {
   /**
    * <p>A unique name for the Explainability.</p>
@@ -1245,8 +1427,8 @@ export interface CreateExplainabilityRequest {
   ExplainabilityConfig: ExplainabilityConfig | undefined;
 
   /**
-   * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
-   *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
+   * <p>The source of your data, an Identity and Access Management (IAM) role that allows Amazon Forecast to
+   *       access the data and, optionally, an Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
@@ -1256,14 +1438,14 @@ export interface CreateExplainabilityRequest {
   Schema?: Schema;
 
   /**
-   * <p>Create an Explainability visualization that is viewable within the AWS console.</p>
+   * <p>Create an Explainability visualization that is viewable within the Amazon Web Services console.</p>
    */
   EnableVisualization?: boolean;
 
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the first
    *             point for the Explainability.</p>
-   *         <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+   *          <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
    *             2015-01-01T20:00:00)</p>
    */
   StartDateTime?: string;
@@ -1271,7 +1453,7 @@ export interface CreateExplainabilityRequest {
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the last
    *             time point for the Explainability.</p>
-   *         <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+   *          <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
    *             2015-01-01T20:00:00)</p>
    */
   EndDateTime?: string;
@@ -1280,28 +1462,28 @@ export interface CreateExplainabilityRequest {
    * <p>Optional metadata to help you categorize and organize your resources. Each tag
    *             consists of a key and an optional value, both of which you define. Tag keys and values
    *             are case sensitive.</p>
-   *         <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
-   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                <p>For each resource, each tag key must be unique and each tag key must have one
    *                     value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum number of tags per resource: 50.</p>
+   *                <p>Maximum number of tags per resource: 50.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
    *                     and + - = . _ : / @. If your tagging schema is used across other services and
    *                     resources, the character restrictions of those services also apply. </p>
    *             </li>
    *             <li>
-   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                <p>Key prefixes cannot include any upper or lowercase combination of
    *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
    *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
    *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
@@ -1313,6 +1495,9 @@ export interface CreateExplainabilityRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateExplainabilityResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
@@ -1321,8 +1506,9 @@ export interface CreateExplainabilityResponse {
 }
 
 /**
- * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
- *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+ * @public
+ * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+ *       to access the location, and an Key Management Service (KMS) key (optional). </p>
  */
 export interface DataDestination {
   /**
@@ -1332,6 +1518,9 @@ export interface DataDestination {
   S3Config: S3Config | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExplainabilityExportRequest {
   /**
    * <p>A unique name for the Explainability export.</p>
@@ -1344,8 +1533,8 @@ export interface CreateExplainabilityExportRequest {
   ExplainabilityArn: string | undefined;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination: DataDestination | undefined;
 
@@ -1353,28 +1542,28 @@ export interface CreateExplainabilityExportRequest {
    * <p>Optional metadata to help you categorize and organize your resources. Each tag
    *             consists of a key and an optional value, both of which you define. Tag keys and values
    *             are case sensitive.</p>
-   *         <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
-   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                <p>For each resource, each tag key must be unique and each tag key must have one
    *                     value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum number of tags per resource: 50.</p>
+   *                <p>Maximum number of tags per resource: 50.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
    *                     and + - = . _ : / @. If your tagging schema is used across other services and
    *                     resources, the character restrictions of those services also apply. </p>
    *             </li>
    *             <li>
-   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                <p>Key prefixes cannot include any upper or lowercase combination of
    *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
    *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
    *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
@@ -1391,6 +1580,9 @@ export interface CreateExplainabilityExportRequest {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateExplainabilityExportResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the export.</p>
@@ -1399,12 +1591,13 @@ export interface CreateExplainabilityExportResponse {
 }
 
 /**
+ * @public
  * <p>Details about the import file that contains the time series for which you want to create forecasts.</p>
  */
 export interface TimeSeriesIdentifiers {
   /**
-   * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
-   *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
+   * <p>The source of your data, an Identity and Access Management (IAM) role that allows Amazon Forecast to
+   *       access the data and, optionally, an Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
@@ -1420,6 +1613,7 @@ export interface TimeSeriesIdentifiers {
 }
 
 /**
+ * @public
  * <p>Defines the set of time series that are used to create the forecasts in a <code>TimeSeriesIdentifiers</code> object.</p>
  *          <p>The <code>TimeSeriesIdentifiers</code> object needs the following information:</p>
  *          <ul>
@@ -1447,6 +1641,9 @@ export interface TimeSeriesSelector {
   TimeSeriesIdentifiers?: TimeSeriesIdentifiers;
 }
 
+/**
+ * @public
+ */
 export interface CreateForecastRequest {
   /**
    * <p>A name for the forecast.</p>
@@ -1500,7 +1697,7 @@ export interface CreateForecastRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -1534,6 +1731,9 @@ export interface CreateForecastRequest {
   TimeSeriesSelector?: TimeSeriesSelector;
 }
 
+/**
+ * @public
+ */
 export interface CreateForecastResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast.</p>
@@ -1541,6 +1741,9 @@ export interface CreateForecastResponse {
   ForecastArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateForecastExportJobRequest {
   /**
    * <p>The name for the forecast export job.</p>
@@ -1553,10 +1756,10 @@ export interface CreateForecastExportJobRequest {
   ForecastArn: string | undefined;
 
   /**
-   * <p>The location where you want to save the forecast and an AWS Identity and Access Management (IAM) role that
+   * <p>The location where you want to save the forecast and an Identity and Access Management (IAM) role that
    *       Amazon Forecast can assume to access the location. The forecast must be exported to an Amazon S3
    *       bucket.</p>
-   *          <p>If encryption is used, <code>Destination</code> must include an AWS Key Management Service (KMS) key. The
+   *          <p>If encryption is used, <code>Destination</code> must include an Key Management Service (KMS) key. The
    *       IAM role must allow Amazon Forecast permission to access the key.</p>
    */
   Destination: DataDestination | undefined;
@@ -1591,7 +1794,7 @@ export interface CreateForecastExportJobRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -1607,6 +1810,9 @@ export interface CreateForecastExportJobRequest {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateForecastExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the export job.</p>
@@ -1614,6 +1820,9 @@ export interface CreateForecastExportJobResponse {
   ForecastExportJobArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateMonitorRequest {
   /**
    * <p>The name of the monitor resource.</p>
@@ -1631,6 +1840,9 @@ export interface CreateMonitorRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateMonitorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource.</p>
@@ -1638,12 +1850,22 @@ export interface CreateMonitorResponse {
   MonitorArn?: string;
 }
 
-export enum AutoMLOverrideStrategy {
-  AccuracyOptimized = "AccuracyOptimized",
-  LatencyOptimized = "LatencyOptimized",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLOverrideStrategy = {
+  AccuracyOptimized: "AccuracyOptimized",
+  LatencyOptimized: "LatencyOptimized",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoMLOverrideStrategy = (typeof AutoMLOverrideStrategy)[keyof typeof AutoMLOverrideStrategy];
+
+/**
+ * @public
  * <p>Parameters that define how to split a dataset into training data and testing data, and the
  *       number of iterations to perform. These parameters are specified in the predefined algorithms
  *       but you can override them in the <a>CreatePredictor</a> request.</p>
@@ -1668,27 +1890,37 @@ export interface EvaluationParameters {
   BackTestWindowOffset?: number;
 }
 
-export enum FeaturizationMethodName {
-  filling = "filling",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FeaturizationMethodName = {
+  filling: "filling",
+} as const;
 
 /**
+ * @public
+ */
+export type FeaturizationMethodName = (typeof FeaturizationMethodName)[keyof typeof FeaturizationMethodName];
+
+/**
+ * @public
  * <p>Provides information about the method that featurizes (transforms) a dataset field. The
  *       method is part of the <code>FeaturizationPipeline</code> of the <a>Featurization</a> object. </p>
  *          <p>The following is an example of how you specify a <code>FeaturizationMethod</code>
  *       object.</p>
  *          <p>
- *             <code>{</code>
+ *             <code>\{</code>
  *          </p>
  *          <p>
  *             <code>"FeaturizationMethodName": "filling",</code>
  *          </p>
  *          <p>
- *             <code>"FeaturizationMethodParameters": {"aggregation": "sum", "middlefill": "zero",
- *         "backfill": "zero"}</code>
+ *             <code>"FeaturizationMethodParameters": \{"aggregation": "sum", "middlefill": "zero",
+ *         "backfill": "zero"\}</code>
  *          </p>
  *          <p>
- *             <code>}</code>
+ *             <code>\}</code>
  *          </p>
  */
 export interface FeaturizationMethod {
@@ -1731,7 +1963,6 @@ export interface FeaturizationMethod {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following list shows the parameters and their valid values for a <b>Related Time Series</b> featurization method (there are no defaults):</p>
    *          <ul>
    *             <li>
@@ -1762,6 +1993,7 @@ export interface FeaturizationMethod {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
  *         your predictor with <a>CreateAutoPredictor</a>, see <a>AttributeConfig</a>.</p>
@@ -1770,27 +2002,26 @@ export interface FeaturizationMethod {
  *       part of the <a>FeaturizationConfig</a> object.</p>
  *          <p>For example:</p>
  *          <p>
- *             <code>{</code>
+ *             <code>\{</code>
  *          </p>
  *          <p>
  *             <code>"AttributeName": "demand",</code>
  *          </p>
  *          <p>
- *             <code>FeaturizationPipeline [ {</code>
+ *             <code>FeaturizationPipeline [ \{</code>
  *          </p>
- *
  *          <p>
  *             <code>"FeaturizationMethodName": "filling",</code>
  *          </p>
  *          <p>
- *             <code>"FeaturizationMethodParameters": {"aggregation": "avg", "backfill":
- *       "nan"}</code>
+ *             <code>"FeaturizationMethodParameters": \{"aggregation": "avg", "backfill":
+ *       "nan"\}</code>
  *          </p>
  *          <p>
- *             <code>} ]</code>
+ *             <code>\} ]</code>
  *          </p>
  *          <p>
- *             <code>}</code>
+ *             <code>\}</code>
  *          </p>
  */
 export interface Featurization {
@@ -1811,6 +2042,7 @@ export interface Featurization {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
  *         your predictor with <a>CreateAutoPredictor</a>, see <a>AttributeConfig</a>.</p>
@@ -1831,13 +2063,33 @@ export interface Featurization {
 export interface FeaturizationConfig {
   /**
    * <p>The frequency of predictions in a forecast.</p>
-   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
-   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example,
-   *       "Y" indicates every year and "5min" indicates every five minutes.</p>
+   *          <p>Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day), H (Hour), and min (Minute). For example,
+   *       "1D" indicates every day and "15min" indicates every 15 minutes. You cannot specify a value that would overlap with the next larger frequency. That means, for example, you cannot specify a frequency of 60 minutes, because that is equivalent to 1 hour. The valid values for each frequency are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Minute - 1-59</p>
+   *             </li>
+   *             <li>
+   *                <p>Hour - 1-23</p>
+   *             </li>
+   *             <li>
+   *                <p>Day - 1-6</p>
+   *             </li>
+   *             <li>
+   *                <p>Week - 1-4</p>
+   *             </li>
+   *             <li>
+   *                <p>Month - 1-11</p>
+   *             </li>
+   *             <li>
+   *                <p>Year - 1</p>
+   *             </li>
+   *          </ul>
+   *          <p>Thus, if you want every other week forecasts, specify "2W". Or, if you want quarterly forecasts, you specify "3M".</p>
    *          <p>The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset
    *       frequency.</p>
    *          <p>When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the
-   *       RELATED_TIME_SERIES dataset frequency.</p>
+   *       TARGET_TIME_SERIES dataset frequency.</p>
    */
   ForecastFrequency: string | undefined;
 
@@ -1862,6 +2114,7 @@ export interface FeaturizationConfig {
 }
 
 /**
+ * @public
  * <p>Specifies a categorical hyperparameter and it's range of tunable values.
  *       This object is part of the <a>ParameterRanges</a> object.</p>
  */
@@ -1877,14 +2130,24 @@ export interface CategoricalParameterRange {
   Values: string[] | undefined;
 }
 
-export enum ScalingType {
-  Auto = "Auto",
-  Linear = "Linear",
-  Logarithmic = "Logarithmic",
-  ReverseLogarithmic = "ReverseLogarithmic",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScalingType = {
+  Auto: "Auto",
+  Linear: "Linear",
+  Logarithmic: "Logarithmic",
+  ReverseLogarithmic: "ReverseLogarithmic",
+} as const;
 
 /**
+ * @public
+ */
+export type ScalingType = (typeof ScalingType)[keyof typeof ScalingType];
+
+/**
+ * @public
  * <p>Specifies a continuous hyperparameter and it's range of tunable values.
  *       This object is part of the <a>ParameterRanges</a> object.</p>
  */
@@ -1939,6 +2202,7 @@ export interface ContinuousParameterRange {
 }
 
 /**
+ * @public
  * <p>Specifies an integer hyperparameter and it's range of tunable values.
  *       This object is part of the <a>ParameterRanges</a> object.</p>
  */
@@ -1992,6 +2256,7 @@ export interface IntegerParameterRange {
 }
 
 /**
+ * @public
  * <p>Specifies the categorical, continuous, and integer hyperparameters, and their ranges of
  *       tunable values. The range of tunable values determines which values that a hyperparameter
  *       tuning job can choose for the specified hyperparameter. This object is part of the
@@ -2015,6 +2280,7 @@ export interface ParameterRanges {
 }
 
 /**
+ * @public
  * <p>Configuration information for a hyperparameter tuning job. You specify this object in
  *       the <a>CreatePredictor</a> request.</p>
  *          <p>A <i>hyperparameter</i> is a parameter that governs the model training process. You set
@@ -2033,6 +2299,7 @@ export interface HyperParameterTuningJobConfig {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
  *         your predictor with <a>CreateAutoPredictor</a>, see <a>AdditionalDataset</a>.</p>
@@ -2278,6 +2545,7 @@ export interface SupplementaryFeature {
 }
 
 /**
+ * @public
  * <note>
  *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
  *         your predictor with <a>CreateAutoPredictor</a>, see <a>DataConfig</a>.</p>
@@ -2299,6 +2567,9 @@ export interface InputDataConfig {
   SupplementaryFeatures?: SupplementaryFeature[];
 }
 
+/**
+ * @public
+ */
 export interface CreatePredictorRequest {
   /**
    * <p>A name for the predictor.</p>
@@ -2379,13 +2650,13 @@ export interface CreatePredictorRequest {
   /**
    * <note>
    *             <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta.
-   *                 Contact AWS Support or your account manager to learn more about access privileges.
+   *                 Contact Amazon Web Services Support or your account manager to learn more about access privileges.
    *             </p>
-   *         </note>
-   *         <p>Used to overide the default AutoML strategy, which is to optimize predictor accuracy.
+   *          </note>
+   *          <p>Used to overide the default AutoML strategy, which is to optimize predictor accuracy.
    *             To apply an AutoML strategy that minimizes training time, use
    *                 <code>LatencyOptimized</code>.</p>
-   *         <p>This parameter is only valid for predictors trained using AutoML.</p>
+   *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
   AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
 
@@ -2446,7 +2717,7 @@ export interface CreatePredictorRequest {
   FeaturizationConfig: FeaturizationConfig | undefined;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   * <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access
    *       the key.</p>
    */
   EncryptionConfig?: EncryptionConfig;
@@ -2480,7 +2751,7 @@ export interface CreatePredictorRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -2496,6 +2767,9 @@ export interface CreatePredictorRequest {
   OptimizationMetric?: OptimizationMetric | string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePredictorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
@@ -2503,6 +2777,9 @@ export interface CreatePredictorResponse {
   PredictorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePredictorBacktestExportJobRequest {
   /**
    * <p>The name for the backtest export job.</p>
@@ -2515,8 +2792,8 @@ export interface CreatePredictorBacktestExportJobRequest {
   PredictorArn: string | undefined;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination: DataDestination | undefined;
 
@@ -2524,28 +2801,28 @@ export interface CreatePredictorBacktestExportJobRequest {
    * <p>Optional metadata to help you categorize and organize your backtests. Each tag
    *             consists of a key and an optional value, both of which you define. Tag keys and values
    *             are case sensitive.</p>
-   *         <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
-   *                 <p>For each resource, each tag key must be unique and each tag key must have one
+   *                <p>For each resource, each tag key must be unique and each tag key must have one
    *                     value.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum number of tags per resource: 50.</p>
+   *                <p>Maximum number of tags per resource: 50.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                 <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
+   *                <p>Accepted characters: all letters and numbers, spaces representable in UTF-8,
    *                     and + - = . _ : / @. If your tagging schema is used across other services and
    *                     resources, the character restrictions of those services also apply. </p>
    *             </li>
    *             <li>
-   *                 <p>Key prefixes cannot include any upper or lowercase combination of
+   *                <p>Key prefixes cannot include any upper or lowercase combination of
    *                         <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a
    *                     tag value has <code>aws</code> as its prefix but the key does not, Forecast
    *                     considers it to be a user tag and will count against the limit of 50 tags. Tags
@@ -2562,6 +2839,9 @@ export interface CreatePredictorBacktestExportJobRequest {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePredictorBacktestExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job that you want to
@@ -2570,6 +2850,9 @@ export interface CreatePredictorBacktestExportJobResponse {
   PredictorBacktestExportJobArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfAnalysisRequest {
   /**
    * <p>The name of the what-if analysis. Each name must be unique.</p>
@@ -2611,6 +2894,9 @@ export interface CreateWhatIfAnalysisRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfAnalysisResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if analysis.</p>
@@ -2619,12 +2905,17 @@ export interface CreateWhatIfAnalysisResponse {
 }
 
 /**
- * <p>A replacement dataset is a modified version of the baseline related time series that contains only the values that you want to include in a what-if forecast. The replacement dataset must contain the forecast dimensions and item identifiers in the baseline related time series as well as at least 1 changed time series. This dataset is merged with the baseline related time series to create a transformed dataset that is used for the what-if forecast.</p>
+ * @public
+ * <p>A replacement dataset is a modified version of the baseline related time series that contains only the values
+ *       that you want to include in a what-if forecast. The replacement dataset must contain the forecast dimensions and
+ *       item identifiers in the baseline related time series as well as at least 1 changed time series. This dataset is
+ *       merged with the baseline related time series to create a transformed dataset that is used for the what-if
+ *       forecast.</p>
  */
 export interface TimeSeriesReplacementsDataSource {
   /**
-   * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an AWS Identity and Access Management (IAM) role that
-   *       Amazon Forecast can assume to access the file(s). Optionally, includes an AWS Key Management Service (KMS) key. This
+   * <p>The path to the file(s) in an Amazon Simple Storage Service (Amazon S3) bucket, and an Identity and Access Management (IAM) role that
+   *       Amazon Forecast can assume to access the file(s). Optionally, includes an Key Management Service (KMS) key. This
    *       object is part of the <a>DataSource</a> object that is submitted in the <a>CreateDatasetImportJob</a> request, and part of the <a>DataDestination</a> object.</p>
    */
   S3Config: S3Config | undefined;
@@ -2645,14 +2936,24 @@ export interface TimeSeriesReplacementsDataSource {
   TimestampFormat?: string;
 }
 
-export enum Condition {
-  EQUALS = "EQUALS",
-  GREATER_THAN = "GREATER_THAN",
-  LESS_THAN = "LESS_THAN",
-  NOT_EQUALS = "NOT_EQUALS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Condition = {
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  LESS_THAN: "LESS_THAN",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
 
 /**
+ * @public
+ */
+export type Condition = (typeof Condition)[keyof typeof Condition];
+
+/**
+ * @public
  * <p>Creates a subset of items within an attribute that are modified. For example, you can use this operation to create a subset of items that cost $5 or less. To do this, you specify <code>"AttributeName": "price"</code>, <code>"AttributeValue": "5"</code>, and <code>"Condition": "LESS_THAN"</code>. Pair this operation with the <a>Action</a> operation within the <a>CreateWhatIfForecastRequest$TimeSeriesTransformations</a> operation to define how the attribute is modified.</p>
  */
 export interface TimeSeriesCondition {
@@ -2674,6 +2975,7 @@ export interface TimeSeriesCondition {
 }
 
 /**
+ * @public
  * <p>A transformation function is a pair of operations that select and modify the rows in a related time series. You select the rows that you want with a condition operation and you modify the rows with a transformation operation. All conditions are joined with an AND operation, meaning that all conditions must be true for the transformation to be applied. Transformations are applied in the order that they are listed.</p>
  */
 export interface TimeSeriesTransformation {
@@ -2689,6 +2991,9 @@ export interface TimeSeriesTransformation {
   TimeSeriesConditions?: TimeSeriesCondition[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfForecastRequest {
   /**
    * <p>The name of the what-if forecast. Names must be unique within each what-if analysis.</p>
@@ -2706,9 +3011,11 @@ export interface CreateWhatIfForecastRequest {
   TimeSeriesTransformations?: TimeSeriesTransformation[];
 
   /**
-   * <p>The replacement time series dataset, which contains the rows that you want to change in the related time series dataset. A replacement time
-   *       series does not need to contain all rows that are in the baseline related time series. Include only the rows
-   *       (measure-dimension combinations) that you want to include in the what-if forecast. This dataset is merged with the
+   * <p>The replacement time series dataset, which contains the rows that you want to change in the related time
+   *       series dataset. A replacement time series does not need to contain all rows that are in the baseline related time
+   *       series. Include only the rows (measure-dimension combinations) that you want to include in the what-if
+   *       forecast.</p>
+   *          <p>This dataset is merged with the
    *       original time series to create a transformed dataset that is used for the what-if analysis.</p>
    *          <p>This dataset should contain the items to modify (such as item_id or workforce_type), any relevant dimensions, the timestamp column, and at least one of the related time series columns. This file should not contain duplicate timestamps for the same time series.</p>
    *          <p>Timestamps and item_ids not included in this dataset are not included in the what-if analysis. </p>
@@ -2721,6 +3028,9 @@ export interface CreateWhatIfForecastRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfForecastResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
@@ -2728,6 +3038,9 @@ export interface CreateWhatIfForecastResponse {
   WhatIfForecastArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfForecastExportRequest {
   /**
    * <p>The name of the what-if forecast to export.</p>
@@ -2740,10 +3053,10 @@ export interface CreateWhatIfForecastExportRequest {
   WhatIfForecastArns: string[] | undefined;
 
   /**
-   * <p>The location where you want to save the forecast and an AWS Identity and Access Management (IAM) role that
+   * <p>The location where you want to save the forecast and an Identity and Access Management (IAM) role that
    *       Amazon Forecast can assume to access the location. The forecast must be exported to an Amazon S3
    *       bucket.</p>
-   *          <p>If encryption is used, <code>Destination</code> must include an AWS Key Management Service (KMS) key. The
+   *          <p>If encryption is used, <code>Destination</code> must include an Key Management Service (KMS) key. The
    *       IAM role must allow Amazon Forecast permission to access the key.</p>
    */
   Destination: DataDestination | undefined;
@@ -2759,6 +3072,9 @@ export interface CreateWhatIfForecastExportRequest {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWhatIfForecastExportResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
@@ -2766,6 +3082,9 @@ export interface CreateWhatIfForecastExportResponse {
   WhatIfForecastExportArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
@@ -2773,6 +3092,9 @@ export interface DeleteDatasetRequest {
   DatasetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetGroupRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group to delete.</p>
@@ -2780,6 +3102,9 @@ export interface DeleteDatasetGroupRequest {
   DatasetGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatasetImportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job to delete.</p>
@@ -2787,6 +3112,9 @@ export interface DeleteDatasetImportJobRequest {
   DatasetImportJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExplainabilityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability resource to delete.</p>
@@ -2794,6 +3122,9 @@ export interface DeleteExplainabilityRequest {
   ExplainabilityArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExplainabilityExportRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability export to delete. </p>
@@ -2801,6 +3132,9 @@ export interface DeleteExplainabilityExportRequest {
   ExplainabilityExportArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast to delete.</p>
@@ -2808,6 +3142,9 @@ export interface DeleteForecastRequest {
   ForecastArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteForecastExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast export job to delete.</p>
@@ -2815,6 +3152,9 @@ export interface DeleteForecastExportJobRequest {
   ForecastExportJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMonitorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource to delete.</p>
@@ -2822,6 +3162,9 @@ export interface DeleteMonitorRequest {
   MonitorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePredictorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor to delete.</p>
@@ -2829,6 +3172,9 @@ export interface DeletePredictorRequest {
   PredictorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePredictorBacktestExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job to delete.</p>
@@ -2836,6 +3182,9 @@ export interface DeletePredictorBacktestExportJobRequest {
   PredictorBacktestExportJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourceTreeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the parent resource to delete. All child resources
@@ -2844,6 +3193,9 @@ export interface DeleteResourceTreeRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWhatIfAnalysisRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if analysis that you want to delete.</p>
@@ -2851,6 +3203,9 @@ export interface DeleteWhatIfAnalysisRequest {
   WhatIfAnalysisArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWhatIfForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast that you want to delete.</p>
@@ -2858,6 +3213,9 @@ export interface DeleteWhatIfForecastRequest {
   WhatIfForecastArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWhatIfForecastExportRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast export that you want to delete.</p>
@@ -2865,6 +3223,9 @@ export interface DeleteWhatIfForecastExportRequest {
   WhatIfForecastExportArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoPredictorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
@@ -2873,6 +3234,7 @@ export interface DescribeAutoPredictorRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the Explainability resource.</p>
  */
 export interface ExplainabilityInfo {
@@ -2883,25 +3245,25 @@ export interface ExplainabilityInfo {
 
   /**
    * <p>The status of the Explainability. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -2912,6 +3274,7 @@ export interface ExplainabilityInfo {
 }
 
 /**
+ * @public
  * <p>Provides information about the monitor resource.</p>
  */
 export interface MonitorInfo {
@@ -2953,12 +3316,22 @@ export interface MonitorInfo {
   Status?: string;
 }
 
-export enum State {
-  Active = "Active",
-  Deleted = "Deleted",
-}
+/**
+ * @public
+ * @enum
+ */
+export const State = {
+  Active: "Active",
+  Deleted: "Deleted",
+} as const;
 
 /**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
  * <p>Provides a summary of the reference predictor used when retraining or upgrading a
  *             predictor.</p>
  */
@@ -2974,6 +3347,9 @@ export interface ReferencePredictorSummary {
   State?: State | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoPredictorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor</p>
@@ -2999,7 +3375,7 @@ export interface DescribeAutoPredictorResponse {
 
   /**
    * <p>The frequency of predictions in a forecast.</p>
-   *         <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30
+   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30
    *             minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute).
    *             For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
    */
@@ -3023,7 +3399,7 @@ export interface DescribeAutoPredictorResponse {
   DataConfig?: DataConfig;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to
+   * <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to
    *       access the key. You can specify this optional object in the
    *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
    */
@@ -3043,25 +3419,25 @@ export interface DescribeAutoPredictorResponse {
 
   /**
    * <p>The status of the predictor. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -3083,25 +3459,25 @@ export interface DescribeAutoPredictorResponse {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -3130,6 +3506,9 @@ export interface DescribeAutoPredictorResponse {
   TimeAlignmentBoundary?: TimeAlignmentBoundary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -3137,6 +3516,9 @@ export interface DescribeDatasetRequest {
   DatasetArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -3173,7 +3555,7 @@ export interface DescribeDatasetResponse {
   Schema?: Schema;
 
   /**
-   * <p>The AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   * <p>The Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access
    *       the key.</p>
    */
   EncryptionConfig?: EncryptionConfig;
@@ -3232,6 +3614,9 @@ export interface DescribeDatasetResponse {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetGroupRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
@@ -3239,6 +3624,9 @@ export interface DescribeDatasetGroupRequest {
   DatasetGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetGroupResponse {
   /**
    * <p>The name of the dataset group.</p>
@@ -3310,6 +3698,9 @@ export interface DescribeDatasetGroupResponse {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetImportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
@@ -3318,6 +3709,7 @@ export interface DescribeDatasetImportJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides statistics for each data field imported into to an Amazon Forecast dataset with
  *       the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a> operation.</p>
  */
@@ -3391,6 +3783,9 @@ export interface Statistics {
   CountNanLong?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatasetImportJobResponse {
   /**
    * <p>The name of the dataset import job.</p>
@@ -3444,9 +3839,9 @@ export interface DescribeDatasetImportJobResponse {
   GeolocationFormat?: string;
 
   /**
-   * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
+   * <p>The location of the training data to import and an Identity and Access Management (IAM) role that Amazon Forecast
    *       can assume to access the data.</p>
-   *          <p>If encryption is used, <code>DataSource</code> includes an AWS Key Management Service (KMS) key.</p>
+   *          <p>If encryption is used, <code>DataSource</code> includes an Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
@@ -3537,8 +3932,16 @@ export interface DescribeDatasetImportJobResponse {
    * <p>The format of the imported data, CSV or PARQUET.</p>
    */
   Format?: string;
+
+  /**
+   * <p>The import mode of the dataset import job, FULL or INCREMENTAL.</p>
+   */
+  ImportMode?: ImportMode | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExplainabilityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explaianability to describe.</p>
@@ -3546,6 +3949,9 @@ export interface DescribeExplainabilityRequest {
   ExplainabilityArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExplainabilityResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
@@ -3575,8 +3981,8 @@ export interface DescribeExplainabilityResponse {
   EnableVisualization?: boolean;
 
   /**
-   * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
-   *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
+   * <p>The source of your data, an Identity and Access Management (IAM) role that allows Amazon Forecast to
+   *       access the data and, optionally, an Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
@@ -3610,25 +4016,25 @@ export interface DescribeExplainabilityResponse {
 
   /**
    * <p>The status of the Explainability resource. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -3645,25 +4051,25 @@ export interface DescribeExplainabilityResponse {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -3672,6 +4078,9 @@ export interface DescribeExplainabilityResponse {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExplainabilityExportRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
@@ -3679,6 +4088,9 @@ export interface DescribeExplainabilityExportRequest {
   ExplainabilityExportArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExplainabilityExportResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
@@ -3696,8 +4108,8 @@ export interface DescribeExplainabilityExportResponse {
   ExplainabilityArn?: string;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination?: DataDestination;
 
@@ -3708,25 +4120,25 @@ export interface DescribeExplainabilityExportResponse {
 
   /**
    * <p>The status of the Explainability export. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -3743,25 +4155,25 @@ export interface DescribeExplainabilityExportResponse {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -3775,6 +4187,9 @@ export interface DescribeExplainabilityExportResponse {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast.</p>
@@ -3782,6 +4197,9 @@ export interface DescribeForecastRequest {
   ForecastArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeForecastResponse {
   /**
    * <p>The forecast ARN as specified in the request.</p>
@@ -3890,6 +4308,9 @@ export interface DescribeForecastResponse {
   TimeSeriesSelector?: TimeSeriesSelector;
 }
 
+/**
+ * @public
+ */
 export interface DescribeForecastExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast export job.</p>
@@ -3897,6 +4318,9 @@ export interface DescribeForecastExportJobRequest {
   ForecastExportJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeForecastExportJobResponse {
   /**
    * <p>The ARN of the forecast export job.</p>
@@ -3995,6 +4419,9 @@ export interface DescribeForecastExportJobResponse {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMonitorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource to describe.</p>
@@ -4003,6 +4430,7 @@ export interface DescribeMonitorRequest {
 }
 
 /**
+ * @public
  * <p>An individual metric that you can use for comparison as you evaluate your monitoring results.</p>
  */
 export interface BaselineMetric {
@@ -4018,6 +4446,7 @@ export interface BaselineMetric {
 }
 
 /**
+ * @public
  * <p>Metrics you can use as a baseline for comparison purposes. Use these metrics when you interpret monitoring results for an auto predictor.</p>
  */
 export interface PredictorBaseline {
@@ -4029,6 +4458,7 @@ export interface PredictorBaseline {
 }
 
 /**
+ * @public
  * <p>Metrics you can use as a baseline for comparison purposes. Use these metrics when you interpret monitoring results for an auto predictor.</p>
  */
 export interface Baseline {
@@ -4039,6 +4469,9 @@ export interface Baseline {
   PredictorBaseline?: PredictorBaseline;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMonitorResponse {
   /**
    * <p>The name of the monitor.</p>
@@ -4096,6 +4529,9 @@ export interface DescribeMonitorResponse {
   EstimatedEvaluationTimeRemainingInMinutes?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribePredictorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor that you want information about.</p>
@@ -4104,6 +4540,7 @@ export interface DescribePredictorRequest {
 }
 
 /**
+ * @public
  * <p>The status, start time, and end time of a backtest, as well as a failure reason if
  *       applicable.</p>
  */
@@ -4147,6 +4584,7 @@ export interface TestWindowSummary {
 }
 
 /**
+ * @public
  * <p>The algorithm used to perform a backtest and the status of those tests.</p>
  */
 export interface PredictorExecution {
@@ -4164,6 +4602,7 @@ export interface PredictorExecution {
 }
 
 /**
+ * @public
  * <p>Contains details on the backtests performed to evaluate the accuracy of the predictor. The
  *       tests are returned in descending order of accuracy, with the most accurate backtest appearing
  *       first. You specify the number of backtests to perform when you call the  operation.</p>
@@ -4177,6 +4616,9 @@ export interface PredictorExecutionDetails {
   PredictorExecutions?: PredictorExecution[];
 }
 
+/**
+ * @public
+ */
 export interface DescribePredictorResponse {
   /**
    * <p>The ARN of the predictor.</p>
@@ -4219,12 +4661,12 @@ export interface DescribePredictorResponse {
   /**
    * <note>
    *             <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta.
-   *                 Contact AWS Support or your account manager to learn more about access privileges.
+   *                 Contact Amazon Web Services Support or your account manager to learn more about access privileges.
    *             </p>
-   *         </note>
-   *         <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code>
+   *          </note>
+   *          <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code>
    *             is specified, the AutoML strategy optimizes predictor accuracy.</p>
-   *         <p>This parameter is only valid for predictors trained using AutoML.</p>
+   *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
   AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
 
@@ -4263,7 +4705,7 @@ export interface DescribePredictorResponse {
   FeaturizationConfig?: FeaturizationConfig;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   * <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access
    *       the key.</p>
    */
   EncryptionConfig?: EncryptionConfig;
@@ -4368,6 +4810,9 @@ export interface DescribePredictorResponse {
   OptimizationMetric?: OptimizationMetric | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePredictorBacktestExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
@@ -4375,6 +4820,9 @@ export interface DescribePredictorBacktestExportJobRequest {
   PredictorBacktestExportJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePredictorBacktestExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
@@ -4392,8 +4840,8 @@ export interface DescribePredictorBacktestExportJobResponse {
   PredictorArn?: string;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination?: DataDestination;
 
@@ -4404,25 +4852,25 @@ export interface DescribePredictorBacktestExportJobResponse {
 
   /**
    * <p>The status of the predictor backtest export job. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -4439,25 +4887,25 @@ export interface DescribePredictorBacktestExportJobResponse {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -4471,6 +4919,9 @@ export interface DescribePredictorBacktestExportJobResponse {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfAnalysisRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if analysis that you are interested in.</p>
@@ -4478,6 +4929,9 @@ export interface DescribeWhatIfAnalysisRequest {
   WhatIfAnalysisArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfAnalysisResponse {
   /**
    * <p>The name of the what-if analysis.</p>
@@ -4594,6 +5048,9 @@ export interface DescribeWhatIfAnalysisResponse {
   TimeSeriesSelector?: TimeSeriesSelector;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast that you are interested in.</p>
@@ -4601,6 +5058,9 @@ export interface DescribeWhatIfForecastRequest {
   WhatIfForecastArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfForecastResponse {
   /**
    * <p>The name of the what-if forecast.</p>
@@ -4704,11 +5164,16 @@ export interface DescribeWhatIfForecastResponse {
   TimeSeriesReplacementsDataSource?: TimeSeriesReplacementsDataSource;
 
   /**
-   * <p>The quantiles at which probabilistic forecasts are generated. You can specify up to 5 quantiles per what-if forecast in the <a>CreateWhatIfForecast</a> operation. If you didn't specify quantiles, the default values are <code>["0.1", "0.5", "0.9"]</code>. </p>
+   * <p>The quantiles at which probabilistic forecasts are generated. You can specify up to five quantiles per what-if
+   *       forecast in the <a>CreateWhatIfForecast</a> operation. If you didn't specify quantiles, the default
+   *       values are <code>["0.1", "0.5", "0.9"]</code>. </p>
    */
   ForecastTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfForecastExportRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast export that you are interested in.</p>
@@ -4716,6 +5181,9 @@ export interface DescribeWhatIfForecastExportRequest {
   WhatIfForecastExportArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWhatIfForecastExportResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast export.</p>
@@ -4734,8 +5202,8 @@ export interface DescribeWhatIfForecastExportResponse {
   WhatIfForecastArns?: string[];
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination?: DataDestination;
 
@@ -4821,6 +5289,9 @@ export interface DescribeWhatIfForecastExportResponse {
   Format?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAccuracyMetricsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor to get metrics for.</p>
@@ -4828,12 +5299,22 @@ export interface GetAccuracyMetricsRequest {
   PredictorArn: string | undefined;
 }
 
-export enum EvaluationType {
-  COMPUTED = "COMPUTED",
-  SUMMARY = "SUMMARY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationType = {
+  COMPUTED: "COMPUTED",
+  SUMMARY: "SUMMARY",
+} as const;
 
 /**
+ * @public
+ */
+export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
+
+/**
+ * @public
  * <p> Provides detailed error metrics to evaluate the performance of a predictor. This object
  *       is part of the <a>Metrics</a> object. </p>
  */
@@ -4865,6 +5346,7 @@ export interface ErrorMetric {
 }
 
 /**
+ * @public
  * <p>The weighted loss value for a quantile. This object is part of the <a>Metrics</a> object.</p>
  */
 export interface WeightedQuantileLoss {
@@ -4883,6 +5365,7 @@ export interface WeightedQuantileLoss {
 }
 
 /**
+ * @public
  * <p>Provides metrics that are used to evaluate the performance of a predictor. This object is
  *       part of the <a>WindowSummary</a> object.</p>
  */
@@ -4914,6 +5397,7 @@ export interface Metrics {
 }
 
 /**
+ * @public
  * <p>The metrics for a time range within the evaluation portion of a dataset. This object is
  *       part of the <a>EvaluationResult</a> object.</p>
  *          <p>The <code>TestWindowStart</code> and <code>TestWindowEnd</code> parameters are determined
@@ -4957,6 +5441,7 @@ export interface WindowSummary {
 }
 
 /**
+ * @public
  * <p>The results of evaluating an algorithm. Returned as part of the <a>GetAccuracyMetrics</a> response.</p>
  */
 export interface EvaluationResult {
@@ -4973,6 +5458,9 @@ export interface EvaluationResult {
   TestWindows?: WindowSummary[];
 }
 
+/**
+ * @public
+ */
 export interface GetAccuracyMetricsResponse {
   /**
    * <p>An array of results from evaluating the predictor.</p>
@@ -4987,12 +5475,12 @@ export interface GetAccuracyMetricsResponse {
   /**
    * <note>
    *             <p> The <code>LatencyOptimized</code> AutoML override strategy is only available in private beta.
-   *                 Contact AWS Support or your account manager to learn more about access privileges.
+   *                 Contact Amazon Web Services Support or your account manager to learn more about access privileges.
    *             </p>
-   *         </note>
-   *         <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code>
+   *          </note>
+   *          <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code>
    *             is specified, the AutoML strategy optimizes predictor accuracy.</p>
-   *         <p>This parameter is only valid for predictors trained using AutoML.</p>
+   *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
   AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
 
@@ -5003,6 +5491,7 @@ export interface GetAccuracyMetricsResponse {
 }
 
 /**
+ * @public
  * <p>The token is not valid. Tokens expire after 24 hours.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -5023,6 +5512,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetGroupsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5038,6 +5530,7 @@ export interface ListDatasetGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the dataset group properties used in the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html">ListDatasetGroups</a> operation. To
  *       get the complete set of properties, call the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
  *       operation, and provide the <code>DatasetGroupArn</code>.</p>
@@ -5066,6 +5559,9 @@ export interface DatasetGroupSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetGroupsResponse {
   /**
    * <p>An array of objects that summarize each dataset group's properties.</p>
@@ -5079,12 +5575,22 @@ export interface ListDatasetGroupsResponse {
   NextToken?: string;
 }
 
-export enum FilterConditionString {
-  IS = "IS",
-  IS_NOT = "IS_NOT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FilterConditionString = {
+  IS: "IS",
+  IS_NOT: "IS_NOT",
+} as const;
 
 /**
+ * @public
+ */
+export type FilterConditionString = (typeof FilterConditionString)[keyof typeof FilterConditionString];
+
+/**
+ * @public
  * <p>Describes a filter for choosing a subset of objects. Each filter consists of a
  *       condition and a match statement. The condition is either <code>IS</code> or
  *       <code>IS_NOT</code>, which specifies whether to include or exclude
@@ -5109,6 +5615,9 @@ export interface Filter {
   Condition: FilterConditionString | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetImportJobsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5150,13 +5659,14 @@ export interface ListDatasetImportJobsRequest {
    *          <p>For example, to list all dataset import jobs whose status is ACTIVE, you specify the
    *       following filter:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "Status", "Value": "ACTIVE" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the dataset import job properties used in the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html">ListDatasetImportJobs</a> operation. To get the complete set of properties, call the
  *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a> operation, and provide the
  *         <code>DatasetImportJobArn</code>.</p>
@@ -5173,9 +5683,9 @@ export interface DatasetImportJobSummary {
   DatasetImportJobName?: string;
 
   /**
-   * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
+   * <p>The location of the training data to import and an Identity and Access Management (IAM) role that Amazon Forecast
    *       can assume to access the data. The training data must be stored in an Amazon S3 bucket.</p>
-   *          <p>If encryption is used, <code>DataSource</code> includes an AWS Key Management Service (KMS) key.</p>
+   *          <p>If encryption is used, <code>DataSource</code> includes an Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
 
@@ -5246,8 +5756,16 @@ export interface DatasetImportJobSummary {
    *          </ul>
    */
   LastModificationTime?: Date;
+
+  /**
+   * <p>The import mode of the dataset import job, FULL or INCREMENTAL.</p>
+   */
+  ImportMode?: ImportMode | string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetImportJobsResponse {
   /**
    * <p>An array of objects that summarize each dataset import job's properties.</p>
@@ -5261,6 +5779,9 @@ export interface ListDatasetImportJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5276,6 +5797,7 @@ export interface ListDatasetsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the dataset properties used in the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html">ListDatasets</a> operation. To get the
  *       complete set of properties, call the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a> operation, and
  *       provide the <code>DatasetArn</code>.</p>
@@ -5316,6 +5838,9 @@ export interface DatasetSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListDatasetsResponse {
   /**
    * <p>An array of objects that summarize each dataset's properties.</p>
@@ -5329,6 +5854,9 @@ export interface ListDatasetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExplainabilitiesRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5347,22 +5875,22 @@ export interface ListExplainabilitiesRequest {
    *             condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
    *             include or exclude the resources that match the statement from the list. The match
    *             statement consists of a key and a value.</p>
-   *         <p>
+   *          <p>
    *             <b>Filter properties</b>
-   *         </p>
-   *         <ul>
+   *          </p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Condition</code> - The condition to apply. Valid values are
    *                         <code>IS</code> and <code>IS_NOT</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
    *                         <code>ResourceArn</code> and <code>Status</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Value</code> - The value to match.</p>
    *             </li>
    *          </ul>
@@ -5371,6 +5899,7 @@ export interface ListExplainabilitiesRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the Explainability properties used in the <a>ListExplainabilities</a> operation. To get a complete set of properties,
  *             call the <a>DescribeExplainability</a> operation, and provide the listed
  *                 <code>ExplainabilityArn</code>.</p>
@@ -5400,25 +5929,25 @@ export interface ExplainabilitySummary {
 
   /**
    * <p>The status of the Explainability. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -5441,25 +5970,25 @@ export interface ExplainabilitySummary {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -5468,6 +5997,9 @@ export interface ExplainabilitySummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListExplainabilitiesResponse {
   /**
    * <p>An array of objects that summarize the properties of each Explainability
@@ -5482,6 +6014,9 @@ export interface ListExplainabilitiesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExplainabilityExportsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5500,22 +6035,22 @@ export interface ListExplainabilityExportsRequest {
    *             condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
    *             include or exclude resources that match the statement from the list. The match statement
    *             consists of a key and a value.</p>
-   *         <p>
+   *          <p>
    *             <b>Filter properties</b>
-   *         </p>
-   *         <ul>
+   *          </p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Condition</code> - The condition to apply. Valid values are
    *                         <code>IS</code> and <code>IS_NOT</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
    *                         <code>ResourceArn</code> and <code>Status</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Value</code> - The value to match.</p>
    *             </li>
    *          </ul>
@@ -5524,6 +6059,7 @@ export interface ListExplainabilityExportsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the Explainability export properties used in the <a>ListExplainabilityExports</a> operation. To get a complete set of
  *             properties, call the <a>DescribeExplainabilityExport</a> operation, and
  *             provide the <code>ExplainabilityExportArn</code>.</p>
@@ -5540,32 +6076,32 @@ export interface ExplainabilityExportSummary {
   ExplainabilityExportName?: string;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination?: DataDestination;
 
   /**
    * <p>The status of the Explainability export. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -5588,25 +6124,25 @@ export interface ExplainabilityExportSummary {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -5615,6 +6151,9 @@ export interface ExplainabilityExportSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListExplainabilityExportsResponse {
   /**
    * <p>An array of objects that summarize the properties of each Explainability
@@ -5629,6 +6168,9 @@ export interface ListExplainabilityExportsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListForecastExportJobsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5671,14 +6213,15 @@ export interface ListForecastExportJobsRequest {
    *          <p>For example, to list all jobs that export a forecast named
    *         <i>electricityforecast</i>, specify the following filter:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "ForecastArn", "Value":
-   *         "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityforecast" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "ForecastArn", "Value":
+   *         "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityforecast" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the forecast export job properties used in the <a>ListForecastExportJobs</a> operation. To get the complete set of properties, call
  *       the <a>DescribeForecastExportJob</a> operation, and provide the listed
  *         <code>ForecastExportJobArn</code>.</p>
@@ -5771,6 +6314,9 @@ export interface ForecastExportJobSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListForecastExportJobsResponse {
   /**
    * <p>An array of objects that summarize each export job's properties.</p>
@@ -5784,6 +6330,9 @@ export interface ListForecastExportJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListForecastsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5824,7 +6373,7 @@ export interface ListForecastsRequest {
    *          </ul>
    *          <p>For example, to list all forecasts whose status is not ACTIVE, you would specify:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS_NOT", "Key": "Status", "Value": "ACTIVE" }
+   *             <code>"Filters": [ \{ "Condition": "IS_NOT", "Key": "Status", "Value": "ACTIVE" \}
    *       ]</code>
    *          </p>
    */
@@ -5832,6 +6381,7 @@ export interface ListForecastsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the forecast properties used in the <a>ListForecasts</a>
  *       operation. To get the complete set of properties, call the <a>DescribeForecast</a>
  *       operation, and provide the <code>ForecastArn</code> that is listed in the summary.</p>
@@ -5935,6 +6485,9 @@ export interface ForecastSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListForecastsResponse {
   /**
    * <p>An array of objects that summarize each forecast's properties.</p>
@@ -5948,6 +6501,9 @@ export interface ListForecastsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorEvaluationsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -5992,13 +6548,14 @@ export interface ListMonitorEvaluationsRequest {
    *          </ul>
    *          <p>For example, to list only successful monitor evaluations, you would specify:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "EvaluationState", "Value": "SUCCESS" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "EvaluationState", "Value": "SUCCESS" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>An individual metric Forecast calculated when monitoring predictor usage. You can compare the value for this metric to the metric's value in the <a>Baseline</a> to see how your predictor's performance is changing.</p>
  *          <p>For more information about metrics generated by Forecast see <a href="https://docs.aws.amazon.com/forecast/latest/dg/metrics.html">Evaluating Predictor Accuracy</a>
  *          </p>
@@ -6016,6 +6573,7 @@ export interface MetricResult {
 }
 
 /**
+ * @public
  * <p>The source of the data the monitor used during the evaluation.</p>
  */
 export interface MonitorDataSource {
@@ -6036,6 +6594,7 @@ export interface MonitorDataSource {
 }
 
 /**
+ * @public
  * <p>Provides details about a predictor event, such as a retraining.</p>
  */
 export interface PredictorEvent {
@@ -6051,6 +6610,7 @@ export interface PredictorEvent {
 }
 
 /**
+ * @public
  * <p>Describes the results of a monitor evaluation.</p>
  */
 export interface PredictorMonitorEvaluation {
@@ -6110,6 +6670,9 @@ export interface PredictorMonitorEvaluation {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorEvaluationsResponse {
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
@@ -6124,6 +6687,9 @@ export interface ListMonitorEvaluationsResponse {
   PredictorMonitorEvaluations?: PredictorMonitorEvaluation[];
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -6163,13 +6729,14 @@ export interface ListMonitorsRequest {
    *          </ul>
    *          <p>For example, to list all monitors who's status is ACTIVE, you would specify:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "Status", "Value": "ACTIVE" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the monitor properties used in the <a>ListMonitors</a> operation. To get a complete set of properties,
  *          call the <a>DescribeMonitor</a> operation, and provide the listed
  *          <code>MonitorArn</code>.</p>
@@ -6253,6 +6820,9 @@ export interface MonitorSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorsResponse {
   /**
    * <p>An array of objects that summarize each monitor's properties.</p>
@@ -6266,6 +6836,9 @@ export interface ListMonitorsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPredictorBacktestExportJobsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -6284,24 +6857,24 @@ export interface ListPredictorBacktestExportJobsRequest {
    *             condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
    *             include or exclude the predictor backtest export jobs that match the statement from the
    *             list. The match statement consists of a key and a value.</p>
-   *         <p>
+   *          <p>
    *             <b>Filter properties</b>
-   *         </p>
-   *         <ul>
+   *          </p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Condition</code> - The condition to apply. Valid values are
    *                         <code>IS</code> and <code>IS_NOT</code>. To include the predictor backtest
    *                     export jobs that match the statement, specify <code>IS</code>. To exclude
    *                     matching predictor backtest export jobs, specify <code>IS_NOT</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
    *                         <code>PredictorArn</code> and <code>Status</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Value</code> - The value to match.</p>
    *             </li>
    *          </ul>
@@ -6310,6 +6883,7 @@ export interface ListPredictorBacktestExportJobsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the predictor backtest export job properties used in the <a>ListPredictorBacktestExportJobs</a> operation. To get a complete set of
  *             properties, call the <a>DescribePredictorBacktestExportJob</a> operation, and
  *             provide the listed <code>PredictorBacktestExportJobArn</code>.</p>
@@ -6326,32 +6900,32 @@ export interface PredictorBacktestExportJobSummary {
   PredictorBacktestExportJobName?: string;
 
   /**
-   * <p>The destination for an export job. Provide an S3 path, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location, and an AWS Key Management Service (KMS) key (optional). </p>
+   * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    */
   Destination?: DataDestination;
 
   /**
    * <p>The status of the predictor backtest export job. States include: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                         <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
-   *                 </p>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                         <code>DELETE_FAILED</code>
    *                </p>
@@ -6373,25 +6947,25 @@ export interface PredictorBacktestExportJobSummary {
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
    *             job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
    *                     failed.</p>
    *             </li>
@@ -6400,6 +6974,9 @@ export interface PredictorBacktestExportJobSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPredictorBacktestExportJobsResponse {
   /**
    * <p>An array of objects that summarize the properties of each predictor backtest export
@@ -6414,6 +6991,9 @@ export interface ListPredictorBacktestExportJobsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPredictorsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -6454,7 +7034,7 @@ export interface ListPredictorsRequest {
    *          </ul>
    *          <p>For example, to list all predictors whose status is ACTIVE, you would specify:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" }
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "Status", "Value": "ACTIVE" \}
    *       ]</code>
    *          </p>
    */
@@ -6462,6 +7042,7 @@ export interface ListPredictorsRequest {
 }
 
 /**
+ * @public
  * <p>Provides a summary of the predictor properties that are used in the <a>ListPredictors</a> operation. To get the complete set of properties, call the <a>DescribePredictor</a> operation, and provide the listed
  *       <code>PredictorArn</code>.</p>
  */
@@ -6566,6 +7147,9 @@ export interface PredictorSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPredictorsResponse {
   /**
    * <p>An array of objects that summarize each predictor's properties.</p>
@@ -6579,6 +7163,9 @@ export interface ListPredictorsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.
@@ -6587,6 +7174,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
@@ -6594,6 +7184,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfAnalysesRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -6634,14 +7227,15 @@ export interface ListWhatIfAnalysesRequest {
    *          <p>For example, to list all jobs that export a forecast named
    *         <i>electricityWhatIf</i>, specify the following filter:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "WhatIfAnalysisArn", "Value":
-   *         "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIf" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "WhatIfAnalysisArn", "Value":
+   *         "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIf" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the what-if analysis properties used in the <a>ListWhatIfAnalyses</a> operation. To get the complete set of properties, call the <a>DescribeWhatIfAnalysis</a> operation, and provide the <code>WhatIfAnalysisArn</code> that is listed in the summary.</p>
  */
 export interface WhatIfAnalysisSummary {
@@ -6732,6 +7326,9 @@ export interface WhatIfAnalysisSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfAnalysesResponse {
   /**
    * <p>An array of <code>WhatIfAnalysisSummary</code> objects that describe the matched analyses.</p>
@@ -6744,6 +7341,9 @@ export interface ListWhatIfAnalysesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfForecastExportsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.</p>
@@ -6784,14 +7384,15 @@ export interface ListWhatIfForecastExportsRequest {
    *          <p>For example, to list all jobs that export a forecast named
    *       <i>electricityWIFExport</i>, specify the following filter:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "WhatIfForecastExportArn", "Value":
-   *       "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWIFExport" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "WhatIfForecastExportArn", "Value":
+   *       "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWIFExport" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the what-if forecast export properties used in the <a>ListWhatIfForecastExports</a> operation. To get the complete set of properties, call the <a>DescribeWhatIfForecastExport</a> operation, and provide the <code>WhatIfForecastExportArn</code> that is listed in the summary.</p>
  */
 export interface WhatIfForecastExportSummary {
@@ -6887,6 +7488,9 @@ export interface WhatIfForecastExportSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfForecastExportsResponse {
   /**
    * <p>An array of <code>WhatIfForecastExports</code> objects that describe the matched forecast exports.</p>
@@ -6899,6 +7503,9 @@ export interface ListWhatIfForecastExportsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfForecastsRequest {
   /**
    * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.</p>
@@ -6939,14 +7546,15 @@ export interface ListWhatIfForecastsRequest {
    *          <p>For example, to list all jobs that export a forecast named
    *       <i>electricityWhatIfForecast</i>, specify the following filter:</p>
    *          <p>
-   *             <code>"Filters": [ { "Condition": "IS", "Key": "WhatIfForecastArn", "Value":
-   *       "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIfForecast" } ]</code>
+   *             <code>"Filters": [ \{ "Condition": "IS", "Key": "WhatIfForecastArn", "Value":
+   *       "arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIfForecast" \} ]</code>
    *          </p>
    */
   Filters?: Filter[];
 }
 
 /**
+ * @public
  * <p>Provides a summary of the what-if forecast properties used in the <a>ListWhatIfForecasts</a> operation. To get the complete set of properties, call the <a>DescribeWhatIfForecast</a> operation, and provide the <code>WhatIfForecastArn</code> that is listed in the summary.</p>
  */
 export interface WhatIfForecastSummary {
@@ -7037,6 +7645,9 @@ export interface WhatIfForecastSummary {
   LastModificationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListWhatIfForecastsResponse {
   /**
    * <p>An array of <code>WhatIfForecasts</code> objects that describe the matched forecasts.</p>
@@ -7049,6 +7660,9 @@ export interface ListWhatIfForecastsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResumeResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource to resume.</p>
@@ -7056,6 +7670,9 @@ export interface ResumeResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to stop. The supported ARNs
@@ -7067,6 +7684,9 @@ export interface StopResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.
@@ -7102,7 +7722,7 @@ export interface TagResourceRequest {
    *             </li>
    *             <li>
    *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-   *           of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag
+   *           of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag
    *           keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as
    *           its prefix but the key does not, then Forecast considers it to be a user tag and will
    *           count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do
@@ -7113,8 +7733,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.
@@ -7128,8 +7754,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatasetGroupRequest {
   /**
    * <p>The ARN of the dataset group.</p>
@@ -7143,49 +7775,10 @@ export interface UpdateDatasetGroupRequest {
   DatasetArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatasetGroupResponse {}
-
-/**
- * @internal
- */
-export const ActionFilterSensitiveLog = (obj: Action): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdditionalDatasetFilterSensitiveLog = (obj: AdditionalDataset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeConfigFilterSensitiveLog = (obj: AttributeConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataConfigFilterSensitiveLog = (obj: DataConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionConfigFilterSensitiveLog = (obj: EncryptionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitorConfigFilterSensitiveLog = (obj: MonitorConfig): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -7199,37 +7792,9 @@ export const TagFilterSensitiveLog = (obj: Tag): any => ({
 /**
  * @internal
  */
-export const TimeAlignmentBoundaryFilterSensitiveLog = (obj: TimeAlignmentBoundary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateAutoPredictorRequestFilterSensitiveLog = (obj: CreateAutoPredictorRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateAutoPredictorResponseFilterSensitiveLog = (obj: CreateAutoPredictorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaAttributeFilterSensitiveLog = (obj: SchemaAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaFilterSensitiveLog = (obj: Schema): any => ({
-  ...obj,
 });
 
 /**
@@ -7243,37 +7808,9 @@ export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest
 /**
  * @internal
  */
-export const CreateDatasetResponseFilterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateDatasetGroupRequestFilterSensitiveLog = (obj: CreateDatasetGroupRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateDatasetGroupResponseFilterSensitiveLog = (obj: CreateDatasetGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ConfigFilterSensitiveLog = (obj: S3Config): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
-  ...obj,
 });
 
 /**
@@ -7287,37 +7824,9 @@ export const CreateDatasetImportJobRequestFilterSensitiveLog = (obj: CreateDatas
 /**
  * @internal
  */
-export const CreateDatasetImportJobResponseFilterSensitiveLog = (obj: CreateDatasetImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExplainabilityConfigFilterSensitiveLog = (obj: ExplainabilityConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateExplainabilityRequestFilterSensitiveLog = (obj: CreateExplainabilityRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateExplainabilityResponseFilterSensitiveLog = (obj: CreateExplainabilityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataDestinationFilterSensitiveLog = (obj: DataDestination): any => ({
-  ...obj,
 });
 
 /**
@@ -7331,37 +7840,9 @@ export const CreateExplainabilityExportRequestFilterSensitiveLog = (obj: CreateE
 /**
  * @internal
  */
-export const CreateExplainabilityExportResponseFilterSensitiveLog = (obj: CreateExplainabilityExportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeSeriesIdentifiersFilterSensitiveLog = (obj: TimeSeriesIdentifiers): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeSeriesSelectorFilterSensitiveLog = (obj: TimeSeriesSelector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateForecastRequestFilterSensitiveLog = (obj: CreateForecastRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateForecastResponseFilterSensitiveLog = (obj: CreateForecastResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -7375,13 +7856,6 @@ export const CreateForecastExportJobRequestFilterSensitiveLog = (obj: CreateFore
 /**
  * @internal
  */
-export const CreateForecastExportJobResponseFilterSensitiveLog = (obj: CreateForecastExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateMonitorRequestFilterSensitiveLog = (obj: CreateMonitorRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
@@ -7390,100 +7864,9 @@ export const CreateMonitorRequestFilterSensitiveLog = (obj: CreateMonitorRequest
 /**
  * @internal
  */
-export const CreateMonitorResponseFilterSensitiveLog = (obj: CreateMonitorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EvaluationParametersFilterSensitiveLog = (obj: EvaluationParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeaturizationMethodFilterSensitiveLog = (obj: FeaturizationMethod): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeaturizationFilterSensitiveLog = (obj: Featurization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeaturizationConfigFilterSensitiveLog = (obj: FeaturizationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoricalParameterRangeFilterSensitiveLog = (obj: CategoricalParameterRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContinuousParameterRangeFilterSensitiveLog = (obj: ContinuousParameterRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntegerParameterRangeFilterSensitiveLog = (obj: IntegerParameterRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterRangesFilterSensitiveLog = (obj: ParameterRanges): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HyperParameterTuningJobConfigFilterSensitiveLog = (obj: HyperParameterTuningJobConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SupplementaryFeatureFilterSensitiveLog = (obj: SupplementaryFeature): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputDataConfigFilterSensitiveLog = (obj: InputDataConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreatePredictorRequestFilterSensitiveLog = (obj: CreatePredictorRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreatePredictorResponseFilterSensitiveLog = (obj: CreatePredictorResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -7499,46 +7882,9 @@ export const CreatePredictorBacktestExportJobRequestFilterSensitiveLog = (
 /**
  * @internal
  */
-export const CreatePredictorBacktestExportJobResponseFilterSensitiveLog = (
-  obj: CreatePredictorBacktestExportJobResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateWhatIfAnalysisRequestFilterSensitiveLog = (obj: CreateWhatIfAnalysisRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateWhatIfAnalysisResponseFilterSensitiveLog = (obj: CreateWhatIfAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeSeriesReplacementsDataSourceFilterSensitiveLog = (obj: TimeSeriesReplacementsDataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeSeriesConditionFilterSensitiveLog = (obj: TimeSeriesCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeSeriesTransformationFilterSensitiveLog = (obj: TimeSeriesTransformation): any => ({
-  ...obj,
 });
 
 /**
@@ -7552,720 +7898,9 @@ export const CreateWhatIfForecastRequestFilterSensitiveLog = (obj: CreateWhatIfF
 /**
  * @internal
  */
-export const CreateWhatIfForecastResponseFilterSensitiveLog = (obj: CreateWhatIfForecastResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateWhatIfForecastExportRequestFilterSensitiveLog = (obj: CreateWhatIfForecastExportRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateWhatIfForecastExportResponseFilterSensitiveLog = (obj: CreateWhatIfForecastExportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetGroupRequestFilterSensitiveLog = (obj: DeleteDatasetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetImportJobRequestFilterSensitiveLog = (obj: DeleteDatasetImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteExplainabilityRequestFilterSensitiveLog = (obj: DeleteExplainabilityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteExplainabilityExportRequestFilterSensitiveLog = (obj: DeleteExplainabilityExportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteForecastRequestFilterSensitiveLog = (obj: DeleteForecastRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteForecastExportJobRequestFilterSensitiveLog = (obj: DeleteForecastExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMonitorRequestFilterSensitiveLog = (obj: DeleteMonitorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePredictorRequestFilterSensitiveLog = (obj: DeletePredictorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePredictorBacktestExportJobRequestFilterSensitiveLog = (
-  obj: DeletePredictorBacktestExportJobRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourceTreeRequestFilterSensitiveLog = (obj: DeleteResourceTreeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWhatIfAnalysisRequestFilterSensitiveLog = (obj: DeleteWhatIfAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWhatIfForecastRequestFilterSensitiveLog = (obj: DeleteWhatIfForecastRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWhatIfForecastExportRequestFilterSensitiveLog = (obj: DeleteWhatIfForecastExportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAutoPredictorRequestFilterSensitiveLog = (obj: DescribeAutoPredictorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExplainabilityInfoFilterSensitiveLog = (obj: ExplainabilityInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitorInfoFilterSensitiveLog = (obj: MonitorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferencePredictorSummaryFilterSensitiveLog = (obj: ReferencePredictorSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAutoPredictorResponseFilterSensitiveLog = (obj: DescribeAutoPredictorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetRequestFilterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetResponseFilterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetGroupRequestFilterSensitiveLog = (obj: DescribeDatasetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetGroupResponseFilterSensitiveLog = (obj: DescribeDatasetGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetImportJobRequestFilterSensitiveLog = (obj: DescribeDatasetImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatisticsFilterSensitiveLog = (obj: Statistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetImportJobResponseFilterSensitiveLog = (obj: DescribeDatasetImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExplainabilityRequestFilterSensitiveLog = (obj: DescribeExplainabilityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExplainabilityResponseFilterSensitiveLog = (obj: DescribeExplainabilityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExplainabilityExportRequestFilterSensitiveLog = (
-  obj: DescribeExplainabilityExportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExplainabilityExportResponseFilterSensitiveLog = (
-  obj: DescribeExplainabilityExportResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeForecastRequestFilterSensitiveLog = (obj: DescribeForecastRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeForecastResponseFilterSensitiveLog = (obj: DescribeForecastResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeForecastExportJobRequestFilterSensitiveLog = (obj: DescribeForecastExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeForecastExportJobResponseFilterSensitiveLog = (obj: DescribeForecastExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMonitorRequestFilterSensitiveLog = (obj: DescribeMonitorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BaselineMetricFilterSensitiveLog = (obj: BaselineMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictorBaselineFilterSensitiveLog = (obj: PredictorBaseline): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BaselineFilterSensitiveLog = (obj: Baseline): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMonitorResponseFilterSensitiveLog = (obj: DescribeMonitorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePredictorRequestFilterSensitiveLog = (obj: DescribePredictorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestWindowSummaryFilterSensitiveLog = (obj: TestWindowSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictorExecutionFilterSensitiveLog = (obj: PredictorExecution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictorExecutionDetailsFilterSensitiveLog = (obj: PredictorExecutionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePredictorResponseFilterSensitiveLog = (obj: DescribePredictorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePredictorBacktestExportJobRequestFilterSensitiveLog = (
-  obj: DescribePredictorBacktestExportJobRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePredictorBacktestExportJobResponseFilterSensitiveLog = (
-  obj: DescribePredictorBacktestExportJobResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWhatIfAnalysisRequestFilterSensitiveLog = (obj: DescribeWhatIfAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWhatIfAnalysisResponseFilterSensitiveLog = (obj: DescribeWhatIfAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWhatIfForecastRequestFilterSensitiveLog = (obj: DescribeWhatIfForecastRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWhatIfForecastResponseFilterSensitiveLog = (obj: DescribeWhatIfForecastResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWhatIfForecastExportRequestFilterSensitiveLog = (
-  obj: DescribeWhatIfForecastExportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWhatIfForecastExportResponseFilterSensitiveLog = (
-  obj: DescribeWhatIfForecastExportResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccuracyMetricsRequestFilterSensitiveLog = (obj: GetAccuracyMetricsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorMetricFilterSensitiveLog = (obj: ErrorMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WeightedQuantileLossFilterSensitiveLog = (obj: WeightedQuantileLoss): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricsFilterSensitiveLog = (obj: Metrics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WindowSummaryFilterSensitiveLog = (obj: WindowSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EvaluationResultFilterSensitiveLog = (obj: EvaluationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccuracyMetricsResponseFilterSensitiveLog = (obj: GetAccuracyMetricsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetGroupsRequestFilterSensitiveLog = (obj: ListDatasetGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetGroupSummaryFilterSensitiveLog = (obj: DatasetGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetGroupsResponseFilterSensitiveLog = (obj: ListDatasetGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetImportJobsRequestFilterSensitiveLog = (obj: ListDatasetImportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetImportJobSummaryFilterSensitiveLog = (obj: DatasetImportJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetImportJobsResponseFilterSensitiveLog = (obj: ListDatasetImportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetsRequestFilterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetSummaryFilterSensitiveLog = (obj: DatasetSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetsResponseFilterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExplainabilitiesRequestFilterSensitiveLog = (obj: ListExplainabilitiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExplainabilitySummaryFilterSensitiveLog = (obj: ExplainabilitySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExplainabilitiesResponseFilterSensitiveLog = (obj: ListExplainabilitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExplainabilityExportsRequestFilterSensitiveLog = (obj: ListExplainabilityExportsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExplainabilityExportSummaryFilterSensitiveLog = (obj: ExplainabilityExportSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExplainabilityExportsResponseFilterSensitiveLog = (obj: ListExplainabilityExportsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListForecastExportJobsRequestFilterSensitiveLog = (obj: ListForecastExportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForecastExportJobSummaryFilterSensitiveLog = (obj: ForecastExportJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListForecastExportJobsResponseFilterSensitiveLog = (obj: ListForecastExportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListForecastsRequestFilterSensitiveLog = (obj: ListForecastsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForecastSummaryFilterSensitiveLog = (obj: ForecastSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListForecastsResponseFilterSensitiveLog = (obj: ListForecastsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitorEvaluationsRequestFilterSensitiveLog = (obj: ListMonitorEvaluationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricResultFilterSensitiveLog = (obj: MetricResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitorDataSourceFilterSensitiveLog = (obj: MonitorDataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictorEventFilterSensitiveLog = (obj: PredictorEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictorMonitorEvaluationFilterSensitiveLog = (obj: PredictorMonitorEvaluation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitorEvaluationsResponseFilterSensitiveLog = (obj: ListMonitorEvaluationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitorsRequestFilterSensitiveLog = (obj: ListMonitorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitorSummaryFilterSensitiveLog = (obj: MonitorSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitorsResponseFilterSensitiveLog = (obj: ListMonitorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPredictorBacktestExportJobsRequestFilterSensitiveLog = (
-  obj: ListPredictorBacktestExportJobsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictorBacktestExportJobSummaryFilterSensitiveLog = (obj: PredictorBacktestExportJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPredictorBacktestExportJobsResponseFilterSensitiveLog = (
-  obj: ListPredictorBacktestExportJobsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPredictorsRequestFilterSensitiveLog = (obj: ListPredictorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictorSummaryFilterSensitiveLog = (obj: PredictorSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPredictorsResponseFilterSensitiveLog = (obj: ListPredictorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -8279,83 +7914,6 @@ export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForRe
 /**
  * @internal
  */
-export const ListWhatIfAnalysesRequestFilterSensitiveLog = (obj: ListWhatIfAnalysesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WhatIfAnalysisSummaryFilterSensitiveLog = (obj: WhatIfAnalysisSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWhatIfAnalysesResponseFilterSensitiveLog = (obj: ListWhatIfAnalysesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWhatIfForecastExportsRequestFilterSensitiveLog = (obj: ListWhatIfForecastExportsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WhatIfForecastExportSummaryFilterSensitiveLog = (obj: WhatIfForecastExportSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWhatIfForecastExportsResponseFilterSensitiveLog = (obj: ListWhatIfForecastExportsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWhatIfForecastsRequestFilterSensitiveLog = (obj: ListWhatIfForecastsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WhatIfForecastSummaryFilterSensitiveLog = (obj: WhatIfForecastSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWhatIfForecastsResponseFilterSensitiveLog = (obj: ListWhatIfForecastsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResumeResourceRequestFilterSensitiveLog = (obj: ResumeResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopResourceRequestFilterSensitiveLog = (obj: StopResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
@@ -8364,35 +7922,7 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 /**
  * @internal
  */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
   ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatasetGroupRequestFilterSensitiveLog = (obj: UpdateDatasetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatasetGroupResponseFilterSensitiveLog = (obj: UpdateDatasetGroupResponse): any => ({
-  ...obj,
 });

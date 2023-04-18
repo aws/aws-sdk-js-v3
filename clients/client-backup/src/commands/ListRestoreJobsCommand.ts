@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListRestoreJobsInput,
-  ListRestoreJobsInputFilterSensitiveLog,
-  ListRestoreJobsOutput,
-  ListRestoreJobsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRestoreJobsCommand,
-  serializeAws_restJson1ListRestoreJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRestoreJobsInput, ListRestoreJobsOutput } from "../models/models_0";
+import { de_ListRestoreJobsCommand, se_ListRestoreJobsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListRestoreJobsCommand}.
+ */
 export interface ListRestoreJobsCommandInput extends ListRestoreJobsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListRestoreJobsCommand}.
+ */
 export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of jobs that Backup initiated to restore a saved resource,
  *          including details about the recovery process.</p>
  * @example
@@ -37,13 +40,39 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * import { BackupClient, ListRestoreJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRestoreJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListRestoreJobsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ByAccountId: "STRING_VALUE",
+ *   ByCreatedBefore: new Date("TIMESTAMP"),
+ *   ByCreatedAfter: new Date("TIMESTAMP"),
+ *   ByStatus: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",
+ *   ByCompleteBefore: new Date("TIMESTAMP"),
+ *   ByCompleteAfter: new Date("TIMESTAMP"),
+ * };
  * const command = new ListRestoreJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRestoreJobsCommandInput - {@link ListRestoreJobsCommandInput}
+ * @returns {@link ListRestoreJobsCommandOutput}
  * @see {@link ListRestoreJobsCommandInput} for command's `input` shape.
  * @see {@link ListRestoreJobsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
  *
  */
 export class ListRestoreJobsCommand extends $Command<
@@ -63,6 +92,9 @@ export class ListRestoreJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRestoreJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +123,8 @@ export class ListRestoreJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRestoreJobsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRestoreJobsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +134,18 @@ export class ListRestoreJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRestoreJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRestoreJobsCommand(input, context);
+    return se_ListRestoreJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRestoreJobsCommandOutput> {
-    return deserializeAws_restJson1ListRestoreJobsCommand(output, context);
+    return de_ListRestoreJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

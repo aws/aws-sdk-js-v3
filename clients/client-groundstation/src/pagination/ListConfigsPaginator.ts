@@ -2,12 +2,11 @@
 import { Paginator } from "@aws-sdk/types";
 
 import { ListConfigsCommand, ListConfigsCommandInput, ListConfigsCommandOutput } from "../commands/ListConfigsCommand";
-import { GroundStation } from "../GroundStation";
 import { GroundStationClient } from "../GroundStationClient";
 import { GroundStationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GroundStationClient,
@@ -18,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListConfigsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GroundStation,
-  input: ListConfigsCommandInput,
-  ...args: any
-): Promise<ListConfigsCommandOutput> => {
-  // @ts-ignore
-  return await client.listConfigs(input, ...args);
-};
 export async function* paginateListConfigs(
   config: GroundStationPaginationConfiguration,
   input: ListConfigsCommandInput,
@@ -40,9 +31,7 @@ export async function* paginateListConfigs(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof GroundStation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GroundStationClient) {
+    if (config.client instanceof GroundStationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GroundStation | GroundStationClient");

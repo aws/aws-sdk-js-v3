@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListVerifiedEmailAddressesResponse,
-  ListVerifiedEmailAddressesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListVerifiedEmailAddressesCommand,
-  serializeAws_queryListVerifiedEmailAddressesCommand,
-} from "../protocols/Aws_query";
+import { ListVerifiedEmailAddressesResponse } from "../models/models_0";
+import { de_ListVerifiedEmailAddressesCommand, se_ListVerifiedEmailAddressesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListVerifiedEmailAddressesCommand}.
+ */
 export interface ListVerifiedEmailAddressesCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListVerifiedEmailAddressesCommand}.
+ */
 export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEmailAddressesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
  *             and domains associated with your account.</p>
  * @example
@@ -35,13 +40,34 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * import { SESClient, ListVerifiedEmailAddressesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListVerifiedEmailAddressesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new ListVerifiedEmailAddressesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVerifiedEmailAddressesCommandInput - {@link ListVerifiedEmailAddressesCommandInput}
+ * @returns {@link ListVerifiedEmailAddressesCommandOutput}
  * @see {@link ListVerifiedEmailAddressesCommandInput} for command's `input` shape.
  * @see {@link ListVerifiedEmailAddressesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ *
+ * @example ListVerifiedEmailAddresses
+ * ```javascript
+ * // The following example lists all email addresses that have been submitted for verification with Amazon SES:
+ * const input = undefined;
+ * const command = new ListVerifiedEmailAddressesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VerifiedEmailAddresses": [
+ *     "user1@example.com",
+ *     "user2@example.com"
+ *   ]
+ * }
+ * *\/
+ * // example id: listverifiedemailaddresses-1469051402570
+ * ```
  *
  */
 export class ListVerifiedEmailAddressesCommand extends $Command<
@@ -61,6 +87,9 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVerifiedEmailAddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +118,8 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: ListVerifiedEmailAddressesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,15 +129,21 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVerifiedEmailAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListVerifiedEmailAddressesCommand(input, context);
+    return se_ListVerifiedEmailAddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVerifiedEmailAddressesCommandOutput> {
-    return deserializeAws_queryListVerifiedEmailAddressesCommand(output, context);
+    return de_ListVerifiedEmailAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

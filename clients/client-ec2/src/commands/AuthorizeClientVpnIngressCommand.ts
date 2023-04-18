@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AuthorizeClientVpnIngressRequest,
-  AuthorizeClientVpnIngressRequestFilterSensitiveLog,
-  AuthorizeClientVpnIngressResult,
-  AuthorizeClientVpnIngressResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AuthorizeClientVpnIngressCommand,
-  serializeAws_ec2AuthorizeClientVpnIngressCommand,
-} from "../protocols/Aws_ec2";
+import { AuthorizeClientVpnIngressRequest, AuthorizeClientVpnIngressResult } from "../models/models_0";
+import { de_AuthorizeClientVpnIngressCommand, se_AuthorizeClientVpnIngressCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link AuthorizeClientVpnIngressCommand}.
+ */
 export interface AuthorizeClientVpnIngressCommandInput extends AuthorizeClientVpnIngressRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AuthorizeClientVpnIngressCommand}.
+ */
 export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientVpnIngressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as
  * 			firewall rules that grant access to networks. You must configure ingress authorization rules to
  * 			enable clients to access resources in Amazon Web Services or on-premises networks.</p>
@@ -38,13 +41,25 @@ export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientV
  * import { EC2Client, AuthorizeClientVpnIngressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AuthorizeClientVpnIngressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AuthorizeClientVpnIngressRequest
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   TargetNetworkCidr: "STRING_VALUE", // required
+ *   AccessGroupId: "STRING_VALUE",
+ *   AuthorizeAllGroups: true || false,
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new AuthorizeClientVpnIngressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeClientVpnIngressCommandInput - {@link AuthorizeClientVpnIngressCommandInput}
+ * @returns {@link AuthorizeClientVpnIngressCommandOutput}
  * @see {@link AuthorizeClientVpnIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeClientVpnIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class AuthorizeClientVpnIngressCommand extends $Command<
@@ -64,6 +79,9 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeClientVpnIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +110,8 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeClientVpnIngressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeClientVpnIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +121,21 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeClientVpnIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AuthorizeClientVpnIngressCommand(input, context);
+    return se_AuthorizeClientVpnIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeClientVpnIngressCommandOutput> {
-    return deserializeAws_ec2AuthorizeClientVpnIngressCommand(output, context);
+    return de_AuthorizeClientVpnIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

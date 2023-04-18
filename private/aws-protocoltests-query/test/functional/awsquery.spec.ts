@@ -4,12 +4,14 @@ import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
 import { Readable } from "stream";
 
+import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";
 import { EmptyInputAndEmptyOutputCommand } from "../../src/commands/EmptyInputAndEmptyOutputCommand";
 import { EndpointOperationCommand } from "../../src/commands/EndpointOperationCommand";
 import { EndpointWithHostLabelOperationCommand } from "../../src/commands/EndpointWithHostLabelOperationCommand";
 import { FlattenedXmlMapCommand } from "../../src/commands/FlattenedXmlMapCommand";
 import { FlattenedXmlMapWithXmlNameCommand } from "../../src/commands/FlattenedXmlMapWithXmlNameCommand";
 import { FlattenedXmlMapWithXmlNamespaceCommand } from "../../src/commands/FlattenedXmlMapWithXmlNamespaceCommand";
+import { FractionalSecondsCommand } from "../../src/commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommand } from "../../src/commands/GreetingWithErrorsCommand";
 import { HostWithPathOperationCommand } from "../../src/commands/HostWithPathOperationCommand";
 import { IgnoresWrappingXmlNameCommand } from "../../src/commands/IgnoresWrappingXmlNameCommand";
@@ -28,6 +30,7 @@ import { XmlEmptyBlobsCommand } from "../../src/commands/XmlEmptyBlobsCommand";
 import { XmlEmptyListsCommand } from "../../src/commands/XmlEmptyListsCommand";
 import { XmlEmptyMapsCommand } from "../../src/commands/XmlEmptyMapsCommand";
 import { XmlEnumsCommand } from "../../src/commands/XmlEnumsCommand";
+import { XmlIntEnumsCommand } from "../../src/commands/XmlIntEnumsCommand";
 import { XmlListsCommand } from "../../src/commands/XmlListsCommand";
 import { XmlMapsCommand } from "../../src/commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommand } from "../../src/commands/XmlMapsXmlNameCommand";
@@ -79,11 +82,11 @@ class ResponseDeserializationTestHandler implements HttpHandler {
 
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.resolve({
-      response: {
+      response: new HttpResponse({
         statusCode: this.code,
         headers: this.headers,
         body: Readable.from([this.body]),
-      },
+      }),
     });
   }
 }
@@ -169,6 +172,92 @@ const clientParams = {
 const fail = (error?: any): never => {
   throw new Error(error);
 };
+
+/**
+ * Ensures that clients can correctly parse datetime (timestamps) with offsets
+ */
+it("AwsQueryDateTimeWithNegativeOffset:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<DatetimeOffsetsResponse xmlns="https://example.com/">
+          <DatetimeOffsetsResult>
+              <datetime>2019-12-16T22:48:18-01:00</datetime>
+          </DatetimeOffsetsResult>
+      </DatetimeOffsetsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new DatetimeOffsetsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(1576540098000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that clients can correctly parse datetime (timestamps) with offsets
+ */
+it("AwsQueryDateTimeWithPositiveOffset:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<DatetimeOffsetsResponse xmlns="https://example.com/">
+          <DatetimeOffsetsResult>
+              <datetime>2019-12-17T00:48:18+01:00</datetime>
+          </DatetimeOffsetsResult>
+      </DatetimeOffsetsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new DatetimeOffsetsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(1576540098000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
 
 /**
  * Empty input serializes no extra query params
@@ -452,6 +541,92 @@ it("QueryQueryFlattenedXmlMapWithXmlNamespace:Response", async () => {
 
         b: "B",
       },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that clients can correctly parse datetime timestamps with fractional seconds
+ */
+it("AwsQueryDateTimeWithFractionalSeconds:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<FractionalSecondsResponse xmlns="https://example.com/">
+          <FractionalSecondsResult>
+              <datetime>2000-01-02T20:34:56.123Z</datetime>
+          </FractionalSecondsResult>
+      </FractionalSecondsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new FractionalSecondsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(9.46845296123e8000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that clients can correctly parse http-date timestamps with fractional seconds
+ */
+it("AwsQueryHttpDateWithFractionalSeconds:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<FractionalSecondsResponse xmlns="https://example.com/">
+          <FractionalSecondsResult>
+              <httpdate>Sun, 02 Jan 2000 20:34:56.456 GMT</httpdate>
+          </FractionalSecondsResult>
+      </FractionalSecondsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new FractionalSecondsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      httpdate: new Date(9.46845296456e8000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1927,6 +2102,43 @@ it("QueryEnums:Request", async () => {
 });
 
 /**
+ * Serializes intEnums in the query string
+ */
+it("QueryIntEnums:Request", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleInputParamsCommand({
+    IntegerEnum: 1,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&IntegerEnum=1`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Supports handling NaN float values.
  */
 it("AwsQuerySupportsNaNFloatInputs:Request", async () => {
@@ -2591,6 +2803,91 @@ it("QueryXmlEnums:Response", async () => {
 });
 
 /**
+ * Serializes simple scalar properties
+ */
+it("QueryXmlIntEnums:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<XmlIntEnumsResponse xmlns="https://example.com/">
+          <XmlIntEnumsResult>
+              <intEnum1>1</intEnum1>
+              <intEnum2>2</intEnum2>
+              <intEnum3>3</intEnum3>
+              <intEnumList>
+                  <member>1</member>
+                  <member>2</member>
+              </intEnumList>
+              <intEnumSet>
+                  <member>1</member>
+                  <member>2</member>
+              </intEnumSet>
+              <intEnumMap>
+                  <entry>
+                      <key>a</key>
+                      <value>1</value>
+                  </entry>
+                  <entry>
+                      <key>b</key>
+                      <value>2</value>
+                  </entry>
+              </intEnumMap>
+          </XmlIntEnumsResult>
+      </XmlIntEnumsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlIntEnumsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      intEnum1: 1,
+
+      intEnum2: 2,
+
+      intEnum3: 3,
+
+      intEnumList: [
+        1,
+
+        2,
+      ],
+
+      intEnumSet: [
+        1,
+
+        2,
+      ],
+
+      intEnumMap: {
+        a: 1,
+
+        b: 2,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Tests for XML list serialization
  */
 it("QueryXmlLists:Response", async () => {
@@ -2628,6 +2925,10 @@ it("QueryXmlLists:Response", async () => {
                   <member>Foo</member>
                   <member>0</member>
               </enumList>
+              <intEnumList>
+                  <member>1</member>
+                  <member>2</member>
+              </intEnumList>
               <nestedStringList>
                   <member>
                       <member>foo</member>
@@ -2694,6 +2995,12 @@ it("QueryXmlLists:Response", async () => {
       timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
       enumList: ["Foo", "0"],
+
+      intEnumList: [
+        1,
+
+        2,
+      ],
 
       nestedStringList: [
         ["foo", "bar"],
@@ -3000,6 +3307,49 @@ it("QueryXmlTimestampsWithDateTimeFormat:Response", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of date-time on the target shape works like normal timestamps
+ */
+it("QueryXmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<XmlTimestampsResponse xmlns="https://example.com/">
+          <XmlTimestampsResult>
+              <dateTimeOnTarget>2014-04-29T18:30:38Z</dateTimeOnTarget>
+          </XmlTimestampsResult>
+      </XmlTimestampsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      dateTimeOnTarget: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Ensures that the timestampFormat of epoch-seconds works
  */
 it("QueryXmlTimestampsWithEpochSecondsFormat:Response", async () => {
@@ -3043,6 +3393,49 @@ it("QueryXmlTimestampsWithEpochSecondsFormat:Response", async () => {
 });
 
 /**
+ * Ensures that the timestampFormat of epoch-seconds on the target shape works
+ */
+it("QueryXmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<XmlTimestampsResponse xmlns="https://example.com/">
+          <XmlTimestampsResult>
+              <epochSecondsOnTarget>1398796238</epochSecondsOnTarget>
+          </XmlTimestampsResult>
+      </XmlTimestampsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      epochSecondsOnTarget: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Ensures that the timestampFormat of http-date works
  */
 it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
@@ -3077,6 +3470,49 @@ it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
   const paramsToValidate: any = [
     {
       httpDate: new Date(1398796238000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that the timestampFormat of http-date on the target shape works
+ */
+it("QueryXmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<XmlTimestampsResponse xmlns="https://example.com/">
+          <XmlTimestampsResult>
+              <httpDateOnTarget>Tue, 29 Apr 2014 18:30:38 GMT</httpDateOnTarget>
+          </XmlTimestampsResult>
+      </XmlTimestampsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlTimestampsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      httpDateOnTarget: new Date(1398796238000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetEffectivePoliciesRequest,
-  GetEffectivePoliciesRequestFilterSensitiveLog,
-  GetEffectivePoliciesResponse,
-  GetEffectivePoliciesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetEffectivePoliciesCommand,
-  serializeAws_restJson1GetEffectivePoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetEffectivePoliciesRequest, GetEffectivePoliciesResponse } from "../models/models_1";
+import { de_GetEffectivePoliciesCommand, se_GetEffectivePoliciesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEffectivePoliciesCommand}.
+ */
 export interface GetEffectivePoliciesCommandInput extends GetEffectivePoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEffectivePoliciesCommand}.
+ */
 export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the policies that have an effect on the authorization behavior of the
  *          specified device when it connects to the IoT device gateway.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetEffectivePolicies</a> action.</p>
@@ -38,13 +41,42 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  * import { IoTClient, GetEffectivePoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetEffectivePoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // GetEffectivePoliciesRequest
+ *   principal: "STRING_VALUE",
+ *   cognitoIdentityPoolId: "STRING_VALUE",
+ *   thingName: "STRING_VALUE",
+ * };
  * const command = new GetEffectivePoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEffectivePoliciesCommandInput - {@link GetEffectivePoliciesCommandInput}
+ * @returns {@link GetEffectivePoliciesCommandOutput}
  * @see {@link GetEffectivePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetEffectivePoliciesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  *
  */
 export class GetEffectivePoliciesCommand extends $Command<
@@ -64,6 +96,9 @@ export class GetEffectivePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEffectivePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +127,8 @@ export class GetEffectivePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEffectivePoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEffectivePoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +138,18 @@ export class GetEffectivePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEffectivePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEffectivePoliciesCommand(input, context);
+    return se_GetEffectivePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEffectivePoliciesCommandOutput> {
-    return deserializeAws_restJson1GetEffectivePoliciesCommand(output, context);
+    return de_GetEffectivePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

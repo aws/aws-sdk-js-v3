@@ -18,17 +18,24 @@ import {
   ConfigurationProfile,
   ConfigurationProfileFilterSensitiveLog,
   GetConfigurationProfileRequest,
-  GetConfigurationProfileRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConfigurationProfileCommand,
-  serializeAws_restJson1GetConfigurationProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConfigurationProfileCommand, se_GetConfigurationProfileCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetConfigurationProfileCommand}.
+ */
 export interface GetConfigurationProfileCommandInput extends GetConfigurationProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetConfigurationProfileCommand}.
+ */
 export interface GetConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a configuration profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,50 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  * import { AppConfigClient, GetConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // GetConfigurationProfileRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ConfigurationProfileId: "STRING_VALUE", // required
+ * };
  * const command = new GetConfigurationProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigurationProfileCommandInput - {@link GetConfigurationProfileCommandInput}
+ * @returns {@link GetConfigurationProfileCommandOutput}
  * @see {@link GetConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ *
+ * @example To retrieve configuration profile details
+ * ```javascript
+ * // The following get-configuration-profile example returns the details of the specified configuration profile.
+ * const input = {
+ *   "ApplicationId": "339ohji",
+ *   "ConfigurationProfileId": "ur8hx2f"
+ * };
+ * const command = new GetConfigurationProfileCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationId": "339ohji",
+ *   "Id": "ur8hx2f",
+ *   "LocationUri": "ssm-parameter://Example-Parameter",
+ *   "Name": "Example-Configuration-Profile",
+ *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
+ * }
+ * *\/
+ * // example id: to-retrieve-configuration-profile-details-1632266081013
+ * ```
  *
  */
 export class GetConfigurationProfileCommand extends $Command<
@@ -62,6 +106,9 @@ export class GetConfigurationProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigurationProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +137,7 @@ export class GetConfigurationProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfigurationProfileRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ConfigurationProfileFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +148,18 @@ export class GetConfigurationProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfigurationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConfigurationProfileCommand(input, context);
+    return se_GetConfigurationProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationProfileCommandOutput> {
-    return deserializeAws_restJson1GetConfigurationProfileCommand(output, context);
+    return de_GetConfigurationProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

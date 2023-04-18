@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAwsLogSourceRequest,
-  CreateAwsLogSourceRequestFilterSensitiveLog,
-  CreateAwsLogSourceResponse,
-  CreateAwsLogSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAwsLogSourceCommand,
-  serializeAws_restJson1CreateAwsLogSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAwsLogSourceRequest, CreateAwsLogSourceResponse } from "../models/models_0";
+import { de_CreateAwsLogSourceCommand, se_CreateAwsLogSourceCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAwsLogSourceCommand}.
+ */
 export interface CreateAwsLogSourceCommandInput extends CreateAwsLogSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAwsLogSourceCommand}.
+ */
 export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a natively supported Amazon Web Service as an Amazon Security Lake source. Enables
  *          source types for member accounts in required Amazon Web Services Regions, based on the
  *          parameters you specify. You can choose any source type in any Region for either accounts
@@ -50,13 +53,63 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * import { SecurityLakeClient, CreateAwsLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // CreateAwsLogSourceRequest
+ *   inputOrder: [ // DimensionSet // required
+ *     "STRING_VALUE",
+ *   ],
+ *   enableAllDimensions: { // AllDimensionsMap
+ *     "<keys>": { // TwoDimensionsMap
+ *       "<keys>": [ // ValueSet
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   enableTwoDimensions: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   enableSingleDimension: [ // InputSet
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateAwsLogSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAwsLogSourceCommandInput - {@link CreateAwsLogSourceCommandInput}
+ * @returns {@link CreateAwsLogSourceCommandOutput}
  * @see {@link CreateAwsLogSourceCommandInput} for command's `input` shape.
  * @see {@link CreateAwsLogSourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
+ *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
+ *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
+ *          no applicable Allow statement.</p>
+ *
+ * @throws {@link AccountNotFoundException} (client fault)
+ *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
+ *          specified, or the account whose credentials you used to make this request isn't a member of
+ *          an organization.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
+ *          troubleshooting, perform the operation again. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link S3Exception} (client fault)
+ *  <p>Provides an extension of the AmazonServiceException for errors reported by Amazon S3 while processing a request. In particular, this class provides access to the
+ *             Amazon S3 extended request ID. If Amazon S3 is incorrectly handling a
+ *          request and you need to contact Amazon, this extended request ID may provide useful
+ *          debugging information. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your signing certificate could not be validated. </p>
+ *
  *
  */
 export class CreateAwsLogSourceCommand extends $Command<
@@ -76,6 +129,9 @@ export class CreateAwsLogSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAwsLogSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +160,8 @@ export class CreateAwsLogSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAwsLogSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAwsLogSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +171,18 @@ export class CreateAwsLogSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAwsLogSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAwsLogSourceCommand(input, context);
+    return se_CreateAwsLogSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAwsLogSourceCommandOutput> {
-    return deserializeAws_restJson1CreateAwsLogSourceCommand(output, context);
+    return de_CreateAwsLogSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

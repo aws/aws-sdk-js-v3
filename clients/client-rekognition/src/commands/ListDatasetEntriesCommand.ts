@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDatasetEntriesRequest,
-  ListDatasetEntriesRequestFilterSensitiveLog,
-  ListDatasetEntriesResponse,
-  ListDatasetEntriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDatasetEntriesCommand,
-  serializeAws_json1_1ListDatasetEntriesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDatasetEntriesRequest, ListDatasetEntriesResponse } from "../models/models_0";
+import { de_ListDatasetEntriesCommand, se_ListDatasetEntriesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDatasetEntriesCommand}.
+ */
 export interface ListDatasetEntriesCommandInput extends ListDatasetEntriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDatasetEntriesCommand}.
+ */
 export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Lists the entries (images) within a dataset. An entry is a
  * JSON Line that contains the information for a single image, including
@@ -49,13 +52,58 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * import { RekognitionClient, ListDatasetEntriesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListDatasetEntriesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // ListDatasetEntriesRequest
+ *   DatasetArn: "STRING_VALUE", // required
+ *   ContainsLabels: [ // DatasetLabels
+ *     "STRING_VALUE",
+ *   ],
+ *   Labeled: true || false,
+ *   SourceRefContains: "STRING_VALUE",
+ *   HasErrors: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDatasetEntriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatasetEntriesCommandInput - {@link ListDatasetEntriesCommandInput}
+ * @returns {@link ListDatasetEntriesCommandOutput}
  * @see {@link ListDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link ListDatasetEntriesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Pagination token in the request is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is already being used.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ResourceNotReadyException} (client fault)
+ *  <p>The requested resource isn't ready. For example,
+ *          this exception occurs when you call <code>DetectCustomLabels</code> with a
+ *          model version that isn't deployed. </p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
  *
  */
 export class ListDatasetEntriesCommand extends $Command<
@@ -75,6 +123,9 @@ export class ListDatasetEntriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatasetEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +154,8 @@ export class ListDatasetEntriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasetEntriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatasetEntriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +165,18 @@ export class ListDatasetEntriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatasetEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDatasetEntriesCommand(input, context);
+    return se_ListDatasetEntriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetEntriesCommandOutput> {
-    return deserializeAws_json1_1ListDatasetEntriesCommand(output, context);
+    return de_ListDatasetEntriesCommand(output, context);
   }
 
   // Start section: command_body_extra

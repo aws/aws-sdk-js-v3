@@ -13,21 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetIndexOutput, GetIndexOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIndexCommand,
-  serializeAws_restJson1GetIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { GetIndexOutput } from "../models/models_0";
+import { de_GetIndexCommand, se_GetIndexCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
 
+/**
+ * @public
+ *
+ * The input for {@link GetIndexCommand}.
+ */
 export interface GetIndexCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetIndexCommand}.
+ */
 export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about the Amazon Web Services Resource Explorer index in the Amazon Web Services Region in which you invoked
  *             the operation.</p>
  * @example
@@ -36,13 +44,38 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  * import { ResourceExplorer2Client, GetIndexCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, GetIndexCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = {};
  * const command = new GetIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIndexCommandInput - {@link GetIndexCommandInput}
+ * @returns {@link GetIndexCommandOutput}
  * @see {@link GetIndexCommandInput} for command's `input` shape.
  * @see {@link GetIndexCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The credentials that you used to call this operation don't have the minimum required
+ *             permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed because of internal service error. Try your request again
+ *             later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>You specified a resource that doesn't exist. Check the ID or ARN that you used to
+ *             identity the resource, and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request failed because you exceeded a rate limit for this operation. For more
+ *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
+ *                 for Resource Explorer</a>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
+ *             for the operation, and try again.</p>
+ *
  *
  */
 export class GetIndexCommand extends $Command<
@@ -61,6 +94,9 @@ export class GetIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +123,8 @@ export class GetIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetIndexOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +134,18 @@ export class GetIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIndexCommand(input, context);
+    return se_GetIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIndexCommandOutput> {
-    return deserializeAws_restJson1GetIndexCommand(output, context);
+    return de_GetIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

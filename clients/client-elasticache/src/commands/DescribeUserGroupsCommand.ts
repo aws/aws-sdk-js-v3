@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DescribeUserGroupsMessage,
-  DescribeUserGroupsMessageFilterSensitiveLog,
-  DescribeUserGroupsResult,
-  DescribeUserGroupsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeUserGroupsCommand,
-  serializeAws_queryDescribeUserGroupsCommand,
-} from "../protocols/Aws_query";
+import { DescribeUserGroupsMessage, DescribeUserGroupsResult } from "../models/models_0";
+import { de_DescribeUserGroupsCommand, se_DescribeUserGroupsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeUserGroupsCommand}.
+ */
 export interface DescribeUserGroupsCommandInput extends DescribeUserGroupsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeUserGroupsCommand}.
+ */
 export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of user groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,30 @@ export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResul
  * import { ElastiCacheClient, DescribeUserGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeUserGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeUserGroupsMessage
+ *   UserGroupId: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeUserGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserGroupsCommandInput - {@link DescribeUserGroupsCommandInput}
+ * @returns {@link DescribeUserGroupsCommandOutput}
  * @see {@link DescribeUserGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeUserGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link UserGroupNotFoundFault} (client fault)
+ *  <p>The user group was not found or does not exist</p>
+ *
  *
  */
 export class DescribeUserGroupsCommand extends $Command<
@@ -62,6 +82,9 @@ export class DescribeUserGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +113,8 @@ export class DescribeUserGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserGroupsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +124,18 @@ export class DescribeUserGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeUserGroupsCommand(input, context);
+    return se_DescribeUserGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserGroupsCommandOutput> {
-    return deserializeAws_queryDescribeUserGroupsCommand(output, context);
+    return de_DescribeUserGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

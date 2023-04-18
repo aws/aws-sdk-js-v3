@@ -16,22 +16,31 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeregisterInstanceEventNotificationAttributesRequest,
-  DeregisterInstanceEventNotificationAttributesRequestFilterSensitiveLog,
   DeregisterInstanceEventNotificationAttributesResult,
-  DeregisterInstanceEventNotificationAttributesResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand,
-  serializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand,
+  de_DeregisterInstanceEventNotificationAttributesCommand,
+  se_DeregisterInstanceEventNotificationAttributesCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterInstanceEventNotificationAttributesCommand}.
+ */
 export interface DeregisterInstanceEventNotificationAttributesCommandInput
   extends DeregisterInstanceEventNotificationAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterInstanceEventNotificationAttributesCommand}.
+ */
 export interface DeregisterInstanceEventNotificationAttributesCommandOutput
   extends DeregisterInstanceEventNotificationAttributesResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
  * 			in scheduled event notifications for resources in the Region.</p>
  * @example
@@ -40,13 +49,25 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
  * import { EC2Client, DeregisterInstanceEventNotificationAttributesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeregisterInstanceEventNotificationAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeregisterInstanceEventNotificationAttributesRequest
+ *   DryRun: true || false,
+ *   InstanceTagAttribute: { // DeregisterInstanceTagAttributeRequest
+ *     IncludeAllTagsOfInstance: true || false,
+ *     InstanceTagKeys: [ // InstanceTagKeySet
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new DeregisterInstanceEventNotificationAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterInstanceEventNotificationAttributesCommandInput - {@link DeregisterInstanceEventNotificationAttributesCommandInput}
+ * @returns {@link DeregisterInstanceEventNotificationAttributesCommandOutput}
  * @see {@link DeregisterInstanceEventNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link DeregisterInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DeregisterInstanceEventNotificationAttributesCommand extends $Command<
@@ -66,6 +87,9 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterInstanceEventNotificationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +124,8 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterInstanceEventNotificationAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterInstanceEventNotificationAttributesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +135,24 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterInstanceEventNotificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand(input, context);
+    return se_DeregisterInstanceEventNotificationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterInstanceEventNotificationAttributesCommandOutput> {
-    return deserializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand(output, context);
+    return de_DeregisterInstanceEventNotificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,15 +20,23 @@ import {
   CalculateRouteResponse,
   CalculateRouteResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CalculateRouteCommand,
-  serializeAws_restJson1CalculateRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CalculateRouteCommand, se_CalculateRouteCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CalculateRouteCommand}.
+ */
 export interface CalculateRouteCommandInput extends CalculateRouteRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CalculateRouteCommand}.
+ */
 export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters:
  *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that
@@ -69,13 +77,69 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  * import { LocationClient, CalculateRouteCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CalculateRouteCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // CalculateRouteRequest
+ *   CalculatorName: "STRING_VALUE", // required
+ *   DeparturePosition: [ // Position // required
+ *     Number("double"),
+ *   ],
+ *   DestinationPosition: [ // required
+ *     Number("double"),
+ *   ],
+ *   WaypointPositions: [ // WaypointPositionList
+ *     [
+ *       Number("double"),
+ *     ],
+ *   ],
+ *   TravelMode: "STRING_VALUE",
+ *   DepartureTime: new Date("TIMESTAMP"),
+ *   DepartNow: true || false,
+ *   DistanceUnit: "STRING_VALUE",
+ *   IncludeLegGeometry: true || false,
+ *   CarModeOptions: { // CalculateRouteCarModeOptions
+ *     AvoidFerries: true || false,
+ *     AvoidTolls: true || false,
+ *   },
+ *   TruckModeOptions: { // CalculateRouteTruckModeOptions
+ *     AvoidFerries: true || false,
+ *     AvoidTolls: true || false,
+ *     Dimensions: { // TruckDimensions
+ *       Length: Number("double"),
+ *       Height: Number("double"),
+ *       Width: Number("double"),
+ *       Unit: "STRING_VALUE",
+ *     },
+ *     Weight: { // TruckWeight
+ *       Total: Number("double"),
+ *       Unit: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CalculateRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CalculateRouteCommandInput - {@link CalculateRouteCommandInput}
+ * @returns {@link CalculateRouteCommandOutput}
  * @see {@link CalculateRouteCommandInput} for command's `input` shape.
  * @see {@link CalculateRouteCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *       administrator to verify your permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource that you've entered was not found in your AWS account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to meet the constraints specified by the AWS service. </p>
+ *
  *
  */
 export class CalculateRouteCommand extends $Command<
@@ -95,6 +159,9 @@ export class CalculateRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CalculateRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,12 +201,18 @@ export class CalculateRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CalculateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CalculateRouteCommand(input, context);
+    return se_CalculateRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CalculateRouteCommandOutput> {
-    return deserializeAws_restJson1CalculateRouteCommand(output, context);
+    return de_CalculateRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

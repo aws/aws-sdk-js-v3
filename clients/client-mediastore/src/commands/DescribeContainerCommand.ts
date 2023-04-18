@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  DescribeContainerInput,
-  DescribeContainerInputFilterSensitiveLog,
-  DescribeContainerOutput,
-  DescribeContainerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeContainerCommand,
-  serializeAws_json1_1DescribeContainerCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeContainerInput, DescribeContainerOutput } from "../models/models_0";
+import { de_DescribeContainerCommand, se_DescribeContainerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeContainerCommand}.
+ */
 export interface DescribeContainerCommandInput extends DescribeContainerInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeContainerCommand}.
+ */
 export interface DescribeContainerCommandOutput extends DescribeContainerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the properties of the requested container. This request is commonly used to
  *          retrieve the endpoint of a container. An endpoint is a value assigned by the service when a
  *          new container is created. A container's endpoint does not change after it has been
@@ -42,13 +45,25 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  * import { MediaStoreClient, DescribeContainerCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DescribeContainerCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = { // DescribeContainerInput
+ *   ContainerName: "STRING_VALUE",
+ * };
  * const command = new DescribeContainerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContainerCommandInput - {@link DescribeContainerCommandInput}
+ * @returns {@link DescribeContainerCommandOutput}
  * @see {@link DescribeContainerCommandInput} for command's `input` shape.
  * @see {@link DescribeContainerCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
  *
  */
 export class DescribeContainerCommand extends $Command<
@@ -68,6 +83,9 @@ export class DescribeContainerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContainerCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +114,8 @@ export class DescribeContainerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeContainerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeContainerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +125,18 @@ export class DescribeContainerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContainerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeContainerCommand(input, context);
+    return se_DescribeContainerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeContainerCommandOutput> {
-    return deserializeAws_json1_1DescribeContainerCommand(output, context);
+    return de_DescribeContainerCommand(output, context);
   }
 
   // Start section: command_body_extra

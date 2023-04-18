@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  ListApprovalRuleTemplatesInput,
-  ListApprovalRuleTemplatesInputFilterSensitiveLog,
-  ListApprovalRuleTemplatesOutput,
-  ListApprovalRuleTemplatesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApprovalRuleTemplatesCommand,
-  serializeAws_json1_1ListApprovalRuleTemplatesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListApprovalRuleTemplatesInput, ListApprovalRuleTemplatesOutput } from "../models/models_0";
+import { de_ListApprovalRuleTemplatesCommand, se_ListApprovalRuleTemplatesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListApprovalRuleTemplatesCommand}.
+ */
 export interface ListApprovalRuleTemplatesCommandInput extends ListApprovalRuleTemplatesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListApprovalRuleTemplatesCommand}.
+ */
 export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRuleTemplatesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all approval rule templates in the specified AWS Region in your AWS account. If
  *             an AWS Region is not specified, the AWS Region where you are signed in is used.</p>
  * @example
@@ -37,13 +40,26 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
  * import { CodeCommitClient, ListApprovalRuleTemplatesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListApprovalRuleTemplatesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // ListApprovalRuleTemplatesInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListApprovalRuleTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApprovalRuleTemplatesCommandInput - {@link ListApprovalRuleTemplatesCommandInput}
+ * @returns {@link ListApprovalRuleTemplatesCommandOutput}
  * @see {@link ListApprovalRuleTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListApprovalRuleTemplatesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link InvalidContinuationTokenException} (client fault)
+ *  <p>The specified continuation token is not valid.</p>
+ *
+ * @throws {@link InvalidMaxResultsException} (client fault)
+ *  <p>The specified number of maximum results is not valid.</p>
+ *
  *
  */
 export class ListApprovalRuleTemplatesCommand extends $Command<
@@ -63,6 +79,9 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApprovalRuleTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +110,8 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApprovalRuleTemplatesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApprovalRuleTemplatesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +121,21 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApprovalRuleTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApprovalRuleTemplatesCommand(input, context);
+    return se_ListApprovalRuleTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApprovalRuleTemplatesCommandOutput> {
-    return deserializeAws_json1_1ListApprovalRuleTemplatesCommand(output, context);
+    return de_ListApprovalRuleTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -268,6 +270,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateFirewallRuleGroupCommandInput
   | AssociateResolverEndpointIpAddressCommandInput
@@ -333,6 +338,9 @@ export type ServiceInputTypes =
   | UpdateResolverEndpointCommandInput
   | UpdateResolverRuleCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateFirewallRuleGroupCommandOutput
   | AssociateResolverEndpointIpAddressCommandOutput
@@ -398,6 +406,9 @@ export type ServiceOutputTypes =
   | UpdateResolverEndpointCommandOutput
   | UpdateResolverRuleCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -405,11 +416,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -466,19 +477,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -489,12 +491,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -514,11 +510,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type Route53ResolverClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -529,10 +543,15 @@ type Route53ResolverClientConfigType = Partial<__SmithyConfiguration<__HttpHandl
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of Route53ResolverClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of Route53ResolverClient class constructor that set the region, credentials and other options.
  */
 export interface Route53ResolverClientConfig extends Route53ResolverClientConfigType {}
 
+/**
+ * @public
+ */
 type Route53ResolverClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -543,42 +562,39 @@ type Route53ResolverClientResolvedConfigType = __SmithyResolvedConfiguration<__H
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of Route53ResolverClient class. This is resolved and normalized from the {@link Route53ResolverClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of Route53ResolverClient class. This is resolved and normalized from the {@link Route53ResolverClientConfig | constructor configuration interface}.
  */
 export interface Route53ResolverClientResolvedConfig extends Route53ResolverClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC
  * 			from Route 53 Resolver. By default, Resolver answers DNS queries for VPC domain names
  * 			such as domain names for EC2 instances or Elastic Load Balancing load balancers.
  * 			Resolver performs recursive lookups against public name servers for all other domain
  * 			names.</p>
- *
- * 		       <p>You can also configure DNS resolution between your VPC and your network over a Direct Connect or VPN connection:</p>
- *
- * 		       <p>
+ *          <p>You can also configure DNS resolution between your VPC and your network over a Direct Connect or VPN connection:</p>
+ *          <p>
  *             <b>Forward DNS queries from resolvers on your network to Route 53 Resolver</b>
  *          </p>
- *
- * 		       <p>DNS resolvers on your network can forward DNS queries to Resolver in a specified VPC. This allows your DNS resolvers
+ *          <p>DNS resolvers on your network can forward DNS queries to Resolver in a specified VPC. This allows your DNS resolvers
  * 			to easily resolve domain names for Amazon Web Services resources such as EC2 instances or records in a Route 53 private hosted zone.
  * 			For more information, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-network-to-vpc">How DNS Resolvers
  * 			on Your Network Forward DNS Queries to Route 53 Resolver</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
- *
- * 		       <p>
+ *          <p>
  *             <b>Conditionally forward queries from a VPC to resolvers on your network</b>
  *          </p>
- *
- * 		       <p>You can configure Resolver to forward queries that it receives from EC2 instances in your VPCs to DNS resolvers on your network.
+ *          <p>You can configure Resolver to forward queries that it receives from EC2 instances in your VPCs to DNS resolvers on your network.
  * 			To forward selected queries, you create Resolver rules that specify the domain names for the DNS queries that you want to forward
  * 			(such as example.com), and the IP addresses of the DNS resolvers on your network that you want to forward the queries to.
  * 			If a query matches multiple rules (example.com, acme.example.com), Resolver chooses the rule with the most specific match
  * 			(acme.example.com) and forwards the query to the IP addresses that you specified in that rule. For more information, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-vpc-to-network">How Route 53 Resolver
  * 			Forwards DNS Queries from Your VPCs to Your Network</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
- *
- * 		       <p>Like Amazon VPC, Resolver is Regional. In each Region where you have VPCs, you can choose
+ *          <p>Like Amazon VPC, Resolver is Regional. In each Region where you have VPCs, you can choose
  * 			whether to forward queries from your VPCs to your network (outbound queries), from your
  * 			network to your VPCs (inbound queries), or both.</p>
  */

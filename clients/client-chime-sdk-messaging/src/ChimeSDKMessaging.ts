@@ -73,6 +73,11 @@ import {
   DeleteChannelModeratorCommandOutput,
 } from "./commands/DeleteChannelModeratorCommand";
 import {
+  DeleteMessagingStreamingConfigurationsCommand,
+  DeleteMessagingStreamingConfigurationsCommandInput,
+  DeleteMessagingStreamingConfigurationsCommandOutput,
+} from "./commands/DeleteMessagingStreamingConfigurationsCommand";
+import {
   DescribeChannelBanCommand,
   DescribeChannelBanCommandInput,
   DescribeChannelBanCommandOutput,
@@ -133,6 +138,11 @@ import {
   GetMessagingSessionEndpointCommandOutput,
 } from "./commands/GetMessagingSessionEndpointCommand";
 import {
+  GetMessagingStreamingConfigurationsCommand,
+  GetMessagingStreamingConfigurationsCommandInput,
+  GetMessagingStreamingConfigurationsCommandOutput,
+} from "./commands/GetMessagingStreamingConfigurationsCommand";
+import {
   ListChannelBansCommand,
   ListChannelBansCommandInput,
   ListChannelBansCommandOutput,
@@ -188,10 +198,20 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PutChannelExpirationSettingsCommand,
+  PutChannelExpirationSettingsCommandInput,
+  PutChannelExpirationSettingsCommandOutput,
+} from "./commands/PutChannelExpirationSettingsCommand";
+import {
   PutChannelMembershipPreferencesCommand,
   PutChannelMembershipPreferencesCommandInput,
   PutChannelMembershipPreferencesCommandOutput,
 } from "./commands/PutChannelMembershipPreferencesCommand";
+import {
+  PutMessagingStreamingConfigurationsCommand,
+  PutMessagingStreamingConfigurationsCommandInput,
+  PutMessagingStreamingConfigurationsCommandOutput,
+} from "./commands/PutMessagingStreamingConfigurationsCommand";
 import {
   RedactChannelMessageCommand,
   RedactChannelMessageCommandInput,
@@ -235,6 +255,7 @@ import {
 } from "./commands/UpdateChannelReadMarkerCommand";
 
 /**
+ * @public
  * <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send
  *          and receive messages in custom messaging applications. These APIs depend on the frameworks
  *          provided by the Amazon Chime SDK Identity APIs. For more information about the messaging
@@ -242,12 +263,14 @@ import {
  */
 export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   /**
+   * @public
    * <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the
    *          <code>DisassociateChannelFlow</code> API.</p>
-   *
    *          <note>
-   *             <p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
-   *          of the user that makes the API call as the value in the header.</p>
+   *             <p>Only administrators or channel moderators can associate a channel flow. The
+   *          <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
+   *          <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          that makes the API call as the value in the header.</p>
    *          </note>
    */
   public associateChannelFlow(
@@ -280,7 +303,8 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
-   * <p>Adds a specified number of users to a channel. </p>
+   * @public
+   * <p>Adds a specified number of users and bots to a channel. </p>
    */
   public batchCreateChannelMembership(
     args: BatchCreateChannelMembershipCommandInput,
@@ -312,6 +336,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p>
    *          <p>You can return one of the following processing responses:</p>
    *          <ul>
@@ -356,15 +381,14 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Creates a channel to which you can add users and send messages.</p>
-   *
    *          <p>
    *             <b>Restriction</b>: You can't change a channel's
    *          privacy.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *               ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -398,16 +422,16 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Permanently bans a member from a channel. Moderators can't add banned members to a
    *          channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then
    *             <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or
    *          channels.</p>
    *          <p>If you ban a user who is already part of a channel, that user is automatically kicked
    *          from the channel.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *                ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -441,12 +465,12 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions
    *          that perform actions on chat messages, such as stripping out profanity. You can associate
    *          channel flows with channels, and the processors in the channel flow then take action on all
    *          messages sent to that channel. This is a developer API.</p>
-   *
-   *            <p>Channel flows process the following items:</p>
+   *          <p>Channel flows process the following items:</p>
    *          <ol>
    *             <li>
    *                <p>New and updated messages</p>
@@ -458,7 +482,6 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
    *                <p>The Standard message type</p>
    *             </li>
    *          </ol>
-   *
    *          <note>
    *             <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to
    *            <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p>
@@ -494,9 +517,9 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
-   * <p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the
-   *          request header. A channel member can:</p>
-   *
+   * @public
+   * <p>Adds a member to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code>
+   *          is derived from the request header. A channel member can:</p>
    *          <ul>
    *             <li>
    *                <p>List messages</p>
@@ -514,9 +537,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
    *                <p>Leave the channel</p>
    *             </li>
    *          </ul>
-   *
    *          <p>Privacy settings impact this action as follows:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>Public Channels: You do not need to be a member to list messages, but you must be
@@ -526,11 +547,10 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
    *                <p>Private Channels: You must be a member to list or send messages.</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
+   *                ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call
+   *             as the value in the header.</p>
    *          </note>
    */
   public createChannelMembership(
@@ -563,8 +583,8 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>Add and remove other members of the channel.</p>
@@ -582,10 +602,9 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
    *                <p>List messages in the channel.</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *                ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>of the user that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -619,12 +638,12 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Immediately makes a channel and its memberships inaccessible and marks them for
    *          deletion. This is an irreversible process.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *                ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -658,11 +677,11 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
-   * <p>Removes a user from a channel's ban list.</p>
-   *
+   * @public
+   * <p>Removes a member from a channel's ban list.</p>
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -696,6 +715,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Deletes a channel flow, an irreversible process. This is a developer API.</p>
    *          <note>
    *             <p> This API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the
@@ -732,8 +752,8 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Removes a member from a channel.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
    *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
@@ -770,13 +790,13 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages
    *          inaccessible immediately. A background process deletes any revisions created by
    *             <code>UpdateChannelMessage</code>.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -810,11 +830,11 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Deletes a channel moderator.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -848,13 +868,48 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
+   * <p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+   */
+  public deleteMessagingStreamingConfigurations(
+    args: DeleteMessagingStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput>;
+  public deleteMessagingStreamingConfigurations(
+    args: DeleteMessagingStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: DeleteMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public deleteMessagingStreamingConfigurations(
+    args: DeleteMessagingStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public deleteMessagingStreamingConfigurations(
+    args: DeleteMessagingStreamingConfigurationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteMessagingStreamingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMessagingStreamingConfigurationsCommandOutput) => void
+  ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput> | void {
+    const command = new DeleteMessagingStreamingConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Returns the full details of a channel in an Amazon Chime
    *          <code>AppInstance</code>.</p>
-   *
    *          <note>
-   *
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -888,12 +943,11 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of a channel ban.</p>
-   *
    *          <note>
-   *
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -927,6 +981,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of a channel flow in an Amazon Chime <code>AppInstance</code>. This is a developer API.</p>
    */
   public describeChannelFlow(
@@ -959,10 +1014,11 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of a user's channel membership.</p>
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -996,12 +1052,12 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p> Returns the details of a channel based on the membership of the specified
-   *             <code>AppInstanceUser</code>.</p>
-   *
+   *             <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p>
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -1037,12 +1093,12 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of a channel moderated by the specified
-   *             <code>AppInstanceUser</code>.</p>
-   *
+   *             <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p>
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -1078,6 +1134,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Returns the full details of a single ChannelModerator.</p>
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -1115,11 +1172,14 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to
    *          that channel stop going through the channel flow processor.</p>
    *          <note>
-   *             <p>Only administrators or channel moderators can disassociate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
-   *            of the user that makes the API call as the value in the header.</p>
+   *             <p>Only administrators or channel moderators can disassociate a channel flow.</p>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *              ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
+   *              the header.</p>
    *          </note>
    */
   public disassociateChannelFlow(
@@ -1152,9 +1212,17 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
-   * <p>Gets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel.
-   *          Only the <code>AppInstanceUser</code> who owns the membership can retrieve preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users.
-   *          Banned users can't retrieve membership preferences for the channel from which they are banned.</p>
+   * @public
+   * <p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+   *          for the specified channel. A user or a bot must be a member of the channel and own the membership to be able
+   *          to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't
+   *          retrieve preferences for other users or bots. Banned users or bots can't retrieve membership preferences for the
+   *          channel from which they are banned.</p>
+   *          <note>
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *          ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
+   *          the header.</p>
+   *          </note>
    */
   public getChannelMembershipPreferences(
     args: GetChannelMembershipPreferencesCommandInput,
@@ -1186,11 +1254,11 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Gets the full details of a channel message.</p>
-   *
    *          <note>
-   *             <p>The x-amz-chime-bearer request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -1224,11 +1292,10 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to
    *          retrieving message status if the event was not received because a client wasn't connected to a websocket. </p>
-   *
    *          <p>Messages can have any one of these statuses.</p>
-   *
    *          <dl>
    *             <dt>SENT</dt>
    *             <dd>
@@ -1247,7 +1314,6 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
    *                <p>Messasge denied by the processor</p>
    *             </dd>
    *          </dl>
-   *
    *          <note>
    *             <ul>
    *                <li>
@@ -1257,7 +1323,9 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
    *                   <p>Only the message sender can invoke this API.</p>
    *                </li>
    *                <li>
-   *                   <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header</p>
+   *                   <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
+   *             the header.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -1292,6 +1360,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>The details of the endpoint for the messaging session.</p>
    */
   public getMessagingSessionEndpoint(
@@ -1324,11 +1393,45 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
-   * <p>Lists all the users banned from a particular channel.</p>
-   *
+   * @public
+   * <p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+   */
+  public getMessagingStreamingConfigurations(
+    args: GetMessagingStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMessagingStreamingConfigurationsCommandOutput>;
+  public getMessagingStreamingConfigurations(
+    args: GetMessagingStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: GetMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public getMessagingStreamingConfigurations(
+    args: GetMessagingStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public getMessagingStreamingConfigurations(
+    args: GetMessagingStreamingConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMessagingStreamingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: GetMessagingStreamingConfigurationsCommandOutput) => void
+  ): Promise<GetMessagingStreamingConfigurationsCommandOutput> | void {
+    const command = new GetMessagingStreamingConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Lists all the users and bots banned from a particular channel.</p>
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -1362,6 +1465,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Returns a paginated lists of all the channel flows created under a single Chime. This is a developer API.</p>
    */
   public listChannelFlows(
@@ -1394,14 +1498,13 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Lists all channel memberships in a channel.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
-   *
    *          <p>If you want to list the channels to which a specific app instance user belongs, see the
    *          <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
    */
@@ -1435,12 +1538,12 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
-   * <p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an
-   *             <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>
-   *
+   * @public
+   * <p> Lists all channels that anr <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of.
+   *          Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -1476,6 +1579,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>List all the messages in a channel. Returns a paginated list of
    *             <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending
    *          order.</p>
@@ -1483,8 +1587,8 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
    *             <p>Redacted messages appear in the results as empty, since they are only redacted, not
    *             deleted. Deleted messages do not appear in the results. This action always returns the
    *             latest version of an edited message.</p>
-   *             <p>Also, the x-amz-chime-bearer request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             <p>Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -1518,10 +1622,11 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Lists all the moderators for a channel.</p>
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -1555,9 +1660,9 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
    *          filters to narrow results.</p>
-   *
    *          <p class="title">
    *             <b>Functionality & restrictions</b>
    *          </p>
@@ -1571,10 +1676,9 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
    *                list the private channels in an account.</p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -1605,6 +1709,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Lists all channels associated with a specified channel flow. You can associate a channel flow with multiple channels, but you can only associate a channel with one channel flow. This is a developer API.</p>
    */
   public listChannelsAssociatedWithChannelFlow(
@@ -1639,11 +1744,11 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -1679,6 +1784,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Lists all the SubChannels in an elastic channel when given a channel ID. Available only to the app instance admins and channel moderators of elastic channels.</p>
    */
   public listSubChannels(
@@ -1711,6 +1817,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Lists the tags applied to an Amazon Chime SDK messaging resource.</p>
    */
   public listTagsForResource(
@@ -1743,9 +1850,67 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
-   * <p>Sets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel.
-   *          Only the <code>AppInstanceUser</code> who owns the membership can set preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users.
-   *          Banned users can't set membership preferences for the channel from which they are banned.</p>
+   * @public
+   * <p>Sets the number of days before the channel is automatically deleted.</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>A background process deletes expired channels within 6 hours of expiration.
+   *             Actual deletion times may vary.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Expired channels that have not yet been deleted appear as active, and you can update
+   *             their expiration settings. The system honors the new settings.</p>
+   *                </li>
+   *                <li>
+   *                   <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
+   *             the header.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  public putChannelExpirationSettings(
+    args: PutChannelExpirationSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutChannelExpirationSettingsCommandOutput>;
+  public putChannelExpirationSettings(
+    args: PutChannelExpirationSettingsCommandInput,
+    cb: (err: any, data?: PutChannelExpirationSettingsCommandOutput) => void
+  ): void;
+  public putChannelExpirationSettings(
+    args: PutChannelExpirationSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutChannelExpirationSettingsCommandOutput) => void
+  ): void;
+  public putChannelExpirationSettings(
+    args: PutChannelExpirationSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutChannelExpirationSettingsCommandOutput) => void),
+    cb?: (err: any, data?: PutChannelExpirationSettingsCommandOutput) => void
+  ): Promise<PutChannelExpirationSettingsCommandOutput> | void {
+    const command = new PutChannelExpirationSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code>
+   *          for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the
+   *          membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set
+   *          preferences for other users or users. Banned users or bots can't set membership preferences for the channel from
+   *          which they are banned.</p>
+   *          <note>
+   *             <p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an
+   *          <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the
+   *          header.</p>
+   *          </note>
    */
   public putChannelMembershipPreferences(
     args: PutChannelMembershipPreferencesCommandInput,
@@ -1777,12 +1942,46 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
+   * <p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+   */
+  public putMessagingStreamingConfigurations(
+    args: PutMessagingStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutMessagingStreamingConfigurationsCommandOutput>;
+  public putMessagingStreamingConfigurations(
+    args: PutMessagingStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: PutMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public putMessagingStreamingConfigurations(
+    args: PutMessagingStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+  public putMessagingStreamingConfigurations(
+    args: PutMessagingStreamingConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMessagingStreamingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: PutMessagingStreamingConfigurationsCommandOutput) => void
+  ): Promise<PutMessagingStreamingConfigurationsCommandOutput> | void {
+    const command = new PutMessagingStreamingConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Redacts message content, but not metadata. The message exists in the back end, but the
    *          action returns null content, and the state shows as redacted.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -1816,7 +2015,13 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
-   * <p>Allows <code>ChimeBearer</code> to search channels by channel members. AppInstanceUsers can search across the channels that they belong to. AppInstanceAdmins can search across all channels.</p>
+   * @public
+   * <p>Allows the <code>ChimeBearer</code> to search channels by channel members. Users or bots can search
+   *          across the channels that they belong to. Users in the <code>AppInstanceAdmin</code> role can search across
+   *          all channels.</p>
+   *          <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+   *          ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
+   *          the header.</p>
    */
   public searchChannels(
     args: SearchChannelsCommandInput,
@@ -1848,13 +2053,12 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Sends a message to a particular channel that the member is a part of.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
-   *
    *             <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
    *                <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p>
    *          </note>
@@ -1889,6 +2093,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Applies the specified tags to the specified Amazon Chime SDK messaging resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1915,6 +2120,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Removes the specified tags from the specified Amazon Chime SDK messaging resource.</p>
    */
   public untagResource(
@@ -1947,12 +2153,13 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Update a channel's attributes.</p>
    *          <p>
    *             <b>Restriction</b>: You can't change a channel's privacy. </p>
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -1986,6 +2193,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Updates channel flow attributes. This is a developer API.</p>
    */
   public updateChannelFlow(
@@ -2018,11 +2226,11 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>Updates the content of a message.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */
@@ -2056,11 +2264,11 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * @public
    * <p>The details of the time when a user last read messages in a channel.</p>
-   *
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
    *             the header.</p>
    *          </note>
    */

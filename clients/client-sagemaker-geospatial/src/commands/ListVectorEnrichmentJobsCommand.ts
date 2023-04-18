@@ -19,20 +19,28 @@ import {
   ListVectorEnrichmentJobOutput,
   ListVectorEnrichmentJobOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVectorEnrichmentJobsCommand,
-  serializeAws_restJson1ListVectorEnrichmentJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVectorEnrichmentJobsCommand, se_ListVectorEnrichmentJobsCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListVectorEnrichmentJobsCommand}.
+ */
 export interface ListVectorEnrichmentJobsCommandInput extends ListVectorEnrichmentJobInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListVectorEnrichmentJobsCommand}.
+ */
 export interface ListVectorEnrichmentJobsCommandOutput extends ListVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of vector enrichment jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +48,38 @@ export interface ListVectorEnrichmentJobsCommandOutput extends ListVectorEnrichm
  * import { SageMakerGeospatialClient, ListVectorEnrichmentJobsCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, ListVectorEnrichmentJobsCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
+ * const input = { // ListVectorEnrichmentJobInput
+ *   StatusEquals: "STRING_VALUE",
+ *   SortOrder: "STRING_VALUE",
+ *   SortBy: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListVectorEnrichmentJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVectorEnrichmentJobsCommandInput - {@link ListVectorEnrichmentJobsCommandInput}
+ * @returns {@link ListVectorEnrichmentJobsCommandOutput}
  * @see {@link ListVectorEnrichmentJobsCommandInput} for command's `input` shape.
  * @see {@link ListVectorEnrichmentJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource which does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
  *
  */
 export class ListVectorEnrichmentJobsCommand extends $Command<
@@ -66,6 +99,9 @@ export class ListVectorEnrichmentJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVectorEnrichmentJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,12 +141,18 @@ export class ListVectorEnrichmentJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVectorEnrichmentJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVectorEnrichmentJobsCommand(input, context);
+    return se_ListVectorEnrichmentJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVectorEnrichmentJobsCommandOutput> {
-    return deserializeAws_restJson1ListVectorEnrichmentJobsCommand(output, context);
+    return de_ListVectorEnrichmentJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { CreateVpcPeeringAuthorizationInput, CreateVpcPeeringAuthorizationOutput } from "../models/models_0";
 import {
-  CreateVpcPeeringAuthorizationInput,
-  CreateVpcPeeringAuthorizationInputFilterSensitiveLog,
-  CreateVpcPeeringAuthorizationOutput,
-  CreateVpcPeeringAuthorizationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVpcPeeringAuthorizationCommand,
-  serializeAws_json1_1CreateVpcPeeringAuthorizationCommand,
+  de_CreateVpcPeeringAuthorizationCommand,
+  se_CreateVpcPeeringAuthorizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateVpcPeeringAuthorizationCommand}.
+ */
 export interface CreateVpcPeeringAuthorizationCommandInput extends CreateVpcPeeringAuthorizationInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateVpcPeeringAuthorizationCommand}.
+ */
 export interface CreateVpcPeeringAuthorizationCommandOutput
   extends CreateVpcPeeringAuthorizationOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests authorization to create or delete a peer connection between the VPC for your
  *             Amazon GameLift fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game servers on
  *             your fleet to communicate directly with other Amazon Web Services resources. After you've received
@@ -64,13 +70,34 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
  * import { GameLiftClient, CreateVpcPeeringAuthorizationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateVpcPeeringAuthorizationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreateVpcPeeringAuthorizationInput
+ *   GameLiftAwsAccountId: "STRING_VALUE", // required
+ *   PeerVpcId: "STRING_VALUE", // required
+ * };
  * const command = new CreateVpcPeeringAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcPeeringAuthorizationCommandInput - {@link CreateVpcPeeringAuthorizationCommandInput}
+ * @returns {@link CreateVpcPeeringAuthorizationCommandOutput}
  * @see {@link CreateVpcPeeringAuthorizationCommandInput} for command's `input` shape.
  * @see {@link CreateVpcPeeringAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an unrecoverable internal failure while processing the
+ *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
+ *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
  *
  */
 export class CreateVpcPeeringAuthorizationCommand extends $Command<
@@ -90,6 +117,9 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcPeeringAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +148,8 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcPeeringAuthorizationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcPeeringAuthorizationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +159,21 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcPeeringAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVpcPeeringAuthorizationCommand(input, context);
+    return se_CreateVpcPeeringAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVpcPeeringAuthorizationCommandOutput> {
-    return deserializeAws_json1_1CreateVpcPeeringAuthorizationCommand(output, context);
+    return de_CreateVpcPeeringAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

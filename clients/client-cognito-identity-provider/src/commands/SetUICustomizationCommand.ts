@@ -25,15 +25,23 @@ import {
   SetUICustomizationResponse,
   SetUICustomizationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetUICustomizationCommand,
-  serializeAws_json1_1SetUICustomizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetUICustomizationCommand, se_SetUICustomizationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SetUICustomizationCommand}.
+ */
 export interface SetUICustomizationCommandInput extends SetUICustomizationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetUICustomizationCommand}.
+ */
 export interface SetUICustomizationCommandOutput extends SetUICustomizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the user interface (UI) customization information for a user pool's built-in app
  *             UI.</p>
  *         <p>You can specify app UI customization settings for a single client (with a specific
@@ -53,13 +61,40 @@ export interface SetUICustomizationCommandOutput extends SetUICustomizationRespo
  * import { CognitoIdentityProviderClient, SetUICustomizationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetUICustomizationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // SetUICustomizationRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE",
+ *   CSS: "STRING_VALUE",
+ *   ImageFile: "BLOB_VALUE",
+ * };
  * const command = new SetUICustomizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetUICustomizationCommandInput - {@link SetUICustomizationCommandInput}
+ * @returns {@link SetUICustomizationCommandOutput}
  * @see {@link SetUICustomizationCommandInput} for command's `input` shape.
  * @see {@link SetUICustomizationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  *
  */
 export class SetUICustomizationCommand extends $Command<
@@ -79,6 +114,9 @@ export class SetUICustomizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetUICustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,12 +157,18 @@ export class SetUICustomizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetUICustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetUICustomizationCommand(input, context);
+    return se_SetUICustomizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUICustomizationCommandOutput> {
-    return deserializeAws_json1_1SetUICustomizationCommand(output, context);
+    return de_SetUICustomizationCommand(output, context);
   }
 
   // Start section: command_body_extra

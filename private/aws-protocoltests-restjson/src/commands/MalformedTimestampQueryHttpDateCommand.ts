@@ -12,17 +12,24 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { MalformedTimestampQueryHttpDateInput } from "../models/models_0";
 import {
-  MalformedTimestampQueryHttpDateInput,
-  MalformedTimestampQueryHttpDateInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedTimestampQueryHttpDateCommand,
-  serializeAws_restJson1MalformedTimestampQueryHttpDateCommand,
+  de_MalformedTimestampQueryHttpDateCommand,
+  se_MalformedTimestampQueryHttpDateCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ *
+ * The input for {@link MalformedTimestampQueryHttpDateCommand}.
+ */
 export interface MalformedTimestampQueryHttpDateCommandInput extends MalformedTimestampQueryHttpDateInput {}
+/**
+ * @public
+ *
+ * The output of {@link MalformedTimestampQueryHttpDateCommand}.
+ */
 export interface MalformedTimestampQueryHttpDateCommandOutput extends __MetadataBearer {}
 
 export class MalformedTimestampQueryHttpDateCommand extends $Command<
@@ -33,6 +40,9 @@ export class MalformedTimestampQueryHttpDateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedTimestampQueryHttpDateCommandInput) {
     // Start section: command_constructor
     super();
@@ -58,8 +68,8 @@ export class MalformedTimestampQueryHttpDateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedTimestampQueryHttpDateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -69,18 +79,24 @@ export class MalformedTimestampQueryHttpDateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: MalformedTimestampQueryHttpDateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedTimestampQueryHttpDateCommand(input, context);
+    return se_MalformedTimestampQueryHttpDateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MalformedTimestampQueryHttpDateCommandOutput> {
-    return deserializeAws_restJson1MalformedTimestampQueryHttpDateCommand(output, context);
+    return de_MalformedTimestampQueryHttpDateCommand(output, context);
   }
 
   // Start section: command_body_extra

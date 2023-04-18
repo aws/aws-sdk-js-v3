@@ -14,18 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DeleteMountTargetRequest, DeleteMountTargetRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMountTargetCommand,
-  serializeAws_restJson1DeleteMountTargetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMountTargetRequest } from "../models/models_0";
+import { de_DeleteMountTargetCommand, se_DeleteMountTargetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteMountTargetCommand}.
+ */
 export interface DeleteMountTargetCommandInput extends DeleteMountTargetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteMountTargetCommand}.
+ */
 export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified mount target.</p>
- *
  *          <p>This operation forcibly breaks any mounts of the file system by using the mount target
  *       that is being deleted, which might disrupt instances or applications using those mounts. To
  *       avoid applications getting cut off abruptly, you might consider unmounting any mounts of the
@@ -42,13 +49,11 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>The <code>DeleteMountTarget</code> call returns while the mount target state is still
  *           <code>deleting</code>. You can check the mount target deletion by calling the <a>DescribeMountTargets</a> operation, which returns a list of mount target
  *         descriptions for the given file system. </p>
  *          </note>
- *
  *          <p>The operation also requires permissions for the following Amazon EC2 action on the
  *       mount target's network interface:</p>
  *          <ul>
@@ -64,13 +69,45 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * import { EFSClient, DeleteMountTargetCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteMountTargetCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DeleteMountTargetRequest
+ *   MountTargetId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMountTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMountTargetCommandInput - {@link DeleteMountTargetCommandInput}
+ * @returns {@link DeleteMountTargetCommandOutput}
  * @see {@link DeleteMountTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link DependencyTimeout} (server fault)
+ *  <p>The service timed out trying to fulfill the request, and the client should try the
+ *             call again.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link MountTargetNotFound} (client fault)
+ *  <p>Returned if there is no mount target with the specified ID found in the
+ *             caller's Amazon Web Services account.</p>
+ *
+ *
+ * @example To delete a mount target
+ * ```javascript
+ * // This operation deletes a mount target.
+ * const input = {
+ *   "MountTargetId": "fsmt-12340abc"
+ * };
+ * const command = new DeleteMountTargetCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-mount-target-1481847635607
+ * ```
  *
  */
 export class DeleteMountTargetCommand extends $Command<
@@ -90,6 +127,9 @@ export class DeleteMountTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMountTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +158,8 @@ export class DeleteMountTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMountTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +169,18 @@ export class DeleteMountTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMountTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMountTargetCommand(input, context);
+    return se_DeleteMountTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMountTargetCommandOutput> {
-    return deserializeAws_restJson1DeleteMountTargetCommand(output, context);
+    return de_DeleteMountTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

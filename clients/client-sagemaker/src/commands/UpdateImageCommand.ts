@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateImageRequest,
-  UpdateImageRequestFilterSensitiveLog,
-  UpdateImageResponse,
-  UpdateImageResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateImageCommand,
-  serializeAws_json1_1UpdateImageCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateImageRequest, UpdateImageResponse } from "../models/models_4";
+import { de_UpdateImageCommand, se_UpdateImageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateImageCommand}.
+ */
 export interface UpdateImageCommandInput extends UpdateImageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateImageCommand}.
+ */
 export interface UpdateImageCommandOutput extends UpdateImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of a SageMaker image. To change the image's tags, use the
  *         <a>AddTags</a> and <a>DeleteTags</a> APIs.</p>
  * @example
@@ -37,13 +40,31 @@ export interface UpdateImageCommandOutput extends UpdateImageResponse, __Metadat
  * import { SageMakerClient, UpdateImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateImageRequest
+ *   DeleteProperties: [ // ImageDeletePropertyList
+ *     "STRING_VALUE",
+ *   ],
+ *   Description: "STRING_VALUE",
+ *   DisplayName: "STRING_VALUE",
+ *   ImageName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateImageCommandInput - {@link UpdateImageCommandInput}
+ * @returns {@link UpdateImageCommandOutput}
  * @see {@link UpdateImageCommandInput} for command's `input` shape.
  * @see {@link UpdateImageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class UpdateImageCommand extends $Command<
@@ -63,6 +84,9 @@ export class UpdateImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +113,8 @@ export class UpdateImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +124,18 @@ export class UpdateImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateImageCommand(input, context);
+    return se_UpdateImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImageCommandOutput> {
-    return deserializeAws_json1_1UpdateImageCommand(output, context);
+    return de_UpdateImageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListMetricValuesRequest,
-  ListMetricValuesRequestFilterSensitiveLog,
-  ListMetricValuesResponse,
-  ListMetricValuesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListMetricValuesCommand,
-  serializeAws_restJson1ListMetricValuesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMetricValuesRequest, ListMetricValuesResponse } from "../models/models_1";
+import { de_ListMetricValuesCommand, se_ListMetricValuesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListMetricValuesCommand}.
+ */
 export interface ListMetricValuesCommandInput extends ListMetricValuesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMetricValuesCommand}.
+ */
 export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the values reported for an IoT Device Defender metric (device-side metric, cloud-side metric, or custom metric)
  *       by the given thing during the specified time period.</p>
  * @example
@@ -37,13 +40,38 @@ export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse,
  * import { IoTClient, ListMetricValuesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListMetricValuesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListMetricValuesRequest
+ *   thingName: "STRING_VALUE", // required
+ *   metricName: "STRING_VALUE", // required
+ *   dimensionName: "STRING_VALUE",
+ *   dimensionValueOperator: "IN" || "NOT_IN",
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListMetricValuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMetricValuesCommandInput - {@link ListMetricValuesCommandInput}
+ * @returns {@link ListMetricValuesCommandOutput}
  * @see {@link ListMetricValuesCommandInput} for command's `input` shape.
  * @see {@link ListMetricValuesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
  *
  */
 export class ListMetricValuesCommand extends $Command<
@@ -63,6 +91,9 @@ export class ListMetricValuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMetricValuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +122,8 @@ export class ListMetricValuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMetricValuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMetricValuesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +133,18 @@ export class ListMetricValuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMetricValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMetricValuesCommand(input, context);
+    return se_ListMetricValuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMetricValuesCommandOutput> {
-    return deserializeAws_restJson1ListMetricValuesCommand(output, context);
+    return de_ListMetricValuesCommand(output, context);
   }
 
   // Start section: command_body_extra

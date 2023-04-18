@@ -16,42 +16,80 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   GetAggregateConfigRuleComplianceSummaryRequest,
-  GetAggregateConfigRuleComplianceSummaryRequestFilterSensitiveLog,
   GetAggregateConfigRuleComplianceSummaryResponse,
-  GetAggregateConfigRuleComplianceSummaryResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand,
-  serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand,
+  de_GetAggregateConfigRuleComplianceSummaryCommand,
+  se_GetAggregateConfigRuleComplianceSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetAggregateConfigRuleComplianceSummaryCommand}.
+ */
 export interface GetAggregateConfigRuleComplianceSummaryCommandInput
   extends GetAggregateConfigRuleComplianceSummaryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAggregateConfigRuleComplianceSummaryCommand}.
+ */
 export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
   extends GetAggregateConfigRuleComplianceSummaryResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of compliant and noncompliant rules for one
  * 			or more accounts and regions in an aggregator.</p>
- * 		       <note>
- * 			         <p>The results can return an empty result page, but if you
+ *          <note>
+ *             <p>The results can return an empty result page, but if you
  * 				have a nextToken, the results are displayed on the next
  * 				page.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConfigServiceClient, GetAggregateConfigRuleComplianceSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetAggregateConfigRuleComplianceSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetAggregateConfigRuleComplianceSummaryRequest
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   Filters: { // ConfigRuleComplianceSummaryFilters
+ *     AccountId: "STRING_VALUE",
+ *     AwsRegion: "STRING_VALUE",
+ *   },
+ *   GroupByKey: "ACCOUNT_ID" || "AWS_REGION",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetAggregateConfigRuleComplianceSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAggregateConfigRuleComplianceSummaryCommandInput - {@link GetAggregateConfigRuleComplianceSummaryCommandInput}
+ * @returns {@link GetAggregateConfigRuleComplianceSummaryCommandOutput}
  * @see {@link GetAggregateConfigRuleComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetAggregateConfigRuleComplianceSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidLimitException} (client fault)
+ *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is not valid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
+ *  <p>You have specified a configuration aggregator that does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *
  *
  */
 export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
@@ -71,6 +109,9 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAggregateConfigRuleComplianceSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +146,8 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAggregateConfigRuleComplianceSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAggregateConfigRuleComplianceSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +157,24 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAggregateConfigRuleComplianceSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(input, context);
+    return se_GetAggregateConfigRuleComplianceSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> {
-    return deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(output, context);
+    return de_GetAggregateConfigRuleComplianceSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

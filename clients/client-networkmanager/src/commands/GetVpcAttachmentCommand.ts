@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetVpcAttachmentRequest,
-  GetVpcAttachmentRequestFilterSensitiveLog,
-  GetVpcAttachmentResponse,
-  GetVpcAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetVpcAttachmentRequest, GetVpcAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetVpcAttachmentCommand,
-  serializeAws_restJson1GetVpcAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVpcAttachmentCommand, se_GetVpcAttachmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetVpcAttachmentCommand}.
+ */
 export interface GetVpcAttachmentCommandInput extends GetVpcAttachmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVpcAttachmentCommand}.
+ */
 export interface GetVpcAttachmentCommandOutput extends GetVpcAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a VPC attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,34 @@ export interface GetVpcAttachmentCommandOutput extends GetVpcAttachmentResponse,
  * import { NetworkManagerClient, GetVpcAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetVpcAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetVpcAttachmentRequest
+ *   AttachmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetVpcAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVpcAttachmentCommandInput - {@link GetVpcAttachmentCommandInput}
+ * @returns {@link GetVpcAttachmentCommandOutput}
  * @see {@link GetVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
  *
  */
 export class GetVpcAttachmentCommand extends $Command<
@@ -62,6 +86,9 @@ export class GetVpcAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVpcAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +117,8 @@ export class GetVpcAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVpcAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVpcAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +128,18 @@ export class GetVpcAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVpcAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVpcAttachmentCommand(input, context);
+    return se_GetVpcAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVpcAttachmentCommandOutput> {
-    return deserializeAws_restJson1GetVpcAttachmentCommand(output, context);
+    return de_GetVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

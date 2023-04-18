@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  DeleteOriginRequestPolicyRequest,
-  DeleteOriginRequestPolicyRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteOriginRequestPolicyCommand,
-  serializeAws_restXmlDeleteOriginRequestPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteOriginRequestPolicyRequest } from "../models/models_1";
+import { de_DeleteOriginRequestPolicyCommand, se_DeleteOriginRequestPolicyCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteOriginRequestPolicyCommand}.
+ */
 export interface DeleteOriginRequestPolicyCommandInput extends DeleteOriginRequestPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteOriginRequestPolicyCommand}.
+ */
 export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an origin request policy.</p>
  *          <p>You cannot delete an origin request policy if it's attached to any cache behaviors.
  * 			First update your distributions to remove the origin request policy from all cache
@@ -40,13 +45,40 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  * import { CloudFrontClient, DeleteOriginRequestPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteOriginRequestPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // DeleteOriginRequestPolicyRequest
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteOriginRequestPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOriginRequestPolicyCommandInput - {@link DeleteOriginRequestPolicyCommandInput}
+ * @returns {@link DeleteOriginRequestPolicyCommandOutput}
  * @see {@link DeleteOriginRequestPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteOriginRequestPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link IllegalDelete} (client fault)
+ *  <p>You cannot delete a managed policy.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchOriginRequestPolicy} (client fault)
+ *  <p>The origin request policy does not exist.</p>
+ *
+ * @throws {@link OriginRequestPolicyInUse} (client fault)
+ *  <p>Cannot delete the origin request policy because it is attached to one or more cache
+ * 			behaviors.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
  *
  */
 export class DeleteOriginRequestPolicyCommand extends $Command<
@@ -66,6 +98,9 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOriginRequestPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +129,8 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOriginRequestPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +140,21 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOriginRequestPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteOriginRequestPolicyCommand(input, context);
+    return se_DeleteOriginRequestPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOriginRequestPolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteOriginRequestPolicyCommand(output, context);
+    return de_DeleteOriginRequestPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

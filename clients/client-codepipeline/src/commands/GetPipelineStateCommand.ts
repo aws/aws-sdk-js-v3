@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  GetPipelineStateInput,
-  GetPipelineStateInputFilterSensitiveLog,
-  GetPipelineStateOutput,
-  GetPipelineStateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPipelineStateCommand,
-  serializeAws_json1_1GetPipelineStateCommand,
-} from "../protocols/Aws_json1_1";
+import { GetPipelineStateInput, GetPipelineStateOutput } from "../models/models_0";
+import { de_GetPipelineStateCommand, se_GetPipelineStateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPipelineStateCommand}.
+ */
 export interface GetPipelineStateCommandInput extends GetPipelineStateInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetPipelineStateCommand}.
+ */
 export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the state of a pipeline, including the stages and
  *             actions.</p>
  *         <note>
@@ -42,13 +45,25 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * import { CodePipelineClient, GetPipelineStateCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetPipelineStateCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // GetPipelineStateInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetPipelineStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPipelineStateCommandInput - {@link GetPipelineStateCommandInput}
+ * @returns {@link GetPipelineStateCommandOutput}
  * @see {@link GetPipelineStateCommandInput} for command's `input` shape.
  * @see {@link GetPipelineStateCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link PipelineNotFoundException} (client fault)
+ *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
  *
  */
 export class GetPipelineStateCommand extends $Command<
@@ -68,6 +83,9 @@ export class GetPipelineStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPipelineStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +114,8 @@ export class GetPipelineStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPipelineStateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPipelineStateOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +125,18 @@ export class GetPipelineStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPipelineStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPipelineStateCommand(input, context);
+    return se_GetPipelineStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPipelineStateCommandOutput> {
-    return deserializeAws_json1_1GetPipelineStateCommand(output, context);
+    return de_GetPipelineStateCommand(output, context);
   }
 
   // Start section: command_body_extra

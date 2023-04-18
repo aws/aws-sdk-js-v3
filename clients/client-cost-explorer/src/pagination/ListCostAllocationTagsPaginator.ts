@@ -6,12 +6,11 @@ import {
   ListCostAllocationTagsCommandInput,
   ListCostAllocationTagsCommandOutput,
 } from "../commands/ListCostAllocationTagsCommand";
-import { CostExplorer } from "../CostExplorer";
 import { CostExplorerClient } from "../CostExplorerClient";
 import { CostExplorerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CostExplorerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListCostAllocationTagsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CostExplorer,
-  input: ListCostAllocationTagsCommandInput,
-  ...args: any
-): Promise<ListCostAllocationTagsCommandOutput> => {
-  // @ts-ignore
-  return await client.listCostAllocationTags(input, ...args);
-};
 export async function* paginateListCostAllocationTags(
   config: CostExplorerPaginationConfiguration,
   input: ListCostAllocationTagsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListCostAllocationTags(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CostExplorer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CostExplorerClient) {
+    if (config.client instanceof CostExplorerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CostExplorer | CostExplorerClient");

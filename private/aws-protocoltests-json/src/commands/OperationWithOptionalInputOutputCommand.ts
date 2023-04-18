@@ -13,18 +13,23 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
+import { OperationWithOptionalInputOutputInput, OperationWithOptionalInputOutputOutput } from "../models/models_0";
 import {
-  OperationWithOptionalInputOutputInput,
-  OperationWithOptionalInputOutputInputFilterSensitiveLog,
-  OperationWithOptionalInputOutputOutput,
-  OperationWithOptionalInputOutputOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1OperationWithOptionalInputOutputCommand,
-  serializeAws_json1_1OperationWithOptionalInputOutputCommand,
+  de_OperationWithOptionalInputOutputCommand,
+  se_OperationWithOptionalInputOutputCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link OperationWithOptionalInputOutputCommand}.
+ */
 export interface OperationWithOptionalInputOutputCommandInput extends OperationWithOptionalInputOutputInput {}
+/**
+ * @public
+ *
+ * The output of {@link OperationWithOptionalInputOutputCommand}.
+ */
 export interface OperationWithOptionalInputOutputCommandOutput
   extends OperationWithOptionalInputOutputOutput,
     __MetadataBearer {}
@@ -37,6 +42,9 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: OperationWithOptionalInputOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,8 +70,8 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OperationWithOptionalInputOutputInputFilterSensitiveLog,
-      outputFilterSensitiveLog: OperationWithOptionalInputOutputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -73,18 +81,24 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: OperationWithOptionalInputOutputCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1OperationWithOptionalInputOutputCommand(input, context);
+    return se_OperationWithOptionalInputOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<OperationWithOptionalInputOutputCommandOutput> {
-    return deserializeAws_json1_1OperationWithOptionalInputOutputCommand(output, context);
+    return de_OperationWithOptionalInputOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

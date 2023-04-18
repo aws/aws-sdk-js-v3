@@ -199,6 +199,7 @@ import { UpdatePoolCommand, UpdatePoolCommandInput, UpdatePoolCommandOutput } fr
 import { PinpointSMSVoiceV2Client } from "./PinpointSMSVoiceV2Client";
 
 /**
+ * @public
  * <p>Welcome to the <i>Amazon Pinpoint SMS and Voice, version 2 API Reference</i>.
  *             This guide provides information about Amazon Pinpoint SMS and Voice, version 2 API
  *             resources, including supported HTTP methods, parameters, and schemas.</p>
@@ -218,6 +219,7 @@ import { PinpointSMSVoiceV2Client } from "./PinpointSMSVoiceV2Client";
  */
 export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   /**
+   * @public
    * <p>Associates the specified origination identity with a pool.</p>
    *         <p>If the origination identity is a phone number and is already associated with another
    *             pool, an Error is returned. A sender ID can be associated with multiple pools.</p>
@@ -254,6 +256,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a new configuration set. After you create the configuration set, you can add
    *             one or more event destinations to it.</p>
    *         <p>A configuration set is a set of rules that you apply to the SMS and voice messages
@@ -290,6 +293,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a new event destination in a configuration set.</p>
    *         <p>An event destination is a location where you send message events. The event options
    *             are Amazon CloudWatch, Amazon Kinesis Data Firehose, or Amazon SNS. For example,
@@ -330,6 +334,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a new opt-out list.</p>
    *         <p>If the opt-out list name already exists, an Error is returned.</p>
    *         <p>An opt-out list is a list of phone numbers that are opted out, meaning you can't send
@@ -370,6 +375,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a new pool and associates the specified origination identity to the pool. A
    *             pool can include one or more phone numbers and SenderIds that are associated with your
    *                 Amazon Web Services account.</p>
@@ -404,6 +410,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an existing configuration set.</p>
    *         <p>A configuration set is a set of rules that you apply to voice and SMS messages that
    *             you send. In a configuration set, you can specify a destination for specific types of
@@ -439,6 +446,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an existing default message type on a configuration set.</p>
    *         <p> A message type is a type of messages that you plan to send. If you send
    *             account-related messages or time-sensitive messages such as one-time passcodes, choose
@@ -476,6 +484,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an existing default sender ID on a configuration set.</p>
    *         <p>A default sender ID is the identity that appears on recipients' devices when they
    *             receive SMS messages. Support for sender ID capabilities varies by country or
@@ -511,6 +520,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an existing event destination.</p>
    *         <p>An event destination is a location where you send response information about the
    *             messages that you send. For example, when a message is delivered successfully, you can
@@ -547,6 +557,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an existing keyword from an origination phone number or pool.</p>
    *         <p>A keyword is a word that you can search for on a particular phone number or pool. It
    *             is also a specific word or phrase that an end user can send to your number to elicit a
@@ -585,6 +596,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an existing opted out destination phone number from the specified opt-out
    *             list.</p>
    *         <p>Each destination phone number can only be deleted once every 30 days.</p>
@@ -621,6 +633,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an existing opt-out list. All opted out phone numbers in the opt-out list are
    *             deleted.</p>
    *         <p>If the specified opt-out list name doesn't exist or is in-use by an origination phone
@@ -656,6 +669,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an existing pool. Deleting a pool disassociates all origination identities
    *             from that pool.</p>
    *         <p>If the pool status isn't active or if deletion protection is enabled, an Error is
@@ -688,6 +702,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an account-level monthly spending limit override for sending text messages.
    *             Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the
    *                 <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more
@@ -724,6 +739,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Deletes an account level monthly spend limit override for sending voice messages.
    *             Deleting a spend limit override sets the <code>EnforcedLimit</code> equal to the
    *                 <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more
@@ -760,6 +776,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Describes attributes of your Amazon Web Services account. The supported account
    *             attributes include account tier, which indicates whether your account is in the sandbox
    *             or production environment. When you're ready to move your account out of the sandbox,
@@ -798,6 +815,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the current Amazon Pinpoint SMS Voice V2 resource quotas for your
    *             account. The description for a quota includes the quota name, current usage toward that
    *             quota, and the quota's maximum value.</p>
@@ -837,6 +855,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified configuration sets or all in your account.</p>
    *         <p>If you specify configuration set names, the output includes information for only the
    *             specified configuration sets. If you specify filters, the output includes information
@@ -875,6 +894,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified keywords or all keywords on your origination phone number or
    *             pool.</p>
    *         <p>A keyword is a word that you can search for on a particular phone number or pool. It
@@ -914,6 +934,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified opted out destination numbers or all opted out destination
    *             numbers in an opt-out list.</p>
    *         <p>If you specify opted out numbers, the output includes information for only the
@@ -953,6 +974,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified opt-out list or all opt-out lists in your account.</p>
    *         <p>If you specify opt-out list names, the output includes information for only the
    *             specified opt-out lists. Opt-out lists include only those that meet the filter criteria.
@@ -990,6 +1012,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified origination phone number, or all the phone numbers in your
    *             account.</p>
    *         <p>If you specify phone number IDs, the output includes information for only the
@@ -1028,6 +1051,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified pools or all pools associated with your Amazon Web Services
    *             account.</p>
    *         <p>If you specify pool IDs, the output includes information for only the specified pools.
@@ -1069,6 +1093,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the specified SenderIds or all SenderIds associated with your Amazon Web Services account.</p>
    *         <p>If you specify SenderIds, the output includes information for only the specified
    *             SenderIds. If you specify filters, the output includes information for only those
@@ -1106,6 +1131,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Describes the current Amazon Pinpoint monthly spend limits for sending voice and
    *             text messages.</p>
    *         <p>When you establish an Amazon Web Services account, the account has initial monthly
@@ -1144,6 +1170,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Removes the specified origination identity from an existing pool.</p>
    *         <p>If the origination identity isn't associated with the specified pool, an Error is
    *             returned.</p>
@@ -1178,6 +1205,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Lists all associated origination identities in your pool.</p>
    *         <p>If you specify filters, the output includes information for only those origination
    *             identities that meet the filter criteria.</p>
@@ -1212,6 +1240,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>List all tags associated with a resource.</p>
    */
   public listTagsForResource(
@@ -1244,6 +1273,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Creates or updates a keyword configuration on an origination phone number or
    *             pool.</p>
    *         <p> A keyword is a word that you can search for on a particular phone number or pool. It
@@ -1277,6 +1307,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Creates an opted out destination phone number in the opt-out list.</p>
    *         <p>If the destination phone number isn't valid or if the specified opt-out list doesn't
    *             exist, an Error is returned.</p>
@@ -1311,6 +1342,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Releases an existing origination phone number in your account. Once released, a phone
    *             number is no longer available for sending messages.</p>
    *         <p>If the origination phone number has deletion protection enabled or is associated with
@@ -1346,6 +1378,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Request an origination phone number for use in your account. For more information on
    *             phone number request see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-request-number.html"> Requesting a
    *                 number </a> in the <i>Amazon Pinpoint User Guide</i>.</p>
@@ -1380,6 +1413,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Creates a new text message and sends it to a recipient's phone number.</p>
    *         <p>SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS limit
    *             depends on the destination country of your messages, as well as the type of phone number
@@ -1417,6 +1451,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Allows you to send a request that sends a text message through Amazon Pinpoint.
    *             This operation uses <a href="http://aws.amazon.com/polly/">Amazon Polly</a> to
    *             convert a text script into a voice message.</p>
@@ -1451,6 +1486,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Sets the default message type on a configuration set.</p>
    *         <p>Choose the category of SMS messages that you plan to send from this account. If you
    *             send account-related messages or time-sensitive messages such as one-time passcodes,
@@ -1488,6 +1524,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Sets default sender ID on a configuration set.</p>
    *         <p>When sending a text message to a destination country that supports sender IDs, the
    *             default sender ID on the configuration set specified will be used if no dedicated
@@ -1523,6 +1560,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Sets an account level monthly spend limit override for sending text messages. The
    *             requested spend limit must be less than or equal to the <code>MaxLimit</code>, which is
    *             set by Amazon Web Services. </p>
@@ -1557,6 +1595,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Sets an account level monthly spend limit override for sending voice messages. The
    *             requested spend limit must be less than or equal to the <code>MaxLimit</code>, which is
    *             set by Amazon Web Services. </p>
@@ -1591,6 +1630,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Adds or overwrites only the specified tags for the specified Amazon Pinpoint SMS
    *             Voice, version 2 resource. When you specify an existing tag key, the value is
    *             overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag
@@ -1622,6 +1662,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Removes the association of the specified tags from an Amazon Pinpoint SMS Voice V2
    *             resource. For more information on tags see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/tagging-resources.html"> Tagging Amazon Pinpoint resources</a> in the <i>Amazon Pinpoint Developer
    *                 Guide</i>. </p>
@@ -1656,6 +1697,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Updates an existing event destination in a configuration set. You can update the
    *                 IAM role ARN for CloudWatch Logs and Kinesis Data Firehose. You can
    *             also enable or disable the event destination.</p>
@@ -1693,6 +1735,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Updates the configuration of an existing origination phone number. You can update the
    *             opt-out list, enable or disable two-way messaging, change the TwoWayChannelArn, enable
    *             or disable self-managed opt-outs, and enable or disable deletion protection.</p>
@@ -1729,6 +1772,7 @@ export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client {
   }
 
   /**
+   * @public
    * <p>Updates the configuration of an existing pool. You can update the opt-out list, enable
    *             or disable two-way messaging, change the <code>TwoWayChannelArn</code>, enable or
    *             disable self-managed opt-outs, enable or disable deletion protection, and enable or

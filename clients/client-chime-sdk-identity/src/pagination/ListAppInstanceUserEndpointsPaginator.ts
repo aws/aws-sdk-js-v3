@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ChimeSDKIdentity } from "../ChimeSDKIdentity";
 import { ChimeSDKIdentityClient } from "../ChimeSDKIdentityClient";
 import {
   ListAppInstanceUserEndpointsCommand,
@@ -11,7 +10,7 @@ import {
 import { ChimeSDKIdentityPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeSDKIdentityClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAppInstanceUserEndpointsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ChimeSDKIdentity,
-  input: ListAppInstanceUserEndpointsCommandInput,
-  ...args: any
-): Promise<ListAppInstanceUserEndpointsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAppInstanceUserEndpoints(input, ...args);
-};
 export async function* paginateListAppInstanceUserEndpoints(
   config: ChimeSDKIdentityPaginationConfiguration,
   input: ListAppInstanceUserEndpointsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListAppInstanceUserEndpoints(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ChimeSDKIdentity) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ChimeSDKIdentityClient) {
+    if (config.client instanceof ChimeSDKIdentityClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ChimeSDKIdentity | ChimeSDKIdentityClient");

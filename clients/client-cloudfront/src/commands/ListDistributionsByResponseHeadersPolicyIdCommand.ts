@@ -16,22 +16,31 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   ListDistributionsByResponseHeadersPolicyIdRequest,
-  ListDistributionsByResponseHeadersPolicyIdRequestFilterSensitiveLog,
   ListDistributionsByResponseHeadersPolicyIdResult,
-  ListDistributionsByResponseHeadersPolicyIdResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand,
-  serializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand,
+  de_ListDistributionsByResponseHeadersPolicyIdCommand,
+  se_ListDistributionsByResponseHeadersPolicyIdCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDistributionsByResponseHeadersPolicyIdCommand}.
+ */
 export interface ListDistributionsByResponseHeadersPolicyIdCommandInput
   extends ListDistributionsByResponseHeadersPolicyIdRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDistributionsByResponseHeadersPolicyIdCommand}.
+ */
 export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
   extends ListDistributionsByResponseHeadersPolicyIdResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
  * 			associated with the specified response headers policy.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -45,13 +54,30 @@ export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
  * import { CloudFrontClient, ListDistributionsByResponseHeadersPolicyIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByResponseHeadersPolicyIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListDistributionsByResponseHeadersPolicyIdRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   ResponseHeadersPolicyId: "STRING_VALUE", // required
+ * };
  * const command = new ListDistributionsByResponseHeadersPolicyIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsByResponseHeadersPolicyIdCommandInput - {@link ListDistributionsByResponseHeadersPolicyIdCommandInput}
+ * @returns {@link ListDistributionsByResponseHeadersPolicyIdCommandOutput}
  * @see {@link ListDistributionsByResponseHeadersPolicyIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByResponseHeadersPolicyIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
+ *  <p>The response headers policy does not exist.</p>
+ *
  *
  */
 export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
@@ -71,6 +97,9 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByResponseHeadersPolicyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +134,8 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsByResponseHeadersPolicyIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDistributionsByResponseHeadersPolicyIdResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +145,24 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDistributionsByResponseHeadersPolicyIdCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand(input, context);
+    return se_ListDistributionsByResponseHeadersPolicyIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByResponseHeadersPolicyIdCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand(output, context);
+    return de_ListDistributionsByResponseHeadersPolicyIdCommand(output, context);
   }
 
   // Start section: command_body_extra

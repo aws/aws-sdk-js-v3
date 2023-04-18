@@ -13,27 +13,36 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateLensShareInput,
-  CreateLensShareInputFilterSensitiveLog,
-  CreateLensShareOutput,
-  CreateLensShareOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLensShareCommand,
-  serializeAws_restJson1CreateLensShareCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateLensShareInput, CreateLensShareOutput } from "../models/models_0";
+import { de_CreateLensShareCommand, se_CreateLensShareCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateLensShareCommand}.
+ */
 export interface CreateLensShareCommandInput extends CreateLensShareInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLensShareCommand}.
+ */
 export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a lens share.</p>
- *         <p>The owner of a lens can share it with other Amazon Web Services accounts, IAM users, an organization,
+ *          <p>The owner of a lens can share it with other Amazon Web Services accounts, users, an organization,
  *             and organizational units (OUs) in the same Amazon Web Services Region.
+ *             Lenses provided by Amazon Web Services (Amazon Web Services Official Content) cannot be shared.</p>
+ *          <p>
  *             Shared access to a lens is not removed until the lens invitation is deleted.</p>
- *         <note>
+ *          <p>If you share a lens with an organization or OU, all accounts in the organization or OU
+ *         are granted access to the lens.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-sharing.html">Sharing a custom lens</a> in the
+ *             <i>Well-Architected Tool User Guide</i>.</p>
+ *          <note>
  *             <p>
  *                <b>Disclaimer</b>
  *             </p>
@@ -50,13 +59,42 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  * import { WellArchitectedClient, CreateLensShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, CreateLensShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // CreateLensShareInput
+ *   LensAlias: "STRING_VALUE", // required
+ *   SharedWith: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateLensShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLensShareCommandInput - {@link CreateLensShareCommandInput}
+ * @returns {@link CreateLensShareCommandOutput}
  * @see {@link CreateLensShareCommandInput} for command's `input` shape.
  * @see {@link CreateLensShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The user has reached their resource quota.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The user input is not valid.</p>
+ *
  *
  */
 export class CreateLensShareCommand extends $Command<
@@ -76,6 +114,9 @@ export class CreateLensShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLensShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +145,8 @@ export class CreateLensShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLensShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLensShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +156,18 @@ export class CreateLensShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLensShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLensShareCommand(input, context);
+    return se_CreateLensShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLensShareCommandOutput> {
-    return deserializeAws_restJson1CreateLensShareCommand(output, context);
+    return de_CreateLensShareCommand(output, context);
   }
 
   // Start section: command_body_extra

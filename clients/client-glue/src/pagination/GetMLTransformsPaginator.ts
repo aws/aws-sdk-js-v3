@@ -6,12 +6,11 @@ import {
   GetMLTransformsCommandInput,
   GetMLTransformsCommandOutput,
 } from "../commands/GetMLTransformsCommand";
-import { Glue } from "../Glue";
 import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlueClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetMLTransformsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Glue,
-  input: GetMLTransformsCommandInput,
-  ...args: any
-): Promise<GetMLTransformsCommandOutput> => {
-  // @ts-ignore
-  return await client.getMLTransforms(input, ...args);
-};
 export async function* paginateGetMLTransforms(
   config: GluePaginationConfiguration,
   input: GetMLTransformsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateGetMLTransforms(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Glue) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlueClient) {
+    if (config.client instanceof GlueClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Glue | GlueClient");

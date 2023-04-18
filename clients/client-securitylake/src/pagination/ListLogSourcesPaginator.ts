@@ -6,12 +6,11 @@ import {
   ListLogSourcesCommandInput,
   ListLogSourcesCommandOutput,
 } from "../commands/ListLogSourcesCommand";
-import { SecurityLake } from "../SecurityLake";
 import { SecurityLakeClient } from "../SecurityLakeClient";
 import { SecurityLakePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecurityLakeClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListLogSourcesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SecurityLake,
-  input: ListLogSourcesCommandInput,
-  ...args: any
-): Promise<ListLogSourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listLogSources(input, ...args);
-};
 export async function* paginateListLogSources(
   config: SecurityLakePaginationConfiguration,
   input: ListLogSourcesCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListLogSources(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof SecurityLake) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecurityLakeClient) {
+    if (config.client instanceof SecurityLakeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecurityLake | SecurityLakeClient");

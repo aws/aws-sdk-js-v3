@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RenewDomainRequest,
-  RenewDomainRequestFilterSensitiveLog,
-  RenewDomainResponse,
-  RenewDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RenewDomainCommand,
-  serializeAws_json1_1RenewDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { RenewDomainRequest, RenewDomainResponse } from "../models/models_0";
+import { de_RenewDomainCommand, se_RenewDomainCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link RenewDomainCommand}.
+ */
 export interface RenewDomainCommandInput extends RenewDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RenewDomainCommand}.
+ */
 export interface RenewDomainCommandOutput extends RenewDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation renews a domain for the specified number of years. The cost of renewing
  * 			your domain is billed to your Amazon Web Services account.</p>
  *          <p>We recommend that you renew your domain several weeks before the expiration date. Some
@@ -42,13 +45,40 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  * import { Route53DomainsClient, RenewDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, RenewDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // RenewDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   DurationInYears: Number("int"),
+ *   CurrentExpiryYear: Number("int"), // required
+ * };
  * const command = new RenewDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RenewDomainCommandInput - {@link RenewDomainCommandInput}
+ * @returns {@link RenewDomainCommandOutput}
  * @see {@link RenewDomainCommandInput} for command's `input` shape.
  * @see {@link RenewDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link DuplicateRequest} (client fault)
+ *  <p>The request is already in progress for the domain.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link OperationLimitExceeded} (client fault)
+ *  <p>The number of operations or jobs running exceeded the allowed threshold for the
+ * 			account.</p>
+ *
+ * @throws {@link TLDRulesViolation} (client fault)
+ *  <p>The top-level domain does not support this operation.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class RenewDomainCommand extends $Command<
@@ -68,6 +98,9 @@ export class RenewDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RenewDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +127,8 @@ export class RenewDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RenewDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RenewDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +138,18 @@ export class RenewDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RenewDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RenewDomainCommand(input, context);
+    return se_RenewDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RenewDomainCommandOutput> {
-    return deserializeAws_json1_1RenewDomainCommand(output, context);
+    return de_RenewDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

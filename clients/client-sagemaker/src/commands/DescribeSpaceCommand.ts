@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSpaceRequest,
-  DescribeSpaceRequestFilterSensitiveLog,
-  DescribeSpaceResponse,
-  DescribeSpaceResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeSpaceCommand,
-  serializeAws_json1_1DescribeSpaceCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSpaceRequest, DescribeSpaceResponse } from "../models/models_2";
+import { de_DescribeSpaceCommand, se_DescribeSpaceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSpaceCommand}.
+ */
 export interface DescribeSpaceCommandInput extends DescribeSpaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSpaceCommand}.
+ */
 export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,23 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  * import { SageMakerClient, DescribeSpaceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeSpaceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeSpaceRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   SpaceName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSpaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpaceCommandInput - {@link DescribeSpaceCommandInput}
+ * @returns {@link DescribeSpaceCommandOutput}
  * @see {@link DescribeSpaceCommandInput} for command's `input` shape.
  * @see {@link DescribeSpaceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class DescribeSpaceCommand extends $Command<
@@ -62,6 +75,9 @@ export class DescribeSpaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +104,8 @@ export class DescribeSpaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSpaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +115,18 @@ export class DescribeSpaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSpaceCommand(input, context);
+    return se_DescribeSpaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSpaceCommandOutput> {
-    return deserializeAws_json1_1DescribeSpaceCommand(output, context);
+    return de_DescribeSpaceCommand(output, context);
   }
 
   // Start section: command_body_extra

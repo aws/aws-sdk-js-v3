@@ -14,19 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { DisassociatePhoneNumberContactFlowRequest } from "../models/models_0";
 import {
-  DisassociatePhoneNumberContactFlowRequest,
-  DisassociatePhoneNumberContactFlowRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociatePhoneNumberContactFlowCommand,
-  serializeAws_restJson1DisassociatePhoneNumberContactFlowCommand,
+  de_DisassociatePhoneNumberContactFlowCommand,
+  se_DisassociatePhoneNumberContactFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisassociatePhoneNumberContactFlowCommand}.
+ */
 export interface DisassociatePhoneNumberContactFlowCommandInput extends DisassociatePhoneNumberContactFlowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociatePhoneNumberContactFlowCommand}.
+ */
 export interface DisassociatePhoneNumberContactFlowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the flow association from a phone number claimed to your Amazon Connect
  *    instance.</p>
  *          <important>
@@ -44,13 +52,35 @@ export interface DisassociatePhoneNumberContactFlowCommandOutput extends __Metad
  * import { ConnectClient, DisassociatePhoneNumberContactFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociatePhoneNumberContactFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DisassociatePhoneNumberContactFlowRequest
+ *   PhoneNumberId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociatePhoneNumberContactFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociatePhoneNumberContactFlowCommandInput - {@link DisassociatePhoneNumberContactFlowCommandInput}
+ * @returns {@link DisassociatePhoneNumberContactFlowCommandOutput}
  * @see {@link DisassociatePhoneNumberContactFlowCommandInput} for command's `input` shape.
  * @see {@link DisassociatePhoneNumberContactFlowCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
  *
  */
 export class DisassociatePhoneNumberContactFlowCommand extends $Command<
@@ -70,6 +100,9 @@ export class DisassociatePhoneNumberContactFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociatePhoneNumberContactFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +131,8 @@ export class DisassociatePhoneNumberContactFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociatePhoneNumberContactFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +142,24 @@ export class DisassociatePhoneNumberContactFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociatePhoneNumberContactFlowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociatePhoneNumberContactFlowCommand(input, context);
+    return se_DisassociatePhoneNumberContactFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePhoneNumberContactFlowCommandOutput> {
-    return deserializeAws_restJson1DisassociatePhoneNumberContactFlowCommand(output, context);
+    return de_DisassociatePhoneNumberContactFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

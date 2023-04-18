@@ -6,12 +6,11 @@ import {
   DescribeGlobalNetworksCommandInput,
   DescribeGlobalNetworksCommandOutput,
 } from "../commands/DescribeGlobalNetworksCommand";
-import { NetworkManager } from "../NetworkManager";
 import { NetworkManagerClient } from "../NetworkManagerClient";
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NetworkManagerClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeGlobalNetworksCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: NetworkManager,
-  input: DescribeGlobalNetworksCommandInput,
-  ...args: any
-): Promise<DescribeGlobalNetworksCommandOutput> => {
-  // @ts-ignore
-  return await client.describeGlobalNetworks(input, ...args);
-};
 export async function* paginateDescribeGlobalNetworks(
   config: NetworkManagerPaginationConfiguration,
   input: DescribeGlobalNetworksCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateDescribeGlobalNetworks(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof NetworkManager) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NetworkManagerClient) {
+    if (config.client instanceof NetworkManagerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");

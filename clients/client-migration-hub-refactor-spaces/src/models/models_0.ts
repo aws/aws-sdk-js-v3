@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { MigrationHubRefactorSpacesServiceException as __BaseException } from "./MigrationHubRefactorSpacesServiceException";
 
 /**
+ * @public
  * <p>The user does not have sufficient access to perform this action. </p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,12 +25,22 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum ApiGatewayEndpointType {
-  PRIVATE = "PRIVATE",
-  REGIONAL = "REGIONAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApiGatewayEndpointType = {
+  PRIVATE: "PRIVATE",
+  REGIONAL: "REGIONAL",
+} as const;
 
 /**
+ * @public
+ */
+export type ApiGatewayEndpointType = (typeof ApiGatewayEndpointType)[keyof typeof ApiGatewayEndpointType];
+
+/**
+ * @public
  * <p>A wrapper object holding the Amazon API Gateway proxy configuration. </p>
  */
 export interface ApiGatewayProxyConfig {
@@ -71,6 +82,7 @@ export interface ApiGatewayProxyConfig {
 }
 
 /**
+ * @public
  * <p>A wrapper object holding the Amazon API Gateway endpoint input. </p>
  */
 export interface ApiGatewayProxyInput {
@@ -91,6 +103,7 @@ export interface ApiGatewayProxyInput {
 }
 
 /**
+ * @public
  * <p>A wrapper object holding the Amazon API Gateway proxy summary. </p>
  */
 export interface ApiGatewayProxySummary {
@@ -131,52 +144,80 @@ export interface ApiGatewayProxySummary {
   StageName?: string;
 }
 
-export enum ApplicationState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
-
-export enum ErrorCode {
-  INVALID_RESOURCE_STATE = "INVALID_RESOURCE_STATE",
-  NOT_AUTHORIZED = "NOT_AUTHORIZED",
-  REQUEST_LIMIT_EXCEEDED = "REQUEST_LIMIT_EXCEEDED",
-  RESOURCE_CREATION_FAILURE = "RESOURCE_CREATION_FAILURE",
-  RESOURCE_DELETION_FAILURE = "RESOURCE_DELETION_FAILURE",
-  RESOURCE_IN_USE = "RESOURCE_IN_USE",
-  RESOURCE_LIMIT_EXCEEDED = "RESOURCE_LIMIT_EXCEEDED",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  RESOURCE_RETRIEVAL_FAILURE = "RESOURCE_RETRIEVAL_FAILURE",
-  RESOURCE_UPDATE_FAILURE = "RESOURCE_UPDATE_FAILURE",
-  SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE = "SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE",
-  STATE_TRANSITION_FAILURE = "STATE_TRANSITION_FAILURE",
-}
-
-export enum ErrorResourceType {
-  API_GATEWAY = "API_GATEWAY",
-  APPLICATION = "APPLICATION",
-  ENVIRONMENT = "ENVIRONMENT",
-  IAM_ROLE = "IAM_ROLE",
-  LAMBDA = "LAMBDA",
-  LOAD_BALANCER_LISTENER = "LOAD_BALANCER_LISTENER",
-  NLB = "NLB",
-  RESOURCE_SHARE = "RESOURCE_SHARE",
-  ROUTE = "ROUTE",
-  ROUTE_TABLE = "ROUTE_TABLE",
-  SECURITY_GROUP = "SECURITY_GROUP",
-  SERVICE = "SERVICE",
-  SUBNET = "SUBNET",
-  TARGET_GROUP = "TARGET_GROUP",
-  TRANSIT_GATEWAY = "TRANSIT_GATEWAY",
-  TRANSIT_GATEWAY_ATTACHMENT = "TRANSIT_GATEWAY_ATTACHMENT",
-  VPC = "VPC",
-  VPC_ENDPOINT_SERVICE_CONFIGURATION = "VPC_ENDPOINT_SERVICE_CONFIGURATION",
-  VPC_LINK = "VPC_LINK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationState = (typeof ApplicationState)[keyof typeof ApplicationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  INVALID_RESOURCE_STATE: "INVALID_RESOURCE_STATE",
+  NOT_AUTHORIZED: "NOT_AUTHORIZED",
+  REQUEST_LIMIT_EXCEEDED: "REQUEST_LIMIT_EXCEEDED",
+  RESOURCE_CREATION_FAILURE: "RESOURCE_CREATION_FAILURE",
+  RESOURCE_DELETION_FAILURE: "RESOURCE_DELETION_FAILURE",
+  RESOURCE_IN_USE: "RESOURCE_IN_USE",
+  RESOURCE_LIMIT_EXCEEDED: "RESOURCE_LIMIT_EXCEEDED",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  RESOURCE_RETRIEVAL_FAILURE: "RESOURCE_RETRIEVAL_FAILURE",
+  RESOURCE_UPDATE_FAILURE: "RESOURCE_UPDATE_FAILURE",
+  SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE: "SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE",
+  STATE_TRANSITION_FAILURE: "STATE_TRANSITION_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ErrorResourceType = {
+  API_GATEWAY: "API_GATEWAY",
+  APPLICATION: "APPLICATION",
+  ENVIRONMENT: "ENVIRONMENT",
+  IAM_ROLE: "IAM_ROLE",
+  LAMBDA: "LAMBDA",
+  LOAD_BALANCER_LISTENER: "LOAD_BALANCER_LISTENER",
+  NLB: "NLB",
+  RESOURCE_SHARE: "RESOURCE_SHARE",
+  ROUTE: "ROUTE",
+  ROUTE_TABLE: "ROUTE_TABLE",
+  SECURITY_GROUP: "SECURITY_GROUP",
+  SERVICE: "SERVICE",
+  SUBNET: "SUBNET",
+  TARGET_GROUP: "TARGET_GROUP",
+  TRANSIT_GATEWAY: "TRANSIT_GATEWAY",
+  TRANSIT_GATEWAY_ATTACHMENT: "TRANSIT_GATEWAY_ATTACHMENT",
+  VPC: "VPC",
+  VPC_ENDPOINT_SERVICE_CONFIGURATION: "VPC_ENDPOINT_SERVICE_CONFIGURATION",
+  VPC_LINK: "VPC_LINK",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorResourceType = (typeof ErrorResourceType)[keyof typeof ErrorResourceType];
+
+/**
+ * @public
  * <p>Error associated with a resource returned for a Get or List resource response. </p>
  */
 export interface ErrorResponse {
@@ -211,11 +252,21 @@ export interface ErrorResponse {
   AdditionalDetails?: Record<string, string>;
 }
 
-export enum ProxyType {
-  API_GATEWAY = "API_GATEWAY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProxyType = {
+  API_GATEWAY: "API_GATEWAY",
+} as const;
 
 /**
+ * @public
+ */
+export type ProxyType = (typeof ProxyType)[keyof typeof ProxyType];
+
+/**
+ * @public
  * <p>The list of <code>ApplicationSummary</code> objects. </p>
  */
 export interface ApplicationSummary {
@@ -292,6 +343,7 @@ export interface ApplicationSummary {
 }
 
 /**
+ * @public
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -323,6 +375,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
    * <p>The name to use for the application. </p>
@@ -362,6 +417,9 @@ export interface CreateApplicationRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationResponse {
   /**
    * <p>The name of the application.</p>
@@ -437,6 +495,7 @@ export interface CreateApplicationResponse {
 }
 
 /**
+ * @public
  * <p>An unexpected error occurred while processing the request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -458,6 +517,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request references a resource that does not exist. </p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -490,6 +550,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would cause a service quota to be exceeded. </p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -536,6 +597,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request was denied because the request was throttled. </p>
  */
 export class ThrottlingException extends __BaseException {
@@ -576,6 +638,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  */
@@ -597,10 +660,23 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum NetworkFabricType {
-  TRANSIT_GATEWAY = "TRANSIT_GATEWAY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkFabricType = {
+  NONE: "NONE",
+  TRANSIT_GATEWAY: "TRANSIT_GATEWAY",
+} as const;
 
+/**
+ * @public
+ */
+export type NetworkFabricType = (typeof NetworkFabricType)[keyof typeof NetworkFabricType];
+
+/**
+ * @public
+ */
 export interface CreateEnvironmentRequest {
   /**
    * <p>The name of the environment.</p>
@@ -629,13 +705,25 @@ export interface CreateEnvironmentRequest {
   ClientToken?: string;
 }
 
-export enum EnvironmentState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnvironmentState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
 
+/**
+ * @public
+ */
+export type EnvironmentState = (typeof EnvironmentState)[keyof typeof EnvironmentState];
+
+/**
+ * @public
+ */
 export interface CreateEnvironmentResponse {
   /**
    * <p>The name of the environment.</p>
@@ -678,7 +766,7 @@ export interface CreateEnvironmentResponse {
   Tags?: Record<string, string>;
 
   /**
-   * <p>A timestamp that indicates when the environment was last updated. </p>
+   * <p>A timestamp that indicates when the environment was last updated.</p>
    */
   LastUpdatedTime?: Date;
 
@@ -688,12 +776,22 @@ export interface CreateEnvironmentResponse {
   CreatedTime?: Date;
 }
 
-export enum RouteActivationState {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RouteActivationState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type RouteActivationState = (typeof RouteActivationState)[keyof typeof RouteActivationState];
+
+/**
+ * @public
  * <p> The configuration for the default route type. </p>
  */
 export interface DefaultRouteInput {
@@ -704,22 +802,41 @@ export interface DefaultRouteInput {
   ActivationState?: RouteActivationState | string;
 }
 
-export enum RouteType {
-  DEFAULT = "DEFAULT",
-  URI_PATH = "URI_PATH",
-}
-
-export enum HttpMethod {
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RouteType = {
+  DEFAULT: "DEFAULT",
+  URI_PATH: "URI_PATH",
+} as const;
 
 /**
+ * @public
+ */
+export type RouteType = (typeof RouteType)[keyof typeof RouteType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HttpMethod = {
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+} as const;
+
+/**
+ * @public
+ */
+export type HttpMethod = (typeof HttpMethod)[keyof typeof HttpMethod];
+
+/**
+ * @public
  * <p>The configuration for the URI path route type. </p>
  */
 export interface UriPathRouteInput {
@@ -749,6 +866,9 @@ export interface UriPathRouteInput {
   IncludeChildPaths?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateRouteRequest {
   /**
    * <p>The ID of the environment in which the route is created.</p>
@@ -796,15 +916,27 @@ export interface CreateRouteRequest {
   ClientToken?: string;
 }
 
-export enum RouteState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RouteState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type RouteState = (typeof RouteState)[keyof typeof RouteState];
+
+/**
+ * @public
+ */
 export interface CreateRouteResponse {
   /**
    * <p>The unique identifier of the route.</p>
@@ -875,12 +1007,22 @@ export interface CreateRouteResponse {
   CreatedTime?: Date;
 }
 
-export enum ServiceEndpointType {
-  LAMBDA = "LAMBDA",
-  URL = "URL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceEndpointType = {
+  LAMBDA: "LAMBDA",
+  URL: "URL",
+} as const;
 
 /**
+ * @public
+ */
+export type ServiceEndpointType = (typeof ServiceEndpointType)[keyof typeof ServiceEndpointType];
+
+/**
+ * @public
  * <p>The input for the Lambda endpoint type. </p>
  */
 export interface LambdaEndpointInput {
@@ -891,6 +1033,7 @@ export interface LambdaEndpointInput {
 }
 
 /**
+ * @public
  * <p>The configuration for the URL endpoint type. </p>
  */
 export interface UrlEndpointInput {
@@ -910,6 +1053,9 @@ export interface UrlEndpointInput {
   HealthUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateServiceRequest {
   /**
    * <p>The name of the service.</p>
@@ -966,13 +1112,25 @@ export interface CreateServiceRequest {
   ClientToken?: string;
 }
 
-export enum ServiceState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
 
+/**
+ * @public
+ */
+export type ServiceState = (typeof ServiceState)[keyof typeof ServiceState];
+
+/**
+ * @public
+ */
 export interface CreateServiceResponse {
   /**
    * <p>The unique identifier of the service.</p>
@@ -1055,6 +1213,9 @@ export interface CreateServiceResponse {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
    * <p>The ID of the environment. </p>
@@ -1067,6 +1228,9 @@ export interface DeleteApplicationRequest {
   ApplicationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationResponse {
   /**
    * <p>The name of the application.</p>
@@ -1099,6 +1263,9 @@ export interface DeleteApplicationResponse {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentRequest {
   /**
    * <p>The ID of the environment. </p>
@@ -1106,6 +1273,9 @@ export interface DeleteEnvironmentRequest {
   EnvironmentIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEnvironmentResponse {
   /**
    * <p>The name of the environment.</p>
@@ -1133,6 +1303,9 @@ export interface DeleteEnvironmentResponse {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the resource associated with the policy. </p>
@@ -1140,8 +1313,14 @@ export interface DeleteResourcePolicyRequest {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRouteRequest {
   /**
    * <p>The ID of the environment to delete the route from.</p>
@@ -1159,6 +1338,9 @@ export interface DeleteRouteRequest {
   RouteIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRouteResponse {
   /**
    * <p>The ID of the route to delete.</p>
@@ -1191,6 +1373,9 @@ export interface DeleteRouteResponse {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceRequest {
   /**
    * <p>The ID of the environment that the service is in.</p>
@@ -1213,6 +1398,9 @@ export interface DeleteServiceRequest {
   ServiceIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteServiceResponse {
   /**
    * <p>The unique identifier of the service.</p>
@@ -1251,6 +1439,7 @@ export interface DeleteServiceResponse {
 }
 
 /**
+ * @public
  * <p>The summary information for environments as a response to <code>ListEnvironments</code>.
  *     </p>
  */
@@ -1286,7 +1475,7 @@ export interface EnvironmentSummary {
   OwnerAccountId?: string;
 
   /**
-   * <p>The ID of the transit gateway set up by the environment. </p>
+   * <p>The ID of the Transit Gateway set up by the environment. </p>
    */
   TransitGatewayId?: string;
 
@@ -1317,6 +1506,7 @@ export interface EnvironmentSummary {
 }
 
 /**
+ * @public
  * <p>Provides summary information for the <code>EnvironmentVpc</code> resource as a response to
  *         <code>ListEnvironmentVpc</code>.</p>
  */
@@ -1357,6 +1547,9 @@ export interface EnvironmentVpc {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationRequest {
   /**
    * <p>The ID of the environment. </p>
@@ -1369,6 +1562,9 @@ export interface GetApplicationRequest {
   ApplicationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationResponse {
   /**
    * <p>The name of the application.</p>
@@ -1442,6 +1638,9 @@ export interface GetApplicationResponse {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentRequest {
   /**
    * <p>The ID of the environment.</p>
@@ -1449,6 +1648,9 @@ export interface GetEnvironmentRequest {
   EnvironmentIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEnvironmentResponse {
   /**
    * <p>The name of the environment.</p>
@@ -1481,7 +1683,7 @@ export interface GetEnvironmentResponse {
   OwnerAccountId?: string;
 
   /**
-   * <p>The ID of the transit gateway set up by the environment. </p>
+   * <p>The ID of the Transit Gateway set up by the environment, if applicable.</p>
    */
   TransitGatewayId?: string;
 
@@ -1511,6 +1713,9 @@ export interface GetEnvironmentResponse {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource associated with the policy. </p>
@@ -1518,6 +1723,9 @@ export interface GetResourcePolicyRequest {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyResponse {
   /**
    * <p>A JSON-formatted string for an Amazon Web Services resource-based policy. </p>
@@ -1525,6 +1733,9 @@ export interface GetResourcePolicyResponse {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteRequest {
   /**
    * <p>The ID of the environment.</p>
@@ -1542,6 +1753,9 @@ export interface GetRouteRequest {
   RouteIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteResponse {
   /**
    * <p>The unique identifier of the route.</p>
@@ -1639,6 +1853,9 @@ export interface GetRouteResponse {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceRequest {
   /**
    * <p>The ID of the environment.</p>
@@ -1657,6 +1874,7 @@ export interface GetServiceRequest {
 }
 
 /**
+ * @public
  * <p>The configuration for the Lambda endpoint type. </p>
  */
 export interface LambdaEndpointConfig {
@@ -1667,6 +1885,7 @@ export interface LambdaEndpointConfig {
 }
 
 /**
+ * @public
  * <p>The configuration for the URL endpoint type. </p>
  */
 export interface UrlEndpointConfig {
@@ -1681,6 +1900,9 @@ export interface UrlEndpointConfig {
   HealthUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetServiceResponse {
   /**
    * <p>The unique identifier of the service.</p>
@@ -1773,6 +1995,7 @@ export interface GetServiceResponse {
 }
 
 /**
+ * @public
  * <p>The resource policy is not valid.</p>
  */
 export class InvalidResourcePolicyException extends __BaseException {
@@ -1794,6 +2017,7 @@ export class InvalidResourcePolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The summary for the Lambda endpoint type. </p>
  */
 export interface LambdaEndpointSummary {
@@ -1803,6 +2027,9 @@ export interface LambdaEndpointSummary {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
    * <p>The ID of the environment. </p>
@@ -1821,6 +2048,9 @@ export interface ListApplicationsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListApplicationsResponse {
   /**
    * <p>The list of <code>ApplicationSummary</code> objects. </p>
@@ -1833,6 +2063,9 @@ export interface ListApplicationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentsRequest {
   /**
    * <p>The token for the next page of results.</p>
@@ -1846,6 +2079,9 @@ export interface ListEnvironmentsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentsResponse {
   /**
    * <p>The list of <code>EnvironmentSummary</code> objects. </p>
@@ -1858,6 +2094,9 @@ export interface ListEnvironmentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentVpcsRequest {
   /**
    * <p>The ID of the environment. </p>
@@ -1876,6 +2115,9 @@ export interface ListEnvironmentVpcsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEnvironmentVpcsResponse {
   /**
    * <p>The list of <code>EnvironmentVpc</code> objects. </p>
@@ -1888,6 +2130,9 @@ export interface ListEnvironmentVpcsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRoutesRequest {
   /**
    * <p>The ID of the environment. </p>
@@ -1912,6 +2157,7 @@ export interface ListRoutesRequest {
 }
 
 /**
+ * @public
  * <p>The summary information for the routes as a response to <code>ListRoutes</code>. </p>
  */
 export interface RouteSummary {
@@ -2005,6 +2251,9 @@ export interface RouteSummary {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListRoutesResponse {
   /**
    * <p>The list of <code>RouteSummary</code> objects. </p>
@@ -2017,6 +2266,9 @@ export interface ListRoutesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesRequest {
   /**
    * <p>The ID of the environment. </p>
@@ -2041,6 +2293,7 @@ export interface ListServicesRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the configuration for the URL endpoint type. </p>
  */
 export interface UrlEndpointSummary {
@@ -2061,6 +2314,7 @@ export interface UrlEndpointSummary {
 }
 
 /**
+ * @public
  * <p>A summary for the service as a response to <code>ListServices</code>. </p>
  */
 export interface ServiceSummary {
@@ -2150,6 +2404,9 @@ export interface ServiceSummary {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListServicesResponse {
   /**
    * <p> The list of <code>ServiceSummary</code> objects. </p>
@@ -2162,6 +2419,9 @@ export interface ListServicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. </p>
@@ -2169,6 +2429,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource. </p>
@@ -2176,6 +2439,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which the policy is being attached.
@@ -2189,8 +2455,14 @@ export interface PutResourcePolicyRequest {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -2203,8 +2475,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. </p>
@@ -2217,8 +2495,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRouteRequest {
   /**
    * <p> The ID of the environment in which the route is being updated. </p>
@@ -2242,6 +2526,9 @@ export interface UpdateRouteRequest {
   ActivationState: RouteActivationState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRouteResponse {
   /**
    * <p> The unique identifier of the route. </p>
@@ -2279,34 +2566,6 @@ export interface UpdateRouteResponse {
    */
   LastUpdatedTime?: Date;
 }
-
-/**
- * @internal
- */
-export const ApiGatewayProxyConfigFilterSensitiveLog = (obj: ApiGatewayProxyConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApiGatewayProxyInputFilterSensitiveLog = (obj: ApiGatewayProxyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApiGatewayProxySummaryFilterSensitiveLog = (obj: ApiGatewayProxySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorResponseFilterSensitiveLog = (obj: ErrorResponse): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -2351,20 +2610,6 @@ export const CreateEnvironmentResponseFilterSensitiveLog = (obj: CreateEnvironme
 /**
  * @internal
  */
-export const DefaultRouteInputFilterSensitiveLog = (obj: DefaultRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UriPathRouteInputFilterSensitiveLog = (obj: UriPathRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateRouteRequestFilterSensitiveLog = (obj: CreateRouteRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
@@ -2376,20 +2621,6 @@ export const CreateRouteRequestFilterSensitiveLog = (obj: CreateRouteRequest): a
 export const CreateRouteResponseFilterSensitiveLog = (obj: CreateRouteResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LambdaEndpointInputFilterSensitiveLog = (obj: LambdaEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UrlEndpointInputFilterSensitiveLog = (obj: UrlEndpointInput): any => ({
-  ...obj,
 });
 
 /**
@@ -2411,93 +2642,9 @@ export const CreateServiceResponseFilterSensitiveLog = (obj: CreateServiceRespon
 /**
  * @internal
  */
-export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationResponseFilterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentRequestFilterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentResponseFilterSensitiveLog = (obj: DeleteEnvironmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRouteRequestFilterSensitiveLog = (obj: DeleteRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRouteResponseFilterSensitiveLog = (obj: DeleteRouteResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServiceRequestFilterSensitiveLog = (obj: DeleteServiceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServiceResponseFilterSensitiveLog = (obj: DeleteServiceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EnvironmentSummaryFilterSensitiveLog = (obj: EnvironmentSummary): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const EnvironmentVpcFilterSensitiveLog = (obj: EnvironmentVpc): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationRequestFilterSensitiveLog = (obj: GetApplicationRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2511,37 +2658,9 @@ export const GetApplicationResponseFilterSensitiveLog = (obj: GetApplicationResp
 /**
  * @internal
  */
-export const GetEnvironmentRequestFilterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetEnvironmentResponseFilterSensitiveLog = (obj: GetEnvironmentResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetResourcePolicyRequestFilterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePolicyResponseFilterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRouteRequestFilterSensitiveLog = (obj: GetRouteRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2555,44 +2674,9 @@ export const GetRouteResponseFilterSensitiveLog = (obj: GetRouteResponse): any =
 /**
  * @internal
  */
-export const GetServiceRequestFilterSensitiveLog = (obj: GetServiceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaEndpointConfigFilterSensitiveLog = (obj: LambdaEndpointConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UrlEndpointConfigFilterSensitiveLog = (obj: UrlEndpointConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetServiceResponseFilterSensitiveLog = (obj: GetServiceResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LambdaEndpointSummaryFilterSensitiveLog = (obj: LambdaEndpointSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2608,39 +2692,11 @@ export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplications
 /**
  * @internal
  */
-export const ListEnvironmentsRequestFilterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListEnvironmentsResponseFilterSensitiveLog = (obj: ListEnvironmentsResponse): any => ({
   ...obj,
   ...(obj.EnvironmentSummaryList && {
     EnvironmentSummaryList: obj.EnvironmentSummaryList.map((item) => EnvironmentSummaryFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentVpcsRequestFilterSensitiveLog = (obj: ListEnvironmentVpcsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentVpcsResponseFilterSensitiveLog = (obj: ListEnvironmentVpcsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRoutesRequestFilterSensitiveLog = (obj: ListRoutesRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2664,20 +2720,6 @@ export const ListRoutesResponseFilterSensitiveLog = (obj: ListRoutesResponse): a
 /**
  * @internal
  */
-export const ListServicesRequestFilterSensitiveLog = (obj: ListServicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UrlEndpointSummaryFilterSensitiveLog = (obj: UrlEndpointSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ServiceSummaryFilterSensitiveLog = (obj: ServiceSummary): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
@@ -2696,30 +2738,9 @@ export const ListServicesResponseFilterSensitiveLog = (obj: ListServicesResponse
 /**
  * @internal
  */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -2733,35 +2754,7 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 /**
  * @internal
  */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
   ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRouteRequestFilterSensitiveLog = (obj: UpdateRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRouteResponseFilterSensitiveLog = (obj: UpdateRouteResponse): any => ({
-  ...obj,
 });

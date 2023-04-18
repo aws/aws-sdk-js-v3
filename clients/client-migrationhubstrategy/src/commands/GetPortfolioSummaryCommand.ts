@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  GetPortfolioSummaryRequest,
-  GetPortfolioSummaryRequestFilterSensitiveLog,
-  GetPortfolioSummaryResponse,
-  GetPortfolioSummaryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPortfolioSummaryCommand,
-  serializeAws_restJson1GetPortfolioSummaryCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPortfolioSummaryRequest, GetPortfolioSummaryResponse } from "../models/models_0";
+import { de_GetPortfolioSummaryCommand, se_GetPortfolioSummaryCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetPortfolioSummaryCommand}.
+ */
 export interface GetPortfolioSummaryCommandInput extends GetPortfolioSummaryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetPortfolioSummaryCommand}.
+ */
 export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves overall summary including the number of servers to rehost and the overall
  *       number of anti-patterns. </p>
  * @example
@@ -41,13 +44,27 @@ export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryRes
  * import { MigrationHubStrategyClient, GetPortfolioSummaryCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetPortfolioSummaryCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {};
  * const command = new GetPortfolioSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPortfolioSummaryCommandInput - {@link GetPortfolioSummaryCommandInput}
+ * @returns {@link GetPortfolioSummaryCommandOutput}
  * @see {@link GetPortfolioSummaryCommandInput} for command's `input` shape.
  * @see {@link GetPortfolioSummaryCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> The user does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
  *
  */
 export class GetPortfolioSummaryCommand extends $Command<
@@ -67,6 +84,9 @@ export class GetPortfolioSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPortfolioSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +115,8 @@ export class GetPortfolioSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPortfolioSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPortfolioSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +126,18 @@ export class GetPortfolioSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPortfolioSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPortfolioSummaryCommand(input, context);
+    return se_GetPortfolioSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPortfolioSummaryCommandOutput> {
-    return deserializeAws_restJson1GetPortfolioSummaryCommand(output, context);
+    return de_GetPortfolioSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

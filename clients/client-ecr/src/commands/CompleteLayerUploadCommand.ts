@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  CompleteLayerUploadRequest,
-  CompleteLayerUploadRequestFilterSensitiveLog,
-  CompleteLayerUploadResponse,
-  CompleteLayerUploadResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CompleteLayerUploadCommand,
-  serializeAws_json1_1CompleteLayerUploadCommand,
-} from "../protocols/Aws_json1_1";
+import { CompleteLayerUploadRequest, CompleteLayerUploadResponse } from "../models/models_0";
+import { de_CompleteLayerUploadCommand, se_CompleteLayerUploadCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CompleteLayerUploadCommand}.
+ */
 export interface CompleteLayerUploadCommandInput extends CompleteLayerUploadRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CompleteLayerUploadCommand}.
+ */
 export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Informs Amazon ECR that the image layer upload has completed for a specified registry,
  *             repository name, and upload ID. You can optionally provide a <code>sha256</code> digest
  *             of the image layer for data validation purposes.</p>
@@ -44,13 +47,55 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * import { ECRClient, CompleteLayerUploadCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, CompleteLayerUploadCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // CompleteLayerUploadRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   uploadId: "STRING_VALUE", // required
+ *   layerDigests: [ // LayerDigestList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CompleteLayerUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteLayerUploadCommandInput - {@link CompleteLayerUploadCommandInput}
+ * @returns {@link CompleteLayerUploadCommandOutput}
  * @see {@link CompleteLayerUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteLayerUploadCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link EmptyUploadException} (client fault)
+ *  <p>The specified layer upload does not contain any layer parts.</p>
+ *
+ * @throws {@link InvalidLayerException} (client fault)
+ *  <p>The layer digest calculation performed by Amazon ECR upon receipt of the image layer does
+ *             not match the digest specified.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link KmsException} (client fault)
+ *  <p>The operation failed due to a KMS exception.</p>
+ *
+ * @throws {@link LayerAlreadyExistsException} (client fault)
+ *  <p>The image layer already exists in the associated repository.</p>
+ *
+ * @throws {@link LayerPartTooSmallException} (client fault)
+ *  <p>Layer parts must be at least 5 MiB in size.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UploadNotFoundException} (client fault)
+ *  <p>The upload could not be found, or the specified upload ID is not valid for this
+ *             repository.</p>
+ *
  *
  */
 export class CompleteLayerUploadCommand extends $Command<
@@ -70,6 +115,9 @@ export class CompleteLayerUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteLayerUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +146,8 @@ export class CompleteLayerUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompleteLayerUploadRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CompleteLayerUploadResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +157,18 @@ export class CompleteLayerUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteLayerUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CompleteLayerUploadCommand(input, context);
+    return se_CompleteLayerUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteLayerUploadCommandOutput> {
-    return deserializeAws_json1_1CompleteLayerUploadCommand(output, context);
+    return de_CompleteLayerUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

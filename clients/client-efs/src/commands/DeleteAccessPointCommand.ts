@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DeleteAccessPointRequest, DeleteAccessPointRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccessPointCommand,
-  serializeAws_restJson1DeleteAccessPointCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAccessPointRequest } from "../models/models_0";
+import { de_DeleteAccessPointCommand, se_DeleteAccessPointCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAccessPointCommand}.
+ */
 export interface DeleteAccessPointCommandInput extends DeleteAccessPointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAccessPointCommand}.
+ */
 export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified access point. After deletion is complete, new clients can no
  *       longer connect to the access points. Clients connected to the access point at the time of
  *       deletion will continue to function until they terminate their connection.</p>
@@ -34,13 +42,30 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * import { EFSClient, DeleteAccessPointCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteAccessPointCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DeleteAccessPointRequest
+ *   AccessPointId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessPointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessPointCommandInput - {@link DeleteAccessPointCommandInput}
+ * @returns {@link DeleteAccessPointCommandOutput}
  * @see {@link DeleteAccessPointCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
+ *
+ * @throws {@link AccessPointNotFound} (client fault)
+ *  <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
  *
  */
 export class DeleteAccessPointCommand extends $Command<
@@ -60,6 +85,9 @@ export class DeleteAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +116,8 @@ export class DeleteAccessPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessPointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +127,18 @@ export class DeleteAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccessPointCommand(input, context);
+    return se_DeleteAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPointCommandOutput> {
-    return deserializeAws_restJson1DeleteAccessPointCommand(output, context);
+    return de_DeleteAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  DescribeNotebookExecutionInput,
-  DescribeNotebookExecutionInputFilterSensitiveLog,
-  DescribeNotebookExecutionOutput,
-  DescribeNotebookExecutionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeNotebookExecutionCommand,
-  serializeAws_json1_1DescribeNotebookExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeNotebookExecutionInput, DescribeNotebookExecutionOutput } from "../models/models_0";
+import { de_DescribeNotebookExecutionCommand, se_DescribeNotebookExecutionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeNotebookExecutionCommand}.
+ */
 export interface DescribeNotebookExecutionCommandInput extends DescribeNotebookExecutionInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNotebookExecutionCommand}.
+ */
 export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebookExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides details of a notebook execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,26 @@ export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebook
  * import { EMRClient, DescribeNotebookExecutionCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeNotebookExecutionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // DescribeNotebookExecutionInput
+ *   NotebookExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeNotebookExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotebookExecutionCommandInput - {@link DescribeNotebookExecutionCommandInput}
+ * @returns {@link DescribeNotebookExecutionCommandOutput}
  * @see {@link DescribeNotebookExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeNotebookExecutionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class DescribeNotebookExecutionCommand extends $Command<
@@ -62,6 +78,9 @@ export class DescribeNotebookExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotebookExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class DescribeNotebookExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNotebookExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNotebookExecutionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +120,21 @@ export class DescribeNotebookExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNotebookExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNotebookExecutionCommand(input, context);
+    return se_DescribeNotebookExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotebookExecutionCommandOutput> {
-    return deserializeAws_json1_1DescribeNotebookExecutionCommand(output, context);
+    return de_DescribeNotebookExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

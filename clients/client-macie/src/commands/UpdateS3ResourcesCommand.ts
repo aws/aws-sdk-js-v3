@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import {
-  UpdateS3ResourcesRequest,
-  UpdateS3ResourcesRequestFilterSensitiveLog,
-  UpdateS3ResourcesResult,
-  UpdateS3ResourcesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateS3ResourcesCommand,
-  serializeAws_json1_1UpdateS3ResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateS3ResourcesRequest, UpdateS3ResourcesResult } from "../models/models_0";
+import { de_UpdateS3ResourcesCommand, se_UpdateS3ResourcesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateS3ResourcesCommand}.
+ */
 export interface UpdateS3ResourcesCommandInput extends UpdateS3ResourcesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateS3ResourcesCommand}.
+ */
 export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Updates the classification types for the specified S3 resources. If
  *       <code>memberAccountId</code> isn't specified, the action updates the classification types of the S3
  *       resources associated with Amazon Macie Classic for the current Macie Classic administrator
@@ -40,13 +43,39 @@ export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult,
  * import { MacieClient, UpdateS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, UpdateS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
+ * const input = { // UpdateS3ResourcesRequest
+ *   memberAccountId: "STRING_VALUE",
+ *   s3ResourcesUpdate: [ // S3ResourcesClassificationUpdate // required
+ *     { // S3ResourceClassificationUpdate
+ *       bucketName: "STRING_VALUE", // required
+ *       prefix: "STRING_VALUE",
+ *       classificationTypeUpdate: { // ClassificationTypeUpdate
+ *         oneTime: "STRING_VALUE",
+ *         continuous: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateS3ResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateS3ResourcesCommandInput - {@link UpdateS3ResourcesCommandInput}
+ * @returns {@link UpdateS3ResourcesCommandOutput}
  * @see {@link UpdateS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link UpdateS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>(Discontinued) You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>(Discontinued) Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
  *
  */
 export class UpdateS3ResourcesCommand extends $Command<
@@ -66,6 +95,9 @@ export class UpdateS3ResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateS3ResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +126,8 @@ export class UpdateS3ResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateS3ResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateS3ResourcesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +137,18 @@ export class UpdateS3ResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateS3ResourcesCommand(input, context);
+    return se_UpdateS3ResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateS3ResourcesCommandOutput> {
-    return deserializeAws_json1_1UpdateS3ResourcesCommand(output, context);
+    return de_UpdateS3ResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

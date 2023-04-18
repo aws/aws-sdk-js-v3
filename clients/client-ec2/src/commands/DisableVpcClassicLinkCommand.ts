@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DisableVpcClassicLinkRequest,
-  DisableVpcClassicLinkRequestFilterSensitiveLog,
-  DisableVpcClassicLinkResult,
-  DisableVpcClassicLinkResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2DisableVpcClassicLinkCommand,
-  serializeAws_ec2DisableVpcClassicLinkCommand,
-} from "../protocols/Aws_ec2";
+import { DisableVpcClassicLinkRequest, DisableVpcClassicLinkResult } from "../models/models_5";
+import { de_DisableVpcClassicLinkCommand, se_DisableVpcClassicLinkCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableVpcClassicLinkCommand}.
+ */
 export interface DisableVpcClassicLinkCommandInput extends DisableVpcClassicLinkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableVpcClassicLinkCommand}.
+ */
 export interface DisableVpcClassicLinkCommandOutput extends DisableVpcClassicLinkResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.</p>
  *          <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -39,13 +42,20 @@ export interface DisableVpcClassicLinkCommandOutput extends DisableVpcClassicLin
  * import { EC2Client, DisableVpcClassicLinkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableVpcClassicLinkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisableVpcClassicLinkRequest
+ *   DryRun: true || false,
+ *   VpcId: "STRING_VALUE", // required
+ * };
  * const command = new DisableVpcClassicLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableVpcClassicLinkCommandInput - {@link DisableVpcClassicLinkCommandInput}
+ * @returns {@link DisableVpcClassicLinkCommandOutput}
  * @see {@link DisableVpcClassicLinkCommandInput} for command's `input` shape.
  * @see {@link DisableVpcClassicLinkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
  *
  */
 export class DisableVpcClassicLinkCommand extends $Command<
@@ -65,6 +75,9 @@ export class DisableVpcClassicLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableVpcClassicLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +106,8 @@ export class DisableVpcClassicLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableVpcClassicLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableVpcClassicLinkResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +117,18 @@ export class DisableVpcClassicLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableVpcClassicLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableVpcClassicLinkCommand(input, context);
+    return se_DisableVpcClassicLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableVpcClassicLinkCommandOutput> {
-    return deserializeAws_ec2DisableVpcClassicLinkCommand(output, context);
+    return de_DisableVpcClassicLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

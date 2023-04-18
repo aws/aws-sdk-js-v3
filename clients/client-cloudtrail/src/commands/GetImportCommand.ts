@@ -14,34 +14,56 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  GetImportRequest,
-  GetImportRequestFilterSensitiveLog,
-  GetImportResponse,
-  GetImportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetImportCommand, serializeAws_json1_1GetImportCommand } from "../protocols/Aws_json1_1";
+import { GetImportRequest, GetImportResponse } from "../models/models_0";
+import { de_GetImportCommand, se_GetImportCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetImportCommand}.
+ */
 export interface GetImportCommandInput extends GetImportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetImportCommand}.
+ */
 export interface GetImportCommandOutput extends GetImportResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Returns information about a specific import.
- *       </p>
+ * @public
+ * <p> Returns information about a specific import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudTrailClient, GetImportCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetImportCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // GetImportRequest
+ *   ImportId: "STRING_VALUE", // required
+ * };
  * const command = new GetImportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImportCommandInput - {@link GetImportCommandInput}
+ * @returns {@link GetImportCommandOutput}
  * @see {@link GetImportCommandInput} for command's `input` shape.
  * @see {@link GetImportCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link ImportNotFoundException} (client fault)
+ *  <p> The specified import was not found. </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
  *
  */
 export class GetImportCommand extends $Command<
@@ -61,6 +83,9 @@ export class GetImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +112,8 @@ export class GetImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +123,18 @@ export class GetImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetImportCommand(input, context);
+    return se_GetImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportCommandOutput> {
-    return deserializeAws_json1_1GetImportCommand(output, context);
+    return de_GetImportCommand(output, context);
   }
 
   // Start section: command_body_extra

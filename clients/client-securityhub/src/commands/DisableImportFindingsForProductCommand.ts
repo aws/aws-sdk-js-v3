@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DisableImportFindingsForProductRequest, DisableImportFindingsForProductResponse } from "../models/models_2";
 import {
-  DisableImportFindingsForProductRequest,
-  DisableImportFindingsForProductRequestFilterSensitiveLog,
-  DisableImportFindingsForProductResponse,
-  DisableImportFindingsForProductResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DisableImportFindingsForProductCommand,
-  serializeAws_restJson1DisableImportFindingsForProductCommand,
+  de_DisableImportFindingsForProductCommand,
+  se_DisableImportFindingsForProductCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DisableImportFindingsForProductCommand}.
+ */
 export interface DisableImportFindingsForProductCommandInput extends DisableImportFindingsForProductRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableImportFindingsForProductCommand}.
+ */
 export interface DisableImportFindingsForProductCommandOutput
   extends DisableImportFindingsForProductResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the integration of the specified product with Security Hub. After the integration is
  *          disabled, findings from that product are no longer sent to Security Hub.</p>
  * @example
@@ -39,13 +45,36 @@ export interface DisableImportFindingsForProductCommandOutput
  * import { SecurityHubClient, DisableImportFindingsForProductCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisableImportFindingsForProductCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DisableImportFindingsForProductRequest
+ *   ProductSubscriptionArn: "STRING_VALUE", // required
+ * };
  * const command = new DisableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableImportFindingsForProductCommandInput - {@link DisableImportFindingsForProductCommandInput}
+ * @returns {@link DisableImportFindingsForProductCommandOutput}
  * @see {@link DisableImportFindingsForProductCommandInput} for command's `input` shape.
  * @see {@link DisableImportFindingsForProductCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
  *
  */
 export class DisableImportFindingsForProductCommand extends $Command<
@@ -65,6 +94,9 @@ export class DisableImportFindingsForProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableImportFindingsForProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +125,8 @@ export class DisableImportFindingsForProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableImportFindingsForProductRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableImportFindingsForProductResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +136,24 @@ export class DisableImportFindingsForProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableImportFindingsForProductCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableImportFindingsForProductCommand(input, context);
+    return se_DisableImportFindingsForProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableImportFindingsForProductCommandOutput> {
-    return deserializeAws_restJson1DisableImportFindingsForProductCommand(output, context);
+    return de_DisableImportFindingsForProductCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,5 +1,8 @@
 import { QueryParameterBag } from "@aws-sdk/types";
 
+/**
+ * @internal
+ */
 export function parseQueryString(querystring: string): QueryParameterBag {
   const query: QueryParameterBag = {};
   querystring = querystring.replace(/^\?/, "");

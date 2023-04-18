@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  ModifyTargetGroupAttributesInput,
-  ModifyTargetGroupAttributesInputFilterSensitiveLog,
-  ModifyTargetGroupAttributesOutput,
-  ModifyTargetGroupAttributesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyTargetGroupAttributesCommand,
-  serializeAws_queryModifyTargetGroupAttributesCommand,
-} from "../protocols/Aws_query";
+import { ModifyTargetGroupAttributesInput, ModifyTargetGroupAttributesOutput } from "../models/models_0";
+import { de_ModifyTargetGroupAttributesCommand, se_ModifyTargetGroupAttributesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link ModifyTargetGroupAttributesCommand}.
+ */
 export interface ModifyTargetGroupAttributesCommandInput extends ModifyTargetGroupAttributesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyTargetGroupAttributesCommand}.
+ */
 export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGroupAttributesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified attributes of the specified target group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,13 +43,70 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * import { ElasticLoadBalancingV2Client, ModifyTargetGroupAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyTargetGroupAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // ModifyTargetGroupAttributesInput
+ *   TargetGroupArn: "STRING_VALUE", // required
+ *   Attributes: [ // TargetGroupAttributes // required
+ *     { // TargetGroupAttribute
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyTargetGroupAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTargetGroupAttributesCommandInput - {@link ModifyTargetGroupAttributesCommandInput}
+ * @returns {@link ModifyTargetGroupAttributesCommandOutput}
  * @see {@link ModifyTargetGroupAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyTargetGroupAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration is not valid.</p>
+ *
+ * @throws {@link TargetGroupNotFoundException} (client fault)
+ *  <p>The specified target group does not exist.</p>
+ *
+ *
+ * @example To modify the deregistration delay timeout
+ * ```javascript
+ * // This example sets the deregistration delay timeout to the specified value for the specified target group.
+ * const input = {
+ *   "Attributes": [
+ *     {
+ *       "Key": "deregistration_delay.timeout_seconds",
+ *       "Value": "600"
+ *     }
+ *   ],
+ *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ * };
+ * const command = new ModifyTargetGroupAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Attributes": [
+ *     {
+ *       "Key": "stickiness.enabled",
+ *       "Value": "false"
+ *     },
+ *     {
+ *       "Key": "deregistration_delay.timeout_seconds",
+ *       "Value": "600"
+ *     },
+ *     {
+ *       "Key": "stickiness.type",
+ *       "Value": "lb_cookie"
+ *     },
+ *     {
+ *       "Key": "stickiness.lb_cookie.duration_seconds",
+ *       "Value": "86400"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: elbv2-modify-target-group-attributes-1
+ * ```
  *
  */
 export class ModifyTargetGroupAttributesCommand extends $Command<
@@ -66,6 +126,9 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTargetGroupAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +157,8 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyTargetGroupAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyTargetGroupAttributesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +168,21 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyTargetGroupAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyTargetGroupAttributesCommand(input, context);
+    return se_ModifyTargetGroupAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTargetGroupAttributesCommandOutput> {
-    return deserializeAws_queryModifyTargetGroupAttributesCommand(output, context);
+    return de_ModifyTargetGroupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

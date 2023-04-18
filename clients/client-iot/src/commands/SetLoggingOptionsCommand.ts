@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { SetLoggingOptionsRequest, SetLoggingOptionsRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_restJson1SetLoggingOptionsCommand,
-  serializeAws_restJson1SetLoggingOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { SetLoggingOptionsRequest } from "../models/models_2";
+import { de_SetLoggingOptionsCommand, se_SetLoggingOptionsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link SetLoggingOptionsCommand}.
+ */
 export interface SetLoggingOptionsCommandInput extends SetLoggingOptionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetLoggingOptionsCommand}.
+ */
 export interface SetLoggingOptionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the logging options.</p>
  *          <p>NOTE: use of this command is not recommended. Use <code>SetV2LoggingOptions</code>
  *          instead.</p>
@@ -34,13 +42,31 @@ export interface SetLoggingOptionsCommandOutput extends __MetadataBearer {}
  * import { IoTClient, SetLoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SetLoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // SetLoggingOptionsRequest
+ *   loggingOptionsPayload: { // LoggingOptionsPayload
+ *     roleArn: "STRING_VALUE", // required
+ *     logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
+ *   },
+ * };
  * const command = new SetLoggingOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetLoggingOptionsCommandInput - {@link SetLoggingOptionsCommandInput}
+ * @returns {@link SetLoggingOptionsCommandOutput}
  * @see {@link SetLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link SetLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
  *
  */
 export class SetLoggingOptionsCommand extends $Command<
@@ -60,6 +86,9 @@ export class SetLoggingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetLoggingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class SetLoggingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetLoggingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class SetLoggingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SetLoggingOptionsCommand(input, context);
+    return se_SetLoggingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetLoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1SetLoggingOptionsCommand(output, context);
+    return de_SetLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

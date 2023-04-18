@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  PutEventsRequest,
-  PutEventsRequestFilterSensitiveLog,
-  PutEventsResponse,
-  PutEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1PutEventsCommand, serializeAws_json1_1PutEventsCommand } from "../protocols/Aws_json1_1";
+import { PutEventsRequest, PutEventsResponse } from "../models/models_0";
+import { de_PutEventsCommand, se_PutEventsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutEventsCommand}.
+ */
 export interface PutEventsCommandInput extends PutEventsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutEventsCommand}.
+ */
 export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
  *          <note>
  *             <p>PutEvents will only process nested JSON up to 1100 levels deep.</p>
@@ -36,13 +42,35 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * import { EventBridgeClient, PutEventsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutEventsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // PutEventsRequest
+ *   Entries: [ // PutEventsRequestEntryList // required
+ *     { // PutEventsRequestEntry
+ *       Time: new Date("TIMESTAMP"),
+ *       Source: "STRING_VALUE",
+ *       Resources: [ // EventResourceList
+ *         "STRING_VALUE",
+ *       ],
+ *       DetailType: "STRING_VALUE",
+ *       Detail: "STRING_VALUE",
+ *       EventBusName: "STRING_VALUE",
+ *       TraceHeader: "STRING_VALUE",
+ *     },
+ *   ],
+ *   EndpointId: "STRING_VALUE",
+ * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEventsCommandInput - {@link PutEventsCommandInput}
+ * @returns {@link PutEventsCommandOutput}
  * @see {@link PutEventsCommandInput} for command's `input` shape.
  * @see {@link PutEventsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
  *
  */
 export class PutEventsCommand extends $Command<
@@ -63,6 +91,9 @@ export class PutEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +120,8 @@ export class PutEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +131,18 @@ export class PutEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutEventsCommand(input, context);
+    return se_PutEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventsCommandOutput> {
-    return deserializeAws_json1_1PutEventsCommand(output, context);
+    return de_PutEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,12 +6,11 @@ import {
   ListLensReviewImprovementsCommandInput,
   ListLensReviewImprovementsCommandOutput,
 } from "../commands/ListLensReviewImprovementsCommand";
-import { WellArchitected } from "../WellArchitected";
 import { WellArchitectedClient } from "../WellArchitectedClient";
 import { WellArchitectedPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WellArchitectedClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListLensReviewImprovementsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: WellArchitected,
-  input: ListLensReviewImprovementsCommandInput,
-  ...args: any
-): Promise<ListLensReviewImprovementsCommandOutput> => {
-  // @ts-ignore
-  return await client.listLensReviewImprovements(input, ...args);
-};
 export async function* paginateListLensReviewImprovements(
   config: WellArchitectedPaginationConfiguration,
   input: ListLensReviewImprovementsCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateListLensReviewImprovements(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof WellArchitected) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WellArchitectedClient) {
+    if (config.client instanceof WellArchitectedClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WellArchitected | WellArchitectedClient");

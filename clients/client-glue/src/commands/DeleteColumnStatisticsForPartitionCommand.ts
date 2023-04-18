@@ -16,21 +16,30 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   DeleteColumnStatisticsForPartitionRequest,
-  DeleteColumnStatisticsForPartitionRequestFilterSensitiveLog,
   DeleteColumnStatisticsForPartitionResponse,
-  DeleteColumnStatisticsForPartitionResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1DeleteColumnStatisticsForPartitionCommand,
-  serializeAws_json1_1DeleteColumnStatisticsForPartitionCommand,
+  de_DeleteColumnStatisticsForPartitionCommand,
+  se_DeleteColumnStatisticsForPartitionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteColumnStatisticsForPartitionCommand}.
+ */
 export interface DeleteColumnStatisticsForPartitionCommandInput extends DeleteColumnStatisticsForPartitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteColumnStatisticsForPartitionCommand}.
+ */
 export interface DeleteColumnStatisticsForPartitionCommandOutput
   extends DeleteColumnStatisticsForPartitionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the partition column statistics of a column.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeletePartition</code>.</p>
  * @example
@@ -39,13 +48,40 @@ export interface DeleteColumnStatisticsForPartitionCommandOutput
  * import { GlueClient, DeleteColumnStatisticsForPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteColumnStatisticsForPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteColumnStatisticsForPartitionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   PartitionValues: [ // ValueStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ColumnName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteColumnStatisticsForPartitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteColumnStatisticsForPartitionCommandInput - {@link DeleteColumnStatisticsForPartitionCommandInput}
+ * @returns {@link DeleteColumnStatisticsForPartitionCommandOutput}
  * @see {@link DeleteColumnStatisticsForPartitionCommandInput} for command's `input` shape.
  * @see {@link DeleteColumnStatisticsForPartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class DeleteColumnStatisticsForPartitionCommand extends $Command<
@@ -65,6 +101,9 @@ export class DeleteColumnStatisticsForPartitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteColumnStatisticsForPartitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +132,8 @@ export class DeleteColumnStatisticsForPartitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteColumnStatisticsForPartitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteColumnStatisticsForPartitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +143,24 @@ export class DeleteColumnStatisticsForPartitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteColumnStatisticsForPartitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteColumnStatisticsForPartitionCommand(input, context);
+    return se_DeleteColumnStatisticsForPartitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteColumnStatisticsForPartitionCommandOutput> {
-    return deserializeAws_json1_1DeleteColumnStatisticsForPartitionCommand(output, context);
+    return de_DeleteColumnStatisticsForPartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

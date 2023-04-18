@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
 
 /**
+ * @public
  * <p>A structure describing the source of an action.</p>
  */
 export interface ActionSource {
@@ -23,16 +24,26 @@ export interface ActionSource {
   SourceId?: string;
 }
 
-export enum ActionStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  UNKNOWN = "Unknown",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  UNKNOWN: "Unknown",
+} as const;
 
 /**
+ * @public
+ */
+export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
+
+/**
+ * @public
  * <p>Lists the properties of an <i>action</i>. An action represents an action
  *         or activity. Some examples are a workflow step and a model deployment. Generally, an
  *         action involves at least one input artifact or output artifact.</p>
@@ -74,13 +85,25 @@ export interface ActionSummary {
   LastModifiedTime?: Date;
 }
 
-export enum AssociationEdgeType {
-  ASSOCIATED_WITH = "AssociatedWith",
-  CONTRIBUTED_TO = "ContributedTo",
-  DERIVED_FROM = "DerivedFrom",
-  PRODUCED = "Produced",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssociationEdgeType = {
+  ASSOCIATED_WITH: "AssociatedWith",
+  CONTRIBUTED_TO: "ContributedTo",
+  DERIVED_FROM: "DerivedFrom",
+  PRODUCED: "Produced",
+} as const;
 
+/**
+ * @public
+ */
+export type AssociationEdgeType = (typeof AssociationEdgeType)[keyof typeof AssociationEdgeType];
+
+/**
+ * @public
+ */
 export interface AddAssociationRequest {
   /**
    * <p>The ARN of the source.</p>
@@ -118,6 +141,9 @@ export interface AddAssociationRequest {
   AssociationType?: AssociationEdgeType | string;
 }
 
+/**
+ * @public
+ */
 export interface AddAssociationResponse {
   /**
    * <p>The ARN of the source.</p>
@@ -131,6 +157,7 @@ export interface AddAssociationResponse {
 }
 
 /**
+ * @public
  * <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  */
@@ -153,6 +180,7 @@ export class ResourceLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Resource being access is not found.</p>
  */
 export class ResourceNotFound extends __BaseException {
@@ -174,6 +202,7 @@ export class ResourceNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input object for the model.</p>
  */
 export interface ModelInput {
@@ -184,6 +213,7 @@ export interface ModelInput {
 }
 
 /**
+ * @public
  * <p>Describes the Docker container for the model package.</p>
  */
 export interface ModelPackageContainerDefinition {
@@ -254,185 +284,206 @@ export interface ModelPackageContainerDefinition {
   NearestModelName?: string;
 }
 
-export enum ProductionVariantInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_LARGE = "ml.c4.large",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
-  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
-  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
-  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
-  ML_C5D_LARGE = "ml.c5d.large",
-  ML_C5D_XLARGE = "ml.c5d.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_LARGE = "ml.c5.large",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_C6GD_12XLARGE = "ml.c6gd.12xlarge",
-  ML_C6GD_16XLARGE = "ml.c6gd.16xlarge",
-  ML_C6GD_2XLARGE = "ml.c6gd.2xlarge",
-  ML_C6GD_4XLARGE = "ml.c6gd.4xlarge",
-  ML_C6GD_8XLARGE = "ml.c6gd.8xlarge",
-  ML_C6GD_LARGE = "ml.c6gd.large",
-  ML_C6GD_XLARGE = "ml.c6gd.xlarge",
-  ML_C6GN_12XLARGE = "ml.c6gn.12xlarge",
-  ML_C6GN_16XLARGE = "ml.c6gn.16xlarge",
-  ML_C6GN_2XLARGE = "ml.c6gn.2xlarge",
-  ML_C6GN_4XLARGE = "ml.c6gn.4xlarge",
-  ML_C6GN_8XLARGE = "ml.c6gn.8xlarge",
-  ML_C6GN_LARGE = "ml.c6gn.large",
-  ML_C6GN_XLARGE = "ml.c6gn.xlarge",
-  ML_C6G_12XLARGE = "ml.c6g.12xlarge",
-  ML_C6G_16XLARGE = "ml.c6g.16xlarge",
-  ML_C6G_2XLARGE = "ml.c6g.2xlarge",
-  ML_C6G_4XLARGE = "ml.c6g.4xlarge",
-  ML_C6G_8XLARGE = "ml.c6g.8xlarge",
-  ML_C6G_LARGE = "ml.c6g.large",
-  ML_C6G_XLARGE = "ml.c6g.xlarge",
-  ML_C6I_12XLARGE = "ml.c6i.12xlarge",
-  ML_C6I_16XLARGE = "ml.c6i.16xlarge",
-  ML_C6I_24XLARGE = "ml.c6i.24xlarge",
-  ML_C6I_2XLARGE = "ml.c6i.2xlarge",
-  ML_C6I_32XLARGE = "ml.c6i.32xlarge",
-  ML_C6I_4XLARGE = "ml.c6i.4xlarge",
-  ML_C6I_8XLARGE = "ml.c6i.8xlarge",
-  ML_C6I_LARGE = "ml.c6i.large",
-  ML_C6I_XLARGE = "ml.c6i.xlarge",
-  ML_C7G_12XLARGE = "ml.c7g.12xlarge",
-  ML_C7G_16XLARGE = "ml.c7g.16xlarge",
-  ML_C7G_2XLARGE = "ml.c7g.2xlarge",
-  ML_C7G_4XLARGE = "ml.c7g.4xlarge",
-  ML_C7G_8XLARGE = "ml.c7g.8xlarge",
-  ML_C7G_LARGE = "ml.c7g.large",
-  ML_C7G_XLARGE = "ml.c7g.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_G5_12XLARGE = "ml.g5.12xlarge",
-  ML_G5_16XLARGE = "ml.g5.16xlarge",
-  ML_G5_24XLARGE = "ml.g5.24xlarge",
-  ML_G5_2XLARGE = "ml.g5.2xlarge",
-  ML_G5_48XLARGE = "ml.g5.48xlarge",
-  ML_G5_4XLARGE = "ml.g5.4xlarge",
-  ML_G5_8XLARGE = "ml.g5.8xlarge",
-  ML_G5_XLARGE = "ml.g5.xlarge",
-  ML_INF1_24XLARGE = "ml.inf1.24xlarge",
-  ML_INF1_2XLARGE = "ml.inf1.2xlarge",
-  ML_INF1_6XLARGE = "ml.inf1.6xlarge",
-  ML_INF1_XLARGE = "ml.inf1.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
-  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
-  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
-  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
-  ML_M5D_LARGE = "ml.m5d.large",
-  ML_M5D_XLARGE = "ml.m5d.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_M6GD_12XLARGE = "ml.m6gd.12xlarge",
-  ML_M6GD_16XLARGE = "ml.m6gd.16xlarge",
-  ML_M6GD_2XLARGE = "ml.m6gd.2xlarge",
-  ML_M6GD_4XLARGE = "ml.m6gd.4xlarge",
-  ML_M6GD_8XLARGE = "ml.m6gd.8xlarge",
-  ML_M6GD_LARGE = "ml.m6gd.large",
-  ML_M6GD_XLARGE = "ml.m6gd.xlarge",
-  ML_M6G_12XLARGE = "ml.m6g.12xlarge",
-  ML_M6G_16XLARGE = "ml.m6g.16xlarge",
-  ML_M6G_2XLARGE = "ml.m6g.2xlarge",
-  ML_M6G_4XLARGE = "ml.m6g.4xlarge",
-  ML_M6G_8XLARGE = "ml.m6g.8xlarge",
-  ML_M6G_LARGE = "ml.m6g.large",
-  ML_M6G_XLARGE = "ml.m6g.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_P4D_24XLARGE = "ml.p4d.24xlarge",
-  ML_R5D_12XLARGE = "ml.r5d.12xlarge",
-  ML_R5D_24XLARGE = "ml.r5d.24xlarge",
-  ML_R5D_2XLARGE = "ml.r5d.2xlarge",
-  ML_R5D_4XLARGE = "ml.r5d.4xlarge",
-  ML_R5D_LARGE = "ml.r5d.large",
-  ML_R5D_XLARGE = "ml.r5d.xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_R6GD_12XLARGE = "ml.r6gd.12xlarge",
-  ML_R6GD_16XLARGE = "ml.r6gd.16xlarge",
-  ML_R6GD_2XLARGE = "ml.r6gd.2xlarge",
-  ML_R6GD_4XLARGE = "ml.r6gd.4xlarge",
-  ML_R6GD_8XLARGE = "ml.r6gd.8xlarge",
-  ML_R6GD_LARGE = "ml.r6gd.large",
-  ML_R6GD_XLARGE = "ml.r6gd.xlarge",
-  ML_R6G_12XLARGE = "ml.r6g.12xlarge",
-  ML_R6G_16XLARGE = "ml.r6g.16xlarge",
-  ML_R6G_2XLARGE = "ml.r6g.2xlarge",
-  ML_R6G_4XLARGE = "ml.r6g.4xlarge",
-  ML_R6G_8XLARGE = "ml.r6g.8xlarge",
-  ML_R6G_LARGE = "ml.r6g.large",
-  ML_R6G_XLARGE = "ml.r6g.xlarge",
-  ML_T2_2XLARGE = "ml.t2.2xlarge",
-  ML_T2_LARGE = "ml.t2.large",
-  ML_T2_MEDIUM = "ml.t2.medium",
-  ML_T2_XLARGE = "ml.t2.xlarge",
-}
-
-export enum TransformInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProductionVariantInstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_LARGE: "ml.c4.large",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5D_18XLARGE: "ml.c5d.18xlarge",
+  ML_C5D_2XLARGE: "ml.c5d.2xlarge",
+  ML_C5D_4XLARGE: "ml.c5d.4xlarge",
+  ML_C5D_9XLARGE: "ml.c5d.9xlarge",
+  ML_C5D_LARGE: "ml.c5d.large",
+  ML_C5D_XLARGE: "ml.c5d.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_LARGE: "ml.c5.large",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_C6GD_12XLARGE: "ml.c6gd.12xlarge",
+  ML_C6GD_16XLARGE: "ml.c6gd.16xlarge",
+  ML_C6GD_2XLARGE: "ml.c6gd.2xlarge",
+  ML_C6GD_4XLARGE: "ml.c6gd.4xlarge",
+  ML_C6GD_8XLARGE: "ml.c6gd.8xlarge",
+  ML_C6GD_LARGE: "ml.c6gd.large",
+  ML_C6GD_XLARGE: "ml.c6gd.xlarge",
+  ML_C6GN_12XLARGE: "ml.c6gn.12xlarge",
+  ML_C6GN_16XLARGE: "ml.c6gn.16xlarge",
+  ML_C6GN_2XLARGE: "ml.c6gn.2xlarge",
+  ML_C6GN_4XLARGE: "ml.c6gn.4xlarge",
+  ML_C6GN_8XLARGE: "ml.c6gn.8xlarge",
+  ML_C6GN_LARGE: "ml.c6gn.large",
+  ML_C6GN_XLARGE: "ml.c6gn.xlarge",
+  ML_C6G_12XLARGE: "ml.c6g.12xlarge",
+  ML_C6G_16XLARGE: "ml.c6g.16xlarge",
+  ML_C6G_2XLARGE: "ml.c6g.2xlarge",
+  ML_C6G_4XLARGE: "ml.c6g.4xlarge",
+  ML_C6G_8XLARGE: "ml.c6g.8xlarge",
+  ML_C6G_LARGE: "ml.c6g.large",
+  ML_C6G_XLARGE: "ml.c6g.xlarge",
+  ML_C6I_12XLARGE: "ml.c6i.12xlarge",
+  ML_C6I_16XLARGE: "ml.c6i.16xlarge",
+  ML_C6I_24XLARGE: "ml.c6i.24xlarge",
+  ML_C6I_2XLARGE: "ml.c6i.2xlarge",
+  ML_C6I_32XLARGE: "ml.c6i.32xlarge",
+  ML_C6I_4XLARGE: "ml.c6i.4xlarge",
+  ML_C6I_8XLARGE: "ml.c6i.8xlarge",
+  ML_C6I_LARGE: "ml.c6i.large",
+  ML_C6I_XLARGE: "ml.c6i.xlarge",
+  ML_C7G_12XLARGE: "ml.c7g.12xlarge",
+  ML_C7G_16XLARGE: "ml.c7g.16xlarge",
+  ML_C7G_2XLARGE: "ml.c7g.2xlarge",
+  ML_C7G_4XLARGE: "ml.c7g.4xlarge",
+  ML_C7G_8XLARGE: "ml.c7g.8xlarge",
+  ML_C7G_LARGE: "ml.c7g.large",
+  ML_C7G_XLARGE: "ml.c7g.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_INF1_24XLARGE: "ml.inf1.24xlarge",
+  ML_INF1_2XLARGE: "ml.inf1.2xlarge",
+  ML_INF1_6XLARGE: "ml.inf1.6xlarge",
+  ML_INF1_XLARGE: "ml.inf1.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5D_12XLARGE: "ml.m5d.12xlarge",
+  ML_M5D_24XLARGE: "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE: "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE: "ml.m5d.4xlarge",
+  ML_M5D_LARGE: "ml.m5d.large",
+  ML_M5D_XLARGE: "ml.m5d.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_M6GD_12XLARGE: "ml.m6gd.12xlarge",
+  ML_M6GD_16XLARGE: "ml.m6gd.16xlarge",
+  ML_M6GD_2XLARGE: "ml.m6gd.2xlarge",
+  ML_M6GD_4XLARGE: "ml.m6gd.4xlarge",
+  ML_M6GD_8XLARGE: "ml.m6gd.8xlarge",
+  ML_M6GD_LARGE: "ml.m6gd.large",
+  ML_M6GD_XLARGE: "ml.m6gd.xlarge",
+  ML_M6G_12XLARGE: "ml.m6g.12xlarge",
+  ML_M6G_16XLARGE: "ml.m6g.16xlarge",
+  ML_M6G_2XLARGE: "ml.m6g.2xlarge",
+  ML_M6G_4XLARGE: "ml.m6g.4xlarge",
+  ML_M6G_8XLARGE: "ml.m6g.8xlarge",
+  ML_M6G_LARGE: "ml.m6g.large",
+  ML_M6G_XLARGE: "ml.m6g.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_R5D_12XLARGE: "ml.r5d.12xlarge",
+  ML_R5D_24XLARGE: "ml.r5d.24xlarge",
+  ML_R5D_2XLARGE: "ml.r5d.2xlarge",
+  ML_R5D_4XLARGE: "ml.r5d.4xlarge",
+  ML_R5D_LARGE: "ml.r5d.large",
+  ML_R5D_XLARGE: "ml.r5d.xlarge",
+  ML_R5_12XLARGE: "ml.r5.12xlarge",
+  ML_R5_24XLARGE: "ml.r5.24xlarge",
+  ML_R5_2XLARGE: "ml.r5.2xlarge",
+  ML_R5_4XLARGE: "ml.r5.4xlarge",
+  ML_R5_LARGE: "ml.r5.large",
+  ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_R6GD_12XLARGE: "ml.r6gd.12xlarge",
+  ML_R6GD_16XLARGE: "ml.r6gd.16xlarge",
+  ML_R6GD_2XLARGE: "ml.r6gd.2xlarge",
+  ML_R6GD_4XLARGE: "ml.r6gd.4xlarge",
+  ML_R6GD_8XLARGE: "ml.r6gd.8xlarge",
+  ML_R6GD_LARGE: "ml.r6gd.large",
+  ML_R6GD_XLARGE: "ml.r6gd.xlarge",
+  ML_R6G_12XLARGE: "ml.r6g.12xlarge",
+  ML_R6G_16XLARGE: "ml.r6g.16xlarge",
+  ML_R6G_2XLARGE: "ml.r6g.2xlarge",
+  ML_R6G_4XLARGE: "ml.r6g.4xlarge",
+  ML_R6G_8XLARGE: "ml.r6g.8xlarge",
+  ML_R6G_LARGE: "ml.r6g.large",
+  ML_R6G_XLARGE: "ml.r6g.xlarge",
+  ML_T2_2XLARGE: "ml.t2.2xlarge",
+  ML_T2_LARGE: "ml.t2.large",
+  ML_T2_MEDIUM: "ml.t2.medium",
+  ML_T2_XLARGE: "ml.t2.xlarge",
+} as const;
 
 /**
+ * @public
+ */
+export type ProductionVariantInstanceType =
+  (typeof ProductionVariantInstanceType)[keyof typeof ProductionVariantInstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransformInstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type TransformInstanceType = (typeof TransformInstanceType)[keyof typeof TransformInstanceType];
+
+/**
+ * @public
  * <p>A structure of additional Inference Specification. Additional Inference Specification
  *             specifies details about inference jobs that can be run with models based on
  *             this model package</p>
@@ -478,6 +529,7 @@ export interface AdditionalInferenceSpecificationDefinition {
 }
 
 /**
+ * @public
  * <p>A tag object that consists of a key and an optional value, used to manage metadata
  *             for SageMaker Amazon Web Services resources.</p>
  *          <p>You can add tags to notebook instances, training jobs, hyperparameter tuning jobs,
@@ -501,6 +553,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
@@ -515,6 +570,9 @@ export interface AddTagsInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsOutput {
   /**
    * <p>A list of tags associated with the SageMaker resource.</p>
@@ -523,6 +581,7 @@ export interface AddTagsOutput {
 }
 
 /**
+ * @public
  * <p>Edge Manager agent version.</p>
  */
 export interface AgentVersion {
@@ -538,6 +597,7 @@ export interface AgentVersion {
 }
 
 /**
+ * @public
  * <p>An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.</p>
  */
 export interface Alarm {
@@ -547,21 +607,29 @@ export interface Alarm {
   AlarmName?: string;
 }
 
-export enum AlgorithmSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AlgorithmSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
 /**
- * <p>Specifies a metric that the training algorithm
- *             writes
- *             to <code>stderr</code> or <code>stdout</code>. SageMakerhyperparameter
- *             tuning captures
- *             all
- *             defined metrics.
- *             You
- *             specify one metric that a hyperparameter tuning job uses as its
- *             objective metric to choose the best training job.</p>
+ * @public
+ */
+export type AlgorithmSortBy = (typeof AlgorithmSortBy)[keyof typeof AlgorithmSortBy];
+
+/**
+ * @public
+ * <p>Specifies a metric that the training algorithm writes to <code>stderr</code> or
+ *                 <code>stdout</code>. You can view these logs to understand how your training job
+ *             performs and check for any errors encountered during training. SageMaker hyperparameter
+ *             tuning captures all defined metrics. Specify one of the defined metrics to use as an
+ *             objective metric using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-TuningObjective">TuningObjective</a> parameter in the
+ *                 <code>HyperParameterTrainingJobDefinition</code> API to evaluate job performance
+ *             during hyperparameter tuning.</p>
  */
 export interface MetricDefinition {
   /**
@@ -572,24 +640,81 @@ export interface MetricDefinition {
   /**
    * <p>A regular expression that searches the output of a training job and gets the value of
    *             the metric. For more information about using regular expressions to define metrics, see
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html">Defining
-   *                 Objective Metrics</a>.</p>
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Defining
+   *                 metrics and environment variables</a>.</p>
    */
   Regex: string | undefined;
 }
 
-export enum TrainingInputMode {
-  FASTFILE = "FastFile",
-  FILE = "File",
-  PIPE = "Pipe",
+/**
+ * @public
+ * @enum
+ */
+export const TrainingRepositoryAccessMode = {
+  PLATFORM: "Platform",
+  VPC: "Vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type TrainingRepositoryAccessMode =
+  (typeof TrainingRepositoryAccessMode)[keyof typeof TrainingRepositoryAccessMode];
+
+/**
+ * @public
+ * <p>An object containing authentication information for a private Docker registry.</p>
+ */
+export interface TrainingRepositoryAuthConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Lambda function used to give SageMaker access
+   *             credentials to your private Docker registry.</p>
+   */
+  TrainingRepositoryCredentialsProviderArn: string | undefined;
 }
 
 /**
+ * @public
+ * <p>The configuration to use an image from a private Docker registry for a training
+ *             job.</p>
+ */
+export interface TrainingImageConfig {
+  /**
+   * <p>The method that your training job will use to gain access to the images in your
+   *             private Docker registry. For access to an image in a private Docker registry, set to
+   *                 <code>Vpc</code>.</p>
+   */
+  TrainingRepositoryAccessMode: TrainingRepositoryAccessMode | string | undefined;
+
+  /**
+   * <p>An object containing authentication information for a private Docker registry
+   *             containing your training images.</p>
+   */
+  TrainingRepositoryAuthConfig?: TrainingRepositoryAuthConfig;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TrainingInputMode = {
+  FASTFILE: "FastFile",
+  FILE: "File",
+  PIPE: "Pipe",
+} as const;
+
+/**
+ * @public
+ */
+export type TrainingInputMode = (typeof TrainingInputMode)[keyof typeof TrainingInputMode];
+
+/**
+ * @public
  * <p>Specifies the training algorithm to use in a <a>CreateTrainingJob</a>
  *             request.</p>
  *          <p>For more information about algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For
- *             information about using your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
- *                 SageMaker</a>. </p>
+ *             information about using your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
+ *             Amazon SageMaker</a>. </p>
  */
 export interface AlgorithmSpecification {
   /**
@@ -716,24 +841,49 @@ export interface AlgorithmSpecification {
    *                 Runs Your Training Image</a> for additional information.</p>
    */
   ContainerArguments?: string[];
-}
 
-export enum AlgorithmStatus {
-  COMPLETED = "Completed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-}
-
-export enum DetailedAlgorithmStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  NOT_STARTED = "NotStarted",
+  /**
+   * <p>The configuration to use an image from a private Docker registry for a training
+   *             job.</p>
+   */
+  TrainingImageConfig?: TrainingImageConfig;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AlgorithmStatus = {
+  COMPLETED: "Completed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+} as const;
+
+/**
+ * @public
+ */
+export type AlgorithmStatus = (typeof AlgorithmStatus)[keyof typeof AlgorithmStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DetailedAlgorithmStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  NOT_STARTED: "NotStarted",
+} as const;
+
+/**
+ * @public
+ */
+export type DetailedAlgorithmStatus = (typeof DetailedAlgorithmStatus)[keyof typeof DetailedAlgorithmStatus];
+
+/**
+ * @public
  * <p>Represents the overall status of an algorithm.</p>
  */
 export interface AlgorithmStatusItem {
@@ -754,6 +904,7 @@ export interface AlgorithmStatusItem {
 }
 
 /**
+ * @public
  * <p>Specifies the validation and image scan statuses of the algorithm.</p>
  */
 export interface AlgorithmStatusDetails {
@@ -769,6 +920,7 @@ export interface AlgorithmStatusDetails {
 }
 
 /**
+ * @public
  * <p>Provides summary information about an algorithm.</p>
  */
 export interface AlgorithmSummary {
@@ -798,22 +950,50 @@ export interface AlgorithmSummary {
   AlgorithmStatus: AlgorithmStatus | string | undefined;
 }
 
-export enum CompressionType {
-  GZIP = "Gzip",
-  NONE = "None",
-}
-
-export enum FileSystemAccessMode {
-  RO = "ro",
-  RW = "rw",
-}
-
-export enum FileSystemType {
-  EFS = "EFS",
-  FSXLUSTRE = "FSxLustre",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CompressionType = {
+  GZIP: "Gzip",
+  NONE: "None",
+} as const;
 
 /**
+ * @public
+ */
+export type CompressionType = (typeof CompressionType)[keyof typeof CompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FileSystemAccessMode = {
+  RO: "ro",
+  RW: "rw",
+} as const;
+
+/**
+ * @public
+ */
+export type FileSystemAccessMode = (typeof FileSystemAccessMode)[keyof typeof FileSystemAccessMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const FileSystemType = {
+  EFS: "EFS",
+  FSXLUSTRE: "FSxLustre",
+} as const;
+
+/**
+ * @public
+ */
+export type FileSystemType = (typeof FileSystemType)[keyof typeof FileSystemType];
+
+/**
+ * @public
  * <p>Specifies a file system data source for a channel.</p>
  */
 export interface FileSystemDataSource {
@@ -840,18 +1020,37 @@ export interface FileSystemDataSource {
   DirectoryPath: string | undefined;
 }
 
-export enum S3DataDistribution {
-  FULLY_REPLICATED = "FullyReplicated",
-  SHARDED_BY_S3_KEY = "ShardedByS3Key",
-}
-
-export enum S3DataType {
-  AUGMENTED_MANIFEST_FILE = "AugmentedManifestFile",
-  MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix",
-}
+/**
+ * @public
+ * @enum
+ */
+export const S3DataDistribution = {
+  FULLY_REPLICATED: "FullyReplicated",
+  SHARDED_BY_S3_KEY: "ShardedByS3Key",
+} as const;
 
 /**
+ * @public
+ */
+export type S3DataDistribution = (typeof S3DataDistribution)[keyof typeof S3DataDistribution];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3DataType = {
+  AUGMENTED_MANIFEST_FILE: "AugmentedManifestFile",
+  MANIFEST_FILE: "ManifestFile",
+  S3_PREFIX: "S3Prefix",
+} as const;
+
+/**
+ * @public
+ */
+export type S3DataType = (typeof S3DataType)[keyof typeof S3DataType];
+
+/**
+ * @public
  * <p>Describes the S3 data source.</p>
  */
 export interface S3DataSource {
@@ -889,7 +1088,7 @@ export interface S3DataSource {
    *                     individual <code>S3Uri</code> is sourced from different S3 buckets.</p>
    *                <p> The following code example shows a valid manifest format: </p>
    *                <p>
-   *                   <code>[ {"prefix": "s3://customer_bucket/some/prefix/"},</code>
+   *                   <code>[ \{"prefix": "s3://customer_bucket/some/prefix/"\},</code>
    *                </p>
    *                <p>
    *                   <code> "relative/path/to/custdata-1",</code>
@@ -961,6 +1160,7 @@ export interface S3DataSource {
 }
 
 /**
+ * @public
  * <p>Describes the location of the channel data.</p>
  */
 export interface DataSource {
@@ -975,12 +1175,22 @@ export interface DataSource {
   FileSystemDataSource?: FileSystemDataSource;
 }
 
-export enum RecordWrapper {
-  NONE = "None",
-  RECORDIO = "RecordIO",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecordWrapper = {
+  NONE: "None",
+  RECORDIO: "RecordIO",
+} as const;
 
 /**
+ * @public
+ */
+export type RecordWrapper = (typeof RecordWrapper)[keyof typeof RecordWrapper];
+
+/**
+ * @public
  * <p>A configuration for a shuffle option for input data in a channel. If you use
  *                 <code>S3Prefix</code> for <code>S3DataType</code>, the results of the S3 key prefix
  *             matches are shuffled. If you use <code>ManifestFile</code>, the order of the S3 object
@@ -1004,6 +1214,7 @@ export interface ShuffleConfig {
 }
 
 /**
+ * @public
  * <p>A channel is a named input source that training algorithms can consume. </p>
  */
 export interface Channel {
@@ -1074,6 +1285,7 @@ export interface Channel {
 }
 
 /**
+ * @public
  * <p>Provides information about how to store model training results (model
  *             artifacts).</p>
  */
@@ -1134,59 +1346,69 @@ export interface OutputDataConfig {
   S3OutputPath: string | undefined;
 }
 
-export enum TrainingInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5N_18XLARGE = "ml.c5n.18xlarge",
-  ML_C5N_2XLARGE = "ml.c5n.2xlarge",
-  ML_C5N_4XLARGE = "ml.c5n.4xlarge",
-  ML_C5N_9XLARGE = "ml.c5n.9xlarge",
-  ML_C5N_XLARGE = "ml.c5n.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_G5_12XLARGE = "ml.g5.12xlarge",
-  ML_G5_16XLARGE = "ml.g5.16xlarge",
-  ML_G5_24XLARGE = "ml.g5.24xlarge",
-  ML_G5_2XLARGE = "ml.g5.2xlarge",
-  ML_G5_48XLARGE = "ml.g5.48xlarge",
-  ML_G5_4XLARGE = "ml.g5.4xlarge",
-  ML_G5_8XLARGE = "ml.g5.8xlarge",
-  ML_G5_XLARGE = "ml.g5.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_P4D_24XLARGE = "ml.p4d.24xlarge",
-  ML_TRN1_2XLARGE = "ml.trn1.2xlarge",
-  ML_TRN1_32XLARGE = "ml.trn1.32xlarge",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TrainingInstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5N_18XLARGE: "ml.c5n.18xlarge",
+  ML_C5N_2XLARGE: "ml.c5n.2xlarge",
+  ML_C5N_4XLARGE: "ml.c5n.4xlarge",
+  ML_C5N_9XLARGE: "ml.c5n.9xlarge",
+  ML_C5N_XLARGE: "ml.c5n.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3DN_24XLARGE: "ml.p3dn.24xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
+  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+} as const;
 
 /**
+ * @public
+ */
+export type TrainingInstanceType = (typeof TrainingInstanceType)[keyof typeof TrainingInstanceType];
+
+/**
+ * @public
  * <p>Defines an instance group for heterogeneous cluster training. When requesting a
  *             training job using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API, you can configure multiple instance groups .</p>
  */
@@ -1208,6 +1430,7 @@ export interface InstanceGroup {
 }
 
 /**
+ * @public
  * <p>Describes the resources, including machine learning (ML) compute instances and ML
  *             storage volumes, to use for model training. </p>
  */
@@ -1312,6 +1535,7 @@ export interface ResourceConfig {
 }
 
 /**
+ * @public
  * <p>Specifies a limit to how long a model training job or model compilation job can run.
  *             It also specifies how long a managed spot training job has to complete. When the job
  *             reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap
@@ -1363,6 +1587,7 @@ export interface StoppingCondition {
 }
 
 /**
+ * @public
  * <p>Defines the input needed to run a training job using the algorithm.</p>
  */
 export interface TrainingJobDefinition {
@@ -1437,12 +1662,22 @@ export interface TrainingJobDefinition {
   StoppingCondition: StoppingCondition | undefined;
 }
 
-export enum BatchStrategy {
-  MULTI_RECORD = "MultiRecord",
-  SINGLE_RECORD = "SingleRecord",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BatchStrategy = {
+  MULTI_RECORD: "MultiRecord",
+  SINGLE_RECORD: "SingleRecord",
+} as const;
 
 /**
+ * @public
+ */
+export type BatchStrategy = (typeof BatchStrategy)[keyof typeof BatchStrategy];
+
+/**
+ * @public
  * <p>Describes the S3 data source.</p>
  */
 export interface TransformS3DataSource {
@@ -1474,7 +1709,7 @@ export interface TransformS3DataSource {
    *                </p>
    *                <p> The manifest is an S3 object which is a JSON file with the following format: </p>
    *                <p>
-   *                   <code>[ {"prefix": "s3://customer_bucket/some/prefix/"},</code>
+   *                   <code>[ \{"prefix": "s3://customer_bucket/some/prefix/"\},</code>
    *                </p>
    *                <p>
    *                   <code>"relative/path/to/custdata-1",</code>
@@ -1515,6 +1750,7 @@ export interface TransformS3DataSource {
 }
 
 /**
+ * @public
  * <p>Describes the location of the channel data.</p>
  */
 export interface TransformDataSource {
@@ -1524,14 +1760,24 @@ export interface TransformDataSource {
   S3DataSource: TransformS3DataSource | undefined;
 }
 
-export enum SplitType {
-  LINE = "Line",
-  NONE = "None",
-  RECORDIO = "RecordIO",
-  TFRECORD = "TFRecord",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SplitType = {
+  LINE: "Line",
+  NONE: "None",
+  RECORDIO: "RecordIO",
+  TFRECORD: "TFRecord",
+} as const;
 
 /**
+ * @public
+ */
+export type SplitType = (typeof SplitType)[keyof typeof SplitType];
+
+/**
+ * @public
  * <p>Describes the input source of a transform job and the way the transform job consumes
  *             it.</p>
  */
@@ -1599,12 +1845,22 @@ export interface TransformInput {
   SplitType?: SplitType | string;
 }
 
-export enum AssemblyType {
-  LINE = "Line",
-  NONE = "None",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssemblyType = {
+  LINE: "Line",
+  NONE: "None",
+} as const;
 
 /**
+ * @public
+ */
+export type AssemblyType = (typeof AssemblyType)[keyof typeof AssemblyType];
+
+/**
+ * @public
  * <p>Describes the results of a transform job.</p>
  */
 export interface TransformOutput {
@@ -1680,6 +1936,7 @@ export interface TransformOutput {
 }
 
 /**
+ * @public
  * <p>Describes the resources, including ML instance types and ML instance count, to use for
  *             transform job.</p>
  */
@@ -1741,6 +1998,7 @@ export interface TransformResources {
 }
 
 /**
+ * @public
  * <p>Defines the input needed to run a transform job using the inference specification
  *             specified in the algorithm.</p>
  */
@@ -1790,6 +2048,7 @@ export interface TransformJobDefinition {
 }
 
 /**
+ * @public
  * <p>Defines a training job and a batch transform job that SageMaker runs to validate your
  *             algorithm.</p>
  *          <p>The data provided in the validation profile is made available to your buyers on
@@ -1816,6 +2075,7 @@ export interface AlgorithmValidationProfile {
 }
 
 /**
+ * @public
  * <p>Specifies configurations for one or more training jobs that SageMaker runs to test the
  *             algorithm.</p>
  */
@@ -1833,6 +2093,7 @@ export interface AlgorithmValidationSpecification {
 }
 
 /**
+ * @public
  * <p>Configures how labels are consolidated across human workers and processes output data.
  *          </p>
  */
@@ -3313,23 +3574,42 @@ export interface AnnotationConsolidationConfig {
   AnnotationConsolidationLambdaArn: string | undefined;
 }
 
-export enum AppType {
-  JupyterServer = "JupyterServer",
-  KernelGateway = "KernelGateway",
-  RSessionGateway = "RSessionGateway",
-  RStudioServerPro = "RStudioServerPro",
-  TensorBoard = "TensorBoard",
-}
-
-export enum AppStatus {
-  Deleted = "Deleted",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AppType = {
+  JupyterServer: "JupyterServer",
+  KernelGateway: "KernelGateway",
+  RSessionGateway: "RSessionGateway",
+  RStudioServerPro: "RStudioServerPro",
+  TensorBoard: "TensorBoard",
+} as const;
 
 /**
+ * @public
+ */
+export type AppType = (typeof AppType)[keyof typeof AppType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppStatus = {
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+} as const;
+
+/**
+ * @public
+ */
+export type AppStatus = (typeof AppStatus)[keyof typeof AppStatus];
+
+/**
+ * @public
  * <p>Details about an Amazon SageMaker app.</p>
  */
 export interface AppDetails {
@@ -3370,6 +3650,7 @@ export interface AppDetails {
 }
 
 /**
+ * @public
  * <p>The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.</p>
  */
 export interface FileSystemConfig {
@@ -3391,6 +3672,7 @@ export interface FileSystemConfig {
 }
 
 /**
+ * @public
  * <p>The specification of a Jupyter kernel.</p>
  */
 export interface KernelSpec {
@@ -3406,6 +3688,7 @@ export interface KernelSpec {
 }
 
 /**
+ * @public
  * <p>The configuration for the file system and kernels in a SageMaker image running as a
  *         KernelGateway app.</p>
  */
@@ -3422,6 +3705,7 @@ export interface KernelGatewayImageConfig {
 }
 
 /**
+ * @public
  * <p>The configuration for running a SageMaker image as a KernelGateway app.</p>
  */
 export interface AppImageConfigDetails {
@@ -3451,87 +3735,134 @@ export interface AppImageConfigDetails {
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
 }
 
-export enum AppImageConfigSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-  Name = "Name",
-}
-
-export enum AppInstanceType {
-  ML_C5_12XLARGE = "ml.c5.12xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_24XLARGE = "ml.c5.24xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_LARGE = "ml.c5.large",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_G5_12XLARGE = "ml.g5.12xlarge",
-  ML_G5_16XLARGE = "ml.g5.16xlarge",
-  ML_G5_24XLARGE = "ml.g5.24xlarge",
-  ML_G5_2XLARGE = "ml.g5.2xlarge",
-  ML_G5_48XLARGE = "ml.g5.48xlarge",
-  ML_G5_4XLARGE = "ml.g5.4xlarge",
-  ML_G5_8XLARGE = "ml.g5.8xlarge",
-  ML_G5_XLARGE = "ml.g5.xlarge",
-  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
-  ML_M5D_16XLARGE = "ml.m5d.16xlarge",
-  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
-  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
-  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
-  ML_M5D_8XLARGE = "ml.m5d.8xlarge",
-  ML_M5D_LARGE = "ml.m5d.large",
-  ML_M5D_XLARGE = "ml.m5d.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_16XLARGE = "ml.m5.16xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_8XLARGE = "ml.m5.8xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_16XLARGE = "ml.r5.16xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_8XLARGE = "ml.r5.8xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_MICRO = "ml.t3.micro",
-  ML_T3_SMALL = "ml.t3.small",
-  ML_T3_XLARGE = "ml.t3.xlarge",
-  SYSTEM = "system",
-}
-
-export enum AppNetworkAccessType {
-  PublicInternetOnly = "PublicInternetOnly",
-  VpcOnly = "VpcOnly",
-}
-
-export enum AppSecurityGroupManagement {
-  Customer = "Customer",
-  Service = "Service",
-}
-
-export enum AppSortKey {
-  CreationTime = "CreationTime",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AppImageConfigSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+  Name: "Name",
+} as const;
 
 /**
+ * @public
+ */
+export type AppImageConfigSortKey = (typeof AppImageConfigSortKey)[keyof typeof AppImageConfigSortKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppInstanceType = {
+  ML_C5_12XLARGE: "ml.c5.12xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_24XLARGE: "ml.c5.24xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_LARGE: "ml.c5.large",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_GEOSPATIAL_INTERACTIVE: "ml.geospatial.interactive",
+  ML_M5D_12XLARGE: "ml.m5d.12xlarge",
+  ML_M5D_16XLARGE: "ml.m5d.16xlarge",
+  ML_M5D_24XLARGE: "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE: "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE: "ml.m5d.4xlarge",
+  ML_M5D_8XLARGE: "ml.m5d.8xlarge",
+  ML_M5D_LARGE: "ml.m5d.large",
+  ML_M5D_XLARGE: "ml.m5d.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_16XLARGE: "ml.m5.16xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_8XLARGE: "ml.m5.8xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P3DN_24XLARGE: "ml.p3dn.24xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_R5_12XLARGE: "ml.r5.12xlarge",
+  ML_R5_16XLARGE: "ml.r5.16xlarge",
+  ML_R5_24XLARGE: "ml.r5.24xlarge",
+  ML_R5_2XLARGE: "ml.r5.2xlarge",
+  ML_R5_4XLARGE: "ml.r5.4xlarge",
+  ML_R5_8XLARGE: "ml.r5.8xlarge",
+  ML_R5_LARGE: "ml.r5.large",
+  ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_T3_2XLARGE: "ml.t3.2xlarge",
+  ML_T3_LARGE: "ml.t3.large",
+  ML_T3_MEDIUM: "ml.t3.medium",
+  ML_T3_MICRO: "ml.t3.micro",
+  ML_T3_SMALL: "ml.t3.small",
+  ML_T3_XLARGE: "ml.t3.xlarge",
+  SYSTEM: "system",
+} as const;
+
+/**
+ * @public
+ */
+export type AppInstanceType = (typeof AppInstanceType)[keyof typeof AppInstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppNetworkAccessType = {
+  PublicInternetOnly: "PublicInternetOnly",
+  VpcOnly: "VpcOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type AppNetworkAccessType = (typeof AppNetworkAccessType)[keyof typeof AppNetworkAccessType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppSecurityGroupManagement = {
+  Customer: "Customer",
+  Service: "Service",
+} as const;
+
+/**
+ * @public
+ */
+export type AppSecurityGroupManagement = (typeof AppSecurityGroupManagement)[keyof typeof AppSecurityGroupManagement];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppSortKey = {
+  CreationTime: "CreationTime",
+} as const;
+
+/**
+ * @public
+ */
+export type AppSortKey = (typeof AppSortKey)[keyof typeof AppSortKey];
+
+/**
+ * @public
  * <p>Configuration to run a processing job in a specified container image.</p>
  */
 export interface AppSpecification {
@@ -3551,14 +3882,24 @@ export interface AppSpecification {
   ContainerArguments?: string[];
 }
 
-export enum ArtifactSourceIdType {
-  CUSTOM = "Custom",
-  MD5_HASH = "MD5Hash",
-  S3_ETAG = "S3ETag",
-  S3_VERSION = "S3Version",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ArtifactSourceIdType = {
+  CUSTOM: "Custom",
+  MD5_HASH: "MD5Hash",
+  S3_ETAG: "S3ETag",
+  S3_VERSION: "S3Version",
+} as const;
 
 /**
+ * @public
+ */
+export type ArtifactSourceIdType = (typeof ArtifactSourceIdType)[keyof typeof ArtifactSourceIdType];
+
+/**
+ * @public
  * <p>The ID and ID type of an artifact source.</p>
  */
 export interface ArtifactSourceType {
@@ -3574,6 +3915,7 @@ export interface ArtifactSourceType {
 }
 
 /**
+ * @public
  * <p>A structure describing the source of an artifact.</p>
  */
 export interface ArtifactSource {
@@ -3589,6 +3931,7 @@ export interface ArtifactSource {
 }
 
 /**
+ * @public
  * <p>Lists a summary of the properties of an artifact. An artifact represents a URI
  *         addressable object or data. Some examples are a dataset and a model.</p>
  */
@@ -3624,6 +3967,9 @@ export interface ArtifactSummary {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTrialComponentRequest {
   /**
    * <p>The name of the component to associated with the trial.</p>
@@ -3636,6 +3982,9 @@ export interface AssociateTrialComponentRequest {
   TrialName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTrialComponentResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
@@ -3649,6 +3998,29 @@ export interface AssociateTrialComponentResponse {
 }
 
 /**
+ * @public
+ * <p>The IAM Identity details associated with the user. These details are
+ *       associated with model package groups, model packages and project entities only.</p>
+ */
+export interface IamIdentity {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM identity.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the principal that assumes the IAM identity.</p>
+   */
+  PrincipalId?: string;
+
+  /**
+   * <p>The person or application which assumes the IAM identity.</p>
+   */
+  SourceIdentity?: string;
+}
+
+/**
+ * @public
  * <p>Information about the user who created or modified an experiment, trial, trial
  *       component, lineage group, project, or model card.</p>
  */
@@ -3667,9 +4039,16 @@ export interface UserContext {
    * <p>The domain associated with the user.</p>
    */
   DomainId?: string;
+
+  /**
+   * <p>The IAM Identity details associated with the user. These details are
+   *       associated with model package groups, model packages, and project entities only.</p>
+   */
+  IamIdentity?: IamIdentity;
 }
 
 /**
+ * @public
  * <p>Lists a summary of the properties of an association. An association is an entity that
  *         links other lineage or experiment entities. An example would be an association between a
  *         training job and a model.</p>
@@ -3723,6 +4102,7 @@ export interface AssociationSummary {
 }
 
 /**
+ * @public
  * <p>Configures the behavior of the client used by SageMaker to interact with the model
  *             container during asynchronous inference.</p>
  */
@@ -3735,6 +4115,22 @@ export interface AsyncInferenceClientConfig {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AsyncNotificationTopicTypes = {
+  ERROR_NOTIFICATION_TOPIC: "ERROR_NOTIFICATION_TOPIC",
+  SUCCESS_NOTIFICATION_TOPIC: "SUCCESS_NOTIFICATION_TOPIC",
+} as const;
+
+/**
+ * @public
+ */
+export type AsyncNotificationTopicTypes =
+  (typeof AsyncNotificationTopicTypes)[keyof typeof AsyncNotificationTopicTypes];
+
+/**
+ * @public
  * <p>Specifies the configuration for notifications of inference results for asynchronous
  *             inference.</p>
  */
@@ -3750,9 +4146,15 @@ export interface AsyncInferenceNotificationConfig {
    *             no notification is sent on failure.</p>
    */
   ErrorTopic?: string;
+
+  /**
+   * <p>The Amazon SNS topics where you want the inference response to be included.</p>
+   */
+  IncludeInferenceResponseIn?: (AsyncNotificationTopicTypes | string)[];
 }
 
 /**
+ * @public
  * <p>Specifies the configuration for asynchronous inference invocation outputs.</p>
  */
 export interface AsyncInferenceOutputConfig {
@@ -3766,16 +4168,22 @@ export interface AsyncInferenceOutputConfig {
   /**
    * <p>The Amazon S3 location to upload inference responses to.</p>
    */
-  S3OutputPath: string | undefined;
+  S3OutputPath?: string;
 
   /**
    * <p>Specifies the configuration for notifications of inference results for asynchronous
    *             inference.</p>
    */
   NotificationConfig?: AsyncInferenceNotificationConfig;
+
+  /**
+   * <p>The Amazon S3 location to upload failure inference responses to.</p>
+   */
+  S3FailurePath?: string;
 }
 
 /**
+ * @public
  * <p>Specifies configuration for how an endpoint performs asynchronous inference.</p>
  */
 export interface AsyncInferenceConfig {
@@ -3791,21 +4199,41 @@ export interface AsyncInferenceConfig {
   OutputConfig: AsyncInferenceOutputConfig | undefined;
 }
 
-export enum AthenaResultCompressionType {
-  GZIP = "GZIP",
-  SNAPPY = "SNAPPY",
-  ZLIB = "ZLIB",
-}
-
-export enum AthenaResultFormat {
-  AVRO = "AVRO",
-  JSON = "JSON",
-  ORC = "ORC",
-  PARQUET = "PARQUET",
-  TEXTFILE = "TEXTFILE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AthenaResultCompressionType = {
+  GZIP: "GZIP",
+  SNAPPY: "SNAPPY",
+  ZLIB: "ZLIB",
+} as const;
 
 /**
+ * @public
+ */
+export type AthenaResultCompressionType =
+  (typeof AthenaResultCompressionType)[keyof typeof AthenaResultCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AthenaResultFormat = {
+  AVRO: "AVRO",
+  JSON: "JSON",
+  ORC: "ORC",
+  PARQUET: "PARQUET",
+  TEXTFILE: "TEXTFILE",
+} as const;
+
+/**
+ * @public
+ */
+export type AthenaResultFormat = (typeof AthenaResultFormat)[keyof typeof AthenaResultFormat];
+
+/**
+ * @public
  * <p>Configuration for Athena Dataset Definition input.</p>
  */
 export interface AthenaDatasetDefinition {
@@ -3851,12 +4279,106 @@ export interface AthenaDatasetDefinition {
   OutputCompression?: AthenaResultCompressionType | string;
 }
 
-export enum AuthMode {
-  IAM = "IAM",
-  SSO = "SSO",
+/**
+ * @public
+ * @enum
+ */
+export const AuthMode = {
+  IAM: "IAM",
+  SSO: "SSO",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthMode = (typeof AuthMode)[keyof typeof AuthMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLAlgorithm = {
+  CATBOOST: "catboost",
+  EXTRA_TREES: "extra-trees",
+  FASTAI: "fastai",
+  LIGHTGBM: "lightgbm",
+  LINEAR_LEARNER: "linear-learner",
+  MLP: "mlp",
+  NN_TORCH: "nn-torch",
+  RANDOMFOREST: "randomforest",
+  XGBOOST: "xgboost",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoMLAlgorithm = (typeof AutoMLAlgorithm)[keyof typeof AutoMLAlgorithm];
+
+/**
+ * @public
+ * <p>The collection of algorithms run on a dataset for training the model candidates of an
+ *          Autopilot job.</p>
+ */
+export interface AutoMLAlgorithmConfig {
+  /**
+   * <p>The selection of algorithms run on a dataset to train the model candidates of an Autopilot
+   *          job. </p>
+   *          <note>
+   *             <p>Selected algorithms must belong to the list corresponding to the training mode set in
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html#sagemaker-Type-AutoMLJobConfig-Mode">AutoMLJobConfig.Mode</a> (<code>ENSEMBLING</code> or
+   *                <code>HYPERPARAMETER_TUNING</code>). Choose a minimum of 1 algorithm. </p>
+   *          </note>
+   *          <ul>
+   *             <li>
+   *                <p>In <code>ENSEMBLING</code> mode:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>"catboost"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"extra-trees"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"fastai"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"lightgbm"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"linear-learner"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"nn-torch"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"randomforest"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"xgboost"</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>In <code>HYPERPARAMETER_TUNING</code> mode:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>"linear-learner"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"mlp"</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>"xgboost"</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  AutoMLAlgorithms: (AutoMLAlgorithm | string)[] | undefined;
 }
 
 /**
+ * @public
  * <p>The location of artifacts for an AutoML candidate job.</p>
  */
 export interface CandidateArtifactLocations {
@@ -3872,47 +4394,75 @@ export interface CandidateArtifactLocations {
   ModelInsights?: string;
 }
 
-export enum AutoMLMetricEnum {
-  ACCURACY = "Accuracy",
-  AUC = "AUC",
-  BALANCED_ACCURACY = "BalancedAccuracy",
-  F1 = "F1",
-  F1_MACRO = "F1macro",
-  MAE = "MAE",
-  MSE = "MSE",
-  PRECISION = "Precision",
-  PRECISION_MACRO = "PrecisionMacro",
-  R2 = "R2",
-  RECALL = "Recall",
-  RECALL_MACRO = "RecallMacro",
-  RMSE = "RMSE",
-}
-
-export enum MetricSetSource {
-  TEST = "Test",
-  TRAIN = "Train",
-  VALIDATION = "Validation",
-}
-
-export enum AutoMLMetricExtendedEnum {
-  ACCURACY = "Accuracy",
-  AUC = "AUC",
-  BALANCED_ACCURACY = "BalancedAccuracy",
-  F1 = "F1",
-  F1_MACRO = "F1macro",
-  INFERENCE_LATENCY = "InferenceLatency",
-  LogLoss = "LogLoss",
-  MAE = "MAE",
-  MSE = "MSE",
-  PRECISION = "Precision",
-  PRECISION_MACRO = "PrecisionMacro",
-  R2 = "R2",
-  RECALL = "Recall",
-  RECALL_MACRO = "RecallMacro",
-  RMSE = "RMSE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLMetricEnum = {
+  ACCURACY: "Accuracy",
+  AUC: "AUC",
+  BALANCED_ACCURACY: "BalancedAccuracy",
+  F1: "F1",
+  F1_MACRO: "F1macro",
+  MAE: "MAE",
+  MSE: "MSE",
+  PRECISION: "Precision",
+  PRECISION_MACRO: "PrecisionMacro",
+  R2: "R2",
+  RECALL: "Recall",
+  RECALL_MACRO: "RecallMacro",
+  RMSE: "RMSE",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoMLMetricEnum = (typeof AutoMLMetricEnum)[keyof typeof AutoMLMetricEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricSetSource = {
+  TEST: "Test",
+  TRAIN: "Train",
+  VALIDATION: "Validation",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricSetSource = (typeof MetricSetSource)[keyof typeof MetricSetSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLMetricExtendedEnum = {
+  ACCURACY: "Accuracy",
+  AUC: "AUC",
+  BALANCED_ACCURACY: "BalancedAccuracy",
+  F1: "F1",
+  F1_MACRO: "F1macro",
+  INFERENCE_LATENCY: "InferenceLatency",
+  LogLoss: "LogLoss",
+  MAE: "MAE",
+  MSE: "MSE",
+  PRECISION: "Precision",
+  PRECISION_MACRO: "PrecisionMacro",
+  R2: "R2",
+  RECALL: "Recall",
+  RECALL_MACRO: "RecallMacro",
+  RMSE: "RMSE",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoMLMetricExtendedEnum = (typeof AutoMLMetricExtendedEnum)[keyof typeof AutoMLMetricExtendedEnum];
+
+/**
+ * @public
  * <p>Information about the metric for a candidate produced by an AutoML job.</p>
  */
 export interface MetricDatum {
@@ -3943,6 +4493,7 @@ export interface MetricDatum {
 }
 
 /**
+ * @public
  * <p>The properties of an AutoML candidate job.</p>
  */
 export interface CandidateProperties {
@@ -3957,21 +4508,40 @@ export interface CandidateProperties {
   CandidateMetrics?: MetricDatum[];
 }
 
-export enum CandidateStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
-
-export enum CandidateStepType {
-  PROCESSING = "AWS::SageMaker::ProcessingJob",
-  TRAINING = "AWS::SageMaker::TrainingJob",
-  TRANSFORM = "AWS::SageMaker::TransformJob",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CandidateStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
 
 /**
+ * @public
+ */
+export type CandidateStatus = (typeof CandidateStatus)[keyof typeof CandidateStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CandidateStepType = {
+  PROCESSING: "AWS::SageMaker::ProcessingJob",
+  TRAINING: "AWS::SageMaker::TrainingJob",
+  TRANSFORM: "AWS::SageMaker::TransformJob",
+} as const;
+
+/**
+ * @public
+ */
+export type CandidateStepType = (typeof CandidateStepType)[keyof typeof CandidateStepType];
+
+/**
+ * @public
  * <p>Information about the steps for a candidate and what step it is working on.</p>
  */
 export interface AutoMLCandidateStep {
@@ -3991,12 +4561,22 @@ export interface AutoMLCandidateStep {
   CandidateStepName: string | undefined;
 }
 
-export enum AutoMLJobObjectiveType {
-  MAXIMIZE = "Maximize",
-  MINIMIZE = "Minimize",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLJobObjectiveType = {
+  MAXIMIZE: "Maximize",
+  MINIMIZE: "Minimize",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoMLJobObjectiveType = (typeof AutoMLJobObjectiveType)[keyof typeof AutoMLJobObjectiveType];
+
+/**
+ * @public
  * <p>The best candidate result from an AutoML training job.</p>
  */
 export interface FinalAutoMLJobObjectiveMetric {
@@ -4007,7 +4587,7 @@ export interface FinalAutoMLJobObjectiveMetric {
 
   /**
    * <p>The name of the metric with the best result. For a description of the possible objective
-   *          metrics, see <a>AutoMLJobObjective$MetricName</a>.</p>
+   *          metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a>.</p>
    */
   MetricName: AutoMLMetricEnum | string | undefined;
 
@@ -4015,37 +4595,72 @@ export interface FinalAutoMLJobObjectiveMetric {
    * <p>The value of the metric with the best result.</p>
    */
   Value: number | undefined;
+
+  /**
+   * <p>The name of the standard metric. For a description of the standard metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
+   *             candidate metrics</a>.</p>
+   */
+  StandardMetricName?: AutoMLMetricEnum | string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AutoMLProcessingUnit = {
+  CPU: "CPU",
+  GPU: "GPU",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoMLProcessingUnit = (typeof AutoMLProcessingUnit)[keyof typeof AutoMLProcessingUnit];
+
+/**
+ * @public
  * <p>A list of container definitions that describe the different containers that make up an
- *          AutoML candidate. For more information, see .</p>
+ *          AutoML candidate. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
+ *                ContainerDefinition</a>.</p>
  */
 export interface AutoMLContainerDefinition {
   /**
    * <p>The Amazon Elastic Container Registry (Amazon ECR) path of the container. For more
-   *          information, see .</p>
+   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
+   *                ContainerDefinition</a>.</p>
    */
   Image: string | undefined;
 
   /**
-   * <p>The location of the model artifacts. For more information, see .</p>
+   * <p>The location of the model artifacts. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html"> ContainerDefinition</a>.</p>
    */
   ModelDataUrl: string | undefined;
 
   /**
-   * <p>The environment variables to set in the container. For more information, see .</p>
+   * <p>The environment variables to set in the container. For more information, see
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
+   *                ContainerDefinition</a>.</p>
    */
   Environment?: Record<string, string>;
 }
 
-export enum ObjectiveStatus {
-  Failed = "Failed",
-  Pending = "Pending",
-  Succeeded = "Succeeded",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ObjectiveStatus = {
+  Failed: "Failed",
+  Pending: "Pending",
+  Succeeded: "Succeeded",
+} as const;
 
 /**
+ * @public
+ */
+export type ObjectiveStatus = (typeof ObjectiveStatus)[keyof typeof ObjectiveStatus];
+
+/**
+ * @public
  * <p>Information about a candidate produced by an AutoML training job, including its status,
  *          steps, and other properties.</p>
  */
@@ -4076,7 +4691,7 @@ export interface AutoMLCandidate {
   CandidateStatus: CandidateStatus | string | undefined;
 
   /**
-   * <p>Information about the inference container definitions.</p>
+   * <p>Information about the recommended inference container definitions.</p>
    */
   InferenceContainers?: AutoMLContainerDefinition[];
 
@@ -4104,10 +4719,18 @@ export interface AutoMLCandidate {
    * <p>The properties of an AutoML candidate job.</p>
    */
   CandidateProperties?: CandidateProperties;
+
+  /**
+   * <p>The mapping of all supported processing unit (CPU, GPU, etc...) to inference container
+   *          definitions for the candidate. This field is populated for the V2 API only (for example,
+   *          for jobs created by calling <code>CreateAutoMLJobV2</code>).</p>
+   */
+  InferenceContainerDefinitions?: Record<string, AutoMLContainerDefinition[]>;
 }
 
 /**
- * <p>Stores the config information for how a candidate is generated (optional).</p>
+ * @public
+ * <p>Stores the configuration information for how a candidate is generated (optional).</p>
  */
 export interface AutoMLCandidateGenerationConfig {
   /**
@@ -4115,77 +4738,159 @@ export interface AutoMLCandidateGenerationConfig {
    *          run an Autopilot job. You can input <code>FeatureAttributeNames</code> (optional) in JSON
    *          format as shown below: </p>
    *          <p>
-   *             <code>{ "FeatureAttributeNames":["col1", "col2", ...] }</code>.</p>
+   *             <code>\{ "FeatureAttributeNames":["col1", "col2", ...] \}</code>.</p>
    *          <p>You can also specify the data type of the feature (optional) in the format shown
    *          below:</p>
    *          <p>
-   *             <code>{ "FeatureDataTypes":{"col1":"numeric", "col2":"categorical" ... } }</code>
+   *             <code>\{ "FeatureDataTypes":\{"col1":"numeric", "col2":"categorical" ... \} \}</code>
    *          </p>
    *          <note>
    *             <p>These column keys may not include the target column.</p>
    *          </note>
-   *          <p>In ensembling mode, Autopilot will only support the following data types:
-   *             <code>numeric</code>, <code>categorical</code>, <code>text</code> and
-   *             <code>datetime</code>. In HPO mode, Autopilot can support <code>numeric</code>,
-   *             <code>categorical</code>, <code>text</code>, <code>datetime</code> and
-   *             <code>sequence</code>.</p>
+   *          <p>In ensembling mode, Autopilot only supports the following data types: <code>numeric</code>,
+   *             <code>categorical</code>, <code>text</code>, and <code>datetime</code>. In HPO mode,
+   *          Autopilot can support <code>numeric</code>, <code>categorical</code>, <code>text</code>,
+   *             <code>datetime</code>, and <code>sequence</code>.</p>
    *          <p>If only <code>FeatureDataTypes</code> is provided, the column keys (<code>col1</code>,
    *             <code>col2</code>,..) should be a subset of the column names in the input data. </p>
    *          <p>If both <code>FeatureDataTypes</code> and <code>FeatureAttributeNames</code> are
    *          provided, then the column keys should be a subset of the column names provided in
    *             <code>FeatureAttributeNames</code>. </p>
    *          <p>The key name <code>FeatureAttributeNames</code> is fixed. The values listed in
-   *             <code>["col1", "col2", ...]</code> is case sensitive and should be a list of strings
+   *             <code>["col1", "col2", ...]</code> are case sensitive and should be a list of strings
    *          containing unique values that are a subset of the column names in the input data. The list
    *          of columns provided must not include the target column.</p>
    */
   FeatureSpecificationS3Uri?: string;
-}
 
-export enum AutoMLChannelType {
-  TRAINING = "training",
-  VALIDATION = "validation",
-}
-
-export enum AutoMLS3DataType {
-  MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix",
+  /**
+   * <p>Stores the configuration information for the selection of algorithms used to train the
+   *          model candidates.</p>
+   *          <p>The list of available algorithms to choose from depends on the training mode set in
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html">
+   *                <code>AutoMLJobConfig.Mode</code>
+   *             </a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AlgorithmsConfig</code> should not be set in <code>AUTO</code> training
+   *                mode.</p>
+   *             </li>
+   *             <li>
+   *                <p>When <code>AlgorithmsConfig</code> is provided, one <code>AutoMLAlgorithms</code>
+   *                attribute must be set and one only.</p>
+   *                <p>If the list of algorithms provided as values for <code>AutoMLAlgorithms</code> is
+   *                empty, <code>AutoMLCandidateGenerationConfig</code> uses the full set of algorithms
+   *                for the given training mode.</p>
+   *             </li>
+   *             <li>
+   *                <p>When <code>AlgorithmsConfig</code> is not provided,
+   *                   <code>AutoMLCandidateGenerationConfig</code> uses the full set of algorithms for
+   *                the given training mode.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For the list of all algorithms per training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+   *                AutoMLAlgorithmConfig</a>.</p>
+   *          <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm support</a> section in Autopilot developer guide.</p>
+   */
+  AlgorithmsConfig?: AutoMLAlgorithmConfig[];
 }
 
 /**
- * <p>The Amazon S3 data source.</p>
+ * @public
+ * @enum
+ */
+export const AutoMLChannelType = {
+  TRAINING: "training",
+  VALIDATION: "validation",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoMLChannelType = (typeof AutoMLChannelType)[keyof typeof AutoMLChannelType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLS3DataType = {
+  AUGMENTED_MANIFEST_FILE: "AugmentedManifestFile",
+  MANIFEST_FILE: "ManifestFile",
+  S3_PREFIX: "S3Prefix",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoMLS3DataType = (typeof AutoMLS3DataType)[keyof typeof AutoMLS3DataType];
+
+/**
+ * @public
+ * <p>Describes the Amazon S3 data source.</p>
  */
 export interface AutoMLS3DataSource {
   /**
-   * <p>The data type.</p>
-   *          <p>A ManifestFile should have the format shown below:</p>
-   *          <p>
-   *             <code>[ {"prefix": "s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER/DOC-EXAMPLE-PREFIX/"},
-   *          </code>
-   *          </p>
-   *          <p>
-   *             <code>"DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-1",</code>
-   *          </p>
-   *          <p>
-   *             <code>"DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-2",</code>
-   *          </p>
-   *          <p>
-   *             <code>... "DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-N" ]</code>
-   *          </p>
-   *          <p>An S3Prefix should have the following format: </p>
-   *          <p>
-   *             <code>s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER-OR-FILE</code>
-   *          </p>
+   * <p>The data type. </p>
+   *          <ul>
+   *             <li>
+   *                <p>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name
+   *                prefix. SageMaker uses all objects that match the specified key name prefix for model
+   *                training.</p>
+   *                <p>The <code>S3Prefix</code> should have the following format:</p>
+   *                <p>
+   *                   <code>s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER-OR-FILE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object
+   *                that is a manifest file containing a list of object keys that you want SageMaker to use
+   *                for model training.</p>
+   *                <p>A <code>ManifestFile</code> should have the format shown below:</p>
+   *                <p>
+   *                   <code>[ \{"prefix":
+   *                   "s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER/DOC-EXAMPLE-PREFIX/"\}, </code>
+   *                </p>
+   *                <p>
+   *                   <code>"DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-1",</code>
+   *                </p>
+   *                <p>
+   *                   <code>"DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-2",</code>
+   *                </p>
+   *                <p>
+   *                   <code>... "DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-N" ]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>If you choose <code>AugmentedManifestFile</code>, <code>S3Uri</code> identifies an
+   *                object that is an augmented manifest file in JSON lines format. This file contains
+   *                the data you want to use for model training. <code>AugmentedManifestFile</code> is
+   *                available for V2 API jobs only (for example, for jobs created by calling
+   *                   <code>CreateAutoMLJobV2</code>).</p>
+   *                <p>Here is a minimal, single-record example of an
+   *                <code>AugmentedManifestFile</code>:</p>
+   *                <p>
+   *                   <code>\{"source-ref":
+   *                   "s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER/cats/cat.jpg",</code>
+   *                </p>
+   *                <p>
+   *                   <code>"label-metadata": \{"class-name": "cat"</code> \}</p>
+   *                <p>For more information on <code>AugmentedManifestFile</code>, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/augmented-manifest.html">Provide
+   *                   Dataset Metadata to Training Jobs with an Augmented Manifest File</a>.</p>
+   *             </li>
+   *          </ul>
    */
   S3DataType: AutoMLS3DataType | string | undefined;
 
   /**
-   * <p>The URL to the Amazon S3 data source.</p>
+   * <p>The URL to the Amazon S3 data source. The Uri refers to the Amazon S3 prefix or ManifestFile
+   *          depending on the data type.</p>
    */
   S3Uri: string | undefined;
 }
 
 /**
+ * @public
  * <p>The data source for the Autopilot job.</p>
  */
 export interface AutoMLDataSource {
@@ -4196,9 +4901,10 @@ export interface AutoMLDataSource {
 }
 
 /**
+ * @public
  * <p>A channel is a named input source that training algorithms can consume. The validation
  *          dataset size is limited to less than 2 GB. The training dataset size must be less than 100
- *          GB. For more information, see .</p>
+ *          GB. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html"> Channel</a>.</p>
  *          <note>
  *             <p>A validation dataset must contain the same headers as the training dataset.</p>
  *          </note>
@@ -4233,16 +4939,19 @@ export interface AutoMLChannel {
    * <p>The channel type (optional) is an <code>enum</code> string. The default value is
    *             <code>training</code>. Channels for training and validation must share the same
    *             <code>ContentType</code> and <code>TargetAttributeName</code>. For information on
-   *          specifying training and validation channel types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation">
-   *                <code>How to specify training and validation datasets</code>
-   *             </a>.</p>
+   *          specifying training and validation channel types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation">How to specify training and validation datasets</a>.</p>
    */
   ChannelType?: AutoMLChannelType | string;
 }
 
 /**
- * <p>This structure specifies how to split the data into train and validation datasets. The
- *          validation and training datasets must contain the same headers. The validation dataset must
+ * @public
+ * <p>This structure specifies how to split the data into train and validation
+ *          datasets.</p>
+ *          <p>If you are using the V1 API (for example <code>CreateAutoMLJob</code>) or the V2 API for
+ *          Natural Language Processing problems (for example <code>CreateAutoMLJobV2</code> with a
+ *             <code>TextClassificationJobConfig</code> problem type), the validation and training
+ *          datasets must contain the same headers. Also, for V1 API jobs, the validation dataset must
  *          be less than 2 GB in size.</p>
  */
 export interface AutoMLDataSplitConfig {
@@ -4255,6 +4964,7 @@ export interface AutoMLDataSplitConfig {
 }
 
 /**
+ * @public
  * <p>The artifacts that are generated during an AutoML job.</p>
  */
 export interface AutoMLJobArtifacts {
@@ -4270,19 +4980,72 @@ export interface AutoMLJobArtifacts {
 }
 
 /**
+ * @public
+ * <p>A channel is a named input source that training algorithms can consume. This channel is
+ *          used for the non tabular training data of an AutoML job using the V2 API. For tabular
+ *          training data, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLChannel.html">
+ *             AutoMLChannel</a>. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html">
+ *                Channel</a>.</p>
+ */
+export interface AutoMLJobChannel {
+  /**
+   * <p>The type of channel. Defines whether the data are used for training or validation. The
+   *          default value is <code>training</code>. Channels for <code>training</code> and
+   *             <code>validation</code> must share the same <code>ContentType</code>
+   *          </p>
+   */
+  ChannelType?: AutoMLChannelType | string;
+
+  /**
+   * <p>The content type of the data from the input source. The following are the allowed
+   *          content types for different problems:</p>
+   *          <ul>
+   *             <li>
+   *                <p>ImageClassification: <code>image/png</code>, <code>image/jpeg</code>,
+   *                   <code>image/*</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>TextClassification: <code>text/csv;header=present</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The allowed compression types depend on the input format. We allow the compression type
+   *             <code>Gzip</code> for <code>S3Prefix</code> inputs only. For all other inputs, the
+   *          compression type should be <code>None</code>. If no compression type is provided, we
+   *          default to <code>None</code>.</p>
+   */
+  CompressionType?: CompressionType | string;
+
+  /**
+   * <p>The data source for an AutoML channel.</p>
+   */
+  DataSource?: AutoMLDataSource;
+}
+
+/**
+ * @public
  * <p>How long a job is allowed to run, or how many candidates a job is allowed to
  *          generate.</p>
  */
 export interface AutoMLJobCompletionCriteria {
   /**
    * <p>The maximum number of times a training job is allowed to run.</p>
+   *          <p>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
+   *          value is 1.</p>
    */
   MaxCandidates?: number;
 
   /**
    * <p>The maximum time, in seconds, that each training job executed inside hyperparameter
    *          tuning is allowed to run as part of a hyperparameter tuning job. For more information, see
-   *          the  used by the  action.</p>
+   *          the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a> used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a> action.</p>
+   *          <p>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field
+   *          controls the runtime of the job candidate.</p>
    */
   MaxRuntimePerTrainingJobInSeconds?: number;
 
@@ -4291,18 +5054,28 @@ export interface AutoMLJobCompletionCriteria {
    *          <p>If an AutoML job exceeds the maximum runtime, the job is stopped automatically and its
    *          processing is ended gracefully. The AutoML job identifies the best model whose training was
    *          completed and marks it as the best-performing model. Any unfinished steps of the job, such
-   *          as automatic one-click Autopilot model deployment, will not be completed. </p>
+   *          as automatic one-click Autopilot model deployment, are not completed.</p>
    */
   MaxAutoMLJobRuntimeInSeconds?: number;
 }
 
-export enum AutoMLMode {
-  AUTO = "AUTO",
-  ENSEMBLING = "ENSEMBLING",
-  HYPERPARAMETER_TUNING = "HYPERPARAMETER_TUNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLMode = {
+  AUTO: "AUTO",
+  ENSEMBLING: "ENSEMBLING",
+  HYPERPARAMETER_TUNING: "HYPERPARAMETER_TUNING",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoMLMode = (typeof AutoMLMode)[keyof typeof AutoMLMode];
+
+/**
+ * @public
  * <p>Specifies a VPC that your training jobs and hosted models have access to. Control
  *             access to and from your training and model containers by configuring the VPC. For more
  *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
@@ -4324,6 +5097,7 @@ export interface VpcConfig {
 }
 
 /**
+ * @public
  * <p>Security options.</p>
  */
 export interface AutoMLSecurityConfig {
@@ -4344,6 +5118,7 @@ export interface AutoMLSecurityConfig {
 }
 
 /**
+ * @public
  * <p>A collection of settings used for an AutoML job.</p>
  */
 export interface AutoMLJobConfig {
@@ -4382,16 +5157,19 @@ export interface AutoMLJobConfig {
    *          predictive capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot algorithm support</a> for a list of algorithms supported by
    *             <code>ENSEMBLING</code> mode.</p>
    *          <p>The <code>HYPERPARAMETER_TUNING</code> (HPO) mode uses the best hyperparameters to train
-   *          the best version of a model. HPO will automatically select an algorithm for the type of
-   *          problem you want to solve. Then HPO finds the best hyperparameters according to your
-   *          objective metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot algorithm support</a> for a list of algorithms supported by
+   *          the best version of a model. HPO automatically selects an algorithm for the type of problem
+   *          you want to solve. Then HPO finds the best hyperparameters according to your objective
+   *          metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot algorithm support</a> for a list of algorithms supported by
    *             <code>HYPERPARAMETER_TUNING</code> mode.</p>
    */
   Mode?: AutoMLMode | string;
 }
 
 /**
- * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
+ * @public
+ * <p>Specifies a metric to minimize or maximize as the objective of a job. V2 API jobs (for
+ *          example jobs created by calling <code>CreateAutoMLJobV2</code>), support
+ *             <code>Accuracy</code> only.</p>
  */
 export interface AutoMLJobObjective {
   /**
@@ -4402,7 +5180,7 @@ export interface AutoMLJobObjective {
    *          <dl>
    *             <dt>Accuracy</dt>
    *             <dd>
-   *                <p> The ratio of the number of correctly classified items to the total number of
+   *                <p>The ratio of the number of correctly classified items to the total number of
    *                   (correctly and incorrectly) classified items. It is used for both binary and
    *                   multiclass classification. Accuracy measures how close the predicted class values
    *                   are to the actual values. Values for accuracy metrics vary between zero (0) and
@@ -4520,7 +5298,7 @@ export interface AutoMLJobObjective {
    *                <p>Recall is important when testing for cancer because it's used to find all of
    *                   the true positives. A false positive (FP) reflects a positive prediction that is
    *                   actually negative in the data. It is often insufficient to measure only recall,
-   *                   because predicting every output as a true positive will yield a perfect recall
+   *                   because predicting every output as a true positive yield a perfect recall
    *                   score.</p>
    *             </dd>
    *             <dt>RecallMacro</dt>
@@ -4531,7 +5309,7 @@ export interface AutoMLJobObjective {
    *                   model's ability to predict true positives (TP) in a dataset. Whereas, a true
    *                   positive reflects a positive prediction that is also an actual positive value in
    *                   the data. It is often insufficient to measure only recall, because predicting
-   *                   every output as a true positive will yield a perfect recall score.</p>
+   *                   every output as a true positive yields a perfect recall score.</p>
    *             </dd>
    *             <dt>RMSE</dt>
    *             <dd>
@@ -4564,35 +5342,55 @@ export interface AutoMLJobObjective {
   MetricName: AutoMLMetricEnum | string | undefined;
 }
 
-export enum AutoMLJobSecondaryStatus {
-  ANALYZING_DATA = "AnalyzingData",
-  CANDIDATE_DEFINITIONS_GENERATED = "CandidateDefinitionsGenerated",
-  COMPLETED = "Completed",
-  DEPLOYING_MODEL = "DeployingModel",
-  EXPLAINABILITY_ERROR = "ExplainabilityError",
-  FAILED = "Failed",
-  FEATURE_ENGINEERING = "FeatureEngineering",
-  GENERATING_EXPLAINABILITY_REPORT = "GeneratingExplainabilityReport",
-  GENERATING_MODEL_INSIGHTS_REPORT = "GeneratingModelInsightsReport",
-  MAX_AUTO_ML_JOB_RUNTIME_REACHED = "MaxAutoMLJobRuntimeReached",
-  MAX_CANDIDATES_REACHED = "MaxCandidatesReached",
-  MODEL_DEPLOYMENT_ERROR = "ModelDeploymentError",
-  MODEL_INSIGHTS_ERROR = "ModelInsightsError",
-  MODEL_TUNING = "ModelTuning",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
-
-export enum AutoMLJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLJobSecondaryStatus = {
+  ANALYZING_DATA: "AnalyzingData",
+  CANDIDATE_DEFINITIONS_GENERATED: "CandidateDefinitionsGenerated",
+  COMPLETED: "Completed",
+  DEPLOYING_MODEL: "DeployingModel",
+  EXPLAINABILITY_ERROR: "ExplainabilityError",
+  FAILED: "Failed",
+  FEATURE_ENGINEERING: "FeatureEngineering",
+  GENERATING_EXPLAINABILITY_REPORT: "GeneratingExplainabilityReport",
+  GENERATING_MODEL_INSIGHTS_REPORT: "GeneratingModelInsightsReport",
+  MAX_AUTO_ML_JOB_RUNTIME_REACHED: "MaxAutoMLJobRuntimeReached",
+  MAX_CANDIDATES_REACHED: "MaxCandidatesReached",
+  MODEL_DEPLOYMENT_ERROR: "ModelDeploymentError",
+  MODEL_INSIGHTS_ERROR: "ModelInsightsError",
+  MODEL_TUNING: "ModelTuning",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  TRAINING_MODELS: "TrainingModels",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoMLJobSecondaryStatus = (typeof AutoMLJobSecondaryStatus)[keyof typeof AutoMLJobSecondaryStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoMLJobStatus = (typeof AutoMLJobStatus)[keyof typeof AutoMLJobStatus];
+
+/**
+ * @public
  * <p>Metadata for an AutoML job step.</p>
  */
 export interface AutoMLJobStepMetadata {
@@ -4603,6 +5401,7 @@ export interface AutoMLJobStepMetadata {
 }
 
 /**
+ * @public
  * <p>The reason for a partial failure of an AutoML job.</p>
  */
 export interface AutoMLPartialFailureReason {
@@ -4613,6 +5412,7 @@ export interface AutoMLPartialFailureReason {
 }
 
 /**
+ * @public
  * <p>Provides a summary about an AutoML job.</p>
  */
 export interface AutoMLJobSummary {
@@ -4663,6 +5463,7 @@ export interface AutoMLJobSummary {
 }
 
 /**
+ * @public
  * <p>The output data configuration.</p>
  */
 export interface AutoMLOutputDataConfig {
@@ -4677,18 +5478,130 @@ export interface AutoMLOutputDataConfig {
   S3OutputPath: string | undefined;
 }
 
-export enum AutoMLSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
-
-export enum AutoMLSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
+/**
+ * @public
+ * <p>Stores the configuration information for the image classification problem of an AutoML
+ *          job using the V2 API.</p>
+ */
+export interface ImageClassificationJobConfig {
+  /**
+   * <p>How long a job is allowed to run, or how many candidates a job is allowed to
+   *          generate.</p>
+   */
+  CompletionCriteria?: AutoMLJobCompletionCriteria;
 }
 
 /**
+ * @public
+ * <p>Stores the configuration information for the text classification problem of an AutoML job
+ *          using the V2 API.</p>
+ */
+export interface TextClassificationJobConfig {
+  /**
+   * <p>How long a job is allowed to run, or how many candidates a job is allowed to
+   *          generate.</p>
+   */
+  CompletionCriteria?: AutoMLJobCompletionCriteria;
+
+  /**
+   * <p>The name of the column used to provide the sentences to be classified. It should not be
+   *          the same as the target column.</p>
+   */
+  ContentColumn?: string;
+
+  /**
+   * <p>The name of the column used to provide the class labels. It should not be same as the
+   *          content column.</p>
+   */
+  TargetLabelColumn?: string;
+}
+
+/**
+ * @public
+ * <p>A collection of settings specific to the problem type used to configure an AutoML job
+ *          using the V2 API. There must be one and only one config of the following type.</p>
+ */
+export type AutoMLProblemTypeConfig =
+  | AutoMLProblemTypeConfig.ImageClassificationJobConfigMember
+  | AutoMLProblemTypeConfig.TextClassificationJobConfigMember
+  | AutoMLProblemTypeConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AutoMLProblemTypeConfig {
+  /**
+   * <p>Settings used to configure an AutoML job using the V2 API for the image classification
+   *          problem type.</p>
+   */
+  export interface ImageClassificationJobConfigMember {
+    ImageClassificationJobConfig: ImageClassificationJobConfig;
+    TextClassificationJobConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Settings used to configure an AutoML job using the V2 API for the text classification
+   *          problem type.</p>
+   */
+  export interface TextClassificationJobConfigMember {
+    ImageClassificationJobConfig?: never;
+    TextClassificationJobConfig: TextClassificationJobConfig;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    ImageClassificationJobConfig?: never;
+    TextClassificationJobConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ImageClassificationJobConfig: (value: ImageClassificationJobConfig) => T;
+    TextClassificationJobConfig: (value: TextClassificationJobConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AutoMLProblemTypeConfig, visitor: Visitor<T>): T => {
+    if (value.ImageClassificationJobConfig !== undefined)
+      return visitor.ImageClassificationJobConfig(value.ImageClassificationJobConfig);
+    if (value.TextClassificationJobConfig !== undefined)
+      return visitor.TextClassificationJobConfig(value.TextClassificationJobConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoMLSortBy = (typeof AutoMLSortBy)[keyof typeof AutoMLSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoMLSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoMLSortOrder = (typeof AutoMLSortOrder)[keyof typeof AutoMLSortOrder];
+
+/**
+ * @public
  * <p>Automatic rollback configuration for handling endpoint deployment failures and
  *             recovery.</p>
  */
@@ -4701,12 +5614,23 @@ export interface AutoRollbackConfig {
   Alarms?: Alarm[];
 }
 
-export enum AwsManagedHumanLoopRequestSource {
-  REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3 = "AWS/Rekognition/DetectModerationLabels/Image/V3",
-  TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1 = "AWS/Textract/AnalyzeDocument/Forms/V1",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AwsManagedHumanLoopRequestSource = {
+  REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3: "AWS/Rekognition/DetectModerationLabels/Image/V3",
+  TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1: "AWS/Textract/AnalyzeDocument/Forms/V1",
+} as const;
 
 /**
+ * @public
+ */
+export type AwsManagedHumanLoopRequestSource =
+  (typeof AwsManagedHumanLoopRequestSource)[keyof typeof AwsManagedHumanLoopRequestSource];
+
+/**
+ * @public
  * <p>Configuration to control how SageMaker captures inference data for batch transform jobs.</p>
  */
 export interface BatchDataCaptureConfig {
@@ -4748,6 +5672,9 @@ export interface BatchDataCaptureConfig {
   GenerateInferenceId?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeModelPackageInput {
   /**
    * <p>The list of Amazon Resource Name (ARN) of the model package groups.</p>
@@ -4756,6 +5683,7 @@ export interface BatchDescribeModelPackageInput {
 }
 
 /**
+ * @public
  * <p>The error code and error description associated with the resource.</p>
  */
 export interface BatchDescribeModelPackageError {
@@ -4771,6 +5699,7 @@ export interface BatchDescribeModelPackageError {
 }
 
 /**
+ * @public
  * <p>Defines how to perform inference generation after a training job is run.</p>
  */
 export interface InferenceSpecification {
@@ -4805,21 +5734,40 @@ export interface InferenceSpecification {
   SupportedResponseMIMETypes: string[] | undefined;
 }
 
-export enum ModelApprovalStatus {
-  APPROVED = "Approved",
-  PENDING_MANUAL_APPROVAL = "PendingManualApproval",
-  REJECTED = "Rejected",
-}
-
-export enum ModelPackageStatus {
-  COMPLETED = "Completed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelApprovalStatus = {
+  APPROVED: "Approved",
+  PENDING_MANUAL_APPROVAL: "PendingManualApproval",
+  REJECTED: "Rejected",
+} as const;
 
 /**
+ * @public
+ */
+export type ModelApprovalStatus = (typeof ModelApprovalStatus)[keyof typeof ModelApprovalStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelPackageStatus = {
+  COMPLETED: "Completed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelPackageStatus = (typeof ModelPackageStatus)[keyof typeof ModelPackageStatus];
+
+/**
+ * @public
  * <p>Provides summary information about the model package.</p>
  */
 export interface BatchDescribeModelPackageSummary {
@@ -4864,6 +5812,9 @@ export interface BatchDescribeModelPackageSummary {
   ModelApprovalStatus?: ModelApprovalStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeModelPackageOutput {
   /**
    * <p>The summaries for the model package versions</p>
@@ -4878,6 +5829,7 @@ export interface BatchDescribeModelPackageOutput {
 }
 
 /**
+ * @public
  * <p>Represents the CSV dataset format used when running a monitoring job.</p>
  */
 export interface MonitoringCsvDatasetFormat {
@@ -4888,6 +5840,7 @@ export interface MonitoringCsvDatasetFormat {
 }
 
 /**
+ * @public
  * <p>Represents the JSON dataset format used when running a monitoring job.</p>
  */
 export interface MonitoringJsonDatasetFormat {
@@ -4899,11 +5852,13 @@ export interface MonitoringJsonDatasetFormat {
 }
 
 /**
+ * @public
  * <p>Represents the Parquet dataset format used when running a monitoring job.</p>
  */
 export interface MonitoringParquetDatasetFormat {}
 
 /**
+ * @public
  * <p>Represents the dataset format used when running a monitoring job.</p>
  */
 export interface MonitoringDatasetFormat {
@@ -4923,17 +5878,37 @@ export interface MonitoringDatasetFormat {
   Parquet?: MonitoringParquetDatasetFormat;
 }
 
-export enum ProcessingS3DataDistributionType {
-  FULLYREPLICATED = "FullyReplicated",
-  SHARDEDBYS3KEY = "ShardedByS3Key",
-}
-
-export enum ProcessingS3InputMode {
-  FILE = "File",
-  PIPE = "Pipe",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProcessingS3DataDistributionType = {
+  FULLYREPLICATED: "FullyReplicated",
+  SHARDEDBYS3KEY: "ShardedByS3Key",
+} as const;
 
 /**
+ * @public
+ */
+export type ProcessingS3DataDistributionType =
+  (typeof ProcessingS3DataDistributionType)[keyof typeof ProcessingS3DataDistributionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProcessingS3InputMode = {
+  FILE: "File",
+  PIPE: "Pipe",
+} as const;
+
+/**
+ * @public
+ */
+export type ProcessingS3InputMode = (typeof ProcessingS3InputMode)[keyof typeof ProcessingS3InputMode];
+
+/**
+ * @public
  * <p>Input object for the batch transform job.</p>
  */
 export interface BatchTransformInput {
@@ -5003,6 +5978,21 @@ export interface BatchTransformInput {
 }
 
 /**
+ * @public
+ * <p>A structure that keeps track of which training jobs launched by your hyperparameter
+ *             tuning job are not improving model performance as evaluated against an objective
+ *             function.</p>
+ */
+export interface BestObjectiveNotImproving {
+  /**
+   * <p>The number of training jobs that have failed to improve model performance by 1% or
+   *             greater over prior training jobs as evaluated against an objective function.</p>
+   */
+  MaxNumberOfTrainingJobsNotImproving?: number;
+}
+
+/**
+ * @public
  * <p>Details about the metrics source.</p>
  */
 export interface MetricsSource {
@@ -5023,6 +6013,7 @@ export interface MetricsSource {
 }
 
 /**
+ * @public
  * <p>Contains bias metrics for a model.</p>
  */
 export interface Bias {
@@ -5042,12 +6033,22 @@ export interface Bias {
   PostTrainingReport?: MetricsSource;
 }
 
-export enum CapacitySizeType {
-  CAPACITY_PERCENT = "CAPACITY_PERCENT",
-  INSTANCE_COUNT = "INSTANCE_COUNT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CapacitySizeType = {
+  CAPACITY_PERCENT: "CAPACITY_PERCENT",
+  INSTANCE_COUNT: "INSTANCE_COUNT",
+} as const;
 
 /**
+ * @public
+ */
+export type CapacitySizeType = (typeof CapacitySizeType)[keyof typeof CapacitySizeType];
+
+/**
+ * @public
  * <p>Specifies the endpoint capacity to activate for production.</p>
  */
 export interface CapacitySize {
@@ -5075,13 +6076,23 @@ export interface CapacitySize {
   Value: number | undefined;
 }
 
-export enum TrafficRoutingConfigType {
-  ALL_AT_ONCE = "ALL_AT_ONCE",
-  CANARY = "CANARY",
-  LINEAR = "LINEAR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TrafficRoutingConfigType = {
+  ALL_AT_ONCE: "ALL_AT_ONCE",
+  CANARY: "CANARY",
+  LINEAR: "LINEAR",
+} as const;
 
 /**
+ * @public
+ */
+export type TrafficRoutingConfigType = (typeof TrafficRoutingConfigType)[keyof typeof TrafficRoutingConfigType];
+
+/**
+ * @public
  * <p>Defines the traffic routing strategy during an endpoint deployment to shift traffic from the
  *             old fleet to the new fleet.</p>
  */
@@ -5132,6 +6143,7 @@ export interface TrafficRoutingConfig {
 }
 
 /**
+ * @public
  * <p>Update policy for a blue/green deployment. If this update policy is specified, SageMaker
  *             creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips
  *             traffic to the new fleet according to the specified traffic routing configuration. Only
@@ -5160,12 +6172,22 @@ export interface BlueGreenUpdatePolicy {
   MaximumExecutionTimeoutInSeconds?: number;
 }
 
-export enum BooleanOperator {
-  AND = "And",
-  OR = "Or",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BooleanOperator = {
+  AND: "And",
+  OR: "Or",
+} as const;
 
 /**
+ * @public
+ */
+export type BooleanOperator = (typeof BooleanOperator)[keyof typeof BooleanOperator];
+
+/**
+ * @public
  * <p>Details on the cache hit of a pipeline execution step.</p>
  */
 export interface CacheHitResult {
@@ -5176,6 +6198,7 @@ export interface CacheHitResult {
 }
 
 /**
+ * @public
  * <p>An output parameter of a pipeline step.</p>
  */
 export interface OutputParameter {
@@ -5191,6 +6214,7 @@ export interface OutputParameter {
 }
 
 /**
+ * @public
  * <p>Metadata about a callback step.</p>
  */
 export interface CallbackStepMetadata {
@@ -5210,18 +6234,37 @@ export interface CallbackStepMetadata {
   OutputParameters?: OutputParameter[];
 }
 
-export enum CandidateSortBy {
-  CreationTime = "CreationTime",
-  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
-  Status = "Status",
-}
-
-export enum FeatureStatus {
-  Disabled = "DISABLED",
-  Enabled = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CandidateSortBy = {
+  CreationTime: "CreationTime",
+  FinalObjectiveMetricValue: "FinalObjectiveMetricValue",
+  Status: "Status",
+} as const;
 
 /**
+ * @public
+ */
+export type CandidateSortBy = (typeof CandidateSortBy)[keyof typeof CandidateSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureStatus = {
+  Disabled: "DISABLED",
+  Enabled: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
+
+/**
+ * @public
  * <p>Time series forecast settings for the SageMaker Canvas app.</p>
  */
 export interface TimeSeriesForecastingSettings {
@@ -5244,6 +6287,7 @@ export interface TimeSeriesForecastingSettings {
 }
 
 /**
+ * @public
  * <p>The SageMaker Canvas app settings.</p>
  */
 export interface CanvasAppSettings {
@@ -5254,6 +6298,7 @@ export interface CanvasAppSettings {
 }
 
 /**
+ * @public
  * <p>Configuration specifying how to treat different headers. If no headers are specified SageMaker
  *          will by default base64 encode when capturing the data.</p>
  */
@@ -5269,12 +6314,22 @@ export interface CaptureContentTypeHeader {
   JsonContentTypes?: string[];
 }
 
-export enum CaptureMode {
-  INPUT = "Input",
-  OUTPUT = "Output",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CaptureMode = {
+  INPUT: "Input",
+  OUTPUT: "Output",
+} as const;
 
 /**
+ * @public
+ */
+export type CaptureMode = (typeof CaptureMode)[keyof typeof CaptureMode];
+
+/**
+ * @public
  * <p>Specifies data Model Monitor will capture.</p>
  */
 export interface CaptureOption {
@@ -5284,12 +6339,22 @@ export interface CaptureOption {
   CaptureMode: CaptureMode | string | undefined;
 }
 
-export enum CaptureStatus {
-  STARTED = "Started",
-  STOPPED = "Stopped",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CaptureStatus = {
+  STARTED: "Started",
+  STOPPED: "Stopped",
+} as const;
 
 /**
+ * @public
+ */
+export type CaptureStatus = (typeof CaptureStatus)[keyof typeof CaptureStatus];
+
+/**
+ * @public
  * <p>Environment parameters you want to benchmark your load test against.</p>
  */
 export interface CategoricalParameter {
@@ -5305,6 +6370,7 @@ export interface CategoricalParameter {
 }
 
 /**
+ * @public
  * <p>A list of categorical hyperparameters to tune.</p>
  */
 export interface CategoricalParameterRange {
@@ -5322,6 +6388,7 @@ export interface CategoricalParameterRange {
 }
 
 /**
+ * @public
  * <p>Defines the possible values for a categorical hyperparameter.</p>
  */
 export interface CategoricalParameterRangeSpecification {
@@ -5332,6 +6399,7 @@ export interface CategoricalParameterRangeSpecification {
 }
 
 /**
+ * @public
  * <p>Defines a named input source, called a channel, to be used by an algorithm.</p>
  */
 export interface ChannelSpecification {
@@ -5372,6 +6440,7 @@ export interface ChannelSpecification {
 }
 
 /**
+ * @public
  * <p>Contains information about the output location for managed spot training checkpoint
  *             data. </p>
  */
@@ -5390,6 +6459,7 @@ export interface CheckpointConfig {
 }
 
 /**
+ * @public
  * <p>The container for the metadata for the ClarifyCheck step. For more information,
  *             see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html#step-type-clarify-check">ClarifyCheck step</a> in the <i>Amazon SageMaker Developer Guide</i>.
  *         </p>
@@ -5440,13 +6510,23 @@ export interface ClarifyCheckStepMetadata {
   RegisterNewBaseline?: boolean;
 }
 
-export enum ClarifyFeatureType {
-  CATEGORICAL = "categorical",
-  NUMERICAL = "numerical",
-  TEXT = "text",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClarifyFeatureType = {
+  CATEGORICAL: "categorical",
+  NUMERICAL: "numerical",
+  TEXT: "text",
+} as const;
 
 /**
+ * @public
+ */
+export type ClarifyFeatureType = (typeof ClarifyFeatureType)[keyof typeof ClarifyFeatureType];
+
+/**
+ * @public
  * <p>The inference configuration parameter for the model container.</p>
  */
 export interface ClarifyInferenceConfig {
@@ -5454,15 +6534,15 @@ export interface ClarifyInferenceConfig {
    * <p>Provides the JMESPath expression to extract the features from a model container input
    *             in JSON Lines format. For example, if <code>FeaturesAttribute</code> is the JMESPath
    *             expression <code>'myfeatures'</code>, it extracts a list of features
-   *                 <code>[1,2,3]</code> from request data <code>'{"myfeatures":[1,2,3]}'</code>.</p>
+   *                 <code>[1,2,3]</code> from request data <code>'\{"myfeatures":[1,2,3]\}'</code>.</p>
    */
   FeaturesAttribute?: string;
 
   /**
    * <p>A template string used to format a JSON record into an acceptable model container
    *             input. For example, a <code>ContentTemplate</code> string
-   *                 <code>'{"myfeatures":$features}'</code> will format a list of features
-   *                 <code>[1,2,3]</code> into the record string <code>'{"myfeatures":[1,2,3]}'</code>.
+   *                 <code>'\{"myfeatures":$features\}'</code> will format a list of features
+   *                 <code>[1,2,3]</code> into the record string <code>'\{"myfeatures":[1,2,3]\}'</code>.
    *             Required only when the model container input is in JSON Lines format.</p>
    */
   ContentTemplate?: string;
@@ -5520,7 +6600,7 @@ export interface ClarifyInferenceConfig {
    *             container output if the model container is in JSON Lines format.</p>
    *          <p>
    *             <b>Example</b>: If the model container output of a single
-   *             request is <code>'{"predicted_label":1,"probability":0.6}'</code>, then set
+   *             request is <code>'\{"predicted_label":1,"probability":0.6\}'</code>, then set
    *                 <code>ProbabilityAttribute</code> to <code>'probability'</code>.</p>
    */
   ProbabilityAttribute?: string;
@@ -5530,7 +6610,7 @@ export interface ClarifyInferenceConfig {
    *             output.</p>
    *          <p>
    *             <b>Example</b>: If the model container output of a batch
-   *             request is <code>'{"labels":["cat","dog","fish"],"probability":[0.6,0.3,0.1]}'</code>,
+   *             request is <code>'\{"labels":["cat","dog","fish"],"probability":[0.6,0.3,0.1]\}'</code>,
    *             then set <code>LabelAttribute</code> to <code>'labels'</code> to extract the list of
    *             label headers <code>["cat","dog","fish"]</code>
    *          </p>
@@ -5567,6 +6647,7 @@ export interface ClarifyInferenceConfig {
 }
 
 /**
+ * @public
  * <p>The configuration for the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-feature-attribute-shap-baselines.html">SHAP
  *                 baseline</a> (also called the background or reference dataset) of the Kernal
  *             SHAP algorithm.</p>
@@ -5622,76 +6703,95 @@ export interface ClarifyShapBaselineConfig {
   ShapBaselineUri?: string;
 }
 
-export enum ClarifyTextGranularity {
-  PARAGRAPH = "paragraph",
-  SENTENCE = "sentence",
-  TOKEN = "token",
-}
-
-export enum ClarifyTextLanguage {
-  AFRIKAANS = "af",
-  ALBANIAN = "sq",
-  ARABIC = "ar",
-  ARMENIAN = "hy",
-  BASQUE = "eu",
-  BENGALI = "bn",
-  BULGARIAN = "bg",
-  CATALAN = "ca",
-  CHINESE = "zh",
-  CROATIAN = "hr",
-  CZECH = "cs",
-  DANISH = "da",
-  DUTCH = "nl",
-  ENGLISH = "en",
-  ESTONIAN = "et",
-  FINNISH = "fi",
-  FRENCH = "fr",
-  GERMAN = "de",
-  GREEK = "el",
-  GUJARATI = "gu",
-  HEBREW = "he",
-  HINDI = "hi",
-  HUNGARIAN = "hu",
-  ICELANDIC = "is",
-  INDONESIAN = "id",
-  IRISH = "ga",
-  ITALIAN = "it",
-  KANNADA = "kn",
-  KYRGYZ = "ky",
-  LATVIAN = "lv",
-  LIGURIAN = "lij",
-  LITHUANIAN = "lt",
-  LUXEMBOURGISH = "lb",
-  MACEDONIAN = "mk",
-  MALAYALAM = "ml",
-  MARATHI = "mr",
-  MULTI_LANGUAGE = "xx",
-  NEPALI = "ne",
-  NORWEGIAN_BOKMAL = "nb",
-  PERSIAN = "fa",
-  POLISH = "pl",
-  PORTUGUESE = "pt",
-  ROMANIAN = "ro",
-  RUSSIAN = "ru",
-  SANSKRIT = "sa",
-  SERBIAN = "sr",
-  SETSWANA = "tn",
-  SINHALA = "si",
-  SLOVAK = "sk",
-  SLOVENIAN = "sl",
-  SPANISH = "es",
-  SWEDISH = "sv",
-  TAGALOG = "tl",
-  TAMIL = "ta",
-  TATAR = "tt",
-  TELUGU = "te",
-  TURKISH = "tr",
-  UKRAINIAN = "uk",
-  URDU = "ur",
-  YORUBA = "yo",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClarifyTextGranularity = {
+  PARAGRAPH: "paragraph",
+  SENTENCE: "sentence",
+  TOKEN: "token",
+} as const;
 
 /**
+ * @public
+ */
+export type ClarifyTextGranularity = (typeof ClarifyTextGranularity)[keyof typeof ClarifyTextGranularity];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClarifyTextLanguage = {
+  AFRIKAANS: "af",
+  ALBANIAN: "sq",
+  ARABIC: "ar",
+  ARMENIAN: "hy",
+  BASQUE: "eu",
+  BENGALI: "bn",
+  BULGARIAN: "bg",
+  CATALAN: "ca",
+  CHINESE: "zh",
+  CROATIAN: "hr",
+  CZECH: "cs",
+  DANISH: "da",
+  DUTCH: "nl",
+  ENGLISH: "en",
+  ESTONIAN: "et",
+  FINNISH: "fi",
+  FRENCH: "fr",
+  GERMAN: "de",
+  GREEK: "el",
+  GUJARATI: "gu",
+  HEBREW: "he",
+  HINDI: "hi",
+  HUNGARIAN: "hu",
+  ICELANDIC: "is",
+  INDONESIAN: "id",
+  IRISH: "ga",
+  ITALIAN: "it",
+  KANNADA: "kn",
+  KYRGYZ: "ky",
+  LATVIAN: "lv",
+  LIGURIAN: "lij",
+  LITHUANIAN: "lt",
+  LUXEMBOURGISH: "lb",
+  MACEDONIAN: "mk",
+  MALAYALAM: "ml",
+  MARATHI: "mr",
+  MULTI_LANGUAGE: "xx",
+  NEPALI: "ne",
+  NORWEGIAN_BOKMAL: "nb",
+  PERSIAN: "fa",
+  POLISH: "pl",
+  PORTUGUESE: "pt",
+  ROMANIAN: "ro",
+  RUSSIAN: "ru",
+  SANSKRIT: "sa",
+  SERBIAN: "sr",
+  SETSWANA: "tn",
+  SINHALA: "si",
+  SLOVAK: "sk",
+  SLOVENIAN: "sl",
+  SPANISH: "es",
+  SWEDISH: "sv",
+  TAGALOG: "tl",
+  TAMIL: "ta",
+  TATAR: "tt",
+  TELUGU: "te",
+  TURKISH: "tr",
+  UKRAINIAN: "uk",
+  URDU: "ur",
+  YORUBA: "yo",
+} as const;
+
+/**
+ * @public
+ */
+export type ClarifyTextLanguage = (typeof ClarifyTextLanguage)[keyof typeof ClarifyTextLanguage];
+
+/**
+ * @public
  * <p>A parameter used to configure the SageMaker Clarify explainer to treat text features as text so
  *             that explanations are provided for individual units of text. Required only for natural
  *             language processing (NLP) explainability. </p>
@@ -5716,6 +6816,7 @@ export interface ClarifyTextConfig {
 }
 
 /**
+ * @public
  * <p>The configuration for SHAP analysis using SageMaker Clarify Explainer.</p>
  */
 export interface ClarifyShapConfig {
@@ -5755,6 +6856,7 @@ export interface ClarifyShapConfig {
 }
 
 /**
+ * @public
  * <p>The configuration parameters for the SageMaker Clarify explainer.</p>
  */
 export interface ClarifyExplainerConfig {
@@ -5778,6 +6880,7 @@ export interface ClarifyExplainerConfig {
 }
 
 /**
+ * @public
  * <p>A Git repository that SageMaker automatically displays to users for cloning in the JupyterServer application.</p>
  */
 export interface CodeRepository {
@@ -5787,18 +6890,37 @@ export interface CodeRepository {
   RepositoryUrl: string | undefined;
 }
 
-export enum CodeRepositorySortBy {
-  CREATION_TIME = "CreationTime",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  NAME = "Name",
-}
-
-export enum CodeRepositorySortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CodeRepositorySortBy = {
+  CREATION_TIME: "CreationTime",
+  LAST_MODIFIED_TIME: "LastModifiedTime",
+  NAME: "Name",
+} as const;
 
 /**
+ * @public
+ */
+export type CodeRepositorySortBy = (typeof CodeRepositorySortBy)[keyof typeof CodeRepositorySortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const CodeRepositorySortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type CodeRepositorySortOrder = (typeof CodeRepositorySortOrder)[keyof typeof CodeRepositorySortOrder];
+
+/**
+ * @public
  * <p>Specifies configuration details for a Git repository in your Amazon Web Services
  *             account.</p>
  */
@@ -5818,14 +6940,15 @@ export interface GitConfig {
    *             contains the credentials used to access the git repository. The secret must have a
    *             staging label of <code>AWSCURRENT</code> and must be in the following format:</p>
    *          <p>
-   *             <code>{"username": <i>UserName</i>, "password":
-   *                     <i>Password</i>}</code>
+   *             <code>\{"username": <i>UserName</i>, "password":
+   *                     <i>Password</i>\}</code>
    *          </p>
    */
   SecretArn?: string;
 }
 
 /**
+ * @public
  * <p>Specifies summary information about a Git repository.</p>
  */
 export interface CodeRepositorySummary {
@@ -5858,6 +6981,7 @@ export interface CodeRepositorySummary {
 }
 
 /**
+ * @public
  * <p>Use this parameter to configure your Amazon Cognito workforce.
  *       A single Cognito workforce is created using and corresponds to a single
  *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">
@@ -5880,6 +7004,7 @@ export interface CognitoConfig {
 }
 
 /**
+ * @public
  * <p>Identifies a Amazon Cognito user group. A user group can be used in on or more work
  *             teams.</p>
  */
@@ -5903,6 +7028,7 @@ export interface CognitoMemberDefinition {
 }
 
 /**
+ * @public
  * <p>Configuration information for the Amazon SageMaker Debugger output tensor collections.</p>
  */
 export interface CollectionConfiguration {
@@ -5920,71 +7046,117 @@ export interface CollectionConfiguration {
   CollectionParameters?: Record<string, string>;
 }
 
-export enum CompilationJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INPROGRESS = "INPROGRESS",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
-
-export enum TargetDevice {
-  AISAGE = "aisage",
-  AMBA_CV2 = "amba_cv2",
-  AMBA_CV22 = "amba_cv22",
-  AMBA_CV25 = "amba_cv25",
-  COREML = "coreml",
-  DEEPLENS = "deeplens",
-  IMX8MPLUS = "imx8mplus",
-  IMX8QM = "imx8qm",
-  JACINTO_TDA4VM = "jacinto_tda4vm",
-  JETSON_NANO = "jetson_nano",
-  JETSON_TX1 = "jetson_tx1",
-  JETSON_TX2 = "jetson_tx2",
-  JETSON_XAVIER = "jetson_xavier",
-  LAMBDA = "lambda",
-  ML_C4 = "ml_c4",
-  ML_C5 = "ml_c5",
-  ML_EIA2 = "ml_eia2",
-  ML_G4DN = "ml_g4dn",
-  ML_INF1 = "ml_inf1",
-  ML_M4 = "ml_m4",
-  ML_M5 = "ml_m5",
-  ML_P2 = "ml_p2",
-  ML_P3 = "ml_p3",
-  QCS603 = "qcs603",
-  QCS605 = "qcs605",
-  RASP3B = "rasp3b",
-  RK3288 = "rk3288",
-  RK3399 = "rk3399",
-  SBE_C = "sbe_c",
-  SITARA_AM57X = "sitara_am57x",
-  X86_WIN32 = "x86_win32",
-  X86_WIN64 = "x86_win64",
-}
-
-export enum TargetPlatformAccelerator {
-  INTEL_GRAPHICS = "INTEL_GRAPHICS",
-  MALI = "MALI",
-  NNA = "NNA",
-  NVIDIA = "NVIDIA",
-}
-
-export enum TargetPlatformArch {
-  ARM64 = "ARM64",
-  ARM_EABI = "ARM_EABI",
-  ARM_EABIHF = "ARM_EABIHF",
-  X86 = "X86",
-  X86_64 = "X86_64",
-}
-
-export enum TargetPlatformOs {
-  ANDROID = "ANDROID",
-  LINUX = "LINUX",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CompilationJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INPROGRESS: "INPROGRESS",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
 
 /**
+ * @public
+ */
+export type CompilationJobStatus = (typeof CompilationJobStatus)[keyof typeof CompilationJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetDevice = {
+  AISAGE: "aisage",
+  AMBA_CV2: "amba_cv2",
+  AMBA_CV22: "amba_cv22",
+  AMBA_CV25: "amba_cv25",
+  COREML: "coreml",
+  DEEPLENS: "deeplens",
+  IMX8MPLUS: "imx8mplus",
+  IMX8QM: "imx8qm",
+  JACINTO_TDA4VM: "jacinto_tda4vm",
+  JETSON_NANO: "jetson_nano",
+  JETSON_TX1: "jetson_tx1",
+  JETSON_TX2: "jetson_tx2",
+  JETSON_XAVIER: "jetson_xavier",
+  LAMBDA: "lambda",
+  ML_C4: "ml_c4",
+  ML_C5: "ml_c5",
+  ML_EIA2: "ml_eia2",
+  ML_G4DN: "ml_g4dn",
+  ML_INF1: "ml_inf1",
+  ML_M4: "ml_m4",
+  ML_M5: "ml_m5",
+  ML_P2: "ml_p2",
+  ML_P3: "ml_p3",
+  QCS603: "qcs603",
+  QCS605: "qcs605",
+  RASP3B: "rasp3b",
+  RK3288: "rk3288",
+  RK3399: "rk3399",
+  SBE_C: "sbe_c",
+  SITARA_AM57X: "sitara_am57x",
+  X86_WIN32: "x86_win32",
+  X86_WIN64: "x86_win64",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetDevice = (typeof TargetDevice)[keyof typeof TargetDevice];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetPlatformAccelerator = {
+  INTEL_GRAPHICS: "INTEL_GRAPHICS",
+  MALI: "MALI",
+  NNA: "NNA",
+  NVIDIA: "NVIDIA",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetPlatformAccelerator = (typeof TargetPlatformAccelerator)[keyof typeof TargetPlatformAccelerator];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetPlatformArch = {
+  ARM64: "ARM64",
+  ARM_EABI: "ARM_EABI",
+  ARM_EABIHF: "ARM_EABIHF",
+  X86: "X86",
+  X86_64: "X86_64",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetPlatformArch = (typeof TargetPlatformArch)[keyof typeof TargetPlatformArch];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetPlatformOs = {
+  ANDROID: "ANDROID",
+  LINUX: "LINUX",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetPlatformOs = (typeof TargetPlatformOs)[keyof typeof TargetPlatformOs];
+
+/**
+ * @public
  * <p>A summary of a model compilation job.</p>
  */
 export interface CompilationJobSummary {
@@ -6048,12 +7220,36 @@ export interface CompilationJobSummary {
   CompilationJobStatus: CompilationJobStatus | string | undefined;
 }
 
-export enum ConditionOutcome {
-  FALSE = "False",
-  TRUE = "True",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CompleteOnConvergence = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
 
 /**
+ * @public
+ */
+export type CompleteOnConvergence = (typeof CompleteOnConvergence)[keyof typeof CompleteOnConvergence];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConditionOutcome = {
+  FALSE: "False",
+  TRUE: "True",
+} as const;
+
+/**
+ * @public
+ */
+export type ConditionOutcome = (typeof ConditionOutcome)[keyof typeof ConditionOutcome];
+
+/**
+ * @public
  * <p>Metadata for a Condition step.</p>
  */
 export interface ConditionStepMetadata {
@@ -6064,6 +7260,7 @@ export interface ConditionStepMetadata {
 }
 
 /**
+ * @public
  * <p>There was a conflict when you attempted to modify a SageMaker entity such as an
  *       <code>Experiment</code> or <code>Artifact</code>.</p>
  */
@@ -6085,12 +7282,22 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum RepositoryAccessMode {
-  PLATFORM = "Platform",
-  VPC = "Vpc",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RepositoryAccessMode = {
+  PLATFORM: "Platform",
+  VPC: "Vpc",
+} as const;
 
 /**
+ * @public
+ */
+export type RepositoryAccessMode = (typeof RepositoryAccessMode)[keyof typeof RepositoryAccessMode];
+
+/**
+ * @public
  * <p>Specifies an authentication configuration for the private docker registry where your
  *             model image is hosted. Specify a value for this property only if you specified
  *                 <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field of the
@@ -6111,6 +7318,7 @@ export interface RepositoryAuthConfig {
 }
 
 /**
+ * @public
  * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry
  *             accessible from your Amazon Virtual Private Cloud (VPC).</p>
  */
@@ -6141,17 +7349,36 @@ export interface ImageConfig {
   RepositoryAuthConfig?: RepositoryAuthConfig;
 }
 
-export enum ContainerMode {
-  MULTI_MODEL = "MultiModel",
-  SINGLE_MODEL = "SingleModel",
-}
-
-export enum ModelCacheSetting {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContainerMode = {
+  MULTI_MODEL: "MultiModel",
+  SINGLE_MODEL: "SingleModel",
+} as const;
 
 /**
+ * @public
+ */
+export type ContainerMode = (typeof ContainerMode)[keyof typeof ContainerMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelCacheSetting = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCacheSetting = (typeof ModelCacheSetting)[keyof typeof ModelCacheSetting];
+
+/**
+ * @public
  * <p>Specifies additional configuration for hosting multi-model endpoints.</p>
  */
 export interface MultiModelConfig {
@@ -6167,6 +7394,7 @@ export interface MultiModelConfig {
 }
 
 /**
+ * @public
  * <p>Describes the container, as part of model definition.</p>
  */
 export interface ContainerDefinition {
@@ -6193,9 +7421,14 @@ export interface ContainerDefinition {
    *             endpoint. If you are using your own custom algorithm instead of an algorithm provided by
    *             SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both
    *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
-   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
-   *                 SageMaker</a>
-   *          </p>
+   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
+   *             Amazon SageMaker</a>.
+   *         </p>
+   *          <note>
+   *             <p>The model artifacts in an Amazon S3 bucket and the Docker image for inference container
+   *                 in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are
+   *                 creating.</p>
+   *          </note>
    */
   Image?: string;
 
@@ -6203,8 +7436,13 @@ export interface ContainerDefinition {
    * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry
    *             accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a
    *             private Docker registry, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html">Use a
-   *                 Private Docker Registry for Real-Time Inference Containers</a>
-   *          </p>
+   *                 Private Docker Registry for Real-Time Inference Containers</a>.
+   *         </p>
+   *          <note>
+   *             <p>The model artifacts in an Amazon S3 bucket and the Docker image for inference container
+   *                 in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are
+   *                 creating.</p>
+   *          </note>
    */
   ImageConfig?: ImageConfig;
 
@@ -6225,9 +7463,8 @@ export interface ContainerDefinition {
    *          </note>
    *          <p>If you provide a value for this parameter, SageMaker uses Amazon Web Services Security Token
    *             Service to download model artifacts from the S3 path you provide. Amazon Web Services STS
-   *             is activated in your IAM user account by default. If you previously deactivated
-   *                 Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS
-   *             for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+   *             is activated in your Amazon Web Services account by default. If you previously
+   *             deactivated Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS for that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
    *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
    *                     <i>Amazon Web Services Identity and Access Management User
    *                 Guide</i>.</p>
@@ -6262,12 +7499,22 @@ export interface ContainerDefinition {
   MultiModelConfig?: MultiModelConfig;
 }
 
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContentClassifier = {
+  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
+} as const;
 
 /**
+ * @public
+ */
+export type ContentClassifier = (typeof ContentClassifier)[keyof typeof ContentClassifier];
+
+/**
+ * @public
  * <p>A structure describing the source of a context.</p>
  */
 export interface ContextSource {
@@ -6288,6 +7535,7 @@ export interface ContextSource {
 }
 
 /**
+ * @public
  * <p>Lists a summary of the properties of a context. A context provides a logical grouping
  *         of other entities.</p>
  */
@@ -6323,14 +7571,24 @@ export interface ContextSummary {
   LastModifiedTime?: Date;
 }
 
-export enum HyperParameterScalingType {
-  AUTO = "Auto",
-  LINEAR = "Linear",
-  LOGARITHMIC = "Logarithmic",
-  REVERSE_LOGARITHMIC = "ReverseLogarithmic",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HyperParameterScalingType = {
+  AUTO: "Auto",
+  LINEAR: "Linear",
+  LOGARITHMIC: "Logarithmic",
+  REVERSE_LOGARITHMIC: "ReverseLogarithmic",
+} as const;
 
 /**
+ * @public
+ */
+export type HyperParameterScalingType = (typeof HyperParameterScalingType)[keyof typeof HyperParameterScalingType];
+
+/**
+ * @public
  * <p>A list of continuous hyperparameters to tune.</p>
  */
 export interface ContinuousParameterRange {
@@ -6387,6 +7645,7 @@ export interface ContinuousParameterRange {
 }
 
 /**
+ * @public
  * <p>Defines the possible values for a continuous hyperparameter.</p>
  */
 export interface ContinuousParameterRangeSpecification {
@@ -6402,6 +7661,20 @@ export interface ContinuousParameterRangeSpecification {
 }
 
 /**
+ * @public
+ * <p>A flag to indicating that automatic model tuning (AMT) has detected model convergence,
+ *             defined as a lack of significant improvement (1% or less) against an objective
+ *             metric.</p>
+ */
+export interface ConvergenceDetected {
+  /**
+   * <p>A flag to stop a tuning job once AMT has detected that the job has converged.</p>
+   */
+  CompleteOnConvergence?: CompleteOnConvergence | string;
+}
+
+/**
+ * @public
  * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
  */
 export interface MetadataProperties {
@@ -6426,6 +7699,9 @@ export interface MetadataProperties {
   ProjectId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateActionRequest {
   /**
    * <p>The name of the action. Must be unique to your account in an Amazon Web Services Region.</p>
@@ -6468,6 +7744,9 @@ export interface CreateActionRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateActionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the action.</p>
@@ -6476,6 +7755,7 @@ export interface CreateActionResponse {
 }
 
 /**
+ * @public
  * <p>Defines the possible values for an integer hyperparameter.</p>
  */
 export interface IntegerParameterRangeSpecification {
@@ -6491,6 +7771,7 @@ export interface IntegerParameterRangeSpecification {
 }
 
 /**
+ * @public
  * <p>Defines the possible values for categorical, continuous, and integer hyperparameters
  *             to be used by an algorithm.</p>
  */
@@ -6514,14 +7795,24 @@ export interface ParameterRange {
   CategoricalParameterRangeSpecification?: CategoricalParameterRangeSpecification;
 }
 
-export enum ParameterType {
-  CATEGORICAL = "Categorical",
-  CONTINUOUS = "Continuous",
-  FREE_TEXT = "FreeText",
-  INTEGER = "Integer",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ParameterType = {
+  CATEGORICAL: "Categorical",
+  CONTINUOUS: "Continuous",
+  FREE_TEXT: "FreeText",
+  INTEGER: "Integer",
+} as const;
 
 /**
+ * @public
+ */
+export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
+
+/**
+ * @public
  * <p>Defines a hyperparameter to be used by an algorithm.</p>
  */
 export interface HyperParameterSpecification {
@@ -6564,12 +7855,23 @@ export interface HyperParameterSpecification {
   DefaultValue?: string;
 }
 
-export enum HyperParameterTuningJobObjectiveType {
-  MAXIMIZE = "Maximize",
-  MINIMIZE = "Minimize",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HyperParameterTuningJobObjectiveType = {
+  MAXIMIZE: "Maximize",
+  MINIMIZE: "Minimize",
+} as const;
 
 /**
+ * @public
+ */
+export type HyperParameterTuningJobObjectiveType =
+  (typeof HyperParameterTuningJobObjectiveType)[keyof typeof HyperParameterTuningJobObjectiveType];
+
+/**
+ * @public
  * <p>Defines the objective metric for a hyperparameter tuning job.
  *             Hyperparameter
  *             tuning uses the value of this metric to evaluate the training jobs it launches, and
@@ -6593,6 +7895,7 @@ export interface HyperParameterTuningJobObjective {
 }
 
 /**
+ * @public
  * <p>Defines how the algorithm is used for a training job.</p>
  */
 export interface TrainingSpecification {
@@ -6645,6 +7948,9 @@ export interface TrainingSpecification {
   SupportedTuningJobObjectiveMetrics?: HyperParameterTuningJobObjective[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAlgorithmInput {
   /**
    * <p>The name of the algorithm.</p>
@@ -6730,6 +8036,9 @@ export interface CreateAlgorithmInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateAlgorithmOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the new algorithm.</p>
@@ -6738,6 +8047,7 @@ export interface CreateAlgorithmOutput {
 }
 
 /**
+ * @public
  * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
  *      the version runs on.</p>
  */
@@ -6770,6 +8080,9 @@ export interface ResourceSpec {
   LifecycleConfigArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppRequest {
   /**
    * <p>The domain ID.</p>
@@ -6813,6 +8126,9 @@ export interface CreateAppRequest {
   SpaceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the app.</p>
@@ -6821,6 +8137,7 @@ export interface CreateAppResponse {
 }
 
 /**
+ * @public
  * <p>Resource being accessed is in use.</p>
  */
 export class ResourceInUse extends __BaseException {
@@ -6841,6 +8158,9 @@ export class ResourceInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAppImageConfigRequest {
   /**
    * <p>The name of the AppImageConfig. Must be unique to your account.</p>
@@ -6860,6 +8180,9 @@ export interface CreateAppImageConfigRequest {
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppImageConfigResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the AppImageConfig.</p>
@@ -6867,6 +8190,9 @@ export interface CreateAppImageConfigResponse {
   AppImageConfigArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateArtifactRequest {
   /**
    * <p>The name of the artifact. Must be unique to your account in an Amazon Web Services Region.</p>
@@ -6899,6 +8225,9 @@ export interface CreateArtifactRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateArtifactResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the artifact.</p>
@@ -6907,6 +8236,7 @@ export interface CreateArtifactResponse {
 }
 
 /**
+ * @public
  * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
  *          deployment.</p>
  */
@@ -6934,24 +8264,36 @@ export interface ModelDeployConfig {
   EndpointName?: string;
 }
 
-export enum ProblemType {
-  BINARY_CLASSIFICATION = "BinaryClassification",
-  MULTICLASS_CLASSIFICATION = "MulticlassClassification",
-  REGRESSION = "Regression",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProblemType = {
+  BINARY_CLASSIFICATION: "BinaryClassification",
+  MULTICLASS_CLASSIFICATION: "MulticlassClassification",
+  REGRESSION: "Regression",
+} as const;
 
+/**
+ * @public
+ */
+export type ProblemType = (typeof ProblemType)[keyof typeof ProblemType];
+
+/**
+ * @public
+ */
 export interface CreateAutoMLJobRequest {
   /**
-   * <p>Identifies an Autopilot job. The name must be unique to your account and is
-   *          case-insensitive.</p>
+   * <p>Identifies an Autopilot job. The name must be unique to your account and is case
+   *          insensitive.</p>
    */
   AutoMLJobName: string | undefined;
 
   /**
    * <p>An array of channel objects that describes the input data and its location. Each channel
-   *          is a named input source. Similar to <code>InputDataConfig</code> supported by . Format(s) supported: CSV, Parquet.
-   *          A minimum of 500 rows is required for the training dataset. There is not a minimum number
-   *          of rows required for the validation dataset.</p>
+   *          is a named input source. Similar to <code>InputDataConfig</code> supported by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a>. Format(s) supported: CSV,
+   *          Parquet. A minimum of 500 rows is required for the training dataset. There is not a minimum
+   *          number of rows required for the validation dataset.</p>
    */
   InputDataConfig: AutoMLChannel[] | undefined;
 
@@ -6962,16 +8304,16 @@ export interface CreateAutoMLJobRequest {
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
 
   /**
-   * <p>Defines the type of supervised learning available for the candidates. For more
-   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
-   *             Amazon SageMaker Autopilot problem types and algorithm support</a>.</p>
+   * <p>Defines the type of supervised learning problem available for the candidates. For more
+   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
+   *             Amazon SageMaker Autopilot problem types</a>.</p>
    */
   ProblemType?: ProblemType | string;
 
   /**
    * <p>Defines the objective metric used to measure the predictive quality of an AutoML job. You
-   *          provide an <a>AutoMLJobObjective$MetricName</a> and Autopilot infers whether to
-   *          minimize or maximize it.</p>
+   *          provide an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a> and Autopilot infers whether to minimize or
+   *          maximize it. For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>, only <code>Accuracy</code> is supported.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -6992,7 +8334,9 @@ export interface CreateAutoMLJobRequest {
   GenerateCandidateDefinitionsOnly?: boolean;
 
   /**
-   * <p>Each tag consists of a key and an optional value. Tag keys must be unique per
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *          resources in different ways, for example, by purpose, owner, or environment. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web ServicesResources</a>. Tag keys must be unique per
    *          resource.</p>
    */
   Tags?: Tag[];
@@ -7004,6 +8348,9 @@ export interface CreateAutoMLJobRequest {
   ModelDeployConfig?: ModelDeployConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateAutoMLJobResponse {
   /**
    * <p>The unique ARN assigned to the AutoML job when it is created.</p>
@@ -7011,6 +8358,98 @@ export interface CreateAutoMLJobResponse {
   AutoMLJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface CreateAutoMLJobV2Request {
+  /**
+   * <p>Identifies an Autopilot job. The name must be unique to your account and is case
+   *          insensitive.</p>
+   */
+  AutoMLJobName: string | undefined;
+
+  /**
+   * <p>An array of channel objects describing the input data and their location. Each channel
+   *          is a named input source. Similar to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a> supported by <code>CreateAutoMLJob</code>. The
+   *          supported formats depend on the problem type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>ImageClassification: S3Prefix, <code>ManifestFile</code>,
+   *                   <code>AugmentedManifestFile</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>TextClassification: S3Prefix</p>
+   *             </li>
+   *          </ul>
+   */
+  AutoMLJobInputDataConfig: AutoMLJobChannel[] | undefined;
+
+  /**
+   * <p>Provides information about encryption and the Amazon S3 output path needed to store artifacts
+   *          from an AutoML job.</p>
+   */
+  OutputDataConfig: AutoMLOutputDataConfig | undefined;
+
+  /**
+   * <p>Defines the configuration settings of one of the supported problem types.</p>
+   */
+  AutoMLProblemTypeConfig: AutoMLProblemTypeConfig | undefined;
+
+  /**
+   * <p>The ARN of the role that is used to access the data.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *          resources in different ways, such as by purpose, owner, or environment. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web ServicesResources</a>. Tag keys must be unique per
+   *          resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The security configuration for traffic encryption or Amazon VPC settings.</p>
+   */
+  SecurityConfig?: AutoMLSecurityConfig;
+
+  /**
+   * <p>Specifies a metric to minimize or maximize as the objective of a job. For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>, only <code>Accuracy</code> is supported.</p>
+   */
+  AutoMLJobObjective?: AutoMLJobObjective;
+
+  /**
+   * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
+   *          deployment.</p>
+   */
+  ModelDeployConfig?: ModelDeployConfig;
+
+  /**
+   * <p>This structure specifies how to split the data into train and validation
+   *          datasets.</p>
+   *          <p>If you are using the V1 API (for example <code>CreateAutoMLJob</code>) or the V2 API for
+   *          Natural Language Processing problems (for example <code>CreateAutoMLJobV2</code> with a
+   *             <code>TextClassificationJobConfig</code> problem type), the validation and training
+   *          datasets must contain the same headers. Also, for V1 API jobs, the validation dataset must
+   *          be less than 2 GB in size.</p>
+   */
+  DataSplitConfig?: AutoMLDataSplitConfig;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutoMLJobV2Response {
+  /**
+   * <p>The unique ARN assigned to the AutoMLJob when it is created.</p>
+   */
+  AutoMLJobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateCodeRepositoryInput {
   /**
    * <p>The name of the Git repository. The name must have 1 to 63 characters. Valid
@@ -7032,6 +8471,9 @@ export interface CreateCodeRepositoryInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCodeRepositoryOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the new repository.</p>
@@ -7039,19 +8481,29 @@ export interface CreateCodeRepositoryOutput {
   CodeRepositoryArn: string | undefined;
 }
 
-export enum Framework {
-  DARKNET = "DARKNET",
-  KERAS = "KERAS",
-  MXNET = "MXNET",
-  ONNX = "ONNX",
-  PYTORCH = "PYTORCH",
-  SKLEARN = "SKLEARN",
-  TENSORFLOW = "TENSORFLOW",
-  TFLITE = "TFLITE",
-  XGBOOST = "XGBOOST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Framework = {
+  DARKNET: "DARKNET",
+  KERAS: "KERAS",
+  MXNET: "MXNET",
+  ONNX: "ONNX",
+  PYTORCH: "PYTORCH",
+  SKLEARN: "SKLEARN",
+  TENSORFLOW: "TENSORFLOW",
+  TFLITE: "TFLITE",
+  XGBOOST: "XGBOOST",
+} as const;
 
 /**
+ * @public
+ */
+export type Framework = (typeof Framework)[keyof typeof Framework];
+
+/**
+ * @public
  * <p>Contains information about the location of input model artifacts, the name and
  *             shape
  *             of the expected data inputs, and the framework in which the model was trained.</p>
@@ -7079,12 +8531,12 @@ export interface InputConfig {
    *                      <ul>
    *                         <li>
    *                            <p>If using the console,
-   *                                     <code>{"input":[1,1024,1024,3]}</code>
+   *                                     <code>\{"input":[1,1024,1024,3]\}</code>
    *                            </p>
    *                         </li>
    *                         <li>
    *                            <p>If using the CLI,
-   *                                     <code>{\"input\":[1,1024,1024,3]}</code>
+   *                                     <code>\{\"input\":[1,1024,1024,3]\}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -7093,13 +8545,13 @@ export interface InputConfig {
    *                      <p>Examples for two inputs:</p>
    *                      <ul>
    *                         <li>
-   *                            <p>If using the console, <code>{"data1": [1,28,28,1],
-   *                                         "data2":[1,28,28,1]}</code>
+   *                            <p>If using the console, <code>\{"data1": [1,28,28,1],
+   *                                         "data2":[1,28,28,1]\}</code>
    *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>If using the CLI, <code>{\"data1\": [1,28,28,1],
-   *                                         \"data2\":[1,28,28,1]}</code>
+   *                            <p>If using the CLI, <code>\{\"data1\": [1,28,28,1],
+   *                                         \"data2\":[1,28,28,1]\}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -7120,12 +8572,12 @@ export interface InputConfig {
    *                      <ul>
    *                         <li>
    *                            <p>If using the console,
-   *                                     <code>{"input_1":[1,3,224,224]}</code>
+   *                                     <code>\{"input_1":[1,3,224,224]\}</code>
    *                            </p>
    *                         </li>
    *                         <li>
    *                            <p>If using the CLI,
-   *                                     <code>{\"input_1\":[1,3,224,224]}</code>
+   *                                     <code>\{\"input_1\":[1,3,224,224]\}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -7134,13 +8586,13 @@ export interface InputConfig {
    *                      <p>Examples for two inputs:</p>
    *                      <ul>
    *                         <li>
-   *                            <p>If using the console, <code>{"input_1": [1,3,224,224],
-   *                                         "input_2":[1,3,224,224]} </code>
+   *                            <p>If using the console, <code>\{"input_1": [1,3,224,224],
+   *                                         "input_2":[1,3,224,224]\} </code>
    *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>If using the CLI, <code>{\"input_1\": [1,3,224,224],
-   *                                         \"input_2\":[1,3,224,224]}</code>
+   *                            <p>If using the CLI, <code>\{\"input_1\": [1,3,224,224],
+   *                                         \"input_2\":[1,3,224,224]\}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -7159,12 +8611,12 @@ export interface InputConfig {
    *                      <ul>
    *                         <li>
    *                            <p>If using the console,
-   *                                     <code>{"data":[1,3,1024,1024]}</code>
+   *                                     <code>\{"data":[1,3,1024,1024]\}</code>
    *                            </p>
    *                         </li>
    *                         <li>
    *                            <p>If using the CLI,
-   *                                     <code>{\"data\":[1,3,1024,1024]}</code>
+   *                                     <code>\{\"data\":[1,3,1024,1024]\}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -7173,13 +8625,13 @@ export interface InputConfig {
    *                      <p>Examples for two inputs:</p>
    *                      <ul>
    *                         <li>
-   *                            <p>If using the console, <code>{"var1": [1,1,28,28],
-   *                                         "var2":[1,1,28,28]} </code>
+   *                            <p>If using the console, <code>\{"var1": [1,1,28,28],
+   *                                         "var2":[1,1,28,28]\} </code>
    *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>If using the CLI, <code>{\"var1\": [1,1,28,28],
-   *                                         \"var2\":[1,1,28,28]}</code>
+   *                            <p>If using the CLI, <code>\{\"var1\": [1,1,28,28],
+   *                                         \"var2\":[1,1,28,28]\}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -7199,12 +8651,12 @@ export interface InputConfig {
    *                      <ul>
    *                         <li>
    *                            <p>If using the console,
-   *                                     <code>{"input0":[1,3,224,224]}</code>
+   *                                     <code>\{"input0":[1,3,224,224]\}</code>
    *                            </p>
    *                         </li>
    *                         <li>
    *                            <p>If using the CLI,
-   *                                     <code>{\"input0\":[1,3,224,224]}</code>
+   *                                     <code>\{\"input0\":[1,3,224,224]\}</code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -7218,13 +8670,13 @@ export interface InputConfig {
    *                      <p>Examples for two inputs in dictionary format:</p>
    *                      <ul>
    *                         <li>
-   *                            <p>If using the console, <code>{"input0":[1,3,224,224],
-   *                                         "input1":[1,3,224,224]}</code>
+   *                            <p>If using the console, <code>\{"input0":[1,3,224,224],
+   *                                         "input1":[1,3,224,224]\}</code>
    *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>If using the CLI, <code>{\"input0\":[1,3,224,224],
-   *                                         \"input1\":[1,3,224,224]} </code>
+   *                            <p>If using the CLI, <code>\{\"input0\":[1,3,224,224],
+   *                                         \"input1\":[1,3,224,224]\} </code>
    *                            </p>
    *                         </li>
    *                      </ul>
@@ -7247,19 +8699,19 @@ export interface InputConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>shape</code>: Input shape, for example <code>{"input_1": {"shape": [1,224,224,3]}}</code>.
+   *                   <code>shape</code>: Input shape, for example <code>\{"input_1": \{"shape": [1,224,224,3]\}\}</code>.
    *                     In addition to static input shapes, CoreML converter supports Flexible input shapes:</p>
    *                <ul>
    *                   <li>
    *                      <p>Range Dimension. You can use the Range Dimension feature if you know the input shape
    *                             will be within some specific interval in that dimension,
-   *                             for example: <code>{"input_1": {"shape": ["1..10", 224, 224, 3]}}</code>
+   *                             for example: <code>\{"input_1": \{"shape": ["1..10", 224, 224, 3]\}\}</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>Enumerated shapes. Sometimes, the models are trained to work only on a select
    *                             set of inputs. You can enumerate all supported input shapes,
-   *                             for example: <code>{"input_1": {"shape": [[1, 224, 224, 3], [1, 160, 160, 3]]}}</code>
+   *                             for example: <code>\{"input_1": \{"shape": [[1, 224, 224, 3], [1, 160, 160, 3]]\}\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -7268,7 +8720,7 @@ export interface InputConfig {
    *                <p>
    *                   <code>default_shape</code>: Default input shape. You can set a default shape during
    *                     conversion for both Range Dimension and Enumerated Shapes. For example
-   *                     <code>{"input_1": {"shape": ["1..10", 224, 224, 3], "default_shape": [1, 224, 224, 3]}}</code>
+   *                     <code>\{"input_1": \{"shape": ["1..10", 224, 224, 3], "default_shape": [1, 224, 224, 3]\}\}</code>
    *                </p>
    *             </li>
    *             <li>
@@ -7296,8 +8748,8 @@ export interface InputConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
-   *                             [1,224,224,3]}}</code>
+   *                         <code>"DataInputConfig": \{"input_1": \{"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
+   *                             [1,224,224,3]\}\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -7307,8 +8759,8 @@ export interface InputConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
-   *                             [1,3,224,224]}]</code>
+   *                         <code>"DataInputConfig": [\{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
+   *                             [1,3,224,224]\}]</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -7318,13 +8770,13 @@ export interface InputConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
-   *                             [1,224,224,3], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}}</code>
+   *                         <code>"DataInputConfig": \{"input_1": \{"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
+   *                             [1,224,224,3], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255\}\}</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code>
+   *                         <code>"CompilerOptions": \{"class_labels": "imagenet_labels_1000.txt"\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -7334,13 +8786,13 @@ export interface InputConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
-   *                             [1,3,224,224], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}]</code>
+   *                         <code>"DataInputConfig": [\{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
+   *                             [1,3,224,224], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255\}]</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code>
+   *                         <code>"CompilerOptions": \{"class_labels": "imagenet_labels_1000.txt"\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -7361,12 +8813,12 @@ export interface InputConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"DataInputConfig": {"inputs": [1, 224, 224, 3]}</code>
+   *                         <code>"DataInputConfig": \{"inputs": [1, 224, 224, 3]\}</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>"CompilerOptions": {"signature_def_key": "serving_custom"}</code>
+   *                         <code>"CompilerOptions": \{"signature_def_key": "serving_custom"\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -7381,12 +8833,12 @@ export interface InputConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"DataInputConfig": {"input_tensor:0": [1, 224, 224, 3]}</code>
+   *                         <code>"DataInputConfig": \{"input_tensor:0": [1, 224, 224, 3]\}</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>"CompilerOptions": {"output_names": ["output_tensor:0"]}</code>
+   *                         <code>"CompilerOptions": \{"output_names": ["output_tensor:0"]\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -7412,6 +8864,7 @@ export interface InputConfig {
 }
 
 /**
+ * @public
  * <p>Contains information about a target platform that you want your model to run on, such
  *             as OS, architecture, and accelerators. It is an alternative of
  *             <code>TargetDevice</code>.</p>
@@ -7428,7 +8881,7 @@ export interface TargetPlatform {
    *                <p>
    *                   <code>ANDROID</code>: Android operating systems. Android API level can be
    *                     specified using the <code>ANDROID_PLATFORM</code> compiler option. For example,
-   *                     <code>"CompilerOptions": {'ANDROID_PLATFORM': 28}</code>
+   *                     <code>"CompilerOptions": \{'ANDROID_PLATFORM': 28\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -7486,6 +8939,7 @@ export interface TargetPlatform {
 }
 
 /**
+ * @public
  * <p>Contains information about the output location for the compiled model and the target
  *             device that the model runs on. <code>TargetDevice</code> and <code>TargetPlatform</code>
  *             are mutually exclusive, so you need to choose one between the two to specify your target
@@ -7519,57 +8973,57 @@ export interface OutputConfig {
    *             <li>
    *                <p>Raspberry Pi 3 Model B+</p>
    *                <p>
-   *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "ARM_EABIHF"},</code>
+   *                   <code>"TargetPlatform": \{"Os": "LINUX", "Arch": "ARM_EABIHF"\},</code>
    *                </p>
    *                <p>
-   *                   <code> "CompilerOptions": {'mattr': ['+neon']}</code>
+   *                   <code> "CompilerOptions": \{'mattr': ['+neon']\}</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>Jetson TX2</p>
    *                <p>
-   *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "ARM64", "Accelerator":
-   *                         "NVIDIA"},</code>
+   *                   <code>"TargetPlatform": \{"Os": "LINUX", "Arch": "ARM64", "Accelerator":
+   *                         "NVIDIA"\},</code>
    *                </p>
    *                <p>
-   *                   <code> "CompilerOptions": {'gpu-code': 'sm_62', 'trt-ver': '6.0.1',
-   *                         'cuda-ver': '10.0'}</code>
+   *                   <code> "CompilerOptions": \{'gpu-code': 'sm_62', 'trt-ver': '6.0.1',
+   *                         'cuda-ver': '10.0'\}</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>EC2 m5.2xlarge instance OS</p>
    *                <p>
-   *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "X86_64", "Accelerator":
-   *                         "NVIDIA"},</code>
+   *                   <code>"TargetPlatform": \{"Os": "LINUX", "Arch": "X86_64", "Accelerator":
+   *                         "NVIDIA"\},</code>
    *                </p>
    *                <p>
-   *                   <code> "CompilerOptions": {'mcpu': 'skylake-avx512'}</code>
+   *                   <code> "CompilerOptions": \{'mcpu': 'skylake-avx512'\}</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>RK3399</p>
    *                <p>
-   *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "ARM64", "Accelerator":
-   *                         "MALI"}</code>
+   *                   <code>"TargetPlatform": \{"Os": "LINUX", "Arch": "ARM64", "Accelerator":
+   *                         "MALI"\}</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>ARMv7 phone (CPU)</p>
    *                <p>
-   *                   <code>"TargetPlatform": {"Os": "ANDROID", "Arch": "ARM_EABI"},</code>
+   *                   <code>"TargetPlatform": \{"Os": "ANDROID", "Arch": "ARM_EABI"\},</code>
    *                </p>
    *                <p>
-   *                   <code> "CompilerOptions": {'ANDROID_PLATFORM': 25, 'mattr':
-   *                     ['+neon']}</code>
+   *                   <code> "CompilerOptions": \{'ANDROID_PLATFORM': 25, 'mattr':
+   *                     ['+neon']\}</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>ARMv8 phone (CPU)</p>
    *                <p>
-   *                   <code>"TargetPlatform": {"Os": "ANDROID", "Arch": "ARM64"},</code>
+   *                   <code>"TargetPlatform": \{"Os": "ANDROID", "Arch": "ARM64"\},</code>
    *                </p>
    *                <p>
-   *                   <code> "CompilerOptions": {'ANDROID_PLATFORM': 29}</code>
+   *                   <code> "CompilerOptions": \{'ANDROID_PLATFORM': 29\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -7598,7 +9052,7 @@ export interface OutputConfig {
    *                      <p>int64: Use either <code>"int64"</code> or <code>"long"</code>.</p>
    *                   </li>
    *                </ul>
-   *                <p> For example, <code>{"dtype" : "float32"}</code>.</p>
+   *                <p> For example, <code>\{"dtype" : "float32"\}</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7607,14 +9061,14 @@ export interface OutputConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu':
-   *                                 'skylake-avx512'}</code>
+   *                         <code>mcpu</code>: CPU micro-architecture. For example, <code>\{'mcpu':
+   *                                 'skylake-avx512'\}</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon',
-   *                                 '+vfpv4']}</code>
+   *                         <code>mattr</code>: CPU flags. For example, <code>\{'mattr': ['+neon',
+   *                                 '+vfpv4']\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -7627,7 +9081,7 @@ export interface OutputConfig {
    *                      <p>
    *                         <code>NEON</code>: NEON is an implementation of the Advanced SIMD
    *                             extension used in ARMv7 processors.</p>
-   *                      <p>For example, add <code>{'mattr': ['+neon']}</code> to the compiler
+   *                      <p>For example, add <code>\{'mattr': ['+neon']\}</code> to the compiler
    *                             options if compiling for ARM 32-bit platform with the NEON
    *                             support.</p>
    *                   </li>
@@ -7653,8 +9107,8 @@ export interface OutputConfig {
    *                             format.</p>
    *                   </li>
    *                </ul>
-   *                <p>For example, <code>{'gpu-code': 'sm_72', 'trt-ver': '6.0.1', 'cuda-ver':
-   *                         '10.1'}</code>
+   *                <p>For example, <code>\{'gpu-code': 'sm_72', 'trt-ver': '6.0.1', 'cuda-ver':
+   *                         '10.1'\}</code>
    *                </p>
    *             </li>
    *             <li>
@@ -7666,11 +9120,11 @@ export interface OutputConfig {
    *                      <p>
    *                         <code>ANDROID_PLATFORM</code>: Specifies the Android API levels.
    *                             Available levels range from 21 to 29. For example,
-   *                                 <code>{'ANDROID_PLATFORM': 28}</code>.</p>
+   *                                 <code>\{'ANDROID_PLATFORM': 28\}</code>.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>mattr</code>: Add <code>{'mattr': ['+neon']}</code> to compiler
+   *                         <code>mattr</code>: Add <code>\{'mattr': ['+neon']\}</code> to compiler
    *                             options if compiling for ARM 32-bit platform with NEON support.</p>
    *                   </li>
    *                </ul>
@@ -7695,7 +9149,7 @@ export interface OutputConfig {
    *                      <p>
    *                         <code>class_labels</code>: Specifies the classification labels file
    *                             name inside input tar.gz file. For example,
-   *                                 <code>{"class_labels": "imagenet_labels_1000.txt"}</code>.
+   *                                 <code>\{"class_labels": "imagenet_labels_1000.txt"\}</code>.
    *                             Labels inside the txt file should be separated by newlines.</p>
    *                   </li>
    *                </ul>
@@ -7723,7 +9177,7 @@ export interface OutputConfig {
    *                   </li>
    *                </ul>
    *                <p>For example:
-   *                     <code>{"precision_mode": "FP32",  "output_names": ["output:0"]}</code>
+   *                     <code>\{"precision_mode": "FP32",  "output_names": ["output:0"]\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -7763,6 +9217,7 @@ export interface OutputConfig {
 }
 
 /**
+ * @public
  * <p>The <a>VpcConfig</a> configuration object that specifies the VPC that you
  *             want the compilation jobs to connect to. For more information on
  *             controlling access to your Amazon S3 buckets used for compilation job, see
@@ -7782,6 +9237,9 @@ export interface NeoVpcConfig {
   Subnets: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCompilationJobRequest {
   /**
    * <p>A name for the model compilation job. The name must be unique within the Amazon Web Services Region
@@ -7859,6 +9317,9 @@ export interface CreateCompilationJobRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateCompilationJobResponse {
   /**
    * <p>If the action is successful, the service sends back an HTTP 200 response. Amazon SageMaker returns
@@ -7874,6 +9335,9 @@ export interface CreateCompilationJobResponse {
   CompilationJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateContextRequest {
   /**
    * <p>The name of the context. Must be unique to your account in an Amazon Web Services Region.</p>
@@ -7906,6 +9370,9 @@ export interface CreateContextRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateContextResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the context.</p>
@@ -7914,6 +9381,7 @@ export interface CreateContextResponse {
 }
 
 /**
+ * @public
  * <p>Information about the container that a data quality monitoring job runs.</p>
  */
 export interface DataQualityAppSpecification {
@@ -7953,6 +9421,7 @@ export interface DataQualityAppSpecification {
 }
 
 /**
+ * @public
  * <p>The constraints resource for a monitoring job.</p>
  */
 export interface MonitoringConstraintsResource {
@@ -7963,6 +9432,7 @@ export interface MonitoringConstraintsResource {
 }
 
 /**
+ * @public
  * <p>The statistics resource for a monitoring job.</p>
  */
 export interface MonitoringStatisticsResource {
@@ -7973,6 +9443,7 @@ export interface MonitoringStatisticsResource {
 }
 
 /**
+ * @public
  * <p>Configuration for monitoring constraints and monitoring statistics. These baseline
  *          resources are compared against the results of the current job from the series of jobs
  *          scheduled to collect data periodically.</p>
@@ -7995,6 +9466,7 @@ export interface DataQualityBaselineConfig {
 }
 
 /**
+ * @public
  * <p>Input object for the endpoint</p>
  */
 export interface EndpointInput {
@@ -8060,6 +9532,7 @@ export interface EndpointInput {
 }
 
 /**
+ * @public
  * <p>The input for the data quality monitoring job. Currently endpoints are supported for
  *          input.</p>
  */
@@ -8075,12 +9548,22 @@ export interface DataQualityJobInput {
   BatchTransformInput?: BatchTransformInput;
 }
 
-export enum ProcessingS3UploadMode {
-  CONTINUOUS = "Continuous",
-  END_OF_JOB = "EndOfJob",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProcessingS3UploadMode = {
+  CONTINUOUS: "Continuous",
+  END_OF_JOB: "EndOfJob",
+} as const;
 
 /**
+ * @public
+ */
+export type ProcessingS3UploadMode = (typeof ProcessingS3UploadMode)[keyof typeof ProcessingS3UploadMode];
+
+/**
+ * @public
  * <p>Information about where and how you want to store the results of a monitoring
  *          job.</p>
  */
@@ -8105,6 +9588,7 @@ export interface MonitoringS3Output {
 }
 
 /**
+ * @public
  * <p>The output object for a monitoring job.</p>
  */
 export interface MonitoringOutput {
@@ -8115,6 +9599,7 @@ export interface MonitoringOutput {
 }
 
 /**
+ * @public
  * <p>The output configuration for monitoring jobs.</p>
  */
 export interface MonitoringOutputConfig {
@@ -8131,54 +9616,64 @@ export interface MonitoringOutputConfig {
   KmsKeyId?: string;
 }
 
-export enum ProcessingInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_16XLARGE = "ml.r5.16xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_8XLARGE = "ml.r5.8xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_XLARGE = "ml.t3.xlarge",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProcessingInstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_R5_12XLARGE: "ml.r5.12xlarge",
+  ML_R5_16XLARGE: "ml.r5.16xlarge",
+  ML_R5_24XLARGE: "ml.r5.24xlarge",
+  ML_R5_2XLARGE: "ml.r5.2xlarge",
+  ML_R5_4XLARGE: "ml.r5.4xlarge",
+  ML_R5_8XLARGE: "ml.r5.8xlarge",
+  ML_R5_LARGE: "ml.r5.large",
+  ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_T3_2XLARGE: "ml.t3.2xlarge",
+  ML_T3_LARGE: "ml.t3.large",
+  ML_T3_MEDIUM: "ml.t3.medium",
+  ML_T3_XLARGE: "ml.t3.xlarge",
+} as const;
 
 /**
+ * @public
+ */
+export type ProcessingInstanceType = (typeof ProcessingInstanceType)[keyof typeof ProcessingInstanceType];
+
+/**
+ * @public
  * <p>Configuration for the cluster used to run model monitoring jobs.</p>
  */
 export interface MonitoringClusterConfig {
@@ -8208,6 +9703,7 @@ export interface MonitoringClusterConfig {
 }
 
 /**
+ * @public
  * <p>Identifies the resources to deploy for a monitoring job.</p>
  */
 export interface MonitoringResources {
@@ -8218,6 +9714,7 @@ export interface MonitoringResources {
 }
 
 /**
+ * @public
  * <p>The networking configuration for the monitoring job.</p>
  */
 export interface MonitoringNetworkConfig {
@@ -8244,6 +9741,7 @@ export interface MonitoringNetworkConfig {
 }
 
 /**
+ * @public
  * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
  */
 export interface MonitoringStoppingCondition {
@@ -8258,6 +9756,9 @@ export interface MonitoringStoppingCondition {
   MaxRuntimeInSeconds: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataQualityJobDefinitionRequest {
   /**
    * <p>The name for the monitoring job definition.</p>
@@ -8313,6 +9814,9 @@ export interface CreateDataQualityJobDefinitionRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDataQualityJobDefinitionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the job definition.</p>
@@ -8320,11 +9824,21 @@ export interface CreateDataQualityJobDefinitionResponse {
   JobDefinitionArn: string | undefined;
 }
 
-export enum EdgePresetDeploymentType {
-  GreengrassV2Component = "GreengrassV2Component",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EdgePresetDeploymentType = {
+  GreengrassV2Component: "GreengrassV2Component",
+} as const;
 
 /**
+ * @public
+ */
+export type EdgePresetDeploymentType = (typeof EdgePresetDeploymentType)[keyof typeof EdgePresetDeploymentType];
+
+/**
+ * @public
  * <p>The output configuration.</p>
  */
 export interface EdgeOutputConfig {
@@ -8384,6 +9898,9 @@ export interface EdgeOutputConfig {
   PresetDeploymentConfig?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDeviceFleetRequest {
   /**
    * <p>The name of the fleet that the device belongs to.</p>
@@ -8413,7 +9930,7 @@ export interface CreateDeviceFleetRequest {
   /**
    * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
    *      The name of the role alias generated will match this pattern:
-   *      "SageMakerEdge-{DeviceFleetName}".</p>
+   *      "SageMakerEdge-\{DeviceFleetName\}".</p>
    *          <p>For example, if your device fleet is called "demo-fleet", the name of
    *      the role alias will be "SageMakerEdge-demo-fleet".</p>
    */
@@ -8421,6 +9938,7 @@ export interface CreateDeviceFleetRequest {
 }
 
 /**
+ * @public
  * <p>The JupyterServer app settings.</p>
  */
 export interface JupyterServerAppSettings {
@@ -8444,6 +9962,7 @@ export interface JupyterServerAppSettings {
 }
 
 /**
+ * @public
  * <p>A custom SageMaker image. For more information, see
  *        <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
  */
@@ -8465,6 +9984,7 @@ export interface CustomImage {
 }
 
 /**
+ * @public
  * <p>The KernelGateway app settings.</p>
  */
 export interface KernelGatewayAppSettings {
@@ -8493,6 +10013,7 @@ export interface KernelGatewayAppSettings {
 }
 
 /**
+ * @public
  * <p>A collection of settings that apply to spaces created in the Domain.</p>
  */
 export interface DefaultSpaceSettings {
@@ -8518,6 +10039,7 @@ export interface DefaultSpaceSettings {
 }
 
 /**
+ * @public
  * <p>A collection of settings that apply to an <code>RSessionGateway</code> app.</p>
  */
 export interface RSessionAppSettings {
@@ -8533,17 +10055,37 @@ export interface RSessionAppSettings {
   CustomImages?: CustomImage[];
 }
 
-export enum RStudioServerProAccessStatus {
-  Disabled = "DISABLED",
-  Enabled = "ENABLED",
-}
-
-export enum RStudioServerProUserGroup {
-  Admin = "R_STUDIO_ADMIN",
-  User = "R_STUDIO_USER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RStudioServerProAccessStatus = {
+  Disabled: "DISABLED",
+  Enabled: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type RStudioServerProAccessStatus =
+  (typeof RStudioServerProAccessStatus)[keyof typeof RStudioServerProAccessStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RStudioServerProUserGroup = {
+  Admin: "R_STUDIO_ADMIN",
+  User: "R_STUDIO_USER",
+} as const;
+
+/**
+ * @public
+ */
+export type RStudioServerProUserGroup = (typeof RStudioServerProUserGroup)[keyof typeof RStudioServerProUserGroup];
+
+/**
+ * @public
  * <p>A collection of settings that configure user interaction with the
  *                 <code>RStudioServerPro</code> app. <code>RStudioServerProAppSettings</code> cannot
  *             be updated. The <code>RStudioServerPro</code> app must be deleted and a new one created
@@ -8564,12 +10106,22 @@ export interface RStudioServerProAppSettings {
   UserGroup?: RStudioServerProUserGroup | string;
 }
 
-export enum NotebookOutputOption {
-  Allowed = "Allowed",
-  Disabled = "Disabled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NotebookOutputOption = {
+  Allowed: "Allowed",
+  Disabled: "Disabled",
+} as const;
 
 /**
+ * @public
+ */
+export type NotebookOutputOption = (typeof NotebookOutputOption)[keyof typeof NotebookOutputOption];
+
+/**
+ * @public
  * <p>Specifies options for sharing SageMaker Studio notebooks. These settings are
  *     specified as part of <code>DefaultUserSettings</code> when the <code>CreateDomain</code>
  *     API is called, and as part of <code>UserSettings</code> when the <code>CreateUserProfile</code>
@@ -8597,6 +10149,7 @@ export interface SharingSettings {
 }
 
 /**
+ * @public
  * <p>The TensorBoard app settings.</p>
  */
 export interface TensorBoardAppSettings {
@@ -8607,6 +10160,7 @@ export interface TensorBoardAppSettings {
 }
 
 /**
+ * @public
  * <p>A collection of settings that apply to users of Amazon SageMaker Studio. These settings are
  *       specified when the <code>CreateUserProfile</code> API is called, and as <code>DefaultUserSettings</code>
  *       when the <code>CreateDomain</code> API is called.</p>
@@ -8669,12 +10223,23 @@ export interface UserSettings {
   CanvasAppSettings?: CanvasAppSettings;
 }
 
-export enum ExecutionRoleIdentityConfig {
-  DISABLED = "DISABLED",
-  USER_PROFILE_NAME = "USER_PROFILE_NAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionRoleIdentityConfig = {
+  DISABLED: "DISABLED",
+  USER_PROFILE_NAME: "USER_PROFILE_NAME",
+} as const;
 
 /**
+ * @public
+ */
+export type ExecutionRoleIdentityConfig =
+  (typeof ExecutionRoleIdentityConfig)[keyof typeof ExecutionRoleIdentityConfig];
+
+/**
+ * @public
  * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level
  *             app.</p>
  */
@@ -8703,6 +10268,7 @@ export interface RStudioServerProDomainSettings {
 }
 
 /**
+ * @public
  * <p>A collection of settings that apply to the <code>SageMaker Domain</code>. These
  *             settings are specified through the <code>CreateDomain</code> API call.</p>
  */
@@ -8726,6 +10292,9 @@ export interface DomainSettings {
   ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainRequest {
   /**
    * <p>A name for the domain.</p>
@@ -8816,6 +10385,9 @@ export interface CreateDomainRequest {
   DefaultSpaceSettings?: DefaultSpaceSettings;
 }
 
+/**
+ * @public
+ */
 export interface CreateDomainResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the created domain.</p>
@@ -8829,6 +10401,7 @@ export interface CreateDomainResponse {
 }
 
 /**
+ * @public
  * <p>Contains information about the configuration of a model in a deployment.</p>
  */
 export interface EdgeDeploymentModelConfig {
@@ -8843,12 +10416,22 @@ export interface EdgeDeploymentModelConfig {
   EdgePackagingJobName: string | undefined;
 }
 
-export enum FailureHandlingPolicy {
-  DoNothing = "DO_NOTHING",
-  RollbackOnFailure = "ROLLBACK_ON_FAILURE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FailureHandlingPolicy = {
+  DoNothing: "DO_NOTHING",
+  RollbackOnFailure: "ROLLBACK_ON_FAILURE",
+} as const;
 
 /**
+ * @public
+ */
+export type FailureHandlingPolicy = (typeof FailureHandlingPolicy)[keyof typeof FailureHandlingPolicy];
+
+/**
+ * @public
  * <p>Contains information about the configuration of a deployment.</p>
  */
 export interface EdgeDeploymentConfig {
@@ -8859,13 +10442,23 @@ export interface EdgeDeploymentConfig {
   FailureHandlingPolicy: FailureHandlingPolicy | string | undefined;
 }
 
-export enum DeviceSubsetType {
-  NameContains = "NAMECONTAINS",
-  Percentage = "PERCENTAGE",
-  Selection = "SELECTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceSubsetType = {
+  NameContains: "NAMECONTAINS",
+  Percentage: "PERCENTAGE",
+  Selection: "SELECTION",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceSubsetType = (typeof DeviceSubsetType)[keyof typeof DeviceSubsetType];
+
+/**
+ * @public
  * <p>Contains information about the configurations of selected devices.</p>
  */
 export interface DeviceSelectionConfig {
@@ -8891,6 +10484,7 @@ export interface DeviceSelectionConfig {
 }
 
 /**
+ * @public
  * <p>Contains information about a stage in an edge deployment plan.</p>
  */
 export interface DeploymentStage {
@@ -8910,6 +10504,9 @@ export interface DeploymentStage {
   DeploymentConfig?: EdgeDeploymentConfig;
 }
 
+/**
+ * @public
+ */
 export interface CreateEdgeDeploymentPlanRequest {
   /**
    * <p>The name of the edge deployment plan.</p>
@@ -8937,6 +10534,9 @@ export interface CreateEdgeDeploymentPlanRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateEdgeDeploymentPlanResponse {
   /**
    * <p>The ARN of the edge deployment plan.</p>
@@ -8944,6 +10544,9 @@ export interface CreateEdgeDeploymentPlanResponse {
   EdgeDeploymentPlanArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEdgeDeploymentStageRequest {
   /**
    * <p>The name of the edge deployment plan.</p>
@@ -8956,6 +10559,9 @@ export interface CreateEdgeDeploymentStageRequest {
   Stages: DeploymentStage[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateEdgePackagingJobRequest {
   /**
    * <p>The name of the edge packaging job.</p>
@@ -8997,1977 +10603,3 @@ export interface CreateEdgePackagingJobRequest {
    */
   Tags?: Tag[];
 }
-
-/**
- * <p>The deployment configuration for an endpoint, which contains the desired deployment
- *             strategy and rollback configurations.</p>
- */
-export interface DeploymentConfig {
-  /**
-   * <p>Update policy for a blue/green deployment. If this update policy is specified, SageMaker
-   *             creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips
-   *             traffic to the new fleet according to the specified traffic routing configuration. Only
-   *             one update policy should be used in the deployment configuration. If no update policy is
-   *             specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting
-   *             by default.</p>
-   */
-  BlueGreenUpdatePolicy: BlueGreenUpdatePolicy | undefined;
-
-  /**
-   * <p>Automatic rollback configuration for handling endpoint deployment failures and
-   *             recovery.</p>
-   */
-  AutoRollbackConfiguration?: AutoRollbackConfig;
-}
-
-export interface CreateEndpointInput {
-  /**
-   * <p>The name of the endpoint.The name must be unique within an Amazon Web Services
-   *             Region in your Amazon Web Services account. The name is case-insensitive in
-   *                 <code>CreateEndpoint</code>, but the case is preserved and must be matched in .</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The name of an endpoint configuration. For more information, see <a>CreateEndpointConfig</a>. </p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>The deployment configuration for an endpoint, which contains the desired deployment
-   *             strategy and rollback configurations.</p>
-   */
-  DeploymentConfig?: DeploymentConfig;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *             resources in different ways, for example, by purpose, owner, or environment. For more
-   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateEndpointOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-}
-
-/**
- * <p>Configuration to control how SageMaker captures inference data.</p>
- */
-export interface DataCaptureConfig {
-  /**
-   * <p>Whether data capture should be enabled or disabled (defaults to enabled).</p>
-   */
-  EnableCapture?: boolean;
-
-  /**
-   * <p>The percentage of requests SageMaker will capture. A lower value is recommended for
-   *          Endpoints with high traffic.</p>
-   */
-  InitialSamplingPercentage: number | undefined;
-
-  /**
-   * <p>The Amazon S3 location used to capture the data.</p>
-   */
-  DestinationS3Uri: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt the
-   *           captured data at rest using Amazon S3 server-side encryption.</p>
-   *          <p>The KmsKeyId can be any of the following formats: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Key ARN:
-   *                <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Alias name: <code>alias/ExampleAlias</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Alias name ARN:
-   *                <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Specifies data Model Monitor will capture. You can configure whether to
-   *          collect only input, only output, or both</p>
-   */
-  CaptureOptions: CaptureOption[] | undefined;
-
-  /**
-   * <p>Configuration specifying how to treat different headers. If no headers are specified SageMaker will
-   *          by default base64 encode when capturing the data.</p>
-   */
-  CaptureContentTypeHeader?: CaptureContentTypeHeader;
-}
-
-/**
- * <p>A parameter to activate explainers.</p>
- */
-export interface ExplainerConfig {
-  /**
-   * <p>A member of <code>ExplainerConfig</code> that contains configuration parameters for
-   *             the SageMaker Clarify explainer.</p>
-   */
-  ClarifyExplainerConfig?: ClarifyExplainerConfig;
-}
-
-export enum ProductionVariantAcceleratorType {
-  ML_EIA1_LARGE = "ml.eia1.large",
-  ML_EIA1_MEDIUM = "ml.eia1.medium",
-  ML_EIA1_XLARGE = "ml.eia1.xlarge",
-  ML_EIA2_LARGE = "ml.eia2.large",
-  ML_EIA2_MEDIUM = "ml.eia2.medium",
-  ML_EIA2_XLARGE = "ml.eia2.xlarge",
-}
-
-/**
- * <p>Specifies configuration for a core dump from the model container when the process
- *             crashes.</p>
- */
-export interface ProductionVariantCoreDumpConfig {
-  /**
-   * <p>The Amazon S3 bucket to send the core dump to.</p>
-   */
-  DestinationS3Uri: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker
-   *             uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. The
-   *                 <code>KmsKeyId</code> can be any of the following formats: </p>
-   *          <ul>
-   *             <li>
-   *                <p>// KMS Key ID</p>
-   *                <p>
-   *                   <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>// Amazon Resource Name (ARN) of a KMS Key</p>
-   *                <p>
-   *                   <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>// KMS Key Alias</p>
-   *                <p>
-   *                   <code>"alias/ExampleAlias"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>
-   *                <p>
-   *                   <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must
-   *             include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,
-   *             SageMaker uses the default KMS key for Amazon S3 for your role's account. SageMaker uses server-side
-   *             encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket
-   *             policy with an <code>s3:PutObject</code> permission that only allows objects with
-   *             server-side encryption, set the condition key of
-   *                 <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption
-   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
-   *          </p>
-   *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
-   *                 <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more
-   *             information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management
-   *                 Service Developer Guide</i>.</p>
-   */
-  KmsKeyId?: string;
-}
-
-/**
- * <p>Specifies the serverless configuration for an endpoint variant.</p>
- */
-export interface ProductionVariantServerlessConfig {
-  /**
-   * <p>The memory size of your serverless endpoint. Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.</p>
-   */
-  MemorySizeInMB: number | undefined;
-
-  /**
-   * <p>The maximum number of concurrent invocations your serverless endpoint can process.</p>
-   */
-  MaxConcurrency: number | undefined;
-}
-
-/**
- * <p>Identifies a model that you want to host and the resources chosen to deploy for
- *             hosting it. If you are deploying multiple models, tell SageMaker how to distribute traffic
- *             among the models by specifying variant weights. </p>
- */
-export interface ProductionVariant {
-  /**
-   * <p>The name of the production variant.</p>
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>The name of the model that you want to host. This is the name that you specified
-   *             when creating the model.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>Number of instances to launch initially.</p>
-   */
-  InitialInstanceCount?: number;
-
-  /**
-   * <p>The ML compute instance type.</p>
-   */
-  InstanceType?: ProductionVariantInstanceType | string;
-
-  /**
-   * <p>Determines initial traffic distribution among all of the models that you specify in
-   *             the endpoint configuration. The traffic to a production variant is determined by the
-   *             ratio of the <code>VariantWeight</code> to the sum of all <code>VariantWeight</code>
-   *             values across all ProductionVariants. If unspecified, it defaults to 1.0.
-   *             </p>
-   */
-  InitialVariantWeight?: number;
-
-  /**
-   * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
-   *             instances provide on-demand GPU computing for inference. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
-   *                 Inference in Amazon SageMaker</a>.</p>
-   */
-  AcceleratorType?: ProductionVariantAcceleratorType | string;
-
-  /**
-   * <p>Specifies configuration for a core dump from the model container when the process
-   *             crashes.</p>
-   */
-  CoreDumpConfig?: ProductionVariantCoreDumpConfig;
-
-  /**
-   * <p>The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.</p>
-   */
-  ServerlessConfig?: ProductionVariantServerlessConfig;
-
-  /**
-   * <p>The size, in GB, of the ML storage volume attached to individual inference instance
-   *             associated with the production variant. Currenly only Amazon EBS gp2 storage volumes are
-   *             supported.</p>
-   */
-  VolumeSizeInGB?: number;
-
-  /**
-   * <p>The timeout value, in seconds, to download and extract the model that you want to host
-   *             from Amazon S3 to the individual inference instance associated with this production
-   *             variant.</p>
-   */
-  ModelDataDownloadTimeoutInSeconds?: number;
-
-  /**
-   * <p>The timeout value, in seconds, for your inference container to pass health check by
-   *             SageMaker Hosting. For more information about health check, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests">How Your Container Should Respond to Health Check (Ping) Requests</a>.</p>
-   */
-  ContainerStartupHealthCheckTimeoutInSeconds?: number;
-}
-
-export interface CreateEndpointConfigInput {
-  /**
-   * <p>The name of the endpoint configuration. You specify this name in a <a>CreateEndpoint</a> request. </p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
-   *             to host at this endpoint.</p>
-   */
-  ProductionVariants: ProductionVariant[] | undefined;
-
-  /**
-   * <p>Configuration to control how SageMaker captures inference data.</p>
-   */
-  DataCaptureConfig?: DataCaptureConfig;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *             resources in different ways, for example, by purpose, owner, or environment. For more
-   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that
-   *             SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that
-   *             hosts the endpoint.</p>
-   *          <p>The KmsKeyId can be any of the following formats: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Key ARN:
-   *                         <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Alias name: <code>alias/ExampleAlias</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Alias name ARN:
-   *                         <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
-   *                 <code>CreateEndpoint</code>, <code>UpdateEndpoint</code> requests. For more
-   *             information, refer to the Amazon Web Services Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html"> Using Key
-   *                 Policies in Amazon Web Services KMS </a>
-   *          </p>
-   *          <note>
-   *             <p>Certain Nitro-based instances include local storage, dependent on the instance
-   *                 type. Local storage volumes are encrypted using a hardware module on the instance.
-   *                 You can't request a <code>KmsKeyId</code> when using an instance type with local
-   *                 storage. If any of the models that you specify in the
-   *                     <code>ProductionVariants</code> parameter use nitro-based instances with local
-   *                 storage, do not specify a value for the <code>KmsKeyId</code> parameter. If you
-   *                 specify a value for <code>KmsKeyId</code> when using any nitro-based instances with
-   *                 local storage, the call to <code>CreateEndpointConfig</code> fails.</p>
-   *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
-   *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
-   *                     Instance Store Volumes</a>.</p>
-   *          </note>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Specifies configuration for how an endpoint performs asynchronous inference. This is a
-   *             required field in order for your Endpoint to be invoked using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html">InvokeEndpointAsync</a>.</p>
-   */
-  AsyncInferenceConfig?: AsyncInferenceConfig;
-
-  /**
-   * <p>A member of <code>CreateEndpointConfig</code> that enables explainers.</p>
-   */
-  ExplainerConfig?: ExplainerConfig;
-
-  /**
-   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
-   *             to host at this endpoint in shadow mode with production traffic replicated from the
-   *             model specified on <code>ProductionVariants</code>. If you use this field, you can only
-   *             specify one variant for <code>ProductionVariants</code> and one variant for
-   *             <code>ShadowProductionVariants</code>.</p>
-   */
-  ShadowProductionVariants?: ProductionVariant[];
-}
-
-export interface CreateEndpointConfigOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint configuration. </p>
-   */
-  EndpointConfigArn: string | undefined;
-}
-
-export interface CreateExperimentRequest {
-  /**
-   * <p>The name of the experiment. The name must be unique in your Amazon Web Services account and is not
-   *       case-sensitive.</p>
-   */
-  ExperimentName: string | undefined;
-
-  /**
-   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If you don't
-   *       specify <code>DisplayName</code>, the value in <code>ExperimentName</code> is
-   *       displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The description of the experiment.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A list of tags to associate with the experiment. You can use <a>Search</a> API
-   *       to search on the tags.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateExperimentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   */
-  ExperimentArn?: string;
-}
-
-export enum FeatureType {
-  FRACTIONAL = "Fractional",
-  INTEGRAL = "Integral",
-  STRING = "String",
-}
-
-/**
- * <p>A list of features. You must include <code>FeatureName</code> and
- *             <code>FeatureType</code>. Valid feature <code>FeatureType</code>s are
- *             <code>Integral</code>, <code>Fractional</code> and <code>String</code>. </p>
- */
-export interface FeatureDefinition {
-  /**
-   * <p>The name of a feature. The type must be a string. <code>FeatureName</code> cannot be any
-   *          of the following: <code>is_deleted</code>, <code>write_time</code>,
-   *             <code>api_invocation_time</code>.</p>
-   */
-  FeatureName?: string;
-
-  /**
-   * <p>The value type of a feature. Valid values are Integral, Fractional, or String.</p>
-   */
-  FeatureType?: FeatureType | string;
-}
-
-/**
- * <p>The meta data of the Glue table which serves as data catalog for the
- *             <code>OfflineStore</code>. </p>
- */
-export interface DataCatalogConfig {
-  /**
-   * <p>The name of the Glue table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>The name of the Glue table catalog.</p>
-   */
-  Catalog: string | undefined;
-
-  /**
-   * <p>The name of the Glue table database.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * <p>The Amazon Simple Storage (Amazon S3) location and and security configuration for <code>OfflineStore</code>.</p>
- */
-export interface S3StorageConfig {
-  /**
-   * <p>The S3 URI, or location in Amazon S3, of <code>OfflineStore</code>.</p>
-   *          <p>S3 URIs have a format similar to the following: <code>s3://example-bucket/prefix/</code>.</p>
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Key Management Service (KMS) key ID of the key used to encrypt any objects
-   *          written into the <code>OfflineStore</code> S3 location.</p>
-   *          <p>The IAM <code>roleARN</code> that is passed as a parameter to
-   *             <code>CreateFeatureGroup</code> must have below permissions to the
-   *          <code>KmsKeyId</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:GenerateDataKey"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The S3 path where offline records are written.</p>
-   */
-  ResolvedOutputS3Uri?: string;
-}
-
-/**
- * @internal
- */
-export const ActionSourceFilterSensitiveLog = (obj: ActionSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionSummaryFilterSensitiveLog = (obj: ActionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddAssociationRequestFilterSensitiveLog = (obj: AddAssociationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddAssociationResponseFilterSensitiveLog = (obj: AddAssociationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelInputFilterSensitiveLog = (obj: ModelInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackageContainerDefinitionFilterSensitiveLog = (obj: ModelPackageContainerDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdditionalInferenceSpecificationDefinitionFilterSensitiveLog = (
-  obj: AdditionalInferenceSpecificationDefinition
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsInputFilterSensitiveLog = (obj: AddTagsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsOutputFilterSensitiveLog = (obj: AddTagsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AgentVersionFilterSensitiveLog = (obj: AgentVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDefinitionFilterSensitiveLog = (obj: MetricDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlgorithmSpecificationFilterSensitiveLog = (obj: AlgorithmSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlgorithmStatusItemFilterSensitiveLog = (obj: AlgorithmStatusItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlgorithmStatusDetailsFilterSensitiveLog = (obj: AlgorithmStatusDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlgorithmSummaryFilterSensitiveLog = (obj: AlgorithmSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FileSystemDataSourceFilterSensitiveLog = (obj: FileSystemDataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DataSourceFilterSensitiveLog = (obj: S3DataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShuffleConfigFilterSensitiveLog = (obj: ShuffleConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputDataConfigFilterSensitiveLog = (obj: OutputDataConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceGroupFilterSensitiveLog = (obj: InstanceGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceConfigFilterSensitiveLog = (obj: ResourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StoppingConditionFilterSensitiveLog = (obj: StoppingCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrainingJobDefinitionFilterSensitiveLog = (obj: TrainingJobDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformS3DataSourceFilterSensitiveLog = (obj: TransformS3DataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformDataSourceFilterSensitiveLog = (obj: TransformDataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformInputFilterSensitiveLog = (obj: TransformInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformOutputFilterSensitiveLog = (obj: TransformOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformResourcesFilterSensitiveLog = (obj: TransformResources): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformJobDefinitionFilterSensitiveLog = (obj: TransformJobDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlgorithmValidationProfileFilterSensitiveLog = (obj: AlgorithmValidationProfile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlgorithmValidationSpecificationFilterSensitiveLog = (obj: AlgorithmValidationSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnnotationConsolidationConfigFilterSensitiveLog = (obj: AnnotationConsolidationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppDetailsFilterSensitiveLog = (obj: AppDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FileSystemConfigFilterSensitiveLog = (obj: FileSystemConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KernelSpecFilterSensitiveLog = (obj: KernelSpec): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KernelGatewayImageConfigFilterSensitiveLog = (obj: KernelGatewayImageConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppImageConfigDetailsFilterSensitiveLog = (obj: AppImageConfigDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppSpecificationFilterSensitiveLog = (obj: AppSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArtifactSourceTypeFilterSensitiveLog = (obj: ArtifactSourceType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArtifactSourceFilterSensitiveLog = (obj: ArtifactSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArtifactSummaryFilterSensitiveLog = (obj: ArtifactSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTrialComponentRequestFilterSensitiveLog = (obj: AssociateTrialComponentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTrialComponentResponseFilterSensitiveLog = (obj: AssociateTrialComponentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserContextFilterSensitiveLog = (obj: UserContext): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociationSummaryFilterSensitiveLog = (obj: AssociationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AsyncInferenceClientConfigFilterSensitiveLog = (obj: AsyncInferenceClientConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AsyncInferenceNotificationConfigFilterSensitiveLog = (obj: AsyncInferenceNotificationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AsyncInferenceOutputConfigFilterSensitiveLog = (obj: AsyncInferenceOutputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AsyncInferenceConfigFilterSensitiveLog = (obj: AsyncInferenceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AthenaDatasetDefinitionFilterSensitiveLog = (obj: AthenaDatasetDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CandidateArtifactLocationsFilterSensitiveLog = (obj: CandidateArtifactLocations): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDatumFilterSensitiveLog = (obj: MetricDatum): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CandidatePropertiesFilterSensitiveLog = (obj: CandidateProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLCandidateStepFilterSensitiveLog = (obj: AutoMLCandidateStep): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FinalAutoMLJobObjectiveMetricFilterSensitiveLog = (obj: FinalAutoMLJobObjectiveMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLContainerDefinitionFilterSensitiveLog = (obj: AutoMLContainerDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLCandidateFilterSensitiveLog = (obj: AutoMLCandidate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLCandidateGenerationConfigFilterSensitiveLog = (obj: AutoMLCandidateGenerationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLS3DataSourceFilterSensitiveLog = (obj: AutoMLS3DataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLDataSourceFilterSensitiveLog = (obj: AutoMLDataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLChannelFilterSensitiveLog = (obj: AutoMLChannel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLDataSplitConfigFilterSensitiveLog = (obj: AutoMLDataSplitConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLJobArtifactsFilterSensitiveLog = (obj: AutoMLJobArtifacts): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLJobCompletionCriteriaFilterSensitiveLog = (obj: AutoMLJobCompletionCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigFilterSensitiveLog = (obj: VpcConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLSecurityConfigFilterSensitiveLog = (obj: AutoMLSecurityConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLJobConfigFilterSensitiveLog = (obj: AutoMLJobConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLJobObjectiveFilterSensitiveLog = (obj: AutoMLJobObjective): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLJobStepMetadataFilterSensitiveLog = (obj: AutoMLJobStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLPartialFailureReasonFilterSensitiveLog = (obj: AutoMLPartialFailureReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLJobSummaryFilterSensitiveLog = (obj: AutoMLJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoMLOutputDataConfigFilterSensitiveLog = (obj: AutoMLOutputDataConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoRollbackConfigFilterSensitiveLog = (obj: AutoRollbackConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDataCaptureConfigFilterSensitiveLog = (obj: BatchDataCaptureConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDescribeModelPackageInputFilterSensitiveLog = (obj: BatchDescribeModelPackageInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDescribeModelPackageErrorFilterSensitiveLog = (obj: BatchDescribeModelPackageError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceSpecificationFilterSensitiveLog = (obj: InferenceSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDescribeModelPackageSummaryFilterSensitiveLog = (obj: BatchDescribeModelPackageSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDescribeModelPackageOutputFilterSensitiveLog = (obj: BatchDescribeModelPackageOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringCsvDatasetFormatFilterSensitiveLog = (obj: MonitoringCsvDatasetFormat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringJsonDatasetFormatFilterSensitiveLog = (obj: MonitoringJsonDatasetFormat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringParquetDatasetFormatFilterSensitiveLog = (obj: MonitoringParquetDatasetFormat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringDatasetFormatFilterSensitiveLog = (obj: MonitoringDatasetFormat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchTransformInputFilterSensitiveLog = (obj: BatchTransformInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricsSourceFilterSensitiveLog = (obj: MetricsSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BiasFilterSensitiveLog = (obj: Bias): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacitySizeFilterSensitiveLog = (obj: CapacitySize): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficRoutingConfigFilterSensitiveLog = (obj: TrafficRoutingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlueGreenUpdatePolicyFilterSensitiveLog = (obj: BlueGreenUpdatePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CacheHitResultFilterSensitiveLog = (obj: CacheHitResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputParameterFilterSensitiveLog = (obj: OutputParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CallbackStepMetadataFilterSensitiveLog = (obj: CallbackStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeSeriesForecastingSettingsFilterSensitiveLog = (obj: TimeSeriesForecastingSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CanvasAppSettingsFilterSensitiveLog = (obj: CanvasAppSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptureContentTypeHeaderFilterSensitiveLog = (obj: CaptureContentTypeHeader): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CaptureOptionFilterSensitiveLog = (obj: CaptureOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoricalParameterFilterSensitiveLog = (obj: CategoricalParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoricalParameterRangeFilterSensitiveLog = (obj: CategoricalParameterRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoricalParameterRangeSpecificationFilterSensitiveLog = (
-  obj: CategoricalParameterRangeSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelSpecificationFilterSensitiveLog = (obj: ChannelSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CheckpointConfigFilterSensitiveLog = (obj: CheckpointConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClarifyCheckStepMetadataFilterSensitiveLog = (obj: ClarifyCheckStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClarifyInferenceConfigFilterSensitiveLog = (obj: ClarifyInferenceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClarifyShapBaselineConfigFilterSensitiveLog = (obj: ClarifyShapBaselineConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClarifyTextConfigFilterSensitiveLog = (obj: ClarifyTextConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClarifyShapConfigFilterSensitiveLog = (obj: ClarifyShapConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClarifyExplainerConfigFilterSensitiveLog = (obj: ClarifyExplainerConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeRepositoryFilterSensitiveLog = (obj: CodeRepository): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GitConfigFilterSensitiveLog = (obj: GitConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeRepositorySummaryFilterSensitiveLog = (obj: CodeRepositorySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CognitoConfigFilterSensitiveLog = (obj: CognitoConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CognitoMemberDefinitionFilterSensitiveLog = (obj: CognitoMemberDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollectionConfigurationFilterSensitiveLog = (obj: CollectionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompilationJobSummaryFilterSensitiveLog = (obj: CompilationJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionStepMetadataFilterSensitiveLog = (obj: ConditionStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryAuthConfigFilterSensitiveLog = (obj: RepositoryAuthConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageConfigFilterSensitiveLog = (obj: ImageConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiModelConfigFilterSensitiveLog = (obj: MultiModelConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContainerDefinitionFilterSensitiveLog = (obj: ContainerDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContextSourceFilterSensitiveLog = (obj: ContextSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContextSummaryFilterSensitiveLog = (obj: ContextSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContinuousParameterRangeFilterSensitiveLog = (obj: ContinuousParameterRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContinuousParameterRangeSpecificationFilterSensitiveLog = (
-  obj: ContinuousParameterRangeSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetadataPropertiesFilterSensitiveLog = (obj: MetadataProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateActionRequestFilterSensitiveLog = (obj: CreateActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateActionResponseFilterSensitiveLog = (obj: CreateActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IntegerParameterRangeSpecificationFilterSensitiveLog = (obj: IntegerParameterRangeSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterRangeFilterSensitiveLog = (obj: ParameterRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HyperParameterSpecificationFilterSensitiveLog = (obj: HyperParameterSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HyperParameterTuningJobObjectiveFilterSensitiveLog = (obj: HyperParameterTuningJobObjective): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrainingSpecificationFilterSensitiveLog = (obj: TrainingSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAlgorithmInputFilterSensitiveLog = (obj: CreateAlgorithmInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAlgorithmOutputFilterSensitiveLog = (obj: CreateAlgorithmOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceSpecFilterSensitiveLog = (obj: ResourceSpec): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppRequestFilterSensitiveLog = (obj: CreateAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppResponseFilterSensitiveLog = (obj: CreateAppResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppImageConfigRequestFilterSensitiveLog = (obj: CreateAppImageConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppImageConfigResponseFilterSensitiveLog = (obj: CreateAppImageConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateArtifactRequestFilterSensitiveLog = (obj: CreateArtifactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateArtifactResponseFilterSensitiveLog = (obj: CreateArtifactResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelDeployConfigFilterSensitiveLog = (obj: ModelDeployConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAutoMLJobRequestFilterSensitiveLog = (obj: CreateAutoMLJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAutoMLJobResponseFilterSensitiveLog = (obj: CreateAutoMLJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCodeRepositoryInputFilterSensitiveLog = (obj: CreateCodeRepositoryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCodeRepositoryOutputFilterSensitiveLog = (obj: CreateCodeRepositoryOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputConfigFilterSensitiveLog = (obj: InputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetPlatformFilterSensitiveLog = (obj: TargetPlatform): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputConfigFilterSensitiveLog = (obj: OutputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NeoVpcConfigFilterSensitiveLog = (obj: NeoVpcConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCompilationJobRequestFilterSensitiveLog = (obj: CreateCompilationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCompilationJobResponseFilterSensitiveLog = (obj: CreateCompilationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateContextRequestFilterSensitiveLog = (obj: CreateContextRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateContextResponseFilterSensitiveLog = (obj: CreateContextResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityAppSpecificationFilterSensitiveLog = (obj: DataQualityAppSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringConstraintsResourceFilterSensitiveLog = (obj: MonitoringConstraintsResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringStatisticsResourceFilterSensitiveLog = (obj: MonitoringStatisticsResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityBaselineConfigFilterSensitiveLog = (obj: DataQualityBaselineConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointInputFilterSensitiveLog = (obj: EndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityJobInputFilterSensitiveLog = (obj: DataQualityJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringS3OutputFilterSensitiveLog = (obj: MonitoringS3Output): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringOutputFilterSensitiveLog = (obj: MonitoringOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringOutputConfigFilterSensitiveLog = (obj: MonitoringOutputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringClusterConfigFilterSensitiveLog = (obj: MonitoringClusterConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringResourcesFilterSensitiveLog = (obj: MonitoringResources): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringNetworkConfigFilterSensitiveLog = (obj: MonitoringNetworkConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringStoppingConditionFilterSensitiveLog = (obj: MonitoringStoppingCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataQualityJobDefinitionRequestFilterSensitiveLog = (
-  obj: CreateDataQualityJobDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataQualityJobDefinitionResponseFilterSensitiveLog = (
-  obj: CreateDataQualityJobDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeOutputConfigFilterSensitiveLog = (obj: EdgeOutputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeviceFleetRequestFilterSensitiveLog = (obj: CreateDeviceFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JupyterServerAppSettingsFilterSensitiveLog = (obj: JupyterServerAppSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomImageFilterSensitiveLog = (obj: CustomImage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KernelGatewayAppSettingsFilterSensitiveLog = (obj: KernelGatewayAppSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultSpaceSettingsFilterSensitiveLog = (obj: DefaultSpaceSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RSessionAppSettingsFilterSensitiveLog = (obj: RSessionAppSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RStudioServerProAppSettingsFilterSensitiveLog = (obj: RStudioServerProAppSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SharingSettingsFilterSensitiveLog = (obj: SharingSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TensorBoardAppSettingsFilterSensitiveLog = (obj: TensorBoardAppSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserSettingsFilterSensitiveLog = (obj: UserSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RStudioServerProDomainSettingsFilterSensitiveLog = (obj: RStudioServerProDomainSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainSettingsFilterSensitiveLog = (obj: DomainSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDomainResponseFilterSensitiveLog = (obj: CreateDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeDeploymentModelConfigFilterSensitiveLog = (obj: EdgeDeploymentModelConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeDeploymentConfigFilterSensitiveLog = (obj: EdgeDeploymentConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceSelectionConfigFilterSensitiveLog = (obj: DeviceSelectionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentStageFilterSensitiveLog = (obj: DeploymentStage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEdgeDeploymentPlanRequestFilterSensitiveLog = (obj: CreateEdgeDeploymentPlanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEdgeDeploymentPlanResponseFilterSensitiveLog = (obj: CreateEdgeDeploymentPlanResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEdgeDeploymentStageRequestFilterSensitiveLog = (obj: CreateEdgeDeploymentStageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEdgePackagingJobRequestFilterSensitiveLog = (obj: CreateEdgePackagingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentConfigFilterSensitiveLog = (obj: DeploymentConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEndpointInputFilterSensitiveLog = (obj: CreateEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEndpointOutputFilterSensitiveLog = (obj: CreateEndpointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataCaptureConfigFilterSensitiveLog = (obj: DataCaptureConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExplainerConfigFilterSensitiveLog = (obj: ExplainerConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductionVariantCoreDumpConfigFilterSensitiveLog = (obj: ProductionVariantCoreDumpConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductionVariantServerlessConfigFilterSensitiveLog = (obj: ProductionVariantServerlessConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductionVariantFilterSensitiveLog = (obj: ProductionVariant): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEndpointConfigInputFilterSensitiveLog = (obj: CreateEndpointConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEndpointConfigOutputFilterSensitiveLog = (obj: CreateEndpointConfigOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentRequestFilterSensitiveLog = (obj: CreateExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentResponseFilterSensitiveLog = (obj: CreateExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureDefinitionFilterSensitiveLog = (obj: FeatureDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataCatalogConfigFilterSensitiveLog = (obj: DataCatalogConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3StorageConfigFilterSensitiveLog = (obj: S3StorageConfig): any => ({
-  ...obj,
-});

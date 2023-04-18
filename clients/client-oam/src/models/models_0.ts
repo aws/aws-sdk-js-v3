@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { OAMServiceException as __BaseException } from "./OAMServiceException";
 
 /**
+ * @public
  * <p>A resource was in an inconsistent state during an update or a deletion.</p>
  */
 export class ConflictException extends __BaseException {
@@ -29,12 +30,24 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum ResourceType {
-  AWS_CLOUDWATCH_METRIC = "AWS::CloudWatch::Metric",
-  AWS_LOGS_LOGGROUP = "AWS::Logs::LogGroup",
-  AWS_XRAY_TRACE = "AWS::XRay::Trace",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  AWS_CLOUDWATCH_METRIC: "AWS::CloudWatch::Metric",
+  AWS_LOGS_LOGGROUP: "AWS::Logs::LogGroup",
+  AWS_XRAY_TRACE: "AWS::XRay::Trace",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ */
 export interface CreateLinkInput {
   /**
    * <p>Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring
@@ -81,6 +94,9 @@ export interface CreateLinkInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateLinkOutput {
   /**
    * <p>The ARN of the link that is newly created.</p>
@@ -120,6 +136,7 @@ export interface CreateLinkOutput {
 }
 
 /**
+ * @public
  * <p>Unexpected error while processing the request. Retry the request.</p>
  */
 export class InternalServiceFault extends __BaseException {
@@ -146,6 +163,7 @@ export class InternalServiceFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A parameter is specified incorrectly.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -171,6 +189,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A required parameter is missing from the request.</p>
  */
 export class MissingRequiredParameterException extends __BaseException {
@@ -196,6 +215,7 @@ export class MissingRequiredParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would cause a service quota to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -221,6 +241,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateSinkInput {
   /**
    * <p>A name for the sink.</p>
@@ -238,6 +261,9 @@ export interface CreateSinkInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSinkOutput {
   /**
    * <p>The ARN of the sink that is newly created.</p>
@@ -260,6 +286,9 @@ export interface CreateSinkOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLinkInput {
   /**
    * <p>The ARN of the link to delete.</p>
@@ -267,9 +296,13 @@ export interface DeleteLinkInput {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLinkOutput {}
 
 /**
+ * @public
  * <p>The request references a resource that does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -295,6 +328,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteSinkInput {
   /**
    * <p>The ARN of the sink to delete.</p>
@@ -302,8 +338,14 @@ export interface DeleteSinkInput {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSinkOutput {}
 
+/**
+ * @public
+ */
 export interface GetLinkInput {
   /**
    * <p>The ARN of the link to retrieve information for.</p>
@@ -311,6 +353,9 @@ export interface GetLinkInput {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLinkOutput {
   /**
    * <p>The ARN of the link.</p>
@@ -348,6 +393,9 @@ export interface GetLinkOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetSinkInput {
   /**
    * <p>The ARN of the sink to retrieve information for.</p>
@@ -355,6 +403,9 @@ export interface GetSinkInput {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSinkOutput {
   /**
    * <p>The ARN of the sink.</p>
@@ -377,6 +428,9 @@ export interface GetSinkOutput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetSinkPolicyInput {
   /**
    * <p>The ARN of the sink to retrieve the policy of.</p>
@@ -384,6 +438,9 @@ export interface GetSinkPolicyInput {
   SinkIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSinkPolicyOutput {
   /**
    * <p>The ARN of the sink.</p>
@@ -401,6 +458,9 @@ export interface GetSinkPolicyOutput {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAttachedLinksInput {
   /**
    * <p>Limits the number of returned links to the specified number.</p>
@@ -419,6 +479,7 @@ export interface ListAttachedLinksInput {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about one link attached to this monitoring
  *             account sink.</p>
  */
@@ -439,6 +500,9 @@ export interface ListAttachedLinksItem {
   ResourceTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListAttachedLinksOutput {
   /**
    * <p>An array of structures that contain the information about the attached links.</p>
@@ -451,6 +515,9 @@ export interface ListAttachedLinksOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLinksInput {
   /**
    * <p>Limits the number of returned links to the specified number.</p>
@@ -464,6 +531,7 @@ export interface ListLinksInput {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about one of this source account's links to a monitoring account.</p>
  */
 export interface ListLinksItem {
@@ -493,6 +561,9 @@ export interface ListLinksItem {
   SinkArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListLinksOutput {
   /**
    * <p>An array of structures that contain the information about the returned links.</p>
@@ -505,6 +576,9 @@ export interface ListLinksOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSinksInput {
   /**
    * <p>Limits the number of returned links to the specified number.</p>
@@ -518,6 +592,7 @@ export interface ListSinksInput {
 }
 
 /**
+ * @public
  * <p>A structure that contains information about one of this monitoring account's sinks.</p>
  */
 export interface ListSinksItem {
@@ -537,6 +612,9 @@ export interface ListSinksItem {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSinksOutput {
   /**
    * <p>An array of structures that contain the information about the returned sinks.</p>
@@ -549,6 +627,9 @@ export interface ListSinksOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The ARN of the  resource that you want to view tags for.</p>
@@ -572,6 +653,9 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tags associated with the requested resource.&gt;</p>
@@ -580,6 +664,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>The value of a parameter in the request caused an error.</p>
  */
 export class ValidationException extends __BaseException {
@@ -600,6 +685,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutSinkPolicyInput {
   /**
    * <p>The ARN of the sink to attach this policy to.</p>
@@ -615,6 +703,9 @@ export interface PutSinkPolicyInput {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutSinkPolicyOutput {
   /**
    * <p>The ARN of the sink.</p>
@@ -632,6 +723,9 @@ export interface PutSinkPolicyOutput {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The ARN of the  resource that you're adding tags to.</p>
@@ -654,9 +748,13 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
 /**
+ * @public
  * <p>A resource can have no more than 50 tags.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -677,6 +775,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The ARN of the resource that you're removing tags from.</p>
@@ -699,8 +800,14 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateLinkInput {
   /**
    * <p>The ARN of the link that you want to update.</p>
@@ -715,6 +822,9 @@ export interface UpdateLinkInput {
   ResourceTypes: (ResourceType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLinkOutput {
   /**
    * <p>The ARN of the link that you have updated.</p>
@@ -751,234 +861,3 @@ export interface UpdateLinkOutput {
    */
   Tags?: Record<string, string>;
 }
-
-/**
- * @internal
- */
-export const CreateLinkInputFilterSensitiveLog = (obj: CreateLinkInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLinkOutputFilterSensitiveLog = (obj: CreateLinkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSinkInputFilterSensitiveLog = (obj: CreateSinkInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSinkOutputFilterSensitiveLog = (obj: CreateSinkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLinkInputFilterSensitiveLog = (obj: DeleteLinkInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLinkOutputFilterSensitiveLog = (obj: DeleteLinkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSinkInputFilterSensitiveLog = (obj: DeleteSinkInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSinkOutputFilterSensitiveLog = (obj: DeleteSinkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLinkInputFilterSensitiveLog = (obj: GetLinkInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLinkOutputFilterSensitiveLog = (obj: GetLinkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSinkInputFilterSensitiveLog = (obj: GetSinkInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSinkOutputFilterSensitiveLog = (obj: GetSinkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSinkPolicyInputFilterSensitiveLog = (obj: GetSinkPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSinkPolicyOutputFilterSensitiveLog = (obj: GetSinkPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAttachedLinksInputFilterSensitiveLog = (obj: ListAttachedLinksInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAttachedLinksItemFilterSensitiveLog = (obj: ListAttachedLinksItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAttachedLinksOutputFilterSensitiveLog = (obj: ListAttachedLinksOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLinksInputFilterSensitiveLog = (obj: ListLinksInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLinksItemFilterSensitiveLog = (obj: ListLinksItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLinksOutputFilterSensitiveLog = (obj: ListLinksOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSinksInputFilterSensitiveLog = (obj: ListSinksInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSinksItemFilterSensitiveLog = (obj: ListSinksItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSinksOutputFilterSensitiveLog = (obj: ListSinksOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSinkPolicyInputFilterSensitiveLog = (obj: PutSinkPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSinkPolicyOutputFilterSensitiveLog = (obj: PutSinkPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLinkInputFilterSensitiveLog = (obj: UpdateLinkInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLinkOutputFilterSensitiveLog = (obj: UpdateLinkOutput): any => ({
-  ...obj,
-});

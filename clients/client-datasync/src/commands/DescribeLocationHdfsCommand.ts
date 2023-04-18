@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DescribeLocationHdfsRequest,
-  DescribeLocationHdfsRequestFilterSensitiveLog,
-  DescribeLocationHdfsResponse,
-  DescribeLocationHdfsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLocationHdfsCommand,
-  serializeAws_json1_1DescribeLocationHdfsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLocationHdfsRequest, DescribeLocationHdfsResponse } from "../models/models_0";
+import { de_DescribeLocationHdfsCommand, se_DescribeLocationHdfsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeLocationHdfsCommand}.
+ */
 export interface DescribeLocationHdfsCommandInput extends DescribeLocationHdfsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeLocationHdfsCommand}.
+ */
 export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata, such as the authentication information about the Hadoop Distributed File
  *       System (HDFS) location. </p>
  * @example
@@ -37,13 +40,25 @@ export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsR
  * import { DataSyncClient, DescribeLocationHdfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationHdfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // DescribeLocationHdfsRequest
+ *   LocationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLocationHdfsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocationHdfsCommandInput - {@link DescribeLocationHdfsCommandInput}
+ * @returns {@link DescribeLocationHdfsCommandOutput}
  * @see {@link DescribeLocationHdfsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationHdfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
  *
  */
 export class DescribeLocationHdfsCommand extends $Command<
@@ -63,6 +78,9 @@ export class DescribeLocationHdfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocationHdfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +109,8 @@ export class DescribeLocationHdfsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationHdfsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocationHdfsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +120,18 @@ export class DescribeLocationHdfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLocationHdfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationHdfsCommand(input, context);
+    return se_DescribeLocationHdfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationHdfsCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationHdfsCommand(output, context);
+    return de_DescribeLocationHdfsCommand(output, context);
   }
 
   // Start section: command_body_extra

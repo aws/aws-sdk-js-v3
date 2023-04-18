@@ -15,23 +15,32 @@ import {
 
 import {
   ExecuteProvisionedProductServiceActionInput,
-  ExecuteProvisionedProductServiceActionInputFilterSensitiveLog,
   ExecuteProvisionedProductServiceActionOutput,
-  ExecuteProvisionedProductServiceActionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand,
-  serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand,
+  de_ExecuteProvisionedProductServiceActionCommand,
+  se_ExecuteProvisionedProductServiceActionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ExecuteProvisionedProductServiceActionCommand}.
+ */
 export interface ExecuteProvisionedProductServiceActionCommandInput
   extends ExecuteProvisionedProductServiceActionInput {}
+/**
+ * @public
+ *
+ * The output of {@link ExecuteProvisionedProductServiceActionCommand}.
+ */
 export interface ExecuteProvisionedProductServiceActionCommandOutput
   extends ExecuteProvisionedProductServiceActionOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Executes a self-service action against a provisioned product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +48,37 @@ export interface ExecuteProvisionedProductServiceActionCommandOutput
  * import { ServiceCatalogClient, ExecuteProvisionedProductServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ExecuteProvisionedProductServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ExecuteProvisionedProductServiceActionInput
+ *   ProvisionedProductId: "STRING_VALUE", // required
+ *   ServiceActionId: "STRING_VALUE", // required
+ *   ExecuteToken: "STRING_VALUE", // required
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Parameters: { // ExecutionParameterMap
+ *     "<keys>": [ // ExecutionParameterValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ExecuteProvisionedProductServiceActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteProvisionedProductServiceActionCommandInput - {@link ExecuteProvisionedProductServiceActionCommandInput}
+ * @returns {@link ExecuteProvisionedProductServiceActionCommandOutput}
  * @see {@link ExecuteProvisionedProductServiceActionCommandInput} for command's `input` shape.
  * @see {@link ExecuteProvisionedProductServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>An attempt was made to modify a resource that is in a state that is not valid.
+ *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
  *
  */
 export class ExecuteProvisionedProductServiceActionCommand extends $Command<
@@ -65,6 +98,9 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteProvisionedProductServiceActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +129,8 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteProvisionedProductServiceActionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteProvisionedProductServiceActionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,18 +140,24 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExecuteProvisionedProductServiceActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand(input, context);
+    return se_ExecuteProvisionedProductServiceActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExecuteProvisionedProductServiceActionCommandOutput> {
-    return deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand(output, context);
+    return de_ExecuteProvisionedProductServiceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

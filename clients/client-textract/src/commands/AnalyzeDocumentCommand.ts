@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AnalyzeDocumentRequest,
-  AnalyzeDocumentRequestFilterSensitiveLog,
-  AnalyzeDocumentResponse,
-  AnalyzeDocumentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AnalyzeDocumentCommand,
-  serializeAws_json1_1AnalyzeDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { AnalyzeDocumentRequest, AnalyzeDocumentResponse } from "../models/models_0";
+import { de_AnalyzeDocumentCommand, se_AnalyzeDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
+/**
+ * @public
+ *
+ * The input for {@link AnalyzeDocumentCommand}.
+ */
 export interface AnalyzeDocumentCommandInput extends AnalyzeDocumentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AnalyzeDocumentCommand}.
+ */
 export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Analyzes an input document for relationships between detected items. </p>
  *          <p>The types of information returned are as follows: </p>
  *          <ul>
@@ -65,11 +68,9 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  *                score.</p>
  *             </li>
  *          </ul>
- *
  *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be
  *          detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
  *          information about a selection element, including the selection status.</p>
- *
  *          <p>You can choose which type of analysis to perform by specifying the
  *             <code>FeatureTypes</code> list. </p>
  *          <p>The output is returned in a list of <code>Block</code> objects.</p>
@@ -84,13 +85,92 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  * import { TextractClient, AnalyzeDocumentCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, AnalyzeDocumentCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // AnalyzeDocumentRequest
+ *   Document: { // Document
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   FeatureTypes: [ // FeatureTypes // required
+ *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES",
+ *   ],
+ *   HumanLoopConfig: { // HumanLoopConfig
+ *     HumanLoopName: "STRING_VALUE", // required
+ *     FlowDefinitionArn: "STRING_VALUE", // required
+ *     DataAttributes: { // HumanLoopDataAttributes
+ *       ContentClassifiers: [ // ContentClassifiers
+ *         "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
+ *       ],
+ *     },
+ *   },
+ *   QueriesConfig: { // QueriesConfig
+ *     Queries: [ // Queries // required
+ *       { // Query
+ *         Text: "STRING_VALUE", // required
+ *         Alias: "STRING_VALUE",
+ *         Pages: [ // QueryPages
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new AnalyzeDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AnalyzeDocumentCommandInput - {@link AnalyzeDocumentCommandInput}
+ * @returns {@link AnalyzeDocumentCommandOutput}
  * @see {@link AnalyzeDocumentCommandInput} for command's `input` shape.
  * @see {@link AnalyzeDocumentCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
+ *             of an authorized user or IAM role to perform the operation.</p>
+ *
+ * @throws {@link BadDocumentException} (client fault)
+ *  <p>Amazon Textract isn't able to read the document. For more information on the document
+ *          limits in Amazon Textract, see <a>limits</a>.</p>
+ *
+ * @throws {@link DocumentTooLargeException} (client fault)
+ *  <p>The document can't be processed because it's too large. The maximum document size for
+ *          synchronous operations 10 MB. The maximum document size for asynchronous operations is 500
+ *          MB for PDF files.</p>
+ *
+ * @throws {@link HumanLoopQuotaExceededException} (client fault)
+ *  <p>Indicates you have exceeded the maximum number of active human in the loop workflows available</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Textract experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An input parameter violated a constraint. For example, in synchronous operations,
+ *        an <code>InvalidParameterException</code> exception occurs
+ *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
+ *       request parameter.
+ *        Validate your parameter before calling the API operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Textract is unable to access the S3 object that's specified in the request.
+ *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
+ *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
+ *          </p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
+ *          contact Amazon Textract.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link UnsupportedDocumentException} (client fault)
+ *  <p>The format of the input document isn't supported. Documents for operations can be in
+ *          PNG, JPEG, PDF, or TIFF format.</p>
+ *
  *
  */
 export class AnalyzeDocumentCommand extends $Command<
@@ -110,6 +190,9 @@ export class AnalyzeDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AnalyzeDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +221,8 @@ export class AnalyzeDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AnalyzeDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AnalyzeDocumentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +232,18 @@ export class AnalyzeDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AnalyzeDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AnalyzeDocumentCommand(input, context);
+    return se_AnalyzeDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AnalyzeDocumentCommandOutput> {
-    return deserializeAws_json1_1AnalyzeDocumentCommand(output, context);
+    return de_AnalyzeDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

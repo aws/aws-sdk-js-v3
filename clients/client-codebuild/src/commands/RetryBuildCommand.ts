@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  RetryBuildInput,
-  RetryBuildInputFilterSensitiveLog,
-  RetryBuildOutput,
-  RetryBuildOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RetryBuildCommand,
-  serializeAws_json1_1RetryBuildCommand,
-} from "../protocols/Aws_json1_1";
+import { RetryBuildInput, RetryBuildOutput } from "../models/models_0";
+import { de_RetryBuildCommand, se_RetryBuildCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link RetryBuildCommand}.
+ */
 export interface RetryBuildCommandInput extends RetryBuildInput {}
+/**
+ * @public
+ *
+ * The output of {@link RetryBuildCommand}.
+ */
 export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restarts a build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,29 @@ export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBea
  * import { CodeBuildClient, RetryBuildCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, RetryBuildCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // RetryBuildInput
+ *   id: "STRING_VALUE",
+ *   idempotencyToken: "STRING_VALUE",
+ * };
  * const command = new RetryBuildCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RetryBuildCommandInput - {@link RetryBuildCommandInput}
+ * @returns {@link RetryBuildCommandOutput}
  * @see {@link RetryBuildCommandInput} for command's `input` shape.
  * @see {@link RetryBuildCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link AccountLimitExceededException} (client fault)
+ *  <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
  *
  */
 export class RetryBuildCommand extends $Command<
@@ -62,6 +81,9 @@ export class RetryBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetryBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +110,8 @@ export class RetryBuildCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetryBuildInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RetryBuildOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +121,18 @@ export class RetryBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetryBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RetryBuildCommand(input, context);
+    return se_RetryBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryBuildCommandOutput> {
-    return deserializeAws_json1_1RetryBuildCommand(output, context);
+    return de_RetryBuildCommand(output, context);
   }
 
   // Start section: command_body_extra

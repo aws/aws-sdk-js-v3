@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  ListJobRunsRequest,
-  ListJobRunsRequestFilterSensitiveLog,
-  ListJobRunsResponse,
-  ListJobRunsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListJobRunsCommand,
-  serializeAws_restJson1ListJobRunsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListJobRunsRequest, ListJobRunsResponse, ListJobRunsResponseFilterSensitiveLog } from "../models/models_0";
+import { de_ListJobRunsCommand, se_ListJobRunsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListJobRunsCommand}.
+ */
 export interface ListJobRunsCommandInput extends ListJobRunsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListJobRunsCommand}.
+ */
 export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists job runs based on a set of parameters. A job run is a unit of work, such as a
  *          Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
  * @example
@@ -37,13 +40,33 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * import { EMRContainersClient, ListJobRunsCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, ListJobRunsCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // ListJobRunsRequest
+ *   virtualClusterId: "STRING_VALUE", // required
+ *   createdBefore: new Date("TIMESTAMP"),
+ *   createdAfter: new Date("TIMESTAMP"),
+ *   name: "STRING_VALUE",
+ *   states: [ // JobRunStates
+ *     "PENDING" || "SUBMITTED" || "RUNNING" || "FAILED" || "CANCELLED" || "CANCEL_PENDING" || "COMPLETED",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListJobRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobRunsCommandInput - {@link ListJobRunsCommandInput}
+ * @returns {@link ListJobRunsCommandOutput}
  * @see {@link ListJobRunsCommandInput} for command's `input` shape.
  * @see {@link ListJobRunsCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This is an internal server exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There are invalid parameters in the client request.</p>
+ *
  *
  */
 export class ListJobRunsCommand extends $Command<
@@ -63,6 +86,9 @@ export class ListJobRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +115,7 @@ export class ListJobRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobRunsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListJobRunsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -100,12 +126,18 @@ export class ListJobRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJobRunsCommand(input, context);
+    return se_ListJobRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobRunsCommandOutput> {
-    return deserializeAws_restJson1ListJobRunsCommand(output, context);
+    return de_ListJobRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

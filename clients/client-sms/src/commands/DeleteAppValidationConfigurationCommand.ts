@@ -13,24 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteAppValidationConfigurationRequest, DeleteAppValidationConfigurationResponse } from "../models/models_0";
 import {
-  DeleteAppValidationConfigurationRequest,
-  DeleteAppValidationConfigurationRequestFilterSensitiveLog,
-  DeleteAppValidationConfigurationResponse,
-  DeleteAppValidationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAppValidationConfigurationCommand,
-  serializeAws_json1_1DeleteAppValidationConfigurationCommand,
+  de_DeleteAppValidationConfigurationCommand,
+  se_DeleteAppValidationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteAppValidationConfigurationCommand}.
+ */
 export interface DeleteAppValidationConfigurationCommandInput extends DeleteAppValidationConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAppValidationConfigurationCommand}.
+ */
 export interface DeleteAppValidationConfigurationCommandOutput
   extends DeleteAppValidationConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the validation configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +44,35 @@ export interface DeleteAppValidationConfigurationCommandOutput
  * import { SMSClient, DeleteAppValidationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteAppValidationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // DeleteAppValidationConfigurationRequest
+ *   appId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAppValidationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppValidationConfigurationCommandInput - {@link DeleteAppValidationConfigurationCommandInput}
+ * @returns {@link DeleteAppValidationConfigurationCommandOutput}
  * @see {@link DeleteAppValidationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAppValidationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
+ *
+ * @throws {@link InternalError} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
  *
  */
 export class DeleteAppValidationConfigurationCommand extends $Command<
@@ -64,6 +92,9 @@ export class DeleteAppValidationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppValidationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class DeleteAppValidationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppValidationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppValidationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +134,24 @@ export class DeleteAppValidationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAppValidationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppValidationConfigurationCommand(input, context);
+    return se_DeleteAppValidationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAppValidationConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteAppValidationConfigurationCommand(output, context);
+    return de_DeleteAppValidationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

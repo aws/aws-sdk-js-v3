@@ -16,22 +16,31 @@ import {
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import {
   DescribeEngineDefaultClusterParametersMessage,
-  DescribeEngineDefaultClusterParametersMessageFilterSensitiveLog,
   DescribeEngineDefaultClusterParametersResult,
-  DescribeEngineDefaultClusterParametersResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeEngineDefaultClusterParametersCommand,
-  serializeAws_queryDescribeEngineDefaultClusterParametersCommand,
+  de_DescribeEngineDefaultClusterParametersCommand,
+  se_DescribeEngineDefaultClusterParametersCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeEngineDefaultClusterParametersCommand}.
+ */
 export interface DescribeEngineDefaultClusterParametersCommandInput
   extends DescribeEngineDefaultClusterParametersMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEngineDefaultClusterParametersCommand}.
+ */
 export interface DescribeEngineDefaultClusterParametersCommandOutput
   extends DescribeEngineDefaultClusterParametersResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the default engine and system parameter information for the cluster database
  *             engine.</p>
  * @example
@@ -40,13 +49,29 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * import { DocDBClient, DescribeEngineDefaultClusterParametersCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeEngineDefaultClusterParametersCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DescribeEngineDefaultClusterParametersMessage
+ *   DBParameterGroupFamily: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEngineDefaultClusterParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEngineDefaultClusterParametersCommandInput - {@link DescribeEngineDefaultClusterParametersCommandInput}
+ * @returns {@link DescribeEngineDefaultClusterParametersCommandOutput}
  * @see {@link DescribeEngineDefaultClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineDefaultClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
+ *
  *
  */
 export class DescribeEngineDefaultClusterParametersCommand extends $Command<
@@ -66,6 +91,9 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEngineDefaultClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +122,8 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEngineDefaultClusterParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEngineDefaultClusterParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +133,24 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEngineDefaultClusterParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEngineDefaultClusterParametersCommand(input, context);
+    return se_DescribeEngineDefaultClusterParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeEngineDefaultClusterParametersCommand(output, context);
+    return de_DescribeEngineDefaultClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

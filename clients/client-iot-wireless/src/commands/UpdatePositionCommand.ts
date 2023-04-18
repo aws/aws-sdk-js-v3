@@ -14,41 +14,69 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  UpdatePositionRequest,
-  UpdatePositionRequestFilterSensitiveLog,
-  UpdatePositionResponse,
-  UpdatePositionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdatePositionCommand,
-  serializeAws_restJson1UpdatePositionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePositionRequest, UpdatePositionResponse } from "../models/models_1";
+import { de_UpdatePositionCommand, se_UpdatePositionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdatePositionCommand}.
+ */
 export interface UpdatePositionCommandInput extends UpdatePositionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdatePositionCommand}.
+ */
 export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Update the position information of a resource.</p>
- *         <important>
+ *          <important>
  *             <p>This action is no longer supported. Calls to update the position information
  *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a> API operation instead.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTWirelessClient, UpdatePositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdatePositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // UpdatePositionRequest
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
+ *   Position: [ // PositionCoordinate // required
+ *     Number("float"),
+ *   ],
+ * };
  * const command = new UpdatePositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePositionCommandInput - {@link UpdatePositionCommandInput}
+ * @returns {@link UpdatePositionCommandOutput}
  * @see {@link UpdatePositionCommandInput} for command's `input` shape.
  * @see {@link UpdatePositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
  *
  */
 export class UpdatePositionCommand extends $Command<
@@ -68,6 +96,9 @@ export class UpdatePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +127,8 @@ export class UpdatePositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePositionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePositionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +138,18 @@ export class UpdatePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePositionCommand(input, context);
+    return se_UpdatePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePositionCommandOutput> {
-    return deserializeAws_restJson1UpdatePositionCommand(output, context);
+    return de_UpdatePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

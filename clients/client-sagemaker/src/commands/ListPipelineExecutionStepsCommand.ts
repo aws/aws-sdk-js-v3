@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPipelineExecutionStepsRequest,
-  ListPipelineExecutionStepsRequestFilterSensitiveLog,
-  ListPipelineExecutionStepsResponse,
-  ListPipelineExecutionStepsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListPipelineExecutionStepsCommand,
-  serializeAws_json1_1ListPipelineExecutionStepsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPipelineExecutionStepsRequest, ListPipelineExecutionStepsResponse } from "../models/models_3";
+import { de_ListPipelineExecutionStepsCommand, se_ListPipelineExecutionStepsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListPipelineExecutionStepsCommand}.
+ */
 export interface ListPipelineExecutionStepsCommandInput extends ListPipelineExecutionStepsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPipelineExecutionStepsCommand}.
+ */
 export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExecutionStepsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of <code>PipeLineExecutionStep</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,25 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * import { SageMakerClient, ListPipelineExecutionStepsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListPipelineExecutionStepsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListPipelineExecutionStepsRequest
+ *   PipelineExecutionArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListPipelineExecutionStepsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPipelineExecutionStepsCommandInput - {@link ListPipelineExecutionStepsCommandInput}
+ * @returns {@link ListPipelineExecutionStepsCommandOutput}
  * @see {@link ListPipelineExecutionStepsCommandInput} for command's `input` shape.
  * @see {@link ListPipelineExecutionStepsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
  *
  */
 export class ListPipelineExecutionStepsCommand extends $Command<
@@ -62,6 +77,9 @@ export class ListPipelineExecutionStepsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPipelineExecutionStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +108,8 @@ export class ListPipelineExecutionStepsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPipelineExecutionStepsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPipelineExecutionStepsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,15 +119,21 @@ export class ListPipelineExecutionStepsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPipelineExecutionStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPipelineExecutionStepsCommand(input, context);
+    return se_ListPipelineExecutionStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPipelineExecutionStepsCommandOutput> {
-    return deserializeAws_json1_1ListPipelineExecutionStepsCommand(output, context);
+    return de_ListPipelineExecutionStepsCommand(output, context);
   }
 
   // Start section: command_body_extra

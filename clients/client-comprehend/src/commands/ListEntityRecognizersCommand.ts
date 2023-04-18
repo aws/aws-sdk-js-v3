@@ -16,19 +16,26 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   ListEntityRecognizersRequest,
-  ListEntityRecognizersRequestFilterSensitiveLog,
   ListEntityRecognizersResponse,
   ListEntityRecognizersResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEntityRecognizersCommand,
-  serializeAws_json1_1ListEntityRecognizersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEntityRecognizersCommand, se_ListEntityRecognizersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListEntityRecognizersCommand}.
+ */
 export interface ListEntityRecognizersCommandInput extends ListEntityRecognizersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListEntityRecognizersCommand}.
+ */
 export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the properties of all entity recognizers that you created, including
  *       recognizers currently in training. Allows you to filter the list of recognizers based on
  *       criteria such as status and submission time. This call returns up to 500 entity recognizers in
@@ -41,13 +48,39 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  * import { ComprehendClient, ListEntityRecognizersCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListEntityRecognizersCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListEntityRecognizersRequest
+ *   Filter: { // EntityRecognizerFilter
+ *     Status: "SUBMITTED" || "TRAINING" || "DELETING" || "STOP_REQUESTED" || "STOPPED" || "IN_ERROR" || "TRAINED" || "TRAINED_WITH_WARNING",
+ *     RecognizerName: "STRING_VALUE",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEntityRecognizersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntityRecognizersCommandInput - {@link ListEntityRecognizersCommandInput}
+ * @returns {@link ListEntityRecognizersCommandOutput}
  * @see {@link ListEntityRecognizersCommandInput} for command's `input` shape.
  * @see {@link ListEntityRecognizersCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidFilterException} (client fault)
+ *  <p>The filter specified for the operation is invalid. Specify a different
+ *       filter.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
  *
  */
 export class ListEntityRecognizersCommand extends $Command<
@@ -67,6 +100,9 @@ export class ListEntityRecognizersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntityRecognizersCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,7 +131,7 @@ export class ListEntityRecognizersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntityRecognizersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListEntityRecognizersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -106,12 +142,18 @@ export class ListEntityRecognizersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntityRecognizersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntityRecognizersCommand(input, context);
+    return se_ListEntityRecognizersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntityRecognizersCommandOutput> {
-    return deserializeAws_json1_1ListEntityRecognizersCommand(output, context);
+    return de_ListEntityRecognizersCommand(output, context);
   }
 
   // Start section: command_body_extra

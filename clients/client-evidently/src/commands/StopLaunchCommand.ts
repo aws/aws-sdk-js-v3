@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  StopLaunchRequest,
-  StopLaunchRequestFilterSensitiveLog,
-  StopLaunchResponse,
-  StopLaunchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopLaunchCommand,
-  serializeAws_restJson1StopLaunchCommand,
-} from "../protocols/Aws_restJson1";
+import { StopLaunchRequest, StopLaunchResponse } from "../models/models_0";
+import { de_StopLaunchCommand, se_StopLaunchCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link StopLaunchCommand}.
+ */
 export interface StopLaunchCommandInput extends StopLaunchRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopLaunchCommand}.
+ */
 export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a launch that is currently running. After you stop a launch, you will not be able to resume it or restart it.
  *        Also, it
  *        will not be evaluated as a rule for traffic allocation, and the traffic that was allocated to the launch
@@ -40,13 +43,34 @@ export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataB
  * import { EvidentlyClient, StopLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, StopLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // StopLaunchRequest
+ *   project: "STRING_VALUE", // required
+ *   launch: "STRING_VALUE", // required
+ *   desiredState: "STRING_VALUE",
+ *   reason: "STRING_VALUE",
+ * };
  * const command = new StopLaunchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopLaunchCommandInput - {@link StopLaunchCommandInput}
+ * @returns {@link StopLaunchCommandOutput}
  * @see {@link StopLaunchCommandInput} for command's `input` shape.
  * @see {@link StopLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  *
  */
 export class StopLaunchCommand extends $Command<
@@ -66,6 +90,9 @@ export class StopLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +119,8 @@ export class StopLaunchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopLaunchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopLaunchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +130,18 @@ export class StopLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopLaunchCommand(input, context);
+    return se_StopLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopLaunchCommandOutput> {
-    return deserializeAws_restJson1StopLaunchCommand(output, context);
+    return de_StopLaunchCommand(output, context);
   }
 
   // Start section: command_body_extra

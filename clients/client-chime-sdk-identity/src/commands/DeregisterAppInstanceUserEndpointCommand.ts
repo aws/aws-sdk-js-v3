@@ -19,14 +19,25 @@ import {
   DeregisterAppInstanceUserEndpointRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommand,
-  serializeAws_restJson1DeregisterAppInstanceUserEndpointCommand,
+  de_DeregisterAppInstanceUserEndpointCommand,
+  se_DeregisterAppInstanceUserEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeregisterAppInstanceUserEndpointCommand}.
+ */
 export interface DeregisterAppInstanceUserEndpointCommandInput extends DeregisterAppInstanceUserEndpointRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterAppInstanceUserEndpointCommand}.
+ */
 export interface DeregisterAppInstanceUserEndpointCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters an <code>AppInstanceUserEndpoint</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +45,38 @@ export interface DeregisterAppInstanceUserEndpointCommandOutput extends __Metada
  * import { ChimeSDKIdentityClient, DeregisterAppInstanceUserEndpointCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, DeregisterAppInstanceUserEndpointCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = { // DeregisterAppInstanceUserEndpointRequest
+ *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   EndpointId: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterAppInstanceUserEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterAppInstanceUserEndpointCommandInput - {@link DeregisterAppInstanceUserEndpointCommandInput}
+ * @returns {@link DeregisterAppInstanceUserEndpointCommandOutput}
  * @see {@link DeregisterAppInstanceUserEndpointCommandInput} for command's `input` shape.
  * @see {@link DeregisterAppInstanceUserEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
  *
  */
 export class DeregisterAppInstanceUserEndpointCommand extends $Command<
@@ -60,6 +96,9 @@ export class DeregisterAppInstanceUserEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterAppInstanceUserEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,7 +128,7 @@ export class DeregisterAppInstanceUserEndpointCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeregisterAppInstanceUserEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,18 +138,24 @@ export class DeregisterAppInstanceUserEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterAppInstanceUserEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterAppInstanceUserEndpointCommand(input, context);
+    return se_DeregisterAppInstanceUserEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterAppInstanceUserEndpointCommandOutput> {
-    return deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommand(output, context);
+    return de_DeregisterAppInstanceUserEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

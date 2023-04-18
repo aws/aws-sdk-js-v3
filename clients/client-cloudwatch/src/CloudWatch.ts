@@ -186,6 +186,7 @@ import {
 } from "./commands/UntagResourceCommand";
 
 /**
+ * @public
  * <p>Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services) resources and the
  * 			applications you run on Amazon Web Services in real time. You can use CloudWatch to collect and track
  * 			metrics, which are the variables you want to measure for your resources and
@@ -202,12 +203,15 @@ import {
  */
 export class CloudWatch extends CloudWatchClient {
   /**
+   * @public
    * <p>Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more
    * 			than one composite alarm. For example, you could delete 99 metric alarms and one composite alarms with one operation, but you can't
    * 			delete two composite alarms with one operation.</p>
    *          <p>
-   * 			In the event of an error, no alarms are
-   * 			deleted.</p>
+   * 			If you specify an incorrect alarm name or make any other error in the operation, no alarms are
+   * 			deleted. To confirm that alarms were deleted successfully, you can use
+   * 			the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> operation after using
+   * 		<code>DeleteAlarms</code>.</p>
    *          <note>
    *             <p>It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and
    * 			composite alarm B also depends on composite alarm A. In this scenario, you can't delete any composite alarm that is part of the cycle
@@ -246,6 +250,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>
    * 			Deletes the specified anomaly detection model
    * 			from your account.
@@ -286,6 +291,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Deletes all dashboards that you specify. You
    * 			can specify up to 100 dashboards to delete. If there is an error during this call, no dashboards are
    * 			deleted.</p>
@@ -320,6 +326,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Permanently deletes the specified Contributor Insights rules.</p>
    *          <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
    * 			the rule was created might
@@ -355,6 +362,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Permanently deletes the metric stream that you specify.</p>
    */
   public deleteMetricStream(
@@ -387,6 +395,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type.
    * 			If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned.</p>
    *          <p>CloudWatch retains the history of an alarm even if you delete the alarm.</p>
@@ -424,6 +433,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm
    * 			name, the alarm state, or a prefix for any action.</p>
    *          <p>To use this operation and return information about composite alarms, you must be signed on with
@@ -460,6 +470,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Retrieves the alarms for the specified metric. To
    * 			filter the results, specify a statistic, period, or unit.</p>
    *          <p>This operation retrieves only standard alarms that are based on
@@ -496,6 +507,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Lists the anomaly detection models that you have created in your account.
    * 			For single metric anomaly detectors,
    * 			you can list all of the models in your account or filter the results
@@ -534,6 +546,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of all the Contributor Insights rules in your account.</p>
    *          <p>For more information about Contributor Insights, see
    * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
@@ -568,6 +581,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the
    * 			alarm actions do not execute when the alarm state changes.</p>
    */
@@ -601,6 +615,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do
    * 		not incur costs.</p>
    */
@@ -634,6 +649,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Enables the actions for the specified alarms.</p>
    */
   public enableAlarmActions(
@@ -666,6 +682,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>
    */
   public enableInsightRules(
@@ -698,6 +715,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Displays the details of the dashboard that you specify.</p>
    *          <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned
    * 			within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code> to create
@@ -730,6 +748,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>This operation returns the time series data collected by a Contributor Insights rule. The data includes the identity and number of
    * 		contributors to the log group.</p>
    *          <p>You can also optionally return one or more statistics about each data point in the time series. These statistics can include the following:</p>
@@ -798,6 +817,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>You can use the <code>GetMetricData</code> API to retrieve CloudWatch metric values. The operation
    * 			can also include a CloudWatch Metrics Insights query, and one or more metric math functions.</p>
    *          <p>A <code>GetMetricData</code> operation that does not include a query can retrieve as many as 500 different
@@ -877,6 +897,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Gets statistics for the specified metric.</p>
    *          <p>The maximum number of data points returned from a single call is 1,440. If
    * 			you request more than 1,440 data points, CloudWatch returns an error.
@@ -955,6 +976,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Returns information about the metric stream that you specify.</p>
    */
   public getMetricStream(
@@ -987,6 +1009,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of
    * 			one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this
    * 			image into your services and products, such as wiki pages, reports, and documents.
@@ -1034,6 +1057,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only
    * 			those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are
    * 			listed.
@@ -1074,6 +1098,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>
    * 			Returns a list
    * 			that contains the number
@@ -1112,6 +1137,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>List the specified metrics. You can use the returned metrics with <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to get statistical data.</p>
    *          <p>Up to 500 results are returned for any one call. To retrieve additional results,
    * 			use the returned token with subsequent calls.</p>
@@ -1150,6 +1176,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Returns a list of metric streams in this account.</p>
    */
   public listMetricStreams(
@@ -1182,6 +1209,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Displays the tags associated with a CloudWatch resource. Currently, alarms
    * 			and Contributor Insights rules support tagging.</p>
    */
@@ -1215,6 +1243,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Creates an anomaly detection model for a CloudWatch metric. You can use the model
    * 			to display a band of expected normal values when the metric is graphed.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html">CloudWatch Anomaly Detection</a>.</p>
@@ -1249,6 +1278,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a <i>composite alarm</i>. When you create a composite
    * 			alarm, you specify a rule expression for the alarm that takes into account the alarm
    * 			states of other alarms that you have created. The composite alarm goes into ALARM state
@@ -1319,6 +1349,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard,
    * 		the entire contents are replaced with what you specify here.</p>
    *          <p>All dashboards in your account are global, not region-specific.</p>
@@ -1361,6 +1392,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Creates a Contributor Insights rule. Rules evaluate log events in a
    * 		CloudWatch Logs log group, enabling you to find contributor data for the log events in that log group. For more information,
    * 		see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
@@ -1397,6 +1429,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>
    * 			Creates a managed Contributor Insights rule
    * 			for a specified Amazon Web Services resource.
@@ -1445,6 +1478,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates an alarm and associates it with the specified metric, metric math expression,
    * 			anomaly detection model, or Metrics Insights query. For more information about using
    * 			a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create alarms on Metrics Insights queries</a>.</p>
@@ -1458,11 +1492,11 @@ export class CloudWatch extends CloudWatchClient {
    * 			Amazon EC2 permissions for some alarm operations:</p>
    *          <ul>
    *             <li>
-   *                <p>The <code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions</p>
+   *                <p>The <code>iam:CreateServiceLinkedRole</code> permission for all alarms with EC2 actions</p>
    *             </li>
    *             <li>
-   *                <p>The <code>iam:CreateServiceLinkedRole</code> to create an alarm
-   * 					with Systems Manager OpsItem actions.</p>
+   *                <p>The <code>iam:CreateServiceLinkedRole</code> permissions to create an alarm
+   * 					with Systems Manager OpsItem or response plan actions.</p>
    *             </li>
    *          </ul>
    *          <p>The first time you create an alarm in the
@@ -1528,6 +1562,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates
    * 			the data points with the specified metric. If the specified metric does not exist,
    * 			CloudWatch creates the metric. When CloudWatch creates a metric, it can
@@ -1602,6 +1637,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch
    * 			metrics to Amazon Web Services destinations, including Amazon S3, and to many third-party
    * 			solutions.</p>
@@ -1633,6 +1669,9 @@ export class CloudWatch extends CloudWatchClient {
    *          <p>When you use <code>PutMetricStream</code> to create a new metric stream, the stream
    * 		is created in the <code>running</code> state. If you use it to update an existing stream,
    * 		the state of the stream is not changed.</p>
+   *          <p>If you are using CloudWatch cross-account observability and you create a metric stream in a monitoring account,
+   * 			you can choose whether to include metrics from source accounts in the stream. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
    */
   public putMetricStream(
     args: PutMetricStreamCommandInput,
@@ -1664,6 +1703,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Temporarily sets the state of an alarm for testing purposes. When the updated
    * 			state differs from the previous value, the action configured for
    * 			the appropriate state is invoked. For example, if your alarm is configured to send an
@@ -1711,6 +1751,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Starts the streaming of metrics for one or more of your metric streams.</p>
    */
   public startMetricStreams(
@@ -1743,6 +1784,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Stops the streaming of metrics for one or more of your metric streams.</p>
    */
   public stopMetricStreams(
@@ -1775,6 +1817,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch resource. Currently, the only CloudWatch resources that
    * 			can be tagged are alarms and Contributor Insights rules.</p>
    *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
@@ -1811,6 +1854,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * @public
    * <p>Removes one or more tags from the specified resource.</p>
    */
   public untagResource(

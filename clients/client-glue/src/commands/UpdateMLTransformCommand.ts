@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateMLTransformRequest,
-  UpdateMLTransformRequestFilterSensitiveLog,
-  UpdateMLTransformResponse,
-  UpdateMLTransformResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateMLTransformCommand,
-  serializeAws_json1_1UpdateMLTransformCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateMLTransformRequest, UpdateMLTransformResponse } from "../models/models_2";
+import { de_UpdateMLTransformCommand, se_UpdateMLTransformCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateMLTransformCommand}.
+ */
 export interface UpdateMLTransformCommandInput extends UpdateMLTransformRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMLTransformCommand}.
+ */
 export interface UpdateMLTransformCommandOutput extends UpdateMLTransformResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
  *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
  *       operation to assess how well your new parameters achieved your goals (such as improving the
@@ -39,13 +42,52 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  * import { GlueClient, UpdateMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateMLTransformRequest
+ *   TransformId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Parameters: { // TransformParameters
+ *     TransformType: "FIND_MATCHES", // required
+ *     FindMatchesParameters: { // FindMatchesParameters
+ *       PrimaryKeyColumnName: "STRING_VALUE",
+ *       PrecisionRecallTradeoff: Number("double"),
+ *       AccuracyCostTradeoff: Number("double"),
+ *       EnforceProvidedLabels: true || false,
+ *     },
+ *   },
+ *   Role: "STRING_VALUE",
+ *   GlueVersion: "STRING_VALUE",
+ *   MaxCapacity: Number("double"),
+ *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ *   NumberOfWorkers: Number("int"),
+ *   Timeout: Number("int"),
+ *   MaxRetries: Number("int"),
+ * };
  * const command = new UpdateMLTransformCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMLTransformCommandInput - {@link UpdateMLTransformCommandInput}
+ * @returns {@link UpdateMLTransformCommandOutput}
  * @see {@link UpdateMLTransformCommandInput} for command's `input` shape.
  * @see {@link UpdateMLTransformCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
  *
  */
 export class UpdateMLTransformCommand extends $Command<
@@ -65,6 +107,9 @@ export class UpdateMLTransformCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMLTransformCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +138,8 @@ export class UpdateMLTransformCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMLTransformRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMLTransformResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +149,18 @@ export class UpdateMLTransformCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMLTransformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMLTransformCommand(input, context);
+    return se_UpdateMLTransformCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMLTransformCommandOutput> {
-    return deserializeAws_json1_1UpdateMLTransformCommand(output, context);
+    return de_UpdateMLTransformCommand(output, context);
   }
 
   // Start section: command_body_extra

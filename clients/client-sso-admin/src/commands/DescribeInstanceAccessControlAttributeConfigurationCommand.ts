@@ -15,23 +15,32 @@ import {
 
 import {
   DescribeInstanceAccessControlAttributeConfigurationRequest,
-  DescribeInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog,
   DescribeInstanceAccessControlAttributeConfigurationResponse,
-  DescribeInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationCommand,
-  serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationCommand,
+  de_DescribeInstanceAccessControlAttributeConfigurationCommand,
+  se_DescribeInstanceAccessControlAttributeConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstanceAccessControlAttributeConfigurationCommand}.
+ */
 export interface DescribeInstanceAccessControlAttributeConfigurationCommandInput
   extends DescribeInstanceAccessControlAttributeConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstanceAccessControlAttributeConfigurationCommand}.
+ */
 export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutput
   extends DescribeInstanceAccessControlAttributeConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of IAM Identity Center identity store attributes that have been configured to work
  *       with attributes-based access control (ABAC) for the specified IAM Identity Center instance. This will not
  *       return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
@@ -41,13 +50,36 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
  * import { SSOAdminClient, DescribeInstanceAccessControlAttributeConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DescribeInstanceAccessControlAttributeConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // DescribeInstanceAccessControlAttributeConfigurationRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceAccessControlAttributeConfigurationCommandInput - {@link DescribeInstanceAccessControlAttributeConfigurationCommandInput}
+ * @returns {@link DescribeInstanceAccessControlAttributeConfigurationCommandOutput}
  * @see {@link DescribeInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or failure with
+ *       an internal server.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a requested resource is not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Indicates that the principal has crossed the throttling limits of the API
+ *       operations.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed because it contains a syntax error.</p>
+ *
  *
  */
 export class DescribeInstanceAccessControlAttributeConfigurationCommand extends $Command<
@@ -67,6 +99,9 @@ export class DescribeInstanceAccessControlAttributeConfigurationCommand extends 
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceAccessControlAttributeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +136,8 @@ export class DescribeInstanceAccessControlAttributeConfigurationCommand extends 
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +147,24 @@ export class DescribeInstanceAccessControlAttributeConfigurationCommand extends 
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationCommand(input, context);
+    return se_DescribeInstanceAccessControlAttributeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceAccessControlAttributeConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationCommand(output, context);
+    return de_DescribeInstanceAccessControlAttributeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

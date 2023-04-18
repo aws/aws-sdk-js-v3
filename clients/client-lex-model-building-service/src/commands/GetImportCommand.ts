@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetImportRequest,
-  GetImportRequestFilterSensitiveLog,
-  GetImportResponse,
-  GetImportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetImportCommand,
-  serializeAws_restJson1GetImportCommand,
-} from "../protocols/Aws_restJson1";
+import { GetImportRequest, GetImportResponse } from "../models/models_0";
+import { de_GetImportCommand, se_GetImportCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetImportCommand}.
+ */
 export interface GetImportCommandInput extends GetImportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetImportCommand}.
+ */
 export interface GetImportCommandOutput extends GetImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an import job started with the
  *         <code>StartImport</code> operation.</p>
  * @example
@@ -41,13 +44,34 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * import { LexModelBuildingServiceClient, GetImportCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetImportCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetImportRequest
+ *   importId: "STRING_VALUE", // required
+ * };
  * const command = new GetImportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImportCommandInput - {@link GetImportCommandInput}
+ * @returns {@link GetImportCommandOutput}
  * @see {@link GetImportCommandInput} for command's `input` shape.
  * @see {@link GetImportCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the
+ *       resource and try again.</p>
+ *
  *
  */
 export class GetImportCommand extends $Command<
@@ -67,6 +91,9 @@ export class GetImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +120,8 @@ export class GetImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +131,18 @@ export class GetImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImportCommand(input, context);
+    return se_GetImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportCommandOutput> {
-    return deserializeAws_restJson1GetImportCommand(output, context);
+    return de_GetImportCommand(output, context);
   }
 
   // Start section: command_body_extra

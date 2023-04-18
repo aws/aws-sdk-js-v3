@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { DeleteStudioSessionMappingInput, DeleteStudioSessionMappingInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteStudioSessionMappingCommand,
-  serializeAws_json1_1DeleteStudioSessionMappingCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteStudioSessionMappingInput } from "../models/models_0";
+import { de_DeleteStudioSessionMappingCommand, se_DeleteStudioSessionMappingCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteStudioSessionMappingCommand}.
+ */
 export interface DeleteStudioSessionMappingCommandInput extends DeleteStudioSessionMappingInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteStudioSessionMappingCommand}.
+ */
 export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a user or group from an Amazon EMR Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +39,29 @@ export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBeare
  * import { EMRClient, DeleteStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DeleteStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // DeleteStudioSessionMappingInput
+ *   StudioId: "STRING_VALUE", // required
+ *   IdentityId: "STRING_VALUE",
+ *   IdentityName: "STRING_VALUE",
+ *   IdentityType: "USER" || "GROUP", // required
+ * };
  * const command = new DeleteStudioSessionMappingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStudioSessionMappingCommandInput - {@link DeleteStudioSessionMappingCommandInput}
+ * @returns {@link DeleteStudioSessionMappingCommandOutput}
  * @see {@link DeleteStudioSessionMappingCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioSessionMappingCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class DeleteStudioSessionMappingCommand extends $Command<
@@ -57,6 +81,9 @@ export class DeleteStudioSessionMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStudioSessionMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +112,8 @@ export class DeleteStudioSessionMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStudioSessionMappingInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,15 +123,21 @@ export class DeleteStudioSessionMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStudioSessionMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStudioSessionMappingCommand(input, context);
+    return se_DeleteStudioSessionMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStudioSessionMappingCommandOutput> {
-    return deserializeAws_json1_1DeleteStudioSessionMappingCommand(output, context);
+    return de_DeleteStudioSessionMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

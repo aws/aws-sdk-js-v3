@@ -13,19 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetQueueUrlRequest,
-  GetQueueUrlRequestFilterSensitiveLog,
-  GetQueueUrlResult,
-  GetQueueUrlResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryGetQueueUrlCommand, serializeAws_queryGetQueueUrlCommand } from "../protocols/Aws_query";
+import { GetQueueUrlRequest, GetQueueUrlResult } from "../models/models_0";
+import { de_GetQueueUrlCommand, se_GetQueueUrlCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
+/**
+ * @public
+ *
+ * The input for {@link GetQueueUrlCommand}.
+ */
 export interface GetQueueUrlCommandInput extends GetQueueUrlRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetQueueUrlCommand}.
+ */
 export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the URL of an existing Amazon SQS queue.</p>
  *          <p>To access a queue that belongs to another AWS account, use the <code>QueueOwnerAWSAccountId</code> parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue.
  *           For more information about shared queue access, see <code>
@@ -38,13 +44,23 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * import { SQSClient, GetQueueUrlCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, GetQueueUrlCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // GetQueueUrlRequest
+ *   QueueName: "STRING_VALUE", // required
+ *   QueueOwnerAWSAccountId: "STRING_VALUE",
+ * };
  * const command = new GetQueueUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQueueUrlCommandInput - {@link GetQueueUrlCommandInput}
+ * @returns {@link GetQueueUrlCommandOutput}
  * @see {@link GetQueueUrlCommandInput} for command's `input` shape.
  * @see {@link GetQueueUrlCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link QueueDoesNotExist} (client fault)
+ *  <p>The specified queue doesn't exist.</p>
+ *
  *
  */
 export class GetQueueUrlCommand extends $Command<
@@ -64,6 +80,9 @@ export class GetQueueUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueueUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +109,8 @@ export class GetQueueUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueueUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueueUrlResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +120,18 @@ export class GetQueueUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueueUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetQueueUrlCommand(input, context);
+    return se_GetQueueUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueueUrlCommandOutput> {
-    return deserializeAws_queryGetQueueUrlCommand(output, context);
+    return de_GetQueueUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

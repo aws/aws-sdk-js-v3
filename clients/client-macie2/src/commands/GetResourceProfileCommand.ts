@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetResourceProfileRequest,
-  GetResourceProfileRequestFilterSensitiveLog,
-  GetResourceProfileResponse,
-  GetResourceProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceProfileCommand,
-  serializeAws_restJson1GetResourceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { GetResourceProfileRequest, GetResourceProfileResponse } from "../models/models_0";
+import { de_GetResourceProfileCommand, se_GetResourceProfileCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetResourceProfileCommand}.
+ */
 export interface GetResourceProfileCommandInput extends GetResourceProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetResourceProfileCommand}.
+ */
 export interface GetResourceProfileCommandOutput extends GetResourceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) sensitive data discovery statistics and the sensitivity score for an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,37 @@ export interface GetResourceProfileCommandOutput extends GetResourceProfileRespo
  * import { Macie2Client, GetResourceProfileCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetResourceProfileCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // GetResourceProfileRequest
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceProfileCommandInput - {@link GetResourceProfileCommandInput}
+ * @returns {@link GetResourceProfileCommandOutput}
  * @see {@link GetResourceProfileCommandInput} for command's `input` shape.
  * @see {@link GetResourceProfileCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
  *
  */
 export class GetResourceProfileCommand extends $Command<
@@ -62,6 +89,9 @@ export class GetResourceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +120,8 @@ export class GetResourceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +131,18 @@ export class GetResourceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceProfileCommand(input, context);
+    return se_GetResourceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceProfileCommandOutput> {
-    return deserializeAws_restJson1GetResourceProfileCommand(output, context);
+    return de_GetResourceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

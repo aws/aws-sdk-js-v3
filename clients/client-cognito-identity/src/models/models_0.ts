@@ -3,12 +3,23 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CognitoIdentityServiceException as __BaseException } from "./CognitoIdentityServiceException";
 
-export enum AmbiguousRoleResolutionType {
-  AUTHENTICATED_ROLE = "AuthenticatedRole",
-  DENY = "Deny",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AmbiguousRoleResolutionType = {
+  AUTHENTICATED_ROLE: "AuthenticatedRole",
+  DENY: "Deny",
+} as const;
 
 /**
+ * @public
+ */
+export type AmbiguousRoleResolutionType =
+  (typeof AmbiguousRoleResolutionType)[keyof typeof AmbiguousRoleResolutionType];
+
+/**
+ * @public
  * <p>A provider representing an Amazon Cognito user pool and its client ID.</p>
  */
 export interface CognitoIdentityProvider {
@@ -37,6 +48,7 @@ export interface CognitoIdentityProvider {
 }
 
 /**
+ * @public
  * <p>Input to the CreateIdentityPool action.</p>
  */
 export interface CreateIdentityPoolInput {
@@ -97,6 +109,7 @@ export interface CreateIdentityPoolInput {
 }
 
 /**
+ * @public
  * <p>An object representing an Amazon Cognito identity pool.</p>
  */
 export interface IdentityPool {
@@ -156,6 +169,7 @@ export interface IdentityPool {
 }
 
 /**
+ * @public
  * <p>Thrown when the service encounters an error during processing the request.</p>
  */
 export class InternalErrorException extends __BaseException {
@@ -175,6 +189,7 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Thrown for missing or bad input parameter(s).</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -194,6 +209,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Thrown when the total number of user pools has exceeded a preset limit.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -213,6 +229,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Thrown when a user is not authorized to access the requested resource.</p>
  */
 export class NotAuthorizedException extends __BaseException {
@@ -232,6 +249,7 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Thrown when a user tries to use a login which is already linked to another
  *          account.</p>
  */
@@ -252,6 +270,7 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Thrown when a request is throttled.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -271,6 +290,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input to the <code>DeleteIdentities</code> action.</p>
  */
 export interface DeleteIdentitiesInput {
@@ -280,12 +300,22 @@ export interface DeleteIdentitiesInput {
   IdentityIdsToDelete: string[] | undefined;
 }
 
-export enum ErrorCode {
-  ACCESS_DENIED = "AccessDenied",
-  INTERNAL_SERVER_ERROR = "InternalServerError",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  ACCESS_DENIED: "AccessDenied",
+  INTERNAL_SERVER_ERROR: "InternalServerError",
+} as const;
 
 /**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
  * <p>An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and
  *          IdentityId.</p>
  */
@@ -302,6 +332,7 @@ export interface UnprocessedIdentityId {
 }
 
 /**
+ * @public
  * <p>Returned in response to a successful <code>DeleteIdentities</code>
  *          operation.</p>
  */
@@ -314,6 +345,7 @@ export interface DeleteIdentitiesResponse {
 }
 
 /**
+ * @public
  * <p>Input to the DeleteIdentityPool action.</p>
  */
 export interface DeleteIdentityPoolInput {
@@ -324,6 +356,7 @@ export interface DeleteIdentityPoolInput {
 }
 
 /**
+ * @public
  * <p>Thrown when the requested resource (for example, a dataset or record) does not
  *          exist.</p>
  */
@@ -344,6 +377,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input to the <code>DescribeIdentity</code> action.</p>
  */
 export interface DescribeIdentityInput {
@@ -354,6 +388,7 @@ export interface DescribeIdentityInput {
 }
 
 /**
+ * @public
  * <p>A description of the identity.</p>
  */
 export interface IdentityDescription {
@@ -379,6 +414,7 @@ export interface IdentityDescription {
 }
 
 /**
+ * @public
  * <p>Input to the DescribeIdentityPool action.</p>
  */
 export interface DescribeIdentityPoolInput {
@@ -389,6 +425,7 @@ export interface DescribeIdentityPoolInput {
 }
 
 /**
+ * @public
  * <p>An exception thrown when a dependent service such as Facebook or Twitter is not
  *          responding</p>
  */
@@ -409,6 +446,7 @@ export class ExternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input to the <code>GetCredentialsForIdentity</code> action.</p>
  */
 export interface GetCredentialsForIdentityInput {
@@ -440,6 +478,7 @@ export interface GetCredentialsForIdentityInput {
 }
 
 /**
+ * @public
  * <p>Credentials for the provided identity ID.</p>
  */
 export interface Credentials {
@@ -465,6 +504,7 @@ export interface Credentials {
 }
 
 /**
+ * @public
  * <p>Returned in response to a successful <code>GetCredentialsForIdentity</code>
  *          operation.</p>
  */
@@ -481,6 +521,7 @@ export interface GetCredentialsForIdentityResponse {
 }
 
 /**
+ * @public
  * <p>Thrown if the identity pool has no role associated for the given auth type
  *          (auth/unauth) or if the AssumeRole fails.</p>
  */
@@ -501,6 +542,7 @@ export class InvalidIdentityPoolConfigurationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input to the GetId action.</p>
  */
 export interface GetIdInput {
@@ -550,6 +592,7 @@ export interface GetIdInput {
 }
 
 /**
+ * @public
  * <p>Returned in response to a GetId request.</p>
  */
 export interface GetIdResponse {
@@ -560,6 +603,7 @@ export interface GetIdResponse {
 }
 
 /**
+ * @public
  * <p>Input to the <code>GetIdentityPoolRoles</code> action.</p>
  */
 export interface GetIdentityPoolRolesInput {
@@ -569,14 +613,24 @@ export interface GetIdentityPoolRolesInput {
   IdentityPoolId: string | undefined;
 }
 
-export enum MappingRuleMatchType {
-  CONTAINS = "Contains",
-  EQUALS = "Equals",
-  NOT_EQUAL = "NotEqual",
-  STARTS_WITH = "StartsWith",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MappingRuleMatchType = {
+  CONTAINS: "Contains",
+  EQUALS: "Equals",
+  NOT_EQUAL: "NotEqual",
+  STARTS_WITH: "StartsWith",
+} as const;
 
 /**
+ * @public
+ */
+export type MappingRuleMatchType = (typeof MappingRuleMatchType)[keyof typeof MappingRuleMatchType];
+
+/**
+ * @public
  * <p>A rule that maps a claim name, a claim value, and a match type to a role
  *          ARN.</p>
  */
@@ -605,6 +659,7 @@ export interface MappingRule {
 }
 
 /**
+ * @public
  * <p>A container for rules.</p>
  */
 export interface RulesConfigurationType {
@@ -615,12 +670,22 @@ export interface RulesConfigurationType {
   Rules: MappingRule[] | undefined;
 }
 
-export enum RoleMappingType {
-  RULES = "Rules",
-  TOKEN = "Token",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RoleMappingType = {
+  RULES: "Rules",
+  TOKEN: "Token",
+} as const;
 
 /**
+ * @public
+ */
+export type RoleMappingType = (typeof RoleMappingType)[keyof typeof RoleMappingType];
+
+/**
+ * @public
  * <p>A role mapping.</p>
  */
 export interface RoleMapping {
@@ -651,6 +716,7 @@ export interface RoleMapping {
 }
 
 /**
+ * @public
  * <p>Returned in response to a successful <code>GetIdentityPoolRoles</code>
  *          operation.</p>
  */
@@ -676,6 +742,7 @@ export interface GetIdentityPoolRolesResponse {
 }
 
 /**
+ * @public
  * <p>Input to the GetOpenIdToken action.</p>
  */
 export interface GetOpenIdTokenInput {
@@ -694,6 +761,7 @@ export interface GetOpenIdTokenInput {
 }
 
 /**
+ * @public
  * <p>Returned in response to a successful GetOpenIdToken request.</p>
  */
 export interface GetOpenIdTokenResponse {
@@ -710,6 +778,7 @@ export interface GetOpenIdTokenResponse {
 }
 
 /**
+ * @public
  * <p>The provided developer user identifier is already registered with Cognito under a
  *          different identity ID.</p>
  */
@@ -730,6 +799,7 @@ export class DeveloperUserAlreadyRegisteredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input to the <code>GetOpenIdTokenForDeveloperIdentity</code> action.</p>
  */
 export interface GetOpenIdTokenForDeveloperIdentityInput {
@@ -776,6 +846,7 @@ export interface GetOpenIdTokenForDeveloperIdentityInput {
 }
 
 /**
+ * @public
  * <p>Returned in response to a successful <code>GetOpenIdTokenForDeveloperIdentity</code>
  *          request.</p>
  */
@@ -791,6 +862,9 @@ export interface GetOpenIdTokenForDeveloperIdentityResponse {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPrincipalTagAttributeMapInput {
   /**
    * <p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>
@@ -803,6 +877,9 @@ export interface GetPrincipalTagAttributeMapInput {
   IdentityProviderName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPrincipalTagAttributeMapResponse {
   /**
    * <p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>
@@ -826,6 +903,7 @@ export interface GetPrincipalTagAttributeMapResponse {
 }
 
 /**
+ * @public
  * <p>Input to the ListIdentities action.</p>
  */
 export interface ListIdentitiesInput {
@@ -852,6 +930,7 @@ export interface ListIdentitiesInput {
 }
 
 /**
+ * @public
  * <p>The response to a ListIdentities request.</p>
  */
 export interface ListIdentitiesResponse {
@@ -872,6 +951,7 @@ export interface ListIdentitiesResponse {
 }
 
 /**
+ * @public
  * <p>Input to the ListIdentityPools action.</p>
  */
 export interface ListIdentityPoolsInput {
@@ -887,6 +967,7 @@ export interface ListIdentityPoolsInput {
 }
 
 /**
+ * @public
  * <p>A description of the identity pool.</p>
  */
 export interface IdentityPoolShortDescription {
@@ -902,6 +983,7 @@ export interface IdentityPoolShortDescription {
 }
 
 /**
+ * @public
  * <p>The result of a successful ListIdentityPools action.</p>
  */
 export interface ListIdentityPoolsResponse {
@@ -916,6 +998,9 @@ export interface ListIdentityPoolsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the identity pool that the tags are assigned
@@ -924,6 +1009,9 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are assigned to the identity pool.</p>
@@ -932,6 +1020,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>Input to the <code>LookupDeveloperIdentityInput</code> action.</p>
  */
 export interface LookupDeveloperIdentityInput {
@@ -969,6 +1058,7 @@ export interface LookupDeveloperIdentityInput {
 }
 
 /**
+ * @public
  * <p>Returned in response to a successful <code>LookupDeveloperIdentity</code>
  *          action.</p>
  */
@@ -997,6 +1087,7 @@ export interface LookupDeveloperIdentityResponse {
 }
 
 /**
+ * @public
  * <p>Input to the <code>MergeDeveloperIdentities</code> action.</p>
  */
 export interface MergeDeveloperIdentitiesInput {
@@ -1028,6 +1119,7 @@ export interface MergeDeveloperIdentitiesInput {
 }
 
 /**
+ * @public
  * <p>Returned in response to a successful <code>MergeDeveloperIdentities</code>
  *          action.</p>
  */
@@ -1039,6 +1131,7 @@ export interface MergeDeveloperIdentitiesResponse {
 }
 
 /**
+ * @public
  * <p>Thrown if there are parallel requests to modify a resource.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -1058,6 +1151,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Input to the <code>SetIdentityPoolRoles</code> action.</p>
  */
 export interface SetIdentityPoolRolesInput {
@@ -1082,6 +1176,9 @@ export interface SetIdentityPoolRolesInput {
   RoleMappings?: Record<string, RoleMapping>;
 }
 
+/**
+ * @public
+ */
 export interface SetPrincipalTagAttributeMapInput {
   /**
    * <p>The ID of the Identity Pool you want to set attribute mappings for.</p>
@@ -1104,6 +1201,9 @@ export interface SetPrincipalTagAttributeMapInput {
   PrincipalTags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SetPrincipalTagAttributeMapResponse {
   /**
    * <p>The ID of the Identity Pool you want to set attribute mappings for.</p>
@@ -1126,6 +1226,9 @@ export interface SetPrincipalTagAttributeMapResponse {
   PrincipalTags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the identity pool.</p>
@@ -1138,9 +1241,13 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>Input to the <code>UnlinkDeveloperIdentity</code> action.</p>
  */
 export interface UnlinkDeveloperIdentityInput {
@@ -1166,6 +1273,7 @@ export interface UnlinkDeveloperIdentityInput {
 }
 
 /**
+ * @public
  * <p>Input to the UnlinkIdentity action.</p>
  */
 export interface UnlinkIdentityInput {
@@ -1186,6 +1294,9 @@ export interface UnlinkIdentityInput {
   LoginsToRemove: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the identity pool.</p>
@@ -1198,334 +1309,7 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const CognitoIdentityProviderFilterSensitiveLog = (obj: CognitoIdentityProvider): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIdentityPoolInputFilterSensitiveLog = (obj: CreateIdentityPoolInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityPoolFilterSensitiveLog = (obj: IdentityPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIdentitiesInputFilterSensitiveLog = (obj: DeleteIdentitiesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnprocessedIdentityIdFilterSensitiveLog = (obj: UnprocessedIdentityId): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIdentitiesResponseFilterSensitiveLog = (obj: DeleteIdentitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIdentityPoolInputFilterSensitiveLog = (obj: DeleteIdentityPoolInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIdentityInputFilterSensitiveLog = (obj: DescribeIdentityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityDescriptionFilterSensitiveLog = (obj: IdentityDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIdentityPoolInputFilterSensitiveLog = (obj: DescribeIdentityPoolInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCredentialsForIdentityInputFilterSensitiveLog = (obj: GetCredentialsForIdentityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCredentialsForIdentityResponseFilterSensitiveLog = (obj: GetCredentialsForIdentityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdInputFilterSensitiveLog = (obj: GetIdInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdResponseFilterSensitiveLog = (obj: GetIdResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityPoolRolesInputFilterSensitiveLog = (obj: GetIdentityPoolRolesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MappingRuleFilterSensitiveLog = (obj: MappingRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RulesConfigurationTypeFilterSensitiveLog = (obj: RulesConfigurationType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RoleMappingFilterSensitiveLog = (obj: RoleMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityPoolRolesResponseFilterSensitiveLog = (obj: GetIdentityPoolRolesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOpenIdTokenInputFilterSensitiveLog = (obj: GetOpenIdTokenInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOpenIdTokenResponseFilterSensitiveLog = (obj: GetOpenIdTokenResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog = (
-  obj: GetOpenIdTokenForDeveloperIdentityInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog = (
-  obj: GetOpenIdTokenForDeveloperIdentityResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPrincipalTagAttributeMapInputFilterSensitiveLog = (obj: GetPrincipalTagAttributeMapInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPrincipalTagAttributeMapResponseFilterSensitiveLog = (
-  obj: GetPrincipalTagAttributeMapResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentitiesInputFilterSensitiveLog = (obj: ListIdentitiesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentitiesResponseFilterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentityPoolsInputFilterSensitiveLog = (obj: ListIdentityPoolsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityPoolShortDescriptionFilterSensitiveLog = (obj: IdentityPoolShortDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentityPoolsResponseFilterSensitiveLog = (obj: ListIdentityPoolsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LookupDeveloperIdentityInputFilterSensitiveLog = (obj: LookupDeveloperIdentityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LookupDeveloperIdentityResponseFilterSensitiveLog = (obj: LookupDeveloperIdentityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergeDeveloperIdentitiesInputFilterSensitiveLog = (obj: MergeDeveloperIdentitiesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MergeDeveloperIdentitiesResponseFilterSensitiveLog = (obj: MergeDeveloperIdentitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityPoolRolesInputFilterSensitiveLog = (obj: SetIdentityPoolRolesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetPrincipalTagAttributeMapInputFilterSensitiveLog = (obj: SetPrincipalTagAttributeMapInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetPrincipalTagAttributeMapResponseFilterSensitiveLog = (
-  obj: SetPrincipalTagAttributeMapResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnlinkDeveloperIdentityInputFilterSensitiveLog = (obj: UnlinkDeveloperIdentityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnlinkIdentityInputFilterSensitiveLog = (obj: UnlinkIdentityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});

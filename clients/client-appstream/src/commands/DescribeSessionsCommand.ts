@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeSessionsRequest,
-  DescribeSessionsRequestFilterSensitiveLog,
-  DescribeSessionsResult,
-  DescribeSessionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSessionsCommand,
-  serializeAws_json1_1DescribeSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSessionsRequest, DescribeSessionsResult } from "../models/models_0";
+import { de_DescribeSessionsCommand, se_DescribeSessionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeSessionsCommand}.
+ */
 export interface DescribeSessionsCommandInput extends DescribeSessionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSessionsCommand}.
+ */
 export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the streaming sessions for a specified stack and fleet. If a UserId is provided for the stack and fleet,
  *             only streaming sessions for that user are described. If an authentication type is not provided,
  *             the default is to authenticate users using a streaming URL.</p>
@@ -38,13 +41,27 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * import { AppStreamClient, DescribeSessionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeSessionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeSessionsRequest
+ *   StackName: "STRING_VALUE", // required
+ *   FleetName: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD",
+ * };
  * const command = new DescribeSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSessionsCommandInput - {@link DescribeSessionsCommandInput}
+ * @returns {@link DescribeSessionsCommandOutput}
  * @see {@link DescribeSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeSessionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
  *
  */
 export class DescribeSessionsCommand extends $Command<
@@ -64,6 +81,9 @@ export class DescribeSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +112,8 @@ export class DescribeSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSessionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +123,18 @@ export class DescribeSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSessionsCommand(input, context);
+    return se_DescribeSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSessionsCommandOutput> {
-    return deserializeAws_json1_1DescribeSessionsCommand(output, context);
+    return de_DescribeSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

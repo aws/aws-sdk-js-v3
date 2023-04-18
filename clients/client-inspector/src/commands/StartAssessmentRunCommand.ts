@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  StartAssessmentRunRequest,
-  StartAssessmentRunRequestFilterSensitiveLog,
-  StartAssessmentRunResponse,
-  StartAssessmentRunResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartAssessmentRunCommand,
-  serializeAws_json1_1StartAssessmentRunCommand,
-} from "../protocols/Aws_json1_1";
+import { StartAssessmentRunRequest, StartAssessmentRunResponse } from "../models/models_0";
+import { de_StartAssessmentRunCommand, se_StartAssessmentRunCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link StartAssessmentRunCommand}.
+ */
 export interface StartAssessmentRunCommandInput extends StartAssessmentRunRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartAssessmentRunCommand}.
+ */
 export interface StartAssessmentRunCommandOutput extends StartAssessmentRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the assessment run specified by the ARN of the assessment template. For this
  *          API to function properly, you must not exceed the limit of running up to 500 concurrent
  *          agents per AWS account.</p>
@@ -38,13 +41,66 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * import { InspectorClient, StartAssessmentRunCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, StartAssessmentRunCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // StartAssessmentRunRequest
+ *   assessmentTemplateArn: "STRING_VALUE", // required
+ *   assessmentRunName: "STRING_VALUE",
+ * };
  * const command = new StartAssessmentRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAssessmentRunCommandInput - {@link StartAssessmentRunCommandInput}
+ * @returns {@link StartAssessmentRunCommandOutput}
  * @see {@link StartAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link StartAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link AgentsAlreadyRunningAssessmentException} (client fault)
+ *  <p>You started an assessment run, but one of the instances is already participating in
+ *          another assessment run.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidCrossAccountRoleException} (client fault)
+ *  <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
+ *          instances during the assessment run.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *          AWS account limits. The error code describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced an entity that does not exist. The
+ *          error code describes the entity.</p>
+ *
+ * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
+ *  <p>The serice is temporary unavailable.</p>
+ *
+ *
+ * @example Start assessment run
+ * ```javascript
+ * // Starts the assessment run specified by the ARN of the assessment template. For this API to function properly, you must not exceed the limit of running up to 500 concurrent agents per AWS account.
+ * const input = {
+ *   "assessmentRunName": "examplerun",
+ *   "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
+ * };
+ * const command = new StartAssessmentRunCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-jOoroxyY"
+ * }
+ * *\/
+ * // example id: start-assessment-run-1481067407484
+ * ```
  *
  */
 export class StartAssessmentRunCommand extends $Command<
@@ -64,6 +120,9 @@ export class StartAssessmentRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAssessmentRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +151,8 @@ export class StartAssessmentRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAssessmentRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartAssessmentRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +162,18 @@ export class StartAssessmentRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAssessmentRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartAssessmentRunCommand(input, context);
+    return se_StartAssessmentRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAssessmentRunCommandOutput> {
-    return deserializeAws_json1_1StartAssessmentRunCommand(output, context);
+    return de_StartAssessmentRunCommand(output, context);
   }
 
   // Start section: command_body_extra

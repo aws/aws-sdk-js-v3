@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAssociatedGroupsRequest,
-  ListAssociatedGroupsRequestFilterSensitiveLog,
-  ListAssociatedGroupsResponse,
-  ListAssociatedGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssociatedGroupsCommand,
-  serializeAws_restJson1ListAssociatedGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAssociatedGroupsRequest, ListAssociatedGroupsResponse } from "../models/models_0";
+import { de_ListAssociatedGroupsCommand, se_ListAssociatedGroupsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListAssociatedGroupsCommand}.
+ */
 export interface ListAssociatedGroupsCommandInput extends ListAssociatedGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAssociatedGroupsCommand}.
+ */
 export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the groups that the specified canary is associated with. The canary
  *       that you specify must be in the current Region.</p>
  * @example
@@ -37,13 +40,30 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  * import { SyntheticsClient, ListAssociatedGroupsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, ListAssociatedGroupsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // ListAssociatedGroupsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListAssociatedGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedGroupsCommandInput - {@link ListAssociatedGroupsCommandInput}
+ * @returns {@link ListAssociatedGroupsCommandOutput}
  * @see {@link ListAssociatedGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedGroupsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unknown internal error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One of the specified resources was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter could not be validated.</p>
+ *
  *
  */
 export class ListAssociatedGroupsCommand extends $Command<
@@ -63,6 +83,9 @@ export class ListAssociatedGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +114,8 @@ export class ListAssociatedGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociatedGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociatedGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +125,18 @@ export class ListAssociatedGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociatedGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssociatedGroupsCommand(input, context);
+    return se_ListAssociatedGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedGroupsCommandOutput> {
-    return deserializeAws_restJson1ListAssociatedGroupsCommand(output, context);
+    return de_ListAssociatedGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,17 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteBucketPolicyRequest, DeleteBucketPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketPolicyCommand,
-  serializeAws_restXmlDeleteBucketPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteBucketPolicyRequest } from "../models/models_0";
+import { de_DeleteBucketPolicyCommand, se_DeleteBucketPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
+/**
+ * @public
+ *
+ * The input for {@link DeleteBucketPolicyCommand}.
+ */
 export interface DeleteBucketPolicyCommandInput extends DeleteBucketPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBucketPolicyCommand}.
+ */
 export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action deletes an Amazon S3 on Outposts bucket policy. To delete an S3 bucket policy,
  *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html">DeleteBucketPolicy</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -36,24 +44,18 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  *          and belong to the bucket owner's account to use this action. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
  *             Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.</p>
- *
  *          <p>If you don't have <code>DeleteBucketPolicy</code> permissions, Amazon S3 returns a <code>403
  *             Access Denied</code> error. If you have the correct permissions, but you're not using an
  *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
  *             Allowed</code> error. </p>
- *
- *
  *          <important>
  *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
  *             always use this action, even if the policy explicitly denies the root user the ability
  *             to perform this action.</p>
  *          </important>
- *
  *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
  *             Policies</a>. </p>
- *
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html#API_control_DeleteBucketPolicy_Examples">Examples</a> section.</p>
- *
  *          <p>The following actions are related to <code>DeleteBucketPolicy</code>:</p>
  *          <ul>
  *             <li>
@@ -73,13 +75,20 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, DeleteBucketPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteBucketPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // DeleteBucketPolicyRequest
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBucketPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketPolicyCommandInput - {@link DeleteBucketPolicyCommandInput}
+ * @returns {@link DeleteBucketPolicyCommandOutput}
  * @see {@link DeleteBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
+ *
  *
  */
 export class DeleteBucketPolicyCommand extends $Command<
@@ -103,6 +112,9 @@ export class DeleteBucketPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +144,8 @@ export class DeleteBucketPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +155,18 @@ export class DeleteBucketPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketPolicyCommand(input, context);
+    return se_DeleteBucketPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketPolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketPolicyCommand(output, context);
+    return de_DeleteBucketPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

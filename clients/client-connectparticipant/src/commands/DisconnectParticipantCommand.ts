@@ -18,21 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import {
-  DisconnectParticipantRequest,
-  DisconnectParticipantRequestFilterSensitiveLog,
-  DisconnectParticipantResponse,
-  DisconnectParticipantResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisconnectParticipantCommand,
-  serializeAws_restJson1DisconnectParticipantCommand,
-} from "../protocols/Aws_restJson1";
+import { DisconnectParticipantRequest, DisconnectParticipantResponse } from "../models/models_0";
+import { de_DisconnectParticipantCommand, se_DisconnectParticipantCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DisconnectParticipantCommand}.
+ */
 export interface DisconnectParticipantCommandInput extends DisconnectParticipantRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisconnectParticipantCommand}.
+ */
 export interface DisconnectParticipantCommandOutput extends DisconnectParticipantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects a participant. </p>
  *          <note>
  *             <p>
@@ -47,13 +50,32 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * import { ConnectParticipantClient, DisconnectParticipantCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, DisconnectParticipantCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
+ * const input = { // DisconnectParticipantRequest
+ *   ClientToken: "STRING_VALUE",
+ *   ConnectionToken: "STRING_VALUE", // required
+ * };
  * const command = new DisconnectParticipantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectParticipantCommandInput - {@link DisconnectParticipantCommandInput}
+ * @returns {@link DisconnectParticipantCommandOutput}
  * @see {@link DisconnectParticipantCommandInput} for command's `input` shape.
  * @see {@link DisconnectParticipantCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+ *
  *
  */
 export class DisconnectParticipantCommand extends $Command<
@@ -73,6 +95,9 @@ export class DisconnectParticipantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectParticipantCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +126,8 @@ export class DisconnectParticipantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectParticipantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisconnectParticipantResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +137,18 @@ export class DisconnectParticipantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectParticipantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisconnectParticipantCommand(input, context);
+    return se_DisconnectParticipantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectParticipantCommandOutput> {
-    return deserializeAws_restJson1DisconnectParticipantCommand(output, context);
+    return de_DisconnectParticipantCommand(output, context);
   }
 
   // Start section: command_body_extra

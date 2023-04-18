@@ -17,18 +17,25 @@ import {
   ImportTerminologyRequest,
   ImportTerminologyRequestFilterSensitiveLog,
   ImportTerminologyResponse,
-  ImportTerminologyResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportTerminologyCommand,
-  serializeAws_json1_1ImportTerminologyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportTerminologyCommand, se_ImportTerminologyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ImportTerminologyCommand}.
+ */
 export interface ImportTerminologyCommandInput extends ImportTerminologyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ImportTerminologyCommand}.
+ */
 export interface ImportTerminologyCommandOutput extends ImportTerminologyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a custom terminology, depending on whether one already exists for the
  *       given terminology name. Importing a terminology with the same name as an existing one will
  *       merge the terminologies based on the chosen merge strategy. The only supported merge strategy
@@ -43,13 +50,58 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  * import { TranslateClient, ImportTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ImportTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = { // ImportTerminologyRequest
+ *   Name: "STRING_VALUE", // required
+ *   MergeStrategy: "OVERWRITE", // required
+ *   Description: "STRING_VALUE",
+ *   TerminologyData: { // TerminologyData
+ *     File: "BLOB_VALUE", // required
+ *     Format: "CSV" || "TMX" || "TSV", // required
+ *     Directionality: "UNI" || "MULTI",
+ *   },
+ *   EncryptionKey: { // EncryptionKey
+ *     Type: "KMS", // required
+ *     Id: "STRING_VALUE", // required
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ImportTerminologyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportTerminologyCommandInput - {@link ImportTerminologyCommandInput}
+ * @returns {@link ImportTerminologyCommandOutput}
  * @see {@link ImportTerminologyCommandInput} for command's `input` shape.
  * @see {@link ImportTerminologyCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of the parameter is not valid. Review the value of the parameter you are using
+ *       to correct it, and then retry your operation.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The specified limit has been exceeded. Review your request and retry it with a quantity
+ *       below the stated limit.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
+ *
  *
  */
 export class ImportTerminologyCommand extends $Command<
@@ -69,6 +121,9 @@ export class ImportTerminologyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportTerminologyCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,7 +153,7 @@ export class ImportTerminologyCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportTerminologyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportTerminologyResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +163,18 @@ export class ImportTerminologyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportTerminologyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportTerminologyCommand(input, context);
+    return se_ImportTerminologyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportTerminologyCommandOutput> {
-    return deserializeAws_json1_1ImportTerminologyCommand(output, context);
+    return de_ImportTerminologyCommand(output, context);
   }
 
   // Start section: command_body_extra

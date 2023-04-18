@@ -26,12 +26,14 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
-  DefaultsMode,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -191,6 +193,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptHandshakeCommandInput
   | AttachPolicyCommandInput
@@ -248,6 +253,9 @@ export type ServiceInputTypes =
   | UpdateOrganizationalUnitCommandInput
   | UpdatePolicyCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptHandshakeCommandOutput
   | AttachPolicyCommandOutput
@@ -305,6 +313,9 @@ export type ServiceOutputTypes =
   | UpdateOrganizationalUnitCommandOutput
   | UpdatePolicyCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -312,11 +323,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -373,19 +384,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -396,12 +398,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Enables FIPS compatible endpoints.
    */
   useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
 
   /**
    * The AWS region to which this client will send requests
@@ -421,11 +417,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * Value for how many times a request will be made at most in case of retry.
    */
-  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type OrganizationsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -436,10 +450,15 @@ type OrganizationsClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of OrganizationsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of OrganizationsClient class constructor that set the region, credentials and other options.
  */
 export interface OrganizationsClientConfig extends OrganizationsClientConfigType {}
 
+/**
+ * @public
+ */
 type OrganizationsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -450,76 +469,79 @@ type OrganizationsClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of OrganizationsClient class. This is resolved and normalized from the {@link OrganizationsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of OrganizationsClient class. This is resolved and normalized from the {@link OrganizationsClientConfig | constructor configuration interface}.
  */
 export interface OrganizationsClientResolvedConfig extends OrganizationsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Organizations is a web service that enables you to consolidate your multiple
  *             Amazon Web Services accounts into an <i>organization</i> and centrally manage your
  *             accounts and their resources.</p>
- *         <p>This guide provides descriptions of the Organizations operations. For more
+ *          <p>This guide provides descriptions of the Organizations operations. For more
  *             information about using this service, see the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">Organizations User Guide</a>.</p>
- *         <p>
+ *          <p>
  *             <b>Support and feedback for Organizations</b>
  *          </p>
- *         <p>We welcome your feedback. Send your comments to <a href="mailto:feedback-awsorganizations@amazon.com">feedback-awsorganizations@amazon.com</a> or post your feedback and questions in
+ *          <p>We welcome your feedback. Send your comments to <a href="mailto:feedback-awsorganizations@amazon.com">feedback-awsorganizations@amazon.com</a> or post your feedback and questions in
  *             the <a href="http://forums.aws.amazon.com/forum.jspa?forumID=219">Organizations support forum</a>. For
  *             more information about the Amazon Web Services support forums, see <a href="http://forums.aws.amazon.com/help.jspa">Forums Help</a>.</p>
- *         <p>
+ *          <p>
  *             <b>Endpoint to call When using the CLI or the Amazon Web Services
  *                 SDK</b>
  *          </p>
- *         <p>For the current release of Organizations, specify the <code>us-east-1</code> region
+ *          <p>For the current release of Organizations, specify the <code>us-east-1</code> region
  *             for all Amazon Web Services API and CLI calls made from the commercial Amazon Web Services Regions outside of
  *             China. If calling from one of the Amazon Web Services Regions in China, then specify
  *                 <code>cn-northwest-1</code>. You can do this in the CLI by using these parameters
  *             and commands:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Use the following parameter with each command to specify both the endpoint and
+ *                <p>Use the following parameter with each command to specify both the endpoint and
  *                     its region:</p>
- *                 <p>
+ *                <p>
  *                   <code>--endpoint-url https://organizations.us-east-1.amazonaws.com</code>
- *                     <i>(from commercial Amazon Web Services Regions outside of China)</i>
+ *                   <i>(from commercial Amazon Web Services Regions outside of China)</i>
  *                </p>
- *                 <p>or</p>
- *                 <p>
+ *                <p>or</p>
+ *                <p>
  *                   <code>--endpoint-url
  *                         https://organizations.cn-northwest-1.amazonaws.com.cn</code>
- *                     <i>(from Amazon Web Services Regions in China)</i>
+ *                   <i>(from Amazon Web Services Regions in China)</i>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>Use the default endpoint, but configure your default region with this
+ *                <p>Use the default endpoint, but configure your default region with this
  *                     command:</p>
- *                 <p>
+ *                <p>
  *                   <code>aws configure set default.region us-east-1</code>
- *                     <i>(from commercial Amazon Web Services Regions outside of China)</i>
+ *                   <i>(from commercial Amazon Web Services Regions outside of China)</i>
  *                </p>
- *                 <p>or</p>
- *                 <p>
+ *                <p>or</p>
+ *                <p>
  *                   <code>aws configure set default.region cn-northwest-1</code>
- *                     <i>(from Amazon Web Services Regions in China)</i>
+ *                   <i>(from Amazon Web Services Regions in China)</i>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>Use the following parameter with each command to specify the endpoint:</p>
- *                 <p>
+ *                <p>Use the following parameter with each command to specify the endpoint:</p>
+ *                <p>
  *                   <code>--region us-east-1</code>
- *                     <i>(from commercial Amazon Web Services Regions outside of China)</i>
+ *                   <i>(from commercial Amazon Web Services Regions outside of China)</i>
  *                </p>
- *                 <p>or</p>
- *                 <p>
+ *                <p>or</p>
+ *                <p>
  *                   <code>--region cn-northwest-1</code>
- *                     <i>(from Amazon Web Services Regions in China)</i>
+ *                   <i>(from Amazon Web Services Regions in China)</i>
  *                </p>
  *             </li>
  *          </ul>
- *         <p>
+ *          <p>
  *             <b>Recording API Requests</b>
- *         </p>
- *         <p>Organizations supports CloudTrail, a service that records Amazon Web Services API calls for your
+ *          </p>
+ *          <p>Organizations supports CloudTrail, a service that records Amazon Web Services API calls for your
  *             Amazon Web Services account and delivers log files to an Amazon S3 bucket. By using information collected
  *             by CloudTrail, you can determine which requests the Organizations service received, who made the
  *             request and when, and so on. For more about Organizations and its support for CloudTrail, see

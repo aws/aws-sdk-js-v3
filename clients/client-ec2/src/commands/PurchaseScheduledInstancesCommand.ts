@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  PurchaseScheduledInstancesRequest,
-  PurchaseScheduledInstancesRequestFilterSensitiveLog,
-  PurchaseScheduledInstancesResult,
-  PurchaseScheduledInstancesResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2PurchaseScheduledInstancesCommand,
-  serializeAws_ec2PurchaseScheduledInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { PurchaseScheduledInstancesRequest, PurchaseScheduledInstancesResult } from "../models/models_6";
+import { de_PurchaseScheduledInstancesCommand, se_PurchaseScheduledInstancesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ *
+ * The input for {@link PurchaseScheduledInstancesCommand}.
+ */
 export interface PurchaseScheduledInstancesCommandInput extends PurchaseScheduledInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PurchaseScheduledInstancesCommand}.
+ */
 export interface PurchaseScheduledInstancesCommandOutput extends PurchaseScheduledInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>You can no longer purchase Scheduled Instances.</p>
  *          </note>
@@ -44,13 +47,72 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  * import { EC2Client, PurchaseScheduledInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, PurchaseScheduledInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // PurchaseScheduledInstancesRequest
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   PurchaseRequests: [ // PurchaseRequestSet // required
+ *     { // PurchaseRequest
+ *       InstanceCount: Number("int"), // required
+ *       PurchaseToken: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PurchaseScheduledInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseScheduledInstancesCommandInput - {@link PurchaseScheduledInstancesCommandInput}
+ * @returns {@link PurchaseScheduledInstancesCommandOutput}
  * @see {@link PurchaseScheduledInstancesCommandInput} for command's `input` shape.
  * @see {@link PurchaseScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ *
+ * @example To purchase a Scheduled Instance
+ * ```javascript
+ * // This example purchases a Scheduled Instance.
+ * const input = {
+ *   "PurchaseRequests": [
+ *     {
+ *       "InstanceCount": 1,
+ *       "PurchaseToken": "eyJ2IjoiMSIsInMiOjEsImMiOi..."
+ *     }
+ *   ]
+ * };
+ * const command = new PurchaseScheduledInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ScheduledInstanceSet": [
+ *     {
+ *       "AvailabilityZone": "us-west-2b",
+ *       "CreateDate": "2016-01-25T21:43:38.612Z",
+ *       "HourlyPrice": "0.095",
+ *       "InstanceCount": 1,
+ *       "InstanceType": "c4.large",
+ *       "NetworkPlatform": "EC2-VPC",
+ *       "NextSlotStartTime": "2016-01-31T09:00:00Z",
+ *       "Platform": "Linux/UNIX",
+ *       "Recurrence": {
+ *         "Frequency": "Weekly",
+ *         "Interval": 1,
+ *         "OccurrenceDaySet": [
+ *           1
+ *         ],
+ *         "OccurrenceRelativeToEnd": false,
+ *         "OccurrenceUnit": ""
+ *       },
+ *       "ScheduledInstanceId": "sci-1234-1234-1234-1234-123456789012",
+ *       "SlotDurationInHours": 32,
+ *       "TermEndDate": "2017-01-31T09:00:00Z",
+ *       "TermStartDate": "2016-01-31T09:00:00Z",
+ *       "TotalScheduledInstanceHours": 1696
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: ec2-purchase-scheduled-instances-1
+ * ```
  *
  */
 export class PurchaseScheduledInstancesCommand extends $Command<
@@ -70,6 +132,9 @@ export class PurchaseScheduledInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseScheduledInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +163,8 @@ export class PurchaseScheduledInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseScheduledInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseScheduledInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +174,21 @@ export class PurchaseScheduledInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseScheduledInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2PurchaseScheduledInstancesCommand(input, context);
+    return se_PurchaseScheduledInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseScheduledInstancesCommandOutput> {
-    return deserializeAws_ec2PurchaseScheduledInstancesCommand(output, context);
+    return de_PurchaseScheduledInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

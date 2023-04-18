@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDomainsForPackageRequest,
-  ListDomainsForPackageRequestFilterSensitiveLog,
-  ListDomainsForPackageResponse,
-  ListDomainsForPackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDomainsForPackageRequest, ListDomainsForPackageResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1ListDomainsForPackageCommand,
-  serializeAws_restJson1ListDomainsForPackageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDomainsForPackageCommand, se_ListDomainsForPackageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListDomainsForPackageCommand}.
+ */
 export interface ListDomainsForPackageCommandInput extends ListDomainsForPackageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDomainsForPackageCommand}.
+ */
 export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Amazon OpenSearch Service domains associated with a given package. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
  *     OpenSearch Service</a>.</p>
@@ -38,13 +41,36 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  * import { OpenSearchClient, ListDomainsForPackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListDomainsForPackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // ListDomainsForPackageRequest
+ *   PackageID: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDomainsForPackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDomainsForPackageCommandInput - {@link ListDomainsForPackageCommandInput}
+ * @returns {@link ListDomainsForPackageCommandOutput}
  * @see {@link ListDomainsForPackageCommandInput} for command's `input` shape.
  * @see {@link ListDomainsForPackageCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An error occurred because you don't have permissions to access the resource.</p>
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
  *
  */
 export class ListDomainsForPackageCommand extends $Command<
@@ -64,6 +90,9 @@ export class ListDomainsForPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDomainsForPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +121,8 @@ export class ListDomainsForPackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainsForPackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainsForPackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +132,18 @@ export class ListDomainsForPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDomainsForPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDomainsForPackageCommand(input, context);
+    return se_ListDomainsForPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainsForPackageCommandOutput> {
-    return deserializeAws_restJson1ListDomainsForPackageCommand(output, context);
+    return de_ListDomainsForPackageCommand(output, context);
   }
 
   // Start section: command_body_extra

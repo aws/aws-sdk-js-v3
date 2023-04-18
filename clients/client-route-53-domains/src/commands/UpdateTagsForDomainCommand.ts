@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTagsForDomainRequest,
-  UpdateTagsForDomainRequestFilterSensitiveLog,
-  UpdateTagsForDomainResponse,
-  UpdateTagsForDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTagsForDomainCommand,
-  serializeAws_json1_1UpdateTagsForDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTagsForDomainRequest, UpdateTagsForDomainResponse } from "../models/models_0";
+import { de_UpdateTagsForDomainCommand, se_UpdateTagsForDomainCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateTagsForDomainCommand}.
+ */
 export interface UpdateTagsForDomainCommandInput extends UpdateTagsForDomainRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTagsForDomainCommand}.
+ */
 export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation adds or updates tags for a specified domain.</p>
  *          <p>All tag operations are eventually consistent; subsequent operations might not
  * 			immediately represent all issued operations.</p>
@@ -38,13 +41,38 @@ export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainRes
  * import { Route53DomainsClient, UpdateTagsForDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, UpdateTagsForDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // UpdateTagsForDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   TagsToUpdate: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateTagsForDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTagsForDomainCommandInput - {@link UpdateTagsForDomainCommandInput}
+ * @returns {@link UpdateTagsForDomainCommandOutput}
  * @see {@link UpdateTagsForDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateTagsForDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link OperationLimitExceeded} (client fault)
+ *  <p>The number of operations or jobs running exceeded the allowed threshold for the
+ * 			account.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
  *
  */
 export class UpdateTagsForDomainCommand extends $Command<
@@ -64,6 +92,9 @@ export class UpdateTagsForDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTagsForDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +123,8 @@ export class UpdateTagsForDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTagsForDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTagsForDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +134,18 @@ export class UpdateTagsForDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTagsForDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTagsForDomainCommand(input, context);
+    return se_UpdateTagsForDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTagsForDomainCommandOutput> {
-    return deserializeAws_json1_1UpdateTagsForDomainCommand(output, context);
+    return de_UpdateTagsForDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

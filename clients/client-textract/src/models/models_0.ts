@@ -7,6 +7,7 @@ import {
 import { TextractServiceException as __BaseException } from "./TextractServiceException";
 
 /**
+ * @public
  * <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
  *             of an authorized user or IAM role to perform the operation.</p>
  */
@@ -31,10 +32,10 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The S3 bucket name and file name that identifies the document.</p>
  *          <p>The AWS Region for the S3 bucket that contains the document must match the Region that
  *          you use for Amazon Textract operations.</p>
- *
  *          <p>For Amazon Textract to process a file in an S3 bucket, the user must have
  *          permission to access the S3 bucket and file.
  *
@@ -60,6 +61,7 @@ export interface S3Object {
 }
 
 /**
+ * @public
  * <p>The input document, either as bytes or as an S3 object.</p>
  *          <p>You pass image bytes to an Amazon Textract API operation by using the <code>Bytes</code>
  *          property. For example, you would use the <code>Bytes</code> property to pass a document
@@ -74,7 +76,6 @@ export interface S3Object {
  *          <p>If you use the AWS CLI to call Amazon Textract operations, passing image bytes using
  *          the Bytes property isn't supported. You must first upload the document to an Amazon S3
  *          bucket, and then call the operation using the S3Object property.</p>
- *
  *          <p>For Amazon Textract to process an S3 object, the user must have permission
  *          to access the S3 object. </p>
  */
@@ -94,19 +95,38 @@ export interface Document {
   S3Object?: S3Object;
 }
 
-export enum FeatureType {
-  FORMS = "FORMS",
-  QUERIES = "QUERIES",
-  SIGNATURES = "SIGNATURES",
-  TABLES = "TABLES",
-}
-
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FeatureType = {
+  FORMS: "FORMS",
+  QUERIES: "QUERIES",
+  SIGNATURES: "SIGNATURES",
+  TABLES: "TABLES",
+} as const;
 
 /**
+ * @public
+ */
+export type FeatureType = (typeof FeatureType)[keyof typeof FeatureType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentClassifier = {
+  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentClassifier = (typeof ContentClassifier)[keyof typeof ContentClassifier];
+
+/**
+ * @public
  * <p>Allows you to set attributes of the image. Currently, you can declare an image as free
  *          of personally identifiable information and adult content. </p>
  */
@@ -119,6 +139,7 @@ export interface HumanLoopDataAttributes {
 }
 
 /**
+ * @public
  * <p>Sets up the human review workflow the document will be sent to if one of the conditions
  *          is met. You can also set certain attributes of the image before review. </p>
  */
@@ -141,6 +162,7 @@ export interface HumanLoopConfig {
 }
 
 /**
+ * @public
  * <p>Each query contains the question you want to ask in the Text and the alias you want to associate.</p>
  */
 export interface Query {
@@ -181,6 +203,7 @@ export interface Query {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface QueriesConfig {
@@ -190,6 +213,9 @@ export interface QueriesConfig {
   Queries: Query[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeDocumentRequest {
   /**
    * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS
@@ -223,28 +249,55 @@ export interface AnalyzeDocumentRequest {
   QueriesConfig?: QueriesConfig;
 }
 
-export enum BlockType {
-  CELL = "CELL",
-  KEY_VALUE_SET = "KEY_VALUE_SET",
-  LINE = "LINE",
-  MERGED_CELL = "MERGED_CELL",
-  PAGE = "PAGE",
-  QUERY = "QUERY",
-  QUERY_RESULT = "QUERY_RESULT",
-  SELECTION_ELEMENT = "SELECTION_ELEMENT",
-  SIGNATURE = "SIGNATURE",
-  TABLE = "TABLE",
-  TITLE = "TITLE",
-  WORD = "WORD",
-}
-
-export enum EntityType {
-  COLUMN_HEADER = "COLUMN_HEADER",
-  KEY = "KEY",
-  VALUE = "VALUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BlockType = {
+  CELL: "CELL",
+  KEY_VALUE_SET: "KEY_VALUE_SET",
+  LINE: "LINE",
+  MERGED_CELL: "MERGED_CELL",
+  PAGE: "PAGE",
+  QUERY: "QUERY",
+  QUERY_RESULT: "QUERY_RESULT",
+  SELECTION_ELEMENT: "SELECTION_ELEMENT",
+  SIGNATURE: "SIGNATURE",
+  TABLE: "TABLE",
+  TABLE_FOOTER: "TABLE_FOOTER",
+  TABLE_TITLE: "TABLE_TITLE",
+  TITLE: "TITLE",
+  WORD: "WORD",
+} as const;
 
 /**
+ * @public
+ */
+export type BlockType = (typeof BlockType)[keyof typeof BlockType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EntityType = {
+  COLUMN_HEADER: "COLUMN_HEADER",
+  KEY: "KEY",
+  SEMI_STRUCTURED_TABLE: "SEMI_STRUCTURED_TABLE",
+  STRUCTURED_TABLE: "STRUCTURED_TABLE",
+  TABLE_FOOTER: "TABLE_FOOTER",
+  TABLE_SECTION_TITLE: "TABLE_SECTION_TITLE",
+  TABLE_SUMMARY: "TABLE_SUMMARY",
+  TABLE_TITLE: "TABLE_TITLE",
+  VALUE: "VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
+
+/**
+ * @public
  * <p>The bounding box around the detected page, text, key-value pair, table, table cell, or
  *          selection element on a document page. The <code>left</code> (x-coordinate) and
  *             <code>top</code> (y-coordinate) are coordinates that represent the top and left sides of
@@ -285,11 +338,11 @@ export interface BoundingBox {
 }
 
 /**
+ * @public
  * <p>The X and Y coordinates of a point on a document page. The X and Y
  *          values that are returned are ratios of the overall document page size. For example, if the
  *          input document is 700 x 200 and the operation returns X=0.5 and Y=0.25, then the point is
  *          at the (350,50) pixel coordinate on the document page.</p>
- *
  *          <p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned
  *          by <a>DetectDocumentText</a>. <code>Polygon</code> represents a fine-grained
  *          polygon around detected text. For more information, see Geometry in the Amazon Textract
@@ -308,6 +361,7 @@ export interface Point {
 }
 
 /**
+ * @public
  * <p>Information about where the following items are located on a document page: detected
  *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
  */
@@ -324,16 +378,29 @@ export interface Geometry {
   Polygon?: Point[];
 }
 
-export enum RelationshipType {
-  ANSWER = "ANSWER",
-  CHILD = "CHILD",
-  COMPLEX_FEATURES = "COMPLEX_FEATURES",
-  MERGED_CELL = "MERGED_CELL",
-  TITLE = "TITLE",
-  VALUE = "VALUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RelationshipType = {
+  ANSWER: "ANSWER",
+  CHILD: "CHILD",
+  COMPLEX_FEATURES: "COMPLEX_FEATURES",
+  MERGED_CELL: "MERGED_CELL",
+  TABLE: "TABLE",
+  TABLE_FOOTER: "TABLE_FOOTER",
+  TABLE_TITLE: "TABLE_TITLE",
+  TITLE: "TITLE",
+  VALUE: "VALUE",
+} as const;
 
 /**
+ * @public
+ */
+export type RelationshipType = (typeof RelationshipType)[keyof typeof RelationshipType];
+
+/**
+ * @public
  * <p>Information about how blocks are related to each other. A <code>Block</code> object
  *          contains 0 or more <code>Relation</code> objects in a list, <code>Relationships</code>. For
  *          more information, see <a>Block</a>.</p>
@@ -342,12 +409,46 @@ export enum RelationshipType {
  */
 export interface Relationship {
   /**
-   * <p>The type of relationship that the blocks in the IDs array have with the current block.
-   *          The relationship can be <code>VALUE</code> or <code>CHILD</code>. A relationship of type
-   *          VALUE is a list that contains the ID of the VALUE block that's associated with the KEY of a
-   *          key-value pair. A relationship of type CHILD is a list of IDs that identify WORD blocks in
-   *          the case of lines Cell blocks in the case of Tables, and WORD blocks in the case of
-   *          Selection Elements.</p>
+   * <p>The type of relationship between the blocks in the IDs array and the current block. The
+   *          following list describes the relationship types that can be returned. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>VALUE</i> - A list that contains the ID of the VALUE block that's associated with the
+   *                KEY of a key-value pair.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>CHILD</i> - A list of IDs that identify blocks found within the
+   *                current block object. For example, WORD blocks have a CHILD relationship to the LINE
+   *                block type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>MERGED_CELL</i> - A list of IDs that identify each of the
+   *                MERGED_CELL block types in a table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>ANSWER</i> - A list that contains the ID of the QUERY_RESULT
+   *                block that’s associated with the corresponding QUERY block. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE</i> - A list of IDs that identify associated TABLE block
+   *                types. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_TITLE</i> - A list that contains the ID for the TABLE_TITLE
+   *                block type in a table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_FOOTER</i> - A list of IDs that identify the TABLE_FOOTER
+   *                block types in a table. </p>
+   *             </li>
+   *          </ul>
    */
   Type?: RelationshipType | string;
 
@@ -359,17 +460,36 @@ export interface Relationship {
   Ids?: string[];
 }
 
-export enum SelectionStatus {
-  NOT_SELECTED = "NOT_SELECTED",
-  SELECTED = "SELECTED",
-}
-
-export enum TextType {
-  HANDWRITING = "HANDWRITING",
-  PRINTED = "PRINTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SelectionStatus = {
+  NOT_SELECTED: "NOT_SELECTED",
+  SELECTED: "SELECTED",
+} as const;
 
 /**
+ * @public
+ */
+export type SelectionStatus = (typeof SelectionStatus)[keyof typeof SelectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TextType = {
+  HANDWRITING: "HANDWRITING",
+  PRINTED: "PRINTED",
+} as const;
+
+/**
+ * @public
+ */
+export type TextType = (typeof TextType)[keyof typeof TextType];
+
+/**
+ * @public
  * <p>A <code>Block</code> represents items that are recognized in a document within a group
  *          of pixels close to each other. The information returned in a <code>Block</code> object
  *          depends on the type of operation. In text detection for documents (for example <a>DetectDocumentText</a>), you get information about the detected words and lines
@@ -436,8 +556,25 @@ export interface Block {
    *             </li>
    *             <li>
    *                <p>
+   *                   <i>TABLE_TITLE</i> - The title of a table. A title is typically a
+   *                line of text above or below a table, or embedded as the first row of a table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_FOOTER</i> - The footer associated with a table. A footer
+   *                is typically a line or lines of text below a table or embedded as the last row of a
+   *                table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <i>CELL</i> - A cell within a detected table. The cell is the parent
    *                of the block that contains the text in the cell.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>MERGED_CELL</i>  - A cell in a table whose content spans more than
+   *                one row or column. The <code>Relationships</code> array for this cell contain data
+   *                from individual cells.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -498,15 +635,13 @@ export interface Block {
   ColumnIndex?: number;
 
   /**
-   * <p>The number of rows that a table cell spans. Currently this value is always 1, even if
-   *          the number of rows spanned is greater than 1. <code>RowSpan</code> isn't returned by
+   * <p>The number of rows that a table cell spans. <code>RowSpan</code> isn't returned by
    *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
    */
   RowSpan?: number;
 
   /**
-   * <p>The number of columns that a table cell spans. Currently this value is always 1, even if
-   *          the number of columns spanned is greater than 1. <code>ColumnSpan</code> isn't returned by
+   * <p>The number of columns that a table cell spans. <code>ColumnSpan</code> isn't returned by
    *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
    */
   ColumnSpan?: number;
@@ -525,23 +660,16 @@ export interface Block {
   Id?: string;
 
   /**
-   * <p>A list of child blocks of the current block. For example, a LINE object has child blocks
-   *          for each WORD block that's part of the line of text. There aren't Relationship objects in
-   *          the list for relationships that don't exist, such as when the current block has no child
-   *          blocks. The list size can be the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>0 - The block has no child blocks.</p>
-   *             </li>
-   *             <li>
-   *                <p>1 - The block has child blocks.</p>
-   *             </li>
-   *          </ul>
+   * <p>A list of relationship objects that describe how blocks are related to each other. For
+   *          example, a LINE block object contains a CHILD relationship type with the WORD blocks that
+   *          make up the line of text. There aren't Relationship objects in the list for relationships
+   *          that don't exist, such as when the current block has no child blocks.</p>
    */
   Relationships?: Relationship[];
 
   /**
-   * <p>The type of entity. The following can be returned:</p>
+   * <p>The type of entity. </p>
+   *          <p>The following entity types can be returned by FORMS analysis:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -550,6 +678,43 @@ export interface Block {
    *             <li>
    *                <p>
    *                   <i>VALUE</i> - The field text.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The following entity types can be returned by TABLES analysis:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>COLUMN_HEADER</i> - Identifies a cell that is a header of a column. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_TITLE</i> - Identifies a cell that is a title within the
+   *                table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_SECTION_TITLE</i> - Identifies a cell that is a title of a
+   *                section within a table. A section title is a cell that typically spans an entire row
+   *                above a section. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_FOOTER</i> - Identifies a cell that is a footer of a table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_SUMMARY</i> - Identifies a summary cell of a table. A
+   *                summary cell can be a row of a table or an additional, smaller table that contains
+   *                summary information for another table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>STRUCTURED_TABLE </i> - Identifies a table with column headers
+   *                where the content of each row corresponds to the headers. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>SEMI_STRUCTURED_TABLE</i> - Identifies a non-structured table. </p>
    *             </li>
    *          </ul>
    *          <p>
@@ -570,7 +735,7 @@ export interface Block {
    *          documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an
    *          asynchronous operation, even if it contains multiple document pages, is considered a
    *          single-page document. This means that for scanned images the value of <code>Page</code> is
-   *          always 1. Synchronous operations operations will also return a <code>Page</code> value of 1
+   *          always 1. Synchronous operations will also return a <code>Page</code> value of 1
    *          because every input document is considered to be a single-page document.</p>
    */
   Page?: number;
@@ -582,6 +747,7 @@ export interface Block {
 }
 
 /**
+ * @public
  * <p>Information about the input document.</p>
  */
 export interface DocumentMetadata {
@@ -592,6 +758,7 @@ export interface DocumentMetadata {
 }
 
 /**
+ * @public
  * <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the
  *          input did not trigger human review.</p>
  */
@@ -613,6 +780,9 @@ export interface HumanLoopActivationOutput {
   HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeDocumentResponse {
   /**
    * <p>Metadata about the analyzed document. An example is the number of pages.</p>
@@ -636,6 +806,7 @@ export interface AnalyzeDocumentResponse {
 }
 
 /**
+ * @public
  * <p>Amazon Textract isn't able to read the document. For more information on the document
  *          limits in Amazon Textract, see <a>limits</a>.</p>
  */
@@ -660,6 +831,7 @@ export class BadDocumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The document can't be processed because it's too large. The maximum document size for
  *          synchronous operations 10 MB. The maximum document size for asynchronous operations is 500
  *          MB for PDF files.</p>
@@ -685,6 +857,7 @@ export class DocumentTooLargeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates you have exceeded the maximum number of active human in the loop workflows available</p>
  */
 export class HumanLoopQuotaExceededException extends __BaseException {
@@ -726,6 +899,7 @@ export class HumanLoopQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Textract experienced a service issue. Try your call again.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -749,6 +923,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An input parameter violated a constraint. For example, in synchronous operations,
  *        an <code>InvalidParameterException</code> exception occurs
  *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
@@ -776,6 +951,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Textract is unable to access the S3 object that's specified in the request.
  *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
  *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
@@ -802,6 +978,7 @@ export class InvalidS3ObjectException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
  *          contact Amazon Textract.</p>
  */
@@ -826,6 +1003,7 @@ export class ProvisionedThroughputExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -849,6 +1027,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The format of the input document isn't supported. Documents for operations can be in
  *          PNG, JPEG, PDF, or TIFF format.</p>
  */
@@ -872,6 +1051,9 @@ export class UnsupportedDocumentException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeExpenseRequest {
   /**
    * <p>The input document, either as bytes or as an S3 object.</p>
@@ -888,7 +1070,6 @@ export interface AnalyzeExpenseRequest {
    *          <p>If you use the AWS CLI to call Amazon Textract operations, passing image bytes using
    *          the Bytes property isn't supported. You must first upload the document to an Amazon S3
    *          bucket, and then call the operation using the S3Object property.</p>
-   *
    *          <p>For Amazon Textract to process an S3 object, the user must have permission
    *          to access the S3 object. </p>
    */
@@ -896,6 +1077,7 @@ export interface AnalyzeExpenseRequest {
 }
 
 /**
+ * @public
  * <p>Returns the kind of currency detected.</p>
  */
 export interface ExpenseCurrency {
@@ -949,6 +1131,7 @@ export interface ExpenseCurrency {
 }
 
 /**
+ * @public
  * <p>Shows the group that a certain key belongs to. This helps differentiate between
  *          names and addresses for different organizations, that can be hard to determine
  *          via JSON response.</p>
@@ -966,6 +1149,7 @@ export interface ExpenseGroupProperty {
 }
 
 /**
+ * @public
  * <p>An object used to store information about the Value or Label detected by Amazon Textract.</p>
  */
 export interface ExpenseDetection {
@@ -987,6 +1171,7 @@ export interface ExpenseDetection {
 }
 
 /**
+ * @public
  * <p>An object used to store information about the Type detected by Amazon Textract.</p>
  */
 export interface ExpenseType {
@@ -1002,6 +1187,7 @@ export interface ExpenseType {
 }
 
 /**
+ * @public
  * <p>Breakdown of detected information, seperated into
  *          the catagories Type, LabelDetection, and ValueDetection</p>
  */
@@ -1040,6 +1226,7 @@ export interface ExpenseField {
 }
 
 /**
+ * @public
  * <p>A structure that holds information about the different lines found in a document's tables.</p>
  */
 export interface LineItemFields {
@@ -1050,6 +1237,7 @@ export interface LineItemFields {
 }
 
 /**
+ * @public
  * <p>A grouping of tables which contain LineItems, with each table identified by the table's <code>LineItemGroupIndex</code>.</p>
  */
 export interface LineItemGroup {
@@ -1065,6 +1253,7 @@ export interface LineItemGroup {
 }
 
 /**
+ * @public
  * <p>The structure holding all the information returned by AnalyzeExpense</p>
  */
 export interface ExpenseDocument {
@@ -1091,6 +1280,9 @@ export interface ExpenseDocument {
   Blocks?: Block[];
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeExpenseResponse {
   /**
    * <p>Information about the input document.</p>
@@ -1103,6 +1295,9 @@ export interface AnalyzeExpenseResponse {
   ExpenseDocuments?: ExpenseDocument[];
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeIDRequest {
   /**
    * <p>The document being passed to AnalyzeID.</p>
@@ -1110,11 +1305,21 @@ export interface AnalyzeIDRequest {
   DocumentPages: Document[] | undefined;
 }
 
-export enum ValueType {
-  DATE = "DATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValueType = {
+  DATE: "DATE",
+} as const;
 
 /**
+ * @public
+ */
+export type ValueType = (typeof ValueType)[keyof typeof ValueType];
+
+/**
+ * @public
  * <p>Contains information relating to dates in a document, including the type
  *          of value, and the value.</p>
  */
@@ -1131,6 +1336,7 @@ export interface NormalizedValue {
 }
 
 /**
+ * @public
  * <p>Used to contain the information detected by an AnalyzeID operation.</p>
  */
 export interface AnalyzeIDDetections {
@@ -1152,6 +1358,7 @@ export interface AnalyzeIDDetections {
 }
 
 /**
+ * @public
  * <p>Structure containing both the normalized type of the extracted information
  *          and the text associated with it. These are extracted as Type and Value respectively.</p>
  */
@@ -1168,6 +1375,7 @@ export interface IdentityDocumentField {
 }
 
 /**
+ * @public
  * <p>The structure that lists each document processed in an AnalyzeID operation.</p>
  */
 export interface IdentityDocument {
@@ -1189,6 +1397,9 @@ export interface IdentityDocument {
   Blocks?: Block[];
 }
 
+/**
+ * @public
+ */
 export interface AnalyzeIDResponse {
   /**
    * <p>The list of documents processed by AnalyzeID. Includes a number denoting their place in
@@ -1207,6 +1418,9 @@ export interface AnalyzeIDResponse {
   AnalyzeIDModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DetectDocumentTextRequest {
   /**
    * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
@@ -1218,6 +1432,9 @@ export interface DetectDocumentTextRequest {
   Document: Document | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DetectDocumentTextResponse {
   /**
    * <p>Metadata about the document. It contains the number of pages that are detected in the
@@ -1238,6 +1455,7 @@ export interface DetectDocumentTextResponse {
 }
 
 /**
+ * @public
  * <p>A structure that holds information regarding a detected signature on a page.</p>
  */
 export interface DetectedSignature {
@@ -1248,6 +1466,7 @@ export interface DetectedSignature {
 }
 
 /**
+ * @public
  * <p>Contains information about the pages of a document, defined by logical boundary.</p>
  */
 export interface SplitDocument {
@@ -1263,6 +1482,7 @@ export interface SplitDocument {
 }
 
 /**
+ * @public
  * <p>A structure containing information about an undetected signature on a page where it was expected but not found.</p>
  */
 export interface UndetectedSignature {
@@ -1273,11 +1493,12 @@ export interface UndetectedSignature {
 }
 
 /**
+ * @public
  * <p>Summary information about documents grouped by the same document type.</p>
  */
 export interface DocumentGroup {
   /**
-   * <p>The type of document that Amazon Textract has detected. See LINK for a list of all types returned by Textract.</p>
+   * <p>The type of document that Amazon Textract has detected. See <a href="https://docs.aws.amazon.com/textract/latest/dg/lending-response-objects.html">Analyze Lending Response Objects</a> for a list of all types returned by Textract.</p>
    */
   Type?: string;
 
@@ -1298,6 +1519,7 @@ export interface DocumentGroup {
 }
 
 /**
+ * @public
  * <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous
  *          operations.</p>
  *          <p>The input document can be an image file in JPEG or PNG format. It can also be a file in
@@ -1311,6 +1533,7 @@ export interface DocumentLocation {
 }
 
 /**
+ * @public
  * <p>The results extracted for a lending document.</p>
  */
 export interface LendingDetection {
@@ -1337,6 +1560,7 @@ export interface LendingDetection {
 }
 
 /**
+ * @public
  * <p>Holds the normalized key-value pairs returned by AnalyzeDocument, including the document type, detected text, and geometry.</p>
  */
 export interface LendingField {
@@ -1357,6 +1581,7 @@ export interface LendingField {
 }
 
 /**
+ * @public
  * <p>Information regarding a detected signature on a page.</p>
  */
 export interface SignatureDetection {
@@ -1373,6 +1598,7 @@ export interface SignatureDetection {
 }
 
 /**
+ * @public
  * <p>Holds the structured data returned by AnalyzeDocument for lending documents.</p>
  */
 export interface LendingDocument {
@@ -1388,6 +1614,7 @@ export interface LendingDocument {
 }
 
 /**
+ * @public
  * <p>Contains information extracted by an analysis operation after using StartLendingAnalysis.</p>
  */
 export interface Extraction {
@@ -1407,6 +1634,9 @@ export interface Extraction {
   IdentityDocument?: IdentityDocument;
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentAnalysisRequest {
   /**
    * <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from
@@ -1430,14 +1660,24 @@ export interface GetDocumentAnalysisRequest {
   NextToken?: string;
 }
 
-export enum JobStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
  * <p>A warning about an issue that occurred during asynchronous text analysis (<a>StartDocumentAnalysis</a>) or asynchronous document text detection (<a>StartDocumentTextDetection</a>). </p>
  */
 export interface Warning {
@@ -1452,6 +1692,9 @@ export interface Warning {
   Pages?: number[];
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentAnalysisResponse {
   /**
    * <p>Information about a document that Amazon Textract processed.
@@ -1494,6 +1737,7 @@ export interface GetDocumentAnalysisResponse {
 }
 
 /**
+ * @public
  * <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
  */
 export class InvalidJobIdException extends __BaseException {
@@ -1517,6 +1761,7 @@ export class InvalidJobIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
  *         was entered incorrectly. </p>
  */
@@ -1540,6 +1785,9 @@ export class InvalidKMSKeyException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentTextDetectionRequest {
   /**
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
@@ -1561,6 +1809,9 @@ export interface GetDocumentTextDetectionRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentTextDetectionResponse {
   /**
    * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
@@ -1601,6 +1852,9 @@ export interface GetDocumentTextDetectionResponse {
   DetectDocumentTextModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetExpenseAnalysisRequest {
   /**
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
@@ -1622,6 +1876,9 @@ export interface GetExpenseAnalysisRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetExpenseAnalysisResponse {
   /**
    * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
@@ -1662,6 +1919,9 @@ export interface GetExpenseAnalysisResponse {
   AnalyzeExpenseModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLendingAnalysisRequest {
   /**
    * <p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is
@@ -1686,6 +1946,7 @@ export interface GetLendingAnalysisRequest {
 }
 
 /**
+ * @public
  * <p>Contains information regarding predicted values returned by Amazon Textract operations, including the
  *          predicted value and the confidence in the predicted value.</p>
  */
@@ -1702,6 +1963,7 @@ export interface Prediction {
 }
 
 /**
+ * @public
  * <p>The class assigned to a Page object detected in an input document.
  *          Contains information regarding the predicted type/class of a document's page and the
  *          page number that the Page object was detected on.</p>
@@ -1720,6 +1982,7 @@ export interface PageClassification {
 }
 
 /**
+ * @public
  * <p>Contains the detections for each page analyzed through the Analyze Lending API.</p>
  */
 export interface LendingResult {
@@ -1739,6 +2002,9 @@ export interface LendingResult {
   Extractions?: Extraction[];
 }
 
+/**
+ * @public
+ */
 export interface GetLendingAnalysisResponse {
   /**
    * <p>Information about the input document.</p>
@@ -1779,6 +2045,9 @@ export interface GetLendingAnalysisResponse {
   AnalyzeLendingModelVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLendingAnalysisSummaryRequest {
   /**
    * <p> A unique identifier for the lending or text-detection job. The <code>JobId</code> is
@@ -1788,6 +2057,7 @@ export interface GetLendingAnalysisSummaryRequest {
 }
 
 /**
+ * @public
  * <p>Contains information regarding DocumentGroups and UndetectedDocumentTypes.</p>
  */
 export interface LendingSummary {
@@ -1802,6 +2072,9 @@ export interface LendingSummary {
   UndetectedDocumentTypes?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetLendingAnalysisSummaryResponse {
   /**
    * <p>Information about the input document.</p>
@@ -1836,6 +2109,7 @@ export interface GetLendingAnalysisSummaryResponse {
 }
 
 /**
+ * @public
  * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at
  *          least one of the other input parameters is different from the previous call to the
  *          operation. </p>
@@ -1861,6 +2135,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An Amazon Textract service limit was exceeded. For example, if you start too many
  *          asynchronous jobs concurrently, calls to start operations
  *             (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException
@@ -1888,6 +2163,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of
  *          an asynchronous document operation. </p>
  */
@@ -1904,6 +2180,7 @@ export interface NotificationChannel {
 }
 
 /**
+ * @public
  * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
  *          of the bucket, and the prefix on the output file.</p>
  *          <p>
@@ -1935,6 +2212,9 @@ export interface OutputConfig {
   S3Prefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDocumentAnalysisRequest {
   /**
    * <p>The location of the document to be processed.</p>
@@ -1995,6 +2275,9 @@ export interface StartDocumentAnalysisRequest {
   QueriesConfig?: QueriesConfig;
 }
 
+/**
+ * @public
+ */
 export interface StartDocumentAnalysisResponse {
   /**
    * <p>The identifier for the document text detection job. Use <code>JobId</code> to identify
@@ -2004,6 +2287,9 @@ export interface StartDocumentAnalysisResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDocumentTextDetectionRequest {
   /**
    * <p>The location of the document to be processed.</p>
@@ -2049,6 +2335,9 @@ export interface StartDocumentTextDetectionRequest {
   KMSKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartDocumentTextDetectionResponse {
   /**
    * <p>The identifier of the text detection job for the document. Use <code>JobId</code> to
@@ -2058,6 +2347,9 @@ export interface StartDocumentTextDetectionResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartExpenseAnalysisRequest {
   /**
    * <p>The location of the document to be processed.</p>
@@ -2103,6 +2395,9 @@ export interface StartExpenseAnalysisRequest {
   KMSKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartExpenseAnalysisResponse {
   /**
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
@@ -2111,6 +2406,9 @@ export interface StartExpenseAnalysisResponse {
   JobId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartLendingAnalysisRequest {
   /**
    * <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous
@@ -2172,6 +2470,9 @@ export interface StartLendingAnalysisRequest {
   KMSKeyId?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartLendingAnalysisResponse {
   /**
    * <p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is
@@ -2180,479 +2481,3 @@ export interface StartLendingAnalysisResponse {
    */
   JobId?: string;
 }
-
-/**
- * @internal
- */
-export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentFilterSensitiveLog = (obj: Document): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanLoopDataAttributesFilterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanLoopConfigFilterSensitiveLog = (obj: HumanLoopConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryFilterSensitiveLog = (obj: Query): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueriesConfigFilterSensitiveLog = (obj: QueriesConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalyzeDocumentRequestFilterSensitiveLog = (obj: AnalyzeDocumentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BoundingBoxFilterSensitiveLog = (obj: BoundingBox): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PointFilterSensitiveLog = (obj: Point): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeometryFilterSensitiveLog = (obj: Geometry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationshipFilterSensitiveLog = (obj: Relationship): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlockFilterSensitiveLog = (obj: Block): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentMetadataFilterSensitiveLog = (obj: DocumentMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanLoopActivationOutputFilterSensitiveLog = (obj: HumanLoopActivationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalyzeDocumentResponseFilterSensitiveLog = (obj: AnalyzeDocumentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalyzeExpenseRequestFilterSensitiveLog = (obj: AnalyzeExpenseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExpenseCurrencyFilterSensitiveLog = (obj: ExpenseCurrency): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExpenseGroupPropertyFilterSensitiveLog = (obj: ExpenseGroupProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExpenseDetectionFilterSensitiveLog = (obj: ExpenseDetection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExpenseTypeFilterSensitiveLog = (obj: ExpenseType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExpenseFieldFilterSensitiveLog = (obj: ExpenseField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineItemFieldsFilterSensitiveLog = (obj: LineItemFields): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineItemGroupFilterSensitiveLog = (obj: LineItemGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExpenseDocumentFilterSensitiveLog = (obj: ExpenseDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalyzeExpenseResponseFilterSensitiveLog = (obj: AnalyzeExpenseResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalyzeIDRequestFilterSensitiveLog = (obj: AnalyzeIDRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NormalizedValueFilterSensitiveLog = (obj: NormalizedValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalyzeIDDetectionsFilterSensitiveLog = (obj: AnalyzeIDDetections): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityDocumentFieldFilterSensitiveLog = (obj: IdentityDocumentField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityDocumentFilterSensitiveLog = (obj: IdentityDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalyzeIDResponseFilterSensitiveLog = (obj: AnalyzeIDResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectDocumentTextRequestFilterSensitiveLog = (obj: DetectDocumentTextRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectDocumentTextResponseFilterSensitiveLog = (obj: DetectDocumentTextResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DetectedSignatureFilterSensitiveLog = (obj: DetectedSignature): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SplitDocumentFilterSensitiveLog = (obj: SplitDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UndetectedSignatureFilterSensitiveLog = (obj: UndetectedSignature): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentGroupFilterSensitiveLog = (obj: DocumentGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentLocationFilterSensitiveLog = (obj: DocumentLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LendingDetectionFilterSensitiveLog = (obj: LendingDetection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LendingFieldFilterSensitiveLog = (obj: LendingField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SignatureDetectionFilterSensitiveLog = (obj: SignatureDetection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LendingDocumentFilterSensitiveLog = (obj: LendingDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtractionFilterSensitiveLog = (obj: Extraction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDocumentAnalysisRequestFilterSensitiveLog = (obj: GetDocumentAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WarningFilterSensitiveLog = (obj: Warning): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDocumentAnalysisResponseFilterSensitiveLog = (obj: GetDocumentAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDocumentTextDetectionRequestFilterSensitiveLog = (obj: GetDocumentTextDetectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDocumentTextDetectionResponseFilterSensitiveLog = (obj: GetDocumentTextDetectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExpenseAnalysisRequestFilterSensitiveLog = (obj: GetExpenseAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExpenseAnalysisResponseFilterSensitiveLog = (obj: GetExpenseAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLendingAnalysisRequestFilterSensitiveLog = (obj: GetLendingAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictionFilterSensitiveLog = (obj: Prediction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PageClassificationFilterSensitiveLog = (obj: PageClassification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LendingResultFilterSensitiveLog = (obj: LendingResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLendingAnalysisResponseFilterSensitiveLog = (obj: GetLendingAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLendingAnalysisSummaryRequestFilterSensitiveLog = (obj: GetLendingAnalysisSummaryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LendingSummaryFilterSensitiveLog = (obj: LendingSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLendingAnalysisSummaryResponseFilterSensitiveLog = (obj: GetLendingAnalysisSummaryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationChannelFilterSensitiveLog = (obj: NotificationChannel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputConfigFilterSensitiveLog = (obj: OutputConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDocumentAnalysisRequestFilterSensitiveLog = (obj: StartDocumentAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDocumentAnalysisResponseFilterSensitiveLog = (obj: StartDocumentAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDocumentTextDetectionRequestFilterSensitiveLog = (obj: StartDocumentTextDetectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDocumentTextDetectionResponseFilterSensitiveLog = (obj: StartDocumentTextDetectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartExpenseAnalysisRequestFilterSensitiveLog = (obj: StartExpenseAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartExpenseAnalysisResponseFilterSensitiveLog = (obj: StartExpenseAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartLendingAnalysisRequestFilterSensitiveLog = (obj: StartLendingAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartLendingAnalysisResponseFilterSensitiveLog = (obj: StartLendingAnalysisResponse): any => ({
-  ...obj,
-});

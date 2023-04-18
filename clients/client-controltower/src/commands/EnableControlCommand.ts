@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import {
-  EnableControlInput,
-  EnableControlInputFilterSensitiveLog,
-  EnableControlOutput,
-  EnableControlOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1EnableControlCommand,
-  serializeAws_restJson1EnableControlCommand,
-} from "../protocols/Aws_restJson1";
+import { EnableControlInput, EnableControlOutput } from "../models/models_0";
+import { de_EnableControlCommand, se_EnableControlCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link EnableControlCommand}.
+ */
 export interface EnableControlCommandInput extends EnableControlInput {}
+/**
+ * @public
+ *
+ * The output of {@link EnableControlCommand}.
+ */
 export interface EnableControlCommandOutput extends EnableControlOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API call activates a control. It starts an asynchronous operation that creates AWS resources on the specified
  *       organizational unit and the accounts it contains. The resources created will vary according to
  *       the control that you specify.</p>
@@ -38,13 +41,42 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * import { ControlTowerClient, EnableControlCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, EnableControlCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
+ * const input = { // EnableControlInput
+ *   controlIdentifier: "STRING_VALUE", // required
+ *   targetIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new EnableControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableControlCommandInput - {@link EnableControlCommandInput}
+ * @returns {@link EnableControlCommandOutput}
  * @see {@link EnableControlCommandInput} for command's `input` shape.
  * @see {@link EnableControlCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have sufficient access to perform this action.
+ *       </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error during processing of request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource which does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Request would cause a service quota to be exceeded. The limit is 10 concurrent operations. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  *
  */
 export class EnableControlCommand extends $Command<
@@ -64,6 +96,9 @@ export class EnableControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +125,8 @@ export class EnableControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableControlInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableControlOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +136,18 @@ export class EnableControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableControlCommand(input, context);
+    return se_EnableControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableControlCommandOutput> {
-    return deserializeAws_restJson1EnableControlCommand(output, context);
+    return de_EnableControlCommand(output, context);
   }
 
   // Start section: command_body_extra

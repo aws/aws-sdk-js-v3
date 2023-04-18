@@ -16,22 +16,31 @@ import {
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
   DescribeAffectedEntitiesForOrganizationRequest,
-  DescribeAffectedEntitiesForOrganizationRequestFilterSensitiveLog,
   DescribeAffectedEntitiesForOrganizationResponse,
-  DescribeAffectedEntitiesForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand,
-  serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand,
+  de_DescribeAffectedEntitiesForOrganizationCommand,
+  se_DescribeAffectedEntitiesForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAffectedEntitiesForOrganizationCommand}.
+ */
 export interface DescribeAffectedEntitiesForOrganizationCommandInput
   extends DescribeAffectedEntitiesForOrganizationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAffectedEntitiesForOrganizationCommand}.
+ */
 export interface DescribeAffectedEntitiesForOrganizationCommandOutput
   extends DescribeAffectedEntitiesForOrganizationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of entities that have been affected by one or more events for one or more
  *          accounts in your organization in Organizations, based on the filter criteria. Entities can refer
  *          to individual customer resources, groups of customer resources, or any other construct,
@@ -58,13 +67,33 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * import { HealthClient, DescribeAffectedEntitiesForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeAffectedEntitiesForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeAffectedEntitiesForOrganizationRequest
+ *   organizationEntityFilters: [ // OrganizationEntityFiltersList // required
+ *     { // EventAccountFilter
+ *       eventArn: "STRING_VALUE", // required
+ *       awsAccountId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   locale: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeAffectedEntitiesForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAffectedEntitiesForOrganizationCommandInput - {@link DescribeAffectedEntitiesForOrganizationCommandInput}
+ * @returns {@link DescribeAffectedEntitiesForOrganizationCommandOutput}
  * @see {@link DescribeAffectedEntitiesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAffectedEntitiesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
+ *
+ * @throws {@link InvalidPaginationToken} (client fault)
+ *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * @throws {@link UnsupportedLocale} (client fault)
+ *  <p>The specified locale is not supported.</p>
+ *
  *
  */
 export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
@@ -84,6 +113,9 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAffectedEntitiesForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +150,8 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAffectedEntitiesForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAffectedEntitiesForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +161,24 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAffectedEntitiesForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(input, context);
+    return se_DescribeAffectedEntitiesForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(output, context);
+    return de_DescribeAffectedEntitiesForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,13 +3,19 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
   AdditionalInferenceSpecificationDefinition,
+  AppSecurityGroupManagement,
   BooleanOperator,
+  DefaultSpaceSettings,
+  EdgeOutputConfig,
+  KernelGatewayImageConfig,
   ModelApprovalStatus,
   Tag,
   UserSettings,
 } from "./models_0";
 import {
   _InstanceType,
+  DeploymentConfig,
+  FeatureDefinition,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InstanceMetadataServiceConfiguration,
@@ -34,14 +40,422 @@ import {
   SpaceSettings,
   TrialComponentArtifact,
   TrialComponentParameterValue,
-  TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
   VendorGuidance,
   WorkforceVpcConfigRequest,
 } from "./models_1";
-import { FeatureParameter, Filter, ResourceType, Workforce, Workteam } from "./models_2";
+import {
+  DesiredWeightAndCapacity,
+  Device,
+  DomainSettingsForUpdate,
+  FeatureParameter,
+  Filter,
+  GitConfigForUpdate,
+  ResourceType,
+  Workforce,
+  Workteam,
+} from "./models_2";
 import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
 
+/**
+ * @public
+ */
+export interface UpdateAppImageConfigRequest {
+  /**
+   * <p>The name of the AppImageConfig to update.</p>
+   */
+  AppImageConfigName: string | undefined;
+
+  /**
+   * <p>The new KernelGateway app to run on the image.</p>
+   */
+  KernelGatewayImageConfig?: KernelGatewayImageConfig;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAppImageConfigResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppImageConfig.</p>
+   */
+  AppImageConfigArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateArtifactRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact to update.</p>
+   */
+  ArtifactArn: string | undefined;
+
+  /**
+   * <p>The new name for the artifact.</p>
+   */
+  ArtifactName?: string;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   */
+  PropertiesToRemove?: string[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateArtifactResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
+   */
+  ArtifactArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCodeRepositoryInput {
+  /**
+   * <p>The name of the Git repository to update.</p>
+   */
+  CodeRepositoryName: string | undefined;
+
+  /**
+   * <p>The configuration of the git repository, including the URL and the Amazon Resource
+   *             Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
+   *             credentials used to access the repository. The secret must have a staging label of
+   *                 <code>AWSCURRENT</code> and must be in the following format:</p>
+   *          <p>
+   *             <code>\{"username": <i>UserName</i>, "password":
+   *                     <i>Password</i>\}</code>
+   *          </p>
+   */
+  GitConfig?: GitConfigForUpdate;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCodeRepositoryOutput {
+  /**
+   * <p>The ARN of the Git repository.</p>
+   */
+  CodeRepositoryArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContextRequest {
+  /**
+   * <p>The name of the context to update.</p>
+   */
+  ContextName: string | undefined;
+
+  /**
+   * <p>The new description for the context.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   */
+  PropertiesToRemove?: string[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateContextResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the context.</p>
+   */
+  ContextArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDeviceFleetRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the device.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Description of the fleet.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Output configuration  for storing sample data collected by the fleet.</p>
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
+   *       The name of the role alias generated will match this pattern:
+   *       "SageMakerEdge-\{DeviceFleetName\}".</p>
+   *          <p>For example, if your device fleet is called "demo-fleet", the name of
+   *       the role alias will be "SageMakerEdge-demo-fleet".</p>
+   */
+  EnableIotRoleAlias?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDevicesRequest {
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>List of devices to register with Edge Manager agent.</p>
+   */
+  Devices: Device[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDomainRequest {
+  /**
+   * <p>The ID of the domain to be updated.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>A collection of settings.</p>
+   */
+  DefaultUserSettings?: UserSettings;
+
+  /**
+   * <p>A collection of <code>DomainSettings</code> configuration values to update.</p>
+   */
+  DomainSettingsForUpdate?: DomainSettingsForUpdate;
+
+  /**
+   * <p>The default settings used to create a space within the Domain.</p>
+   */
+  DefaultSpaceSettings?: DefaultSpaceSettings;
+
+  /**
+   * <p>The entity that creates and manages the required security groups for inter-app
+   *             communication in <code>VPCOnly</code> mode. Required when
+   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *             provided.</p>
+   */
+  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDomainResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain.</p>
+   */
+  DomainArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VariantPropertyType = {
+  DataCaptureConfig: "DataCaptureConfig",
+  DesiredInstanceCount: "DesiredInstanceCount",
+  DesiredWeight: "DesiredWeight",
+} as const;
+
+/**
+ * @public
+ */
+export type VariantPropertyType = (typeof VariantPropertyType)[keyof typeof VariantPropertyType];
+
+/**
+ * @public
+ * <p>Specifies a production variant property type for an Endpoint.</p>
+ *          <p>If you are updating an endpoint with the <a>UpdateEndpointInput$RetainAllVariantProperties</a> option set to
+ *                 <code>true</code>, the <code>VariantProperty</code> objects listed in <a>UpdateEndpointInput$ExcludeRetainedVariantProperties</a> override the
+ *             existing variant properties of the endpoint.</p>
+ */
+export interface VariantProperty {
+  /**
+   * <p>The type of variant property. The supported values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DesiredInstanceCount</code>: Overrides the existing variant instance
+   *                     counts using the <a>ProductionVariant$InitialInstanceCount</a> values
+   *                     in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DesiredWeight</code>: Overrides the existing variant weights using the
+   *                         <a>ProductionVariant$InitialVariantWeight</a> values in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DataCaptureConfig</code>: (Not currently supported.)</p>
+   *             </li>
+   *          </ul>
+   */
+  VariantPropertyType: VariantPropertyType | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointInput {
+  /**
+   * <p>The name of the endpoint whose configuration you want to update.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The name of the new endpoint configuration.</p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To
+   *             retain the variant properties of an endpoint when updating it, set
+   *                 <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant
+   *             properties specified in a new <code>EndpointConfig</code> call when updating an
+   *             endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default
+   *             is <code>false</code>.</p>
+   */
+  RetainAllVariantProperties?: boolean;
+
+  /**
+   * <p>When you are updating endpoint resources with <a>UpdateEndpointInput$RetainAllVariantProperties</a>, whose value is set to
+   *                 <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list
+   *             of type <a>VariantProperty</a> to override with the values provided by
+   *                 <code>EndpointConfig</code>. If you don't specify a value for
+   *                 <code>ExcludeRetainedVariantProperties</code>, no variant properties are overridden.
+   *         </p>
+   */
+  ExcludeRetainedVariantProperties?: VariantProperty[];
+
+  /**
+   * <p>The deployment configuration for an endpoint, which contains the desired deployment
+   *             strategy and rollback configurations.</p>
+   */
+  DeploymentConfig?: DeploymentConfig;
+
+  /**
+   * <p>Specifies whether to reuse the last deployment configuration. The default value is
+   *             false (the configuration is not reused).</p>
+   */
+  RetainDeploymentConfig?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointWeightsAndCapacitiesInput {
+  /**
+   * <p>The name of an existing SageMaker endpoint.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>An object that provides new capacity and weight values for a variant.</p>
+   */
+  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointWeightsAndCapacitiesOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExperimentRequest {
+  /**
+   * <p>The name of the experiment to update.</p>
+   */
+  ExperimentName: string | undefined;
+
+  /**
+   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If
+   *         <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the experiment.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExperimentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  ExperimentArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFeatureGroupRequest {
+  /**
+   * <p>The name of the feature group that you're updating.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>Updates the feature group. Updating a feature group is an asynchronous operation. When
+   *          you get an HTTP 200 response, you've made a valid request. It takes some time after you've
+   *          made a valid request for Feature Store to update the feature group.</p>
+   */
+  FeatureAdditions?: FeatureDefinition[];
+}
+
+/**
+ * @public
+ */
 export interface UpdateFeatureGroupResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the feature group that you're updating.</p>
@@ -49,6 +463,9 @@ export interface UpdateFeatureGroupResponse {
   FeatureGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFeatureMetadataRequest {
   /**
    * <p>The name of the feature group containing the feature that you're updating.</p>
@@ -76,6 +493,9 @@ export interface UpdateFeatureMetadataRequest {
   ParameterRemovals?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateHubRequest {
   /**
    * <p>The name of the hub to update.</p>
@@ -98,6 +518,9 @@ export interface UpdateHubRequest {
   HubSearchKeywords?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateHubResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated hub.</p>
@@ -105,6 +528,9 @@ export interface UpdateHubResponse {
   HubArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImageRequest {
   /**
    * <p>A list of properties to delete. Only the <code>Description</code> and
@@ -133,6 +559,9 @@ export interface UpdateImageRequest {
   RoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImageResponse {
   /**
    * <p>The ARN of the image.</p>
@@ -140,6 +569,9 @@ export interface UpdateImageResponse {
   ImageArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImageVersionRequest {
   /**
    * <p>The name of the image.</p>
@@ -244,6 +676,9 @@ export interface UpdateImageVersionRequest {
   ReleaseNotes?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateImageVersionResponse {
   /**
    * <p>The ARN of the image version.</p>
@@ -251,6 +686,9 @@ export interface UpdateImageVersionResponse {
   ImageVersionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInferenceExperimentRequest {
   /**
    * <p>The name of the inference experiment to be updated.</p>
@@ -295,6 +733,9 @@ export interface UpdateInferenceExperimentRequest {
   ShadowModeConfig?: ShadowModeConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInferenceExperimentResponse {
   /**
    * <p>The ARN of the updated inference experiment.</p>
@@ -302,6 +743,9 @@ export interface UpdateInferenceExperimentResponse {
   InferenceExperimentArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelCardRequest {
   /**
    * <p>The name of the model card to update.</p>
@@ -339,6 +783,9 @@ export interface UpdateModelCardRequest {
   ModelCardStatus?: ModelCardStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelCardResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated model card.</p>
@@ -346,6 +793,9 @@ export interface UpdateModelCardResponse {
   ModelCardArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelPackageInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the model package.</p>
@@ -382,6 +832,9 @@ export interface UpdateModelPackageInput {
   AdditionalInferenceSpecificationsToAdd?: AdditionalInferenceSpecificationDefinition[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateModelPackageOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the model.</p>
@@ -389,6 +842,9 @@ export interface UpdateModelPackageOutput {
   ModelPackageArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitoringAlertRequest {
   /**
    * <p>The name of a monitoring schedule.</p>
@@ -413,6 +869,9 @@ export interface UpdateMonitoringAlertRequest {
   EvaluationPeriod: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitoringAlertResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
@@ -425,6 +884,9 @@ export interface UpdateMonitoringAlertResponse {
   MonitoringAlertName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitoringScheduleRequest {
   /**
    * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within
@@ -439,6 +901,9 @@ export interface UpdateMonitoringScheduleRequest {
   MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitoringScheduleResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
@@ -446,6 +911,9 @@ export interface UpdateMonitoringScheduleResponse {
   MonitoringScheduleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotebookInstanceInput {
   /**
    * <p>The name of the notebook instance to update.</p>
@@ -515,8 +983,7 @@ export interface UpdateNotebookInstanceInput {
   /**
    * <p>A list of the Elastic Inference (EI) instance types to associate with this notebook
    *             instance. Currently only one EI instance type can be associated with a notebook
-   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
-   *                 SageMaker</a>.</p>
+   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
    */
   AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
 
@@ -560,8 +1027,14 @@ export interface UpdateNotebookInstanceInput {
   InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotebookInstanceOutput {}
 
+/**
+ * @public
+ */
 export interface UpdateNotebookInstanceLifecycleConfigInput {
   /**
    * <p>The name of the lifecycle configuration.</p>
@@ -582,8 +1055,14 @@ export interface UpdateNotebookInstanceLifecycleConfigInput {
   OnStart?: NotebookInstanceLifecycleHook[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotebookInstanceLifecycleConfigOutput {}
 
+/**
+ * @public
+ */
 export interface UpdatePipelineRequest {
   /**
    * <p>The name of the pipeline to update.</p>
@@ -622,6 +1101,9 @@ export interface UpdatePipelineRequest {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePipelineResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated pipeline.</p>
@@ -629,6 +1111,9 @@ export interface UpdatePipelineResponse {
   PipelineArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePipelineExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -652,6 +1137,9 @@ export interface UpdatePipelineExecutionRequest {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePipelineExecutionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated pipeline execution.</p>
@@ -660,6 +1148,7 @@ export interface UpdatePipelineExecutionResponse {
 }
 
 /**
+ * @public
  * <p>Details that you specify to provision a service catalog product.
  *             For information about service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>.
  *         </p>
@@ -676,6 +1165,9 @@ export interface ServiceCatalogProvisioningUpdateDetails {
   ProvisioningParameters?: ProvisioningParameter[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectInput {
   /**
    * <p>The name of the project.</p>
@@ -707,6 +1199,9 @@ export interface UpdateProjectInput {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateProjectOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the project.</p>
@@ -714,6 +1209,9 @@ export interface UpdateProjectOutput {
   ProjectArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSpaceRequest {
   /**
    * <p>The ID of the associated Domain.</p>
@@ -731,6 +1229,9 @@ export interface UpdateSpaceRequest {
   SpaceSettings?: SpaceSettings;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSpaceResponse {
   /**
    * <p>The space's Amazon Resource Name (ARN).</p>
@@ -738,6 +1239,9 @@ export interface UpdateSpaceResponse {
   SpaceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrainingJobRequest {
   /**
    * <p>The name of a training job to update the Debugger profiling configuration.</p>
@@ -763,6 +1267,9 @@ export interface UpdateTrainingJobRequest {
   ResourceConfig?: ResourceConfigForUpdate;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrainingJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the training job.</p>
@@ -770,6 +1277,9 @@ export interface UpdateTrainingJobResponse {
   TrainingJobArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrialRequest {
   /**
    * <p>The name of the trial to update.</p>
@@ -783,6 +1293,9 @@ export interface UpdateTrialRequest {
   DisplayName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrialResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
@@ -790,6 +1303,9 @@ export interface UpdateTrialResponse {
   TrialArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrialComponentRequest {
   /**
    * <p>The name of the component to update.</p>
@@ -819,7 +1335,7 @@ export interface UpdateTrialComponentRequest {
   EndTime?: Date;
 
   /**
-   * <p>Replaces all of the component's hyperparameters with the specified hyperparameters.</p>
+   * <p>Replaces all of the component's hyperparameters with the specified hyperparameters or add new hyperparameters. Existing hyperparameters are replaced if the trial component is updated with an identical hyperparameter key.</p>
    */
   Parameters?: Record<string, TrialComponentParameterValue>;
 
@@ -829,7 +1345,7 @@ export interface UpdateTrialComponentRequest {
   ParametersToRemove?: string[];
 
   /**
-   * <p>Replaces all of the component's input artifacts with the specified artifacts.</p>
+   * <p>Replaces all of the component's input artifacts with the specified artifacts or adds new input artifacts. Existing input artifacts are replaced if the trial component is updated with an identical input artifact key.</p>
    */
   InputArtifacts?: Record<string, TrialComponentArtifact>;
 
@@ -839,7 +1355,7 @@ export interface UpdateTrialComponentRequest {
   InputArtifactsToRemove?: string[];
 
   /**
-   * <p>Replaces all of the component's output artifacts with the specified artifacts.</p>
+   * <p>Replaces all of the component's output artifacts with the specified artifacts or adds new output artifacts. Existing output artifacts are replaced if the trial component is updated with an identical output artifact key.</p>
    */
   OutputArtifacts?: Record<string, TrialComponentArtifact>;
 
@@ -849,6 +1365,9 @@ export interface UpdateTrialComponentRequest {
   OutputArtifactsToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTrialComponentResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
@@ -856,6 +1375,9 @@ export interface UpdateTrialComponentResponse {
   TrialComponentArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserProfileRequest {
   /**
    * <p>The domain ID.</p>
@@ -873,6 +1395,9 @@ export interface UpdateUserProfileRequest {
   UserSettings?: UserSettings;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserProfileResponse {
   /**
    * <p>The user profile Amazon Resource Name (ARN).</p>
@@ -880,6 +1405,9 @@ export interface UpdateUserProfileResponse {
   UserProfileArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkforceRequest {
   /**
    * <p>The name of the private workforce that you want to update. You can find your workforce
@@ -906,6 +1434,9 @@ export interface UpdateWorkforceRequest {
   WorkforceVpcConfig?: WorkforceVpcConfigRequest;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkforceResponse {
   /**
    * <p>A single private workforce. You can create one private work force in each Amazon Web Services Region. By default,
@@ -915,6 +1446,9 @@ export interface UpdateWorkforceResponse {
   Workforce: Workforce | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkteamRequest {
   /**
    * <p>The name of the work team to update.</p>
@@ -956,6 +1490,9 @@ export interface UpdateWorkteamRequest {
   NotificationConfiguration?: NotificationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkteamResponse {
   /**
    * <p>A <code>Workteam</code> object that describes the updated work team.</p>
@@ -964,6 +1501,7 @@ export interface UpdateWorkteamResponse {
 }
 
 /**
+ * @public
  * <p>A multi-expression that searches for the specified resource or resources in a search. All resource
  *       objects that satisfy the expression's condition are included in the search results. You must specify at
  *       least one subexpression, filter, or nested filter. A <code>SearchExpression</code> can contain up to
@@ -1016,9 +1554,12 @@ export interface SearchExpression {
   Operator?: BooleanOperator | string;
 }
 
+/**
+ * @public
+ */
 export interface SearchRequest {
   /**
-   * <p>The name of the Amazon SageMaker resource to search for.</p>
+   * <p>The name of the SageMaker resource to search for.</p>
    */
   Resource: ResourceType | string | undefined;
 
@@ -1060,76 +1601,6 @@ export interface SearchRequest {
 /**
  * @internal
  */
-export const UpdateFeatureGroupResponseFilterSensitiveLog = (obj: UpdateFeatureGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFeatureMetadataRequestFilterSensitiveLog = (obj: UpdateFeatureMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHubRequestFilterSensitiveLog = (obj: UpdateHubRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHubResponseFilterSensitiveLog = (obj: UpdateHubResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateImageRequestFilterSensitiveLog = (obj: UpdateImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateImageResponseFilterSensitiveLog = (obj: UpdateImageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateImageVersionRequestFilterSensitiveLog = (obj: UpdateImageVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateImageVersionResponseFilterSensitiveLog = (obj: UpdateImageVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInferenceExperimentRequestFilterSensitiveLog = (obj: UpdateInferenceExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInferenceExperimentResponseFilterSensitiveLog = (obj: UpdateInferenceExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateModelCardRequestFilterSensitiveLog = (obj: UpdateModelCardRequest): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
@@ -1138,252 +1609,7 @@ export const UpdateModelCardRequestFilterSensitiveLog = (obj: UpdateModelCardReq
 /**
  * @internal
  */
-export const UpdateModelCardResponseFilterSensitiveLog = (obj: UpdateModelCardResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateModelPackageInputFilterSensitiveLog = (obj: UpdateModelPackageInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateModelPackageOutputFilterSensitiveLog = (obj: UpdateModelPackageOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMonitoringAlertRequestFilterSensitiveLog = (obj: UpdateMonitoringAlertRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMonitoringAlertResponseFilterSensitiveLog = (obj: UpdateMonitoringAlertResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMonitoringScheduleRequestFilterSensitiveLog = (obj: UpdateMonitoringScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMonitoringScheduleResponseFilterSensitiveLog = (obj: UpdateMonitoringScheduleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNotebookInstanceInputFilterSensitiveLog = (obj: UpdateNotebookInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNotebookInstanceOutputFilterSensitiveLog = (obj: UpdateNotebookInstanceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNotebookInstanceLifecycleConfigInputFilterSensitiveLog = (
-  obj: UpdateNotebookInstanceLifecycleConfigInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNotebookInstanceLifecycleConfigOutputFilterSensitiveLog = (
-  obj: UpdateNotebookInstanceLifecycleConfigOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipelineRequestFilterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipelineResponseFilterSensitiveLog = (obj: UpdatePipelineResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipelineExecutionRequestFilterSensitiveLog = (obj: UpdatePipelineExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipelineExecutionResponseFilterSensitiveLog = (obj: UpdatePipelineExecutionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceCatalogProvisioningUpdateDetailsFilterSensitiveLog = (
-  obj: ServiceCatalogProvisioningUpdateDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProjectInputFilterSensitiveLog = (obj: UpdateProjectInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProjectOutputFilterSensitiveLog = (obj: UpdateProjectOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSpaceRequestFilterSensitiveLog = (obj: UpdateSpaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSpaceResponseFilterSensitiveLog = (obj: UpdateSpaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrainingJobRequestFilterSensitiveLog = (obj: UpdateTrainingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrainingJobResponseFilterSensitiveLog = (obj: UpdateTrainingJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrialRequestFilterSensitiveLog = (obj: UpdateTrialRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrialResponseFilterSensitiveLog = (obj: UpdateTrialResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrialComponentRequestFilterSensitiveLog = (obj: UpdateTrialComponentRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && {
-    Parameters: Object.entries(obj.Parameters).reduce(
-      (acc: any, [key, value]: [string, TrialComponentParameterValue]) => (
-        (acc[key] = TrialComponentParameterValueFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateTrialComponentResponseFilterSensitiveLog = (obj: UpdateTrialComponentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserProfileRequestFilterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserProfileResponseFilterSensitiveLog = (obj: UpdateUserProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateWorkforceRequestFilterSensitiveLog = (obj: UpdateWorkforceRequest): any => ({
   ...obj,
   ...(obj.OidcConfig && { OidcConfig: OidcConfigFilterSensitiveLog(obj.OidcConfig) }),
-});
-
-/**
- * @internal
- */
-export const UpdateWorkforceResponseFilterSensitiveLog = (obj: UpdateWorkforceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkteamRequestFilterSensitiveLog = (obj: UpdateWorkteamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkteamResponseFilterSensitiveLog = (obj: UpdateWorkteamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchExpressionFilterSensitiveLog = (obj: SearchExpression): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchRequestFilterSensitiveLog = (obj: SearchRequest): any => ({
-  ...obj,
 });

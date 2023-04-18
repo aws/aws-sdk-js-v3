@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ListStudiosInput,
-  ListStudiosInputFilterSensitiveLog,
-  ListStudiosOutput,
-  ListStudiosOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListStudiosCommand,
-  serializeAws_json1_1ListStudiosCommand,
-} from "../protocols/Aws_json1_1";
+import { ListStudiosInput, ListStudiosOutput } from "../models/models_0";
+import { de_ListStudiosCommand, se_ListStudiosCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListStudiosCommand}.
+ */
 export interface ListStudiosCommandInput extends ListStudiosInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListStudiosCommand}.
+ */
 export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all Amazon EMR Studios associated with the Amazon Web Services account. The list includes details such as ID, Studio Access URL, and
  *          creation time for each Studio.</p>
  * @example
@@ -37,13 +40,26 @@ export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataB
  * import { EMRClient, ListStudiosCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListStudiosCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ListStudiosInput
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListStudiosCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStudiosCommandInput - {@link ListStudiosCommandInput}
+ * @returns {@link ListStudiosCommandOutput}
  * @see {@link ListStudiosCommandInput} for command's `input` shape.
  * @see {@link ListStudiosCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
  *
  */
 export class ListStudiosCommand extends $Command<
@@ -63,6 +79,9 @@ export class ListStudiosCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStudiosCommandInput) {
     // Start section: command_constructor
     super();
@@ -89,8 +108,8 @@ export class ListStudiosCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStudiosInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStudiosOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +119,18 @@ export class ListStudiosCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStudiosCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStudiosCommand(input, context);
+    return se_ListStudiosCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStudiosCommandOutput> {
-    return deserializeAws_json1_1ListStudiosCommand(output, context);
+    return de_ListStudiosCommand(output, context);
   }
 
   // Start section: command_body_extra

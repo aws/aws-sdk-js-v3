@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeGlobalClustersMessage,
-  DescribeGlobalClustersMessageFilterSensitiveLog,
-  GlobalClustersMessage,
-  GlobalClustersMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeGlobalClustersMessage, GlobalClustersMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeGlobalClustersCommand,
-  serializeAws_queryDescribeGlobalClustersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeGlobalClustersCommand, se_DescribeGlobalClustersCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeGlobalClustersCommand}.
+ */
 export interface DescribeGlobalClustersCommandInput extends DescribeGlobalClustersMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeGlobalClustersCommand}.
+ */
 export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about Neptune global database clusters. This API
  *       supports pagination.</p>
  * @example
@@ -37,13 +40,24 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * import { NeptuneClient, DescribeGlobalClustersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeGlobalClustersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DescribeGlobalClustersMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeGlobalClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGlobalClustersCommandInput - {@link DescribeGlobalClustersCommandInput}
+ * @returns {@link DescribeGlobalClustersCommandOutput}
  * @see {@link DescribeGlobalClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalClustersCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link GlobalClusterNotFoundFault} (client fault)
+ *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+ *
  *
  */
 export class DescribeGlobalClustersCommand extends $Command<
@@ -63,6 +77,9 @@ export class DescribeGlobalClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGlobalClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +108,8 @@ export class DescribeGlobalClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGlobalClustersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: GlobalClustersMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +119,18 @@ export class DescribeGlobalClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGlobalClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeGlobalClustersCommand(input, context);
+    return se_DescribeGlobalClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalClustersCommandOutput> {
-    return deserializeAws_queryDescribeGlobalClustersCommand(output, context);
+    return de_DescribeGlobalClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

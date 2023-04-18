@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  CreateAddressBookRequest,
-  CreateAddressBookRequestFilterSensitiveLog,
-  CreateAddressBookResponse,
-  CreateAddressBookResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAddressBookCommand,
-  serializeAws_json1_1CreateAddressBookCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAddressBookRequest, CreateAddressBookResponse } from "../models/models_0";
+import { de_CreateAddressBookCommand, se_CreateAddressBookCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateAddressBookCommand}.
+ */
 export interface CreateAddressBookCommandInput extends CreateAddressBookRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAddressBookCommand}.
+ */
 export interface CreateAddressBookCommandOutput extends CreateAddressBookResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an address book with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,33 @@ export interface CreateAddressBookCommandOutput extends CreateAddressBookRespons
  * import { AlexaForBusinessClient, CreateAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // CreateAddressBookRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateAddressBookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAddressBookCommandInput - {@link CreateAddressBookCommandInput}
+ * @returns {@link CreateAddressBookCommandOutput}
  * @see {@link CreateAddressBookCommandInput} for command's `input` shape.
  * @see {@link CreateAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource being created already exists.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
  *
  */
 export class CreateAddressBookCommand extends $Command<
@@ -62,6 +85,9 @@ export class CreateAddressBookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAddressBookCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +116,8 @@ export class CreateAddressBookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAddressBookRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAddressBookResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +127,18 @@ export class CreateAddressBookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAddressBookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAddressBookCommand(input, context);
+    return se_CreateAddressBookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAddressBookCommandOutput> {
-    return deserializeAws_json1_1CreateAddressBookCommand(output, context);
+    return de_CreateAddressBookCommand(output, context);
   }
 
   // Start section: command_body_extra

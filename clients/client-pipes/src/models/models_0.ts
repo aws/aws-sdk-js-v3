@@ -3,12 +3,22 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { PipesServiceException as __BaseException } from "./PipesServiceException";
 
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
+
+/**
+ * @public
  * <p>This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used.
  *          This structure is relevant only for ECS tasks that use the <code>awsvpc</code> network mode.</p>
  */
@@ -32,6 +42,7 @@ export interface AwsVpcConfiguration {
 }
 
 /**
+ * @public
  * <p>The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000.
  *          If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an Batch job.</p>
  */
@@ -43,6 +54,7 @@ export interface BatchArrayProperties {
 }
 
 /**
+ * @public
  * <p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing
  *          environment variables from the Docker image or the task definition.</p>
  *          <note>
@@ -61,13 +73,24 @@ export interface BatchEnvironmentVariable {
   Value?: string;
 }
 
-export enum BatchResourceRequirementType {
-  GPU = "GPU",
-  MEMORY = "MEMORY",
-  VCPU = "VCPU",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BatchResourceRequirementType = {
+  GPU: "GPU",
+  MEMORY: "MEMORY",
+  VCPU: "VCPU",
+} as const;
 
 /**
+ * @public
+ */
+export type BatchResourceRequirementType =
+  (typeof BatchResourceRequirementType)[keyof typeof BatchResourceRequirementType];
+
+/**
+ * @public
  * <p>The type and amount of a resource to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
  */
 export interface BatchResourceRequirement {
@@ -112,74 +135,74 @@ export interface BatchResourceRequirement {
    *                <dl>
    *                   <dt>value = 512</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 0.25</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 1024</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 0.25 or 0.5</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 2048</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 0.25, 0.5, or 1</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 3072</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 0.5, or 1</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 4096</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 0.5, 1, or 2</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 5120, 6144, or 7168</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 1 or 2</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 8192</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 1, 2, 4, or 8</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 9216, 10240, 11264, 12288, 13312, 14336, or 15360</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 2 or 4</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 16384</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 2, 4, or 8</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 17408, 18432, 19456, 21504, 22528, 23552, 25600, 26624, 27648, 29696, or 30720</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 4</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 20480, 24576, or 28672</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 4 or 8</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 36864, 45056, 53248, or 61440</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 8</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 32768, 40960, 49152, or 57344</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 8 or 16</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>VCPU</code> = 16</p>
-   *                      </dd>
+   *                   </dd>
    *                </dl>
    *             </dd>
    *             <dt>type="VCPU"</dt>
@@ -199,42 +222,42 @@ export interface BatchResourceRequirement {
    *                <dl>
    *                   <dt>value = 0.25</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>MEMORY</code> = 512, 1024, or 2048</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 0.5</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>MEMORY</code> = 1024, 2048, 3072, or 4096</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 1</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>MEMORY</code> = 2048, 3072, 4096, 5120, 6144, 7168, or 8192</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 2</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>MEMORY</code> = 4096, 5120, 6144, 7168, 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360, or 16384</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 4</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>MEMORY</code> = 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360, 16384, 17408, 18432, 19456,
    *                            20480, 21504, 22528, 23552, 24576, 25600, 26624, 27648, 28672, 29696, or 30720</p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 8</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>MEMORY</code> = 16384, 20480, 24576, 28672, 32768, 36864, 40960, 45056, 49152, 53248, 57344, or 61440
    *                         </p>
-   *                      </dd>
+   *                   </dd>
    *                   <dt>value = 16</dt>
    *                   <dd>
-   *                         <p>
+   *                      <p>
    *                         <code>MEMORY</code> = 32768, 40960, 49152, 57344, 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880
    *                         </p>
-   *                      </dd>
+   *                   </dd>
    *                </dl>
    *             </dd>
    *          </dl>
@@ -243,6 +266,7 @@ export interface BatchResourceRequirement {
 }
 
 /**
+ * @public
  * <p>The overrides that are sent to a container.</p>
  */
 export interface BatchContainerOverrides {
@@ -275,12 +299,22 @@ export interface BatchContainerOverrides {
   ResourceRequirements?: BatchResourceRequirement[];
 }
 
-export enum BatchJobDependencyType {
-  N_TO_N = "N_TO_N",
-  SEQUENTIAL = "SEQUENTIAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BatchJobDependencyType = {
+  N_TO_N: "N_TO_N",
+  SEQUENTIAL: "SEQUENTIAL",
+} as const;
 
 /**
+ * @public
+ */
+export type BatchJobDependencyType = (typeof BatchJobDependencyType)[keyof typeof BatchJobDependencyType];
+
+/**
+ * @public
  * <p>An object that represents an Batch job dependency.</p>
  */
 export interface BatchJobDependency {
@@ -296,6 +330,7 @@ export interface BatchJobDependency {
 }
 
 /**
+ * @public
  * <p>The retry strategy that's associated with a job. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html">
  *          Automated job retries</a> in the <i>Batch User Guide</i>.</p>
  */
@@ -308,6 +343,7 @@ export interface BatchRetryStrategy {
 }
 
 /**
+ * @public
  * <p>The details of a capacity provider strategy. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html">CapacityProviderStrategyItem</a> in the Amazon ECS API Reference.</p>
  */
 export interface CapacityProviderStrategyItem {
@@ -332,6 +368,7 @@ export interface CapacityProviderStrategyItem {
 }
 
 /**
+ * @public
  * <p>An action you attempted resulted in an exception.</p>
  */
 export class ConflictException extends __BaseException {
@@ -362,12 +399,22 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum RequestedPipeState {
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RequestedPipeState = {
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
 
 /**
+ * @public
+ */
+export type RequestedPipeState = (typeof RequestedPipeState)[keyof typeof RequestedPipeState];
+
+/**
+ * @public
  * <p>These are custom parameter to be used when the target is an API Gateway REST APIs or
  *          EventBridge ApiDestinations. In the latter case, these are merged with any
  *          InvocationParameters specified on the Connection, with any values from the Connection taking
@@ -394,6 +441,7 @@ export interface PipeEnrichmentHttpParameters {
 }
 
 /**
+ * @public
  * <p>The parameters required to set up enrichment on your pipe.</p>
  */
 export interface PipeEnrichmentParameters {
@@ -417,12 +465,16 @@ export interface PipeEnrichmentParameters {
 }
 
 /**
+ * @public
  * <p>The Secrets Manager secret that stores your broker credentials.</p>
  */
 export type MQBrokerAccessCredentials =
   | MQBrokerAccessCredentials.BasicAuthMember
   | MQBrokerAccessCredentials.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace MQBrokerAccessCredentials {
   /**
    * <p>The ARN of the Secrets Manager secret.</p>
@@ -449,6 +501,7 @@ export namespace MQBrokerAccessCredentials {
 }
 
 /**
+ * @public
  * <p>The parameters for using an Active MQ broker as a source.</p>
  */
 export interface PipeSourceActiveMQBrokerParameters {
@@ -474,6 +527,7 @@ export interface PipeSourceActiveMQBrokerParameters {
 }
 
 /**
+ * @public
  * <p>A <code>DeadLetterConfig</code> object that contains information about a dead-letter queue configuration.</p>
  */
 export interface DeadLetterConfig {
@@ -483,16 +537,37 @@ export interface DeadLetterConfig {
   Arn?: string;
 }
 
-export enum OnPartialBatchItemFailureStreams {
-  AUTOMATIC_BISECT = "AUTOMATIC_BISECT",
-}
-
-export enum DynamoDBStreamStartPosition {
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OnPartialBatchItemFailureStreams = {
+  AUTOMATIC_BISECT: "AUTOMATIC_BISECT",
+} as const;
 
 /**
+ * @public
+ */
+export type OnPartialBatchItemFailureStreams =
+  (typeof OnPartialBatchItemFailureStreams)[keyof typeof OnPartialBatchItemFailureStreams];
+
+/**
+ * @public
+ * @enum
+ */
+export const DynamoDBStreamStartPosition = {
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
+
+/**
+ * @public
+ */
+export type DynamoDBStreamStartPosition =
+  (typeof DynamoDBStreamStartPosition)[keyof typeof DynamoDBStreamStartPosition];
+
+/**
+ * @public
  * <p>The parameters for using a DynamoDB stream as a source.</p>
  */
 export interface PipeSourceDynamoDBStreamParameters {
@@ -541,6 +616,7 @@ export interface PipeSourceDynamoDBStreamParameters {
 }
 
 /**
+ * @public
  * <p>Filter events using an event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
  *          Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  */
@@ -552,6 +628,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>The collection of event patterns used to filter events. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
  *          Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  */
@@ -562,13 +639,23 @@ export interface FilterCriteria {
   Filters?: Filter[];
 }
 
-export enum KinesisStreamStartPosition {
-  AT_TIMESTAMP = "AT_TIMESTAMP",
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+/**
+ * @public
+ * @enum
+ */
+export const KinesisStreamStartPosition = {
+  AT_TIMESTAMP: "AT_TIMESTAMP",
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
 
 /**
+ * @public
+ */
+export type KinesisStreamStartPosition = (typeof KinesisStreamStartPosition)[keyof typeof KinesisStreamStartPosition];
+
+/**
+ * @public
  * <p>The parameters for using a Kinesis stream as a source.</p>
  */
 export interface PipeSourceKinesisStreamParameters {
@@ -622,6 +709,7 @@ export interface PipeSourceKinesisStreamParameters {
 }
 
 /**
+ * @public
  * <p>The Secrets Manager secret that stores your stream credentials.</p>
  */
 export type MSKAccessCredentials =
@@ -629,6 +717,9 @@ export type MSKAccessCredentials =
   | MSKAccessCredentials.SaslScram512AuthMember
   | MSKAccessCredentials.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace MSKAccessCredentials {
   /**
    * <p>The ARN of the Secrets Manager secret.</p>
@@ -668,12 +759,22 @@ export namespace MSKAccessCredentials {
   };
 }
 
-export enum MSKStartPosition {
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MSKStartPosition = {
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
 
 /**
+ * @public
+ */
+export type MSKStartPosition = (typeof MSKStartPosition)[keyof typeof MSKStartPosition];
+
+/**
+ * @public
  * <p>The parameters for using an MSK stream as a source.</p>
  */
 export interface PipeSourceManagedStreamingKafkaParameters {
@@ -709,6 +810,7 @@ export interface PipeSourceManagedStreamingKafkaParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Rabbit MQ broker as a source.</p>
  */
 export interface PipeSourceRabbitMQBrokerParameters {
@@ -739,6 +841,7 @@ export interface PipeSourceRabbitMQBrokerParameters {
 }
 
 /**
+ * @public
  * <p>The Secrets Manager secret that stores your stream credentials.</p>
  */
 export type SelfManagedKafkaAccessConfigurationCredentials =
@@ -748,6 +851,9 @@ export type SelfManagedKafkaAccessConfigurationCredentials =
   | SelfManagedKafkaAccessConfigurationCredentials.SaslScram512AuthMember
   | SelfManagedKafkaAccessConfigurationCredentials.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace SelfManagedKafkaAccessConfigurationCredentials {
   /**
    * <p>The ARN of the Secrets Manager secret.</p>
@@ -819,12 +925,23 @@ export namespace SelfManagedKafkaAccessConfigurationCredentials {
   };
 }
 
-export enum SelfManagedKafkaStartPosition {
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SelfManagedKafkaStartPosition = {
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
 
 /**
+ * @public
+ */
+export type SelfManagedKafkaStartPosition =
+  (typeof SelfManagedKafkaStartPosition)[keyof typeof SelfManagedKafkaStartPosition];
+
+/**
+ * @public
  * <p>This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used.</p>
  */
 export interface SelfManagedKafkaAccessConfigurationVpc {
@@ -841,6 +958,7 @@ export interface SelfManagedKafkaAccessConfigurationVpc {
 }
 
 /**
+ * @public
  * <p>The parameters for using a self-managed Apache Kafka stream as a source.</p>
  */
 export interface PipeSourceSelfManagedKafkaParameters {
@@ -891,6 +1009,7 @@ export interface PipeSourceSelfManagedKafkaParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Amazon SQS stream as a source.</p>
  */
 export interface PipeSourceSqsQueueParameters {
@@ -906,6 +1025,7 @@ export interface PipeSourceSqsQueueParameters {
 }
 
 /**
+ * @public
  * <p>The parameters required to set up a source for your pipe.</p>
  */
 export interface PipeSourceParameters {
@@ -952,6 +1072,7 @@ export interface PipeSourceParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using an Batch job as a target.</p>
  */
 export interface PipeTargetBatchJobParameters {
@@ -999,6 +1120,7 @@ export interface PipeTargetBatchJobParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using an CloudWatch Logs log stream as a target.</p>
  */
 export interface PipeTargetCloudWatchLogsParameters {
@@ -1013,13 +1135,23 @@ export interface PipeTargetCloudWatchLogsParameters {
   Timestamp?: string;
 }
 
-export enum LaunchType {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchType = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
+
+/**
+ * @public
  * <p>This structure specifies the network configuration for an Amazon ECS task.</p>
  */
 export interface NetworkConfiguration {
@@ -1032,6 +1164,7 @@ export interface NetworkConfiguration {
 }
 
 /**
+ * @public
  * <p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can
  *          override the existing environment variables from the Docker image or the task definition. You must also specify a container name.</p>
  */
@@ -1047,11 +1180,21 @@ export interface EcsEnvironmentVariable {
   value?: string;
 }
 
-export enum EcsEnvironmentFileType {
-  s3 = "s3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EcsEnvironmentFileType = {
+  s3: "s3",
+} as const;
 
 /**
+ * @public
+ */
+export type EcsEnvironmentFileType = (typeof EcsEnvironmentFileType)[keyof typeof EcsEnvironmentFileType];
+
+/**
+ * @public
  * <p>A list of files containing the environment variables to pass to a container. You can
  *          specify up to ten environment files. The file must have a <code>.env</code> file
  *          extension. Each line in an environment file should contain an environment variable in
@@ -1088,12 +1231,22 @@ export interface EcsEnvironmentFile {
   value: string | undefined;
 }
 
-export enum EcsResourceRequirementType {
-  GPU = "GPU",
-  InferenceAccelerator = "InferenceAccelerator",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EcsResourceRequirementType = {
+  GPU: "GPU",
+  InferenceAccelerator: "InferenceAccelerator",
+} as const;
 
 /**
+ * @public
+ */
+export type EcsResourceRequirementType = (typeof EcsResourceRequirementType)[keyof typeof EcsResourceRequirementType];
+
+/**
+ * @public
  * <p>The type and amount of a resource to assign to a container. The supported resource
  *          types are GPUs and Elastic Inference accelerators. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with
  *             GPUs on Amazon ECS</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with
@@ -1122,8 +1275,9 @@ export interface EcsResourceRequirement {
 }
 
 /**
+ * @public
  * <p>The overrides that are sent to a container. An empty container override can be passed in. An example of an empty
- *          container override is <code>{"containerOverrides": [ ] }</code>. If a non-empty container override is specified, the <code>name</code> parameter must be included.</p>
+ *          container override is <code>\{"containerOverrides": [ ] \}</code>. If a non-empty container override is specified, the <code>name</code> parameter must be included.</p>
  */
 export interface EcsContainerOverride {
   /**
@@ -1171,6 +1325,7 @@ export interface EcsContainerOverride {
 }
 
 /**
+ * @public
  * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to
  *          expand the total amount of ephemeral storage available, beyond the default amount, for
  *          tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
@@ -1191,6 +1346,7 @@ export interface EcsEphemeralStorage {
 }
 
 /**
+ * @public
  * <p>Details on an Elastic Inference accelerator task override. This parameter is used to
  *          override the Elastic Inference accelerator specified in the task definition. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/ecs-inference.html">Working with Amazon
@@ -1210,6 +1366,7 @@ export interface EcsInferenceAcceleratorOverride {
 }
 
 /**
+ * @public
  * <p>The overrides that are associated with a task.</p>
  */
 export interface EcsTaskOverride {
@@ -1266,12 +1423,22 @@ export interface EcsTaskOverride {
   TaskRoleArn?: string;
 }
 
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlacementConstraintType = {
+  DISTINCT_INSTANCE: "distinctInstance",
+  MEMBER_OF: "memberOf",
+} as const;
 
 /**
+ * @public
+ */
+export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
+
+/**
+ * @public
  * <p>An object representing a constraint on task placement. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the Amazon Elastic Container Service Developer
  *          Guide.</p>
  */
@@ -1291,13 +1458,23 @@ export interface PlacementConstraint {
   expression?: string;
 }
 
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlacementStrategyType = {
+  BINPACK: "binpack",
+  RANDOM: "random",
+  SPREAD: "spread",
+} as const;
 
 /**
+ * @public
+ */
+export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof PlacementStrategyType];
+
+/**
+ * @public
  * <p>The task placement strategy for a task or service. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement Strategies</a> in the Amazon Elastic Container Service Service Developer
  *          Guide.</p>
  */
@@ -1322,11 +1499,21 @@ export interface PlacementStrategy {
   field?: string;
 }
 
-export enum PropagateTags {
-  TASK_DEFINITION = "TASK_DEFINITION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PropagateTags = {
+  TASK_DEFINITION: "TASK_DEFINITION",
+} as const;
 
 /**
+ * @public
+ */
+export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
+
+/**
+ * @public
  * <p>A key-value pair associated with an Amazon Web Services resource. In EventBridge, rules and event buses
  *          support tagging.</p>
  */
@@ -1344,6 +1531,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>The parameters for using an Amazon ECS task as a target.</p>
  */
 export interface PipeTargetEcsTaskParameters {
@@ -1452,6 +1640,7 @@ export interface PipeTargetEcsTaskParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using an EventBridge event bus as a target.</p>
  */
 export interface PipeTargetEventBridgeEventBusParameters {
@@ -1486,6 +1675,7 @@ export interface PipeTargetEventBridgeEventBusParameters {
 }
 
 /**
+ * @public
  * <p>These are custom parameter to be used when the target is an API Gateway REST APIs or
  *       EventBridge ApiDestinations.</p>
  */
@@ -1510,6 +1700,7 @@ export interface PipeTargetHttpParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Kinesis stream as a source.</p>
  */
 export interface PipeTargetKinesisStreamParameters {
@@ -1522,12 +1713,22 @@ export interface PipeTargetKinesisStreamParameters {
   PartitionKey: string | undefined;
 }
 
-export enum PipeTargetInvocationType {
-  FIRE_AND_FORGET = "FIRE_AND_FORGET",
-  REQUEST_RESPONSE = "REQUEST_RESPONSE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PipeTargetInvocationType = {
+  FIRE_AND_FORGET: "FIRE_AND_FORGET",
+  REQUEST_RESPONSE: "REQUEST_RESPONSE",
+} as const;
 
 /**
+ * @public
+ */
+export type PipeTargetInvocationType = (typeof PipeTargetInvocationType)[keyof typeof PipeTargetInvocationType];
+
+/**
+ * @public
  * <p>The parameters for using a Lambda function as a target.</p>
  */
 export interface PipeTargetLambdaFunctionParameters {
@@ -1556,6 +1757,7 @@ export interface PipeTargetLambdaFunctionParameters {
 }
 
 /**
+ * @public
  * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the
  *       Amazon Redshift Data API ExecuteStatement.</p>
  */
@@ -1595,6 +1797,7 @@ export interface PipeTargetRedshiftDataParameters {
 }
 
 /**
+ * @public
  * <p>Name/Value pair of a parameter to start execution of a SageMaker Model Building
  *          Pipeline.</p>
  */
@@ -1611,6 +1814,7 @@ export interface SageMakerPipelineParameter {
 }
 
 /**
+ * @public
  * <p>The parameters for using a SageMaker pipeline as a target.</p>
  */
 export interface PipeTargetSageMakerPipelineParameters {
@@ -1621,6 +1825,7 @@ export interface PipeTargetSageMakerPipelineParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Amazon SQS stream as a source.</p>
  */
 export interface PipeTargetSqsQueueParameters {
@@ -1637,6 +1842,7 @@ export interface PipeTargetSqsQueueParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Step Functions state machine as a target.</p>
  */
 export interface PipeTargetStateMachineParameters {
@@ -1647,6 +1853,7 @@ export interface PipeTargetStateMachineParameters {
 }
 
 /**
+ * @public
  * <p>The parameters required to set up a target for your pipe.</p>
  */
 export interface PipeTargetParameters {
@@ -1715,6 +1922,9 @@ export interface PipeTargetParameters {
   CloudWatchLogsParameters?: PipeTargetCloudWatchLogsParameters;
 }
 
+/**
+ * @public
+ */
 export interface CreatePipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -1772,20 +1982,32 @@ export interface CreatePipeRequest {
   Tags?: Record<string, string>;
 }
 
-export enum PipeState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  START_FAILED = "START_FAILED",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  STOP_FAILED = "STOP_FAILED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PipeState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  START_FAILED: "START_FAILED",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  STOP_FAILED: "STOP_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type PipeState = (typeof PipeState)[keyof typeof PipeState];
+
+/**
+ * @public
+ */
 export interface CreatePipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -1819,6 +2041,7 @@ export interface CreatePipeResponse {
 }
 
 /**
+ * @public
  * <p>This exception occurs due to unexpected causes.</p>
  */
 export class InternalException extends __BaseException {
@@ -1844,6 +2067,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An entity that you specified does not exist.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -1863,6 +2087,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A quota has been exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -1906,6 +2131,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An action was throttled.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -1943,6 +2169,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that an error has occurred while performing a validate operation.</p>
  */
 export interface ValidationExceptionField {
@@ -1958,6 +2185,7 @@ export interface ValidationExceptionField {
 }
 
 /**
+ * @public
  * <p>Indicates that an error has occurred while performing a validate operation.</p>
  */
 export class ValidationException extends __BaseException {
@@ -1982,6 +2210,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeletePipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -1989,12 +2220,25 @@ export interface DeletePipeRequest {
   Name: string | undefined;
 }
 
-export enum RequestedPipeStateDescribeResponse {
-  DELETED = "DELETED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RequestedPipeStateDescribeResponse = {
+  DELETED: "DELETED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
 
+/**
+ * @public
+ */
+export type RequestedPipeStateDescribeResponse =
+  (typeof RequestedPipeStateDescribeResponse)[keyof typeof RequestedPipeStateDescribeResponse];
+
+/**
+ * @public
+ */
 export interface DeletePipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2027,6 +2271,9 @@ export interface DeletePipeResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -2034,6 +2281,9 @@ export interface DescribePipeRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2116,6 +2366,9 @@ export interface DescribePipeResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPipesRequest {
   /**
    * <p>A value that will return a subset of the pipes associated with this account. For example, <code>"NamePrefix": "ABC"</code> will return
@@ -2157,6 +2410,7 @@ export interface ListPipesRequest {
 }
 
 /**
+ * @public
  * <p>An object that represents a pipe. Amazon EventBridgePipes connect event sources to targets and reduces the need for specialized knowledge and integration code.</p>
  */
 export interface Pipe {
@@ -2211,6 +2465,9 @@ export interface Pipe {
   Enrichment?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPipesResponse {
   /**
    * <p>The pipes returned by the call.</p>
@@ -2225,6 +2482,9 @@ export interface ListPipesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the pipe for which you want to view tags.</p>
@@ -2232,6 +2492,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of key-value pairs to associate with the pipe.</p>
@@ -2239,6 +2502,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartPipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -2246,6 +2512,9 @@ export interface StartPipeRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartPipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2278,6 +2547,9 @@ export interface StartPipeResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface StopPipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -2285,6 +2557,9 @@ export interface StopPipeRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopPipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2318,6 +2593,7 @@ export interface StopPipeResponse {
 }
 
 /**
+ * @public
  * <p>The parameters for using an Active MQ broker as a source.</p>
  */
 export interface UpdatePipeSourceActiveMQBrokerParameters {
@@ -2338,6 +2614,7 @@ export interface UpdatePipeSourceActiveMQBrokerParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a DynamoDB stream as a source.</p>
  */
 export interface UpdatePipeSourceDynamoDBStreamParameters {
@@ -2381,6 +2658,7 @@ export interface UpdatePipeSourceDynamoDBStreamParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Kinesis stream as a source.</p>
  */
 export interface UpdatePipeSourceKinesisStreamParameters {
@@ -2424,6 +2702,7 @@ export interface UpdatePipeSourceKinesisStreamParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using an MSK stream as a source.</p>
  */
 export interface UpdatePipeSourceManagedStreamingKafkaParameters {
@@ -2444,6 +2723,7 @@ export interface UpdatePipeSourceManagedStreamingKafkaParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Rabbit MQ broker as a source.</p>
  */
 export interface UpdatePipeSourceRabbitMQBrokerParameters {
@@ -2464,6 +2744,7 @@ export interface UpdatePipeSourceRabbitMQBrokerParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a self-managed Apache Kafka stream as a source.</p>
  */
 export interface UpdatePipeSourceSelfManagedKafkaParameters {
@@ -2494,6 +2775,7 @@ export interface UpdatePipeSourceSelfManagedKafkaParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for using a Amazon SQS stream as a source.</p>
  */
 export interface UpdatePipeSourceSqsQueueParameters {
@@ -2509,6 +2791,7 @@ export interface UpdatePipeSourceSqsQueueParameters {
 }
 
 /**
+ * @public
  * <p>The parameters required to set up a source for your pipe.</p>
  */
 export interface UpdatePipeSourceParameters {
@@ -2554,6 +2837,9 @@ export interface UpdatePipeSourceParameters {
   SelfManagedKafkaParameters?: UpdatePipeSourceSelfManagedKafkaParameters;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePipeRequest {
   /**
    * <p>The name of the pipe.</p>
@@ -2601,6 +2887,9 @@ export interface UpdatePipeRequest {
   RoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePipeResponse {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2633,6 +2922,9 @@ export interface UpdatePipeResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2645,8 +2937,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the pipe.</p>
@@ -2659,6 +2957,9 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
@@ -2668,48 +2969,6 @@ export const AwsVpcConfigurationFilterSensitiveLog = (obj: AwsVpcConfiguration):
   ...obj,
   ...(obj.Subnets && { Subnets: SENSITIVE_STRING }),
   ...(obj.SecurityGroups && { SecurityGroups: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BatchArrayPropertiesFilterSensitiveLog = (obj: BatchArrayProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchEnvironmentVariableFilterSensitiveLog = (obj: BatchEnvironmentVariable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchResourceRequirementFilterSensitiveLog = (obj: BatchResourceRequirement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchContainerOverridesFilterSensitiveLog = (obj: BatchContainerOverrides): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchJobDependencyFilterSensitiveLog = (obj: BatchJobDependency): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchRetryStrategyFilterSensitiveLog = (obj: BatchRetryStrategy): any => ({
-  ...obj,
 });
 
 /**
@@ -2742,32 +3001,10 @@ export const PipeEnrichmentParametersFilterSensitiveLog = (obj: PipeEnrichmentPa
 /**
  * @internal
  */
-export const MQBrokerAccessCredentialsFilterSensitiveLog = (obj: MQBrokerAccessCredentials): any => {
-  if (obj.BasicAuth !== undefined) return { BasicAuth: obj.BasicAuth };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
 export const PipeSourceActiveMQBrokerParametersFilterSensitiveLog = (obj: PipeSourceActiveMQBrokerParameters): any => ({
   ...obj,
-  ...(obj.Credentials && { Credentials: MQBrokerAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
+  ...(obj.Credentials && { Credentials: obj.Credentials }),
   ...(obj.QueueName && { QueueName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeadLetterConfigFilterSensitiveLog = (obj: DeadLetterConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipeSourceDynamoDBStreamParametersFilterSensitiveLog = (obj: PipeSourceDynamoDBStreamParameters): any => ({
-  ...obj,
 });
 
 /**
@@ -2789,29 +3026,13 @@ export const FilterCriteriaFilterSensitiveLog = (obj: FilterCriteria): any => ({
 /**
  * @internal
  */
-export const PipeSourceKinesisStreamParametersFilterSensitiveLog = (obj: PipeSourceKinesisStreamParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MSKAccessCredentialsFilterSensitiveLog = (obj: MSKAccessCredentials): any => {
-  if (obj.SaslScram512Auth !== undefined) return { SaslScram512Auth: obj.SaslScram512Auth };
-  if (obj.ClientCertificateTlsAuth !== undefined) return { ClientCertificateTlsAuth: obj.ClientCertificateTlsAuth };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
 export const PipeSourceManagedStreamingKafkaParametersFilterSensitiveLog = (
   obj: PipeSourceManagedStreamingKafkaParameters
 ): any => ({
   ...obj,
   ...(obj.TopicName && { TopicName: SENSITIVE_STRING }),
   ...(obj.ConsumerGroupID && { ConsumerGroupID: SENSITIVE_STRING }),
-  ...(obj.Credentials && { Credentials: MSKAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
+  ...(obj.Credentials && { Credentials: obj.Credentials }),
 });
 
 /**
@@ -2819,23 +3040,10 @@ export const PipeSourceManagedStreamingKafkaParametersFilterSensitiveLog = (
  */
 export const PipeSourceRabbitMQBrokerParametersFilterSensitiveLog = (obj: PipeSourceRabbitMQBrokerParameters): any => ({
   ...obj,
-  ...(obj.Credentials && { Credentials: MQBrokerAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
+  ...(obj.Credentials && { Credentials: obj.Credentials }),
   ...(obj.QueueName && { QueueName: SENSITIVE_STRING }),
   ...(obj.VirtualHost && { VirtualHost: SENSITIVE_STRING }),
 });
-
-/**
- * @internal
- */
-export const SelfManagedKafkaAccessConfigurationCredentialsFilterSensitiveLog = (
-  obj: SelfManagedKafkaAccessConfigurationCredentials
-): any => {
-  if (obj.BasicAuth !== undefined) return { BasicAuth: obj.BasicAuth };
-  if (obj.SaslScram512Auth !== undefined) return { SaslScram512Auth: obj.SaslScram512Auth };
-  if (obj.SaslScram256Auth !== undefined) return { SaslScram256Auth: obj.SaslScram256Auth };
-  if (obj.ClientCertificateTlsAuth !== undefined) return { ClientCertificateTlsAuth: obj.ClientCertificateTlsAuth };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
 /**
  * @internal
@@ -2858,17 +3066,8 @@ export const PipeSourceSelfManagedKafkaParametersFilterSensitiveLog = (
   ...(obj.TopicName && { TopicName: SENSITIVE_STRING }),
   ...(obj.AdditionalBootstrapServers && { AdditionalBootstrapServers: SENSITIVE_STRING }),
   ...(obj.ConsumerGroupID && { ConsumerGroupID: SENSITIVE_STRING }),
-  ...(obj.Credentials && {
-    Credentials: SelfManagedKafkaAccessConfigurationCredentialsFilterSensitiveLog(obj.Credentials),
-  }),
+  ...(obj.Credentials && { Credentials: obj.Credentials }),
   ...(obj.Vpc && { Vpc: SelfManagedKafkaAccessConfigurationVpcFilterSensitiveLog(obj.Vpc) }),
-});
-
-/**
- * @internal
- */
-export const PipeSourceSqsQueueParametersFilterSensitiveLog = (obj: PipeSourceSqsQueueParameters): any => ({
-  ...obj,
 });
 
 /**
@@ -2896,74 +3095,11 @@ export const PipeSourceParametersFilterSensitiveLog = (obj: PipeSourceParameters
 /**
  * @internal
  */
-export const PipeTargetBatchJobParametersFilterSensitiveLog = (obj: PipeTargetBatchJobParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipeTargetCloudWatchLogsParametersFilterSensitiveLog = (obj: PipeTargetCloudWatchLogsParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
   ...obj,
   ...(obj.awsvpcConfiguration && {
     awsvpcConfiguration: AwsVpcConfigurationFilterSensitiveLog(obj.awsvpcConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const EcsEnvironmentVariableFilterSensitiveLog = (obj: EcsEnvironmentVariable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsEnvironmentFileFilterSensitiveLog = (obj: EcsEnvironmentFile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsResourceRequirementFilterSensitiveLog = (obj: EcsResourceRequirement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsContainerOverrideFilterSensitiveLog = (obj: EcsContainerOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsEphemeralStorageFilterSensitiveLog = (obj: EcsEphemeralStorage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsInferenceAcceleratorOverrideFilterSensitiveLog = (obj: EcsInferenceAcceleratorOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsTaskOverrideFilterSensitiveLog = (obj: EcsTaskOverride): any => ({
-  ...obj,
 });
 
 /**
@@ -3046,13 +3182,6 @@ export const PipeTargetKinesisStreamParametersFilterSensitiveLog = (obj: PipeTar
 /**
  * @internal
  */
-export const PipeTargetLambdaFunctionParametersFilterSensitiveLog = (obj: PipeTargetLambdaFunctionParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PipeTargetRedshiftDataParametersFilterSensitiveLog = (obj: PipeTargetRedshiftDataParameters): any => ({
   ...obj,
   ...(obj.Database && { Database: SENSITIVE_STRING }),
@@ -3089,13 +3218,6 @@ export const PipeTargetSqsQueueParametersFilterSensitiveLog = (obj: PipeTargetSq
   ...obj,
   ...(obj.MessageGroupId && { MessageGroupId: SENSITIVE_STRING }),
   ...(obj.MessageDeduplicationId && { MessageDeduplicationId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PipeTargetStateMachineParametersFilterSensitiveLog = (obj: PipeTargetStateMachineParameters): any => ({
-  ...obj,
 });
 
 /**
@@ -3146,41 +3268,6 @@ export const CreatePipeRequestFilterSensitiveLog = (obj: CreatePipeRequest): any
 /**
  * @internal
  */
-export const CreatePipeResponseFilterSensitiveLog = (obj: CreatePipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePipeRequestFilterSensitiveLog = (obj: DeletePipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePipeResponseFilterSensitiveLog = (obj: DeletePipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePipeRequestFilterSensitiveLog = (obj: DescribePipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribePipeResponseFilterSensitiveLog = (obj: DescribePipeResponse): any => ({
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
@@ -3203,23 +3290,9 @@ export const ListPipesRequestFilterSensitiveLog = (obj: ListPipesRequest): any =
 /**
  * @internal
  */
-export const PipeFilterSensitiveLog = (obj: Pipe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListPipesResponseFilterSensitiveLog = (obj: ListPipesResponse): any => ({
   ...obj,
   ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3233,97 +3306,12 @@ export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForRe
 /**
  * @internal
  */
-export const StartPipeRequestFilterSensitiveLog = (obj: StartPipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartPipeResponseFilterSensitiveLog = (obj: StartPipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopPipeRequestFilterSensitiveLog = (obj: StopPipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopPipeResponseFilterSensitiveLog = (obj: StopPipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceActiveMQBrokerParametersFilterSensitiveLog = (
-  obj: UpdatePipeSourceActiveMQBrokerParameters
-): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: MQBrokerAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceDynamoDBStreamParametersFilterSensitiveLog = (
-  obj: UpdatePipeSourceDynamoDBStreamParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceKinesisStreamParametersFilterSensitiveLog = (
-  obj: UpdatePipeSourceKinesisStreamParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceManagedStreamingKafkaParametersFilterSensitiveLog = (
-  obj: UpdatePipeSourceManagedStreamingKafkaParameters
-): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: MSKAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceRabbitMQBrokerParametersFilterSensitiveLog = (
-  obj: UpdatePipeSourceRabbitMQBrokerParameters
-): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: MQBrokerAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
 export const UpdatePipeSourceSelfManagedKafkaParametersFilterSensitiveLog = (
   obj: UpdatePipeSourceSelfManagedKafkaParameters
 ): any => ({
   ...obj,
-  ...(obj.Credentials && {
-    Credentials: SelfManagedKafkaAccessConfigurationCredentialsFilterSensitiveLog(obj.Credentials),
-  }),
+  ...(obj.Credentials && { Credentials: obj.Credentials }),
   ...(obj.Vpc && { Vpc: SelfManagedKafkaAccessConfigurationVpcFilterSensitiveLog(obj.Vpc) }),
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceSqsQueueParametersFilterSensitiveLog = (obj: UpdatePipeSourceSqsQueueParameters): any => ({
-  ...obj,
 });
 
 /**
@@ -3332,17 +3320,9 @@ export const UpdatePipeSourceSqsQueueParametersFilterSensitiveLog = (obj: Update
 export const UpdatePipeSourceParametersFilterSensitiveLog = (obj: UpdatePipeSourceParameters): any => ({
   ...obj,
   ...(obj.FilterCriteria && { FilterCriteria: FilterCriteriaFilterSensitiveLog(obj.FilterCriteria) }),
-  ...(obj.ActiveMQBrokerParameters && {
-    ActiveMQBrokerParameters: UpdatePipeSourceActiveMQBrokerParametersFilterSensitiveLog(obj.ActiveMQBrokerParameters),
-  }),
-  ...(obj.RabbitMQBrokerParameters && {
-    RabbitMQBrokerParameters: UpdatePipeSourceRabbitMQBrokerParametersFilterSensitiveLog(obj.RabbitMQBrokerParameters),
-  }),
-  ...(obj.ManagedStreamingKafkaParameters && {
-    ManagedStreamingKafkaParameters: UpdatePipeSourceManagedStreamingKafkaParametersFilterSensitiveLog(
-      obj.ManagedStreamingKafkaParameters
-    ),
-  }),
+  ...(obj.ActiveMQBrokerParameters && { ActiveMQBrokerParameters: obj.ActiveMQBrokerParameters }),
+  ...(obj.RabbitMQBrokerParameters && { RabbitMQBrokerParameters: obj.RabbitMQBrokerParameters }),
+  ...(obj.ManagedStreamingKafkaParameters && { ManagedStreamingKafkaParameters: obj.ManagedStreamingKafkaParameters }),
   ...(obj.SelfManagedKafkaParameters && {
     SelfManagedKafkaParameters: UpdatePipeSourceSelfManagedKafkaParametersFilterSensitiveLog(
       obj.SelfManagedKafkaParameters
@@ -3366,35 +3346,7 @@ export const UpdatePipeRequestFilterSensitiveLog = (obj: UpdatePipeRequest): any
 /**
  * @internal
  */
-export const UpdatePipeResponseFilterSensitiveLog = (obj: UpdatePipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });

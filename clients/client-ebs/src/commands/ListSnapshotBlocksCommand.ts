@@ -16,19 +16,26 @@ import {
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
 import {
   ListSnapshotBlocksRequest,
-  ListSnapshotBlocksRequestFilterSensitiveLog,
   ListSnapshotBlocksResponse,
   ListSnapshotBlocksResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSnapshotBlocksCommand,
-  serializeAws_restJson1ListSnapshotBlocksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSnapshotBlocksCommand, se_ListSnapshotBlocksCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListSnapshotBlocksCommand}.
+ */
 export interface ListSnapshotBlocksCommandInput extends ListSnapshotBlocksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSnapshotBlocksCommand}.
+ */
 export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the blocks in an Amazon Elastic Block Store snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +43,41 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * import { EBSClient, ListSnapshotBlocksCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, ListSnapshotBlocksCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
  * const client = new EBSClient(config);
+ * const input = { // ListSnapshotBlocksRequest
+ *   SnapshotId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   StartingBlockIndex: Number("int"),
+ * };
  * const command = new ListSnapshotBlocksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSnapshotBlocksCommandInput - {@link ListSnapshotBlocksCommandInput}
+ * @returns {@link ListSnapshotBlocksCommandOutput}
  * @see {@link ListSnapshotBlocksCommandInput} for command's `input` shape.
  * @see {@link ListSnapshotBlocksCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link RequestThrottledException} (client fault)
+ *  <p>The number of API requests has exceed the maximum allowed API request throttling
+ *             limit.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current service quotas do not allow you to perform this action.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+ *
  *
  */
 export class ListSnapshotBlocksCommand extends $Command<
@@ -62,6 +97,9 @@ export class ListSnapshotBlocksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSnapshotBlocksCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,7 +128,7 @@ export class ListSnapshotBlocksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSnapshotBlocksRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListSnapshotBlocksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -101,12 +139,18 @@ export class ListSnapshotBlocksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSnapshotBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSnapshotBlocksCommand(input, context);
+    return se_ListSnapshotBlocksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSnapshotBlocksCommandOutput> {
-    return deserializeAws_restJson1ListSnapshotBlocksCommand(output, context);
+    return de_ListSnapshotBlocksCommand(output, context);
   }
 
   // Start section: command_body_extra

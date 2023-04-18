@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListNotebookInstancesInput,
-  ListNotebookInstancesInputFilterSensitiveLog,
-  ListNotebookInstancesOutput,
-  ListNotebookInstancesOutputFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListNotebookInstancesCommand,
-  serializeAws_json1_1ListNotebookInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListNotebookInstancesInput, ListNotebookInstancesOutput } from "../models/models_3";
+import { de_ListNotebookInstancesCommand, se_ListNotebookInstancesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNotebookInstancesCommand}.
+ */
 export interface ListNotebookInstancesCommandInput extends ListNotebookInstancesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListNotebookInstancesCommand}.
+ */
 export interface ListNotebookInstancesCommandOutput extends ListNotebookInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the SageMaker notebook instances in the requester's account in an
  *                 Amazon Web Services Region. </p>
  * @example
@@ -37,13 +40,31 @@ export interface ListNotebookInstancesCommandOutput extends ListNotebookInstance
  * import { SageMakerClient, ListNotebookInstancesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListNotebookInstancesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListNotebookInstancesInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NameContains: "STRING_VALUE",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   StatusEquals: "Pending" || "InService" || "Stopping" || "Stopped" || "Failed" || "Deleting" || "Updating",
+ *   NotebookInstanceLifecycleConfigNameContains: "STRING_VALUE",
+ *   DefaultCodeRepositoryContains: "STRING_VALUE",
+ *   AdditionalCodeRepositoryEquals: "STRING_VALUE",
+ * };
  * const command = new ListNotebookInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotebookInstancesCommandInput - {@link ListNotebookInstancesCommandInput}
+ * @returns {@link ListNotebookInstancesCommandOutput}
  * @see {@link ListNotebookInstancesCommandInput} for command's `input` shape.
  * @see {@link ListNotebookInstancesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
  *
  */
 export class ListNotebookInstancesCommand extends $Command<
@@ -63,6 +84,9 @@ export class ListNotebookInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotebookInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -91,8 +115,8 @@ export class ListNotebookInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotebookInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNotebookInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +126,18 @@ export class ListNotebookInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotebookInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNotebookInstancesCommand(input, context);
+    return se_ListNotebookInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotebookInstancesCommandOutput> {
-    return deserializeAws_json1_1ListNotebookInstancesCommand(output, context);
+    return de_ListNotebookInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

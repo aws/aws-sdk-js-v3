@@ -13,22 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateNotificationSettingsRequest,
-  UpdateNotificationSettingsRequestFilterSensitiveLog,
-  UpdateNotificationSettingsResponse,
-  UpdateNotificationSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateNotificationSettingsRequest, UpdateNotificationSettingsResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1UpdateNotificationSettingsCommand,
-  serializeAws_json1_1UpdateNotificationSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateNotificationSettingsCommand, se_UpdateNotificationSettingsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link UpdateNotificationSettingsCommand}.
+ */
 export interface UpdateNotificationSettingsCommandInput extends UpdateNotificationSettingsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateNotificationSettingsCommand}.
+ */
 export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificationSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>UpdateNotificationSettings</code> operation creates, updates,
  *             disables or re-enables notifications for a HIT type.
@@ -47,13 +50,34 @@ export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificat
  * import { MTurkClient, UpdateNotificationSettingsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, UpdateNotificationSettingsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // UpdateNotificationSettingsRequest
+ *   HITTypeId: "STRING_VALUE", // required
+ *   Notification: { // NotificationSpecification
+ *     Destination: "STRING_VALUE", // required
+ *     Transport: "STRING_VALUE", // required
+ *     Version: "STRING_VALUE", // required
+ *     EventTypes: [ // EventTypeList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Active: true || false,
+ * };
  * const command = new UpdateNotificationSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNotificationSettingsCommandInput - {@link UpdateNotificationSettingsCommandInput}
+ * @returns {@link UpdateNotificationSettingsCommandOutput}
  * @see {@link UpdateNotificationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationSettingsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
  *
  */
 export class UpdateNotificationSettingsCommand extends $Command<
@@ -73,6 +97,9 @@ export class UpdateNotificationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNotificationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +128,8 @@ export class UpdateNotificationSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNotificationSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNotificationSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,15 +139,21 @@ export class UpdateNotificationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNotificationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNotificationSettingsCommand(input, context);
+    return se_UpdateNotificationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNotificationSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateNotificationSettingsCommand(output, context);
+    return de_UpdateNotificationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

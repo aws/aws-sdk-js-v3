@@ -14,48 +14,50 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  GetEventSelectorsRequest,
-  GetEventSelectorsRequestFilterSensitiveLog,
-  GetEventSelectorsResponse,
-  GetEventSelectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetEventSelectorsCommand,
-  serializeAws_json1_1GetEventSelectorsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetEventSelectorsRequest, GetEventSelectorsResponse } from "../models/models_0";
+import { de_GetEventSelectorsCommand, se_GetEventSelectorsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetEventSelectorsCommand}.
+ */
 export interface GetEventSelectorsCommandInput extends GetEventSelectorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetEventSelectorsCommand}.
+ */
 export interface GetEventSelectorsCommandOutput extends GetEventSelectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the settings for the event selectors that you configured for your trail.
- *          The information returned for your event selectors includes the following:</p>
+ * @public
+ * <p>Describes the settings for the event selectors that you configured for your trail. The
+ *          information returned for your event selectors includes the following:</p>
  *          <ul>
  *             <li>
- *                <p>If your event selector includes read-only events, write-only events, or
- *             all events. This applies to both management events and data events.</p>
+ *                <p>If your event selector includes read-only events, write-only events, or all
+ *                events. This applies to both management events and data events.</p>
  *             </li>
  *             <li>
  *                <p>If your event selector includes management events.</p>
  *             </li>
  *             <li>
- *                <p>If your event selector includes data events, the resources on which you are logging data
- *                events.</p>
+ *                <p>If your event selector includes data events, the resources on which you are
+ *                logging data events.</p>
  *             </li>
  *          </ul>
- *          <p>For more information about logging management and data events, see the following topics in the <i>CloudTrail User Guide</i>:</p>
+ *          <p>For more information about logging management and data events, see the following topics
+ *          in the <i>CloudTrail User Guide</i>:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails
- *             </a>
+ *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events for trails </a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails
- *             </a>
+ *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events for trails </a>
  *                </p>
  *             </li>
  *          </ul>
@@ -65,13 +67,69 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  * import { CloudTrailClient, GetEventSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetEventSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // GetEventSelectorsRequest
+ *   TrailName: "STRING_VALUE", // required
+ * };
  * const command = new GetEventSelectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventSelectorsCommandInput - {@link GetEventSelectorsCommandInput}
+ * @returns {@link GetEventSelectorsCommandOutput}
  * @see {@link GetEventSelectorsCommandInput} for command's `input` shape.
  * @see {@link GetEventSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link CloudTrailARNInvalidException} (client fault)
+ *  <p>This exception is thrown when an operation is called with a trail ARN that is not valid.
+ *          The following is the format of a trail ARN.</p>
+ *          <p>
+ *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+ *          </p>
+ *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
+ *          <p>The following is the format of an event data store ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a channel ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+ *          </p>
+ *
+ * @throws {@link InvalidTrailNameException} (client fault)
+ *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
+ *          meet the following requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
+ *                (_), or dashes (-)</p>
+ *             </li>
+ *             <li>
+ *                <p>Start with a letter or number, and end with a letter or number</p>
+ *             </li>
+ *             <li>
+ *                <p>Be between 3 and 128 characters</p>
+ *             </li>
+ *             <li>
+ *                <p>Have no adjacent periods, underscores or dashes. Names like
+ *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NoManagementAccountSLRExistsException} (client fault)
+ *  <p> This exception is thrown when the management account does not have a service-linked
+ *          role. </p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link TrailNotFoundException} (client fault)
+ *  <p>This exception is thrown when the trail with the given name is not found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
  *
  */
 export class GetEventSelectorsCommand extends $Command<
@@ -91,6 +149,9 @@ export class GetEventSelectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +180,8 @@ export class GetEventSelectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventSelectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEventSelectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +191,18 @@ export class GetEventSelectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEventSelectorsCommand(input, context);
+    return se_GetEventSelectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventSelectorsCommandOutput> {
-    return deserializeAws_json1_1GetEventSelectorsCommand(output, context);
+    return de_GetEventSelectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

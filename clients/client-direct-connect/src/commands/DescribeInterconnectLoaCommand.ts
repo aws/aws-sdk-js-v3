@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DescribeInterconnectLoaRequest,
-  DescribeInterconnectLoaRequestFilterSensitiveLog,
-  DescribeInterconnectLoaResponse,
-  DescribeInterconnectLoaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInterconnectLoaCommand,
-  serializeAws_json1_1DescribeInterconnectLoaCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeInterconnectLoaRequest, DescribeInterconnectLoaResponse } from "../models/models_0";
+import { de_DescribeInterconnectLoaCommand, se_DescribeInterconnectLoaCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeInterconnectLoaCommand}.
+ */
 export interface DescribeInterconnectLoaCommandInput extends DescribeInterconnectLoaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInterconnectLoaCommand}.
+ */
 export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconnectLoaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
@@ -42,13 +45,27 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  * import { DirectConnectClient, DescribeInterconnectLoaCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeInterconnectLoaCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeInterconnectLoaRequest
+ *   interconnectId: "STRING_VALUE", // required
+ *   providerName: "STRING_VALUE",
+ *   loaContentType: "application/pdf",
+ * };
  * const command = new DescribeInterconnectLoaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInterconnectLoaCommandInput - {@link DescribeInterconnectLoaCommandInput}
+ * @returns {@link DescribeInterconnectLoaCommandOutput}
  * @see {@link DescribeInterconnectLoaCommandInput} for command's `input` shape.
  * @see {@link DescribeInterconnectLoaCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
  *
  */
 export class DescribeInterconnectLoaCommand extends $Command<
@@ -68,6 +85,9 @@ export class DescribeInterconnectLoaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInterconnectLoaCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +116,8 @@ export class DescribeInterconnectLoaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInterconnectLoaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInterconnectLoaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +127,18 @@ export class DescribeInterconnectLoaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInterconnectLoaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInterconnectLoaCommand(input, context);
+    return se_DescribeInterconnectLoaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInterconnectLoaCommandOutput> {
-    return deserializeAws_json1_1DescribeInterconnectLoaCommand(output, context);
+    return de_DescribeInterconnectLoaCommand(output, context);
   }
 
   // Start section: command_body_extra

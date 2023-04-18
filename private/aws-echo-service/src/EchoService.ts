@@ -4,7 +4,13 @@ import { EchoCommand, EchoCommandInput, EchoCommandOutput } from "./commands/Ech
 import { LengthCommand, LengthCommandInput, LengthCommandOutput } from "./commands/LengthCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
+/**
+ * @public
+ */
 export class EchoService extends EchoServiceClient {
+  /**
+   * @public
+   */
   public echo(args: EchoCommandInput, options?: __HttpHandlerOptions): Promise<EchoCommandOutput>;
   public echo(args: EchoCommandInput, cb: (err: any, data?: EchoCommandOutput) => void): void;
   public echo(
@@ -28,6 +34,9 @@ export class EchoService extends EchoServiceClient {
     }
   }
 
+  /**
+   * @public
+   */
   public length(args: LengthCommandInput, options?: __HttpHandlerOptions): Promise<LengthCommandOutput>;
   public length(args: LengthCommandInput, cb: (err: any, data?: LengthCommandOutput) => void): void;
   public length(

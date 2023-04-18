@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
-import { ChimeSDKVoice } from "../ChimeSDKVoice";
 import { ChimeSDKVoiceClient } from "../ChimeSDKVoiceClient";
 import {
   SearchAvailablePhoneNumbersCommand,
@@ -11,7 +10,7 @@ import {
 import { ChimeSDKVoicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeSDKVoiceClient,
@@ -22,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new SearchAvailablePhoneNumbersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ChimeSDKVoice,
-  input: SearchAvailablePhoneNumbersCommandInput,
-  ...args: any
-): Promise<SearchAvailablePhoneNumbersCommandOutput> => {
-  // @ts-ignore
-  return await client.searchAvailablePhoneNumbers(input, ...args);
-};
 export async function* paginateSearchAvailablePhoneNumbers(
   config: ChimeSDKVoicePaginationConfiguration,
   input: SearchAvailablePhoneNumbersCommandInput,
@@ -44,9 +35,7 @@ export async function* paginateSearchAvailablePhoneNumbers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ChimeSDKVoice) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ChimeSDKVoiceClient) {
+    if (config.client instanceof ChimeSDKVoiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ChimeSDKVoice | ChimeSDKVoiceClient");

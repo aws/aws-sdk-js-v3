@@ -6,24 +6,29 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/redshift.json */
 
-const p="required",
-q="fn",
-r="argv",
-s="ref";
-const a="PartitionResult",
+const u="required",
+v="fn",
+w="argv",
+x="ref";
+const a="isSet",
 b="tree",
 c="error",
 d="endpoint",
-e={[p]:false,"type":"String"},
-f={[p]:true,"default":false,"type":"Boolean"},
-g={[s]:"Endpoint"},
-h={[q]:"booleanEquals",[r]:[{[s]:"UseFIPS"},true]},
-i={[q]:"booleanEquals",[r]:[{[s]:"UseDualStack"},true]},
-j={},
-k={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsFIPS"]}]},
-l={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsDualStack"]}]},
-m=[g],
-n=[h],
-o=[i];
-const _data={version:"1.0",parameters:{Region:e,UseDualStack:f,UseFIPS:f,Endpoint:e},rules:[{conditions:[{[q]:"aws.partition",[r]:[{[s]:"Region"}],assign:a}],type:b,rules:[{conditions:[{[q]:"isSet",[r]:m},{[q]:"parseURL",[r]:m,assign:"url"}],type:b,rules:[{conditions:n,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:o,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:g,properties:j,headers:j},type:d}]}]},{conditions:[h,i],type:b,rules:[{conditions:[k,l],type:b,rules:[{endpoint:{url:"https://redshift-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:n,type:b,rules:[{conditions:[k],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://redshift-fips.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:o,type:b,rules:[{conditions:[l],type:b,rules:[{endpoint:{url:"https://redshift.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{endpoint:{url:"https://redshift.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]};
+e="PartitionResult",
+f="getAttr",
+g="stringEquals",
+h={[u]:false,"type":"String"},
+i={[u]:true,"default":false,"type":"Boolean"},
+j={[x]:"Endpoint"},
+k={[v]:"booleanEquals",[w]:[{[x]:"UseFIPS"},true]},
+l={[v]:"booleanEquals",[w]:[{[x]:"UseDualStack"},true]},
+m={},
+n={[x]:"Region"},
+o={[v]:"booleanEquals",[w]:[true,{[v]:f,[w]:[{[x]:e},"supportsFIPS"]}]},
+p={[x]:e},
+q={[v]:"booleanEquals",[w]:[true,{[v]:f,[w]:[p,"supportsDualStack"]}]},
+r=[k],
+s=[l],
+t=[n];
+const _data={version:"1.0",parameters:{Region:h,UseDualStack:i,UseFIPS:i,Endpoint:h},rules:[{conditions:[{[v]:a,[w]:[j]}],type:b,rules:[{conditions:r,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:s,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:j,properties:m,headers:m},type:d}]}]},{type:b,rules:[{conditions:[{[v]:a,[w]:t}],type:b,rules:[{conditions:[{[v]:"aws.partition",[w]:t,assign:e}],type:b,rules:[{conditions:[k,l],type:b,rules:[{conditions:[o,q],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://redshift-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:d}]}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:r,type:b,rules:[{conditions:[o],type:b,rules:[{type:b,rules:[{conditions:[{[v]:g,[w]:["aws-us-gov",{[v]:f,[w]:[p,"name"]}]}],endpoint:{url:"https://redshift.{Region}.amazonaws.com",properties:m,headers:m},type:d},{endpoint:{url:"https://redshift-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:d}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:s,type:b,rules:[{conditions:[q],type:b,rules:[{type:b,rules:[{endpoint:{url:"https://redshift.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:d}]}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{type:b,rules:[{conditions:[{[v]:g,[w]:[n,"us-gov-east-1"]}],endpoint:{url:"https://redshift.us-gov-east-1.amazonaws.com",properties:m,headers:m},type:d},{conditions:[{[v]:g,[w]:[n,"us-gov-west-1"]}],endpoint:{url:"https://redshift.us-gov-west-1.amazonaws.com",properties:m,headers:m},type:d},{endpoint:{url:"https://redshift.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:d}]}]}]},{error:"Invalid Configuration: Missing Region",type:c}]}]};
 export const ruleSet: RuleSetObject = _data;

@@ -14,26 +14,29 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  CreateExtensionRequest,
-  CreateExtensionRequestFilterSensitiveLog,
-  Extension,
-  ExtensionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateExtensionCommand,
-  serializeAws_restJson1CreateExtensionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateExtensionRequest, Extension } from "../models/models_0";
+import { de_CreateExtensionCommand, se_CreateExtensionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link CreateExtensionCommand}.
+ */
 export interface CreateExtensionCommandInput extends CreateExtensionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateExtensionCommand}.
+ */
 export interface CreateExtensionCommandOutput extends Extension, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an AppConfig extension. An extension augments your ability to inject
  *          logic or behavior at different points during the AppConfig workflow of creating
  *          or deploying a configuration.</p>
- *          <p>You can create your own extensions or use the Amazon Web Services-authored extensions provided by
- *             AppConfig. For most use-cases, to create your own extension, you must create
+ *          <p>You can create your own extensions or use the Amazon Web Services authored extensions provided by
+ *             AppConfig. For most use cases, to create your own extension, you must create
  *          an Lambda function to perform any computation and processing defined in the
  *          extension. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
@@ -44,13 +47,53 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  * import { AppConfigClient, CreateExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // CreateExtensionRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Actions: { // ActionsMap // required
+ *     "<keys>": [ // ActionList
+ *       { // Action
+ *         Name: "STRING_VALUE",
+ *         Description: "STRING_VALUE",
+ *         Uri: "STRING_VALUE",
+ *         RoleArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Parameters: { // ParameterMap
+ *     "<keys>": { // Parameter
+ *       Description: "STRING_VALUE",
+ *       Required: true || false,
+ *     },
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   LatestVersionNumber: Number("int"),
+ * };
  * const command = new CreateExtensionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExtensionCommandInput - {@link CreateExtensionCommandInput}
+ * @returns {@link CreateExtensionCommandOutput}
  * @see {@link CreateExtensionCommandInput} for command's `input` shape.
  * @see {@link CreateExtensionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
+ *
  *
  */
 export class CreateExtensionCommand extends $Command<
@@ -70,6 +113,9 @@ export class CreateExtensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExtensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +144,8 @@ export class CreateExtensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExtensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtensionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +155,18 @@ export class CreateExtensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateExtensionCommand(input, context);
+    return se_CreateExtensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExtensionCommandOutput> {
-    return deserializeAws_restJson1CreateExtensionCommand(output, context);
+    return de_CreateExtensionCommand(output, context);
   }
 
   // Start section: command_body_extra

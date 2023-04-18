@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  GetProfileRequest,
-  GetProfileRequestFilterSensitiveLog,
-  GetProfileResponse,
-  GetProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetProfileCommand,
-  serializeAws_restJson1GetProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { GetProfileRequest, GetProfileResponse } from "../models/models_0";
+import { de_GetProfileCommand, se_GetProfileCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link GetProfileCommand}.
+ */
 export interface GetProfileCommandInput extends GetProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetProfileCommand}.
+ */
 export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Gets the aggregated profile of a profiling group for a specified time range.
  *          Amazon CodeGuru Profiler collects posted agent profiles for a profiling group
@@ -107,13 +110,36 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * import { CodeGuruProfilerClient, GetProfileCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, GetProfileCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // GetProfileRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"),
+ *   period: "STRING_VALUE",
+ *   endTime: new Date("TIMESTAMP"),
+ *   maxDepth: Number("int"),
+ *   accept: "STRING_VALUE",
+ * };
  * const command = new GetProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProfileCommandInput - {@link GetProfileCommandInput}
+ * @returns {@link GetProfileCommandOutput}
  * @see {@link GetProfileCommandInput} for command's `input` shape.
  * @see {@link GetProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
  *
  */
 export class GetProfileCommand extends $Command<
@@ -133,6 +159,9 @@ export class GetProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +188,8 @@ export class GetProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,12 +199,18 @@ export class GetProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProfileCommand(input, context);
+    return se_GetProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProfileCommandOutput> {
-    return deserializeAws_restJson1GetProfileCommand(output, context);
+    return de_GetProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { SetTagsForResourceRequest, SetTagsForResourceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetTagsForResourceCommand,
-  serializeAws_json1_1SetTagsForResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { SetTagsForResourceRequest } from "../models/models_0";
+import { de_SetTagsForResourceCommand, se_SetTagsForResourceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SetTagsForResourceCommand}.
+ */
 export interface SetTagsForResourceCommandInput extends SetTagsForResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetTagsForResourceCommand}.
+ */
 export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets tags (key and value pairs) to the assessment template that is specified by the
  *          ARN of the assessment template.</p>
  * @example
@@ -32,13 +40,59 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, SetTagsForResourceCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, SetTagsForResourceCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // SetTagsForResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new SetTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTagsForResourceCommandInput - {@link SetTagsForResourceCommandInput}
+ * @returns {@link SetTagsForResourceCommandOutput}
  * @see {@link SetTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link SetTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced an entity that does not exist. The
+ *          error code describes the entity.</p>
+ *
+ * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
+ *  <p>The serice is temporary unavailable.</p>
+ *
+ *
+ * @example Set tags for resource
+ * ```javascript
+ * // Sets tags (key and value pairs) to the assessment template that is specified by the ARN of the assessment template.
+ * const input = {
+ *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+ *   "tags": [
+ *     {
+ *       "key": "Example",
+ *       "value": "example"
+ *     }
+ *   ]
+ * };
+ * const command = new SetTagsForResourceCommand(input);
+ * await client.send(command);
+ * // example id: set-tags-for-resource-1481067329646
+ * ```
  *
  */
 export class SetTagsForResourceCommand extends $Command<
@@ -58,6 +112,9 @@ export class SetTagsForResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,8 +143,8 @@ export class SetTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTagsForResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +154,18 @@ export class SetTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetTagsForResourceCommand(input, context);
+    return se_SetTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTagsForResourceCommandOutput> {
-    return deserializeAws_json1_1SetTagsForResourceCommand(output, context);
+    return de_SetTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

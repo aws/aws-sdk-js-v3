@@ -14,18 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  PutAlarmRequest,
-  PutAlarmRequestFilterSensitiveLog,
-  PutAlarmResult,
-  PutAlarmResultFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1PutAlarmCommand, serializeAws_json1_1PutAlarmCommand } from "../protocols/Aws_json1_1";
+import { PutAlarmRequest, PutAlarmResult } from "../models/models_1";
+import { de_PutAlarmCommand, se_PutAlarmCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link PutAlarmCommand}.
+ */
 export interface PutAlarmCommandInput extends PutAlarmRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutAlarmCommand}.
+ */
 export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an alarm, and associates it with the specified metric.</p>
  *          <p>An alarm is used to monitor a single metric for one of your resources. When a metric
  *       condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
@@ -43,13 +49,59 @@ export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer 
  * import { LightsailClient, PutAlarmCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, PutAlarmCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // PutAlarmRequest
+ *   alarmName: "STRING_VALUE", // required
+ *   metricName: "CPUUtilization" || "NetworkIn" || "NetworkOut" || "StatusCheckFailed" || "StatusCheckFailed_Instance" || "StatusCheckFailed_System" || "ClientTLSNegotiationErrorCount" || "HealthyHostCount" || "UnhealthyHostCount" || "HTTPCode_LB_4XX_Count" || "HTTPCode_LB_5XX_Count" || "HTTPCode_Instance_2XX_Count" || "HTTPCode_Instance_3XX_Count" || "HTTPCode_Instance_4XX_Count" || "HTTPCode_Instance_5XX_Count" || "InstanceResponseTime" || "RejectedConnectionCount" || "RequestCount" || "DatabaseConnections" || "DiskQueueDepth" || "FreeStorageSpace" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "BurstCapacityTime" || "BurstCapacityPercentage", // required
+ *   monitoredResourceName: "STRING_VALUE", // required
+ *   comparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold", // required
+ *   threshold: Number("double"), // required
+ *   evaluationPeriods: Number("int"), // required
+ *   datapointsToAlarm: Number("int"),
+ *   treatMissingData: "breaching" || "notBreaching" || "ignore" || "missing",
+ *   contactProtocols: [ // ContactProtocolsList
+ *     "Email" || "SMS",
+ *   ],
+ *   notificationTriggers: [ // NotificationTriggerList
+ *     "OK" || "ALARM" || "INSUFFICIENT_DATA",
+ *   ],
+ *   notificationEnabled: true || false,
+ * };
  * const command = new PutAlarmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAlarmCommandInput - {@link PutAlarmCommandInput}
+ * @returns {@link PutAlarmCommandOutput}
  * @see {@link PutAlarmCommandInput} for command's `input` shape.
  * @see {@link PutAlarmCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
+ *       credentials to access a resource.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Lightsail throws this exception when user input does not conform to the validation rules
+ *       of an input field.</p>
+ *          <note>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
+ *          </note>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * @throws {@link OperationFailureException} (client fault)
+ *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>A general service exception.</p>
+ *
+ * @throws {@link UnauthenticatedException} (client fault)
+ *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
  *
  */
 export class PutAlarmCommand extends $Command<
@@ -69,6 +121,9 @@ export class PutAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +150,8 @@ export class PutAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAlarmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAlarmResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +161,18 @@ export class PutAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAlarmCommand(input, context);
+    return se_PutAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAlarmCommandOutput> {
-    return deserializeAws_json1_1PutAlarmCommand(output, context);
+    return de_PutAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

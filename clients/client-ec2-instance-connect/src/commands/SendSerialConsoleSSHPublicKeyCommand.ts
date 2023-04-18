@@ -18,23 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../EC2InstanceConnectClient";
+import { SendSerialConsoleSSHPublicKeyRequest, SendSerialConsoleSSHPublicKeyResponse } from "../models/models_0";
 import {
-  SendSerialConsoleSSHPublicKeyRequest,
-  SendSerialConsoleSSHPublicKeyRequestFilterSensitiveLog,
-  SendSerialConsoleSSHPublicKeyResponse,
-  SendSerialConsoleSSHPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand,
-  serializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand,
+  de_SendSerialConsoleSSHPublicKeyCommand,
+  se_SendSerialConsoleSSHPublicKeyCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link SendSerialConsoleSSHPublicKeyCommand}.
+ */
 export interface SendSerialConsoleSSHPublicKeyCommandInput extends SendSerialConsoleSSHPublicKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendSerialConsoleSSHPublicKeyCommand}.
+ */
 export interface SendSerialConsoleSSHPublicKeyCommandOutput
   extends SendSerialConsoleSSHPublicKeyResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Pushes an SSH public key to the specified EC2 instance. The key remains for 60
  *             seconds, which gives you 60 seconds to establish a serial console connection to the
  *             instance using SSH. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html">EC2 Serial Console</a> in
@@ -45,13 +51,60 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  * import { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect"; // ES Modules import
  * // const { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } = require("@aws-sdk/client-ec2-instance-connect"); // CommonJS import
  * const client = new EC2InstanceConnectClient(config);
+ * const input = { // SendSerialConsoleSSHPublicKeyRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   SerialPort: Number("int"),
+ *   SSHPublicKey: "STRING_VALUE", // required
+ * };
  * const command = new SendSerialConsoleSSHPublicKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendSerialConsoleSSHPublicKeyCommandInput - {@link SendSerialConsoleSSHPublicKeyCommandInput}
+ * @returns {@link SendSerialConsoleSSHPublicKeyCommandOutput}
  * @see {@link SendSerialConsoleSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link SendSerialConsoleSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link EC2InstanceConnectClientResolvedConfig | config} for EC2InstanceConnectClient's `config` shape.
+ *
+ * @throws {@link AuthException} (client fault)
+ *  <p>Either your AWS credentials are not valid or you do not have access to the EC2 instance.</p>
+ *
+ * @throws {@link EC2InstanceNotFoundException} (client fault)
+ *  <p>The specified instance was not found.</p>
+ *
+ * @throws {@link EC2InstanceStateInvalidException} (client fault)
+ *  <p>Unable to connect because the instance is not in a valid state.
+ *             Connecting to a stopped or terminated instance is not supported. If the instance is stopped,
+ *             start your instance, and try to connect again.</p>
+ *
+ * @throws {@link EC2InstanceTypeInvalidException} (client fault)
+ *  <p>The instance type is not supported for connecting via the serial console. Only Nitro
+ *             instance types are currently supported.</p>
+ *
+ * @throws {@link EC2InstanceUnavailableException} (server fault)
+ *  <p>The instance is currently unavailable. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link InvalidArgsException} (client fault)
+ *  <p>One of the parameters is not valid.</p>
+ *
+ * @throws {@link SerialConsoleAccessDisabledException} (client fault)
+ *  <p>Your account is not authorized to use the EC2 Serial Console. To authorize your
+ *             account, run the EnableSerialConsoleAccess API. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html">EnableSerialConsoleAccess</a> in the <i>Amazon EC2 API Reference</i>.</p>
+ *
+ * @throws {@link SerialConsoleSessionLimitExceededException} (client fault)
+ *  <p>The instance currently has 1 active serial console session. Only 1 session is supported at a time.</p>
+ *
+ * @throws {@link SerialConsoleSessionUnavailableException} (server fault)
+ *  <p>Unable to start a serial console session. Please try again.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The service encountered an error. Follow the instructions in the error message and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The requests were made too frequently and have been throttled. Wait a while and try again.
+ *             To increase the limit on your request frequency, contact AWS Support.</p>
+ *
  *
  */
 export class SendSerialConsoleSSHPublicKeyCommand extends $Command<
@@ -71,6 +124,9 @@ export class SendSerialConsoleSSHPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendSerialConsoleSSHPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +155,8 @@ export class SendSerialConsoleSSHPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendSerialConsoleSSHPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendSerialConsoleSSHPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +166,21 @@ export class SendSerialConsoleSSHPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendSerialConsoleSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand(input, context);
+    return se_SendSerialConsoleSSHPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendSerialConsoleSSHPublicKeyCommandOutput> {
-    return deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand(output, context);
+    return de_SendSerialConsoleSSHPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

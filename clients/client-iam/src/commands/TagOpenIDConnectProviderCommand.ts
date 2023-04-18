@@ -14,16 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagOpenIDConnectProviderRequest, TagOpenIDConnectProviderRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryTagOpenIDConnectProviderCommand,
-  serializeAws_queryTagOpenIDConnectProviderCommand,
-} from "../protocols/Aws_query";
+import { TagOpenIDConnectProviderRequest } from "../models/models_0";
+import { de_TagOpenIDConnectProviderCommand, se_TagOpenIDConnectProviderCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ *
+ * The input for {@link TagOpenIDConnectProviderCommand}.
+ */
 export interface TagOpenIDConnectProviderCommandInput extends TagOpenIDConnectProviderRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagOpenIDConnectProviderCommand}.
+ */
 export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an OpenID Connect (OIDC)-compatible identity provider. For
  *       more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity federation</a>. If
  *       a tag with the same key name already exists, then that tag is overwritten with the new
@@ -41,7 +49,7 @@ export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer 
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Access control</b> - Include tags in IAM user-based
+ *                   <b>Access control</b> - Include tags in IAM identity-based
  *           and resource-based policies. You can use tags to restrict access to only an OIDC provider
  *           that has a specified tag attached. For examples of policies that show how to use tags to
  *           control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control access using IAM tags</a> in the
@@ -68,13 +76,45 @@ export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer 
  * import { IAMClient, TagOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // TagOpenIDConnectProviderRequest
+ *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagOpenIDConnectProviderCommandInput - {@link TagOpenIDConnectProviderCommandInput}
+ * @returns {@link TagOpenIDConnectProviderCommandOutput}
  * @see {@link TagOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link TagOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
  *
  */
 export class TagOpenIDConnectProviderCommand extends $Command<
@@ -94,6 +134,9 @@ export class TagOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +165,8 @@ export class TagOpenIDConnectProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagOpenIDConnectProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +176,18 @@ export class TagOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagOpenIDConnectProviderCommand(input, context);
+    return se_TagOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryTagOpenIDConnectProviderCommand(output, context);
+    return de_TagOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

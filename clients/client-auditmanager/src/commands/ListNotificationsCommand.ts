@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  ListNotificationsRequest,
-  ListNotificationsRequestFilterSensitiveLog,
-  ListNotificationsResponse,
-  ListNotificationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNotificationsCommand,
-  serializeAws_restJson1ListNotificationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListNotificationsRequest, ListNotificationsResponse } from "../models/models_0";
+import { de_ListNotificationsCommand, se_ListNotificationsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link ListNotificationsCommand}.
+ */
 export interface ListNotificationsCommandInput extends ListNotificationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListNotificationsCommand}.
+ */
 export interface ListNotificationsCommandOutput extends ListNotificationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of all Audit Manager notifications. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,31 @@ export interface ListNotificationsCommandOutput extends ListNotificationsRespons
  * import { AuditManagerClient, ListNotificationsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListNotificationsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // ListNotificationsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListNotificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotificationsCommandInput - {@link ListNotificationsCommandInput}
+ * @returns {@link ListNotificationsCommandOutput}
  * @see {@link ListNotificationsCommandInput} for command's `input` shape.
  * @see {@link ListNotificationsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> Your account isn't registered with Audit Manager. Check the delegated
+ *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
  *
  */
 export class ListNotificationsCommand extends $Command<
@@ -62,6 +83,9 @@ export class ListNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,8 +114,8 @@ export class ListNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotificationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNotificationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +125,18 @@ export class ListNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNotificationsCommand(input, context);
+    return se_ListNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotificationsCommandOutput> {
-    return deserializeAws_restJson1ListNotificationsCommand(output, context);
+    return de_ListNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

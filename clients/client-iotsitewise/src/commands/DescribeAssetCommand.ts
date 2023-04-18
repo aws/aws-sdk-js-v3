@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribeAssetRequest,
-  DescribeAssetRequestFilterSensitiveLog,
-  DescribeAssetResponse,
-  DescribeAssetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAssetCommand,
-  serializeAws_restJson1DescribeAssetCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAssetRequest, DescribeAssetResponse } from "../models/models_0";
+import { de_DescribeAssetCommand, se_DescribeAssetCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ *
+ * The input for {@link DescribeAssetCommand}.
+ */
 export interface DescribeAssetCommandInput extends DescribeAssetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAssetCommand}.
+ */
 export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an asset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,13 +39,36 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * import { IoTSiteWiseClient, DescribeAssetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeAssetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DescribeAssetRequest
+ *   assetId: "STRING_VALUE", // required
+ *   excludeProperties: true || false,
+ * };
  * const command = new DescribeAssetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssetCommandInput - {@link DescribeAssetCommandInput}
+ * @returns {@link DescribeAssetCommandOutput}
  * @see {@link DescribeAssetCommandInput} for command's `input` shape.
  * @see {@link DescribeAssetCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
  *
  */
 export class DescribeAssetCommand extends $Command<
@@ -62,6 +88,9 @@ export class DescribeAssetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssetCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,8 +117,8 @@ export class DescribeAssetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAssetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAssetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +128,18 @@ export class DescribeAssetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAssetCommand(input, context);
+    return se_DescribeAssetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAssetCommandOutput> {
-    return deserializeAws_restJson1DescribeAssetCommand(output, context);
+    return de_DescribeAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

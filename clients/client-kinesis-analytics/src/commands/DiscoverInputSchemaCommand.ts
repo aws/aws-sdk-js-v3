@@ -14,21 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import {
-  DiscoverInputSchemaRequest,
-  DiscoverInputSchemaRequestFilterSensitiveLog,
-  DiscoverInputSchemaResponse,
-  DiscoverInputSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DiscoverInputSchemaCommand,
-  serializeAws_json1_1DiscoverInputSchemaCommand,
-} from "../protocols/Aws_json1_1";
+import { DiscoverInputSchemaRequest, DiscoverInputSchemaResponse } from "../models/models_0";
+import { de_DiscoverInputSchemaCommand, se_DiscoverInputSchemaCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ *
+ * The input for {@link DiscoverInputSchemaCommand}.
+ */
 export interface DiscoverInputSchemaCommandInput extends DiscoverInputSchemaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DiscoverInputSchemaCommand}.
+ */
 export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -50,13 +53,51 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * import { KinesisAnalyticsClient, DiscoverInputSchemaCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, DiscoverInputSchemaCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = { // DiscoverInputSchemaRequest
+ *   ResourceARN: "STRING_VALUE",
+ *   RoleARN: "STRING_VALUE",
+ *   InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
+ *     InputStartingPosition: "STRING_VALUE",
+ *   },
+ *   S3Configuration: { // S3Configuration
+ *     RoleARN: "STRING_VALUE", // required
+ *     BucketARN: "STRING_VALUE", // required
+ *     FileKey: "STRING_VALUE", // required
+ *   },
+ *   InputProcessingConfiguration: { // InputProcessingConfiguration
+ *     InputLambdaProcessor: { // InputLambdaProcessor
+ *       ResourceARN: "STRING_VALUE", // required
+ *       RoleARN: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new DiscoverInputSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DiscoverInputSchemaCommandInput - {@link DiscoverInputSchemaCommandInput}
+ * @returns {@link DiscoverInputSchemaCommandOutput}
  * @see {@link DiscoverInputSchemaCommandInput} for command's `input` shape.
  * @see {@link DiscoverInputSchemaCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>Specified input parameter value is invalid.</p>
+ *
+ * @throws {@link ResourceProvisionedThroughputExceededException} (client fault)
+ *  <p>Discovery failed to get a record from the
+ *             streaming source because of the Amazon Kinesis Streams
+ *             ProvisionedThroughputExceededException. For more information,
+ *             see <a href="https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a>
+ *             in the Amazon Kinesis Streams API Reference.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation. </p>
+ *
+ * @throws {@link UnableToDetectSchemaException} (client fault)
+ *  <p>Data format is not valid. Amazon Kinesis Analytics is not able to detect schema for
+ *             the given streaming source.</p>
+ *
  *
  */
 export class DiscoverInputSchemaCommand extends $Command<
@@ -76,6 +117,9 @@ export class DiscoverInputSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DiscoverInputSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +148,8 @@ export class DiscoverInputSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DiscoverInputSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DiscoverInputSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +159,18 @@ export class DiscoverInputSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DiscoverInputSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DiscoverInputSchemaCommand(input, context);
+    return se_DiscoverInputSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DiscoverInputSchemaCommandOutput> {
-    return deserializeAws_json1_1DiscoverInputSchemaCommand(output, context);
+    return de_DiscoverInputSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra
