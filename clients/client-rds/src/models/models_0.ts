@@ -3307,7 +3307,10 @@ export interface CreateCustomDBEngineVersionMessage {
   DatabaseInstallationFilesS3Prefix?: string;
 
   /**
-   * <p>The ID of the AMI. An AMI ID is required to create a CEV for RDS Custom for SQL Server.</p>
+   * <p>The ID of the Amazon Machine Image (AMI). For RDS Custom for SQL Server, an AMI ID is required
+   *             to create a CEV. For RDS Custom for Oracle, the default is the most recent AMI available,
+   *             but you can specify an AMI ID that was used in a different Oracle CEV. Find the AMIs
+   *             used by your CEVs by calling the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBEngineVersions.html">DescribeDBEngineVersions</a> operation.</p>
    */
   ImageId?: string;
 
@@ -5789,12 +5792,12 @@ export interface CreateDBClusterParameterGroupMessage {
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>Example: <code>aurora5.6</code>, <code>aurora-mysql5.7</code>, <code>aurora-mysql8.0</code>
+   *          <p>Example: <code>aurora-mysql5.7</code>, <code>aurora-mysql8.0</code>
    *          </p>
    *          <p>
    *             <b>Aurora PostgreSQL</b>
    *          </p>
-   *          <p>Example: <code>aurora-postgresql9.6</code>
+   *          <p>Example: <code>aurora-postgresql14</code>
    *          </p>
    *          <p>
    *             <b>RDS for MySQL</b>
@@ -5821,11 +5824,8 @@ export interface CreateDBClusterParameterGroupMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
@@ -6284,16 +6284,11 @@ export interface CreateDBInstanceMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for Aurora MySQL DB instances)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aurora-postgresql</code>
-   *                </p>
+   *                   <code>aurora-postgresql</code> (for Aurora PostgreSQL DB instances)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7992,16 +7987,13 @@ export interface DBInstance {
 
   /**
    * <p>True if mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
-   *          <p>IAM database authentication can be enabled for the following database engines</p>
+   *          <p>IAM database authentication can be enabled for the following database engines:</p>
    *          <ul>
    *             <li>
-   *                <p>For MySQL 5.6, minor version 5.6.34 or higher</p>
+   *                <p>For MySQL 5.7, minor version 5.7.16 or higher.</p>
    *             </li>
    *             <li>
-   *                <p>For MySQL 5.7, minor version 5.7.16 or higher</p>
-   *             </li>
-   *             <li>
-   *                <p>Aurora 5.6 or higher. To enable IAM database authentication for Aurora, see DBCluster Type.</p>
+   *                <p>For Amazon Aurora, all versions of Aurora MySQL and Aurora PostgreSQL.</p>
    *             </li>
    *          </ul>
    */
@@ -9015,11 +9007,8 @@ export interface CreateDBParameterGroupMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
@@ -12566,11 +12555,17 @@ export interface DescribeDBEngineVersionsMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee</code>
    *                </p>
    *             </li>
    *             <li>

@@ -975,11 +975,6 @@ export interface DescribeEngineDefaultParametersMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>aurora5.6</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>aurora-mysql5.7</code>
    *                </p>
    *             </li>
@@ -2110,11 +2105,17 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee</code>
    *                </p>
    *             </li>
    *             <li>
@@ -3854,15 +3855,10 @@ export interface ModifyDBClusterMessage {
    *          <p>If the cluster that you're modifying has one or more read replicas, all replicas must
    *             be running an engine version that's the same or later than the version you
    *             specify.</p>
-   *          <p>To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (MySQL 8.0-compatible),
-   *             use the following command:</p>
+   *          <p>To list all of the available engine versions for Aurora MySQL, use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query
    *                 "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
-   *          <p>To list all of the available engine versions for MySQL 5.6-compatible Aurora, use the following command:</p>
-   *          <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
    *          <p>To list all of the available engine versions for Aurora PostgreSQL, use the following command:</p>
    *          <p>
@@ -5760,15 +5756,11 @@ export interface ModifyGlobalClusterMessage {
    * <p>The version number of the database engine to which you want to upgrade.
    *           Changing this parameter results in an outage. The change is applied during
    *           the next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
-   *          <p>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible Aurora), use the following command:</p>
-   *          <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code>
-   *          </p>
-   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), use the following command:</p>
+   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL-based Aurora global databases), use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code>
    *          </p>
-   *          <p>To list all of the available engine versions for <code>aurora-postgresql</code>, use the following command:</p>
+   *          <p>To list all of the available engine versions for <code>aurora-postgresql</code> (for PostgreSQL-based Aurora global databases), use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code>
    *          </p>
@@ -6543,7 +6535,7 @@ export interface RestoreDBClusterFromS3Message {
 
   /**
    * <p>The name of the DB cluster parameter group to associate
-   *             with the restored DB cluster. If this argument is omitted, <code>default.aurora5.6</code> is used.</p>
+   *             with the restored DB cluster. If this argument is omitted, the default parameter group for the engine version is used.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -6568,14 +6560,13 @@ export interface RestoreDBClusterFromS3Message {
 
   /**
    * <p>The name of the database engine to be used for this DB cluster.</p>
-   *          <p>Valid Values: <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
+   *          <p>Valid Values: <code>aurora-mysql</code> (for Aurora MySQL)</p>
    */
   Engine: string | undefined;
 
   /**
    * <p>The version number of the database engine to use.</p>
-   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (MySQL 5.7-compatible and MySQL 8.0-compatible
-   *             Aurora), use the following command:</p>
+   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (Aurora MySQL), use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
@@ -6984,7 +6975,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
   /**
    * <p>The version of the database engine to use for the new DB cluster. If you don't specify an engine version, the default version
    *             for the database engine in the Amazon Web Services Region is used.</p>
-   *          <p>To list all of the available engine versions for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora, use the following command:</p>
+   *          <p>To list all of the available engine versions for Aurora MySQL, use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
@@ -7146,8 +7137,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
   EnableCloudwatchLogsExports?: string[];
 
   /**
-   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-   *             <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p>
+   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html">
    *             CreateDBCluster</a>.</p>
    *          <p>Valid for: Aurora DB clusters only</p>
@@ -7373,7 +7363,6 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *                 source DB cluster.</p>
    *             </li>
    *          </ul>
-   *          <p>Constraints: You can't specify <code>copy-on-write</code> if the engine version of the source DB cluster is earlier than 1.11.</p>
    *          <p>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
    *             restored as a full copy of the source DB cluster.</p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
