@@ -1128,7 +1128,7 @@ export const se_UpdateSchemaCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientTokenId: (_) => _ ?? generateIdempotencyToken(),
+      ClientTokenId: [true, (_) => _ ?? generateIdempotencyToken()],
       Content: [],
       Description: [],
       Type: [],

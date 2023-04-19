@@ -271,7 +271,7 @@ export const se_CreateAppCommand = async (
   body = JSON.stringify(
     take(input, {
       assessmentSchedule: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
       policyArn: [],
@@ -307,7 +307,7 @@ export const se_CreateAppVersionAppComponentCommand = async (
     take(input, {
       additionalInfo: (_) => _json(_),
       appArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       id: [],
       name: [],
       type: [],
@@ -345,7 +345,7 @@ export const se_CreateAppVersionResourceCommand = async (
       appComponents: (_) => _json(_),
       awsAccountId: [],
       awsRegion: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       logicalResourceId: (_) => _json(_),
       physicalResourceId: [],
       resourceName: [],
@@ -381,7 +381,7 @@ export const se_CreateRecommendationTemplateCommand = async (
     take(input, {
       assessmentArn: [],
       bucketName: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       format: [],
       name: [],
       recommendationIds: (_) => _json(_),
@@ -416,7 +416,7 @@ export const se_CreateResiliencyPolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       dataLocationConstraint: [],
       policy: (_) => _json(_),
       policyDescription: [],
@@ -452,7 +452,7 @@ export const se_DeleteAppCommand = async (
   body = JSON.stringify(
     take(input, {
       appArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       forceDelete: [],
     })
   );
@@ -483,7 +483,7 @@ export const se_DeleteAppAssessmentCommand = async (
   body = JSON.stringify(
     take(input, {
       assessmentArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -514,7 +514,7 @@ export const se_DeleteAppInputSourceCommand = async (
   body = JSON.stringify(
     take(input, {
       appArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       eksSourceClusterNamespace: (_) => _json(_),
       sourceArn: [],
       terraformSource: (_) => _json(_),
@@ -548,7 +548,7 @@ export const se_DeleteAppVersionAppComponentCommand = async (
   body = JSON.stringify(
     take(input, {
       appArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       id: [],
     })
   );
@@ -582,7 +582,7 @@ export const se_DeleteAppVersionResourceCommand = async (
       appArn: [],
       awsAccountId: [],
       awsRegion: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       logicalResourceId: (_) => _json(_),
       physicalResourceId: [],
       resourceName: [],
@@ -615,7 +615,7 @@ export const se_DeleteRecommendationTemplateCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       recommendationTemplateArn: [],
     })
   );
@@ -646,7 +646,7 @@ export const se_DeleteResiliencyPolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       policyArn: [],
     })
   );
@@ -1659,7 +1659,7 @@ export const se_StartAppAssessmentCommand = async (
       appArn: [],
       appVersion: [],
       assessmentName: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
     })
   );

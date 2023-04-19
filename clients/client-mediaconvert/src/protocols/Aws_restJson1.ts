@@ -318,7 +318,7 @@ export const se_CreateJobCommand = async (
     take(input, {
       accelerationSettings: [, (_) => se_AccelerationSettings(_, context), `AccelerationSettings`],
       billingTagsSource: [, , `BillingTagsSource`],
-      clientRequestToken: [, (_) => _ ?? generateIdempotencyToken(), `ClientRequestToken`],
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientRequestToken`],
       hopDestinations: [, (_) => se___listOfHopDestination(_, context), `HopDestinations`],
       jobTemplate: [, , `JobTemplate`],
       priority: [, , `Priority`],

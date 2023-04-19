@@ -105,7 +105,7 @@ export const se_CreateApplicationCommand = async (
   body = JSON.stringify(
     take(input, {
       ApiGatewayProxy: (_) => _json(_),
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Name: [],
       ProxyType: [],
       Tags: (_) => _json(_),
@@ -138,7 +138,7 @@ export const se_CreateEnvironmentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       Name: [],
       NetworkFabricType: [],
@@ -189,7 +189,7 @@ export const se_CreateRouteCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       DefaultRoute: (_) => _json(_),
       RouteType: [],
       ServiceIdentifier: [],
@@ -241,7 +241,7 @@ export const se_CreateServiceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       EndpointType: [],
       LambdaEndpoint: (_) => _json(_),

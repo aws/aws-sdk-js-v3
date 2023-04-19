@@ -77,7 +77,7 @@ export const se_CreateClusterCommand = async (
       adminUserName: [],
       adminUserPassword: [],
       authType: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       clusterName: [],
       kmsKeyId: [],
       preferredMaintenanceWindow: [],
@@ -415,7 +415,7 @@ export const se_UpdateClusterCommand = async (
     take(input, {
       adminUserPassword: [],
       authType: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       preferredMaintenanceWindow: [],
       shardCapacity: [],
       shardCount: [],

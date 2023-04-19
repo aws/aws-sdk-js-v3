@@ -5444,7 +5444,7 @@ const se_CreateAccessControlConfigurationRequest = (
 ): any => {
   return take(input, {
     AccessControlList: _json,
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     HierarchicalAccessControlList: _json,
     IndexId: [],
@@ -5457,7 +5457,7 @@ const se_CreateAccessControlConfigurationRequest = (
  */
 const se_CreateDataSourceRequest = (input: CreateDataSourceRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Configuration: (_) => se_DataSourceConfiguration(_, context),
     CustomDocumentEnrichmentConfiguration: (_) => se_CustomDocumentEnrichmentConfiguration(_, context),
     Description: [],
@@ -5477,7 +5477,7 @@ const se_CreateDataSourceRequest = (input: CreateDataSourceRequest, context: __S
  */
 const se_CreateExperienceRequest = (input: CreateExperienceRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Configuration: _json,
     Description: [],
     IndexId: [],
@@ -5491,7 +5491,7 @@ const se_CreateExperienceRequest = (input: CreateExperienceRequest, context: __S
  */
 const se_CreateFaqRequest = (input: CreateFaqRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     FileFormat: [],
     IndexId: [],
@@ -5510,7 +5510,7 @@ const se_CreateFaqRequest = (input: CreateFaqRequest, context: __SerdeContext): 
  */
 const se_CreateIndexRequest = (input: CreateIndexRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     Edition: [],
     Name: [],
@@ -5531,7 +5531,7 @@ const se_CreateQuerySuggestionsBlockListRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     IndexId: [],
     Name: [],
@@ -5546,7 +5546,7 @@ const se_CreateQuerySuggestionsBlockListRequest = (
  */
 const se_CreateThesaurusRequest = (input: CreateThesaurusRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     IndexId: [],
     Name: [],

@@ -2376,7 +2376,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     Name: [],
     ServerSideEncryptionConfiguration: _json,
@@ -2389,7 +2389,7 @@ const se_CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeCont
  */
 const se_CreateWatchlistRequest = (input: CreateWatchlistRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     DomainId: [],
     Name: [],
@@ -2460,7 +2460,7 @@ const se_StartFraudsterRegistrationJobRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     DomainId: [],
     InputDataConfig: _json,
@@ -2475,7 +2475,7 @@ const se_StartFraudsterRegistrationJobRequest = (
  */
 const se_StartSpeakerEnrollmentJobRequest = (input: StartSpeakerEnrollmentJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     DomainId: [],
     EnrollmentConfig: _json,

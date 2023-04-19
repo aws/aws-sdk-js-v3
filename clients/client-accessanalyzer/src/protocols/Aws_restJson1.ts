@@ -144,7 +144,7 @@ export const se_ApplyArchiveRuleCommand = async (
   body = JSON.stringify(
     take(input, {
       analyzerArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ruleName: [],
     })
   );
@@ -199,7 +199,7 @@ export const se_CreateAccessPreviewCommand = async (
   body = JSON.stringify(
     take(input, {
       analyzerArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configurations: (_) => _json(_),
     })
   );
@@ -231,7 +231,7 @@ export const se_CreateAnalyzerCommand = async (
     take(input, {
       analyzerName: [],
       archiveRules: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
       type: [],
     })
@@ -271,7 +271,7 @@ export const se_CreateArchiveRuleCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       filter: (_) => _json(_),
       ruleName: [],
     })
@@ -809,7 +809,7 @@ export const se_StartPolicyGenerationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       cloudTrailDetails: (_) => se_CloudTrailDetails(_, context),
       policyGenerationDetails: (_) => _json(_),
     })
@@ -942,7 +942,7 @@ export const se_UpdateArchiveRuleCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       filter: (_) => _json(_),
     })
   );
@@ -973,7 +973,7 @@ export const se_UpdateFindingsCommand = async (
   body = JSON.stringify(
     take(input, {
       analyzerArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ids: (_) => _json(_),
       resourceArn: [],
       status: [],

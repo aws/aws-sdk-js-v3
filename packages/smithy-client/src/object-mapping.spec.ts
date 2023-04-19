@@ -159,6 +159,34 @@ describe("object mapping", () => {
       expect(take(input, instructions)).toEqual(output);
     });
 
+    it("should allow a filter function or value", () => {
+      const input = {
+        a: 1,
+        b: 1,
+        c: 1,
+        d: 1,
+        e: 1,
+        f: 1,
+      } as const;
+
+      const output = {
+        a: 1,
+        b: 1,
+        e: 1,
+      } as const;
+
+      const instructions: SourceMappingInstructions = {
+        a: [true],
+        b: [1],
+        c: [false, () => 1],
+        d: [0, () => 1],
+        e: [(_) => _ == 1],
+        f: [(_) => _ == 2],
+      };
+
+      expect(take(input, instructions)).toEqual(output);
+    });
+
     it("should take keys with optional filters and optional mappers", () => {
       const input = {
         default: 0,

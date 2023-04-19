@@ -5153,7 +5153,7 @@ const se_AssociateFirewallRuleGroupRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     FirewallRuleGroupId: [],
     MutationProtection: [],
     Name: [],
@@ -5174,7 +5174,7 @@ const se_AssociateFirewallRuleGroupRequest = (
  */
 const se_CreateFirewallDomainListRequest = (input: CreateFirewallDomainListRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     Name: [],
     Tags: _json,
   });
@@ -5185,7 +5185,7 @@ const se_CreateFirewallDomainListRequest = (input: CreateFirewallDomainListReque
  */
 const se_CreateFirewallRuleGroupRequest = (input: CreateFirewallRuleGroupRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     Name: [],
     Tags: _json,
   });
@@ -5201,7 +5201,7 @@ const se_CreateFirewallRuleRequest = (input: CreateFirewallRuleRequest, context:
     BlockOverrideDomain: [],
     BlockOverrideTtl: [],
     BlockResponse: [],
-    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     FirewallDomainListId: [],
     FirewallRuleGroupId: [],
     Name: [],
@@ -5219,7 +5219,7 @@ const se_CreateResolverQueryLogConfigRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     DestinationArn: [],
     Name: [],
     Tags: _json,

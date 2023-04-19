@@ -121,7 +121,7 @@ export const se_CreateAssistantCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
       serverSideEncryptionConfiguration: (_) => _json(_),
@@ -159,7 +159,7 @@ export const se_CreateAssistantAssociationCommand = async (
     take(input, {
       association: (_) => _json(_),
       associationType: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
     })
   );
@@ -199,7 +199,7 @@ export const se_CreateContentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       metadata: (_) => _json(_),
       name: [],
       overrideLinkOutUri: [],
@@ -234,7 +234,7 @@ export const se_CreateKnowledgeBaseCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       knowledgeBaseType: [],
       name: [],
@@ -272,7 +272,7 @@ export const se_CreateSessionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
       tags: (_) => _json(_),

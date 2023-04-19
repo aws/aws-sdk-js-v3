@@ -295,7 +295,7 @@ export const se_ChannelFlowCallbackCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      CallbackId: (_) => _ ?? generateIdempotencyToken(),
+      CallbackId: [true, (_) => _ ?? generateIdempotencyToken()],
       ChannelMessage: (_) => _json(_),
       DeleteResource: [],
     })
@@ -330,7 +330,7 @@ export const se_CreateChannelCommand = async (
     take(input, {
       AppInstanceArn: [],
       ChannelId: [],
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ElasticChannelConfiguration: (_) => _json(_),
       ExpirationSettings: (_) => _json(_),
       MemberArns: (_) => _json(_),
@@ -1639,7 +1639,7 @@ export const se_SendChannelMessageCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Content: [],
       ContentType: [],
       MessageAttributes: (_) => _json(_),

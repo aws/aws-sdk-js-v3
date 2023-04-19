@@ -101,7 +101,7 @@ export const se_CreateExperimentTemplateCommand = async (
   body = JSON.stringify(
     take(input, {
       actions: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       logConfiguration: (_) => _json(_),
       roleArn: [],
@@ -392,7 +392,7 @@ export const se_StartExperimentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       experimentTemplateId: [],
       tags: (_) => _json(_),
     })

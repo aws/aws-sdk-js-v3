@@ -19388,7 +19388,7 @@ const se_CreateImageVersionRequest = (input: CreateImageVersionRequest, context:
   return take(input, {
     Aliases: _json,
     BaseImage: [],
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Horovod: [],
     ImageName: [],
     JobType: [],
@@ -19480,7 +19480,7 @@ const se_CreateModelPackageInput = (input: CreateModelPackageInput, context: __S
   return take(input, {
     AdditionalInferenceSpecifications: _json,
     CertifyForMarketplace: [],
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     CustomerMetadataProperties: _json,
     Domain: [],
     DriftCheckBaselines: _json,
@@ -19540,7 +19540,7 @@ const se_CreateMonitoringScheduleRequest = (input: CreateMonitoringScheduleReque
  */
 const se_CreatePipelineRequest = (input: CreatePipelineRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ParallelismConfiguration: _json,
     PipelineDefinition: [],
     PipelineDefinitionS3Location: _json,
@@ -19711,7 +19711,7 @@ const se_DataQualityJobInput = (input: DataQualityJobInput, context: __SerdeCont
  */
 const se_DeletePipelineRequest = (input: DeletePipelineRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     PipelineName: [],
   });
 };
@@ -21559,7 +21559,7 @@ const se_QueryLineageRequest = (input: QueryLineageRequest, context: __SerdeCont
  */
 const se_RetryPipelineExecutionRequest = (input: RetryPipelineExecutionRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ParallelismConfiguration: _json,
     PipelineExecutionArn: [],
   });
@@ -21633,7 +21633,7 @@ const se_SendPipelineExecutionStepFailureRequest = (
 ): any => {
   return take(input, {
     CallbackToken: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FailureReason: [],
   });
 };
@@ -21647,7 +21647,7 @@ const se_SendPipelineExecutionStepSuccessRequest = (
 ): any => {
   return take(input, {
     CallbackToken: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     OutputParameters: _json,
   });
 };
@@ -21689,7 +21689,7 @@ const se_SendPipelineExecutionStepSuccessRequest = (
  */
 const se_StartPipelineExecutionRequest = (input: StartPipelineExecutionRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ParallelismConfiguration: _json,
     PipelineExecutionDescription: [],
     PipelineExecutionDisplayName: [],
@@ -21725,7 +21725,7 @@ const se_StartPipelineExecutionRequest = (input: StartPipelineExecutionRequest, 
  */
 const se_StopPipelineExecutionRequest = (input: StopPipelineExecutionRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     PipelineExecutionArn: [],
   });
 };

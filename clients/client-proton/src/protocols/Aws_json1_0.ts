@@ -6692,7 +6692,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CreateComponentInput = (input: CreateComponentInput, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     environmentName: [],
     manifest: [],
@@ -6713,7 +6713,7 @@ const se_CreateEnvironmentAccountConnectionInput = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     codebuildRoleArn: [],
     componentRoleArn: [],
     environmentName: [],
@@ -6753,7 +6753,7 @@ const se_CreateEnvironmentTemplateVersionInput = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     majorVersion: [],
     source: _json,
@@ -6787,7 +6787,7 @@ const se_CreateServiceInput = (input: CreateServiceInput, context: __SerdeContex
  */
 const se_CreateServiceInstanceInput = (input: CreateServiceInstanceInput, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     name: [],
     serviceName: [],
     spec: [],
@@ -6809,7 +6809,7 @@ const se_CreateServiceTemplateVersionInput = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     compatibleEnvironmentTemplates: _json,
     description: [],
     majorVersion: [],
@@ -6963,7 +6963,7 @@ const se_CreateServiceTemplateVersionInput = (
  */
 const se_UpdateComponentInput = (input: UpdateComponentInput, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     deploymentType: [],
     description: [],
     name: [],
@@ -7015,7 +7015,7 @@ const se_UpdateServiceInput = (input: UpdateServiceInput, context: __SerdeContex
  */
 const se_UpdateServiceInstanceInput = (input: UpdateServiceInstanceInput, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     deploymentType: [],
     name: [],
     serviceName: [],

@@ -100,7 +100,7 @@ export const se_CreateTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       command: (_) => _json(_),
       description: [],
       tags: (_) => _json(_),

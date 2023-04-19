@@ -168,7 +168,7 @@ export const se_CreateAccessPointCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       FileSystemId: [],
       PosixUser: (_) => _json(_),
       RootDirectory: (_) => _json(_),
@@ -204,7 +204,7 @@ export const se_CreateFileSystemCommand = async (
     take(input, {
       AvailabilityZoneName: [],
       Backup: [],
-      CreationToken: (_) => _ ?? generateIdempotencyToken(),
+      CreationToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Encrypted: [],
       KmsKeyId: [],
       PerformanceMode: [],

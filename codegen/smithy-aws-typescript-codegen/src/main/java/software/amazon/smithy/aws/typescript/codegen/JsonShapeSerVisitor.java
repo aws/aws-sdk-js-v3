@@ -160,7 +160,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
                 if (hasJsonName) {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.write("'$L': [, _ => _ ?? generateIdempotencyToken(), `$L`],", wireName, memberName);
+                        writer.write("'$L': [true, _ => _ ?? generateIdempotencyToken(), `$L`],", wireName, memberName);
                     } else {
                         if (valueProvider.equals("_ => _")) {
                             writer.write("'$L': [,,`$L`],", wireName, memberName);
@@ -173,7 +173,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                     }
                 } else {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.write("'$L': _ => _ ?? generateIdempotencyToken(),", memberName);
+                        writer.write("'$L': [true, _ => _ ?? generateIdempotencyToken()],", memberName);
                     } else {
                         if (valueProvider.equals("_ => _")) {
                             writer.write("'$1L': [],", memberName);

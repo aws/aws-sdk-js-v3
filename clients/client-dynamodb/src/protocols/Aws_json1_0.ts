@@ -4790,7 +4790,7 @@ const se_ExecuteStatementInput = (input: ExecuteStatementInput, context: __Serde
  */
 const se_ExecuteTransactionInput = (input: ExecuteTransactionInput, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ReturnConsumedCapacity: [],
     TransactStatements: (_) => se_ParameterizedStatements(_, context),
   });
@@ -4826,7 +4826,7 @@ const se_ExpectedAttributeValue = (input: ExpectedAttributeValue, context: __Ser
  */
 const se_ExportTableToPointInTimeInput = (input: ExportTableToPointInTimeInput, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ExportFormat: [],
     ExportTime: (_) => Math.round(_.getTime() / 1000),
     S3Bucket: [],
@@ -4961,7 +4961,7 @@ const se_GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
  */
 const se_ImportTableInput = (input: ImportTableInput, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     InputCompressionType: [],
     InputFormat: [],
     InputFormatOptions: _json,
@@ -5455,7 +5455,7 @@ const se_TransactWriteItemList = (input: TransactWriteItem[], context: __SerdeCo
  */
 const se_TransactWriteItemsInput = (input: TransactWriteItemsInput, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ReturnConsumedCapacity: [],
     ReturnItemCollectionMetrics: [],
     TransactItems: (_) => se_TransactWriteItemList(_, context),

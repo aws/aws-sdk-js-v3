@@ -1063,7 +1063,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CreateFHIRDatastoreRequest = (input: CreateFHIRDatastoreRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DatastoreName: [],
     DatastoreTypeVersion: [],
     PreloadDataConfig: _json,
@@ -1152,7 +1152,7 @@ const se_ListFHIRImportJobsRequest = (input: ListFHIRImportJobsRequest, context:
  */
 const se_StartFHIRExportJobRequest = (input: StartFHIRExportJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     DatastoreId: [],
     JobName: [],
@@ -1165,7 +1165,7 @@ const se_StartFHIRExportJobRequest = (input: StartFHIRExportJobRequest, context:
  */
 const se_StartFHIRImportJobRequest = (input: StartFHIRImportJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     DatastoreId: [],
     InputDataConfig: _json,

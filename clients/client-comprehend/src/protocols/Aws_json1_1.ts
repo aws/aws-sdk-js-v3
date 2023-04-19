@@ -6673,7 +6673,7 @@ const se_ClassifyDocumentRequest = (input: ClassifyDocumentRequest, context: __S
  */
 const se_CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DatasetName: [],
     DatasetType: [],
     Description: [],
@@ -6688,7 +6688,7 @@ const se_CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeCo
  */
 const se_CreateDocumentClassifierRequest = (input: CreateDocumentClassifierRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     DocumentClassifierName: [],
     InputDataConfig: _json,
@@ -6709,7 +6709,7 @@ const se_CreateDocumentClassifierRequest = (input: CreateDocumentClassifierReque
  */
 const se_CreateEndpointRequest = (input: CreateEndpointRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     DesiredInferenceUnits: [],
     EndpointName: [],
@@ -6724,7 +6724,7 @@ const se_CreateEndpointRequest = (input: CreateEndpointRequest, context: __Serde
  */
 const se_CreateEntityRecognizerRequest = (input: CreateEntityRecognizerRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     LanguageCode: [],
@@ -6744,7 +6744,7 @@ const se_CreateEntityRecognizerRequest = (input: CreateEntityRecognizerRequest, 
 const se_CreateFlywheelRequest = (input: CreateFlywheelRequest, context: __SerdeContext): any => {
   return take(input, {
     ActiveModelArn: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     DataLakeS3Uri: [],
     DataSecurityConfig: _json,
@@ -7244,7 +7244,7 @@ const se_StartDocumentClassificationJobRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     DocumentClassifierArn: [],
     FlywheelArn: [],
@@ -7265,7 +7265,7 @@ const se_StartDominantLanguageDetectionJobRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],
@@ -7281,7 +7281,7 @@ const se_StartDominantLanguageDetectionJobRequest = (
  */
 const se_StartEntitiesDetectionJobRequest = (input: StartEntitiesDetectionJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     EntityRecognizerArn: [],
     FlywheelArn: [],
@@ -7300,7 +7300,7 @@ const se_StartEntitiesDetectionJobRequest = (input: StartEntitiesDetectionJobReq
  */
 const se_StartEventsDetectionJobRequest = (input: StartEventsDetectionJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],
@@ -7321,7 +7321,7 @@ const se_StartKeyPhrasesDetectionJobRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],
@@ -7341,7 +7341,7 @@ const se_StartPiiEntitiesDetectionJobRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],
@@ -7361,7 +7361,7 @@ const se_StartSentimentDetectionJobRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],
@@ -7381,7 +7381,7 @@ const se_StartTargetedSentimentDetectionJobRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],
@@ -7398,7 +7398,7 @@ const se_StartTargetedSentimentDetectionJobRequest = (
  */
 const se_StartTopicsDetectionJobRequest = (input: StartTopicsDetectionJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],

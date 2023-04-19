@@ -227,7 +227,7 @@ export const se_ExportEarthObservationJobCommand = async (
   body = JSON.stringify(
     take(input, {
       Arn: [],
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ExecutionRoleArn: [],
       ExportSourceImages: [],
       OutputConfig: (_) => _json(_),
@@ -261,7 +261,7 @@ export const se_ExportVectorEnrichmentJobCommand = async (
   body = JSON.stringify(
     take(input, {
       Arn: [],
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ExecutionRoleArn: [],
       OutputConfig: (_) => _json(_),
     })
@@ -556,7 +556,7 @@ export const se_StartEarthObservationJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ExecutionRoleArn: [],
       InputConfig: (_) => se_InputConfigInput(_, context),
       JobConfig: (_) => se_JobConfigInput(_, context),
@@ -592,7 +592,7 @@ export const se_StartVectorEnrichmentJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ExecutionRoleArn: [],
       InputConfig: (_) => _json(_),
       JobConfig: (_) => _json(_),

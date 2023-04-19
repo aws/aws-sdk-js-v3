@@ -77,7 +77,7 @@ export const se_CreateSavingsPlanCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       commitment: [],
       purchaseTime: (_) => Math.round(_.getTime() / 1000),
       savingsPlanOfferingId: [],

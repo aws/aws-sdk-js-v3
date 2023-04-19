@@ -4210,7 +4210,7 @@ const de_TooManyRequestsExceptionRes = async (
  */
 const se_CreateNamedQueryInput = (input: CreateNamedQueryInput, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Database: [],
     Description: [],
     Name: [],
@@ -4236,7 +4236,7 @@ const se_CreateNamedQueryInput = (input: CreateNamedQueryInput, context: __Serde
  */
 const se_DeleteNamedQueryInput = (input: DeleteNamedQueryInput, context: __SerdeContext): any => {
   return take(input, {
-    NamedQueryId: (_) => _ ?? generateIdempotencyToken(),
+    NamedQueryId: [true, (_) => _ ?? generateIdempotencyToken()],
   });
 };
 
@@ -4345,7 +4345,7 @@ const se_DeleteNamedQueryInput = (input: DeleteNamedQueryInput, context: __Serde
  */
 const se_StartQueryExecutionInput = (input: StartQueryExecutionInput, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ExecutionParameters: _json,
     QueryExecutionContext: _json,
     QueryString: [],
@@ -4364,7 +4364,7 @@ const se_StartQueryExecutionInput = (input: StartQueryExecutionInput, context: _
  */
 const se_StopQueryExecutionInput = (input: StopQueryExecutionInput, context: __SerdeContext): any => {
   return take(input, {
-    QueryExecutionId: (_) => _ ?? generateIdempotencyToken(),
+    QueryExecutionId: [true, (_) => _ ?? generateIdempotencyToken()],
   });
 };
 

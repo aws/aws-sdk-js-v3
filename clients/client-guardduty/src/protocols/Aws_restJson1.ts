@@ -470,7 +470,7 @@ export const se_CreateDetectorCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
       dataSources: [, (_) => se_DataSourceConfigurations(_, context), `DataSources`],
       enable: [, , `Enable`],
       features: [, (_) => se_DetectorFeatureConfigurations(_, context), `Features`],
@@ -507,7 +507,7 @@ export const se_CreateFilterCommand = async (
   body = JSON.stringify(
     take(input, {
       action: [, , `Action`],
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
       description: [, , `Description`],
       findingCriteria: [, (_) => se_FindingCriteria(_, context), `FindingCriteria`],
       name: [, , `Name`],
@@ -544,7 +544,7 @@ export const se_CreateIPSetCommand = async (
   body = JSON.stringify(
     take(input, {
       activate: [, , `Activate`],
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
       format: [, , `Format`],
       location: [, , `Location`],
       name: [, , `Name`],
@@ -611,7 +611,7 @@ export const se_CreatePublishingDestinationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
       destinationProperties: [, (_) => se_DestinationProperties(_, context), `DestinationProperties`],
       destinationType: [, , `DestinationType`],
     })
@@ -676,7 +676,7 @@ export const se_CreateThreatIntelSetCommand = async (
   body = JSON.stringify(
     take(input, {
       activate: [, , `Activate`],
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
       format: [, , `Format`],
       location: [, , `Location`],
       name: [, , `Name`],

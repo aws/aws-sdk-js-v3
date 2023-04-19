@@ -61,7 +61,7 @@ export const se_CreateApplicationCommand = async (
     take(input, {
       applicationDescription: [],
       applicationName: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       roleArn: [],
       tags: (_) => _json(_),
     })
@@ -278,7 +278,7 @@ export const se_UpdateApplicationCommand = async (
     take(input, {
       applicationDescription: [],
       applicationName: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({

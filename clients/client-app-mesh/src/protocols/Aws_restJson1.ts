@@ -291,7 +291,7 @@ export const se_CreateGatewayRouteCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       gatewayRouteName: [],
       spec: (_) => _json(_),
       tags: (_) => _json(_),
@@ -324,7 +324,7 @@ export const se_CreateMeshCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       meshName: [],
       spec: (_) => _json(_),
       tags: (_) => _json(_),
@@ -370,7 +370,7 @@ export const se_CreateRouteCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       routeName: [],
       spec: (_) => _json(_),
       tags: (_) => _json(_),
@@ -409,7 +409,7 @@ export const se_CreateVirtualGatewayCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       spec: (_) => _json(_),
       tags: (_) => _json(_),
       virtualGatewayName: [],
@@ -447,7 +447,7 @@ export const se_CreateVirtualNodeCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       spec: (_) => _json(_),
       tags: (_) => _json(_),
       virtualNodeName: [],
@@ -486,7 +486,7 @@ export const se_CreateVirtualRouterCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       spec: (_) => _json(_),
       tags: (_) => _json(_),
       virtualRouterName: [],
@@ -525,7 +525,7 @@ export const se_CreateVirtualServiceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       spec: (_) => _json(_),
       tags: (_) => _json(_),
       virtualServiceName: [],
@@ -1416,7 +1416,7 @@ export const se_UpdateGatewayRouteCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       spec: (_) => _json(_),
     })
   );
@@ -1449,7 +1449,7 @@ export const se_UpdateMeshCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       spec: (_) => _json(_),
     })
   );
@@ -1494,7 +1494,7 @@ export const se_UpdateRouteCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       spec: (_) => _json(_),
     })
   );
@@ -1539,7 +1539,7 @@ export const se_UpdateVirtualGatewayCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       spec: (_) => _json(_),
     })
   );
@@ -1584,7 +1584,7 @@ export const se_UpdateVirtualNodeCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       spec: (_) => _json(_),
     })
   );
@@ -1629,7 +1629,7 @@ export const se_UpdateVirtualRouterCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       spec: (_) => _json(_),
     })
   );
@@ -1674,7 +1674,7 @@ export const se_UpdateVirtualServiceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       spec: (_) => _json(_),
     })
   );

@@ -128,7 +128,7 @@ export const se_CreateApplicationCommand = async (
       architecture: [],
       autoStartConfiguration: (_) => _json(_),
       autoStopConfiguration: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       imageConfiguration: (_) => _json(_),
       initialCapacity: (_) => _json(_),
       maximumCapacity: (_) => _json(_),
@@ -430,7 +430,7 @@ export const se_StartJobRunCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configurationOverrides: (_) => se_ConfigurationOverrides(_, context),
       executionRoleArn: [],
       executionTimeoutMinutes: [],
@@ -568,7 +568,7 @@ export const se_UpdateApplicationCommand = async (
       architecture: [],
       autoStartConfiguration: (_) => _json(_),
       autoStopConfiguration: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       imageConfiguration: (_) => _json(_),
       initialCapacity: (_) => _json(_),
       maximumCapacity: (_) => _json(_),

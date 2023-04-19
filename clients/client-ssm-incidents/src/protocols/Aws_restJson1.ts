@@ -151,7 +151,7 @@ export const se_CreateReplicationSetCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       regions: (_) => _json(_),
       tags: (_) => _json(_),
     })
@@ -184,7 +184,7 @@ export const se_CreateResponsePlanCommand = async (
     take(input, {
       actions: (_) => _json(_),
       chatChannel: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       displayName: [],
       engagements: (_) => _json(_),
       incidentTemplate: (_) => _json(_),
@@ -219,7 +219,7 @@ export const se_CreateTimelineEventCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       eventData: [],
       eventReferences: (_) => _json(_),
       eventTime: (_) => Math.round(_.getTime() / 1000),
@@ -745,7 +745,7 @@ export const se_StartIncidentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       impact: [],
       relatedItems: (_) => _json(_),
       responsePlanArn: [],
@@ -841,7 +841,7 @@ export const se_UpdateDeletionProtectionCommand = async (
   body = JSON.stringify(
     take(input, {
       arn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deletionProtected: [],
     })
   );
@@ -873,7 +873,7 @@ export const se_UpdateIncidentRecordCommand = async (
     take(input, {
       arn: [],
       chatChannel: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       impact: [],
       notificationTargets: (_) => _json(_),
       status: [],
@@ -907,7 +907,7 @@ export const se_UpdateRelatedItemsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       incidentRecordArn: [],
       relatedItemsUpdate: (_) => _json(_),
     })
@@ -940,7 +940,7 @@ export const se_UpdateReplicationSetCommand = async (
     take(input, {
       actions: (_) => _json(_),
       arn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -972,7 +972,7 @@ export const se_UpdateResponsePlanCommand = async (
       actions: (_) => _json(_),
       arn: [],
       chatChannel: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       displayName: [],
       engagements: (_) => _json(_),
       incidentTemplateDedupeString: [],
@@ -1010,7 +1010,7 @@ export const se_UpdateTimelineEventCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       eventData: [],
       eventId: [],
       eventReferences: (_) => _json(_),

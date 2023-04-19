@@ -123,7 +123,7 @@ export const se_CreateAlertManagerDefinitionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       data: (_) => context.base64Encoder(_),
     })
   );
@@ -155,7 +155,7 @@ export const se_CreateLoggingConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       logGroupArn: [],
     })
   );
@@ -188,7 +188,7 @@ export const se_CreateRuleGroupsNamespaceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       data: (_) => context.base64Encoder(_),
       name: [],
       tags: (_) => _json(_),
@@ -221,7 +221,7 @@ export const se_CreateWorkspaceCommand = async (
   body = JSON.stringify(
     take(input, {
       alias: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
     })
   );
@@ -550,7 +550,7 @@ export const se_PutAlertManagerDefinitionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       data: (_) => context.base64Encoder(_),
     })
   );
@@ -584,7 +584,7 @@ export const se_PutRuleGroupsNamespaceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       data: (_) => context.base64Encoder(_),
     })
   );
@@ -676,7 +676,7 @@ export const se_UpdateLoggingConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       logGroupArn: [],
     })
   );
@@ -709,7 +709,7 @@ export const se_UpdateWorkspaceAliasCommand = async (
   body = JSON.stringify(
     take(input, {
       alias: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({

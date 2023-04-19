@@ -1855,7 +1855,7 @@ const de_ResourceNotFoundExceptionRes = async (
 const se_CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeContext): any => {
   return take(input, {
     AddReplicaRegions: _json,
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     ForceOverwriteReplicaSecret: [],
     KmsKeyId: [],
@@ -1895,7 +1895,7 @@ const se_CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeCont
  */
 const se_PutSecretValueRequest = (input: PutSecretValueRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     SecretBinary: context.base64Encoder,
     SecretId: [],
     SecretString: [],
@@ -1918,7 +1918,7 @@ const se_PutSecretValueRequest = (input: PutSecretValueRequest, context: __Serde
  */
 const se_RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     RotateImmediately: [],
     RotationLambdaARN: [],
     RotationRules: _json,
@@ -1947,7 +1947,7 @@ const se_RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeCont
  */
 const se_UpdateSecretRequest = (input: UpdateSecretRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     KmsKeyId: [],
     SecretBinary: context.base64Encoder,

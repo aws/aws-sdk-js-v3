@@ -1383,7 +1383,7 @@ export const se_CreateAuditSuppressionCommand = async (
   body = JSON.stringify(
     take(input, {
       checkName: [],
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       expirationDate: (_) => Math.round(_.getTime() / 1000),
       resourceIdentifier: (_) => _json(_),
@@ -1534,7 +1534,7 @@ export const se_CreateCustomMetricCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       displayName: [],
       metricType: [],
       tags: (_) => _json(_),
@@ -1567,7 +1567,7 @@ export const se_CreateDimensionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       stringValues: (_) => _json(_),
       tags: (_) => _json(_),
       type: [],
@@ -7138,7 +7138,7 @@ export const se_StartAuditMitigationActionsTaskCommand = async (
   body = JSON.stringify(
     take(input, {
       auditCheckToActionsMapping: (_) => _json(_),
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       target: (_) => _json(_),
     })
   );
@@ -7171,7 +7171,7 @@ export const se_StartDetectMitigationActionsTaskCommand = async (
   body = JSON.stringify(
     take(input, {
       actions: (_) => _json(_),
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       includeOnlyActiveViolations: [],
       includeSuppressedAlerts: [],
       target: (_) => _json(_),

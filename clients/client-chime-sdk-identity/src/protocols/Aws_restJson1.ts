@@ -163,7 +163,7 @@ export const se_CreateAppInstanceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Metadata: [],
       Name: [],
       Tags: (_) => _json(_),
@@ -234,7 +234,7 @@ export const se_CreateAppInstanceBotCommand = async (
   body = JSON.stringify(
     take(input, {
       AppInstanceArn: [],
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Configuration: (_) => _json(_),
       Metadata: [],
       Name: [],
@@ -269,7 +269,7 @@ export const se_CreateAppInstanceUserCommand = async (
     take(input, {
       AppInstanceArn: [],
       AppInstanceUserId: [],
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ExpirationSettings: (_) => _json(_),
       Metadata: [],
       Name: [],
@@ -937,7 +937,7 @@ export const se_RegisterAppInstanceUserEndpointCommand = async (
   body = JSON.stringify(
     take(input, {
       AllowMessages: [],
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       EndpointAttributes: (_) => _json(_),
       Name: [],
       ResourceArn: [],

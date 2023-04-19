@@ -74,7 +74,7 @@ export const se_CreateMonitorCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       InternetMeasurementsLogDelivery: (_) => _json(_),
       MaxCityNetworksToMonitor: [],
       MonitorName: [],
@@ -332,7 +332,7 @@ export const se_UpdateMonitorCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       InternetMeasurementsLogDelivery: (_) => _json(_),
       MaxCityNetworksToMonitor: [],
       ResourcesToAdd: (_) => _json(_),

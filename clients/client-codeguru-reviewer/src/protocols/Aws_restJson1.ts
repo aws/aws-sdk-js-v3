@@ -111,7 +111,7 @@ export const se_AssociateRepositoryCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       KMSKeyDetails: (_) => _json(_),
       Repository: (_) => _json(_),
       Tags: (_) => _json(_),
@@ -143,7 +143,7 @@ export const se_CreateCodeReviewCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Name: [],
       RepositoryAssociationArn: [],
       Type: (_) => _json(_),

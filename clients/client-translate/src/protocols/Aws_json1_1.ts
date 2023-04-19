@@ -1608,7 +1608,7 @@ const de_UnsupportedLanguagePairExceptionRes = async (
  */
 const se_CreateParallelDataRequest = (input: CreateParallelDataRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     EncryptionKey: _json,
     Name: [],
@@ -1675,7 +1675,7 @@ const se_ListTextTranslationJobsRequest = (input: ListTextTranslationJobsRequest
  */
 const se_StartTextTranslationJobRequest = (input: StartTextTranslationJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],
@@ -1734,7 +1734,7 @@ const se_TextTranslationJobFilter = (input: TextTranslationJobFilter, context: _
  */
 const se_UpdateParallelDataRequest = (input: UpdateParallelDataRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     Name: [],
     ParallelDataConfig: _json,

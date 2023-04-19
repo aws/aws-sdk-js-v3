@@ -84,7 +84,7 @@ export const se_CreateNotificationRuleCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       DetailType: [],
       EventTypeIds: (_) => _json(_),
       Name: [],

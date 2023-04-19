@@ -3152,7 +3152,7 @@ const se_CreateContactChannelRequest = (input: CreateContactChannelRequest, cont
     ContactId: [],
     DeferActivation: [],
     DeliveryAddress: _json,
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Name: [],
     Type: [],
   });
@@ -3165,7 +3165,7 @@ const se_CreateContactRequest = (input: CreateContactRequest, context: __SerdeCo
   return take(input, {
     Alias: [],
     DisplayName: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Plan: _json,
     Tags: _json,
     Type: [],
@@ -3356,7 +3356,7 @@ const se_StartEngagementRequest = (input: StartEngagementRequest, context: __Ser
   return take(input, {
     ContactId: [],
     Content: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     IncidentId: [],
     PublicContent: [],
     PublicSubject: [],

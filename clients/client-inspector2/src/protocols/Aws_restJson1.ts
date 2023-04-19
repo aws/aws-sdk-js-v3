@@ -506,7 +506,7 @@ export const se_EnableCommand = async (input: EnableCommandInput, context: __Ser
   body = JSON.stringify(
     take(input, {
       accountIds: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       resourceTypes: (_) => _json(_),
     })
   );
@@ -537,7 +537,7 @@ export const se_EnableDelegatedAdminAccountCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       delegatedAdminAccountId: [],
     })
   );

@@ -829,7 +829,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_BatchExecuteStatementInput = (input: BatchExecuteStatementInput, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ClusterIdentifier: [],
     Database: [],
     DbUser: [],
@@ -852,7 +852,7 @@ const se_BatchExecuteStatementInput = (input: BatchExecuteStatementInput, contex
  */
 const se_ExecuteStatementInput = (input: ExecuteStatementInput, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ClusterIdentifier: [],
     Database: [],
     DbUser: [],
