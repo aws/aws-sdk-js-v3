@@ -319,7 +319,7 @@ export interface CreateSecretRequest {
 
   /**
    * <p>Specifies whether to overwrite a secret with the same name in the
-   *       destination Region.</p>
+   *       destination Region. By default, secrets aren't overwritten.</p>
    */
   ForceOverwriteReplicaSecret?: boolean;
 }
@@ -588,14 +588,14 @@ export interface DeleteSecretRequest {
   /**
    * <p>The number of days from 7 to 30 that Secrets Manager waits before permanently deleting the
    *       secret. You can't use both this parameter and <code>ForceDeleteWithoutRecovery</code>
-   *       in the same call. If you don't use either, then Secrets Manager defaults to a 30 day recovery window.</p>
+   *       in the same call. If you don't use either, then by default Secrets Manager uses a 30 day recovery window.</p>
    */
   RecoveryWindowInDays?: number;
 
   /**
    * <p>Specifies whether to delete the secret without any recovery window. You
    *       can't use both this parameter and <code>RecoveryWindowInDays</code> in the same
-   *       call. If you don't use either, then Secrets Manager defaults to a 30 day recovery window.</p>
+   *       call. If you don't use either, then by default Secrets Manager uses a 30 day recovery window.</p>
    *          <p>Secrets Manager performs the actual deletion with an asynchronous background process, so there might
    *       be a short delay before the secret is permanently deleted. If you delete a secret and then
    *       immediately create a secret with the same name, use appropriate back off and retry logic.</p>
@@ -1132,7 +1132,7 @@ export type SortOrderType = (typeof SortOrderType)[keyof typeof SortOrderType];
  */
 export interface ListSecretsRequest {
   /**
-   * <p>Specifies whether to include secrets scheduled for deletion.</p>
+   * <p>Specifies whether to include secrets scheduled for deletion. By default, secrets scheduled for deletion aren't included.</p>
    */
   IncludePlannedDeletion?: boolean;
 
@@ -1326,7 +1326,7 @@ export interface ListSecretVersionIdsRequest {
   /**
    * <p>Specifies whether to include versions of secrets that don't have any
    *       staging labels attached to them. Versions without staging labels are considered deprecated and are subject to
-   *       deletion by Secrets Manager.</p>
+   *       deletion by Secrets Manager. By default, versions without staging labels aren't included.</p>
    */
   IncludeDeprecated?: boolean;
 }
@@ -1433,7 +1433,7 @@ export interface PutResourcePolicyRequest {
   ResourcePolicy: string | undefined;
 
   /**
-   * <p>Specifies whether to block resource-based policies that allow broad access to the secret, for example those that use a wildcard for the principal.</p>
+   * <p>Specifies whether to block resource-based policies that allow broad access to the secret, for example those that use a wildcard for the principal. By default, public policies aren't blocked.</p>
    */
   BlockPublicPolicy?: boolean;
 }
@@ -1603,7 +1603,7 @@ export interface ReplicateSecretToRegionsRequest {
   AddReplicaRegions: ReplicaRegionType[] | undefined;
 
   /**
-   * <p>Specifies whether to overwrite a secret with the same name in the destination Region.</p>
+   * <p>Specifies whether to overwrite a secret with the same name in the destination Region. By default, secrets aren't overwritten.</p>
    */
   ForceOverwriteReplicaSecret?: boolean;
 }
@@ -1696,7 +1696,7 @@ export interface RotateSecretRequest {
    *     <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">
    *                <code>testSecret</code>
    *       step</a> of the Lambda rotation function. The test creates an <code>AWSPENDING</code> version of the secret and then removes it.</p>
-   *          <p>If you don't specify this value, then by default, Secrets Manager rotates the secret immediately.</p>
+   *          <p>By default, Secrets Manager rotates the secret immediately.</p>
    */
   RotateImmediately?: boolean;
 }
