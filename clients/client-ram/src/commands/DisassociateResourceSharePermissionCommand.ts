@@ -40,9 +40,9 @@ export interface DisassociateResourceSharePermissionCommandOutput
 
 /**
  * @public
- * <p>Disassociates an RAM permission from a resource share. Permission changes take effect
- *             immediately. You can remove a RAM permission from a resource share only if there are currently
- *             no resources of the relevant resource type currently attached to the resource share.</p>
+ * <p>Removes a managed permission from a resource share. Permission changes take effect immediately. You can
+ *             remove a managed permission from a resource share only if there are currently no resources of the relevant
+ *             resource type currently attached to the resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,28 +65,31 @@ export interface DisassociateResourceSharePermissionCommandOutput
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The client token is not valid.</p>
+ *  <p>The operation failed because the specified client token isn't valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
  * @throws {@link InvalidStateTransitionException} (client fault)
- *  <p>The requested state transition is not valid.</p>
+ *  <p>The operation failed because the requested operation isn't valid for the resource
+ *             share in its current state.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
+ *             valid.</p>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The requested operation is not permitted.</p>
+ *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>A specified resource was not found.</p>
+ *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
  *
  */

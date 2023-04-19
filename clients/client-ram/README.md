@@ -11,11 +11,10 @@ AWS SDK for JavaScript RAM Client for Node.js, Browser and React Native.
 
 <p>This is the <i>Resource Access Manager API Reference</i>. This documentation provides
 descriptions and syntax for each of the actions and data types in RAM. RAM is a
-service that helps you securely share your Amazon Web Services resources across Amazon Web Services accounts. If you
-have multiple Amazon Web Services accounts, you can use RAM to share those resources with other
-accounts. If you use Organizations to manage your accounts, then you share your resources
-with your organization or organizational units (OUs). For supported resource types, you
-can also share resources with individual Identity and Access Management (IAM) roles an users. </p>
+service that helps you securely share your Amazon Web Services resources to other Amazon Web Services accounts. If
+you use Organizations to manage your accounts, then you can share your resources with your
+entire organization or to organizational units (OUs). For supported resource types, you
+can also share resources with individual Identity and Access Management (IAM) roles and users. </p>
 <p>To learn more about RAM, see the following resources:</p>
 <ul>
 <li>
@@ -252,10 +251,42 @@ AssociateResourceSharePermission
 </details>
 <details>
 <summary>
+CreatePermission
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/createpermissioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/createpermissioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/createpermissioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreatePermissionVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/createpermissionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/createpermissionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/createpermissionversioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateResourceShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/createresourcesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/createresourcesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/createresourcesharecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeletePermission
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/deletepermissioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/deletepermissioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/deletepermissioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeletePermissionVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/deletepermissionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/deletepermissionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/deletepermissionversioncommandoutput.html)
 
 </details>
 <details>
@@ -340,6 +371,14 @@ ListPendingInvitationResources
 </details>
 <details>
 <summary>
+ListPermissionAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/listpermissionassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/listpermissionassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/listpermissionassociationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListPermissions
 </summary>
 
@@ -360,6 +399,14 @@ ListPrincipals
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/listprincipalscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/listprincipalscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/listprincipalscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListReplacePermissionAssociationsWork
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/listreplacepermissionassociationsworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/listreplacepermissionassociationsworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/listreplacepermissionassociationsworkcommandoutput.html)
 
 </details>
 <details>
@@ -388,6 +435,14 @@ ListResourceTypes
 </details>
 <details>
 <summary>
+PromotePermissionCreatedFromPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/promotepermissioncreatedfrompolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/promotepermissioncreatedfrompolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/promotepermissioncreatedfrompolicycommandoutput.html)
+
+</details>
+<details>
+<summary>
 PromoteResourceShareCreatedFromPolicy
 </summary>
 
@@ -400,6 +455,22 @@ RejectResourceShareInvitation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/rejectresourceshareinvitationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/rejectresourceshareinvitationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/rejectresourceshareinvitationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ReplacePermissionAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/replacepermissionassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/replacepermissionassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/replacepermissionassociationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+SetDefaultPermissionVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/classes/setdefaultpermissionversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/setdefaultpermissionversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ram/interfaces/setdefaultpermissionversioncommandoutput.html)
 
 </details>
 <details>

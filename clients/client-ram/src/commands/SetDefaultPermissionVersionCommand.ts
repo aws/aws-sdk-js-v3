@@ -13,65 +13,61 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetResourceShareInvitationsRequest, GetResourceShareInvitationsResponse } from "../models/models_0";
+import { SetDefaultPermissionVersionRequest, SetDefaultPermissionVersionResponse } from "../models/models_0";
 import {
-  de_GetResourceShareInvitationsCommand,
-  se_GetResourceShareInvitationsCommand,
+  de_SetDefaultPermissionVersionCommand,
+  se_SetDefaultPermissionVersionCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
  * @public
  *
- * The input for {@link GetResourceShareInvitationsCommand}.
+ * The input for {@link SetDefaultPermissionVersionCommand}.
  */
-export interface GetResourceShareInvitationsCommandInput extends GetResourceShareInvitationsRequest {}
+export interface SetDefaultPermissionVersionCommandInput extends SetDefaultPermissionVersionRequest {}
 /**
  * @public
  *
- * The output of {@link GetResourceShareInvitationsCommand}.
+ * The output of {@link SetDefaultPermissionVersionCommand}.
  */
-export interface GetResourceShareInvitationsCommandOutput
-  extends GetResourceShareInvitationsResponse,
+export interface SetDefaultPermissionVersionCommandOutput
+  extends SetDefaultPermissionVersionResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves details about invitations that you have received for resource shares.</p>
+ * <p>Designates the specified version number as the default version for the specified
+ *             customer managed permission. New resource shares automatically use this new default permission. Existing
+ *             resource shares continue to use their original permission version, but you can use <a>ReplacePermissionAssociations</a> to update them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, GetResourceShareInvitationsCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, GetResourceShareInvitationsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, SetDefaultPermissionVersionCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, SetDefaultPermissionVersionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = { // GetResourceShareInvitationsRequest
- *   resourceShareInvitationArns: [ // ResourceShareInvitationArnList
- *     "STRING_VALUE",
- *   ],
- *   resourceShareArns: [ // ResourceShareArnList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ * const input = { // SetDefaultPermissionVersionRequest
+ *   permissionArn: "STRING_VALUE", // required
+ *   permissionVersion: Number("int"), // required
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new GetResourceShareInvitationsCommand(input);
+ * const command = new SetDefaultPermissionVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param GetResourceShareInvitationsCommandInput - {@link GetResourceShareInvitationsCommandInput}
- * @returns {@link GetResourceShareInvitationsCommandOutput}
- * @see {@link GetResourceShareInvitationsCommandInput} for command's `input` shape.
- * @see {@link GetResourceShareInvitationsCommandOutput} for command's `response` shape.
+ * @param SetDefaultPermissionVersionCommandInput - {@link SetDefaultPermissionVersionCommandInput}
+ * @returns {@link SetDefaultPermissionVersionCommandOutput}
+ * @see {@link SetDefaultPermissionVersionCommandInput} for command's `input` shape.
+ * @see {@link SetDefaultPermissionVersionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
- * @throws {@link InvalidMaxResultsException} (client fault)
- *  <p>The operation failed because the specified value for <code>MaxResults</code> isn't
- *             valid.</p>
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>The operation failed because the client token input parameter matched one that was
+ *             used with a previous call to the operation, but at least one of the other input
+ *             parameters is different from the previous call.</p>
  *
- * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The operation failed because the specified value for <code>NextToken</code> isn't
- *             valid. You must specify a value you received in the <code>NextToken</code> response of a
- *             previous call to this operation.</p>
+ * @throws {@link InvalidClientTokenException} (client fault)
+ *  <p>The operation failed because the specified client token isn't valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The operation failed because a parameter you specified isn't valid.</p>
@@ -79,10 +75,6 @@ export interface GetResourceShareInvitationsCommandOutput
  * @throws {@link MalformedArnException} (client fault)
  *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
  *             valid.</p>
- *
- * @throws {@link ResourceShareInvitationArnNotFoundException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> for an invitation was not
- *             found.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The operation failed because the service could not respond to the request due to an
@@ -96,9 +88,9 @@ export interface GetResourceShareInvitationsCommandOutput
  *
  *
  */
-export class GetResourceShareInvitationsCommand extends $Command<
-  GetResourceShareInvitationsCommandInput,
-  GetResourceShareInvitationsCommandOutput,
+export class SetDefaultPermissionVersionCommand extends $Command<
+  SetDefaultPermissionVersionCommandInput,
+  SetDefaultPermissionVersionCommandOutput,
   RAMClientResolvedConfig
 > {
   // Start section: command_properties
@@ -116,7 +108,7 @@ export class GetResourceShareInvitationsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetResourceShareInvitationsCommandInput) {
+  constructor(readonly input: SetDefaultPermissionVersionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -129,17 +121,17 @@ export class GetResourceShareInvitationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetResourceShareInvitationsCommandInput, GetResourceShareInvitationsCommandOutput> {
+  ): Handler<SetDefaultPermissionVersionCommandInput, SetDefaultPermissionVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetResourceShareInvitationsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, SetDefaultPermissionVersionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RAMClient";
-    const commandName = "GetResourceShareInvitationsCommand";
+    const commandName = "SetDefaultPermissionVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -158,8 +150,8 @@ export class GetResourceShareInvitationsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetResourceShareInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetResourceShareInvitationsCommand(input, context);
+  private serialize(input: SetDefaultPermissionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_SetDefaultPermissionVersionCommand(input, context);
   }
 
   /**
@@ -168,8 +160,8 @@ export class GetResourceShareInvitationsCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetResourceShareInvitationsCommandOutput> {
-    return de_GetResourceShareInvitationsCommand(output, context);
+  ): Promise<SetDefaultPermissionVersionCommandOutput> {
+    return de_SetDefaultPermissionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

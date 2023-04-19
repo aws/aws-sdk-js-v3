@@ -14,29 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  PromoteResourceShareCreatedFromPolicyRequest,
-  PromoteResourceShareCreatedFromPolicyResponse,
+  PromotePermissionCreatedFromPolicyRequest,
+  PromotePermissionCreatedFromPolicyResponse,
 } from "../models/models_0";
 import {
-  de_PromoteResourceShareCreatedFromPolicyCommand,
-  se_PromoteResourceShareCreatedFromPolicyCommand,
+  de_PromotePermissionCreatedFromPolicyCommand,
+  se_PromotePermissionCreatedFromPolicyCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
  * @public
  *
- * The input for {@link PromoteResourceShareCreatedFromPolicyCommand}.
+ * The input for {@link PromotePermissionCreatedFromPolicyCommand}.
  */
-export interface PromoteResourceShareCreatedFromPolicyCommandInput
-  extends PromoteResourceShareCreatedFromPolicyRequest {}
+export interface PromotePermissionCreatedFromPolicyCommandInput extends PromotePermissionCreatedFromPolicyRequest {}
 /**
  * @public
  *
- * The output of {@link PromoteResourceShareCreatedFromPolicyCommand}.
+ * The output of {@link PromotePermissionCreatedFromPolicyCommand}.
  */
-export interface PromoteResourceShareCreatedFromPolicyCommandOutput
-  extends PromoteResourceShareCreatedFromPolicyResponse,
+export interface PromotePermissionCreatedFromPolicyCommandOutput
+  extends PromotePermissionCreatedFromPolicyResponse,
     __MetadataBearer {}
 
 /**
@@ -46,40 +45,56 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  *             has the same IAM permissions as the original resource-based policy. However, this type
  *             of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by
  *             using RAM.</p>
- *          <p>This operation promotes the resource share to a <code>STANDARD</code> resource share that is fully
- *             manageable in RAM. When you promote a resource share, you can then manage the resource share in RAM and
- *             it becomes visible to all of the principals you shared it with.</p>
- *          <important>
- *             <p>Before you perform this operation, you should first run <a>PromotePermissionCreatedFromPolicy</a>to ensure that you have an
- *                 appropriate customer managed permission that can be associated with this resource share after its is promoted. If
- *                 this operation can't find a managed permission that exactly matches the existing
- *                     <code>CREATED_FROM_POLICY</code> permission, then this operation fails.</p>
- *          </important>
+ *          <p>This operation creates a separate, fully manageable customer managed permission that has the same IAM
+ *             permissions as the original resource-based policy. You can associate this customer managed permission to any
+ *             resource shares.</p>
+ *          <p>Before you use <a>PromoteResourceShareCreatedFromPolicy</a>, you should
+ *             first run this operation to ensure that you have an appropriate customer managed permission that can be
+ *             associated with the promoted resource share.</p>
+ *          <note>
+ *             <ul>
+ *                <li>
+ *                   <p>The original <code>CREATED_FROM_POLICY</code> policy isn't deleted, and
+ *                         resource shares using that original policy aren't automatically
+ *                         updated.</p>
+ *                </li>
+ *                <li>
+ *                   <p>You can't modify a <code>CREATED_FROM_POLICY</code> resource share so you can't
+ *                         associate the new customer managed permission by using
+ *                         <code>ReplacePermsissionAssociations</code>. However, if you use <a>PromoteResourceShareCreatedFromPolicy</a>, that operation
+ *                         automatically associates the fully manageable customer managed permission to the newly promoted
+ *                             <code>STANDARD</code> resource share.</p>
+ *                </li>
+ *                <li>
+ *                   <p>After you promote a resource share, if the original <code>CREATED_FROM_POLICY</code>
+ *                         managed permission has no other associations to A resource share, then RAM automatically deletes
+ *                         it.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, PromotePermissionCreatedFromPolicyCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, PromotePermissionCreatedFromPolicyCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = { // PromoteResourceShareCreatedFromPolicyRequest
- *   resourceShareArn: "STRING_VALUE", // required
+ * const input = { // PromotePermissionCreatedFromPolicyRequest
+ *   permissionArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new PromoteResourceShareCreatedFromPolicyCommand(input);
+ * const command = new PromotePermissionCreatedFromPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param PromoteResourceShareCreatedFromPolicyCommandInput - {@link PromoteResourceShareCreatedFromPolicyCommandInput}
- * @returns {@link PromoteResourceShareCreatedFromPolicyCommandOutput}
- * @see {@link PromoteResourceShareCreatedFromPolicyCommandInput} for command's `input` shape.
- * @see {@link PromoteResourceShareCreatedFromPolicyCommandOutput} for command's `response` shape.
+ * @param PromotePermissionCreatedFromPolicyCommandInput - {@link PromotePermissionCreatedFromPolicyCommandInput}
+ * @returns {@link PromotePermissionCreatedFromPolicyCommandOutput}
+ * @see {@link PromotePermissionCreatedFromPolicyCommandInput} for command's `input` shape.
+ * @see {@link PromotePermissionCreatedFromPolicyCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The operation failed because a parameter you specified isn't valid.</p>
- *
- * @throws {@link InvalidStateTransitionException} (client fault)
- *  <p>The operation failed because the requested operation isn't valid for the resource
- *             share in its current state.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
  *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
@@ -91,11 +106,6 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
- * @throws {@link ResourceShareLimitExceededException} (client fault)
- *  <p>The operation failed because it would exceed the limit for resource shares for your account. To
- *             view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the Service Quotas
- *                 console</a>.</p>
- *
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The operation failed because the service could not respond to the request due to an
  *             internal problem. Try again later.</p>
@@ -106,15 +116,11 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
- * @throws {@link UnmatchedPolicyPermissionException} (client fault)
- *  <p>There isn't an existing managed permission defined in RAM that has the same IAM permissions as
- *             the resource-based policy attached to the resource. You should first run <a>PromotePermissionCreatedFromPolicy</a> to create that managed permission.</p>
- *
  *
  */
-export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
-  PromoteResourceShareCreatedFromPolicyCommandInput,
-  PromoteResourceShareCreatedFromPolicyCommandOutput,
+export class PromotePermissionCreatedFromPolicyCommand extends $Command<
+  PromotePermissionCreatedFromPolicyCommandInput,
+  PromotePermissionCreatedFromPolicyCommandOutput,
   RAMClientResolvedConfig
 > {
   // Start section: command_properties
@@ -132,7 +138,7 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: PromoteResourceShareCreatedFromPolicyCommandInput) {
+  constructor(readonly input: PromotePermissionCreatedFromPolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -145,17 +151,17 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PromoteResourceShareCreatedFromPolicyCommandInput, PromoteResourceShareCreatedFromPolicyCommandOutput> {
+  ): Handler<PromotePermissionCreatedFromPolicyCommandInput, PromotePermissionCreatedFromPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, PromoteResourceShareCreatedFromPolicyCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, PromotePermissionCreatedFromPolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RAMClient";
-    const commandName = "PromoteResourceShareCreatedFromPolicyCommand";
+    const commandName = "PromotePermissionCreatedFromPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -175,10 +181,10 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
    * @internal
    */
   private serialize(
-    input: PromoteResourceShareCreatedFromPolicyCommandInput,
+    input: PromotePermissionCreatedFromPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_PromoteResourceShareCreatedFromPolicyCommand(input, context);
+    return se_PromotePermissionCreatedFromPolicyCommand(input, context);
   }
 
   /**
@@ -187,8 +193,8 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> {
-    return de_PromoteResourceShareCreatedFromPolicyCommand(output, context);
+  ): Promise<PromotePermissionCreatedFromPolicyCommandOutput> {
+    return de_PromotePermissionCreatedFromPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,10 +18,30 @@ import {
   AssociateResourceSharePermissionCommandOutput,
 } from "./commands/AssociateResourceSharePermissionCommand";
 import {
+  CreatePermissionCommand,
+  CreatePermissionCommandInput,
+  CreatePermissionCommandOutput,
+} from "./commands/CreatePermissionCommand";
+import {
+  CreatePermissionVersionCommand,
+  CreatePermissionVersionCommandInput,
+  CreatePermissionVersionCommandOutput,
+} from "./commands/CreatePermissionVersionCommand";
+import {
   CreateResourceShareCommand,
   CreateResourceShareCommandInput,
   CreateResourceShareCommandOutput,
 } from "./commands/CreateResourceShareCommand";
+import {
+  DeletePermissionCommand,
+  DeletePermissionCommandInput,
+  DeletePermissionCommandOutput,
+} from "./commands/DeletePermissionCommand";
+import {
+  DeletePermissionVersionCommand,
+  DeletePermissionVersionCommandInput,
+  DeletePermissionVersionCommandOutput,
+} from "./commands/DeletePermissionVersionCommand";
 import {
   DeleteResourceShareCommand,
   DeleteResourceShareCommandInput,
@@ -73,6 +93,11 @@ import {
   ListPendingInvitationResourcesCommandOutput,
 } from "./commands/ListPendingInvitationResourcesCommand";
 import {
+  ListPermissionAssociationsCommand,
+  ListPermissionAssociationsCommandInput,
+  ListPermissionAssociationsCommandOutput,
+} from "./commands/ListPermissionAssociationsCommand";
+import {
   ListPermissionsCommand,
   ListPermissionsCommandInput,
   ListPermissionsCommandOutput,
@@ -87,6 +112,11 @@ import {
   ListPrincipalsCommandInput,
   ListPrincipalsCommandOutput,
 } from "./commands/ListPrincipalsCommand";
+import {
+  ListReplacePermissionAssociationsWorkCommand,
+  ListReplacePermissionAssociationsWorkCommandInput,
+  ListReplacePermissionAssociationsWorkCommandOutput,
+} from "./commands/ListReplacePermissionAssociationsWorkCommand";
 import {
   ListResourcesCommand,
   ListResourcesCommandInput,
@@ -103,6 +133,11 @@ import {
   ListResourceTypesCommandOutput,
 } from "./commands/ListResourceTypesCommand";
 import {
+  PromotePermissionCreatedFromPolicyCommand,
+  PromotePermissionCreatedFromPolicyCommandInput,
+  PromotePermissionCreatedFromPolicyCommandOutput,
+} from "./commands/PromotePermissionCreatedFromPolicyCommand";
+import {
   PromoteResourceShareCreatedFromPolicyCommand,
   PromoteResourceShareCreatedFromPolicyCommandInput,
   PromoteResourceShareCreatedFromPolicyCommandOutput,
@@ -112,6 +147,16 @@ import {
   RejectResourceShareInvitationCommandInput,
   RejectResourceShareInvitationCommandOutput,
 } from "./commands/RejectResourceShareInvitationCommand";
+import {
+  ReplacePermissionAssociationsCommand,
+  ReplacePermissionAssociationsCommandInput,
+  ReplacePermissionAssociationsCommandOutput,
+} from "./commands/ReplacePermissionAssociationsCommand";
+import {
+  SetDefaultPermissionVersionCommand,
+  SetDefaultPermissionVersionCommandInput,
+  SetDefaultPermissionVersionCommandOutput,
+} from "./commands/SetDefaultPermissionVersionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -129,7 +174,11 @@ const commands = {
   AcceptResourceShareInvitationCommand,
   AssociateResourceShareCommand,
   AssociateResourceSharePermissionCommand,
+  CreatePermissionCommand,
+  CreatePermissionVersionCommand,
   CreateResourceShareCommand,
+  DeletePermissionCommand,
+  DeletePermissionVersionCommand,
   DeleteResourceShareCommand,
   DisassociateResourceShareCommand,
   DisassociateResourceSharePermissionCommand,
@@ -140,14 +189,19 @@ const commands = {
   GetResourceShareInvitationsCommand,
   GetResourceSharesCommand,
   ListPendingInvitationResourcesCommand,
+  ListPermissionAssociationsCommand,
   ListPermissionsCommand,
   ListPermissionVersionsCommand,
   ListPrincipalsCommand,
+  ListReplacePermissionAssociationsWorkCommand,
   ListResourcesCommand,
   ListResourceSharePermissionsCommand,
   ListResourceTypesCommand,
+  PromotePermissionCreatedFromPolicyCommand,
   PromoteResourceShareCreatedFromPolicyCommand,
   RejectResourceShareInvitationCommand,
+  ReplacePermissionAssociationsCommand,
+  SetDefaultPermissionVersionCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateResourceShareCommand,
@@ -206,6 +260,40 @@ export interface RAM {
   ): void;
 
   /**
+   * @see {@link CreatePermissionCommand}
+   */
+  createPermission(
+    args: CreatePermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePermissionCommandOutput>;
+  createPermission(
+    args: CreatePermissionCommandInput,
+    cb: (err: any, data?: CreatePermissionCommandOutput) => void
+  ): void;
+  createPermission(
+    args: CreatePermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePermissionVersionCommand}
+   */
+  createPermissionVersion(
+    args: CreatePermissionVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePermissionVersionCommandOutput>;
+  createPermissionVersion(
+    args: CreatePermissionVersionCommandInput,
+    cb: (err: any, data?: CreatePermissionVersionCommandOutput) => void
+  ): void;
+  createPermissionVersion(
+    args: CreatePermissionVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePermissionVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateResourceShareCommand}
    */
   createResourceShare(
@@ -220,6 +308,40 @@ export interface RAM {
     args: CreateResourceShareCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateResourceShareCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePermissionCommand}
+   */
+  deletePermission(
+    args: DeletePermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePermissionCommandOutput>;
+  deletePermission(
+    args: DeletePermissionCommandInput,
+    cb: (err: any, data?: DeletePermissionCommandOutput) => void
+  ): void;
+  deletePermission(
+    args: DeletePermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePermissionVersionCommand}
+   */
+  deletePermissionVersion(
+    args: DeletePermissionVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePermissionVersionCommandOutput>;
+  deletePermissionVersion(
+    args: DeletePermissionVersionCommandInput,
+    cb: (err: any, data?: DeletePermissionVersionCommandOutput) => void
+  ): void;
+  deletePermissionVersion(
+    args: DeletePermissionVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePermissionVersionCommandOutput) => void
   ): void;
 
   /**
@@ -387,6 +509,23 @@ export interface RAM {
   ): void;
 
   /**
+   * @see {@link ListPermissionAssociationsCommand}
+   */
+  listPermissionAssociations(
+    args: ListPermissionAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPermissionAssociationsCommandOutput>;
+  listPermissionAssociations(
+    args: ListPermissionAssociationsCommandInput,
+    cb: (err: any, data?: ListPermissionAssociationsCommandOutput) => void
+  ): void;
+  listPermissionAssociations(
+    args: ListPermissionAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPermissionAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPermissionsCommand}
    */
   listPermissions(
@@ -429,6 +568,23 @@ export interface RAM {
     args: ListPrincipalsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPrincipalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListReplacePermissionAssociationsWorkCommand}
+   */
+  listReplacePermissionAssociationsWork(
+    args: ListReplacePermissionAssociationsWorkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReplacePermissionAssociationsWorkCommandOutput>;
+  listReplacePermissionAssociationsWork(
+    args: ListReplacePermissionAssociationsWorkCommandInput,
+    cb: (err: any, data?: ListReplacePermissionAssociationsWorkCommandOutput) => void
+  ): void;
+  listReplacePermissionAssociationsWork(
+    args: ListReplacePermissionAssociationsWorkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReplacePermissionAssociationsWorkCommandOutput) => void
   ): void;
 
   /**
@@ -477,6 +633,23 @@ export interface RAM {
   ): void;
 
   /**
+   * @see {@link PromotePermissionCreatedFromPolicyCommand}
+   */
+  promotePermissionCreatedFromPolicy(
+    args: PromotePermissionCreatedFromPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PromotePermissionCreatedFromPolicyCommandOutput>;
+  promotePermissionCreatedFromPolicy(
+    args: PromotePermissionCreatedFromPolicyCommandInput,
+    cb: (err: any, data?: PromotePermissionCreatedFromPolicyCommandOutput) => void
+  ): void;
+  promotePermissionCreatedFromPolicy(
+    args: PromotePermissionCreatedFromPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PromotePermissionCreatedFromPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PromoteResourceShareCreatedFromPolicyCommand}
    */
   promoteResourceShareCreatedFromPolicy(
@@ -508,6 +681,40 @@ export interface RAM {
     args: RejectResourceShareInvitationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RejectResourceShareInvitationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ReplacePermissionAssociationsCommand}
+   */
+  replacePermissionAssociations(
+    args: ReplacePermissionAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReplacePermissionAssociationsCommandOutput>;
+  replacePermissionAssociations(
+    args: ReplacePermissionAssociationsCommandInput,
+    cb: (err: any, data?: ReplacePermissionAssociationsCommandOutput) => void
+  ): void;
+  replacePermissionAssociations(
+    args: ReplacePermissionAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReplacePermissionAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetDefaultPermissionVersionCommand}
+   */
+  setDefaultPermissionVersion(
+    args: SetDefaultPermissionVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetDefaultPermissionVersionCommandOutput>;
+  setDefaultPermissionVersion(
+    args: SetDefaultPermissionVersionCommandInput,
+    cb: (err: any, data?: SetDefaultPermissionVersionCommandOutput) => void
+  ): void;
+  setDefaultPermissionVersion(
+    args: SetDefaultPermissionVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetDefaultPermissionVersionCommandOutput) => void
   ): void;
 
   /**
@@ -554,11 +761,10 @@ export interface RAM {
  * @public
  * <p>This is the <i>Resource Access Manager API Reference</i>. This documentation provides
  *             descriptions and syntax for each of the actions and data types in RAM. RAM is a
- *             service that helps you securely share your Amazon Web Services resources across Amazon Web Services accounts. If you
- *             have multiple Amazon Web Services accounts, you can use RAM to share those resources with other
- *             accounts. If you use Organizations to manage your accounts, then you share your resources
- *             with your organization or organizational units (OUs). For supported resource types, you
- *             can also share resources with individual Identity and Access Management (IAM) roles an users. </p>
+ *             service that helps you securely share your Amazon Web Services resources to other Amazon Web Services accounts. If
+ *             you use Organizations to manage your accounts, then you can share your resources with your
+ *             entire organization or to organizational units (OUs). For supported resource types, you
+ *             can also share resources with individual Identity and Access Management (IAM) roles and users. </p>
  *          <p>To learn more about RAM, see the following resources:</p>
  *          <ul>
  *             <li>

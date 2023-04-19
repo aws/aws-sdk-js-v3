@@ -32,10 +32,20 @@ import {
   AssociateResourceSharePermissionCommandInput,
   AssociateResourceSharePermissionCommandOutput,
 } from "../commands/AssociateResourceSharePermissionCommand";
+import { CreatePermissionCommandInput, CreatePermissionCommandOutput } from "../commands/CreatePermissionCommand";
+import {
+  CreatePermissionVersionCommandInput,
+  CreatePermissionVersionCommandOutput,
+} from "../commands/CreatePermissionVersionCommand";
 import {
   CreateResourceShareCommandInput,
   CreateResourceShareCommandOutput,
 } from "../commands/CreateResourceShareCommand";
+import { DeletePermissionCommandInput, DeletePermissionCommandOutput } from "../commands/DeletePermissionCommand";
+import {
+  DeletePermissionVersionCommandInput,
+  DeletePermissionVersionCommandOutput,
+} from "../commands/DeletePermissionVersionCommand";
 import {
   DeleteResourceShareCommandInput,
   DeleteResourceShareCommandOutput,
@@ -70,18 +80,30 @@ import {
   ListPendingInvitationResourcesCommandInput,
   ListPendingInvitationResourcesCommandOutput,
 } from "../commands/ListPendingInvitationResourcesCommand";
+import {
+  ListPermissionAssociationsCommandInput,
+  ListPermissionAssociationsCommandOutput,
+} from "../commands/ListPermissionAssociationsCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "../commands/ListPermissionsCommand";
 import {
   ListPermissionVersionsCommandInput,
   ListPermissionVersionsCommandOutput,
 } from "../commands/ListPermissionVersionsCommand";
 import { ListPrincipalsCommandInput, ListPrincipalsCommandOutput } from "../commands/ListPrincipalsCommand";
+import {
+  ListReplacePermissionAssociationsWorkCommandInput,
+  ListReplacePermissionAssociationsWorkCommandOutput,
+} from "../commands/ListReplacePermissionAssociationsWorkCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand";
 import {
   ListResourceSharePermissionsCommandInput,
   ListResourceSharePermissionsCommandOutput,
 } from "../commands/ListResourceSharePermissionsCommand";
 import { ListResourceTypesCommandInput, ListResourceTypesCommandOutput } from "../commands/ListResourceTypesCommand";
+import {
+  PromotePermissionCreatedFromPolicyCommandInput,
+  PromotePermissionCreatedFromPolicyCommandOutput,
+} from "../commands/PromotePermissionCreatedFromPolicyCommand";
 import {
   PromoteResourceShareCreatedFromPolicyCommandInput,
   PromoteResourceShareCreatedFromPolicyCommandOutput,
@@ -90,6 +112,14 @@ import {
   RejectResourceShareInvitationCommandInput,
   RejectResourceShareInvitationCommandOutput,
 } from "../commands/RejectResourceShareInvitationCommand";
+import {
+  ReplacePermissionAssociationsCommandInput,
+  ReplacePermissionAssociationsCommandOutput,
+} from "../commands/ReplacePermissionAssociationsCommand";
+import {
+  SetDefaultPermissionVersionCommandInput,
+  SetDefaultPermissionVersionCommandOutput,
+} from "../commands/SetDefaultPermissionVersionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -97,17 +127,24 @@ import {
   UpdateResourceShareCommandOutput,
 } from "../commands/UpdateResourceShareCommand";
 import {
+  AssociatedPermission,
   IdempotentParameterMismatchException,
   InvalidClientTokenException,
   InvalidMaxResultsException,
   InvalidNextTokenException,
   InvalidParameterException,
+  InvalidPolicyException,
   InvalidResourceTypeException,
   InvalidStateTransitionException,
   MalformedArnException,
+  MalformedPolicyTemplateException,
   MissingRequiredParameterException,
   OperationNotPermittedException,
+  PermissionAlreadyExistsException,
+  PermissionLimitExceededException,
+  PermissionVersionsLimitExceededException,
   Principal,
+  ReplacePermissionAssociationsWork,
   Resource,
   ResourceArnNotFoundException,
   ResourceShare,
@@ -128,6 +165,7 @@ import {
   TagPolicyViolationException,
   ThrottlingException,
   UnknownResourceException,
+  UnmatchedPolicyPermissionException,
 } from "../models/models_0";
 import { RAMServiceException as __BaseException } from "../models/RAMServiceException";
 
@@ -230,6 +268,71 @@ export const se_AssociateResourceSharePermissionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreatePermissionCommand
+ */
+export const se_CreatePermissionCommand = async (
+  input: CreatePermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createpermission";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      name: [],
+      policyTemplate: [],
+      resourceType: [],
+      tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreatePermissionVersionCommand
+ */
+export const se_CreatePermissionVersionCommand = async (
+  input: CreatePermissionVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createpermissionversion";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      permissionArn: [],
+      policyTemplate: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateResourceShareCommand
  */
 export const se_CreateResourceShareCommand = async (
@@ -260,6 +363,65 @@ export const se_CreateResourceShareCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeletePermissionCommand
+ */
+export const se_DeletePermissionCommand = async (
+  input: DeletePermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deletepermission";
+  const query: any = map({
+    permissionArn: [, __expectNonNull(input.permissionArn!, `permissionArn`)],
+    clientToken: [, input.clientToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeletePermissionVersionCommand
+ */
+export const se_DeletePermissionVersionCommand = async (
+  input: DeletePermissionVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deletepermissionversion";
+  const query: any = map({
+    permissionArn: [, __expectNonNull(input.permissionArn!, `permissionArn`)],
+    permissionVersion: [
+      __expectNonNull(input.permissionVersion, `permissionVersion`) != null,
+      () => input.permissionVersion!.toString(),
+    ],
+    clientToken: [, input.clientToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -532,6 +694,7 @@ export const se_GetResourceSharesCommand = async (
       name: [],
       nextToken: [],
       permissionArn: [],
+      permissionVersion: [],
       resourceOwner: [],
       resourceShareArns: (_) => _json(_),
       resourceShareStatus: [],
@@ -583,6 +746,43 @@ export const se_ListPendingInvitationResourcesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListPermissionAssociationsCommand
+ */
+export const se_ListPermissionAssociationsCommand = async (
+  input: ListPermissionAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissionassociations";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      associationStatus: [],
+      defaultVersion: [],
+      featureSet: [],
+      maxResults: [],
+      nextToken: [],
+      permissionArn: [],
+      permissionVersion: [],
+      resourceType: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListPermissionsCommand
  */
 export const se_ListPermissionsCommand = async (
@@ -599,6 +799,7 @@ export const se_ListPermissionsCommand = async (
     take(input, {
       maxResults: [],
       nextToken: [],
+      permissionType: [],
       resourceType: [],
     })
   );
@@ -667,6 +868,39 @@ export const se_ListPrincipalsCommand = async (
       resourceOwner: [],
       resourceShareArns: (_) => _json(_),
       resourceType: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListReplacePermissionAssociationsWorkCommand
+ */
+export const se_ListReplacePermissionAssociationsWorkCommand = async (
+  input: ListReplacePermissionAssociationsWorkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listreplacepermissionassociationswork";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      status: [],
+      workIds: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -780,6 +1014,38 @@ export const se_ListResourceTypesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PromotePermissionCreatedFromPolicyCommand
+ */
+export const se_PromotePermissionCreatedFromPolicyCommand = async (
+  input: PromotePermissionCreatedFromPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/promotepermissioncreatedfrompolicy";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      name: [],
+      permissionArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand
  */
 export const se_PromoteResourceShareCreatedFromPolicyCommand = async (
@@ -838,6 +1104,71 @@ export const se_RejectResourceShareInvitationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ReplacePermissionAssociationsCommand
+ */
+export const se_ReplacePermissionAssociationsCommand = async (
+  input: ReplacePermissionAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/replacepermissionassociations";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      fromPermissionArn: [],
+      fromPermissionVersion: [],
+      toPermissionArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1SetDefaultPermissionVersionCommand
+ */
+export const se_SetDefaultPermissionVersionCommand = async (
+  input: SetDefaultPermissionVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/setdefaultpermissionversion";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      permissionArn: [],
+      permissionVersion: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -852,6 +1183,7 @@ export const se_TagResourceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      resourceArn: [],
       resourceShareArn: [],
       tags: (_) => _json(_),
     })
@@ -882,6 +1214,7 @@ export const se_UntagResourceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      resourceArn: [],
       resourceShareArn: [],
       tagKeys: (_) => _json(_),
     })
@@ -1149,6 +1482,156 @@ const de_AssociateResourceSharePermissionCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreatePermissionCommand
+ */
+export const de_CreatePermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreatePermissionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    permission: (_) => de_ResourceSharePermissionSummary(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreatePermissionCommandError
+ */
+const de_CreatePermissionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePermissionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.ram#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidClientTokenException":
+    case "com.amazonaws.ram#InvalidClientTokenException":
+      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.ram#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidPolicyException":
+    case "com.amazonaws.ram#InvalidPolicyException":
+      throw await de_InvalidPolicyExceptionRes(parsedOutput, context);
+    case "MalformedPolicyTemplateException":
+    case "com.amazonaws.ram#MalformedPolicyTemplateException":
+      throw await de_MalformedPolicyTemplateExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.ram#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "PermissionAlreadyExistsException":
+    case "com.amazonaws.ram#PermissionAlreadyExistsException":
+      throw await de_PermissionAlreadyExistsExceptionRes(parsedOutput, context);
+    case "PermissionLimitExceededException":
+    case "com.amazonaws.ram#PermissionLimitExceededException":
+      throw await de_PermissionLimitExceededExceptionRes(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.ram#ServerInternalException":
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ram#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreatePermissionVersionCommand
+ */
+export const de_CreatePermissionVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePermissionVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreatePermissionVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    permission: (_) => de_ResourceSharePermissionDetail(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreatePermissionVersionCommandError
+ */
+const de_CreatePermissionVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePermissionVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.ram#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidClientTokenException":
+    case "com.amazonaws.ram#InvalidClientTokenException":
+      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.ram#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidPolicyException":
+    case "com.amazonaws.ram#InvalidPolicyException":
+      throw await de_InvalidPolicyExceptionRes(parsedOutput, context);
+    case "MalformedArnException":
+    case "com.amazonaws.ram#MalformedArnException":
+      throw await de_MalformedArnExceptionRes(parsedOutput, context);
+    case "MalformedPolicyTemplateException":
+    case "com.amazonaws.ram#MalformedPolicyTemplateException":
+      throw await de_MalformedPolicyTemplateExceptionRes(parsedOutput, context);
+    case "PermissionVersionsLimitExceededException":
+    case "com.amazonaws.ram#PermissionVersionsLimitExceededException":
+      throw await de_PermissionVersionsLimitExceededExceptionRes(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.ram#ServerInternalException":
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ram#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "UnknownResourceException":
+    case "com.amazonaws.ram#UnknownResourceException":
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateResourceShareCommand
  */
 export const de_CreateResourceShareCommand = async (
@@ -1213,6 +1696,143 @@ const de_CreateResourceShareCommandError = async (
     case "TagPolicyViolationException":
     case "com.amazonaws.ram#TagPolicyViolationException":
       throw await de_TagPolicyViolationExceptionRes(parsedOutput, context);
+    case "UnknownResourceException":
+    case "com.amazonaws.ram#UnknownResourceException":
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeletePermissionCommand
+ */
+export const de_DeletePermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeletePermissionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    permissionStatus: __expectString,
+    returnValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePermissionCommandError
+ */
+const de_DeletePermissionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePermissionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.ram#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidClientTokenException":
+    case "com.amazonaws.ram#InvalidClientTokenException":
+      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
+    case "MalformedArnException":
+    case "com.amazonaws.ram#MalformedArnException":
+      throw await de_MalformedArnExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.ram#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.ram#ServerInternalException":
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ram#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "UnknownResourceException":
+    case "com.amazonaws.ram#UnknownResourceException":
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeletePermissionVersionCommand
+ */
+export const de_DeletePermissionVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePermissionVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeletePermissionVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    permissionStatus: __expectString,
+    returnValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePermissionVersionCommandError
+ */
+const de_DeletePermissionVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePermissionVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.ram#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidClientTokenException":
+    case "com.amazonaws.ram#InvalidClientTokenException":
+      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.ram#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "MalformedArnException":
+    case "com.amazonaws.ram#MalformedArnException":
+      throw await de_MalformedArnExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.ram#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.ram#ServerInternalException":
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ram#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
@@ -1891,6 +2511,66 @@ const de_ListPendingInvitationResourcesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListPermissionAssociationsCommand
+ */
+export const de_ListPermissionAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPermissionAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPermissionAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    permissions: (_) => de_AssociatedPermissionList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPermissionAssociationsCommandError
+ */
+const de_ListPermissionAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPermissionAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.ram#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.ram#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "MalformedArnException":
+    case "com.amazonaws.ram#MalformedArnException":
+      throw await de_MalformedArnExceptionRes(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.ram#ServerInternalException":
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ram#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListPermissionsCommand
  */
 export const de_ListPermissionsCommand = async (
@@ -2069,6 +2749,63 @@ const de_ListPrincipalsCommandError = async (
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListReplacePermissionAssociationsWorkCommand
+ */
+export const de_ListReplacePermissionAssociationsWorkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReplacePermissionAssociationsWorkCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListReplacePermissionAssociationsWorkCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    replacePermissionAssociationsWorks: (_) => de_ReplacePermissionAssociationsWorkList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListReplacePermissionAssociationsWorkCommandError
+ */
+const de_ListReplacePermissionAssociationsWorkCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReplacePermissionAssociationsWorkCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.ram#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.ram#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.ram#ServerInternalException":
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ram#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2269,6 +3006,72 @@ const de_ListResourceTypesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1PromotePermissionCreatedFromPolicyCommand
+ */
+export const de_PromotePermissionCreatedFromPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PromotePermissionCreatedFromPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PromotePermissionCreatedFromPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    permission: (_) => de_ResourceSharePermissionSummary(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PromotePermissionCreatedFromPolicyCommandError
+ */
+const de_PromotePermissionCreatedFromPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PromotePermissionCreatedFromPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.ram#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "MalformedArnException":
+    case "com.amazonaws.ram#MalformedArnException":
+      throw await de_MalformedArnExceptionRes(parsedOutput, context);
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.ram#MissingRequiredParameterException":
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.ram#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.ram#ServerInternalException":
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ram#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "UnknownResourceException":
+    case "com.amazonaws.ram#UnknownResourceException":
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand
  */
 export const de_PromoteResourceShareCreatedFromPolicyCommand = async (
@@ -2305,6 +3108,9 @@ const de_PromoteResourceShareCreatedFromPolicyCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidStateTransitionException":
+    case "com.amazonaws.ram#InvalidStateTransitionException":
+      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
       throw await de_MalformedArnExceptionRes(parsedOutput, context);
@@ -2326,6 +3132,9 @@ const de_PromoteResourceShareCreatedFromPolicyCommandError = async (
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
+    case "UnmatchedPolicyPermissionException":
+    case "com.amazonaws.ram#UnmatchedPolicyPermissionException":
+      throw await de_UnmatchedPolicyPermissionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2401,6 +3210,141 @@ const de_RejectResourceShareInvitationCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ReplacePermissionAssociationsCommand
+ */
+export const de_ReplacePermissionAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReplacePermissionAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ReplacePermissionAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    replacePermissionAssociationsWork: (_) => de_ReplacePermissionAssociationsWork(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ReplacePermissionAssociationsCommandError
+ */
+const de_ReplacePermissionAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReplacePermissionAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.ram#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidClientTokenException":
+    case "com.amazonaws.ram#InvalidClientTokenException":
+      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.ram#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "MalformedArnException":
+    case "com.amazonaws.ram#MalformedArnException":
+      throw await de_MalformedArnExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.ram#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.ram#ServerInternalException":
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ram#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "UnknownResourceException":
+    case "com.amazonaws.ram#UnknownResourceException":
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1SetDefaultPermissionVersionCommand
+ */
+export const de_SetDefaultPermissionVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetDefaultPermissionVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SetDefaultPermissionVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    returnValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SetDefaultPermissionVersionCommandError
+ */
+const de_SetDefaultPermissionVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetDefaultPermissionVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.ram#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidClientTokenException":
+    case "com.amazonaws.ram#InvalidClientTokenException":
+      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.ram#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "MalformedArnException":
+    case "com.amazonaws.ram#MalformedArnException":
+      throw await de_MalformedArnExceptionRes(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.ram#ServerInternalException":
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ram#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "UnknownResourceException":
+    case "com.amazonaws.ram#UnknownResourceException":
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2508,12 +3452,18 @@ const de_UntagResourceCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "MalformedArnException":
+    case "com.amazonaws.ram#MalformedArnException":
+      throw await de_MalformedArnExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
       throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "UnknownResourceException":
+    case "com.amazonaws.ram#UnknownResourceException":
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2698,6 +3648,26 @@ const de_InvalidParameterExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1InvalidPolicyExceptionRes
+ */
+const de_InvalidPolicyExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidPolicyException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidPolicyException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1InvalidResourceTypeExceptionRes
  */
 const de_InvalidResourceTypeExceptionRes = async (
@@ -2758,6 +3728,26 @@ const de_MalformedArnExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1MalformedPolicyTemplateExceptionRes
+ */
+const de_MalformedPolicyTemplateExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MalformedPolicyTemplateException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new MalformedPolicyTemplateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1MissingRequiredParameterExceptionRes
  */
 const de_MissingRequiredParameterExceptionRes = async (
@@ -2791,6 +3781,66 @@ const de_OperationNotPermittedExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new OperationNotPermittedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1PermissionAlreadyExistsExceptionRes
+ */
+const de_PermissionAlreadyExistsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PermissionAlreadyExistsException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new PermissionAlreadyExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1PermissionLimitExceededExceptionRes
+ */
+const de_PermissionLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PermissionLimitExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new PermissionLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1PermissionVersionsLimitExceededExceptionRes
+ */
+const de_PermissionVersionsLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PermissionVersionsLimitExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new PermissionVersionsLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -3034,9 +4084,31 @@ const de_UnknownResourceExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * deserializeAws_restJson1UnmatchedPolicyPermissionExceptionRes
+ */
+const de_UnmatchedPolicyPermissionExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnmatchedPolicyPermissionException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new UnmatchedPolicyPermissionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 // se_PermissionArnList omitted.
 
 // se_PrincipalArnOrIdList omitted.
+
+// se_ReplacePermissionAssociationsWorkIdList omitted.
 
 // se_ResourceArnList omitted.
 
@@ -3055,6 +4127,34 @@ const de_UnknownResourceExceptionRes = async (
 // se_TagList omitted.
 
 // se_TagValueList omitted.
+
+/**
+ * deserializeAws_restJson1AssociatedPermission
+ */
+const de_AssociatedPermission = (output: any, context: __SerdeContext): AssociatedPermission => {
+  return take(output, {
+    arn: __expectString,
+    defaultVersion: __expectBoolean,
+    featureSet: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    permissionVersion: __expectString,
+    resourceShareArn: __expectString,
+    resourceType: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AssociatedPermissionList
+ */
+const de_AssociatedPermissionList = (output: any, context: __SerdeContext): AssociatedPermission[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AssociatedPermission(entry, context);
+    });
+  return retVal;
+};
 
 // de_PolicyList omitted.
 
@@ -3079,6 +4179,41 @@ const de_PrincipalList = (output: any, context: __SerdeContext): Principal[] => 
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_Principal(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ReplacePermissionAssociationsWork
+ */
+const de_ReplacePermissionAssociationsWork = (
+  output: any,
+  context: __SerdeContext
+): ReplacePermissionAssociationsWork => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    fromPermissionArn: __expectString,
+    fromPermissionVersion: __expectString,
+    id: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    statusMessage: __expectString,
+    toPermissionArn: __expectString,
+    toPermissionVersion: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ReplacePermissionAssociationsWorkList
+ */
+const de_ReplacePermissionAssociationsWorkList = (
+  output: any,
+  context: __SerdeContext
+): ReplacePermissionAssociationsWork[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReplacePermissionAssociationsWork(entry, context);
     });
   return retVal;
 };
@@ -3208,11 +4343,15 @@ const de_ResourceSharePermissionDetail = (output: any, context: __SerdeContext):
     arn: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     defaultVersion: __expectBoolean,
+    featureSet: __expectString,
     isResourceTypeDefault: __expectBoolean,
     lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
     permission: __expectString,
+    permissionType: __expectString,
     resourceType: __expectString,
+    status: __expectString,
+    tags: _json,
     version: __expectString,
   }) as any;
 };
@@ -3237,11 +4376,14 @@ const de_ResourceSharePermissionSummary = (output: any, context: __SerdeContext)
     arn: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     defaultVersion: __expectBoolean,
+    featureSet: __expectString,
     isResourceTypeDefault: __expectBoolean,
     lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
+    permissionType: __expectString,
     resourceType: __expectString,
     status: __expectString,
+    tags: _json,
     version: __expectString,
   }) as any;
 };

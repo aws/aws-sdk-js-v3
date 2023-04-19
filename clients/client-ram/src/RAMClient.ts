@@ -61,10 +61,20 @@ import {
   AssociateResourceSharePermissionCommandInput,
   AssociateResourceSharePermissionCommandOutput,
 } from "./commands/AssociateResourceSharePermissionCommand";
+import { CreatePermissionCommandInput, CreatePermissionCommandOutput } from "./commands/CreatePermissionCommand";
+import {
+  CreatePermissionVersionCommandInput,
+  CreatePermissionVersionCommandOutput,
+} from "./commands/CreatePermissionVersionCommand";
 import {
   CreateResourceShareCommandInput,
   CreateResourceShareCommandOutput,
 } from "./commands/CreateResourceShareCommand";
+import { DeletePermissionCommandInput, DeletePermissionCommandOutput } from "./commands/DeletePermissionCommand";
+import {
+  DeletePermissionVersionCommandInput,
+  DeletePermissionVersionCommandOutput,
+} from "./commands/DeletePermissionVersionCommand";
 import {
   DeleteResourceShareCommandInput,
   DeleteResourceShareCommandOutput,
@@ -99,18 +109,30 @@ import {
   ListPendingInvitationResourcesCommandInput,
   ListPendingInvitationResourcesCommandOutput,
 } from "./commands/ListPendingInvitationResourcesCommand";
+import {
+  ListPermissionAssociationsCommandInput,
+  ListPermissionAssociationsCommandOutput,
+} from "./commands/ListPermissionAssociationsCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
 import {
   ListPermissionVersionsCommandInput,
   ListPermissionVersionsCommandOutput,
 } from "./commands/ListPermissionVersionsCommand";
 import { ListPrincipalsCommandInput, ListPrincipalsCommandOutput } from "./commands/ListPrincipalsCommand";
+import {
+  ListReplacePermissionAssociationsWorkCommandInput,
+  ListReplacePermissionAssociationsWorkCommandOutput,
+} from "./commands/ListReplacePermissionAssociationsWorkCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
 import {
   ListResourceSharePermissionsCommandInput,
   ListResourceSharePermissionsCommandOutput,
 } from "./commands/ListResourceSharePermissionsCommand";
 import { ListResourceTypesCommandInput, ListResourceTypesCommandOutput } from "./commands/ListResourceTypesCommand";
+import {
+  PromotePermissionCreatedFromPolicyCommandInput,
+  PromotePermissionCreatedFromPolicyCommandOutput,
+} from "./commands/PromotePermissionCreatedFromPolicyCommand";
 import {
   PromoteResourceShareCreatedFromPolicyCommandInput,
   PromoteResourceShareCreatedFromPolicyCommandOutput,
@@ -119,6 +141,14 @@ import {
   RejectResourceShareInvitationCommandInput,
   RejectResourceShareInvitationCommandOutput,
 } from "./commands/RejectResourceShareInvitationCommand";
+import {
+  ReplacePermissionAssociationsCommandInput,
+  ReplacePermissionAssociationsCommandOutput,
+} from "./commands/ReplacePermissionAssociationsCommand";
+import {
+  SetDefaultPermissionVersionCommandInput,
+  SetDefaultPermissionVersionCommandOutput,
+} from "./commands/SetDefaultPermissionVersionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -140,7 +170,11 @@ export type ServiceInputTypes =
   | AcceptResourceShareInvitationCommandInput
   | AssociateResourceShareCommandInput
   | AssociateResourceSharePermissionCommandInput
+  | CreatePermissionCommandInput
+  | CreatePermissionVersionCommandInput
   | CreateResourceShareCommandInput
+  | DeletePermissionCommandInput
+  | DeletePermissionVersionCommandInput
   | DeleteResourceShareCommandInput
   | DisassociateResourceShareCommandInput
   | DisassociateResourceSharePermissionCommandInput
@@ -151,14 +185,19 @@ export type ServiceInputTypes =
   | GetResourceShareInvitationsCommandInput
   | GetResourceSharesCommandInput
   | ListPendingInvitationResourcesCommandInput
+  | ListPermissionAssociationsCommandInput
   | ListPermissionVersionsCommandInput
   | ListPermissionsCommandInput
   | ListPrincipalsCommandInput
+  | ListReplacePermissionAssociationsWorkCommandInput
   | ListResourceSharePermissionsCommandInput
   | ListResourceTypesCommandInput
   | ListResourcesCommandInput
+  | PromotePermissionCreatedFromPolicyCommandInput
   | PromoteResourceShareCreatedFromPolicyCommandInput
   | RejectResourceShareInvitationCommandInput
+  | ReplacePermissionAssociationsCommandInput
+  | SetDefaultPermissionVersionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateResourceShareCommandInput;
@@ -170,7 +209,11 @@ export type ServiceOutputTypes =
   | AcceptResourceShareInvitationCommandOutput
   | AssociateResourceShareCommandOutput
   | AssociateResourceSharePermissionCommandOutput
+  | CreatePermissionCommandOutput
+  | CreatePermissionVersionCommandOutput
   | CreateResourceShareCommandOutput
+  | DeletePermissionCommandOutput
+  | DeletePermissionVersionCommandOutput
   | DeleteResourceShareCommandOutput
   | DisassociateResourceShareCommandOutput
   | DisassociateResourceSharePermissionCommandOutput
@@ -181,14 +224,19 @@ export type ServiceOutputTypes =
   | GetResourceShareInvitationsCommandOutput
   | GetResourceSharesCommandOutput
   | ListPendingInvitationResourcesCommandOutput
+  | ListPermissionAssociationsCommandOutput
   | ListPermissionVersionsCommandOutput
   | ListPermissionsCommandOutput
   | ListPrincipalsCommandOutput
+  | ListReplacePermissionAssociationsWorkCommandOutput
   | ListResourceSharePermissionsCommandOutput
   | ListResourceTypesCommandOutput
   | ListResourcesCommandOutput
+  | PromotePermissionCreatedFromPolicyCommandOutput
   | PromoteResourceShareCreatedFromPolicyCommandOutput
   | RejectResourceShareInvitationCommandOutput
+  | ReplacePermissionAssociationsCommandOutput
+  | SetDefaultPermissionVersionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateResourceShareCommandOutput;
@@ -359,11 +407,10 @@ export interface RAMClientResolvedConfig extends RAMClientResolvedConfigType {}
  * @public
  * <p>This is the <i>Resource Access Manager API Reference</i>. This documentation provides
  *             descriptions and syntax for each of the actions and data types in RAM. RAM is a
- *             service that helps you securely share your Amazon Web Services resources across Amazon Web Services accounts. If you
- *             have multiple Amazon Web Services accounts, you can use RAM to share those resources with other
- *             accounts. If you use Organizations to manage your accounts, then you share your resources
- *             with your organization or organizational units (OUs). For supported resource types, you
- *             can also share resources with individual Identity and Access Management (IAM) roles an users. </p>
+ *             service that helps you securely share your Amazon Web Services resources to other Amazon Web Services accounts. If
+ *             you use Organizations to manage your accounts, then you can share your resources with your
+ *             entire organization or to organizational units (OUs). For supported resource types, you
+ *             can also share resources with individual Identity and Access Management (IAM) roles and users. </p>
  *          <p>To learn more about RAM, see the following resources:</p>
  *          <ul>
  *             <li>

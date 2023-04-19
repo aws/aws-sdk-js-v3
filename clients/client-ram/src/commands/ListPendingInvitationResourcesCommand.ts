@@ -63,31 +63,37 @@ export interface ListPendingInvitationResourcesCommandOutput
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *  <p>The operation failed because the specified value for <code>NextToken</code> isn't
+ *             valid. You must specify a value you received in the <code>NextToken</code> response of a
+ *             previous call to this operation.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
+ *             valid.</p>
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>A required input parameter is missing.</p>
+ *  <p>The operation failed because a required input parameter is missing.</p>
  *
  * @throws {@link ResourceShareInvitationAlreadyRejectedException} (client fault)
- *  <p>The specified invitation was already rejected.</p>
+ *  <p>The operation failed because the specified invitation was already rejected.</p>
  *
  * @throws {@link ResourceShareInvitationArnNotFoundException} (client fault)
- *  <p>The specified Amazon Resource Name (ARN) for an invitation was not found.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> for an invitation was not
+ *             found.</p>
  *
  * @throws {@link ResourceShareInvitationExpiredException} (client fault)
- *  <p>The specified invitation is expired.</p>
+ *  <p>The operation failed because the specified invitation is past its expiration date and
+ *             time.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  *
  */

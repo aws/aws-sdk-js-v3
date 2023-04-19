@@ -13,46 +13,53 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateResourceShareRequest, UpdateResourceShareResponse } from "../models/models_0";
-import { de_UpdateResourceShareCommand, se_UpdateResourceShareCommand } from "../protocols/Aws_restJson1";
+import { CreatePermissionRequest, CreatePermissionResponse } from "../models/models_0";
+import { de_CreatePermissionCommand, se_CreatePermissionCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
  * @public
  *
- * The input for {@link UpdateResourceShareCommand}.
+ * The input for {@link CreatePermissionCommand}.
  */
-export interface UpdateResourceShareCommandInput extends UpdateResourceShareRequest {}
+export interface CreatePermissionCommandInput extends CreatePermissionRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateResourceShareCommand}.
+ * The output of {@link CreatePermissionCommand}.
  */
-export interface UpdateResourceShareCommandOutput extends UpdateResourceShareResponse, __MetadataBearer {}
+export interface CreatePermissionCommandOutput extends CreatePermissionResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Modifies some of the properties of the specified resource share.</p>
+ * <p>Creates a customer managed permission for a specified resource type that you can attach to resource shares.
+ *             It is created in the Amazon Web Services Region in which you call the operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, UpdateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, UpdateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, CreatePermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, CreatePermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = { // UpdateResourceShareRequest
- *   resourceShareArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   allowExternalPrincipals: true || false,
+ * const input = { // CreatePermissionRequest
+ *   name: "STRING_VALUE", // required
+ *   resourceType: "STRING_VALUE", // required
+ *   policyTemplate: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
- * const command = new UpdateResourceShareCommand(input);
+ * const command = new CreatePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param UpdateResourceShareCommandInput - {@link UpdateResourceShareCommandInput}
- * @returns {@link UpdateResourceShareCommandOutput}
- * @see {@link UpdateResourceShareCommandInput} for command's `input` shape.
- * @see {@link UpdateResourceShareCommandOutput} for command's `response` shape.
+ * @param CreatePermissionCommandInput - {@link CreatePermissionCommandInput}
+ * @returns {@link CreatePermissionCommandOutput}
+ * @see {@link CreatePermissionCommandInput} for command's `input` shape.
+ * @see {@link CreatePermissionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
@@ -66,15 +73,23 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
- * @throws {@link MalformedArnException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
- *             valid.</p>
+ * @throws {@link InvalidPolicyException} (client fault)
+ *  <p>The operation failed because a policy you specified isn't valid.</p>
  *
- * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>The operation failed because a required input parameter is missing.</p>
+ * @throws {@link MalformedPolicyTemplateException} (client fault)
+ *  <p>The operation failed because the policy template that you provided isn't valid.</p>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>The operation failed because the requested operation isn't permitted.</p>
+ *
+ * @throws {@link PermissionAlreadyExistsException} (client fault)
+ *  <p>The operation failed because a permission with the specified name already exists in
+ *             the requested Amazon Web Services Region. Choose a different name.</p>
+ *
+ * @throws {@link PermissionLimitExceededException} (client fault)
+ *  <p>The operation failed because it would exceed the maximum number of permissions you can
+ *             create in each Amazon Web Services Region. To view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the
+ *                 Service Quotas console</a>.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The operation failed because the service could not respond to the request due to an
@@ -83,14 +98,11 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
- * @throws {@link UnknownResourceException} (client fault)
- *  <p>The operation failed because a specified resource couldn't be found.</p>
- *
  *
  */
-export class UpdateResourceShareCommand extends $Command<
-  UpdateResourceShareCommandInput,
-  UpdateResourceShareCommandOutput,
+export class CreatePermissionCommand extends $Command<
+  CreatePermissionCommandInput,
+  CreatePermissionCommandOutput,
   RAMClientResolvedConfig
 > {
   // Start section: command_properties
@@ -108,7 +120,7 @@ export class UpdateResourceShareCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateResourceShareCommandInput) {
+  constructor(readonly input: CreatePermissionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -121,17 +133,17 @@ export class UpdateResourceShareCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateResourceShareCommandInput, UpdateResourceShareCommandOutput> {
+  ): Handler<CreatePermissionCommandInput, CreatePermissionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateResourceShareCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreatePermissionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RAMClient";
-    const commandName = "UpdateResourceShareCommand";
+    const commandName = "CreatePermissionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,15 +162,15 @@ export class UpdateResourceShareCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateResourceShareCommand(input, context);
+  private serialize(input: CreatePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreatePermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceShareCommandOutput> {
-    return de_UpdateResourceShareCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePermissionCommandOutput> {
+    return de_CreatePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

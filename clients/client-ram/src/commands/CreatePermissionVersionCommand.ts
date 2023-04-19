@@ -13,46 +13,50 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateResourceShareRequest, UpdateResourceShareResponse } from "../models/models_0";
-import { de_UpdateResourceShareCommand, se_UpdateResourceShareCommand } from "../protocols/Aws_restJson1";
+import { CreatePermissionVersionRequest, CreatePermissionVersionResponse } from "../models/models_0";
+import { de_CreatePermissionVersionCommand, se_CreatePermissionVersionCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
  * @public
  *
- * The input for {@link UpdateResourceShareCommand}.
+ * The input for {@link CreatePermissionVersionCommand}.
  */
-export interface UpdateResourceShareCommandInput extends UpdateResourceShareRequest {}
+export interface CreatePermissionVersionCommandInput extends CreatePermissionVersionRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateResourceShareCommand}.
+ * The output of {@link CreatePermissionVersionCommand}.
  */
-export interface UpdateResourceShareCommandOutput extends UpdateResourceShareResponse, __MetadataBearer {}
+export interface CreatePermissionVersionCommandOutput extends CreatePermissionVersionResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Modifies some of the properties of the specified resource share.</p>
+ * <p>Creates a new version of the specified customer managed permission. The new version is automatically set as
+ *             the default version of the customer managed permission. New resource shares automatically use the default
+ *             permission. Existing resource shares continue to use their original permission versions,
+ *             but you can use <a>ReplacePermissionAssociations</a> to update them.</p>
+ *          <p>If the specified customer managed permission already has the maximum of 5 versions, then
+ *             you must delete one of the existing versions before you can create a new one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RAMClient, UpdateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
- * // const { RAMClient, UpdateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * import { RAMClient, CreatePermissionVersionCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, CreatePermissionVersionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = { // UpdateResourceShareRequest
- *   resourceShareArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   allowExternalPrincipals: true || false,
+ * const input = { // CreatePermissionVersionRequest
+ *   permissionArn: "STRING_VALUE", // required
+ *   policyTemplate: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };
- * const command = new UpdateResourceShareCommand(input);
+ * const command = new CreatePermissionVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param UpdateResourceShareCommandInput - {@link UpdateResourceShareCommandInput}
- * @returns {@link UpdateResourceShareCommandOutput}
- * @see {@link UpdateResourceShareCommandInput} for command's `input` shape.
- * @see {@link UpdateResourceShareCommandOutput} for command's `response` shape.
+ * @param CreatePermissionVersionCommandInput - {@link CreatePermissionVersionCommandInput}
+ * @returns {@link CreatePermissionVersionCommandOutput}
+ * @see {@link CreatePermissionVersionCommandInput} for command's `input` shape.
+ * @see {@link CreatePermissionVersionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
@@ -66,15 +70,20 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
+ * @throws {@link InvalidPolicyException} (client fault)
+ *  <p>The operation failed because a policy you specified isn't valid.</p>
+ *
  * @throws {@link MalformedArnException} (client fault)
  *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
  *             valid.</p>
  *
- * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>The operation failed because a required input parameter is missing.</p>
+ * @throws {@link MalformedPolicyTemplateException} (client fault)
+ *  <p>The operation failed because the policy template that you provided isn't valid.</p>
  *
- * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The operation failed because the requested operation isn't permitted.</p>
+ * @throws {@link PermissionVersionsLimitExceededException} (client fault)
+ *  <p>The operation failed because it would exceed the limit for the number of versions you
+ *             can have for a permission. To view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the
+ *                 Service Quotas console</a>.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The operation failed because the service could not respond to the request due to an
@@ -88,9 +97,9 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  *
  *
  */
-export class UpdateResourceShareCommand extends $Command<
-  UpdateResourceShareCommandInput,
-  UpdateResourceShareCommandOutput,
+export class CreatePermissionVersionCommand extends $Command<
+  CreatePermissionVersionCommandInput,
+  CreatePermissionVersionCommandOutput,
   RAMClientResolvedConfig
 > {
   // Start section: command_properties
@@ -108,7 +117,7 @@ export class UpdateResourceShareCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateResourceShareCommandInput) {
+  constructor(readonly input: CreatePermissionVersionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -121,17 +130,17 @@ export class UpdateResourceShareCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateResourceShareCommandInput, UpdateResourceShareCommandOutput> {
+  ): Handler<CreatePermissionVersionCommandInput, CreatePermissionVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateResourceShareCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreatePermissionVersionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RAMClient";
-    const commandName = "UpdateResourceShareCommand";
+    const commandName = "CreatePermissionVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,15 +159,15 @@ export class UpdateResourceShareCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateResourceShareCommand(input, context);
+  private serialize(input: CreatePermissionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreatePermissionVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceShareCommandOutput> {
-    return de_UpdateResourceShareCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePermissionVersionCommandOutput> {
+    return de_CreatePermissionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra
