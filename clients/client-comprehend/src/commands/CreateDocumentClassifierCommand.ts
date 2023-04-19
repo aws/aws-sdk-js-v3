@@ -33,10 +33,10 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
 /**
  * @public
  * <p>Creates a new document classifier that you can use to categorize documents. To create a
- *       classifier, you provide a set of training documents that labeled with the categories that you
- *       want to use. After the classifier is trained you can use it to categorize a set of labeled
- *       documents into the categories. For more information, see
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Document Classification</a> in the Comprehend Developer Guide.
+ *       classifier, you provide a set of training documents that are labeled with the categories that you
+ *       want to use. For more information, see
+ *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html">Training classifier models</a>
+ *       in the Comprehend Developer Guide.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +71,18 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  *         DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
  *       },
  *     ],
+ *     DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *     Documents: { // DocumentClassifierDocuments
+ *       S3Uri: "STRING_VALUE", // required
+ *       TestS3Uri: "STRING_VALUE",
+ *     },
+ *     DocumentReaderConfig: { // DocumentReaderConfig
+ *       DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
+ *       DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ *       FeatureTypes: [ // ListOfDocumentReadFeatureTypes
+ *         "TABLES" || "FORMS",
+ *       ],
+ *     },
  *   },
  *   OutputDataConfig: { // DocumentClassifierOutputDataConfig
  *     S3Uri: "STRING_VALUE",

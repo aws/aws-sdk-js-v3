@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StopSentimentDetectionJobRequest, StopSentimentDetectionJobResponse } from "../models/models_0";
+import { StopSentimentDetectionJobRequest, StopSentimentDetectionJobResponse } from "../models/models_1";
 import { de_StopSentimentDetectionJobCommand, se_StopSentimentDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**

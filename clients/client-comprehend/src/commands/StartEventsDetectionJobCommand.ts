@@ -89,6 +89,10 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  *  <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
  *       re-enter it.</p>
  *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource name is already in use. Use a different name and try your request
+ *       again.</p>
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *

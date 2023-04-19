@@ -101,6 +101,10 @@ export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDet
  *  <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
  *       re-enter it.</p>
  *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource name is already in use. Use a different name and try your request
+ *       again.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *

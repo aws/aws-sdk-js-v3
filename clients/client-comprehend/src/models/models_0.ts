@@ -1409,8 +1409,8 @@ export type DocumentReadFeatureTypes = (typeof DocumentReadFeatureTypes)[keyof t
  *             <code>DocumentReaderConfig</code> does not apply to plain text files or Word files.</p>
  *          <p>
  *         For image files and PDF documents, you can override these default actions using the fields listed below.
- *         For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/detecting-cer.html#detecting-cer-pdf">
- *         Setting text extraction options</a>.
+ *         For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html">
+ *         Setting text extraction options</a> in the Comprehend Developer Guide.
  *     </p>
  */
 export interface DocumentReaderConfig {
@@ -1674,6 +1674,49 @@ export interface DocumentLabel {
 
 /**
  * @public
+ * @enum
+ */
+export const PageBasedWarningCode = {
+  INFERENCING_NATIVE_DOCUMENT_WITH_PLAINTEXT_TRAINED_MODEL: "INFERENCING_NATIVE_DOCUMENT_WITH_PLAINTEXT_TRAINED_MODEL",
+  INFERENCING_PLAINTEXT_WITH_NATIVE_TRAINED_MODEL: "INFERENCING_PLAINTEXT_WITH_NATIVE_TRAINED_MODEL",
+} as const;
+
+/**
+ * @public
+ */
+export type PageBasedWarningCode = (typeof PageBasedWarningCode)[keyof typeof PageBasedWarningCode];
+
+/**
+ * @public
+ * <p>The system identified one of the following warnings while processing the input document:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The document to classify is plain text, but the classifier is a native model.</p>
+ *             </li>
+ *             <li>
+ *                <p>The document to classify is semi-structured, but the classifier is a plain-text model.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface WarningsListItem {
+  /**
+   * <p>Page number in the input document.</p>
+   */
+  Page?: number;
+
+  /**
+   * <p>The type of warning.</p>
+   */
+  WarnCode?: PageBasedWarningCode | string;
+
+  /**
+   * <p>Text message associated with the warning.</p>
+   */
+  WarnMessage?: string;
+}
+
+/**
+ * @public
  */
 export interface ClassifyDocumentResponse {
   /**
@@ -1709,6 +1752,15 @@ export interface ClassifyDocumentResponse {
    *       The field is empty if the system encountered no errors.</p>
    */
   Errors?: ErrorsListItem[];
+
+  /**
+   * <p>Warnings detected while processing the input document.
+   *       The response includes a warning if there is a mismatch between the input document type
+   *       and the model type associated with the endpoint that you specified. The response can also include
+   *        warnings for individual pages that have a mismatch. </p>
+   *          <p>The field is empty if the system generated no warnings.</p>
+   */
+  Warnings?: WarningsListItem[];
 }
 
 /**
@@ -2255,6 +2307,38 @@ export type DocumentClassifierDataFormat =
 
 /**
  * @public
+ * <p>The location of the training documents. This parameter is required in a request to create a native classifier model.</p>
+ */
+export interface DocumentClassifierDocuments {
+  /**
+   * <p>The S3 URI location of the training documents specified in the S3Uri CSV file.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>The S3 URI location of the test documents included in the TestS3Uri CSV file.
+   *       This field is not required if you do not specify a test CSV file.</p>
+   */
+  TestS3Uri?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DocumentClassifierDocumentTypeFormat = {
+  PLAIN_TEXT_DOCUMENT: "PLAIN_TEXT_DOCUMENT",
+  SEMI_STRUCTURED_DOCUMENT: "SEMI_STRUCTURED_DOCUMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentClassifierDocumentTypeFormat =
+  (typeof DocumentClassifierDocumentTypeFormat)[keyof typeof DocumentClassifierDocumentTypeFormat];
+
+/**
+ * @public
  * <p>The input properties for training a document classifier. </p>
  *          <p>For more information on how the input file is formatted, see
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html">Preparing training data</a> in the Comprehend Developer Guide.
@@ -2321,6 +2405,46 @@ export interface DocumentClassifierInputDataConfig {
    *         <code>AUGMENTED_MANIFEST</code>.</p>
    */
   AugmentedManifests?: AugmentedManifestsListItem[];
+
+  /**
+   * <p>The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and
+   *     provide semi-structured documents to create a native model.</p>
+   */
+  DocumentType?: DocumentClassifierDocumentTypeFormat | string;
+
+  /**
+   * <p>The S3 location of the training documents.
+   *       This parameter is required in a request to create a native classifier model.</p>
+   */
+  Documents?: DocumentClassifierDocuments;
+
+  /**
+   * <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files. </p>
+   *          <p> By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Word files</b> - Amazon Comprehend parser extracts the text. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Digital PDF files</b> - Amazon Comprehend parser extracts the text. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Image files and scanned PDF files</b> - Amazon Comprehend uses the Amazon Textract <code>DetectDocumentText</code>
+   *           API to extract the text. </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>DocumentReaderConfig</code> does not apply to plain text files or Word files.</p>
+   *          <p>
+   *         For image files and PDF documents, you can override these default actions using the fields listed below.
+   *         For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html">
+   *         Setting text extraction options</a> in the Comprehend Developer Guide.
+   *     </p>
+   */
+  DocumentReaderConfig?: DocumentReaderConfig;
 }
 
 /**
@@ -2339,12 +2463,14 @@ export type DocumentClassifierMode = (typeof DocumentClassifierMode)[keyof typeo
 
 /**
  * @public
- * <p>Provides output results configuration parameters for custom classifier jobs. </p>
+ * <p>Provide the location for output data from a custom classifier job. This field is mandatory
+ *     if you are training a native classifier model.</p>
  */
 export interface DocumentClassifierOutputDataConfig {
   /**
    * <p>When you use the <code>OutputDataConfig</code> object while creating a custom
-   *       classifier, you specify the Amazon S3 location where you want to write the confusion matrix.
+   *       classifier, you specify the Amazon S3 location where you want to write the confusion matrix
+   *       and other output files.
    *       The URI must be in the same Region as the API endpoint that you are calling. The location is
    *       used as the prefix for the actual location of this output file.</p>
    *          <p>When the custom classifier job is finished, the service creates the output file in a
@@ -2448,8 +2574,8 @@ export interface CreateDocumentClassifierRequest {
   InputDataConfig: DocumentClassifierInputDataConfig | undefined;
 
   /**
-   * <p>Enables the addition of output results configuration parameters for custom classifier
-   *       jobs.</p>
+   * <p>Specifies the location for the output files from a custom classifier job.
+   *     This parameter is required for a request that creates a native classifier model.</p>
    */
   OutputDataConfig?: DocumentClassifierOutputDataConfig;
 
@@ -3569,7 +3695,10 @@ export interface DocumentClassifierProperties {
 
   /**
    * <p>The status of the document classifier. If the status is <code>TRAINED</code> the
-   *       classifier is ready to use. If the status is <code>FAILED</code> you can see additional
+   *       classifier is ready to use. If the status is <code>TRAINED_WITH_WARNINGS</code> the
+   *       classifier training succeeded, but you should review the warnings returned in the
+   *       <code>CreateDocumentClassifier</code> response.</p>
+   *          <p>  If the status is <code>FAILED</code> you can see additional
    *       information about why the classifier wasn't trained in the <code>Message</code> field.</p>
    */
   Status?: ModelStatus | string;
@@ -8134,58 +8263,6 @@ export interface StopKeyPhrasesDetectionJobResponse {
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopKeyPhrasesDetectionJob</code> operation.</p>
-   */
-  JobStatus?: JobStatus | string;
-}
-
-/**
- * @public
- */
-export interface StopPiiEntitiesDetectionJobRequest {
-  /**
-   * <p>The identifier of the PII entities detection job to stop.</p>
-   */
-  JobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopPiiEntitiesDetectionJobResponse {
-  /**
-   * <p>The identifier of the PII entities detection job to stop.</p>
-   */
-  JobId?: string;
-
-  /**
-   * <p>The status of the PII entities detection job.</p>
-   */
-  JobStatus?: JobStatus | string;
-}
-
-/**
- * @public
- */
-export interface StopSentimentDetectionJobRequest {
-  /**
-   * <p>The identifier of the sentiment detection job to stop.</p>
-   */
-  JobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopSentimentDetectionJobResponse {
-  /**
-   * <p>The identifier of the sentiment detection job to stop.</p>
-   */
-  JobId?: string;
-
-  /**
-   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
-   *         <code>STOPPED</code> if the job was previously stopped with the
-   *         <code>StopSentimentDetectionJob</code> operation.</p>
    */
   JobStatus?: JobStatus | string;
 }

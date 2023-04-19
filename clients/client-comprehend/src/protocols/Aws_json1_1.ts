@@ -386,6 +386,7 @@ import {
   DocumentClassificationConfig,
   DocumentClassificationJobFilter,
   DocumentClassificationJobProperties,
+  DocumentClassifierDocuments,
   DocumentClassifierFilter,
   DocumentClassifierInputDataConfig,
   DocumentClassifierOutputDataConfig,
@@ -501,8 +502,6 @@ import {
   StopEntitiesDetectionJobRequest,
   StopEventsDetectionJobRequest,
   StopKeyPhrasesDetectionJobRequest,
-  StopPiiEntitiesDetectionJobRequest,
-  StopSentimentDetectionJobRequest,
   SyntaxToken,
   Tag,
   TargetedSentimentDetectionJobFilter,
@@ -520,6 +519,8 @@ import {
 } from "../models/models_0";
 import {
   ConcurrentModificationException,
+  StopPiiEntitiesDetectionJobRequest,
+  StopSentimentDetectionJobRequest,
   StopTargetedSentimentDetectionJobRequest,
   StopTrainingDocumentClassifierRequest,
   StopTrainingEntityRecognizerRequest,
@@ -5120,6 +5121,9 @@ const de_StartDocumentClassificationJobCommandError = async (
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
       throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -5184,6 +5188,9 @@ const de_StartDominantLanguageDetectionJobCommandError = async (
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
       throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
@@ -5242,6 +5249,9 @@ const de_StartEntitiesDetectionJobCommandError = async (
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
       throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -5306,6 +5316,9 @@ const de_StartEventsDetectionJobCommandError = async (
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
       throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
@@ -5422,6 +5435,9 @@ const de_StartKeyPhrasesDetectionJobCommandError = async (
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
       throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
@@ -5480,6 +5496,9 @@ const de_StartPiiEntitiesDetectionJobCommandError = async (
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
       throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
@@ -5538,6 +5557,9 @@ const de_StartSentimentDetectionJobCommandError = async (
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
       throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
@@ -5596,6 +5618,9 @@ const de_StartTargetedSentimentDetectionJobCommandError = async (
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
       throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
@@ -5654,6 +5679,9 @@ const de_StartTopicsDetectionJobCommandError = async (
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
       throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
@@ -6870,6 +6898,8 @@ const se_DocumentClassificationJobFilter = (input: DocumentClassificationJobFilt
 
 // se_DocumentClassifierAugmentedManifestsList omitted.
 
+// se_DocumentClassifierDocuments omitted.
+
 /**
  * serializeAws_json1_1DocumentClassifierFilter
  */
@@ -7690,6 +7720,7 @@ const de_ClassifyDocumentResponse = (output: any, context: __SerdeContext): Clas
     DocumentType: _json,
     Errors: _json,
     Labels: (_: any) => de_ListOfLabels(_, context),
+    Warnings: _json,
   }) as any;
 };
 
@@ -8061,6 +8092,8 @@ const de_DocumentClassificationJobPropertiesList = (
 };
 
 // de_DocumentClassifierAugmentedManifestsList omitted.
+
+// de_DocumentClassifierDocuments omitted.
 
 // de_DocumentClassifierInputDataConfig omitted.
 
@@ -9022,6 +9055,8 @@ const de_ListOfTargetedSentimentEntities = (output: any, context: __SerdeContext
   return retVal;
 };
 
+// de_ListOfWarnings omitted.
+
 /**
  * deserializeAws_json1_1ListPiiEntitiesDetectionJobsResponse
  */
@@ -9420,6 +9455,8 @@ const de_UpdateFlywheelResponse = (output: any, context: __SerdeContext): Update
 };
 
 // de_VpcConfig omitted.
+
+// de_WarningsListItem omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

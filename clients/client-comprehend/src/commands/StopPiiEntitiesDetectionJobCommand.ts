@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StopPiiEntitiesDetectionJobRequest, StopPiiEntitiesDetectionJobResponse } from "../models/models_0";
+import { StopPiiEntitiesDetectionJobRequest, StopPiiEntitiesDetectionJobResponse } from "../models/models_1";
 import { de_StopPiiEntitiesDetectionJobCommand, se_StopPiiEntitiesDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**

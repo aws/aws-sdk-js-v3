@@ -7,6 +7,58 @@ import { FlywheelProperties, JobStatus, Tag, VpcConfig } from "./models_0";
 /**
  * @public
  */
+export interface StopPiiEntitiesDetectionJobRequest {
+  /**
+   * <p>The identifier of the PII entities detection job to stop.</p>
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopPiiEntitiesDetectionJobResponse {
+  /**
+   * <p>The identifier of the PII entities detection job to stop.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The status of the PII entities detection job.</p>
+   */
+  JobStatus?: JobStatus | string;
+}
+
+/**
+ * @public
+ */
+export interface StopSentimentDetectionJobRequest {
+  /**
+   * <p>The identifier of the sentiment detection job to stop.</p>
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopSentimentDetectionJobResponse {
+  /**
+   * <p>The identifier of the sentiment detection job to stop.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
+   *         <code>STOPPED</code> if the job was previously stopped with the
+   *         <code>StopSentimentDetectionJob</code> operation.</p>
+   */
+  JobStatus?: JobStatus | string;
+}
+
+/**
+ * @public
+ */
 export interface StopTargetedSentimentDetectionJobRequest {
   /**
    * <p>The identifier of the targeted sentiment detection job to stop.</p>
