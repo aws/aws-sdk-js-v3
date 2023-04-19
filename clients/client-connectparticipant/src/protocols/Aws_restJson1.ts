@@ -67,7 +67,7 @@ export const se_CompleteAttachmentUploadCommand = async (
   body = JSON.stringify(
     take(input, {
       AttachmentIds: (_) => _json(_),
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -130,7 +130,7 @@ export const se_DisconnectParticipantCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -227,7 +227,7 @@ export const se_SendEventCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Content: [],
       ContentType: [],
     })
@@ -259,7 +259,7 @@ export const se_SendMessageCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Content: [],
       ContentType: [],
     })
@@ -294,7 +294,7 @@ export const se_StartAttachmentUploadCommand = async (
     take(input, {
       AttachmentName: [],
       AttachmentSizeInBytes: [],
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ContentType: [],
     })
   );

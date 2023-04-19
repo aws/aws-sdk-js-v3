@@ -332,7 +332,7 @@ export const se_StartChangeSetCommand = async (
       ChangeSet: (_) => _json(_),
       ChangeSetName: [],
       ChangeSetTags: (_) => _json(_),
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({

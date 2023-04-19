@@ -116,7 +116,7 @@ export const se_CreateBrokerCommand = async (
       autoMinorVersionUpgrade: [, , `AutoMinorVersionUpgrade`],
       brokerName: [, , `BrokerName`],
       configuration: [, (_) => se_ConfigurationId(_, context), `Configuration`],
-      creatorRequestId: [, (_) => _ ?? generateIdempotencyToken(), `CreatorRequestId`],
+      creatorRequestId: [true, (_) => _ ?? generateIdempotencyToken(), `CreatorRequestId`],
       deploymentMode: [, , `DeploymentMode`],
       encryptionOptions: [, (_) => se_EncryptionOptions(_, context), `EncryptionOptions`],
       engineType: [, , `EngineType`],

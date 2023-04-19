@@ -12228,7 +12228,7 @@ const se_CreateActivationRequest = (input: CreateActivationRequest, context: __S
 const se_CreateMaintenanceWindowRequest = (input: CreateMaintenanceWindowRequest, context: __SerdeContext): any => {
   return take(input, {
     AllowUnassociatedTargets: [],
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Cutoff: [],
     Description: [],
     Duration: [],
@@ -12277,7 +12277,7 @@ const se_CreatePatchBaselineRequest = (input: CreatePatchBaselineRequest, contex
     ApprovedPatches: _json,
     ApprovedPatchesComplianceLevel: [],
     ApprovedPatchesEnableNonSecurity: [],
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     GlobalFilters: _json,
     Name: [],
@@ -12302,7 +12302,7 @@ const se_CreatePatchBaselineRequest = (input: CreatePatchBaselineRequest, contex
  */
 const se_DeleteInventoryRequest = (input: DeleteInventoryRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DryRun: [],
     SchemaDeleteOption: [],
     TypeName: [],
@@ -12807,7 +12807,7 @@ const se_RegisterTargetWithMaintenanceWindowRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     Name: [],
     OwnerInformation: [],
@@ -12826,7 +12826,7 @@ const se_RegisterTaskWithMaintenanceWindowRequest = (
 ): any => {
   return take(input, {
     AlarmConfiguration: _json,
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     CutoffBehavior: [],
     Description: [],
     LoggingInfo: _json,

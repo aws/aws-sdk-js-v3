@@ -2076,7 +2076,7 @@ const de_TooManyTagsExceptionRes = async (
  */
 const se_CreateHttpNamespaceRequest = (input: CreateHttpNamespaceRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     Name: [],
     Tags: _json,
@@ -2088,7 +2088,7 @@ const se_CreateHttpNamespaceRequest = (input: CreateHttpNamespaceRequest, contex
  */
 const se_CreatePrivateDnsNamespaceRequest = (input: CreatePrivateDnsNamespaceRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     Name: [],
     Properties: _json,
@@ -2102,7 +2102,7 @@ const se_CreatePrivateDnsNamespaceRequest = (input: CreatePrivateDnsNamespaceReq
  */
 const se_CreatePublicDnsNamespaceRequest = (input: CreatePublicDnsNamespaceRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     Name: [],
     Properties: _json,
@@ -2115,7 +2115,7 @@ const se_CreatePublicDnsNamespaceRequest = (input: CreatePublicDnsNamespaceReque
  */
 const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     DnsConfig: _json,
     HealthCheckConfig: _json,
@@ -2207,7 +2207,7 @@ const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeCo
 const se_RegisterInstanceRequest = (input: RegisterInstanceRequest, context: __SerdeContext): any => {
   return take(input, {
     Attributes: _json,
-    CreatorRequestId: (_) => _ ?? generateIdempotencyToken(),
+    CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     InstanceId: [],
     ServiceId: [],
   });
@@ -2240,7 +2240,7 @@ const se_UpdateHttpNamespaceRequest = (input: UpdateHttpNamespaceRequest, contex
   return take(input, {
     Id: [],
     Namespace: _json,
-    UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
+    UpdaterRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
   });
 };
 
@@ -2253,7 +2253,7 @@ const se_UpdatePrivateDnsNamespaceRequest = (input: UpdatePrivateDnsNamespaceReq
   return take(input, {
     Id: [],
     Namespace: _json,
-    UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
+    UpdaterRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
   });
 };
 
@@ -2264,7 +2264,7 @@ const se_UpdatePublicDnsNamespaceRequest = (input: UpdatePublicDnsNamespaceReque
   return take(input, {
     Id: [],
     Namespace: _json,
-    UpdaterRequestId: (_) => _ ?? generateIdempotencyToken(),
+    UpdaterRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
   });
 };
 

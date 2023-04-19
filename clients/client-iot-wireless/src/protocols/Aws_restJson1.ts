@@ -508,7 +508,7 @@ export const se_AssociateAwsAccountWithPartnerAccountCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Sidewalk: (_) => _json(_),
       Tags: (_) => _json(_),
     })
@@ -749,7 +749,7 @@ export const se_CreateDestinationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       Expression: [],
       ExpressionType: [],
@@ -784,7 +784,7 @@ export const se_CreateDeviceProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       LoRaWAN: (_) => _json(_),
       Name: [],
       Sidewalk: (_) => _json(_),
@@ -817,7 +817,7 @@ export const se_CreateFuotaTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       FirmwareUpdateImage: [],
       FirmwareUpdateRole: [],
@@ -855,7 +855,7 @@ export const se_CreateMulticastGroupCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       LoRaWAN: (_) => _json(_),
       Name: [],
@@ -889,7 +889,7 @@ export const se_CreateNetworkAnalyzerConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       Name: [],
       Tags: (_) => _json(_),
@@ -924,7 +924,7 @@ export const se_CreateServiceProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       LoRaWAN: (_) => _json(_),
       Name: [],
       Tags: (_) => _json(_),
@@ -956,7 +956,7 @@ export const se_CreateWirelessDeviceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       DestinationName: [],
       LoRaWAN: (_) => _json(_),
@@ -993,7 +993,7 @@ export const se_CreateWirelessGatewayCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       LoRaWAN: (_) => se_LoRaWANGateway(_, context),
       Name: [],
@@ -1059,7 +1059,7 @@ export const se_CreateWirelessGatewayTaskDefinitionCommand = async (
   body = JSON.stringify(
     take(input, {
       AutoCreateTasks: [],
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Name: [],
       Tags: (_) => _json(_),
       Update: (_) => _json(_),
@@ -3163,7 +3163,7 @@ export const se_StartSingleWirelessDeviceImportTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       DestinationName: [],
       DeviceName: [],
       Sidewalk: (_) => _json(_),
@@ -3197,7 +3197,7 @@ export const se_StartWirelessDeviceImportTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       DestinationName: [],
       Sidewalk: (_) => _json(_),
       Tags: (_) => _json(_),

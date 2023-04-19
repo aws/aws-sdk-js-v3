@@ -1137,7 +1137,7 @@ export const se_CreateAppInstanceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Metadata: [],
       Name: [],
       Tags: (_) => _json(_),
@@ -1223,7 +1223,7 @@ export const se_CreateAppInstanceUserCommand = async (
     take(input, {
       AppInstanceArn: [],
       AppInstanceUserId: [],
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Metadata: [],
       Name: [],
       Tags: (_) => _json(_),
@@ -1328,7 +1328,7 @@ export const se_CreateChannelCommand = async (
   body = JSON.stringify(
     take(input, {
       AppInstanceArn: [],
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Metadata: [],
       Mode: [],
       Name: [],
@@ -1489,7 +1489,7 @@ export const se_CreateMediaCapturePipelineCommand = async (
   body = JSON.stringify(
     take(input, {
       ChimeSdkMeetingConfiguration: (_) => _json(_),
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       SinkArn: [],
       SinkType: [],
       SourceArn: [],
@@ -1522,7 +1522,7 @@ export const se_CreateMeetingCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ExternalMeetingId: [],
       MediaRegion: [],
       MeetingHostId: [],
@@ -1593,7 +1593,7 @@ export const se_CreateMeetingWithAttendeesCommand = async (
   body = JSON.stringify(
     take(input, {
       Attendees: (_) => _json(_),
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ExternalMeetingId: [],
       MediaRegion: [],
       MeetingHostId: [],
@@ -1705,7 +1705,7 @@ export const se_CreateRoomCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Name: [],
     })
   );
@@ -6046,7 +6046,7 @@ export const se_SendChannelMessageCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Content: [],
       Metadata: [],
       Persistence: [],

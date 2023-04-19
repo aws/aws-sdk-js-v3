@@ -497,7 +497,7 @@ export const se_CreateConnectAttachmentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       CoreNetworkId: [],
       EdgeLocation: [],
       Options: (_) => _json(_),
@@ -576,7 +576,7 @@ export const se_CreateConnectPeerCommand = async (
   body = JSON.stringify(
     take(input, {
       BgpOptions: (_) => _json(_),
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ConnectAttachmentId: [],
       CoreNetworkAddress: [],
       InsideCidrBlocks: (_) => _json(_),
@@ -610,7 +610,7 @@ export const se_CreateCoreNetworkCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       GlobalNetworkId: [],
       PolicyDocument: [],
@@ -804,7 +804,7 @@ export const se_CreateSiteToSiteVpnAttachmentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       CoreNetworkId: [],
       Tags: (_) => _json(_),
       VpnConnectionArn: [],
@@ -837,7 +837,7 @@ export const se_CreateTransitGatewayPeeringCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       CoreNetworkId: [],
       Tags: (_) => _json(_),
       TransitGatewayArn: [],
@@ -870,7 +870,7 @@ export const se_CreateTransitGatewayRouteTableAttachmentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       PeeringId: [],
       Tags: (_) => _json(_),
       TransitGatewayRouteTableArn: [],
@@ -902,7 +902,7 @@ export const se_CreateVpcAttachmentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       CoreNetworkId: [],
       Options: (_) => _json(_),
       SubnetArns: (_) => _json(_),
@@ -2748,7 +2748,7 @@ export const se_PutCoreNetworkPolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       LatestVersionId: [],
       PolicyDocument: (_) => __LazyJsonString.fromObject(_),

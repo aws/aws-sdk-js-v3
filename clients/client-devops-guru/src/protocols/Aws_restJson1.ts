@@ -1022,7 +1022,7 @@ export const se_StartCostEstimationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ResourceCollection: (_) => _json(_),
     })
   );

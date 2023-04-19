@@ -3911,7 +3911,7 @@ const de_TransactionInProgressExceptionRes = async (
 const se_CreateAcceleratorRequest = (input: CreateAcceleratorRequest, context: __SerdeContext): any => {
   return take(input, {
     Enabled: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     IpAddressType: [],
     IpAddresses: _json,
     Name: [],
@@ -3928,7 +3928,7 @@ const se_CreateCustomRoutingAcceleratorRequest = (
 ): any => {
   return take(input, {
     Enabled: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     IpAddressType: [],
     IpAddresses: _json,
     Name: [],
@@ -3946,7 +3946,7 @@ const se_CreateCustomRoutingEndpointGroupRequest = (
   return take(input, {
     DestinationConfigurations: _json,
     EndpointGroupRegion: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ListenerArn: [],
   });
 };
@@ -3960,7 +3960,7 @@ const se_CreateCustomRoutingListenerRequest = (
 ): any => {
   return take(input, {
     AcceleratorArn: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     PortRanges: _json,
   });
 };
@@ -3976,7 +3976,7 @@ const se_CreateEndpointGroupRequest = (input: CreateEndpointGroupRequest, contex
     HealthCheckPath: [],
     HealthCheckPort: [],
     HealthCheckProtocol: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ListenerArn: [],
     PortOverrides: _json,
     ThresholdCount: [],
@@ -3991,7 +3991,7 @@ const se_CreateListenerRequest = (input: CreateListenerRequest, context: __Serde
   return take(input, {
     AcceleratorArn: [],
     ClientAffinity: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     PortRanges: _json,
     Protocol: [],
   });

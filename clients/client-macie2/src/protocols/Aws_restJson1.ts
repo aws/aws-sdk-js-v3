@@ -478,7 +478,7 @@ export const se_CreateAllowListCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
       criteria: [, (_) => se_AllowListCriteria(_, context), `criteria`],
       description: [, , `description`],
       name: [, , `name`],
@@ -512,7 +512,7 @@ export const se_CreateClassificationJobCommand = async (
   body = JSON.stringify(
     take(input, {
       allowListIds: [, (_) => _json(_), `allowListIds`],
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
       customDataIdentifierIds: [, (_) => _json(_), `customDataIdentifierIds`],
       description: [, , `description`],
       initialRun: [, , `initialRun`],
@@ -553,7 +553,7 @@ export const se_CreateCustomDataIdentifierCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
       description: [, , `description`],
       ignoreWords: [, (_) => _json(_), `ignoreWords`],
       keywords: [, (_) => _json(_), `keywords`],
@@ -591,7 +591,7 @@ export const se_CreateFindingsFilterCommand = async (
   body = JSON.stringify(
     take(input, {
       action: [, , `action`],
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
       description: [, , `description`],
       findingCriteria: [, (_) => se_FindingCriteria(_, context), `findingCriteria`],
       name: [, , `name`],
@@ -1076,7 +1076,7 @@ export const se_EnableMacieCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
       findingPublishingFrequency: [, , `findingPublishingFrequency`],
       status: [, , `status`],
     })
@@ -1108,7 +1108,7 @@ export const se_EnableOrganizationAdminAccountCommand = async (
   body = JSON.stringify(
     take(input, {
       adminAccountId: [, , `adminAccountId`],
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
     })
   );
   return new __HttpRequest({
@@ -2133,7 +2133,7 @@ export const se_PutFindingsPublicationConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
       securityHubConfiguration: [, (_) => se_SecurityHubConfiguration(_, context), `securityHubConfiguration`],
     })
   );
@@ -2415,7 +2415,7 @@ export const se_UpdateFindingsFilterCommand = async (
   body = JSON.stringify(
     take(input, {
       action: [, , `action`],
-      clientToken: [, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `clientToken`],
       description: [, , `description`],
       findingCriteria: [, (_) => se_FindingCriteria(_, context), `findingCriteria`],
       name: [, , `name`],

@@ -304,7 +304,7 @@ export const se_CreateComponentVersionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       inlineRecipe: (_) => context.base64Encoder(_),
       lambdaFunction: (_) => _json(_),
       tags: (_) => _json(_),
@@ -337,7 +337,7 @@ export const se_CreateDeploymentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       components: (_) => se_ComponentDeploymentSpecifications(_, context),
       deploymentName: [],
       deploymentPolicies: (_) => _json(_),

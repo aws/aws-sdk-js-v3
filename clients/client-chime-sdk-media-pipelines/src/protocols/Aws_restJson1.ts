@@ -174,7 +174,7 @@ export const se_CreateMediaCapturePipelineCommand = async (
   body = JSON.stringify(
     take(input, {
       ChimeSdkMeetingConfiguration: (_) => _json(_),
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       SinkArn: [],
       SinkType: [],
       SourceArn: [],
@@ -209,7 +209,7 @@ export const se_CreateMediaConcatenationPipelineCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Sinks: (_) => _json(_),
       Sources: (_) => _json(_),
       Tags: (_) => _json(_),
@@ -242,7 +242,7 @@ export const se_CreateMediaInsightsPipelineCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       KinesisVideoStreamRecordingSourceRuntimeConfiguration: (_) =>
         se_KinesisVideoStreamRecordingSourceRuntimeConfiguration(_, context),
       KinesisVideoStreamSourceRuntimeConfiguration: (_) => _json(_),
@@ -279,7 +279,7 @@ export const se_CreateMediaInsightsPipelineConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Elements: (_) => _json(_),
       MediaInsightsPipelineConfigurationName: [],
       RealTimeAlertConfiguration: (_) => _json(_),
@@ -314,7 +314,7 @@ export const se_CreateMediaLiveConnectorPipelineCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Sinks: (_) => _json(_),
       Sources: (_) => _json(_),
       Tags: (_) => _json(_),

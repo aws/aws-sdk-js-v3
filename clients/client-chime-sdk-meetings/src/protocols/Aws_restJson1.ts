@@ -201,7 +201,7 @@ export const se_CreateMeetingCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ExternalMeetingId: [],
       MediaRegion: [],
       MeetingFeatures: (_) => _json(_),
@@ -242,7 +242,7 @@ export const se_CreateMeetingWithAttendeesCommand = async (
   body = JSON.stringify(
     take(input, {
       Attendees: (_) => _json(_),
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ExternalMeetingId: [],
       MediaRegion: [],
       MeetingFeatures: (_) => _json(_),

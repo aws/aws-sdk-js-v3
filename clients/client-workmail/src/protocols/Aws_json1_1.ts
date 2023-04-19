@@ -6340,7 +6340,7 @@ const de_UnsupportedOperationExceptionRes = async (
  */
 const se_CancelMailboxExportJobRequest = (input: CancelMailboxExportJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     JobId: [],
     OrganizationId: [],
   });
@@ -6356,7 +6356,7 @@ const se_CreateAvailabilityConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DomainName: [],
     EwsProvider: _json,
     LambdaProvider: _json,
@@ -6371,7 +6371,7 @@ const se_CreateAvailabilityConfigurationRequest = (
  */
 const se_CreateImpersonationRoleRequest = (input: CreateImpersonationRoleRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     Name: [],
     OrganizationId: [],
@@ -6388,7 +6388,7 @@ const se_CreateMobileDeviceAccessRuleRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     DeviceModels: _json,
     DeviceOperatingSystems: _json,
@@ -6410,7 +6410,7 @@ const se_CreateMobileDeviceAccessRuleRequest = (
 const se_CreateOrganizationRequest = (input: CreateOrganizationRequest, context: __SerdeContext): any => {
   return take(input, {
     Alias: [],
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DirectoryId: [],
     Domains: _json,
     EnableInteroperability: [],
@@ -6445,7 +6445,7 @@ const se_CreateOrganizationRequest = (input: CreateOrganizationRequest, context:
  */
 const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DeleteDirectory: [],
     OrganizationId: [],
   });
@@ -6574,7 +6574,7 @@ const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context:
  */
 const se_RegisterMailDomainRequest = (input: RegisterMailDomainRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DomainName: [],
     OrganizationId: [],
   });
@@ -6589,7 +6589,7 @@ const se_RegisterMailDomainRequest = (input: RegisterMailDomainRequest, context:
  */
 const se_StartMailboxExportJobRequest = (input: StartMailboxExportJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     EntityId: [],
     KmsKeyArn: [],

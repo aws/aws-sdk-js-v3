@@ -127,7 +127,7 @@ export const se_AssociateUserToPermissionGroupCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -159,7 +159,7 @@ export const se_CreateChangesetCommand = async (
   body = JSON.stringify(
     take(input, {
       changeType: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       formatParams: (_) => _json(_),
       sourceParams: (_) => _json(_),
     })
@@ -191,7 +191,7 @@ export const se_CreateDatasetCommand = async (
   body = JSON.stringify(
     take(input, {
       alias: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       datasetDescription: [],
       datasetTitle: [],
       kind: [],
@@ -230,7 +230,7 @@ export const se_CreateDataViewCommand = async (
     take(input, {
       asOfTimestamp: [],
       autoUpdate: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       destinationTypeParams: (_) => _json(_),
       partitionColumns: (_) => _json(_),
       sortColumns: (_) => _json(_),
@@ -263,7 +263,7 @@ export const se_CreatePermissionGroupCommand = async (
   body = JSON.stringify(
     take(input, {
       applicationPermissions: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
     })
@@ -296,7 +296,7 @@ export const se_CreateUserCommand = async (
     take(input, {
       ApiAccess: [],
       apiAccessPrincipalArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       emailAddress: [],
       firstName: [],
       lastName: [],
@@ -392,7 +392,7 @@ export const se_DisableUserCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -459,7 +459,7 @@ export const se_EnableUserCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -906,7 +906,7 @@ export const se_ResetUserPasswordCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -939,7 +939,7 @@ export const se_UpdateChangesetCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       formatParams: (_) => _json(_),
       sourceParams: (_) => _json(_),
     })
@@ -972,7 +972,7 @@ export const se_UpdateDatasetCommand = async (
   body = JSON.stringify(
     take(input, {
       alias: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       datasetDescription: [],
       datasetTitle: [],
       kind: [],
@@ -1015,7 +1015,7 @@ export const se_UpdatePermissionGroupCommand = async (
   body = JSON.stringify(
     take(input, {
       applicationPermissions: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
     })
@@ -1049,7 +1049,7 @@ export const se_UpdateUserCommand = async (
     take(input, {
       apiAccess: [],
       apiAccessPrincipalArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       firstName: [],
       lastName: [],
       type: [],

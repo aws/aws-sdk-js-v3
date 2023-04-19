@@ -1145,7 +1145,7 @@ const de_UnsupportedActionExceptionRes = async (
  */
 const se_CreateResourceInput = (input: CreateResourceInput, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DesiredState: [],
     RoleArn: [],
     TypeName: [],
@@ -1158,7 +1158,7 @@ const se_CreateResourceInput = (input: CreateResourceInput, context: __SerdeCont
  */
 const se_DeleteResourceInput = (input: DeleteResourceInput, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Identifier: [],
     RoleArn: [],
     TypeName: [],
@@ -1185,7 +1185,7 @@ const se_DeleteResourceInput = (input: DeleteResourceInput, context: __SerdeCont
  */
 const se_UpdateResourceInput = (input: UpdateResourceInput, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Identifier: [],
     PatchDocument: [],
     RoleArn: [],

@@ -92,7 +92,7 @@ export type ConditionalValueInstruction = [ValueFilteringFunction, Value];
 /**
  * @internal
  */
-export type SourceMappingInstruction = [ValueFilteringFunction?, ValueMapper?, string?];
+export type SourceMappingInstruction = [(ValueFilteringFunction | FilterStatus)?, ValueMapper?, string?];
 
 /**
  * @internal

@@ -170,7 +170,7 @@ export const se_CreateLensShareCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       SharedWith: [],
     })
   );
@@ -202,7 +202,7 @@ export const se_CreateLensVersionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       IsMajorVersion: [],
       LensVersion: [],
     })
@@ -235,7 +235,7 @@ export const se_CreateMilestoneCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       MilestoneName: [],
     })
   );
@@ -269,7 +269,7 @@ export const se_CreateWorkloadCommand = async (
       Applications: (_) => _json(_),
       ArchitecturalDesign: [],
       AwsRegions: (_) => _json(_),
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       DiscoveryConfig: (_) => _json(_),
       Environment: [],
@@ -312,7 +312,7 @@ export const se_CreateWorkloadShareCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       PermissionType: [],
       SharedWith: [],
     })
@@ -751,7 +751,7 @@ export const se_ImportLensCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       JSONString: [],
       LensAlias: [],
       Tags: (_) => _json(_),

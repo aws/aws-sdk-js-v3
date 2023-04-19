@@ -6300,7 +6300,7 @@ const se_CopyProductInput = (input: CopyProductInput, context: __SerdeContext): 
   return take(input, {
     AcceptLanguage: [],
     CopyOptions: _json,
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     SourceProductArn: [],
     SourceProvisioningArtifactIdentifiers: _json,
     TargetProductId: [],
@@ -6315,7 +6315,7 @@ const se_CreateConstraintInput = (input: CreateConstraintInput, context: __Serde
   return take(input, {
     AcceptLanguage: [],
     Description: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Parameters: [],
     PortfolioId: [],
     ProductId: [],
@@ -6331,7 +6331,7 @@ const se_CreatePortfolioInput = (input: CreatePortfolioInput, context: __SerdeCo
     AcceptLanguage: [],
     Description: [],
     DisplayName: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ProviderName: [],
     Tags: _json,
   });
@@ -6347,7 +6347,7 @@ const se_CreateProductInput = (input: CreateProductInput, context: __SerdeContex
     AcceptLanguage: [],
     Description: [],
     Distributor: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Name: [],
     Owner: [],
     ProductType: [],
@@ -6369,7 +6369,7 @@ const se_CreateProvisionedProductPlanInput = (
 ): any => {
   return take(input, {
     AcceptLanguage: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     NotificationArns: _json,
     PathId: [],
     PlanName: [],
@@ -6388,7 +6388,7 @@ const se_CreateProvisionedProductPlanInput = (
 const se_CreateProvisioningArtifactInput = (input: CreateProvisioningArtifactInput, context: __SerdeContext): any => {
   return take(input, {
     AcceptLanguage: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Parameters: _json,
     ProductId: [],
   });
@@ -6403,7 +6403,7 @@ const se_CreateServiceActionInput = (input: CreateServiceActionInput, context: _
     Definition: _json,
     DefinitionType: [],
     Description: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Name: [],
   });
 };
@@ -6483,7 +6483,7 @@ const se_ExecuteProvisionedProductPlanInput = (
 ): any => {
   return take(input, {
     AcceptLanguage: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     PlanId: [],
   });
 };
@@ -6497,7 +6497,7 @@ const se_ExecuteProvisionedProductServiceActionInput = (
 ): any => {
   return take(input, {
     AcceptLanguage: [],
-    ExecuteToken: (_) => _ ?? generateIdempotencyToken(),
+    ExecuteToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Parameters: _json,
     ProvisionedProductId: [],
     ServiceActionId: [],
@@ -6518,7 +6518,7 @@ const se_ExecuteProvisionedProductServiceActionInput = (
 const se_ImportAsProvisionedProductInput = (input: ImportAsProvisionedProductInput, context: __SerdeContext): any => {
   return take(input, {
     AcceptLanguage: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     PhysicalId: [],
     ProductId: [],
     ProvisionedProductName: [],
@@ -6577,7 +6577,7 @@ const se_NotifyProvisionProductEngineWorkflowResultInput = (
 ): any => {
   return take(input, {
     FailureReason: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Outputs: _json,
     RecordId: [],
     ResourceIdentifier: _json,
@@ -6595,7 +6595,7 @@ const se_NotifyTerminateProvisionedProductEngineWorkflowResultInput = (
 ): any => {
   return take(input, {
     FailureReason: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     RecordId: [],
     Status: [],
     WorkflowToken: [],
@@ -6611,7 +6611,7 @@ const se_NotifyUpdateProvisionedProductEngineWorkflowResultInput = (
 ): any => {
   return take(input, {
     FailureReason: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Outputs: _json,
     RecordId: [],
     Status: [],
@@ -6654,7 +6654,7 @@ const se_ProvisionProductInput = (input: ProvisionProductInput, context: __Serde
     PathName: [],
     ProductId: [],
     ProductName: [],
-    ProvisionToken: (_) => _ ?? generateIdempotencyToken(),
+    ProvisionToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ProvisionedProductName: [],
     ProvisioningArtifactId: [],
     ProvisioningArtifactName: [],
@@ -6712,7 +6712,7 @@ const se_TerminateProvisionedProductInput = (input: TerminateProvisionedProductI
     ProvisionedProductId: [],
     ProvisionedProductName: [],
     RetainPhysicalResources: [],
-    TerminateToken: (_) => _ ?? generateIdempotencyToken(),
+    TerminateToken: [true, (_) => _ ?? generateIdempotencyToken()],
   });
 };
 
@@ -6743,7 +6743,7 @@ const se_UpdateProvisionedProductInput = (input: UpdateProvisionedProductInput, 
     ProvisioningParameters: _json,
     ProvisioningPreferences: _json,
     Tags: _json,
-    UpdateToken: (_) => _ ?? generateIdempotencyToken(),
+    UpdateToken: [true, (_) => _ ?? generateIdempotencyToken()],
   });
 };
 
@@ -6756,7 +6756,7 @@ const se_UpdateProvisionedProductPropertiesInput = (
 ): any => {
   return take(input, {
     AcceptLanguage: [],
-    IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ProvisionedProductId: [],
     ProvisionedProductProperties: _json,
   });

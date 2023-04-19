@@ -146,7 +146,7 @@ export const se_CreateJobTemplateCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       jobTemplateData: (_) => se_JobTemplateData(_, context),
       kmsKeyArn: [],
       name: [],
@@ -190,7 +190,7 @@ export const se_CreateManagedEndpointCommand = async (
   body = JSON.stringify(
     take(input, {
       certificateArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configurationOverrides: (_) => se_ConfigurationOverrides(_, context),
       executionRoleArn: [],
       name: [],
@@ -225,7 +225,7 @@ export const se_CreateVirtualClusterCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       containerProvider: (_) => _json(_),
       name: [],
       tags: (_) => _json(_),
@@ -648,7 +648,7 @@ export const se_StartJobRunCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configurationOverrides: (_) => se_ConfigurationOverrides(_, context),
       executionRoleArn: [],
       jobDriver: (_) => _json(_),

@@ -1660,7 +1660,7 @@ export const se_StartImportCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       s3BucketSource: (_) => _json(_),
     })
   );

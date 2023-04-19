@@ -97,7 +97,7 @@ export const se_CreateClusterCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ClusterName: [],
       Tags: (_) => _json(_),
     })
@@ -128,7 +128,7 @@ export const se_CreateControlPanelCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ClusterArn: [],
       ControlPanelName: [],
       Tags: (_) => _json(_),
@@ -160,7 +160,7 @@ export const se_CreateRoutingControlCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ClusterArn: [],
       ControlPanelArn: [],
       RoutingControlName: [],
@@ -193,7 +193,7 @@ export const se_CreateSafetyRuleCommand = async (
   body = JSON.stringify(
     take(input, {
       AssertionRule: (_) => _json(_),
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       GatingRule: (_) => _json(_),
       Tags: (_) => _json(_),
     })

@@ -2199,7 +2199,7 @@ const se_StartExportTaskRequest = (input: StartExportTaskRequest, context: __Ser
  */
 const se_StartImportTaskRequest = (input: StartImportTaskRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     importUrl: [],
     name: [],
   });

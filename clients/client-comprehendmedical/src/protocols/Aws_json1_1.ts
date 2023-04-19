@@ -2201,7 +2201,7 @@ const se_StartEntitiesDetectionV2JobRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],
@@ -2216,7 +2216,7 @@ const se_StartEntitiesDetectionV2JobRequest = (
  */
 const se_StartICD10CMInferenceJobRequest = (input: StartICD10CMInferenceJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],
@@ -2231,7 +2231,7 @@ const se_StartICD10CMInferenceJobRequest = (input: StartICD10CMInferenceJobReque
  */
 const se_StartPHIDetectionJobRequest = (input: StartPHIDetectionJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],
@@ -2246,7 +2246,7 @@ const se_StartPHIDetectionJobRequest = (input: StartPHIDetectionJobRequest, cont
  */
 const se_StartRxNormInferenceJobRequest = (input: StartRxNormInferenceJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],
@@ -2261,7 +2261,7 @@ const se_StartRxNormInferenceJobRequest = (input: StartRxNormInferenceJobRequest
  */
 const se_StartSNOMEDCTInferenceJobRequest = (input: StartSNOMEDCTInferenceJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataAccessRoleArn: [],
     InputDataConfig: _json,
     JobName: [],

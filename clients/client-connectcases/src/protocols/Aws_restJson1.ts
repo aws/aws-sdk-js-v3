@@ -192,7 +192,7 @@ export const se_CreateCaseCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       fields: (_) => se_FieldValueList(_, context),
       templateId: [],
     })

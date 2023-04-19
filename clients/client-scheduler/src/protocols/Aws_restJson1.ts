@@ -86,7 +86,7 @@ export const se_CreateScheduleCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       EndDate: (_) => Math.round(_.getTime() / 1000),
       FlexibleTimeWindow: (_) => _json(_),
@@ -126,7 +126,7 @@ export const se_CreateScheduleGroupCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Tags: (_) => _json(_),
     })
   );
@@ -403,7 +403,7 @@ export const se_UpdateScheduleCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       EndDate: (_) => Math.round(_.getTime() / 1000),
       FlexibleTimeWindow: (_) => _json(_),

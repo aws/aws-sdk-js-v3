@@ -78,7 +78,7 @@ export const se_CreateDestinationCommand = async (
   body = JSON.stringify(
     take(input, {
       additionalFixedProperties: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       name: [],
       site: [],
       state: [],
@@ -110,7 +110,7 @@ export const se_CreateSiteCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       countryCode: [],
       description: [],
       name: [],
@@ -144,7 +144,7 @@ export const se_CreateWorkerCommand = async (
     take(input, {
       additionalFixedProperties: [],
       additionalTransientProperties: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       fleet: [],
       name: [],
       orientation: (_) => se_Orientation(_, context),
@@ -179,7 +179,7 @@ export const se_CreateWorkerFleetCommand = async (
   body = JSON.stringify(
     take(input, {
       additionalFixedProperties: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       name: [],
       site: [],
     })

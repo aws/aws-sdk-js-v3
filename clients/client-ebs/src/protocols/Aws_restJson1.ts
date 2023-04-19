@@ -240,7 +240,7 @@ export const se_StartSnapshotCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       Encrypted: [],
       KmsKeyArn: [],

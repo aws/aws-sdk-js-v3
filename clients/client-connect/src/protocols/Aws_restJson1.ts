@@ -979,7 +979,7 @@ export const se_ClaimPhoneNumberCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       PhoneNumber: [],
       PhoneNumberDescription: [],
       Tags: (_) => _json(_),
@@ -1084,7 +1084,7 @@ export const se_CreateContactFlowModuleCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Content: [],
       Description: [],
       Name: [],
@@ -1331,7 +1331,7 @@ export const se_CreateRuleCommand = async (
   body = JSON.stringify(
     take(input, {
       Actions: (_) => _json(_),
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Function: [],
       Name: [],
       PublishStatus: [],
@@ -1402,7 +1402,7 @@ export const se_CreateTaskTemplateCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Constraints: (_) => _json(_),
       ContactFlowId: [],
       Defaults: (_) => _json(_),
@@ -1439,7 +1439,7 @@ export const se_CreateTrafficDistributionGroupCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       InstanceId: [],
       Name: [],
@@ -1585,7 +1585,7 @@ export const se_CreateVocabularyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Content: [],
       LanguageCode: [],
       Tags: (_) => _json(_),
@@ -4213,7 +4213,7 @@ export const se_MonitorContactCommand = async (
   body = JSON.stringify(
     take(input, {
       AllowedMonitorCapabilities: (_) => _json(_),
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ContactId: [],
       InstanceId: [],
       UserId: [],
@@ -4314,7 +4314,7 @@ export const se_ReplicateInstanceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ReplicaAlias: [],
       ReplicaRegion: [],
     })
@@ -4583,7 +4583,7 @@ export const se_StartChatContactCommand = async (
     take(input, {
       Attributes: (_) => _json(_),
       ChatDurationInMinutes: [],
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ContactFlowId: [],
       InitialMessage: (_) => _json(_),
       InstanceId: [],
@@ -4654,7 +4654,7 @@ export const se_StartContactStreamingCommand = async (
   body = JSON.stringify(
     take(input, {
       ChatStreamingConfiguration: (_) => _json(_),
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ContactId: [],
       InstanceId: [],
     })
@@ -4689,7 +4689,7 @@ export const se_StartOutboundVoiceContactCommand = async (
       AnswerMachineDetectionConfig: (_) => _json(_),
       Attributes: (_) => _json(_),
       CampaignId: [],
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ContactFlowId: [],
       DestinationPhoneNumber: [],
       InstanceId: [],
@@ -4725,7 +4725,7 @@ export const se_StartTaskContactCommand = async (
   body = JSON.stringify(
     take(input, {
       Attributes: (_) => _json(_),
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ContactFlowId: [],
       Description: [],
       InstanceId: [],
@@ -4920,7 +4920,7 @@ export const se_TransferContactCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ContactFlowId: [],
       ContactId: [],
       InstanceId: [],
@@ -5498,7 +5498,7 @@ export const se_UpdatePhoneNumberCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       TargetArn: [],
     })
   );

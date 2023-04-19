@@ -169,7 +169,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
                 if (hasJsonName) {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.write("'$L': [,_ => _ ?? generateIdempotencyToken(),`$L`],",
+                        writer.write("'$L': [true,_ => _ ?? generateIdempotencyToken(),`$L`],",
                             wireName, memberName);
                     } else {
                         if (valueProvider.equals("_ => _")) {
@@ -180,7 +180,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                     }
                 } else {
                   if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                      writer.write("'$L': _ => _ ?? generateIdempotencyToken(),", wireName);
+                      writer.write("'$L': [true,_ => _ ?? generateIdempotencyToken()],", wireName);
                   } else {
                       if (valueProvider.equals("_ => _")) {
                           writer.write("'$1L': [],", wireName);

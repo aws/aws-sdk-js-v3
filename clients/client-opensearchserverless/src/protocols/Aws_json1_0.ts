@@ -2278,7 +2278,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CreateAccessPolicyRequest = (input: CreateAccessPolicyRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     name: [],
     policy: [],
@@ -2291,7 +2291,7 @@ const se_CreateAccessPolicyRequest = (input: CreateAccessPolicyRequest, context:
  */
 const se_CreateCollectionRequest = (input: CreateCollectionRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     name: [],
     tags: _json,
@@ -2304,7 +2304,7 @@ const se_CreateCollectionRequest = (input: CreateCollectionRequest, context: __S
  */
 const se_CreateSecurityConfigRequest = (input: CreateSecurityConfigRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     name: [],
     samlOptions: _json,
@@ -2317,7 +2317,7 @@ const se_CreateSecurityConfigRequest = (input: CreateSecurityConfigRequest, cont
  */
 const se_CreateSecurityPolicyRequest = (input: CreateSecurityPolicyRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     name: [],
     policy: [],
@@ -2330,7 +2330,7 @@ const se_CreateSecurityPolicyRequest = (input: CreateSecurityPolicyRequest, cont
  */
 const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     name: [],
     securityGroupIds: _json,
     subnetIds: _json,
@@ -2343,7 +2343,7 @@ const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: _
  */
 const se_DeleteAccessPolicyRequest = (input: DeleteAccessPolicyRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     name: [],
     type: [],
   });
@@ -2354,7 +2354,7 @@ const se_DeleteAccessPolicyRequest = (input: DeleteAccessPolicyRequest, context:
  */
 const se_DeleteCollectionRequest = (input: DeleteCollectionRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     id: [],
   });
 };
@@ -2364,7 +2364,7 @@ const se_DeleteCollectionRequest = (input: DeleteCollectionRequest, context: __S
  */
 const se_DeleteSecurityConfigRequest = (input: DeleteSecurityConfigRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     id: [],
   });
 };
@@ -2374,7 +2374,7 @@ const se_DeleteSecurityConfigRequest = (input: DeleteSecurityConfigRequest, cont
  */
 const se_DeleteSecurityPolicyRequest = (input: DeleteSecurityPolicyRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     name: [],
     type: [],
   });
@@ -2385,7 +2385,7 @@ const se_DeleteSecurityPolicyRequest = (input: DeleteSecurityPolicyRequest, cont
  */
 const se_DeleteVpcEndpointRequest = (input: DeleteVpcEndpointRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     id: [],
   });
 };
@@ -2435,7 +2435,7 @@ const se_DeleteVpcEndpointRequest = (input: DeleteVpcEndpointRequest, context: _
  */
 const se_UpdateAccessPolicyRequest = (input: UpdateAccessPolicyRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     name: [],
     policy: [],
@@ -2451,7 +2451,7 @@ const se_UpdateAccessPolicyRequest = (input: UpdateAccessPolicyRequest, context:
  */
 const se_UpdateCollectionRequest = (input: UpdateCollectionRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     id: [],
   });
@@ -2462,7 +2462,7 @@ const se_UpdateCollectionRequest = (input: UpdateCollectionRequest, context: __S
  */
 const se_UpdateSecurityConfigRequest = (input: UpdateSecurityConfigRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     configVersion: [],
     description: [],
     id: [],
@@ -2475,7 +2475,7 @@ const se_UpdateSecurityConfigRequest = (input: UpdateSecurityConfigRequest, cont
  */
 const se_UpdateSecurityPolicyRequest = (input: UpdateSecurityPolicyRequest, context: __SerdeContext): any => {
   return take(input, {
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     name: [],
     policy: [],
@@ -2491,7 +2491,7 @@ const se_UpdateVpcEndpointRequest = (input: UpdateVpcEndpointRequest, context: _
   return take(input, {
     addSecurityGroupIds: _json,
     addSubnetIds: _json,
-    clientToken: (_) => _ ?? generateIdempotencyToken(),
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     id: [],
     removeSecurityGroupIds: _json,
     removeSubnetIds: _json,

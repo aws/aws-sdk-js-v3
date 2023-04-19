@@ -485,7 +485,7 @@ export const se_CreateRunGroupCommand = async (
       maxDuration: [],
       maxRuns: [],
       name: [],
-      requestId: (_) => _ ?? generateIdempotencyToken(),
+      requestId: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
     })
   );
@@ -609,7 +609,7 @@ export const se_CreateWorkflowCommand = async (
       main: [],
       name: [],
       parameterTemplate: (_) => _json(_),
-      requestId: (_) => _ ?? generateIdempotencyToken(),
+      requestId: [true, (_) => _ ?? generateIdempotencyToken()],
       storageCapacity: [],
       tags: (_) => _json(_),
     })
@@ -2510,7 +2510,7 @@ export const se_StartRunCommand = async (
       outputUri: [],
       parameters: (_) => se_RunParameters(_, context),
       priority: [],
-      requestId: (_) => _ ?? generateIdempotencyToken(),
+      requestId: [true, (_) => _ ?? generateIdempotencyToken()],
       roleArn: [],
       runGroupId: [],
       runId: [],

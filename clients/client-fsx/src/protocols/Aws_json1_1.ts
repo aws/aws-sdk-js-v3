@@ -3763,7 +3763,7 @@ const se_AssociateFileSystemAliasesRequest = (
 ): any => {
   return take(input, {
     Aliases: _json,
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
   });
 };
@@ -3783,7 +3783,7 @@ const se_AssociateFileSystemAliasesRequest = (
  */
 const se_CopyBackupRequest = (input: CopyBackupRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     CopyTags: [],
     KmsKeyId: [],
     SourceBackupId: [],
@@ -3797,7 +3797,7 @@ const se_CopyBackupRequest = (input: CopyBackupRequest, context: __SerdeContext)
  */
 const se_CreateBackupRequest = (input: CreateBackupRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
     Tags: _json,
     VolumeId: [],
@@ -3813,7 +3813,7 @@ const se_CreateDataRepositoryAssociationRequest = (
 ): any => {
   return take(input, {
     BatchImportMetaDataOnCreate: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataRepositoryPath: [],
     FileSystemId: [],
     FileSystemPath: [],
@@ -3829,7 +3829,7 @@ const se_CreateDataRepositoryAssociationRequest = (
 const se_CreateDataRepositoryTaskRequest = (input: CreateDataRepositoryTaskRequest, context: __SerdeContext): any => {
   return take(input, {
     CapacityToRelease: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
     Paths: _json,
     Report: _json,
@@ -3847,7 +3847,7 @@ const se_CreateDataRepositoryTaskRequest = (input: CreateDataRepositoryTaskReque
  */
 const se_CreateFileCacheRequest = (input: CreateFileCacheRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     CopyTagsToDataRepositoryAssociations: [],
     DataRepositoryAssociations: _json,
     FileCacheType: [],
@@ -3870,7 +3870,7 @@ const se_CreateFileSystemFromBackupRequest = (
 ): any => {
   return take(input, {
     BackupId: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemTypeVersion: [],
     KmsKeyId: [],
     LustreConfiguration: _json,
@@ -3895,7 +3895,7 @@ const se_CreateFileSystemFromBackupRequest = (
  */
 const se_CreateFileSystemRequest = (input: CreateFileSystemRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemType: [],
     FileSystemTypeVersion: [],
     KmsKeyId: [],
@@ -3924,7 +3924,7 @@ const se_CreateFileSystemRequest = (input: CreateFileSystemRequest, context: __S
  */
 const se_CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Name: [],
     Tags: _json,
     VolumeId: [],
@@ -3940,7 +3940,7 @@ const se_CreateStorageVirtualMachineRequest = (
 ): any => {
   return take(input, {
     ActiveDirectoryConfiguration: _json,
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
     Name: [],
     RootVolumeSecurityStyle: [],
@@ -3957,7 +3957,7 @@ const se_CreateStorageVirtualMachineRequest = (
 const se_CreateVolumeFromBackupRequest = (input: CreateVolumeFromBackupRequest, context: __SerdeContext): any => {
   return take(input, {
     BackupId: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Name: [],
     OntapConfiguration: _json,
     Tags: _json,
@@ -3969,7 +3969,7 @@ const se_CreateVolumeFromBackupRequest = (input: CreateVolumeFromBackupRequest, 
  */
 const se_CreateVolumeRequest = (input: CreateVolumeRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Name: [],
     OntapConfiguration: _json,
     OpenZFSConfiguration: _json,
@@ -3994,7 +3994,7 @@ const se_CreateVolumeRequest = (input: CreateVolumeRequest, context: __SerdeCont
 const se_DeleteBackupRequest = (input: DeleteBackupRequest, context: __SerdeContext): any => {
   return take(input, {
     BackupId: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
   });
 };
 
@@ -4007,7 +4007,7 @@ const se_DeleteDataRepositoryAssociationRequest = (
 ): any => {
   return take(input, {
     AssociationId: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DeleteDataInFileSystem: [],
   });
 };
@@ -4017,7 +4017,7 @@ const se_DeleteDataRepositoryAssociationRequest = (
  */
 const se_DeleteFileCacheRequest = (input: DeleteFileCacheRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileCacheId: [],
   });
 };
@@ -4033,7 +4033,7 @@ const se_DeleteFileCacheRequest = (input: DeleteFileCacheRequest, context: __Ser
  */
 const se_DeleteFileSystemRequest = (input: DeleteFileSystemRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
     LustreConfiguration: _json,
     OpenZFSConfiguration: _json,
@@ -4050,7 +4050,7 @@ const se_DeleteFileSystemRequest = (input: DeleteFileSystemRequest, context: __S
  */
 const se_DeleteSnapshotRequest = (input: DeleteSnapshotRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     SnapshotId: [],
   });
 };
@@ -4063,7 +4063,7 @@ const se_DeleteStorageVirtualMachineRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     StorageVirtualMachineId: [],
   });
 };
@@ -4077,7 +4077,7 @@ const se_DeleteStorageVirtualMachineRequest = (
  */
 const se_DeleteVolumeRequest = (input: DeleteVolumeRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     OntapConfiguration: _json,
     OpenZFSConfiguration: _json,
     VolumeId: [],
@@ -4097,7 +4097,7 @@ const se_DeleteVolumeRequest = (input: DeleteVolumeRequest, context: __SerdeCont
  */
 const se_DescribeFileSystemAliasesRequest = (input: DescribeFileSystemAliasesRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
     MaxResults: [],
     NextToken: [],
@@ -4121,7 +4121,7 @@ const se_DisassociateFileSystemAliasesRequest = (
 ): any => {
   return take(input, {
     Aliases: _json,
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
   });
 };
@@ -4180,7 +4180,7 @@ const se_ReleaseFileSystemNfsV3LocksRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
   });
 };
@@ -4194,7 +4194,7 @@ const se_ReleaseFileSystemNfsV3LocksRequest = (
  */
 const se_RestoreVolumeFromSnapshotRequest = (input: RestoreVolumeFromSnapshotRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Options: _json,
     SnapshotId: [],
     VolumeId: [],
@@ -4254,7 +4254,7 @@ const se_UpdateDataRepositoryAssociationRequest = (
 ): any => {
   return take(input, {
     AssociationId: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ImportedFileChunkSize: [],
     S3: _json,
   });
@@ -4267,7 +4267,7 @@ const se_UpdateDataRepositoryAssociationRequest = (
  */
 const se_UpdateFileCacheRequest = (input: UpdateFileCacheRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileCacheId: [],
     LustreConfiguration: _json,
   });
@@ -4284,7 +4284,7 @@ const se_UpdateFileCacheRequest = (input: UpdateFileCacheRequest, context: __Ser
  */
 const se_UpdateFileSystemRequest = (input: UpdateFileSystemRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
     LustreConfiguration: _json,
     OntapConfiguration: _json,
@@ -4305,7 +4305,7 @@ const se_UpdateFileSystemRequest = (input: UpdateFileSystemRequest, context: __S
  */
 const se_UpdateSnapshotRequest = (input: UpdateSnapshotRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Name: [],
     SnapshotId: [],
   });
@@ -4320,7 +4320,7 @@ const se_UpdateStorageVirtualMachineRequest = (
 ): any => {
   return take(input, {
     ActiveDirectoryConfiguration: _json,
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     StorageVirtualMachineId: [],
     SvmAdminPassword: [],
   });
@@ -4333,7 +4333,7 @@ const se_UpdateStorageVirtualMachineRequest = (
  */
 const se_UpdateVolumeRequest = (input: UpdateVolumeRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Name: [],
     OntapConfiguration: _json,
     OpenZFSConfiguration: _json,

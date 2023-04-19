@@ -116,7 +116,7 @@ export const se_CancelQuantumTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -147,7 +147,7 @@ export const se_CreateJobCommand = async (
     take(input, {
       algorithmSpecification: (_) => _json(_),
       checkpointConfig: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deviceConfig: (_) => _json(_),
       hyperParameters: (_) => _json(_),
       inputDataConfig: (_) => _json(_),
@@ -186,7 +186,7 @@ export const se_CreateQuantumTaskCommand = async (
   body = JSON.stringify(
     take(input, {
       action: (_) => __LazyJsonString.fromObject(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deviceArn: [],
       deviceParameters: (_) => __LazyJsonString.fromObject(_),
       jobToken: [],

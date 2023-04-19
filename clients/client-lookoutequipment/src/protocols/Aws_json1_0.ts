@@ -2647,7 +2647,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DatasetName: [],
     DatasetSchema: (_) => se_DatasetSchema(_, context),
     ServerSideKmsKeyId: [],
@@ -2660,7 +2660,7 @@ const se_CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeCo
  */
 const se_CreateInferenceSchedulerRequest = (input: CreateInferenceSchedulerRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataDelayOffsetInMinutes: [],
     DataInputConfiguration: _json,
     DataOutputConfiguration: _json,
@@ -2678,7 +2678,7 @@ const se_CreateInferenceSchedulerRequest = (input: CreateInferenceSchedulerReque
  */
 const se_CreateLabelGroupRequest = (input: CreateLabelGroupRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FaultCodes: _json,
     LabelGroupName: [],
     Tags: _json,
@@ -2690,7 +2690,7 @@ const se_CreateLabelGroupRequest = (input: CreateLabelGroupRequest, context: __S
  */
 const se_CreateLabelRequest = (input: CreateLabelRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     EndTime: (_) => Math.round(_.getTime() / 1000),
     Equipment: [],
     FaultCode: [],
@@ -2706,7 +2706,7 @@ const se_CreateLabelRequest = (input: CreateLabelRequest, context: __SerdeContex
  */
 const se_CreateModelRequest = (input: CreateModelRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataPreProcessingConfiguration: _json,
     DatasetName: [],
     DatasetSchema: (_) => se_DatasetSchema(_, context),
@@ -2837,7 +2837,7 @@ const se_ListLabelsRequest = (input: ListLabelsRequest, context: __SerdeContext)
  */
 const se_StartDataIngestionJobRequest = (input: StartDataIngestionJobRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DatasetName: [],
     IngestionInputConfiguration: _json,
     RoleArn: [],

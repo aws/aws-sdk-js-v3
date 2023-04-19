@@ -110,7 +110,7 @@ export const se_CreateAccessorCommand = async (
   body = JSON.stringify(
     take(input, {
       AccessorType: [],
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Tags: (_) => _json(_),
     })
   );
@@ -142,7 +142,7 @@ export const se_CreateMemberCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       InvitationId: [],
       MemberConfiguration: (_) => _json(_),
     })
@@ -173,7 +173,7 @@ export const se_CreateNetworkCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       Framework: [],
       FrameworkConfiguration: (_) => _json(_),
@@ -212,7 +212,7 @@ export const se_CreateNodeCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       MemberId: [],
       NodeConfiguration: (_) => _json(_),
       Tags: (_) => _json(_),
@@ -247,7 +247,7 @@ export const se_CreateProposalCommand = async (
   body = JSON.stringify(
     take(input, {
       Actions: (_) => _json(_),
-      ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       MemberId: [],
       Tags: (_) => _json(_),

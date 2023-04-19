@@ -142,7 +142,7 @@ export const se_CreateIndexCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Tags: (_) => _json(_),
     })
   );
@@ -172,7 +172,7 @@ export const se_CreateViewCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Filters: (_) => _json(_),
       IncludedProperties: (_) => _json(_),
       Tags: (_) => _json(_),

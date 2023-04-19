@@ -3445,7 +3445,7 @@ const se_AssociateOriginationIdentityRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     IsoCountryCode: [],
     OriginationIdentity: [],
     PoolId: [],
@@ -3467,7 +3467,7 @@ const se_AssociateOriginationIdentityRequest = (
  */
 const se_CreateConfigurationSetRequest = (input: CreateConfigurationSetRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ConfigurationSetName: [],
     Tags: _json,
   });
@@ -3478,7 +3478,7 @@ const se_CreateConfigurationSetRequest = (input: CreateConfigurationSetRequest, 
  */
 const se_CreateEventDestinationRequest = (input: CreateEventDestinationRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     CloudWatchLogsDestination: _json,
     ConfigurationSetName: [],
     EventDestinationName: [],
@@ -3493,7 +3493,7 @@ const se_CreateEventDestinationRequest = (input: CreateEventDestinationRequest, 
  */
 const se_CreateOptOutListRequest = (input: CreateOptOutListRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     OptOutListName: [],
     Tags: _json,
   });
@@ -3504,7 +3504,7 @@ const se_CreateOptOutListRequest = (input: CreateOptOutListRequest, context: __S
  */
 const se_CreatePoolRequest = (input: CreatePoolRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DeletionProtectionEnabled: [],
     IsoCountryCode: [],
     MessageType: [],
@@ -3563,7 +3563,7 @@ const se_DisassociateOriginationIdentityRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     IsoCountryCode: [],
     OriginationIdentity: [],
     PoolId: [],
@@ -3625,7 +3625,7 @@ const se_DisassociateOriginationIdentityRequest = (
  */
 const se_RequestPhoneNumberRequest = (input: RequestPhoneNumberRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DeletionProtectionEnabled: [],
     IsoCountryCode: [],
     MessageType: [],

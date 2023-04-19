@@ -133,7 +133,7 @@ export const se_CreateWorkspaceCommand = async (
     take(input, {
       accountAccessType: [],
       authenticationProviders: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configuration: (_) => __LazyJsonString.fromObject(_),
       networkAccessControl: (_) => _json(_),
       organizationRoleName: [],

@@ -522,7 +522,7 @@ export const se_StartSigningJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       destination: (_) => _json(_),
       profileName: [],
       profileOwner: [],

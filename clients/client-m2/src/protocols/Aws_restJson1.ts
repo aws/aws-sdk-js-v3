@@ -175,7 +175,7 @@ export const se_CreateApplicationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       definition: (_) => _json(_),
       description: [],
       engineType: [],
@@ -220,7 +220,7 @@ export const se_CreateDataSetImportTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       importConfig: (_) => _json(_),
     })
   );
@@ -260,7 +260,7 @@ export const se_CreateDeploymentCommand = async (
   body = JSON.stringify(
     take(input, {
       applicationVersion: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       environmentId: [],
     })
   );
@@ -290,7 +290,7 @@ export const se_CreateEnvironmentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       engineType: [],
       engineVersion: [],

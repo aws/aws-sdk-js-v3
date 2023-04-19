@@ -6239,7 +6239,7 @@ const de_UnauthorizedExceptionRes = async (
  */
 const se_CreateAddressBookRequest = (input: CreateAddressBookRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     Name: [],
     Tags: _json,
@@ -6254,7 +6254,7 @@ const se_CreateBusinessReportScheduleRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ContentRange: _json,
     Format: [],
     Recurrence: _json,
@@ -6270,7 +6270,7 @@ const se_CreateBusinessReportScheduleRequest = (
  */
 const se_CreateConferenceProviderRequest = (input: CreateConferenceProviderRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ConferenceProviderName: [],
     ConferenceProviderType: [],
     IPDialIn: _json,
@@ -6285,7 +6285,7 @@ const se_CreateConferenceProviderRequest = (input: CreateConferenceProviderReque
  */
 const se_CreateContactRequest = (input: CreateContactRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DisplayName: [],
     FirstName: [],
     LastName: [],
@@ -6303,7 +6303,7 @@ const se_CreateContactRequest = (input: CreateContactRequest, context: __SerdeCo
  */
 const se_CreateGatewayGroupRequest = (input: CreateGatewayGroupRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     Name: [],
     Tags: _json,
@@ -6320,7 +6320,7 @@ const se_CreateGatewayGroupRequest = (input: CreateGatewayGroupRequest, context:
 const se_CreateNetworkProfileRequest = (input: CreateNetworkProfileRequest, context: __SerdeContext): any => {
   return take(input, {
     CertificateAuthorityArn: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     CurrentPassword: [],
     Description: [],
     EapMethod: [],
@@ -6339,7 +6339,7 @@ const se_CreateNetworkProfileRequest = (input: CreateNetworkProfileRequest, cont
 const se_CreateProfileRequest = (input: CreateProfileRequest, context: __SerdeContext): any => {
   return take(input, {
     Address: [],
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DataRetentionOptIn: [],
     DistanceUnit: [],
     Locale: [],
@@ -6362,7 +6362,7 @@ const se_CreateProfileRequest = (input: CreateProfileRequest, context: __SerdeCo
  */
 const se_CreateRoomRequest = (input: CreateRoomRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     ProfileArn: [],
     ProviderCalendarId: [],
@@ -6376,7 +6376,7 @@ const se_CreateRoomRequest = (input: CreateRoomRequest, context: __SerdeContext)
  */
 const se_CreateSkillGroupRequest = (input: CreateSkillGroupRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     SkillGroupName: [],
     Tags: _json,
@@ -6388,7 +6388,7 @@ const se_CreateSkillGroupRequest = (input: CreateSkillGroupRequest, context: __S
  */
 const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Email: [],
     FirstName: [],
     LastName: [],
@@ -6542,7 +6542,7 @@ const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext)
  */
 const se_SendAnnouncementRequest = (input: SendAnnouncementRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Content: _json,
     RoomFilters: _json,
     TimeToLiveInSeconds: [],

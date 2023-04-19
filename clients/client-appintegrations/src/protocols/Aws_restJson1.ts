@@ -99,7 +99,7 @@ export const se_CreateDataIntegrationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       FileConfiguration: (_) => _json(_),
       KmsKey: [],
@@ -136,7 +136,7 @@ export const se_CreateEventIntegrationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       EventBridgeBus: [],
       EventFilter: (_) => _json(_),

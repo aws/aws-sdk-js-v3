@@ -398,7 +398,7 @@ export const se_CreateFrameworkCommand = async (
       FrameworkDescription: [],
       FrameworkName: [],
       FrameworkTags: (_) => _json(_),
-      IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -460,7 +460,7 @@ export const se_CreateReportPlanCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ReportDeliveryChannel: (_) => _json(_),
       ReportPlanDescription: [],
       ReportPlanName: [],
@@ -2268,7 +2268,7 @@ export const se_StartReportJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -2463,7 +2463,7 @@ export const se_UpdateFrameworkCommand = async (
     take(input, {
       FrameworkControls: (_) => _json(_),
       FrameworkDescription: [],
-      IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -2607,7 +2607,7 @@ export const se_UpdateReportPlanCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      IdempotencyToken: (_) => _ ?? generateIdempotencyToken(),
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ReportDeliveryChannel: (_) => _json(_),
       ReportPlanDescription: [],
       ReportSetting: (_) => _json(_),

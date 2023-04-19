@@ -242,7 +242,7 @@ export const se_CancelImageCreationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       imageBuildVersionArn: [],
     })
   );
@@ -273,7 +273,7 @@ export const se_CreateComponentCommand = async (
   body = JSON.stringify(
     take(input, {
       changeDescription: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       data: [],
       description: [],
       kmsKeyId: [],
@@ -311,7 +311,7 @@ export const se_CreateContainerRecipeCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       components: (_) => _json(_),
       containerType: [],
       description: [],
@@ -356,7 +356,7 @@ export const se_CreateDistributionConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       distributions: (_) => _json(_),
       name: [],
@@ -389,7 +389,7 @@ export const se_CreateImageCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       containerRecipeArn: [],
       distributionConfigurationArn: [],
       enhancedImageMetadataEnabled: [],
@@ -426,7 +426,7 @@ export const se_CreateImagePipelineCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       containerRecipeArn: [],
       description: [],
       distributionConfigurationArn: [],
@@ -469,7 +469,7 @@ export const se_CreateImageRecipeCommand = async (
     take(input, {
       additionalInstanceConfiguration: (_) => _json(_),
       blockDeviceMappings: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       components: (_) => _json(_),
       description: [],
       name: [],
@@ -506,7 +506,7 @@ export const se_CreateInfrastructureConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       instanceMetadataOptions: (_) => _json(_),
       instanceProfileName: [],
@@ -1087,7 +1087,7 @@ export const se_ImportComponentCommand = async (
   body = JSON.stringify(
     take(input, {
       changeDescription: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       data: [],
       description: [],
       format: [],
@@ -1126,7 +1126,7 @@ export const se_ImportVmImageCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
       osVersion: [],
@@ -1788,7 +1788,7 @@ export const se_StartImagePipelineExecutionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       imagePipelineArn: [],
     })
   );
@@ -1879,7 +1879,7 @@ export const se_UpdateDistributionConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       distributionConfigurationArn: [],
       distributions: (_) => _json(_),
@@ -1911,7 +1911,7 @@ export const se_UpdateImagePipelineCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       containerRecipeArn: [],
       description: [],
       distributionConfigurationArn: [],
@@ -1952,7 +1952,7 @@ export const se_UpdateInfrastructureConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       infrastructureConfigurationArn: [],
       instanceMetadataOptions: (_) => _json(_),

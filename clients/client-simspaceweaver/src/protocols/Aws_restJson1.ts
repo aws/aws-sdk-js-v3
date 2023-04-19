@@ -255,7 +255,7 @@ export const se_StartAppCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       Domain: [],
       LaunchOverrides: (_) => _json(_),
@@ -318,7 +318,7 @@ export const se_StartSimulationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: (_) => _ ?? generateIdempotencyToken(),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       MaximumDuration: [],
       Name: [],

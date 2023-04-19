@@ -11055,7 +11055,7 @@ const se_CreateCommitInput = (input: CreateCommitInput, context: __SerdeContext)
  */
 const se_CreatePullRequestInput = (input: CreatePullRequestInput, context: __SerdeContext): any => {
   return take(input, {
-    clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     description: [],
     targets: _json,
     title: [],
@@ -11256,7 +11256,7 @@ const se_PostCommentForComparedCommitInput = (
   return take(input, {
     afterCommitId: [],
     beforeCommitId: [],
-    clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     content: [],
     location: _json,
     repositoryName: [],
@@ -11270,7 +11270,7 @@ const se_PostCommentForPullRequestInput = (input: PostCommentForPullRequestInput
   return take(input, {
     afterCommitId: [],
     beforeCommitId: [],
-    clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     content: [],
     location: _json,
     pullRequestId: [],
@@ -11283,7 +11283,7 @@ const se_PostCommentForPullRequestInput = (input: PostCommentForPullRequestInput
  */
 const se_PostCommentReplyInput = (input: PostCommentReplyInput, context: __SerdeContext): any => {
   return take(input, {
-    clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     content: [],
     inReplyTo: [],
   });

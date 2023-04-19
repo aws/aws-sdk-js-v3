@@ -853,7 +853,7 @@ const se_CreateRescoreExecutionPlanRequest = (
 ): any => {
   return take(input, {
     CapacityUnits: _json,
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     Name: [],
     Tags: _json,

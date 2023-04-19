@@ -294,7 +294,7 @@ export const se_AssociateAssetsCommand = async (
   body = JSON.stringify(
     take(input, {
       childAssetId: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       hierarchyId: [],
     })
   );
@@ -336,7 +336,7 @@ export const se_AssociateTimeSeriesToAssetPropertyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -376,7 +376,7 @@ export const se_BatchAssociateProjectAssetsCommand = async (
   body = JSON.stringify(
     take(input, {
       assetIds: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -415,7 +415,7 @@ export const se_BatchDisassociateProjectAssetsCommand = async (
   body = JSON.stringify(
     take(input, {
       assetIds: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -606,7 +606,7 @@ export const se_CreateAccessPolicyCommand = async (
       accessPolicyIdentity: (_) => _json(_),
       accessPolicyPermission: [],
       accessPolicyResource: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
     })
   );
@@ -646,7 +646,7 @@ export const se_CreateAssetCommand = async (
       assetDescription: [],
       assetModelId: [],
       assetName: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
     })
   );
@@ -688,7 +688,7 @@ export const se_CreateAssetModelCommand = async (
       assetModelHierarchies: (_) => _json(_),
       assetModelName: [],
       assetModelProperties: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
     })
   );
@@ -765,7 +765,7 @@ export const se_CreateDashboardCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       dashboardDefinition: [],
       dashboardDescription: [],
       dashboardName: [],
@@ -845,7 +845,7 @@ export const se_CreatePortalCommand = async (
   body = JSON.stringify(
     take(input, {
       alarms: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       notificationSenderEmail: [],
       portalAuthMode: [],
       portalContactEmail: [],
@@ -889,7 +889,7 @@ export const se_CreateProjectCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       portalId: [],
       projectDescription: [],
       projectName: [],
@@ -1186,7 +1186,7 @@ export const se_DeleteTimeSeriesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1697,7 +1697,7 @@ export const se_DisassociateAssetsCommand = async (
   body = JSON.stringify(
     take(input, {
       childAssetId: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       hierarchyId: [],
     })
   );
@@ -1740,7 +1740,7 @@ export const se_DisassociateTimeSeriesFromAssetPropertyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2716,7 +2716,7 @@ export const se_UpdateAccessPolicyCommand = async (
       accessPolicyIdentity: (_) => _json(_),
       accessPolicyPermission: [],
       accessPolicyResource: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2755,7 +2755,7 @@ export const se_UpdateAssetCommand = async (
     take(input, {
       assetDescription: [],
       assetName: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2805,7 +2805,7 @@ export const se_UpdateAssetModelCommand = async (
       assetModelHierarchies: (_) => _json(_),
       assetModelName: [],
       assetModelProperties: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2844,7 +2844,7 @@ export const se_UpdateAssetPropertyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       propertyAlias: [],
       propertyNotificationState: [],
       propertyUnit: [],
@@ -2885,7 +2885,7 @@ export const se_UpdateDashboardCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       dashboardDefinition: [],
       dashboardDescription: [],
       dashboardName: [],
@@ -3003,7 +3003,7 @@ export const se_UpdatePortalCommand = async (
   body = JSON.stringify(
     take(input, {
       alarms: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       notificationSenderEmail: [],
       portalContactEmail: [],
       portalDescription: [],
@@ -3046,7 +3046,7 @@ export const se_UpdateProjectCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       projectDescription: [],
       projectName: [],
     })

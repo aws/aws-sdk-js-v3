@@ -639,7 +639,7 @@ export const se_CreateChannelCommand = async (
       logLevel: [, , `LogLevel`],
       maintenance: [, (_) => se_MaintenanceCreateSettings(_, context), `Maintenance`],
       name: [, , `Name`],
-      requestId: [, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       reserved: [, , `Reserved`],
       roleArn: [, , `RoleArn`],
       tags: [, (_) => _json(_), `Tags`],
@@ -677,7 +677,7 @@ export const se_CreateInputCommand = async (
       inputSecurityGroups: [, (_) => _json(_), `InputSecurityGroups`],
       mediaConnectFlows: [, (_) => se___listOfMediaConnectFlowRequest(_, context), `MediaConnectFlows`],
       name: [, , `Name`],
-      requestId: [, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       roleArn: [, , `RoleArn`],
       sources: [, (_) => se___listOfInputSourceRequest(_, context), `Sources`],
       tags: [, (_) => _json(_), `Tags`],
@@ -745,7 +745,7 @@ export const se_CreateMultiplexCommand = async (
       availabilityZones: [, (_) => _json(_), `AvailabilityZones`],
       multiplexSettings: [, (_) => se_MultiplexSettings(_, context), `MultiplexSettings`],
       name: [, , `Name`],
-      requestId: [, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -779,7 +779,7 @@ export const se_CreateMultiplexProgramCommand = async (
     take(input, {
       multiplexProgramSettings: [, (_) => se_MultiplexProgramSettings(_, context), `MultiplexProgramSettings`],
       programName: [, , `ProgramName`],
-      requestId: [, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
     })
   );
   return new __HttpRequest({
@@ -810,7 +810,7 @@ export const se_CreatePartnerInputCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      requestId: [, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -1656,7 +1656,7 @@ export const se_PurchaseOfferingCommand = async (
       count: [, , `Count`],
       name: [, , `Name`],
       renewalSettings: [, (_) => se_RenewalSettings(_, context), `RenewalSettings`],
-      requestId: [, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       start: [, , `Start`],
       tags: [, (_) => _json(_), `Tags`],
     })

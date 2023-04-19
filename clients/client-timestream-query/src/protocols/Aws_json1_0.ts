@@ -1167,7 +1167,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CreateScheduledQueryRequest = (input: CreateScheduledQueryRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ErrorReportConfiguration: _json,
     KmsKeyId: [],
     Name: [],
@@ -1197,7 +1197,7 @@ const se_CreateScheduledQueryRequest = (input: CreateScheduledQueryRequest, cont
  */
 const se_ExecuteScheduledQueryRequest = (input: ExecuteScheduledQueryRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     InvocationTime: (_) => Math.round(_.getTime() / 1000),
     ScheduledQueryArn: [],
   });
@@ -1226,7 +1226,7 @@ const se_ExecuteScheduledQueryRequest = (input: ExecuteScheduledQueryRequest, co
  */
 const se_QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
   return take(input, {
-    ClientToken: (_) => _ ?? generateIdempotencyToken(),
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     MaxRows: [],
     NextToken: [],
     QueryString: [],

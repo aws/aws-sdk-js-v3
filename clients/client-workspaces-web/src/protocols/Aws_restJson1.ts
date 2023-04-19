@@ -347,7 +347,7 @@ export const se_CreateBrowserSettingsCommand = async (
     take(input, {
       additionalEncryptionContext: (_) => _json(_),
       browserPolicy: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       customerManagedKey: [],
       tags: (_) => _json(_),
     })
@@ -378,7 +378,7 @@ export const se_CreateIdentityProviderCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       identityProviderDetails: (_) => _json(_),
       identityProviderName: [],
       identityProviderType: [],
@@ -411,7 +411,7 @@ export const se_CreateNetworkSettingsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       securityGroupIds: (_) => _json(_),
       subnetIds: (_) => _json(_),
       tags: (_) => _json(_),
@@ -446,7 +446,7 @@ export const se_CreatePortalCommand = async (
     take(input, {
       additionalEncryptionContext: (_) => _json(_),
       authenticationType: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       customerManagedKey: [],
       displayName: [],
       tags: (_) => _json(_),
@@ -479,7 +479,7 @@ export const se_CreateTrustStoreCommand = async (
   body = JSON.stringify(
     take(input, {
       certificateList: (_) => se_CertificateList(_, context),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
     })
   );
@@ -510,7 +510,7 @@ export const se_CreateUserAccessLoggingSettingsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       kinesisStreamArn: [],
       tags: (_) => _json(_),
     })
@@ -541,7 +541,7 @@ export const se_CreateUserSettingsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       copyAllowed: [],
       disconnectTimeoutInMinutes: [],
       downloadAllowed: [],
@@ -1430,7 +1430,7 @@ export const se_TagResourceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
     })
   );
@@ -1500,7 +1500,7 @@ export const se_UpdateBrowserSettingsCommand = async (
   body = JSON.stringify(
     take(input, {
       browserPolicy: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -1538,7 +1538,7 @@ export const se_UpdateIdentityProviderCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       identityProviderDetails: (_) => _json(_),
       identityProviderName: [],
       identityProviderType: [],
@@ -1579,7 +1579,7 @@ export const se_UpdateNetworkSettingsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       securityGroupIds: (_) => _json(_),
       subnetIds: (_) => _json(_),
       vpcId: [],
@@ -1653,7 +1653,7 @@ export const se_UpdateTrustStoreCommand = async (
     take(input, {
       certificatesToAdd: (_) => se_CertificateList(_, context),
       certificatesToDelete: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   return new __HttpRequest({
@@ -1692,7 +1692,7 @@ export const se_UpdateUserAccessLoggingSettingsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       kinesisStreamArn: [],
     })
   );
@@ -1731,7 +1731,7 @@ export const se_UpdateUserSettingsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       copyAllowed: [],
       disconnectTimeoutInMinutes: [],
       downloadAllowed: [],

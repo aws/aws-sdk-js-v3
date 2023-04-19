@@ -166,7 +166,7 @@ export const se_AssociateEncryptionConfigCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       encryptionConfig: (_) => _json(_),
     })
   );
@@ -199,7 +199,7 @@ export const se_AssociateIdentityProviderConfigCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       oidc: (_) => _json(_),
       tags: (_) => _json(_),
     })
@@ -234,7 +234,7 @@ export const se_CreateAddonCommand = async (
     take(input, {
       addonName: [],
       addonVersion: [],
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configurationValues: [],
       resolveConflicts: [],
       serviceAccountRoleArn: [],
@@ -267,7 +267,7 @@ export const se_CreateClusterCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       encryptionConfig: (_) => _json(_),
       kubernetesNetworkConfig: (_) => _json(_),
       logging: (_) => _json(_),
@@ -307,7 +307,7 @@ export const se_CreateFargateProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       fargateProfileName: [],
       podExecutionRoleArn: [],
       selectors: (_) => _json(_),
@@ -345,7 +345,7 @@ export const se_CreateNodegroupCommand = async (
     take(input, {
       amiType: [],
       capacityType: [],
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       diskSize: [],
       instanceTypes: (_) => _json(_),
       labels: (_) => _json(_),
@@ -772,7 +772,7 @@ export const se_DisassociateIdentityProviderConfigCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       identityProviderConfig: (_) => _json(_),
     })
   );
@@ -1000,7 +1000,7 @@ export const se_RegisterClusterCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       connectorConfig: (_) => _json(_),
       name: [],
       tags: (_) => _json(_),
@@ -1097,7 +1097,7 @@ export const se_UpdateAddonCommand = async (
   body = JSON.stringify(
     take(input, {
       addonVersion: [],
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configurationValues: [],
       resolveConflicts: [],
       serviceAccountRoleArn: [],
@@ -1131,7 +1131,7 @@ export const se_UpdateClusterConfigCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       logging: (_) => _json(_),
       resourcesVpcConfig: (_) => _json(_),
     })
@@ -1163,7 +1163,7 @@ export const se_UpdateClusterVersionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       version: [],
     })
   );
@@ -1204,7 +1204,7 @@ export const se_UpdateNodegroupConfigCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       labels: (_) => _json(_),
       scalingConfig: (_) => _json(_),
       taints: (_) => _json(_),
@@ -1248,7 +1248,7 @@ export const se_UpdateNodegroupVersionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       force: [],
       launchTemplate: (_) => _json(_),
       releaseVersion: [],

@@ -180,7 +180,7 @@ export const se_CreateApplicationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
       tags: (_) => _json(_),
@@ -213,7 +213,7 @@ export const se_CreateAttributeGroupCommand = async (
   body = JSON.stringify(
     take(input, {
       attributes: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
       tags: (_) => _json(_),

@@ -471,7 +471,7 @@ export const se_CreateDeploymentJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deploymentApplicationConfigs: (_) => _json(_),
       deploymentConfig: (_) => _json(_),
       fleet: [],
@@ -702,7 +702,7 @@ export const se_CreateSimulationJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       compute: (_) => _json(_),
       dataSources: (_) => _json(_),
       failureBehavior: [],
@@ -742,7 +742,7 @@ export const se_CreateWorldExportJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       iamRole: [],
       outputLocation: (_) => _json(_),
       tags: (_) => _json(_),
@@ -776,7 +776,7 @@ export const se_CreateWorldGenerationJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
       template: [],
       worldCount: (_) => _json(_),
@@ -1806,7 +1806,7 @@ export const se_StartSimulationJobBatchCommand = async (
   body = JSON.stringify(
     take(input, {
       batchPolicy: (_) => _json(_),
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       createSimulationJobRequests: (_) => _json(_),
       tags: (_) => _json(_),
     })
@@ -1837,7 +1837,7 @@ export const se_SyncDeploymentJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       fleet: [],
     })
   );

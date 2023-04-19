@@ -234,7 +234,7 @@ export const se_CreateAccessLogSubscriptionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       destinationArn: [],
       resourceIdentifier: [],
       tags: (_) => _json(_),
@@ -275,7 +275,7 @@ export const se_CreateListenerCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       defaultAction: (_) => _json(_),
       name: [],
       port: [],
@@ -328,7 +328,7 @@ export const se_CreateRuleCommand = async (
   body = JSON.stringify(
     take(input, {
       action: (_) => _json(_),
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       match: (_) => _json(_),
       name: [],
       priority: [],
@@ -363,7 +363,7 @@ export const se_CreateServiceCommand = async (
     take(input, {
       authType: [],
       certificateArn: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       customDomainName: [],
       name: [],
       tags: (_) => _json(_),
@@ -396,7 +396,7 @@ export const se_CreateServiceNetworkCommand = async (
   body = JSON.stringify(
     take(input, {
       authType: [],
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       name: [],
       tags: (_) => _json(_),
     })
@@ -428,7 +428,7 @@ export const se_CreateServiceNetworkServiceAssociationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       serviceIdentifier: [],
       serviceNetworkIdentifier: [],
       tags: (_) => _json(_),
@@ -461,7 +461,7 @@ export const se_CreateServiceNetworkVpcAssociationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       securityGroupIds: (_) => _json(_),
       serviceNetworkIdentifier: [],
       tags: (_) => _json(_),
@@ -494,7 +494,7 @@ export const se_CreateTargetGroupCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: (_) => _ ?? generateIdempotencyToken(),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       config: (_) => _json(_),
       name: [],
       tags: (_) => _json(_),

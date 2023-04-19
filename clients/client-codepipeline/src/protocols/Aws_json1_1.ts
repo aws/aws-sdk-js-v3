@@ -3606,7 +3606,7 @@ const se_PutThirdPartyJobSuccessResultInput = (
  */
 const se_StartPipelineExecutionInput = (input: StartPipelineExecutionInput, context: __SerdeContext): any => {
   return take(input, {
-    clientRequestToken: (_) => _ ?? generateIdempotencyToken(),
+    clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     name: [],
   });
 };
