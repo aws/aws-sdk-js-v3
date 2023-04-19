@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
+
+
+### Bug Fixes
+
+* **clients:** always allow idempotency token ([#4642](https://github.com/aws/aws-sdk-js-v3/issues/4642)) ([aaff894](https://github.com/aws/aws-sdk-js-v3/commit/aaff894f7840d199bae043594ca56e290d5f3deb))
+* **cloudfront-signer:** fix URL construction to maintain escapes ([#4563](https://github.com/aws/aws-sdk-js-v3/issues/4563)) ([73f539d](https://github.com/aws/aws-sdk-js-v3/commit/73f539d21ee5c1cc600602cb00cf778a14632f53))
+
+
+### Features
+
+* **client-comprehend:** This release supports native document models for custom classification, in addition to plain-text models. You train native document models using documents (PDF, Word, images) in their native format. ([413a413](https://github.com/aws/aws-sdk-js-v3/commit/413a413b03876fb6d37a70460392879f08c1b48e))
+* **client-ecs:** This release supports the Account Setting "TagResourceAuthorization" that allows for enhanced Tagging security controls. ([9bac5ad](https://github.com/aws/aws-sdk-js-v3/commit/9bac5ad5930c8f5a94bd73330e18d7ae11aaa5d2))
+* **client-ram:** This release adds support for customer managed permissions. Customer managed permissions enable customers to author and manage tailored permissions for resources shared using RAM. ([c6a225f](https://github.com/aws/aws-sdk-js-v3/commit/c6a225f7949ac4e2b2a8bac5ed7e196749aeaef0))
+* **client-s3-control:** Provides support for overriding endpoint when region is "snow". This will enable bucket APIs for Amazon S3 Compatible storage on Snow Family devices. ([29f17b9](https://github.com/aws/aws-sdk-js-v3/commit/29f17b913cf1660f98f616d73ccfed6a4f0481b8))
+* **client-s3:** Provides support for "Snow" Storage class. ([81b843f](https://github.com/aws/aws-sdk-js-v3/commit/81b843fc4569453d46e044a5abbdb05b463b01f6))
+* **clients:** update client endpoints as of 2023-04-19 ([95132a2](https://github.com/aws/aws-sdk-js-v3/commit/95132a29d1c54208de0dc5a85437d40d229c4686))
+* **smithy-client:** factory for aggregated clients ([#4639](https://github.com/aws/aws-sdk-js-v3/issues/4639)) ([852b99d](https://github.com/aws/aws-sdk-js-v3/commit/852b99d393fe5f1a9ff6345f797949f3901a9cbf))
+
+
+
+
+
 # [3.315.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.314.0...v3.315.0) (2023-04-17)
 
 
