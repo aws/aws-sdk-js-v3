@@ -46,16 +46,19 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *          specified SQL expression. You must also specify the data serialization format for the
  *          response.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
- *          <p>For more information about Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from
- *             Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
- *             Command</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>For more information about Amazon S3 Select,
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from
+ *              Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
+ *               Command</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>For more information about using SQL with Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html"> SQL Reference for Amazon S3 Select
+ *             and S3 Glacier Select</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
  *          <p>You must have <code>s3:GetObject</code> permission for this operation. Amazon S3 Select does
- *          not support anonymous access. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
- *             Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          not support anonymous access. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a Policy</a>
+ *          in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
  *          <p>
  *             <i>Object Data Formats</i>
@@ -86,13 +89,14 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *                   <i>Server-side encryption</i> - Amazon S3 Select supports querying
  *                objects that are protected with server-side encryption.</p>
  *                <p>For objects that are encrypted with customer-provided encryption keys (SSE-C), you
- *                must use HTTPS, and you must use the headers that are documented in the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>. For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
- *                   Encryption (Using Customer-Provided Encryption Keys)</a> in the
+ *                must use HTTPS, and you must use the headers that are documented in the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>. For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
+ *                   (Using Customer-Provided Encryption Keys)</a> in the
  *                   <i>Amazon S3 User Guide</i>.</p>
- *                <p>For objects that are encrypted with Amazon S3 managed keys (SSE-S3) and Amazon Web Services KMS keys
- *                (SSE-KMS), server-side encryption is handled transparently, so you don't need to
- *                specify anything. For more information about server-side encryption, including SSE-S3
- *                and SSE-KMS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using
+ *                <p>For objects that are encrypted with Amazon S3 managed encryption keys (SSE-S3) and
+ *                Amazon Web Services KMS keys (SSE-KMS),
+ *                server-side encryption is handled transparently, so you don't need to specify
+ *                anything. For more information about server-side encryption, including SSE-S3 and
+ *                SSE-KMS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using
  *                   Server-Side Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *          </ul>
@@ -119,8 +123,8 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *             <li>
  *                <p>GLACIER, DEEP_ARCHIVE and REDUCED_REDUNDANCY storage classes: You cannot specify
  *                the GLACIER, DEEP_ARCHIVE, or <code>REDUCED_REDUNDANCY</code> storage classes. For
- *                more information, about storage classes see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#storage-class-intro">Storage
- *                   Classes</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                more information, about storage classes see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#storage-class-intro">Storage Classes</a>
+ *                in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *          </ul>
  *          <p></p>

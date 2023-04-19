@@ -43,8 +43,7 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *          data source by adding the request header <code>x-amz-copy-source</code> in your request and
  *          a byte range by adding the request header <code>x-amz-copy-source-range</code> in your
  *          request. </p>
- *          <p>For information about maximum and minimum part sizes and other multipart upload
- *          specifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html">Multipart upload limits</a> in the <i>Amazon S3 User Guide</i>. </p>
+ *          <p>For information about maximum and minimum part sizes and other multipart upload specifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html">Multipart upload limits</a> in the <i>Amazon S3 User Guide</i>. </p>
  *          <note>
  *             <p>Instead of using an existing object as part data, you might use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
  *             action and provide data in your request.</p>
@@ -56,14 +55,13 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *          following:</p>
  *          <ul>
  *             <li>
- *                <p>For conceptual information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading
- *                   Objects Using Multipart Upload</a> in the
- *                <i>Amazon S3 User Guide</i>.</p>
+ *                <p>For conceptual information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
+ *                   Upload</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>For information about permissions required to use the multipart upload API, see
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and Permissions</a> in the
- *                   <i>Amazon S3 User Guide</i>.</p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload  and
+ *                   Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>For information about copying objects using a single atomic action vs. a multipart

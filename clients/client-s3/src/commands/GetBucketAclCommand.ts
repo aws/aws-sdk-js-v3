@@ -32,19 +32,17 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
 
 /**
  * @public
- * <p>This implementation of the <code>GET</code> action uses the <code>acl</code> subresource
- *          to return the access control list (ACL) of a bucket. To use <code>GET</code> to return the
- *          ACL of the bucket, you must have <code>READ_ACP</code> access to the bucket. If
+ * <p>This implementation of the <code>GET</code> action uses the <code>acl</code>
+ *          subresource to return the access control list (ACL) of a bucket. To use <code>GET</code> to
+ *          return the ACL of the bucket, you must have <code>READ_ACP</code> access to the bucket. If
  *             <code>READ_ACP</code> permission is granted to the anonymous user, you can return the
  *          ACL of the bucket without using an authorization header.</p>
- *          <p>To use this API against an access point, provide the alias of the access point in place of the bucket name.</p>
  *          <note>
  *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership,
- *             requests to read ACLs are still supported and return the
- *                <code>bucket-owner-full-control</code> ACL with the owner being the account that
- *             created the bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling object
- *                ownership and disabling ACLs</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ *             requests to read ACLs are still supported and return the <code>bucket-owner-full-control</code>
+ *             ACL with the owner being the account that created the bucket. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+ *                Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          </note>
  *          <p class="title">
  *             <b>Related Resources</b>

@@ -37,7 +37,6 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  *          <p> To use this operation, you must have permission to perform the
  *             <code>s3:GetBucketCORS</code> action. By default, the bucket owner has this permission
  *          and can grant it to others.</p>
- *          <p>To use this API against an access point, provide the alias of the access point in place of the bucket name.</p>
  *          <p> For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html"> Enabling Cross-Origin Resource
  *          Sharing</a>.</p>
  *          <p>The following operations are related to <code>GetBucketCors</code>:</p>

@@ -51,16 +51,12 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @public
  * <p>Adds an object to a bucket. You must have WRITE permissions on a bucket to add an object
  *          to it.</p>
- *          <note>
- *             <p>Amazon S3 never adds partial objects; if you receive a success response, Amazon S3 added the
- *             entire object to the bucket. You cannot use <code>PutObject</code> to only update a
- *             single piece of metadata for an existing object. You must put the entire object with
- *             updated metadata if you want to update some values.</p>
- *          </note>
+ *          <p>Amazon S3 never adds partial objects; if you receive a success response, Amazon S3 added the
+ *          entire object to the bucket.</p>
  *          <p>Amazon S3 is a distributed system. If it receives multiple write requests for the same object
- *          simultaneously, it overwrites all but the last object written. To prevent objects from
- *          being deleted or overwritten, you can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Amazon S3 Object
- *             Lock</a>.</p>
+ *          simultaneously, it overwrites all but the last object written. Amazon S3 does not provide object
+ *          locking; if you need this, make sure to build it into your application layer or use
+ *          versioning instead.</p>
  *          <p>To ensure that data is not corrupted traversing the network, use the
  *             <code>Content-MD5</code> header. When you use this header, Amazon S3 checks the object
  *          against the provided MD5 value and, if they do not match, returns an error. Additionally,
@@ -70,63 +66,76 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *             <ul>
  *                <li>
  *                   <p>To successfully complete the <code>PutObject</code> request, you must have the
- *                      <code>s3:PutObject</code> in your IAM permissions.</p>
+ *                <code>s3:PutObject</code> in your IAM permissions.</p>
  *                </li>
  *                <li>
  *                   <p>To successfully change the objects acl of your <code>PutObject</code> request,
- *                   you must have the <code>s3:PutObjectAcl</code> in your IAM permissions.</p>
+ *                you must have the <code>s3:PutObjectAcl</code> in your IAM permissions.</p>
  *                </li>
  *                <li>
- *                   <p>To successfully set the tag-set with your <code>PutObject</code> request, you
- *                   must have the <code>s3:PutObjectTagging</code> in your IAM permissions.</p>
- *                </li>
- *                <li>
- *                   <p> The <code>Content-MD5</code> header is required for any request to upload an
- *                   object with a retention period configured using Amazon S3 Object Lock. For more
- *                   information about Amazon S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html">Amazon S3 Object Lock
- *                      Overview</a> in the <i>Amazon S3 User Guide</i>. </p>
+ *                   <p> The <code>Content-MD5</code> header is required for any request to upload an object
+ *                   with a retention period configured using Amazon S3 Object Lock. For more information about
+ *                   Amazon S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html">Amazon S3 Object Lock Overview</a>
+ *                   in the <i>Amazon S3 User Guide</i>. </p>
  *                </li>
  *             </ul>
  *          </note>
- *          <p>You have three mutually exclusive options to protect data using server-side encryption
- *          in Amazon S3, depending on how you choose to manage the encryption keys. Specifically, the
- *          encryption key options are Amazon S3 managed keys (SSE-S3), Amazon Web Services KMS keys (SSE-KMS), and
- *          customer-provided keys (SSE-C). Amazon S3 encrypts data with server-side encryption by using
- *          Amazon S3 managed keys (SSE-S3) by default. You can optionally tell Amazon S3 to encrypt data at by
- *          rest using server-side encryption with other key options. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using
- *             Server-Side Encryption</a>.</p>
- *          <p>When adding a new object, you can use headers to grant ACL-based permissions to
- *          individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are
- *          then added to the ACL on the object. By default, all objects are private. Only the owner
- *          has full access control. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>
- *          and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing
- *             ACLs Using the REST API</a>. </p>
+ *          <p>
+ *             <b>Server-side Encryption</b>
+ *          </p>
+ *          <p>You can optionally request server-side encryption. With server-side encryption, Amazon S3 encrypts
+ *          your data as it writes it to disks in its data centers and decrypts the data
+ *          when you access it. You have the option to provide your own encryption key or use Amazon Web Services
+ *          managed encryption keys (SSE-S3 or SSE-KMS). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side
+ *             Encryption</a>.</p>
+ *          <p>If you request server-side encryption using Amazon Web Services Key Management Service (SSE-KMS), you can enable
+ *          an S3 Bucket Key at the object-level. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the
+ *          <i>Amazon S3 User Guide</i>.</p>
+ *          <p>
+ *             <b>Access Control List (ACL)-Specific Request
+ *          Headers</b>
+ *          </p>
+ *          <p>You can use headers to grant ACL- based permissions. By default, all objects are
+ *          private. Only the owner has full access control. When adding a new object, you can grant
+ *          permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These
+ *          permissions are then added to the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List
+ *             (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
+ *             API</a>. </p>
  *          <p>If the bucket that you're uploading objects to uses the bucket owner enforced setting
  *          for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that
  *          use this setting only accept PUT requests that don't specify an ACL or PUT requests that
- *          specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
- *          canned ACL or an equivalent form of this ACL expressed in the XML format. PUT requests that
- *          contain other ACLs (for example, custom grants to certain Amazon Web Services accounts) fail and return a
- *             <code>400</code> error with the error code <code>AccessControlListNotSupported</code>.
- *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling ownership of
- *             objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code> canned
+ *          ACL or an equivalent form of this ACL expressed in the XML format. PUT requests that contain other
+ *          ACLs (for example, custom grants to certain Amazon Web Services accounts) fail and return a
+ *             <code>400</code> error with the error code
+ *          <code>AccessControlListNotSupported</code>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling ownership of
+ *          objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
- *             <p>If your bucket uses the bucket owner enforced setting for Object Ownership, all
- *             objects written to the bucket by any account will be owned by the bucket owner.</p>
+ *             <p>If your bucket uses the bucket owner enforced setting for Object Ownership,
+ *             all objects written to the bucket by any account will be owned by the bucket owner.</p>
  *          </note>
+ *          <p>
+ *             <b>Storage Class Options</b>
+ *          </p>
  *          <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The
  *          STANDARD storage class provides high durability and high availability. Depending on
  *          performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses
  *          the OUTPOSTS Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ *          <i>Amazon S3 User Guide</i>.</p>
+ *          <p>
+ *             <b>Versioning</b>
+ *          </p>
  *          <p>If you enable versioning for a bucket, Amazon S3 automatically generates a unique version ID
  *          for the object being stored. Amazon S3 returns this ID in the response. When you enable
  *          versioning for a bucket, if Amazon S3 receives multiple write requests for the same object
- *          simultaneously, it stores all of the objects. For more information about versioning, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html">Adding Objects to
+ *          simultaneously, it stores all of the objects.</p>
+ *          <p>For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html">Adding Objects to
  *             Versioning Enabled Buckets</a>. For information about returning the versioning state
  *          of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a>. </p>
- *          <p>For more information about related Amazon S3 APIs, see the following:</p>
+ *          <p class="title">
+ *             <b>Related Resources</b>
+ *          </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -171,7 +180,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *     "<keys>": "STRING_VALUE",
  *   },
  *   ServerSideEncryption: "AES256" || "aws:kms",
- *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR",
+ *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
  *   WebsiteRedirectLocation: "STRING_VALUE",
  *   SSECustomerAlgorithm: "STRING_VALUE",
  *   SSECustomerKey: "STRING_VALUE",

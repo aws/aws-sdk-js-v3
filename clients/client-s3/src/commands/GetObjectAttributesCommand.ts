@@ -41,12 +41,15 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *          action is useful if you're interested only in an object's metadata. To use
  *             <code>GetObjectAttributes</code>, you must have READ access to the object.</p>
  *          <p>
- *             <code>GetObjectAttributes</code> combines the functionality of <code>HeadObject</code>
- *          and <code>ListParts</code>. All of the data returned with each of those individual calls
- *          can be returned with a single call to <code>GetObjectAttributes</code>.</p>
+ *             <code>GetObjectAttributes</code> combines the functionality of
+ *             <code>GetObjectAcl</code>, <code>GetObjectLegalHold</code>,
+ *             <code>GetObjectLockConfiguration</code>, <code>GetObjectRetention</code>,
+ *             <code>GetObjectTagging</code>, <code>HeadObject</code>, and <code>ListParts</code>. All
+ *          of the data returned with each of those individual calls can be returned with a single call
+ *          to <code>GetObjectAttributes</code>.</p>
  *          <p>If you encrypt an object by using server-side encryption with customer-provided
- *          encryption keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the
- *          metadata from the object, you must use the following headers:</p>
+ *             encryption keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the
+ *             metadata from the object, you must use the following headers:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -70,24 +73,25 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>Encryption request headers, such as <code>x-amz-server-side-encryption</code>,
- *                   should not be sent for GET requests if your object uses server-side encryption
- *                   with Amazon Web Services KMS keys stored in Amazon Web Services Key Management Service (SSE-KMS) or
- *                   server-side encryption with Amazon S3 managed keys (SSE-S3). If your object does use
- *                   these types of keys, you'll get an HTTP <code>400 Bad Request</code> error.</p>
+ *                   <p>Encryption request headers, such as
+ *                      <code>x-amz-server-side-encryption</code>, should not be sent for GET requests
+ *                   if your object uses server-side encryption with Amazon Web Services KMS keys stored in Amazon Web Services Key
+ *                   Management Service (SSE-KMS) or server-side encryption with Amazon S3 managed
+ *                   encryption keys (SSE-S3). If your object does use these types of keys, you'll get
+ *                   an HTTP <code>400 Bad Request</code> error.</p>
  *                </li>
  *                <li>
- *                   <p> The last modified property in this case is the creation date of the
- *                   object.</p>
+ *                   <p>
+ *                     The last modified property in this case is the creation date of the object.</p>
  *                </li>
  *             </ul>
  *          </note>
  *          <p>Consider the following when using request headers:</p>
  *          <ul>
  *             <li>
- *                <p> If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers
- *                are present in the request as follows, then Amazon S3 returns the HTTP status code
- *                   <code>200 OK</code> and the data requested:</p>
+ *                <p> If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code>
+ *                headers are present in the request as follows, then Amazon S3 returns the HTTP
+ *                   status code <code>200 OK</code> and the data requested:</p>
  *                <ul>
  *                   <li>
  *                      <p>
@@ -96,23 +100,24 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *                   <li>
  *                      <p>
  *                         <code>If-Unmodified-Since</code> condition evaluates to
- *                      <code>false</code>.</p>
+ *                         <code>false</code>.</p>
  *                   </li>
  *                </ul>
  *             </li>
  *             <li>
  *                <p>If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code>
  *                headers are present in the request as follows, then Amazon S3 returns the HTTP status code
- *                   <code>304 Not Modified</code>:</p>
+ *                    <code>304 Not Modified</code>:</p>
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <code>If-None-Match</code> condition evaluates to <code>false</code>.</p>
+ *                         <code>If-None-Match</code> condition evaluates to
+ *                      <code>false</code>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
  *                         <code>If-Modified-Since</code> condition evaluates to
- *                      <code>true</code>.</p>
+ *                         <code>true</code>.</p>
  *                   </li>
  *                </ul>
  *             </li>
@@ -131,12 +136,12 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *          have the <code>s3:ListBucket</code> permission.</p>
  *          <ul>
  *             <li>
- *                <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 returns
- *                an HTTP status code <code>404 Not Found</code> ("no such key") error.</p>
+ *                <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3
+ *                returns an HTTP status code <code>404 Not Found</code> ("no such key") error.</p>
  *             </li>
  *             <li>
- *                <p>If you don't have the <code>s3:ListBucket</code> permission, Amazon S3 returns an HTTP
- *                status code <code>403 Forbidden</code> ("access denied") error.</p>
+ *                <p>If you don't have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
+ *                HTTP status code <code>403 Forbidden</code> ("access denied") error.</p>
  *             </li>
  *          </ul>
  *          <p>The following actions are related to <code>GetObjectAttributes</code>:</p>

@@ -49,20 +49,15 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *          </note>
  *          <p>All copy requests must be authenticated. Additionally, you must have
  *             <i>read</i> access to the source object and <i>write</i>
- *          access to the destination bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>. Both the
- *          Region that you want to copy the object from and the Region that you want to copy the
- *          object to must be enabled for your account.</p>
+ *          access to the destination bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>. Both the Region
+ *          that you want to copy the object from and the Region that you want to copy the object to
+ *          must be enabled for your account.</p>
  *          <p>A copy request might return an error when Amazon S3 receives the copy request or while Amazon S3
  *          is copying the files. If the error occurs before the copy action starts, you receive a
  *          standard Amazon S3 error. If the error occurs during the copy operation, the error response is
  *          embedded in the <code>200 OK</code> response. This means that a <code>200 OK</code>
- *          response can contain either a success or an error. If you call the S3 API directly, make
- *          sure to design your application to parse the contents of the response and handle it
- *          appropriately. If you use Amazon Web Services SDKs, SDKs handle this condition. The SDKs detect the
- *          embedded error and apply error handling per your configuration settings (including
- *          automatically retrying the request as appropriate). If the condition persists, the SDKs
- *          throws an exception (or, for the SDKs that don't use exceptions, they return the
- *          error).</p>
+ *          response can contain either a success or an error. Design your application to parse the
+ *          contents of the response and handle it appropriately.</p>
  *          <p>If the copy is successful, you receive a response with information about the copied
  *          object.</p>
  *          <note>
@@ -75,8 +70,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *          <important>
  *             <p>Amazon S3 transfer acceleration does not support cross-Region copies. If you request a
  *             cross-Region copy using a transfer acceleration endpoint, you get a 400 <code>Bad
- *                Request</code> error. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer
- *             Acceleration</a>.</p>
+ *                Request</code> error. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a>.</p>
  *          </important>
  *          <p>
  *             <b>Metadata</b>
@@ -93,11 +87,6 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *             Policy</a> in the <i>Amazon S3 User Guide</i>. For a complete list of
  *          Amazon S3-specific condition keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, Resources, and Condition Keys for
  *             Amazon S3</a>.</p>
- *          <note>
- *             <p>
- *                <code>x-amz-website-redirect-location</code> is unique to each object and must be
- *             specified in the request headers to copy the value.</p>
- *          </note>
  *          <p>
  *             <b>x-amz-copy-source-if Headers</b>
  *          </p>
@@ -162,27 +151,14 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *          <p>
  *             <b>Server-side encryption</b>
  *          </p>
- *          <p>Amazon S3 automatically encrypts all new objects that are copied to an S3 bucket. When
- *          copying an object, if you don't specify encryption information in your copy request, the
- *          encryption setting of the target object is set to the default encryption configuration of
- *          the destination bucket. By default, all buckets have a base level of encryption
- *          configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). If the
- *          destination bucket has a default encryption configuration that uses server-side encryption
- *          with an Key Management Service (KMS) key (SSE-KMS), or a customer-provided encryption key (SSE-C),
- *          Amazon S3 uses the corresponding KMS key, or a customer-provided key to encrypt the target
- *          object copy. When you perform a CopyObject operation, if you want to use a different type
- *          of encryption setting for the target object, you can use other appropriate
- *          encryption-related headers to encrypt the target object with a KMS key, an Amazon S3 managed
- *          key, or a customer-provided key. With server-side encryption, Amazon S3 encrypts your data as it
- *          writes it to disks in its data centers and decrypts the data when you access it. If the
- *          encryption setting in your request is different from the default encryption configuration
- *          of the destination bucket, the encryption setting in your request takes precedence. If the
- *          source object for the copy is stored in Amazon S3 using SSE-C, you must provide the necessary
- *          encryption information in your request so that Amazon S3 can decrypt the object for copying. For
- *          more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using Server-Side
- *          Encryption</a>.</p>
- *          <p>If a target object uses SSE-KMS, you can enable an S3 Bucket Key for the object. For
- *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>When you perform a CopyObject operation, you can optionally use the appropriate encryption-related
+ *          headers to encrypt the object using server-side encryption with Amazon Web Services managed encryption keys
+ *          (SSE-S3 or SSE-KMS) or a customer-provided encryption key. With server-side encryption, Amazon S3
+ *          encrypts your data as it writes it to disks in its data centers and decrypts the data when
+ *          you access it. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
+ *          Server-Side Encryption</a>.</p>
+ *          <p>If a target object uses SSE-KMS, you can enable an S3 Bucket Key for the object. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>
  *             <b>Access Control List (ACL)-Specific Request
  *          Headers</b>
@@ -194,29 +170,29 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
  *             API</a>. </p>
  *          <p>If the bucket that you're copying objects to uses the bucket owner enforced setting for
- *          S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that use
- *          this setting only accept PUT requests that don't specify an ACL or PUT requests that
- *          specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
- *          canned ACL or an equivalent form of this ACL expressed in the XML format.</p>
+ *          S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that
+ *          use this setting only accept PUT requests that don't specify an ACL or PUT requests that
+ *          specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code> canned
+ *          ACL or an equivalent form of this ACL expressed in the XML format.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling ownership of
- *             objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
- *             <p>If your bucket uses the bucket owner enforced setting for Object Ownership, all
- *             objects written to the bucket by any account will be owned by the bucket owner.</p>
+ *             <p>If your bucket uses the bucket owner enforced setting for Object Ownership,
+ *             all objects written to the bucket by any account will be owned by the bucket owner.</p>
  *          </note>
  *          <p>
  *             <b>Checksums</b>
  *          </p>
- *          <p>When copying an object, if it has a checksum, that checksum will be copied to the new
- *          object by default. When you copy the object over, you may optionally specify a different
- *          checksum algorithm to use with the <code>x-amz-checksum-algorithm</code> header.</p>
+ *          <p>When copying an object, if it has a checksum, that checksum will be copied to the new object
+ *            by default. When you copy the object over, you may optionally specify a different checksum
+ *            algorithm to use with the <code>x-amz-checksum-algorithm</code> header.</p>
  *          <p>
  *             <b>Storage Class Options</b>
  *          </p>
- *          <p>You can use the <code>CopyObject</code> action to change the storage class of an object
- *          that is already stored in Amazon S3 using the <code>StorageClass</code> parameter. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ *          <p>You can use the <code>CopyObject</code> action to change the storage class of an
+ *          object that is already stored in Amazon S3 using the <code>StorageClass</code> parameter. For
+ *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+ *             Classes</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>
  *             <b>Versioning</b>
  *          </p>
@@ -245,7 +221,8 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html">Copying Objects</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html">Copying
+ *             Objects</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -278,7 +255,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *   MetadataDirective: "COPY" || "REPLACE",
  *   TaggingDirective: "COPY" || "REPLACE",
  *   ServerSideEncryption: "AES256" || "aws:kms",
- *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR",
+ *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
  *   WebsiteRedirectLocation: "STRING_VALUE",
  *   SSECustomerAlgorithm: "STRING_VALUE",
  *   SSECustomerKey: "STRING_VALUE",
